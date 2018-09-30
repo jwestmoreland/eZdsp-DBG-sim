@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.ti.ccstudio.debug.launchType.device.debugging">
+<setAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_HIDE_CONFIG_ELEMENT_TYPES">
+<setEntry value="BOARD"/>
+<setEntry value="BYPASSED_CPU"/>
+<setEntry value="CONNECTION"/>
+<setEntry value="DEVICE"/>
+<setEntry value="NON_DEBUG_CPU"/>
+<setEntry value="NO_DRIVER"/>
+<setEntry value="ROUTER"/>
+<setEntry value="SUBPATH"/>
+<setEntry value="SYSTEM"/>
+</setAttribute>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_LAUNCH_SCRIPT" value="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\ezdsp5535.gel"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.Texas Instruments Simulator/C55xx" value="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\foo.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\targetConfigs\EZDSP5535.ccxml"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x" value="F:/eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\foo.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Texas Instruments Simulator/C55xx" value="F:/eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\foo.out"/>
+<mapAttribute key="com.ti.ccstudio.debug.ui.displayFormats">
+<mapEntry key="Texas Instruments Simulator/C55xx@##separator##@0" value="8-Bit Hex - TI Style"/>
+<mapEntry key="Texas Instruments Simulator/C55xx@##separator##@1" value="16-Bit Hex - TI Style"/>
+</mapAttribute>
+<stringAttribute key="org.eclipse.dsf.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;memoryBlockExpressionList context=&quot;reserved-for-future-use&quot;/&gt;&#13;&#10;"/>
+<stringAttribute key="saved_expressions&lt;seperator&gt;Texas Instruments Simulator/C55xx&lt;seperator&gt;DATA" value="0x4cf00,0x00"/>
+<stringAttribute key="saved_expressions&lt;seperator&gt;Texas Instruments Simulator/C55xx&lt;seperator&gt;PROGRAM" value="0x4cf00"/>
+</launchConfiguration>

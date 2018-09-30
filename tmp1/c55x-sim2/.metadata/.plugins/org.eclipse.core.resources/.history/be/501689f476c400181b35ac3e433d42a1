@@ -1,0 +1,35 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+ASM_SRCS += \
+../asm/aic_test_i2c.asm \
+../asm/i2s_register.asm \
+../asm/vector.asm 
+
+OBJS += \
+./asm/aic_test_i2c.obj \
+./asm/i2s_register.obj \
+./asm/vector.obj 
+
+ASM_DEPS += \
+./asm/aic_test_i2c.pp \
+./asm/i2s_register.pp \
+./asm/vector.pp 
+
+OBJS__QUOTED += \
+"asm\aic_test_i2c.obj" \
+"asm\i2s_register.obj" \
+"asm\vector.obj" 
+
+ASM_DEPS__QUOTED += \
+"asm\aic_test_i2c.pp" \
+"asm\i2s_register.pp" \
+"asm\vector.pp" 
+
+ASM_SRCS__QUOTED += \
+"../asm/i2s_register.asm" \
+"../asm/vector.asm" 
+
+

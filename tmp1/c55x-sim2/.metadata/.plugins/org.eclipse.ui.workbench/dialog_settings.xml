@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MemoryDumperFillAction">
+		<item value="TISIM" key="com.ti.ccstudio.system.setup.ui.editors.connectionType"/>
+		<item value="Texas Instruments Simulator" key="com.ti.ccstudio.system.setup.ui.editors.connectionName"/>
+	</section>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="150" key="DIALOG_Y_ORIGIN"/>
+		<item value="301" key="DIALOG_X_ORIGIN"/>
+	</section>
+	<section name="ShowViewDialog">
+		<item value="311" key="DIALOG_WIDTH"/>
+		<item value="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
+		<item value="256" key="DIALOG_Y_ORIGIN"/>
+		<item value="439" key="DIALOG_HEIGHT"/>
+		<item value="813" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui"/>
+			<item value="com.ti.dvt.ui.viewCategory.dataView"/>
+			<item value="org.eclipse.cdt.ui.views"/>
+			<item value="com.ti.common.ui.views"/>
+			<item value="org.eclipse.debug.ui"/>
+			<item value="com.ti.dvt.ui.viewCategory"/>
+			<item value="org.eclipse.egit.ui.GitCategory"/>
+			<item value="com.ti.grace"/>
+			<item value="org.eclipse.help.ui"/>
+			<item value="org.eclipse.wst.jsdt.ui.java"/>
+			<item value="org.eclipse.cdt.make.ui"/>
+			<item value="com.ti.ccstudio.debug.ui.msp430"/>
+			<item value="com.ti.dvt.profile.setup"/>
+			<item value="com.ti.dvt.rta"/>
+			<item value="org.eclipse.rtsc.xdctools.model.ui.views"/>
+			<item value="org.eclipse.team.ui"/>
+			<item value="Terminal"/>
+		</list>
+	</section>
+</section>

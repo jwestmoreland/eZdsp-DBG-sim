@@ -1,0 +1,3268 @@
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE    1
+
+    2264              ; Temporary Registers Used: None
+       1              ;*******************************************************************************
+       2              ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
+       3              ;* Date/Time created: Sat Sep 29 23:09:40 2018                                 *
+       4              ;*******************************************************************************
+       5                      .compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --si
+       6                      .mmregs
+       7                      .cpl_on
+       8                      .arms_on
+       9                      .c54cm_off
+      10                      .asg AR6, FP
+      11                      .asg XAR6, XFP
+      12                      .asg DPH, MDP
+      13                      .model call=c55_std
+      14                      .model mem=large
+      15                      .noremark 5002  ; code respects overwrite rules
+      16              ;*******************************************************************************
+      17              ;* GLOBAL FILE PARAMETERS                                                      *
+      18              ;*                                                                             *
+      19              ;*   Architecture       : TMS320C55x                                           *
+      20              ;*   Optimizing for     : Speed                                                *
+      21              ;*   Memory             : Large Model (23-Bit Data Pointers)                   *
+      22              ;*   Calls              : Normal Library ASM calls                             *
+      23              ;*   Debug Info         : Standard TI Debug Information                        *
+      24              ;*******************************************************************************
+      25              
+      26              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+      27                      .dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPI
+      28                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas In
+      29                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      30                      .dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+      31              ;******************************************************************************
+      32              ;* CINIT RECORDS                                                              *
+      33              ;******************************************************************************
+      34 000000               .sect   ".cinit"
+      35                      .align  1
+      36 000000 0001          .field          1,16
+      37 000001 0000-         .field          _i+0,24
+         000002 0400 
+      38 000002 0400          .field          0,8
+      39 000003 0000          .field  0,16                    ; _i @ 0
+      40              
+      41 000004               .sect   ".cinit"
+      42                      .align  1
+      43 000004 0001          .field          1,16
+      44 000005 0000-         .field          _readVal+0,24
+         000006 0500 
+      45 000006 0500          .field          0,8
+      46 000007 0000          .field  0,16                    ; _readVal @ 0
+      47              
+      48 000008               .sect   ".cinit"
+      49                      .align  1
+      50 000008 0001          .field          1,16
+      51 000009 0000-         .field          _PaSs_StAtE+0,24
+         00000a 0600 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE    2
+
+      52 00000a 0600          .field          0,8
+      53 00000b 0001          .field  1,16                    ; _PaSs_StAtE @ 0
+      54              
+      55 00000c               .sect   ".cinit"
+      56                      .align  1
+      57 00000c 0001          .field          1,16
+      58 00000d 0000-         .field          _PaSs+0,24
+         00000e 0700 
+      59 00000e 0700          .field          0,8
+      60 00000f 0000          .field  0,16                    ; _PaSs @ 0
+      61              
+      62              
+      63              $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("GPIO_open")
+      64                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_GPIO_open")
+      65                      .dwattr $C$DW$1, DW_AT_type(*$C$DW$T$42)
+      66                      .dwattr $C$DW$1, DW_AT_declaration
+      67                      .dwattr $C$DW$1, DW_AT_external
+      68              $C$DW$2 .dwtag  DW_TAG_formal_parameter
+      69                      .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$41)
+      70              $C$DW$3 .dwtag  DW_TAG_formal_parameter
+      71                      .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$45)
+      72                      .dwendtag $C$DW$1
+      73              
+      74              
+      75              $C$DW$4 .dwtag  DW_TAG_subprogram, DW_AT_name("GPIO_read")
+      76                      .dwattr $C$DW$4, DW_AT_TI_symbol_name("_GPIO_read")
+      77                      .dwattr $C$DW$4, DW_AT_type(*$C$DW$T$44)
+      78                      .dwattr $C$DW$4, DW_AT_declaration
+      79                      .dwattr $C$DW$4, DW_AT_external
+      80              $C$DW$5 .dwtag  DW_TAG_formal_parameter
+      81                      .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$42)
+      82              $C$DW$6 .dwtag  DW_TAG_formal_parameter
+      83                      .dwattr $C$DW$6, DW_AT_type(*$C$DW$T$30)
+      84              $C$DW$7 .dwtag  DW_TAG_formal_parameter
+      85                      .dwattr $C$DW$7, DW_AT_type(*$C$DW$T$57)
+      86                      .dwendtag $C$DW$4
+      87              
+      88              
+      89              $C$DW$8 .dwtag  DW_TAG_subprogram, DW_AT_name("GPIO_write")
+      90                      .dwattr $C$DW$8, DW_AT_TI_symbol_name("_GPIO_write")
+      91                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$44)
+      92                      .dwattr $C$DW$8, DW_AT_declaration
+      93                      .dwattr $C$DW$8, DW_AT_external
+      94              $C$DW$9 .dwtag  DW_TAG_formal_parameter
+      95                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$42)
+      96              $C$DW$10        .dwtag  DW_TAG_formal_parameter
+      97                      .dwattr $C$DW$10, DW_AT_type(*$C$DW$T$30)
+      98              $C$DW$11        .dwtag  DW_TAG_formal_parameter
+      99                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$19)
+     100                      .dwendtag $C$DW$8
+     101              
+     102              
+     103              $C$DW$12        .dwtag  DW_TAG_subprogram, DW_AT_name("GPIO_reset")
+     104                      .dwattr $C$DW$12, DW_AT_TI_symbol_name("_GPIO_reset")
+     105                      .dwattr $C$DW$12, DW_AT_type(*$C$DW$T$44)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE    3
+
+     106                      .dwattr $C$DW$12, DW_AT_declaration
+     107                      .dwattr $C$DW$12, DW_AT_external
+     108              $C$DW$13        .dwtag  DW_TAG_formal_parameter
+     109                      .dwattr $C$DW$13, DW_AT_type(*$C$DW$T$42)
+     110                      .dwendtag $C$DW$12
+     111              
+     112              
+     113              $C$DW$14        .dwtag  DW_TAG_subprogram, DW_AT_name("GPIO_configBit")
+     114                      .dwattr $C$DW$14, DW_AT_TI_symbol_name("_GPIO_configBit")
+     115                      .dwattr $C$DW$14, DW_AT_type(*$C$DW$T$44)
+     116                      .dwattr $C$DW$14, DW_AT_declaration
+     117                      .dwattr $C$DW$14, DW_AT_external
+     118              $C$DW$15        .dwtag  DW_TAG_formal_parameter
+     119                      .dwattr $C$DW$15, DW_AT_type(*$C$DW$T$42)
+     120              $C$DW$16        .dwtag  DW_TAG_formal_parameter
+     121                      .dwattr $C$DW$16, DW_AT_type(*$C$DW$T$49)
+     122                      .dwendtag $C$DW$14
+     123              
+     124              
+     125              $C$DW$17        .dwtag  DW_TAG_subprogram, DW_AT_name("GPIO_enableInt")
+     126                      .dwattr $C$DW$17, DW_AT_TI_symbol_name("_GPIO_enableInt")
+     127                      .dwattr $C$DW$17, DW_AT_type(*$C$DW$T$44)
+     128                      .dwattr $C$DW$17, DW_AT_declaration
+     129                      .dwattr $C$DW$17, DW_AT_external
+     130              $C$DW$18        .dwtag  DW_TAG_formal_parameter
+     131                      .dwattr $C$DW$18, DW_AT_type(*$C$DW$T$42)
+     132              $C$DW$19        .dwtag  DW_TAG_formal_parameter
+     133                      .dwattr $C$DW$19, DW_AT_type(*$C$DW$T$30)
+     134                      .dwendtag $C$DW$17
+     135              
+     136              
+     137              $C$DW$20        .dwtag  DW_TAG_subprogram, DW_AT_name("GPIO_clearInt")
+     138                      .dwattr $C$DW$20, DW_AT_TI_symbol_name("_GPIO_clearInt")
+     139                      .dwattr $C$DW$20, DW_AT_type(*$C$DW$T$44)
+     140                      .dwattr $C$DW$20, DW_AT_declaration
+     141                      .dwattr $C$DW$20, DW_AT_external
+     142              $C$DW$21        .dwtag  DW_TAG_formal_parameter
+     143                      .dwattr $C$DW$21, DW_AT_type(*$C$DW$T$42)
+     144              $C$DW$22        .dwtag  DW_TAG_formal_parameter
+     145                      .dwattr $C$DW$22, DW_AT_type(*$C$DW$T$30)
+     146                      .dwendtag $C$DW$20
+     147              
+     148              
+     149              $C$DW$23        .dwtag  DW_TAG_subprogram, DW_AT_name("GPIO_statusBit")
+     150                      .dwattr $C$DW$23, DW_AT_TI_symbol_name("_GPIO_statusBit")
+     151                      .dwattr $C$DW$23, DW_AT_type(*$C$DW$T$10)
+     152                      .dwattr $C$DW$23, DW_AT_declaration
+     153                      .dwattr $C$DW$23, DW_AT_external
+     154              $C$DW$24        .dwtag  DW_TAG_formal_parameter
+     155                      .dwattr $C$DW$24, DW_AT_type(*$C$DW$T$42)
+     156              $C$DW$25        .dwtag  DW_TAG_formal_parameter
+     157                      .dwattr $C$DW$25, DW_AT_type(*$C$DW$T$30)
+     158              $C$DW$26        .dwtag  DW_TAG_formal_parameter
+     159                      .dwattr $C$DW$26, DW_AT_type(*$C$DW$T$45)
+     160                      .dwendtag $C$DW$23
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE    4
+
+     161              
+     162              
+     163              $C$DW$27        .dwtag  DW_TAG_subprogram, DW_AT_name("IRQ_plug")
+     164                      .dwattr $C$DW$27, DW_AT_TI_symbol_name("_IRQ_plug")
+     165                      .dwattr $C$DW$27, DW_AT_type(*$C$DW$T$10)
+     166                      .dwattr $C$DW$27, DW_AT_declaration
+     167                      .dwattr $C$DW$27, DW_AT_external
+     168              $C$DW$28        .dwtag  DW_TAG_formal_parameter
+     169                      .dwattr $C$DW$28, DW_AT_type(*$C$DW$T$19)
+     170              $C$DW$29        .dwtag  DW_TAG_formal_parameter
+     171                      .dwattr $C$DW$29, DW_AT_type(*$C$DW$T$56)
+     172                      .dwendtag $C$DW$27
+     173              
+     174              
+     175              $C$DW$30        .dwtag  DW_TAG_subprogram, DW_AT_name("IRQ_clear")
+     176                      .dwattr $C$DW$30, DW_AT_TI_symbol_name("_IRQ_clear")
+     177                      .dwattr $C$DW$30, DW_AT_type(*$C$DW$T$44)
+     178                      .dwattr $C$DW$30, DW_AT_declaration
+     179                      .dwattr $C$DW$30, DW_AT_external
+     180              $C$DW$31        .dwtag  DW_TAG_formal_parameter
+     181                      .dwattr $C$DW$31, DW_AT_type(*$C$DW$T$19)
+     182                      .dwendtag $C$DW$30
+     183              
+     184              
+     185              $C$DW$32        .dwtag  DW_TAG_subprogram, DW_AT_name("IRQ_clearAll")
+     186                      .dwattr $C$DW$32, DW_AT_TI_symbol_name("_IRQ_clearAll")
+     187                      .dwattr $C$DW$32, DW_AT_declaration
+     188                      .dwattr $C$DW$32, DW_AT_external
+     189              
+     190              $C$DW$33        .dwtag  DW_TAG_subprogram, DW_AT_name("IRQ_disable")
+     191                      .dwattr $C$DW$33, DW_AT_TI_symbol_name("_IRQ_disable")
+     192                      .dwattr $C$DW$33, DW_AT_type(*$C$DW$T$10)
+     193                      .dwattr $C$DW$33, DW_AT_declaration
+     194                      .dwattr $C$DW$33, DW_AT_external
+     195              $C$DW$34        .dwtag  DW_TAG_formal_parameter
+     196                      .dwattr $C$DW$34, DW_AT_type(*$C$DW$T$19)
+     197                      .dwendtag $C$DW$33
+     198              
+     199              
+     200              $C$DW$35        .dwtag  DW_TAG_subprogram, DW_AT_name("IRQ_disableAll")
+     201                      .dwattr $C$DW$35, DW_AT_TI_symbol_name("_IRQ_disableAll")
+     202                      .dwattr $C$DW$35, DW_AT_declaration
+     203                      .dwattr $C$DW$35, DW_AT_external
+     204              
+     205              $C$DW$36        .dwtag  DW_TAG_subprogram, DW_AT_name("IRQ_enable")
+     206                      .dwattr $C$DW$36, DW_AT_TI_symbol_name("_IRQ_enable")
+     207                      .dwattr $C$DW$36, DW_AT_type(*$C$DW$T$10)
+     208                      .dwattr $C$DW$36, DW_AT_declaration
+     209                      .dwattr $C$DW$36, DW_AT_external
+     210              $C$DW$37        .dwtag  DW_TAG_formal_parameter
+     211                      .dwattr $C$DW$37, DW_AT_type(*$C$DW$T$19)
+     212                      .dwendtag $C$DW$36
+     213              
+     214              
+     215              $C$DW$38        .dwtag  DW_TAG_subprogram, DW_AT_name("IRQ_setVecs")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE    5
+
+     216                      .dwattr $C$DW$38, DW_AT_TI_symbol_name("_IRQ_setVecs")
+     217                      .dwattr $C$DW$38, DW_AT_type(*$C$DW$T$44)
+     218                      .dwattr $C$DW$38, DW_AT_declaration
+     219                      .dwattr $C$DW$38, DW_AT_external
+     220              $C$DW$39        .dwtag  DW_TAG_formal_parameter
+     221                      .dwattr $C$DW$39, DW_AT_type(*$C$DW$T$70)
+     222                      .dwendtag $C$DW$38
+     223              
+     224              
+     225              $C$DW$40        .dwtag  DW_TAG_subprogram, DW_AT_name("IRQ_globalDisable")
+     226                      .dwattr $C$DW$40, DW_AT_TI_symbol_name("_IRQ_globalDisable")
+     227                      .dwattr $C$DW$40, DW_AT_type(*$C$DW$T$75)
+     228                      .dwattr $C$DW$40, DW_AT_declaration
+     229                      .dwattr $C$DW$40, DW_AT_external
+     230              
+     231              $C$DW$41        .dwtag  DW_TAG_subprogram, DW_AT_name("IRQ_globalEnable")
+     232                      .dwattr $C$DW$41, DW_AT_TI_symbol_name("_IRQ_globalEnable")
+     233                      .dwattr $C$DW$41, DW_AT_type(*$C$DW$T$75)
+     234                      .dwattr $C$DW$41, DW_AT_declaration
+     235                      .dwattr $C$DW$41, DW_AT_external
+     236              
+     237              $C$DW$42        .dwtag  DW_TAG_subprogram, DW_AT_name("printf")
+     238                      .dwattr $C$DW$42, DW_AT_TI_symbol_name("_printf")
+     239                      .dwattr $C$DW$42, DW_AT_type(*$C$DW$T$10)
+     240                      .dwattr $C$DW$42, DW_AT_declaration
+     241                      .dwattr $C$DW$42, DW_AT_external
+     242              $C$DW$43        .dwtag  DW_TAG_formal_parameter
+     243                      .dwattr $C$DW$43, DW_AT_type(*$C$DW$T$86)
+     244              $C$DW$44        .dwtag  DW_TAG_unspecified_parameters
+     245                      .dwendtag $C$DW$42
+     246              
+     247              
+     248              $C$DW$45        .dwtag  DW_TAG_subprogram, DW_AT_name("VECSTART")
+     249                      .dwattr $C$DW$45, DW_AT_TI_symbol_name("_VECSTART")
+     250                      .dwattr $C$DW$45, DW_AT_declaration
+     251                      .dwattr $C$DW$45, DW_AT_external
+     252                      .global _GpioObj
+     253 000000               .bss    _GpioObj,2,0,0
+     254              $C$DW$46        .dwtag  DW_TAG_variable, DW_AT_name("GpioObj")
+     255                      .dwattr $C$DW$46, DW_AT_TI_symbol_name("_GpioObj")
+     256                      .dwattr $C$DW$46, DW_AT_location[DW_OP_addr _GpioObj]
+     257                      .dwattr $C$DW$46, DW_AT_type(*$C$DW$T$40)
+     258                      .dwattr $C$DW$46, DW_AT_external
+     259                      .global _hGpio
+     260 000002               .bss    _hGpio,2,0,2
+     261              $C$DW$47        .dwtag  DW_TAG_variable, DW_AT_name("hGpio")
+     262                      .dwattr $C$DW$47, DW_AT_TI_symbol_name("_hGpio")
+     263                      .dwattr $C$DW$47, DW_AT_location[DW_OP_addr _hGpio]
+     264                      .dwattr $C$DW$47, DW_AT_type(*$C$DW$T$41)
+     265                      .dwattr $C$DW$47, DW_AT_external
+     266                      .global _i
+     267 000004               .bss    _i,1,0,0
+     268              $C$DW$48        .dwtag  DW_TAG_variable, DW_AT_name("i")
+     269                      .dwattr $C$DW$48, DW_AT_TI_symbol_name("_i")
+     270                      .dwattr $C$DW$48, DW_AT_location[DW_OP_addr _i]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE    6
+
+     271                      .dwattr $C$DW$48, DW_AT_type(*$C$DW$T$10)
+     272                      .dwattr $C$DW$48, DW_AT_external
+     273                      .global _readVal
+     274 000005               .bss    _readVal,1,0,0
+     275              $C$DW$49        .dwtag  DW_TAG_variable, DW_AT_name("readVal")
+     276                      .dwattr $C$DW$49, DW_AT_TI_symbol_name("_readVal")
+     277                      .dwattr $C$DW$49, DW_AT_location[DW_OP_addr _readVal]
+     278                      .dwattr $C$DW$49, DW_AT_type(*$C$DW$T$19)
+     279                      .dwattr $C$DW$49, DW_AT_external
+     280                      .global _PaSs_StAtE
+     281 000006               .bss    _PaSs_StAtE,1,0,0
+     282              $C$DW$50        .dwtag  DW_TAG_variable, DW_AT_name("PaSs_StAtE")
+     283                      .dwattr $C$DW$50, DW_AT_TI_symbol_name("_PaSs_StAtE")
+     284                      .dwattr $C$DW$50, DW_AT_location[DW_OP_addr _PaSs_StAtE]
+     285                      .dwattr $C$DW$50, DW_AT_type(*$C$DW$T$73)
+     286                      .dwattr $C$DW$50, DW_AT_external
+     287                      .global _PaSs
+     288 000007               .bss    _PaSs,1,0,0
+     289              $C$DW$51        .dwtag  DW_TAG_variable, DW_AT_name("PaSs")
+     290                      .dwattr $C$DW$51, DW_AT_TI_symbol_name("_PaSs")
+     291                      .dwattr $C$DW$51, DW_AT_location[DW_OP_addr _PaSs]
+     292                      .dwattr $C$DW$51, DW_AT_type(*$C$DW$T$73)
+     293                      .dwattr $C$DW$51, DW_AT_external
+     294              ;       F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2688012 
+     295 000000               .sect   ".text"
+     296                      .align 4
+     297                      .global _main
+     298              
+     299              $C$DW$52        .dwtag  DW_TAG_subprogram, DW_AT_name("main")
+     300                      .dwattr $C$DW$52, DW_AT_low_pc(_main)
+     301                      .dwattr $C$DW$52, DW_AT_high_pc(0x00)
+     302                      .dwattr $C$DW$52, DW_AT_TI_symbol_name("_main")
+     303                      .dwattr $C$DW$52, DW_AT_external
+     304                      .dwattr $C$DW$52, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpi
+     305                      .dwattr $C$DW$52, DW_AT_TI_begin_line(0x81)
+     306                      .dwattr $C$DW$52, DW_AT_TI_begin_column(0x06)
+     307                      .dwattr $C$DW$52, DW_AT_TI_max_frame_size(0x04)
+     308                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     309              
+     310                      .dwfde $C$DW$CIE, _main
+     311              ;*******************************************************************************
+     312              ;* FUNCTION NAME: main                                                         *
+     313              ;*                                                                             *
+     314              ;*   Function Uses Regs : T0,AR1,AR2,AR3,XAR3,SP,TC1,M40,SATA,SATD,RDM,FRCT,   *
+     315              ;*                        SMUL                                                 *
+     316              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     317              ;*   Total Frame Size   : 4 words                                              *
+     318              ;*                        (1 return address/alignment)                         *
+     319              ;*                        (2 function parameters)                              *
+     320              ;*                        (1 local values)                                     *
+     321              ;*   Min System Stack   : 1 word                                               *
+     322              ;*******************************************************************************
+     323 000000       _main:
+     324                      .dwcfi  cfa_offset, 1
+     325                      .dwcfi  save_reg_to_mem, 91, -1
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE    7
+
+     326 000000 4EFD          AADD #-3, SP
+     327                      .dwcfi  cfa_offset, 4
+     328              $C$DW$53        .dwtag  DW_TAG_variable, DW_AT_name("result")
+     329                      .dwattr $C$DW$53, DW_AT_TI_symbol_name("_result")
+     330                      .dwattr $C$DW$53, DW_AT_type(*$C$DW$T$10)
+     331                      .dwattr $C$DW$53, DW_AT_location[DW_OP_bregx 0x24 2]
+     332                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     333 000002 EC31          AMOV #$C$FSL1, XAR3 ; |133| 
+         000004 BE00 
+         000006 0000+
+     334 000008 EB00          MOV XAR3, dbl(*SP(#0))
+         00000a B5   
+     335              $C$DW$54        .dwtag  DW_TAG_TI_branch
+     336                      .dwattr $C$DW$54, DW_AT_low_pc(0x00)
+     337                      .dwattr $C$DW$54, DW_AT_name("_printf")
+     338                      .dwattr $C$DW$54, DW_AT_TI_call
+     339 00000b 6C00          CALL #_printf ; |133| 
+         00000d 0000!
+     340                                                      ; call occurs [#_printf] ; |133| 
+     341                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     342              $C$DW$55        .dwtag  DW_TAG_TI_branch
+     343                      .dwattr $C$DW$55, DW_AT_low_pc(0x00)
+     344                      .dwattr $C$DW$55, DW_AT_name("_gpio_input_int_test")
+     345                      .dwattr $C$DW$55, DW_AT_TI_call
+     346 00000f 0800          CALL #_gpio_input_int_test ; |136| 
+         000011 3E   
+     347                                                      ; call occurs [#_gpio_input_int_test] ; |136| 
+     348 000012 C404          MOV T0, *SP(#2) ; |136| 
+     349                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     350              
+     351 000014 2249          MOV T0, AR1
+     352 000016 3D0A  ||      MOV #0, AR2
+     353              
+     354 000018 12AC          CMP AR2 != AR1, TC1 ; |137| 
+         00001a 90   
+     355 00001b 67E4          BCC $C$L1,TC1 ; |137| 
+     356                                                      ; branchcc occurs ; |137| 
+     357                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     358 00001d EC31          AMOV #$C$FSL2, XAR3 ; |139| 
+         00001f BE00 
+         000021 001C+
+     359 000023 EB00          MOV XAR3, dbl(*SP(#0))
+         000025 B5   
+     360              $C$DW$56        .dwtag  DW_TAG_TI_branch
+     361                      .dwattr $C$DW$56, DW_AT_low_pc(0x00)
+     362                      .dwattr $C$DW$56, DW_AT_name("_printf")
+     363                      .dwattr $C$DW$56, DW_AT_TI_call
+     364 000026 6C00          CALL #_printf ; |139| 
+         000028 0000!
+     365                                                      ; call occurs [#_printf] ; |139| 
+     366                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     367 00002a 4A13          B $C$L2   ; |140| 
+     368                                                      ; branch occurs ; |140| 
+     369 00002c       $C$L1:    
+     370                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE    8
+
+     371 00002c EC31          AMOV #$C$FSL3, XAR3 ; |143| 
+         00002e BE00 
+         000030 0040+
+     372 000032 EB00          MOV XAR3, dbl(*SP(#0))
+         000034 B5   
+     373              $C$DW$57        .dwtag  DW_TAG_TI_branch
+     374                      .dwattr $C$DW$57, DW_AT_low_pc(0x00)
+     375                      .dwattr $C$DW$57, DW_AT_name("_printf")
+     376                      .dwattr $C$DW$57, DW_AT_TI_call
+     377 000035 6C00          CALL #_printf ; |143| 
+         000037 0000!
+     378                                                      ; call occurs [#_printf] ; |143| 
+     379                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     380 000039 E631          MOV #0, *(#_PaSs_StAtE) ; |146| 
+         00003b 0000 
+         00003d 0006-
+     381 00003f       $C$L2:    
+     382                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     383 00003f A931          MOV *(#_PaSs_StAtE), AR1 ; |151| 
+         000041 0000 
+         000043 06-  
+     384 000044 C931          MOV AR1, *(#_PaSs) ; |151| 
+         000046 0000 
+         000048 07-  
+     385                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     386 000049 4E03          AADD #3, SP
+     387                      .dwcfi  cfa_offset, 1
+     388              $C$DW$58        .dwtag  DW_TAG_TI_branch
+     389                      .dwattr $C$DW$58, DW_AT_low_pc(0x00)
+     390                      .dwattr $C$DW$58, DW_AT_TI_return
+     391 00004b 4804          RET
+     392                                                      ; return occurs
+     393                      .dwattr $C$DW$52, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/
+     394                      .dwattr $C$DW$52, DW_AT_TI_end_line(0x9c)
+     395                      .dwattr $C$DW$52, DW_AT_TI_end_column(0x01)
+     396                      .dwendentry
+     397                      .dwendtag $C$DW$52
+     398              
+     399 00004d               .sect   ".text"
+     400                      .align 4
+     401                      .global _gpio_input_int_test
+     402              
+     403              $C$DW$59        .dwtag  DW_TAG_subprogram, DW_AT_name("gpio_input_int_test")
+     404                      .dwattr $C$DW$59, DW_AT_low_pc(_gpio_input_int_test)
+     405                      .dwattr $C$DW$59, DW_AT_high_pc(0x00)
+     406                      .dwattr $C$DW$59, DW_AT_TI_symbol_name("_gpio_input_int_test")
+     407                      .dwattr $C$DW$59, DW_AT_external
+     408                      .dwattr $C$DW$59, DW_AT_type(*$C$DW$T$10)
+     409                      .dwattr $C$DW$59, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpi
+     410                      .dwattr $C$DW$59, DW_AT_TI_begin_line(0xac)
+     411                      .dwattr $C$DW$59, DW_AT_TI_begin_column(0x05)
+     412                      .dwattr $C$DW$59, DW_AT_TI_max_frame_size(0x08)
+     413                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     414              
+     415                      .dwfde $C$DW$CIE, _gpio_input_int_test
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE    9
+
+     416              ;*******************************************************************************
+     417              ;* FUNCTION NAME: gpio_input_int_test                                          *
+     418              ;*                                                                             *
+     419              ;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,T1,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,*
+     420              ;*                        SP,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                   *
+     421              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     422              ;*   Total Frame Size   : 8 words                                              *
+     423              ;*                        (2 return address/alignment)                         *
+     424              ;*                        (2 function parameters)                              *
+     425              ;*                        (4 local values)                                     *
+     426              ;*   Min System Stack   : 1 word                                               *
+     427              ;*******************************************************************************
+     428 000050       _gpio_input_int_test:
+     429                      .dwcfi  cfa_offset, 1
+     430                      .dwcfi  save_reg_to_mem, 91, -1
+     431 000050 4EF9          AADD #-7, SP
+     432                      .dwcfi  cfa_offset, 8
+     433              $C$DW$60        .dwtag  DW_TAG_variable, DW_AT_name("status")
+     434                      .dwattr $C$DW$60, DW_AT_TI_symbol_name("_status")
+     435                      .dwattr $C$DW$60, DW_AT_type(*$C$DW$T$44)
+     436                      .dwattr $C$DW$60, DW_AT_location[DW_OP_bregx 0x24 2]
+     437              $C$DW$61        .dwtag  DW_TAG_variable, DW_AT_name("config")
+     438                      .dwattr $C$DW$61, DW_AT_TI_symbol_name("_config")
+     439                      .dwattr $C$DW$61, DW_AT_type(*$C$DW$T$48)
+     440                      .dwattr $C$DW$61, DW_AT_location[DW_OP_bregx 0x24 3]
+     441                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     442 000052 EC31          AMOV #$C$FSL4, XAR3 ; |177| 
+         000054 BE00 
+         000056 0064+
+     443 000058 EB00          MOV XAR3, dbl(*SP(#0))
+         00005a B5   
+     444              $C$DW$62        .dwtag  DW_TAG_TI_branch
+     445                      .dwattr $C$DW$62, DW_AT_low_pc(0x00)
+     446                      .dwattr $C$DW$62, DW_AT_name("_printf")
+     447                      .dwattr $C$DW$62, DW_AT_TI_call
+     448 00005b 6C00          CALL #_printf ; |177| 
+         00005d 0000!
+     449                                                      ; call occurs [#_printf] ; |177| 
+     450                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     451 00005f A951          MOV *port(#7168), AR1 ; |180| 
+         000061 1C00 
+     452 000063 7DFC          AND #0xfcff, AR1, AC0 ; |180| 
+         000065 FF09 
+     453 000067 EC12          BSET @#9, AC0 ; |180| 
+         000069 00   
+     454 00006a C051          MOV AC0, *port(#7168) ; |180| 
+         00006c 1C00 
+     455                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     456 00006e A951          MOV *port(#7168), AR1 ; |181| 
+         000070 1C00 
+     457 000072 7DF3          AND #0xf3ff, AR1, AC0 ; |181| 
+         000074 FF09 
+     458 000076 EC16          BSET @#11, AC0 ; |181| 
+         000078 00   
+     459 000079 C051          MOV AC0, *port(#7168) ; |181| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   10
+
+         00007b 1C00 
+     460                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     461              $C$DW$63        .dwtag  DW_TAG_TI_branch
+     462                      .dwattr $C$DW$63, DW_AT_low_pc(0x00)
+     463                      .dwattr $C$DW$63, DW_AT_name("_IRQ_globalDisable")
+     464                      .dwattr $C$DW$63, DW_AT_TI_call
+     465 00007d 6C00          CALL #_IRQ_globalDisable ; |184| 
+         00007f 0000!
+     466                                                      ; call occurs [#_IRQ_globalDisable] ; |184| 
+     467                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     468              $C$DW$64        .dwtag  DW_TAG_TI_branch
+     469                      .dwattr $C$DW$64, DW_AT_low_pc(0x00)
+     470                      .dwattr $C$DW$64, DW_AT_name("_IRQ_clearAll")
+     471                      .dwattr $C$DW$64, DW_AT_TI_call
+     472 000081 6C00          CALL #_IRQ_clearAll ; |187| 
+         000083 0000!
+     473                                                      ; call occurs [#_IRQ_clearAll] ; |187| 
+     474                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     475              $C$DW$65        .dwtag  DW_TAG_TI_branch
+     476                      .dwattr $C$DW$65, DW_AT_low_pc(0x00)
+     477                      .dwattr $C$DW$65, DW_AT_name("_IRQ_disableAll")
+     478                      .dwattr $C$DW$65, DW_AT_TI_call
+     479 000085 6C00          CALL #_IRQ_disableAll ; |190| 
+         000087 0000!
+     480                                                      ; call occurs [#_IRQ_disableAll] ; |190| 
+     481                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     482 000089 7A00          MOV #(_VECSTART >> 16) << #16, AC0 ; |193| 
+         00008b 000A%
+     483 00008d 7E00          OR #(_VECSTART & 0xffff), AC0, AC0 ; |193| 
+         00008f 0000%
+     484              $C$DW$66        .dwtag  DW_TAG_TI_branch
+     485                      .dwattr $C$DW$66, DW_AT_low_pc(0x00)
+     486                      .dwattr $C$DW$66, DW_AT_name("_IRQ_setVecs")
+     487                      .dwattr $C$DW$66, DW_AT_TI_call
+     488 000091 6C00          CALL #_IRQ_setVecs ; |193| 
+         000093 0000!
+     489                                                      ; call occurs [#_IRQ_setVecs] ; |193| 
+     490                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     491 000095 EC31          AMOV #_GpioObj, XAR0 ; |196| 
+         000097 8E00 
+         000099 0000-
+     492 00009b EC04          AMAR *SP(#2), XAR1
+         00009d 9E   
+     493              $C$DW$67        .dwtag  DW_TAG_TI_branch
+     494                      .dwattr $C$DW$67, DW_AT_low_pc(0x00)
+     495                      .dwattr $C$DW$67, DW_AT_name("_GPIO_open")
+     496                      .dwattr $C$DW$67, DW_AT_TI_call
+     497 00009e 6C00          CALL #_GPIO_open ; |196| 
+         0000a0 0000!
+     498                                                      ; call occurs [#_GPIO_open] ; |196| 
+     499 0000a2 EB31          MOV XAR0, dbl(*(#_hGpio))
+         0000a4 8500 
+         0000a6 0002-
+     500                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     501 0000a8 ED31          MOV dbl(*(#_hGpio)), XAR3
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   11
+
+         0000aa BF00 
+         0000ac 0002-
+     502              
+     503 0000ae 90B0          MOV XAR3, AC0
+     504 0000b0 3D01  ||      MOV #0, AC1 ; |197| 
+     505              
+     506 0000b2 1210          CMPU AC1 == AC0, TC1 ; |197| 
+         0000b4 04   
+     507 0000b5 6564          BCC $C$L3,TC1 ; |197| 
+     508                                                      ; branchcc occurs ; |197| 
+     509              
+     510 0000b9 3D0A          MOV #0, AR2
+     511 0000b7 A904  ||      MOV *SP(#2), AR1 ; |197| 
+     512              
+     513 0000bb 12A0          CMP AR2 == AR1, TC1 ; |197| 
+         0000bd 90   
+     514 0000be 0464          BCC $C$L4,TC1 ; |197| 
+         0000c0 12   
+     515                                                      ; branchcc occurs ; |197| 
+     516 0000c1       $C$L3:    
+     517                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     518 0000c1 EC31          AMOV #$C$FSL5, XAR3 ; |199| 
+         0000c3 BE00 
+         0000c5 00C4+
+     519 0000c7 EB00          MOV XAR3, dbl(*SP(#0))
+         0000c9 B5   
+     520              $C$DW$68        .dwtag  DW_TAG_TI_branch
+     521                      .dwattr $C$DW$68, DW_AT_low_pc(0x00)
+     522                      .dwattr $C$DW$68, DW_AT_name("_printf")
+     523                      .dwattr $C$DW$68, DW_AT_TI_call
+     524 0000ca 6C00          CALL #_printf ; |199| 
+         0000cc 0000!
+     525                                                      ; call occurs [#_printf] ; |199| 
+     526                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     527 0000ce 3E14          MOV #-1, T0
+     528 0000d0 0601          B $C$L13  ; |200| 
+         0000d2 68   
+     529                                                      ; branch occurs ; |200| 
+     530 0000d3       $C$L4:    
+     531                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     532 0000d3 EC31          AMOV #$C$FSL6, XAR3 ; |204| 
+         0000d5 BE00 
+         0000d7 00D6+
+     533 0000d9 EB00          MOV XAR3, dbl(*SP(#0))
+         0000db B5   
+     534              $C$DW$69        .dwtag  DW_TAG_TI_branch
+     535                      .dwattr $C$DW$69, DW_AT_low_pc(0x00)
+     536                      .dwattr $C$DW$69, DW_AT_name("_printf")
+     537                      .dwattr $C$DW$69, DW_AT_TI_call
+     538 0000dc 6C00          CALL #_printf ; |204| 
+         0000de 0000!
+     539                                                      ; call occurs [#_printf] ; |204| 
+     540                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     541 0000e0 ED31          MOV dbl(*(#_hGpio)), XAR0
+         0000e2 8F00 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   12
+
+         0000e4 0002-
+     542              $C$DW$70        .dwtag  DW_TAG_TI_branch
+     543                      .dwattr $C$DW$70, DW_AT_low_pc(0x00)
+     544                      .dwattr $C$DW$70, DW_AT_name("_GPIO_reset")
+     545                      .dwattr $C$DW$70, DW_AT_TI_call
+     546 0000e6 6C00          CALL #_GPIO_reset ; |208| 
+         0000e8 0000!
+     547                                                      ; call occurs [#_GPIO_reset] ; |208| 
+     548                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     549 0000ea E606          MOV #4, *SP(#3) ; |211| 
+         0000ec 04   
+     550                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     551 0000ed E608          MOV #1, *SP(#4) ; |212| 
+         0000ef 01   
+     552                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     553 0000f0 E60A          MOV #2, *SP(#5) ; |213| 
+         0000f2 02   
+     554                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     555 0000f3 ED31          MOV dbl(*(#_hGpio)), XAR0
+         0000f5 8F00 
+         0000f7 0002-
+     556 0000f9 EC06          AMAR *SP(#3), XAR1
+         0000fb 9E   
+     557              $C$DW$71        .dwtag  DW_TAG_TI_branch
+     558                      .dwattr $C$DW$71, DW_AT_low_pc(0x00)
+     559                      .dwattr $C$DW$71, DW_AT_name("_GPIO_configBit")
+     560                      .dwattr $C$DW$71, DW_AT_TI_call
+     561 0000fc 6C00          CALL #_GPIO_configBit ; |214| 
+         0000fe 0000!
+     562                                                      ; call occurs [#_GPIO_configBit] ; |214| 
+     563 000100 C404          MOV T0, *SP(#2) ; |214| 
+     564                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     565              
+     566 000102 3C0A          MOV #0, AR2
+     567 000104 2349  ||      MOV T0, AR1
+     568              
+     569 000106 12A0          CMP AR2 == AR1, TC1 ; |215| 
+         000108 90   
+     570 000109 0464          BCC $C$L5,TC1 ; |215| 
+         00010b 12   
+     571                                                      ; branchcc occurs ; |215| 
+     572                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     573 00010c EC31          AMOV #$C$FSL7, XAR3 ; |217| 
+         00010e BE00 
+         000110 00EC+
+     574 000112 EB00          MOV XAR3, dbl(*SP(#0))
+         000114 B5   
+     575              $C$DW$72        .dwtag  DW_TAG_TI_branch
+     576                      .dwattr $C$DW$72, DW_AT_low_pc(0x00)
+     577                      .dwattr $C$DW$72, DW_AT_name("_printf")
+     578                      .dwattr $C$DW$72, DW_AT_TI_call
+     579 000115 6C00          CALL #_printf ; |217| 
+         000117 0000!
+     580                                                      ; call occurs [#_printf] ; |217| 
+     581                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   13
+
+     582 000119 3E14          MOV #-1, T0
+     583 00011b 0601          B $C$L13  ; |218| 
+         00011d 1D   
+     584                                                      ; branch occurs ; |218| 
+     585 00011e       $C$L5:    
+     586                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     587 00011e EC31          AMOV #$C$FSL8, XAR3 ; |222| 
+         000120 BE00 
+         000122 010A+
+     588 000124 EB00          MOV XAR3, dbl(*SP(#0))
+         000126 B5   
+     589              $C$DW$73        .dwtag  DW_TAG_TI_branch
+     590                      .dwattr $C$DW$73, DW_AT_low_pc(0x00)
+     591                      .dwattr $C$DW$73, DW_AT_name("_printf")
+     592                      .dwattr $C$DW$73, DW_AT_TI_call
+     593 000127 6C00          CALL #_printf ; |222| 
+         000129 0000!
+     594                                                      ; call occurs [#_printf] ; |222| 
+     595                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     596 00012b E606          MOV #11, *SP(#3) ; |226| 
+         00012d 0B   
+     597                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     598 00012e E608          MOV #0, *SP(#4) ; |227| 
+         000130 00   
+     599                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     600 000131 E60A          MOV #0, *SP(#5) ; |228| 
+         000133 00   
+     601                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     602 000134 EC06          AMAR *SP(#3), XAR1
+         000136 9E   
+     603 000137 ED31          MOV dbl(*(#_hGpio)), XAR0
+         000139 8F00 
+         00013b 0002-
+     604              $C$DW$74        .dwtag  DW_TAG_TI_branch
+     605                      .dwattr $C$DW$74, DW_AT_low_pc(0x00)
+     606                      .dwattr $C$DW$74, DW_AT_name("_GPIO_configBit")
+     607                      .dwattr $C$DW$74, DW_AT_TI_call
+     608 00013d 6C00          CALL #_GPIO_configBit ; |229| 
+         00013f 0000!
+     609                                                      ; call occurs [#_GPIO_configBit] ; |229| 
+     610 000141 C404          MOV T0, *SP(#2) ; |229| 
+     611                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     612              
+     613 000143 2249          MOV T0, AR1
+     614 000145 3D0A  ||      MOV #0, AR2
+     615              
+     616 000147 12A0          CMP AR2 == AR1, TC1 ; |230| 
+         000149 90   
+     617 00014a 0464          BCC $C$L6,TC1 ; |230| 
+         00014c 12   
+     618                                                      ; branchcc occurs ; |230| 
+     619                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     620 00014d EC31          AMOV #$C$FSL7, XAR3 ; |232| 
+         00014f BE00 
+         000151 00EC+
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   14
+
+     621 000153 EB00          MOV XAR3, dbl(*SP(#0))
+         000155 B5   
+     622              $C$DW$75        .dwtag  DW_TAG_TI_branch
+     623                      .dwattr $C$DW$75, DW_AT_low_pc(0x00)
+     624                      .dwattr $C$DW$75, DW_AT_name("_printf")
+     625                      .dwattr $C$DW$75, DW_AT_TI_call
+     626 000156 6C00          CALL #_printf ; |232| 
+         000158 0000!
+     627                                                      ; call occurs [#_printf] ; |232| 
+     628                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     629 00015a 3E14          MOV #-1, T0
+     630 00015c 0600          B $C$L13  ; |233| 
+         00015e DC   
+     631                                                      ; branch occurs ; |233| 
+     632 00015f       $C$L6:    
+     633                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     634 00015f EC31          AMOV #$C$FSL9, XAR3 ; |237| 
+         000161 BE00 
+         000163 0132+
+     635 000165 EB00          MOV XAR3, dbl(*SP(#0))
+         000167 B5   
+     636              $C$DW$76        .dwtag  DW_TAG_TI_branch
+     637                      .dwattr $C$DW$76, DW_AT_low_pc(0x00)
+     638                      .dwattr $C$DW$76, DW_AT_name("_printf")
+     639                      .dwattr $C$DW$76, DW_AT_TI_call
+     640 000168 6C00          CALL #_printf ; |237| 
+         00016a 0000!
+     641                                                      ; call occurs [#_printf] ; |237| 
+     642                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     643 00016c ED31          MOV dbl(*(#_hGpio)), XAR0
+         00016e 8F00 
+         000170 0002-
+     644              $C$DW$77        .dwtag  DW_TAG_TI_branch
+     645                      .dwattr $C$DW$77, DW_AT_low_pc(0x00)
+     646                      .dwattr $C$DW$77, DW_AT_name("_GPIO_enableInt")
+     647                      .dwattr $C$DW$77, DW_AT_TI_call
+     648              
+     649 000172 6C00          CALL #_GPIO_enableInt ; |241| 
+         000174 0000!
+     650 000176 3DB4  ||      MOV #11, T0
+     651              
+     652                                                      ; call occurs [#_GPIO_enableInt] ; |241| 
+     653 000178 C404          MOV T0, *SP(#2) ; |241| 
+     654                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     655              
+     656 00017a 2249          MOV T0, AR1
+     657 00017c 3D0A  ||      MOV #0, AR2
+     658              
+     659 00017e 12A0          CMP AR2 == AR1, TC1 ; |242| 
+         000180 90   
+     660 000181 0464          BCC $C$L7,TC1 ; |242| 
+         000183 12   
+     661                                                      ; branchcc occurs ; |242| 
+     662                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     663 000184 EC31          AMOV #$C$FSL10, XAR3 ; |244| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   15
+
+         000186 BE00 
+         000188 015A+
+     664 00018a EB00          MOV XAR3, dbl(*SP(#0))
+         00018c B5   
+     665              $C$DW$78        .dwtag  DW_TAG_TI_branch
+     666                      .dwattr $C$DW$78, DW_AT_low_pc(0x00)
+     667                      .dwattr $C$DW$78, DW_AT_name("_printf")
+     668                      .dwattr $C$DW$78, DW_AT_TI_call
+     669 00018d 6C00          CALL #_printf ; |244| 
+         00018f 0000!
+     670                                                      ; call occurs [#_printf] ; |244| 
+     671                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     672 000191 3E14          MOV #-1, T0
+     673 000193 0600          B $C$L13  ; |245| 
+         000195 A5   
+     674                                                      ; branch occurs ; |245| 
+     675 000196       $C$L7:    
+     676                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     677 000196 7600          MOV #21, T0 ; |249| 
+         000198 1548 
+     678              $C$DW$79        .dwtag  DW_TAG_TI_branch
+     679                      .dwattr $C$DW$79, DW_AT_low_pc(0x00)
+     680                      .dwattr $C$DW$79, DW_AT_name("_IRQ_clear")
+     681                      .dwattr $C$DW$79, DW_AT_TI_call
+     682 00019a 6C00          CALL #_IRQ_clear ; |249| 
+         00019c 0000!
+     683                                                      ; call occurs [#_IRQ_clear] ; |249| 
+     684                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     685 00019e 7A00          MOV #(_gpioISR >> 16) << #16, AC0 ; |251| 
+         0001a0 000A%
+     686 0001a2 7600          MOV #21, T0 ; |251| 
+         0001a4 1548 
+     687 0001a6 7E00          OR #(_gpioISR & 0xffff), AC0, AC0 ; |251| 
+         0001a8 0000%
+     688              $C$DW$80        .dwtag  DW_TAG_TI_branch
+     689                      .dwattr $C$DW$80, DW_AT_low_pc(0x00)
+     690                      .dwattr $C$DW$80, DW_AT_name("_IRQ_plug")
+     691                      .dwattr $C$DW$80, DW_AT_TI_call
+     692 0001aa 6C00          CALL #_IRQ_plug ; |251| 
+         0001ac 0000!
+     693                                                      ; call occurs [#_IRQ_plug] ; |251| 
+     694                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     695 0001ae 7600          MOV #21, T0 ; |254| 
+         0001b0 1548 
+     696              $C$DW$81        .dwtag  DW_TAG_TI_branch
+     697                      .dwattr $C$DW$81, DW_AT_low_pc(0x00)
+     698                      .dwattr $C$DW$81, DW_AT_name("_IRQ_enable")
+     699                      .dwattr $C$DW$81, DW_AT_TI_call
+     700 0001b2 6C00          CALL #_IRQ_enable ; |254| 
+         0001b4 0000!
+     701                                                      ; call occurs [#_IRQ_enable] ; |254| 
+     702                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     703              $C$DW$82        .dwtag  DW_TAG_TI_branch
+     704                      .dwattr $C$DW$82, DW_AT_low_pc(0x00)
+     705                      .dwattr $C$DW$82, DW_AT_name("_IRQ_globalEnable")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   16
+
+     706                      .dwattr $C$DW$82, DW_AT_TI_call
+     707 0001b6 6C00          CALL #_IRQ_globalEnable ; |255| 
+         0001b8 0000!
+     708                                                      ; call occurs [#_IRQ_globalEnable] ; |255| 
+     709                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     710 0001ba 3C44          MOV #4, T0
+     711 0001bc ED31          MOV dbl(*(#_hGpio)), XAR0
+         0001be 8F00 
+         0001c0 0002-
+     712              $C$DW$83        .dwtag  DW_TAG_TI_branch
+     713                      .dwattr $C$DW$83, DW_AT_low_pc(0x00)
+     714                      .dwattr $C$DW$83, DW_AT_name("_GPIO_write")
+     715                      .dwattr $C$DW$83, DW_AT_TI_call
+     716              
+     717 0001c2 6C00          CALL #_GPIO_write ; |258| 
+         0001c4 0000!
+     718 0001c6 3D15  ||      MOV #1, T1
+     719              
+     720                                                      ; call occurs [#_GPIO_write] ; |258| 
+     721 0001c8 C404          MOV T0, *SP(#2) ; |258| 
+     722                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     723              
+     724 0001ca 2249          MOV T0, AR1
+     725 0001cc 3D0A  ||      MOV #0, AR2
+     726              
+     727 0001ce 12A0          CMP AR2 == AR1, TC1 ; |259| 
+         0001d0 90   
+     728 0001d1 0464          BCC $C$L8,TC1 ; |259| 
+         0001d3 12   
+     729                                                      ; branchcc occurs ; |259| 
+     730                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     731 0001d4 EC31          AMOV #$C$FSL11, XAR3 ; |261| 
+         0001d6 BE00 
+         0001d8 0178+
+     732 0001da EB00          MOV XAR3, dbl(*SP(#0))
+         0001dc B5   
+     733              $C$DW$84        .dwtag  DW_TAG_TI_branch
+     734                      .dwattr $C$DW$84, DW_AT_low_pc(0x00)
+     735                      .dwattr $C$DW$84, DW_AT_name("_printf")
+     736                      .dwattr $C$DW$84, DW_AT_TI_call
+     737 0001dd 6C00          CALL #_printf ; |261| 
+         0001df 0000!
+     738                                                      ; call occurs [#_printf] ; |261| 
+     739                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     740 0001e1 3E14          MOV #-1, T0
+     741 0001e3 0600          B $C$L13  ; |262| 
+         0001e5 55   
+     742                                                      ; branch occurs ; |262| 
+     743 0001e6       $C$L8:    
+     744                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     745 0001e6 F031          CMP *(#_i) == #1, TC1 ; |266| 
+         0001e8 0001 
+         0001ea 0000 
+         0001ec 04-  
+     746 0001ed 6564          BCC $C$L10,TC1 ; |266| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   17
+
+     747                                                      ; branchcc occurs ; |266| 
+     748 0001ef       $C$L9:    
+     749 0001ef       $C$DW$L$_gpio_input_int_test$16$B:
+     750 0001ef F031          CMP *(#_i) == #1, TC1 ; |266| 
+         0001f1 0001 
+         0001f3 0000 
+         0001f5 04-  
+     751 0001f6 0474          BCC $C$L9,!TC1 ; |266| 
+         0001f8 F6   
+     752                                                      ; branchcc occurs ; |266| 
+     753 0001f9       $C$DW$L$_gpio_input_int_test$16$E:
+     754 0001f9       $C$L10:    
+     755                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     756              $C$DW$85        .dwtag  DW_TAG_TI_branch
+     757                      .dwattr $C$DW$85, DW_AT_low_pc(0x00)
+     758                      .dwattr $C$DW$85, DW_AT_name("_IRQ_globalDisable")
+     759                      .dwattr $C$DW$85, DW_AT_TI_call
+     760 0001f9 6C00          CALL #_IRQ_globalDisable ; |268| 
+         0001fb 0000!
+     761                                                      ; call occurs [#_IRQ_globalDisable] ; |268| 
+     762                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     763              $C$DW$86        .dwtag  DW_TAG_TI_branch
+     764                      .dwattr $C$DW$86, DW_AT_low_pc(0x00)
+     765                      .dwattr $C$DW$86, DW_AT_name("_IRQ_disableAll")
+     766                      .dwattr $C$DW$86, DW_AT_TI_call
+     767 0001fd 6C00          CALL #_IRQ_disableAll ; |271| 
+         0001ff 0000!
+     768                                                      ; call occurs [#_IRQ_disableAll] ; |271| 
+     769                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     770 000201 EC31          AMOV #$C$FSL12, XAR3 ; |273| 
+         000203 BE00 
+         000205 018C+
+     771 000207 EB00          MOV XAR3, dbl(*SP(#0))
+         000209 B5   
+     772              $C$DW$87        .dwtag  DW_TAG_TI_branch
+     773                      .dwattr $C$DW$87, DW_AT_low_pc(0x00)
+     774                      .dwattr $C$DW$87, DW_AT_name("_printf")
+     775                      .dwattr $C$DW$87, DW_AT_TI_call
+     776 00020a 6C00          CALL #_printf ; |273| 
+         00020c 0000!
+     777                                                      ; call occurs [#_printf] ; |273| 
+     778                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     779 00020e F031          CMP *(#_readVal) == #1, TC1 ; |275| 
+         000210 0001 
+         000212 0000 
+         000214 05-  
+     780 000215 67F4          BCC $C$L11,!TC1 ; |275| 
+     781                                                      ; branchcc occurs ; |275| 
+     782                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     783 000217 EC31          AMOV #$C$FSL13, XAR3 ; |277| 
+         000219 BE00 
+         00021b 01A0+
+     784 00021d EB00          MOV XAR3, dbl(*SP(#0))
+         00021f B5   
+     785              $C$DW$88        .dwtag  DW_TAG_TI_branch
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   18
+
+     786                      .dwattr $C$DW$88, DW_AT_low_pc(0x00)
+     787                      .dwattr $C$DW$88, DW_AT_name("_printf")
+     788                      .dwattr $C$DW$88, DW_AT_TI_call
+     789 000220 6C00          CALL #_printf ; |277| 
+         000222 0000!
+     790                                                      ; call occurs [#_printf] ; |277| 
+     791                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     792 000224 4A13          B $C$L12  ; |278| 
+     793                                                      ; branch occurs ; |278| 
+     794 000226       $C$L11:    
+     795                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     796 000226 EC31          AMOV #$C$FSL14, XAR3 ; |281| 
+         000228 BE00 
+         00022a 01CE+
+     797 00022c EB00          MOV XAR3, dbl(*SP(#0))
+         00022e B5   
+     798              $C$DW$89        .dwtag  DW_TAG_TI_branch
+     799                      .dwattr $C$DW$89, DW_AT_low_pc(0x00)
+     800                      .dwattr $C$DW$89, DW_AT_name("_printf")
+     801                      .dwattr $C$DW$89, DW_AT_TI_call
+     802 00022f 6C00          CALL #_printf ; |281| 
+         000231 0000!
+     803                                                      ; call occurs [#_printf] ; |281| 
+     804                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     805 000233 E631          MOV #0, *(#_PaSs_StAtE) ; |284| 
+         000235 0000 
+         000237 0006-
+     806 000239       $C$L12:    
+     807                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     808 000239 3C04          MOV #0, T0
+     809 00023b       $C$L13:    
+     810                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     811 00023b 4E07          AADD #7, SP
+     812                      .dwcfi  cfa_offset, 1
+     813              $C$DW$90        .dwtag  DW_TAG_TI_branch
+     814                      .dwattr $C$DW$90, DW_AT_low_pc(0x00)
+     815                      .dwattr $C$DW$90, DW_AT_TI_return
+     816 00023d 4804          RET
+     817                                                      ; return occurs
+     818              
+     819              $C$DW$91        .dwtag  DW_TAG_TI_loop
+     820                      .dwattr $C$DW$91, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\gpio_Input_Pin_Example.asm:$C$L9:
+     821                      .dwattr $C$DW$91, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpi
+     822                      .dwattr $C$DW$91, DW_AT_TI_begin_line(0x10a)
+     823                      .dwattr $C$DW$91, DW_AT_TI_end_line(0x10a)
+     824              $C$DW$92        .dwtag  DW_TAG_TI_loop_range
+     825                      .dwattr $C$DW$92, DW_AT_low_pc($C$DW$L$_gpio_input_int_test$16$B)
+     826                      .dwattr $C$DW$92, DW_AT_high_pc($C$DW$L$_gpio_input_int_test$16$E)
+     827                      .dwendtag $C$DW$91
+     828              
+     829                      .dwattr $C$DW$59, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/
+     830                      .dwattr $C$DW$59, DW_AT_TI_end_line(0x121)
+     831                      .dwattr $C$DW$59, DW_AT_TI_end_column(0x01)
+     832                      .dwendentry
+     833                      .dwendtag $C$DW$59
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   19
+
+     834              
+     835 000000               .sect   ".text:retain"
+     836                      .align 4
+     837                      .global _gpioISR
+     838              
+     839              $C$DW$93        .dwtag  DW_TAG_subprogram, DW_AT_name("gpioISR")
+     840                      .dwattr $C$DW$93, DW_AT_low_pc(_gpioISR)
+     841                      .dwattr $C$DW$93, DW_AT_high_pc(0x00)
+     842                      .dwattr $C$DW$93, DW_AT_TI_symbol_name("_gpioISR")
+     843                      .dwattr $C$DW$93, DW_AT_external
+     844                      .dwattr $C$DW$93, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpi
+     845                      .dwattr $C$DW$93, DW_AT_TI_begin_line(0x12a)
+     846                      .dwattr $C$DW$93, DW_AT_TI_begin_column(0x10)
+     847                      .dwattr $C$DW$93, DW_AT_TI_interrupt
+     848                      .dwattr $C$DW$93, DW_AT_TI_max_frame_size(0x2f)
+     849                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+     850              
+     851                      .dwfde $C$DW$CIE, _gpioISR
+     852              ;*******************************************************************************
+     853              ;* INTERRUPT NAME: gpioISR                                                     *
+     854              ;*                                                                             *
+     855              ;*   Function Uses Regs : AC0,AC0,AC1,AC1,AC2,AC2,AC3,AC3,T0,T1,AR0,XAR0,AR1,  *
+     856              ;*                        XAR1,AR2,AR3,AR4,SP,BKC,BK03,BK47,ST1,ST2,ST3,BRC0,  *
+     857              ;*                        RSA0,REA0,BRS1,BRC1,RSA1,REA1,CSR,RPTC,CDP,TRN0,TRN1,*
+     858              ;*                        BSA01,BSA23,BSA45,BSA67,BSAC,CARRY,TC1,M40,SATA,SATD,*
+     859              ;*                        RDM,FRCT,SMUL                                        *
+     860              ;*   Save On Entry Regs : AC0,AC0,AC1,AC1,AC2,AC2,AC3,AC3,T0,T1,AR0,AR1,AR2,   *
+     861              ;*                        AR3,AR4,BKC,BK03,BK47,BRC0,RSA0,REA0,BRS1,BRC1,RSA1, *
+     862              ;*                        REA1,CSR,RPTC,CDP,TRN0,TRN1,BSA01,BSA23,BSA45,BSA67, *
+     863              ;*                        BSAC                                                 *
+     864              ;*******************************************************************************
+     865 000000       _gpioISR:
+     866                      .dwcfi  cfa_offset, 3
+     867                      .dwcfi  save_reg_to_mem, 91, -3
+     868 000000 F406          AND #0xf91f, mmap(ST1_55)
+         000002 F91F 
+         000004 98   
+     869 000005 F506          OR #0x4100, mmap(ST1_55)
+         000007 4100 
+         000009 98   
+     870 00000a F496          AND #0xfa00, mmap(ST2_55)
+         00000c FA00 
+         00000e 98   
+     871 00000f F596          OR #0x8000, mmap(ST2_55)
+         000011 8000 
+         000013 98   
+     872 000014 B508          PSH mmap(ST3_55)
+         000016 98   
+     873                      .dwcfi  cfa_offset, 4
+     874                      .dwcfi  save_reg_to_mem, 42, -4
+     875 000017 5007          PSH dbl(AC0)
+     876                      .dwcfi  cfa_offset, 5
+     877                      .dwcfi  save_reg_to_mem, 0, -5
+     878                      .dwcfi  cfa_offset, 6
+     879                      .dwcfi  save_reg_to_mem, 1, -6
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   20
+
+     880 000019 B514          PSH mmap(AC0G)
+         00001b 98   
+     881                      .dwcfi  cfa_offset, 7
+     882                      .dwcfi  save_reg_to_mem, 2, -7
+     883 00001c 5017          PSH dbl(AC1)
+     884                      .dwcfi  cfa_offset, 8
+     885                      .dwcfi  save_reg_to_mem, 3, -8
+     886                      .dwcfi  cfa_offset, 9
+     887                      .dwcfi  save_reg_to_mem, 4, -9
+     888 00001e B51A          PSH mmap(AC1G)
+         000020 98   
+     889                      .dwcfi  cfa_offset, 10
+     890                      .dwcfi  save_reg_to_mem, 5, -10
+     891 000021 5027          PSH dbl(AC2)
+     892                      .dwcfi  cfa_offset, 11
+     893                      .dwcfi  save_reg_to_mem, 6, -11
+     894                      .dwcfi  cfa_offset, 12
+     895                      .dwcfi  save_reg_to_mem, 7, -12
+     896 000023 B54C          PSH mmap(AC2G)
+         000025 98   
+     897                      .dwcfi  cfa_offset, 13
+     898                      .dwcfi  save_reg_to_mem, 8, -13
+     899 000026 5037          PSH dbl(AC3)
+     900                      .dwcfi  cfa_offset, 14
+     901                      .dwcfi  save_reg_to_mem, 9, -14
+     902                      .dwcfi  cfa_offset, 15
+     903                      .dwcfi  save_reg_to_mem, 10, -15
+     904 000028 B554          PSH mmap(AC3G)
+         00002a 98   
+     905                      .dwcfi  cfa_offset, 16
+     906                      .dwcfi  save_reg_to_mem, 11, -16
+     907 00002b 5046          PSH T0
+     908                      .dwcfi  cfa_offset, 17
+     909                      .dwcfi  save_reg_to_mem, 12, -17
+     910 00002d 5056          PSH T1
+     911                      .dwcfi  cfa_offset, 18
+     912                      .dwcfi  save_reg_to_mem, 13, -18
+     913 00002f 5085          PSHBOTH XAR0
+     914                      .dwcfi  cfa_offset, 19
+     915                      .dwcfi  save_reg_to_mem, 16, -19
+     916 000031 5095          PSHBOTH XAR1
+     917                      .dwcfi  cfa_offset, 20
+     918                      .dwcfi  save_reg_to_mem, 18, -20
+     919 000033 50A5          PSHBOTH XAR2
+     920                      .dwcfi  cfa_offset, 21
+     921                      .dwcfi  save_reg_to_mem, 20, -21
+     922 000035 50B5          PSHBOTH XAR3
+     923                      .dwcfi  cfa_offset, 22
+     924                      .dwcfi  save_reg_to_mem, 22, -22
+     925 000037 50C5          PSHBOTH XAR4
+     926                      .dwcfi  cfa_offset, 23
+     927                      .dwcfi  save_reg_to_mem, 24, -23
+     928 000039 B562          PSH mmap(BKC)
+         00003b 98   
+     929                      .dwcfi  cfa_offset, 24
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   21
+
+     930                      .dwcfi  save_reg_to_mem, 37, -24
+     931 00003c B532          PSH mmap(BK03)
+         00003e 98   
+     932                      .dwcfi  cfa_offset, 25
+     933                      .dwcfi  save_reg_to_mem, 38, -25
+     934 00003f B560          PSH mmap(BK47)
+         000041 98   
+     935                      .dwcfi  cfa_offset, 26
+     936                      .dwcfi  save_reg_to_mem, 39, -26
+     937 000042 B534          PSH mmap(BRC0)
+         000044 98   
+     938                      .dwcfi  cfa_offset, 27
+     939                      .dwcfi  save_reg_to_mem, 47, -27
+     940 000045 B57A          PSH mmap(RSA0L)
+         000047 98   
+     941                      .dwcfi  cfa_offset, 28
+     942                      .dwcfi  save_reg_to_mem, 48, -28
+     943 000048 B578          PSH mmap(RSA0H)
+         00004a 98   
+     944                      .dwcfi  cfa_offset, 29
+     945                      .dwcfi  save_reg_to_mem, 49, -29
+     946 00004b B57E          PSH mmap(REA0L)
+         00004d 98   
+     947                      .dwcfi  cfa_offset, 30
+     948                      .dwcfi  save_reg_to_mem, 50, -30
+     949 00004e B57C          PSH mmap(REA0H)
+         000050 98   
+     950                      .dwcfi  cfa_offset, 31
+     951                      .dwcfi  save_reg_to_mem, 51, -31
+     952 000051 B574          PSH mmap(BRS1)
+         000053 98   
+     953                      .dwcfi  cfa_offset, 32
+     954                      .dwcfi  save_reg_to_mem, 52, -32
+     955 000054 B572          PSH mmap(BRC1)
+         000056 98   
+     956                      .dwcfi  cfa_offset, 33
+     957                      .dwcfi  save_reg_to_mem, 53, -33
+     958 000057 B582          PSH mmap(RSA1L)
+         000059 98   
+     959                      .dwcfi  cfa_offset, 34
+     960                      .dwcfi  save_reg_to_mem, 54, -34
+     961 00005a B580          PSH mmap(RSA1H)
+         00005c 98   
+     962                      .dwcfi  cfa_offset, 35
+     963                      .dwcfi  save_reg_to_mem, 55, -35
+     964 00005d B586          PSH mmap(REA1L)
+         00005f 98   
+     965                      .dwcfi  cfa_offset, 36
+     966                      .dwcfi  save_reg_to_mem, 56, -36
+     967 000060 B584          PSH mmap(REA1H)
+         000062 98   
+     968                      .dwcfi  cfa_offset, 37
+     969                      .dwcfi  save_reg_to_mem, 57, -37
+     970 000063 B576          PSH mmap(CSR)
+         000065 98   
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   22
+
+     971                      .dwcfi  cfa_offset, 38
+     972                      .dwcfi  save_reg_to_mem, 58, -38
+     973 000066 B588          PSH mmap(RPTC)
+         000068 98   
+     974                      .dwcfi  cfa_offset, 39
+     975                      .dwcfi  save_reg_to_mem, 59, -39
+     976 000069 5075          PSHBOTH XCDP
+     977                      .dwcfi  cfa_offset, 40
+     978                      .dwcfi  save_reg_to_mem, 60, -40
+     979 00006b B51E          PSH mmap(TRN0)
+         00006d 98   
+     980                      .dwcfi  cfa_offset, 41
+     981                      .dwcfi  save_reg_to_mem, 62, -41
+     982 00006e B570          PSH mmap(TRN1)
+         000070 98   
+     983                      .dwcfi  cfa_offset, 42
+     984                      .dwcfi  save_reg_to_mem, 63, -42
+     985 000071 B564          PSH mmap(BSA01)
+         000073 98   
+     986                      .dwcfi  cfa_offset, 43
+     987                      .dwcfi  save_reg_to_mem, 64, -43
+     988 000074 B566          PSH mmap(BSA23)
+         000076 98   
+     989                      .dwcfi  cfa_offset, 44
+     990                      .dwcfi  save_reg_to_mem, 65, -44
+     991 000077 B568          PSH mmap(BSA45)
+         000079 98   
+     992                      .dwcfi  cfa_offset, 45
+     993                      .dwcfi  save_reg_to_mem, 66, -45
+     994 00007a B56A          PSH mmap(BSA67)
+         00007c 98   
+     995                      .dwcfi  cfa_offset, 46
+     996                      .dwcfi  save_reg_to_mem, 67, -46
+     997 00007d B56C          PSH mmap(BSAC)
+         00007f 98   
+     998                      .dwcfi  cfa_offset, 47
+     999                      .dwcfi  save_reg_to_mem, 68, -47
+    1000 000080 EC00          AMAR *SP(#0), XAR1
+         000082 9E   
+    1001 000083 F49A          AND #0xfffe, mmap(SP)
+         000085 FFFE 
+         000087 98   
+    1002 000088 5096          PSH AR1
+    1003 00008a 4EFF          AADD #-1, SP
+    1004                      .dwcfi  cfa_offset, 47
+    1005              $C$DW$94        .dwtag  DW_TAG_variable, DW_AT_name("status")
+    1006                      .dwattr $C$DW$94, DW_AT_TI_symbol_name("_status")
+    1007                      .dwattr $C$DW$94, DW_AT_type(*$C$DW$T$44)
+    1008                      .dwattr $C$DW$94, DW_AT_location[DW_OP_bregx 0x24 0]
+    1009                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+    1010 00008c E631          MOV #0, *(#_i) ; |302| 
+         00008e 0000 
+         000090 0004-
+    1011                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+    1012 000092 4617          BSET ST3_SMUL
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   23
+
+    1013              
+    1014 000094 EC00          AMAR *SP(#0), XAR1
+         000096 9E   
+    1015 000097 4756  ||      BCLR ST3_SATA
+    1016              
+    1017 000099 ED31          MOV dbl(*(#_hGpio)), XAR0
+         00009b 8F00 
+         00009d 0002-
+    1018              $C$DW$95        .dwtag  DW_TAG_TI_branch
+    1019                      .dwattr $C$DW$95, DW_AT_low_pc(0x00)
+    1020                      .dwattr $C$DW$95, DW_AT_name("_GPIO_statusBit")
+    1021                      .dwattr $C$DW$95, DW_AT_TI_call
+    1022              
+    1023 00009f 6C00          CALL #_GPIO_statusBit ; |305| 
+         0000a1 0000!
+    1024 0000a3 3DB4  ||      MOV #11, T0
+    1025              
+    1026                                                      ; call occurs [#_GPIO_statusBit] ; |305| 
+    1027 0000a5 3C19          MOV #1, AR1
+    1028 0000a7 129C          CMP AR1 != T0, TC1 ; |305| 
+         0000a9 40   
+    1029 0000aa 6664          BCC $C$L14,TC1 ; |305| 
+    1030                                                      ; branchcc occurs ; |305| 
+    1031                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+    1032 0000ac ED31          MOV dbl(*(#_hGpio)), XAR0
+         0000ae 8F00 
+         0000b0 0002-
+    1033              $C$DW$96        .dwtag  DW_TAG_TI_branch
+    1034                      .dwattr $C$DW$96, DW_AT_low_pc(0x00)
+    1035                      .dwattr $C$DW$96, DW_AT_name("_GPIO_clearInt")
+    1036                      .dwattr $C$DW$96, DW_AT_TI_call
+    1037              
+    1038 0000b2 6C00          CALL #_GPIO_clearInt ; |308| 
+         0000b4 0000!
+    1039 0000b6 3DB4  ||      MOV #11, T0
+    1040              
+    1041                                                      ; call occurs [#_GPIO_clearInt] ; |308| 
+    1042 0000b8       $C$L14:    
+    1043                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+    1044 0000b8 7600          MOV #21, T0 ; |311| 
+         0000ba 1548 
+    1045              $C$DW$97        .dwtag  DW_TAG_TI_branch
+    1046                      .dwattr $C$DW$97, DW_AT_low_pc(0x00)
+    1047                      .dwattr $C$DW$97, DW_AT_name("_IRQ_disable")
+    1048                      .dwattr $C$DW$97, DW_AT_TI_call
+    1049 0000bc 6C00          CALL #_IRQ_disable ; |311| 
+         0000be 0000!
+    1050                                                      ; call occurs [#_IRQ_disable] ; |311| 
+    1051                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+    1052 0000c0 EC31          AMOV #_readVal, XAR1 ; |314| 
+         0000c2 9E00 
+         0000c4 0005-
+    1053 0000c6 ED31          MOV dbl(*(#_hGpio)), XAR0
+         0000c8 8F00 
+         0000ca 0002-
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   24
+
+    1054              $C$DW$98        .dwtag  DW_TAG_TI_branch
+    1055                      .dwattr $C$DW$98, DW_AT_low_pc(0x00)
+    1056                      .dwattr $C$DW$98, DW_AT_name("_GPIO_read")
+    1057                      .dwattr $C$DW$98, DW_AT_TI_call
+    1058              
+    1059 0000cc 6C00          CALL #_GPIO_read ; |314| 
+         0000ce 0000!
+    1060 0000d0 3DB4  ||      MOV #11, T0
+    1061              
+    1062                                                      ; call occurs [#_GPIO_read] ; |314| 
+    1063 0000d2 C400          MOV T0, *SP(#0) ; |314| 
+    1064                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+    1065 0000d4 F731          ADD #1, *(#_i) ; |316| 
+         0000d6 0001 
+         0000d8 0000 
+         0000da 04-  
+    1066                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/CSL_GPIO_InputPinExampl
+    1067 0000db 4E01          AADD #1, SP
+    1068                      .dwcfi  cfa_offset, 47
+    1069 0000dd BB9A          POP mmap(SP)
+         0000df 98   
+    1070 0000e0 BB6C          POP mmap(BSAC)
+         0000e2 98   
+    1071                      .dwcfi  restore_reg, 68
+    1072                      .dwcfi  cfa_offset, 46
+    1073 0000e3 BB6A          POP mmap(BSA67)
+         0000e5 98   
+    1074                      .dwcfi  restore_reg, 67
+    1075                      .dwcfi  cfa_offset, 45
+    1076 0000e6 BB68          POP mmap(BSA45)
+         0000e8 98   
+    1077                      .dwcfi  restore_reg, 66
+    1078                      .dwcfi  cfa_offset, 44
+    1079 0000e9 BB66          POP mmap(BSA23)
+         0000eb 98   
+    1080                      .dwcfi  restore_reg, 65
+    1081                      .dwcfi  cfa_offset, 43
+    1082 0000ec BB64          POP mmap(BSA01)
+         0000ee 98   
+    1083                      .dwcfi  restore_reg, 64
+    1084                      .dwcfi  cfa_offset, 42
+    1085 0000ef BB70          POP mmap(TRN1)
+         0000f1 98   
+    1086                      .dwcfi  restore_reg, 63
+    1087                      .dwcfi  cfa_offset, 41
+    1088 0000f2 BB1E          POP mmap(TRN0)
+         0000f4 98   
+    1089                      .dwcfi  restore_reg, 62
+    1090                      .dwcfi  cfa_offset, 40
+    1091 0000f5 5074          POPBOTH XCDP
+    1092                      .dwcfi  restore_reg, 60
+    1093                      .dwcfi  cfa_offset, 39
+    1094 0000f7 BB88          POP mmap(RPTC)
+         0000f9 98   
+    1095                      .dwcfi  restore_reg, 59
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   25
+
+    1096                      .dwcfi  cfa_offset, 38
+    1097 0000fa BB76          POP mmap(CSR)
+         0000fc 98   
+    1098                      .dwcfi  restore_reg, 58
+    1099                      .dwcfi  cfa_offset, 37
+    1100 0000fd BB84          POP mmap(REA1H)
+         0000ff 98   
+    1101                      .dwcfi  restore_reg, 57
+    1102                      .dwcfi  cfa_offset, 36
+    1103 000100 BB86          POP mmap(REA1L)
+         000102 98   
+    1104                      .dwcfi  restore_reg, 56
+    1105                      .dwcfi  cfa_offset, 35
+    1106 000103 BB80          POP mmap(RSA1H)
+         000105 98   
+    1107                      .dwcfi  restore_reg, 55
+    1108                      .dwcfi  cfa_offset, 34
+    1109 000106 BB82          POP mmap(RSA1L)
+         000108 98   
+    1110                      .dwcfi  restore_reg, 54
+    1111                      .dwcfi  cfa_offset, 33
+    1112 000109 BB72          POP mmap(BRC1)
+         00010b 98   
+    1113                      .dwcfi  restore_reg, 53
+    1114                      .dwcfi  cfa_offset, 32
+    1115 00010c BB74          POP mmap(BRS1)
+         00010e 98   
+    1116                      .dwcfi  restore_reg, 52
+    1117                      .dwcfi  cfa_offset, 31
+    1118 00010f BB7C          POP mmap(REA0H)
+         000111 98   
+    1119                      .dwcfi  restore_reg, 51
+    1120                      .dwcfi  cfa_offset, 30
+    1121 000112 BB7E          POP mmap(REA0L)
+         000114 98   
+    1122                      .dwcfi  restore_reg, 50
+    1123                      .dwcfi  cfa_offset, 29
+    1124 000115 BB78          POP mmap(RSA0H)
+         000117 98   
+    1125                      .dwcfi  restore_reg, 49
+    1126                      .dwcfi  cfa_offset, 28
+    1127 000118 BB7A          POP mmap(RSA0L)
+         00011a 98   
+    1128                      .dwcfi  restore_reg, 48
+    1129                      .dwcfi  cfa_offset, 27
+    1130 00011b BB34          POP mmap(BRC0)
+         00011d 98   
+    1131                      .dwcfi  restore_reg, 47
+    1132                      .dwcfi  cfa_offset, 26
+    1133 00011e BB60          POP mmap(BK47)
+         000120 98   
+    1134                      .dwcfi  restore_reg, 39
+    1135                      .dwcfi  cfa_offset, 25
+    1136 000121 BB32          POP mmap(BK03)
+         000123 98   
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   26
+
+    1137                      .dwcfi  restore_reg, 38
+    1138                      .dwcfi  cfa_offset, 24
+    1139 000124 BB62          POP mmap(BKC)
+         000126 98   
+    1140                      .dwcfi  restore_reg, 37
+    1141                      .dwcfi  cfa_offset, 23
+    1142 000127 50C4          POPBOTH XAR4
+    1143                      .dwcfi  restore_reg, 24
+    1144                      .dwcfi  cfa_offset, 22
+    1145 000129 50B4          POPBOTH XAR3
+    1146                      .dwcfi  restore_reg, 22
+    1147                      .dwcfi  cfa_offset, 21
+    1148 00012b 50A4          POPBOTH XAR2
+    1149                      .dwcfi  restore_reg, 20
+    1150                      .dwcfi  cfa_offset, 20
+    1151 00012d 5094          POPBOTH XAR1
+    1152                      .dwcfi  restore_reg, 18
+    1153                      .dwcfi  cfa_offset, 19
+    1154 00012f 5084          POPBOTH XAR0
+    1155                      .dwcfi  restore_reg, 16
+    1156                      .dwcfi  cfa_offset, 18
+    1157 000131 5052          POP T1
+    1158                      .dwcfi  restore_reg, 13
+    1159                      .dwcfi  cfa_offset, 17
+    1160 000133 5042          POP T0
+    1161                      .dwcfi  restore_reg, 12
+    1162                      .dwcfi  cfa_offset, 16
+    1163 000135 BB54          POP mmap(AC3G)
+         000137 98   
+    1164                      .dwcfi  restore_reg, 11
+    1165                      .dwcfi  cfa_offset, 15
+    1166                      .dwcfi  restore_reg, 10
+    1167                      .dwcfi  cfa_offset, 14
+    1168 000138 5033          POP dbl(AC3)
+    1169                      .dwcfi  restore_reg, 9
+    1170                      .dwcfi  cfa_offset, 13
+    1171 00013a BB4C          POP mmap(AC2G)
+         00013c 98   
+    1172                      .dwcfi  restore_reg, 8
+    1173                      .dwcfi  cfa_offset, 12
+    1174                      .dwcfi  restore_reg, 7
+    1175                      .dwcfi  cfa_offset, 11
+    1176 00013d 5023          POP dbl(AC2)
+    1177                      .dwcfi  restore_reg, 6
+    1178                      .dwcfi  cfa_offset, 10
+    1179 00013f BB1A          POP mmap(AC1G)
+         000141 98   
+    1180                      .dwcfi  restore_reg, 5
+    1181                      .dwcfi  cfa_offset, 9
+    1182                      .dwcfi  restore_reg, 4
+    1183                      .dwcfi  cfa_offset, 8
+    1184 000142 5013          POP dbl(AC1)
+    1185                      .dwcfi  restore_reg, 3
+    1186                      .dwcfi  cfa_offset, 7
+    1187 000144 BB14          POP mmap(AC0G)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   27
+
+         000146 98   
+    1188                      .dwcfi  restore_reg, 2
+    1189                      .dwcfi  cfa_offset, 6
+    1190                      .dwcfi  restore_reg, 1
+    1191                      .dwcfi  cfa_offset, 5
+    1192 000147 5003          POP dbl(AC0)
+    1193                      .dwcfi  restore_reg, 0
+    1194                      .dwcfi  cfa_offset, 4
+    1195 000149 BB08          POP mmap(ST3_55)
+         00014b 98   
+    1196                      .dwcfi  restore_reg, 43
+    1197                      .dwcfi  cfa_offset, 3
+    1198              $C$DW$99        .dwtag  DW_TAG_TI_branch
+    1199                      .dwattr $C$DW$99, DW_AT_low_pc(0x00)
+    1200                      .dwattr $C$DW$99, DW_AT_TI_return
+    1201 00014c 4805          RETI
+    1202                                                      ; return occurs
+    1203                      .dwattr $C$DW$93, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/gpio/
+    1204                      .dwattr $C$DW$93, DW_AT_TI_end_line(0x13d)
+    1205                      .dwattr $C$DW$93, DW_AT_TI_end_column(0x01)
+    1206                      .dwendentry
+    1207                      .dwendtag $C$DW$93
+    1208              
+    1209              ;*******************************************************************************
+    1210              ;* FAR STRINGS                                                                 *
+    1211              ;*******************************************************************************
+    1212 000000               .sect   ".const:.string"
+    1213                      .align  2
+    1214 000000 0043  $C$FSL1:        .string "CSL GPIO Input Pin Test!",10,10,0
+         000001 0053 
+         000002 004C 
+         000003 0020 
+         000004 0047 
+         000005 0050 
+         000006 0049 
+         000007 004F 
+         000008 0020 
+         000009 0049 
+         00000a 006E 
+         00000b 0070 
+         00000c 0075 
+         00000d 0074 
+         00000e 0020 
+         00000f 0050 
+         000010 0069 
+         000011 006E 
+         000012 0020 
+         000013 0054 
+         000014 0065 
+         000015 0073 
+         000016 0074 
+         000017 0021 
+         000018 000A 
+         000019 000A 
+         00001a 0000 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   28
+
+    1215                      .align  2
+    1216 00001c 000A  $C$FSL2:        .string 10,"CSL GPIO Input Pin Test Passed!!",10,0
+         00001d 0043 
+         00001e 0053 
+         00001f 004C 
+         000020 0020 
+         000021 0047 
+         000022 0050 
+         000023 0049 
+         000024 004F 
+         000025 0020 
+         000026 0049 
+         000027 006E 
+         000028 0070 
+         000029 0075 
+         00002a 0074 
+         00002b 0020 
+         00002c 0050 
+         00002d 0069 
+         00002e 006E 
+         00002f 0020 
+         000030 0054 
+         000031 0065 
+         000032 0073 
+         000033 0074 
+         000034 0020 
+         000035 0050 
+         000036 0061 
+         000037 0073 
+         000038 0073 
+         000039 0065 
+         00003a 0064 
+         00003b 0021 
+         00003c 0021 
+         00003d 000A 
+         00003e 0000 
+    1217                      .align  2
+    1218 000040 000A  $C$FSL3:        .string 10,"CSL GPIO Input Pin Test Failed!!",10,0
+         000041 0043 
+         000042 0053 
+         000043 004C 
+         000044 0020 
+         000045 0047 
+         000046 0050 
+         000047 0049 
+         000048 004F 
+         000049 0020 
+         00004a 0049 
+         00004b 006E 
+         00004c 0070 
+         00004d 0075 
+         00004e 0074 
+         00004f 0020 
+         000050 0050 
+         000051 0069 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   29
+
+         000052 006E 
+         000053 0020 
+         000054 0054 
+         000055 0065 
+         000056 0073 
+         000057 0074 
+         000058 0020 
+         000059 0046 
+         00005a 0061 
+         00005b 0069 
+         00005c 006C 
+         00005d 0065 
+         00005e 0064 
+         00005f 0021 
+         000060 0021 
+         000061 000A 
+         000062 0000 
+    1219                      .align  2
+    1220 000064 004D  $C$FSL4:        .string "Make Sure that Pin 1 and 2 of J22 on C5515 EVM or J13 on VC"
+         000065 0061 
+         000066 006B 
+         000067 0065 
+         000068 0020 
+         000069 0053 
+         00006a 0075 
+         00006b 0072 
+         00006c 0065 
+         00006d 0020 
+         00006e 0074 
+         00006f 0068 
+         000070 0061 
+         000071 0074 
+         000072 0020 
+         000073 0050 
+         000074 0069 
+         000075 006E 
+         000076 0020 
+         000077 0031 
+         000078 0020 
+         000079 0061 
+         00007a 006E 
+         00007b 0064 
+         00007c 0020 
+         00007d 0032 
+         00007e 0020 
+         00007f 006F 
+         000080 0066 
+         000081 0020 
+         000082 004A 
+         000083 0032 
+         000084 0032 
+         000085 0020 
+         000086 006F 
+         000087 006E 
+         000088 0020 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   30
+
+         000089 0043 
+         00008a 0035 
+         00008b 0035 
+         00008c 0031 
+         00008d 0035 
+         00008e 0020 
+         00008f 0045 
+         000090 0056 
+         000091 004D 
+         000092 0020 
+         000093 006F 
+         000094 0072 
+         000095 0020 
+         000096 004A 
+         000097 0031 
+         000098 0033 
+         000099 0020 
+         00009a 006F 
+         00009b 006E 
+         00009c 0020 
+         00009d 0056 
+         00009e 0043 
+    1221 00009f 0035          .string "5505 EVM are connected with Jumper",10,10,0
+         0000a0 0035 
+         0000a1 0030 
+         0000a2 0035 
+         0000a3 0020 
+         0000a4 0045 
+         0000a5 0056 
+         0000a6 004D 
+         0000a7 0020 
+         0000a8 0061 
+         0000a9 0072 
+         0000aa 0065 
+         0000ab 0020 
+         0000ac 0063 
+         0000ad 006F 
+         0000ae 006E 
+         0000af 006E 
+         0000b0 0065 
+         0000b1 0063 
+         0000b2 0074 
+         0000b3 0065 
+         0000b4 0064 
+         0000b5 0020 
+         0000b6 0077 
+         0000b7 0069 
+         0000b8 0074 
+         0000b9 0068 
+         0000ba 0020 
+         0000bb 004A 
+         0000bc 0075 
+         0000bd 006D 
+         0000be 0070 
+         0000bf 0065 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   31
+
+         0000c0 0072 
+         0000c1 000A 
+         0000c2 000A 
+         0000c3 0000 
+    1222                      .align  2
+    1223 0000c4 0047  $C$FSL5:        .string "GPIO_open failed",10,0
+         0000c5 0050 
+         0000c6 0049 
+         0000c7 004F 
+         0000c8 005F 
+         0000c9 006F 
+         0000ca 0070 
+         0000cb 0065 
+         0000cc 006E 
+         0000cd 0020 
+         0000ce 0066 
+         0000cf 0061 
+         0000d0 0069 
+         0000d1 006C 
+         0000d2 0065 
+         0000d3 0064 
+         0000d4 000A 
+         0000d5 0000 
+    1224                      .align  2
+    1225 0000d6 0047  $C$FSL6:        .string "GPIO_open Successful",10,0
+         0000d7 0050 
+         0000d8 0049 
+         0000d9 004F 
+         0000da 005F 
+         0000db 006F 
+         0000dc 0070 
+         0000dd 0065 
+         0000de 006E 
+         0000df 0020 
+         0000e0 0053 
+         0000e1 0075 
+         0000e2 0063 
+         0000e3 0063 
+         0000e4 0065 
+         0000e5 0073 
+         0000e6 0073 
+         0000e7 0066 
+         0000e8 0075 
+         0000e9 006C 
+         0000ea 000A 
+         0000eb 0000 
+    1226                      .align  2
+    1227 0000ec 0074  $C$FSL7:        .string "test failed - GPIO_configBit",10,0
+         0000ed 0065 
+         0000ee 0073 
+         0000ef 0074 
+         0000f0 0020 
+         0000f1 0066 
+         0000f2 0061 
+         0000f3 0069 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   32
+
+         0000f4 006C 
+         0000f5 0065 
+         0000f6 0064 
+         0000f7 0020 
+         0000f8 002D 
+         0000f9 0020 
+         0000fa 0047 
+         0000fb 0050 
+         0000fc 0049 
+         0000fd 004F 
+         0000fe 005F 
+         0000ff 0063 
+         000100 006F 
+         000101 006E 
+         000102 0066 
+         000103 0069 
+         000104 0067 
+         000105 0042 
+         000106 0069 
+         000107 0074 
+         000108 000A 
+         000109 0000 
+    1228                      .align  2
+    1229 00010a 0047  $C$FSL8:        .string "GPIO PIN4 is configured as Output Pin",10,0
+         00010b 0050 
+         00010c 0049 
+         00010d 004F 
+         00010e 0020 
+         00010f 0050 
+         000110 0049 
+         000111 004E 
+         000112 0034 
+         000113 0020 
+         000114 0069 
+         000115 0073 
+         000116 0020 
+         000117 0063 
+         000118 006F 
+         000119 006E 
+         00011a 0066 
+         00011b 0069 
+         00011c 0067 
+         00011d 0075 
+         00011e 0072 
+         00011f 0065 
+         000120 0064 
+         000121 0020 
+         000122 0061 
+         000123 0073 
+         000124 0020 
+         000125 004F 
+         000126 0075 
+         000127 0074 
+         000128 0070 
+         000129 0075 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   33
+
+         00012a 0074 
+         00012b 0020 
+         00012c 0050 
+         00012d 0069 
+         00012e 006E 
+         00012f 000A 
+         000130 0000 
+    1230                      .align  2
+    1231 000132 0047  $C$FSL9:        .string "GPIO PIN11 is configured as Input Pin",10,0
+         000133 0050 
+         000134 0049 
+         000135 004F 
+         000136 0020 
+         000137 0050 
+         000138 0049 
+         000139 004E 
+         00013a 0031 
+         00013b 0031 
+         00013c 0020 
+         00013d 0069 
+         00013e 0073 
+         00013f 0020 
+         000140 0063 
+         000141 006F 
+         000142 006E 
+         000143 0066 
+         000144 0069 
+         000145 0067 
+         000146 0075 
+         000147 0072 
+         000148 0065 
+         000149 0064 
+         00014a 0020 
+         00014b 0061 
+         00014c 0073 
+         00014d 0020 
+         00014e 0049 
+         00014f 006E 
+         000150 0070 
+         000151 0075 
+         000152 0074 
+         000153 0020 
+         000154 0050 
+         000155 0069 
+         000156 006E 
+         000157 000A 
+         000158 0000 
+    1232                      .align  2
+    1233 00015a 0074  $C$FSL10:       .string "test failed- GPIO_enableInt",10,0
+         00015b 0065 
+         00015c 0073 
+         00015d 0074 
+         00015e 0020 
+         00015f 0066 
+         000160 0061 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   34
+
+         000161 0069 
+         000162 006C 
+         000163 0065 
+         000164 0064 
+         000165 002D 
+         000166 0020 
+         000167 0047 
+         000168 0050 
+         000169 0049 
+         00016a 004F 
+         00016b 005F 
+         00016c 0065 
+         00016d 006E 
+         00016e 0061 
+         00016f 0062 
+         000170 006C 
+         000171 0065 
+         000172 0049 
+         000173 006E 
+         000174 0074 
+         000175 000A 
+         000176 0000 
+    1234                      .align  2
+    1235 000178 0047  $C$FSL11:       .string "GPIO_write failed",10,0
+         000179 0050 
+         00017a 0049 
+         00017b 004F 
+         00017c 005F 
+         00017d 0077 
+         00017e 0072 
+         00017f 0069 
+         000180 0074 
+         000181 0065 
+         000182 0020 
+         000183 0066 
+         000184 0061 
+         000185 0069 
+         000186 006C 
+         000187 0065 
+         000188 0064 
+         000189 000A 
+         00018a 0000 
+    1236                      .align  2
+    1237 00018c 0047  $C$FSL12:       .string "GPIO ISR is called",10,0
+         00018d 0050 
+         00018e 0049 
+         00018f 004F 
+         000190 0020 
+         000191 0049 
+         000192 0053 
+         000193 0052 
+         000194 0020 
+         000195 0069 
+         000196 0073 
+         000197 0020 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   35
+
+         000198 0063 
+         000199 0061 
+         00019a 006C 
+         00019b 006C 
+         00019c 0065 
+         00019d 0064 
+         00019e 000A 
+         00019f 0000 
+    1238                      .align  2
+    1239 0001a0 0052  $C$FSL13:       .string "Reading Value from GPIO Pin11 is successful",10,0
+         0001a1 0065 
+         0001a2 0061 
+         0001a3 0064 
+         0001a4 0069 
+         0001a5 006E 
+         0001a6 0067 
+         0001a7 0020 
+         0001a8 0056 
+         0001a9 0061 
+         0001aa 006C 
+         0001ab 0075 
+         0001ac 0065 
+         0001ad 0020 
+         0001ae 0066 
+         0001af 0072 
+         0001b0 006F 
+         0001b1 006D 
+         0001b2 0020 
+         0001b3 0047 
+         0001b4 0050 
+         0001b5 0049 
+         0001b6 004F 
+         0001b7 0020 
+         0001b8 0050 
+         0001b9 0069 
+         0001ba 006E 
+         0001bb 0031 
+         0001bc 0031 
+         0001bd 0020 
+         0001be 0069 
+         0001bf 0073 
+         0001c0 0020 
+         0001c1 0073 
+         0001c2 0075 
+         0001c3 0063 
+         0001c4 0063 
+         0001c5 0065 
+         0001c6 0073 
+         0001c7 0073 
+         0001c8 0066 
+         0001c9 0075 
+         0001ca 006C 
+         0001cb 000A 
+         0001cc 0000 
+    1240                      .align  2
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   36
+
+    1241 0001ce 0052  $C$FSL14:       .string "Reading Value from GPIO Pin11 is Failed",10,0
+         0001cf 0065 
+         0001d0 0061 
+         0001d1 0064 
+         0001d2 0069 
+         0001d3 006E 
+         0001d4 0067 
+         0001d5 0020 
+         0001d6 0056 
+         0001d7 0061 
+         0001d8 006C 
+         0001d9 0075 
+         0001da 0065 
+         0001db 0020 
+         0001dc 0066 
+         0001dd 0072 
+         0001de 006F 
+         0001df 006D 
+         0001e0 0020 
+         0001e1 0047 
+         0001e2 0050 
+         0001e3 0049 
+         0001e4 004F 
+         0001e5 0020 
+         0001e6 0050 
+         0001e7 0069 
+         0001e8 006E 
+         0001e9 0031 
+         0001ea 0031 
+         0001eb 0020 
+         0001ec 0069 
+         0001ed 0073 
+         0001ee 0020 
+         0001ef 0046 
+         0001f0 0061 
+         0001f1 0069 
+         0001f2 006C 
+         0001f3 0065 
+         0001f4 0064 
+         0001f5 000A 
+         0001f6 0000 
+    1242              ;******************************************************************************
+    1243              ;* UNDEFINED EXTERNAL REFERENCES                                              *
+    1244              ;******************************************************************************
+    1245                      .global _GPIO_open
+    1246                      .global _GPIO_read
+    1247                      .global _GPIO_write
+    1248                      .global _GPIO_reset
+    1249                      .global _GPIO_configBit
+    1250                      .global _GPIO_enableInt
+    1251                      .global _GPIO_clearInt
+    1252                      .global _GPIO_statusBit
+    1253                      .global _IRQ_plug
+    1254                      .global _IRQ_clear
+    1255                      .global _IRQ_clearAll
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   37
+
+    1256                      .global _IRQ_disable
+    1257                      .global _IRQ_disableAll
+    1258                      .global _IRQ_enable
+    1259                      .global _IRQ_setVecs
+    1260                      .global _IRQ_globalDisable
+    1261                      .global _IRQ_globalEnable
+    1262                      .global _printf
+    1263                      .global _VECSTART
+    1264              
+    1265              ;*******************************************************************************
+    1266              ;* TYPE INFORMATION                                                            *
+    1267              ;*******************************************************************************
+    1268              
+    1269              $C$DW$T$29      .dwtag  DW_TAG_enumeration_type
+    1270                      .dwattr $C$DW$T$29, DW_AT_byte_size(0x01)
+    1271              $C$DW$100       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN0"), DW_AT_const_value(0x00)
+    1272              $C$DW$101       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN1"), DW_AT_const_value(0x01)
+    1273              $C$DW$102       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN2"), DW_AT_const_value(0x02)
+    1274              $C$DW$103       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN3"), DW_AT_const_value(0x03)
+    1275              $C$DW$104       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN4"), DW_AT_const_value(0x04)
+    1276              $C$DW$105       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN5"), DW_AT_const_value(0x05)
+    1277              $C$DW$106       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN6"), DW_AT_const_value(0x06)
+    1278              $C$DW$107       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN7"), DW_AT_const_value(0x07)
+    1279              $C$DW$108       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN8"), DW_AT_const_value(0x08)
+    1280              $C$DW$109       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN9"), DW_AT_const_value(0x09)
+    1281              $C$DW$110       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN10"), DW_AT_const_value(0x0a)
+    1282              $C$DW$111       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN11"), DW_AT_const_value(0x0b)
+    1283              $C$DW$112       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN12"), DW_AT_const_value(0x0c)
+    1284              $C$DW$113       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN13"), DW_AT_const_value(0x0d)
+    1285              $C$DW$114       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN14"), DW_AT_const_value(0x0e)
+    1286              $C$DW$115       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN15"), DW_AT_const_value(0x0f)
+    1287              $C$DW$116       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN16"), DW_AT_const_value(0x10)
+    1288              $C$DW$117       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN17"), DW_AT_const_value(0x11)
+    1289              $C$DW$118       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN18"), DW_AT_const_value(0x12)
+    1290              $C$DW$119       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN19"), DW_AT_const_value(0x13)
+    1291              $C$DW$120       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN20"), DW_AT_const_value(0x14)
+    1292              $C$DW$121       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN21"), DW_AT_const_value(0x15)
+    1293              $C$DW$122       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN22"), DW_AT_const_value(0x16)
+    1294              $C$DW$123       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN23"), DW_AT_const_value(0x17)
+    1295              $C$DW$124       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN24"), DW_AT_const_value(0x18)
+    1296              $C$DW$125       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN25"), DW_AT_const_value(0x19)
+    1297              $C$DW$126       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN26"), DW_AT_const_value(0x1a)
+    1298              $C$DW$127       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN27"), DW_AT_const_value(0x1b)
+    1299              $C$DW$128       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN28"), DW_AT_const_value(0x1c)
+    1300              $C$DW$129       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN29"), DW_AT_const_value(0x1d)
+    1301              $C$DW$130       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN30"), DW_AT_const_value(0x1e)
+    1302              $C$DW$131       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_PIN31"), DW_AT_const_value(0x1f)
+    1303                      .dwendtag $C$DW$T$29
+    1304              
+    1305              $C$DW$T$30      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_GpioPinNum")
+    1306                      .dwattr $C$DW$T$30, DW_AT_type(*$C$DW$T$29)
+    1307                      .dwattr $C$DW$T$30, DW_AT_language(DW_LANG_C)
+    1308              
+    1309              $C$DW$T$31      .dwtag  DW_TAG_enumeration_type
+    1310                      .dwattr $C$DW$T$31, DW_AT_byte_size(0x01)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   38
+
+    1311              $C$DW$132       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_DIR_INPUT"), DW_AT_const_value(0x00)
+    1312              $C$DW$133       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_DIR_OUTPUT"), DW_AT_const_value(0x01)
+    1313                      .dwendtag $C$DW$T$31
+    1314              
+    1315              $C$DW$T$32      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_GpioDirection")
+    1316                      .dwattr $C$DW$T$32, DW_AT_type(*$C$DW$T$31)
+    1317                      .dwattr $C$DW$T$32, DW_AT_language(DW_LANG_C)
+    1318              
+    1319              $C$DW$T$33      .dwtag  DW_TAG_enumeration_type
+    1320                      .dwattr $C$DW$T$33, DW_AT_byte_size(0x01)
+    1321              $C$DW$134       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_TRIG_RISING_EDGE"), DW_AT_const_value(0x00)
+    1322              $C$DW$135       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_TRIG_FALLING_EDGE"), DW_AT_const_value(0x01)
+    1323              $C$DW$136       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_GPIO_TRIG_CLEAR_EDGE"), DW_AT_const_value(0x02)
+    1324                      .dwendtag $C$DW$T$33
+    1325              
+    1326              $C$DW$T$34      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_GpioTriggerType")
+    1327                      .dwattr $C$DW$T$34, DW_AT_type(*$C$DW$T$33)
+    1328                      .dwattr $C$DW$T$34, DW_AT_language(DW_LANG_C)
+    1329              
+    1330              $C$DW$T$22      .dwtag  DW_TAG_structure_type
+    1331                      .dwattr $C$DW$T$22, DW_AT_byte_size(0x12)
+    1332              $C$DW$137       .dwtag  DW_TAG_member
+    1333                      .dwattr $C$DW$137, DW_AT_type(*$C$DW$T$21)
+    1334                      .dwattr $C$DW$137, DW_AT_name("RSVD0")
+    1335                      .dwattr $C$DW$137, DW_AT_TI_symbol_name("_RSVD0")
+    1336                      .dwattr $C$DW$137, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1337                      .dwattr $C$DW$137, DW_AT_accessibility(DW_ACCESS_public)
+    1338              $C$DW$138       .dwtag  DW_TAG_member
+    1339                      .dwattr $C$DW$138, DW_AT_type(*$C$DW$T$20)
+    1340                      .dwattr $C$DW$138, DW_AT_name("IODIR1")
+    1341                      .dwattr $C$DW$138, DW_AT_TI_symbol_name("_IODIR1")
+    1342                      .dwattr $C$DW$138, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+    1343                      .dwattr $C$DW$138, DW_AT_accessibility(DW_ACCESS_public)
+    1344              $C$DW$139       .dwtag  DW_TAG_member
+    1345                      .dwattr $C$DW$139, DW_AT_type(*$C$DW$T$20)
+    1346                      .dwattr $C$DW$139, DW_AT_name("IODIR2")
+    1347                      .dwattr $C$DW$139, DW_AT_TI_symbol_name("_IODIR2")
+    1348                      .dwattr $C$DW$139, DW_AT_data_member_location[DW_OP_plus_uconst 0x7]
+    1349                      .dwattr $C$DW$139, DW_AT_accessibility(DW_ACCESS_public)
+    1350              $C$DW$140       .dwtag  DW_TAG_member
+    1351                      .dwattr $C$DW$140, DW_AT_type(*$C$DW$T$20)
+    1352                      .dwattr $C$DW$140, DW_AT_name("IOINDATA1")
+    1353                      .dwattr $C$DW$140, DW_AT_TI_symbol_name("_IOINDATA1")
+    1354                      .dwattr $C$DW$140, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
+    1355                      .dwattr $C$DW$140, DW_AT_accessibility(DW_ACCESS_public)
+    1356              $C$DW$141       .dwtag  DW_TAG_member
+    1357                      .dwattr $C$DW$141, DW_AT_type(*$C$DW$T$20)
+    1358                      .dwattr $C$DW$141, DW_AT_name("IOINDATA2")
+    1359                      .dwattr $C$DW$141, DW_AT_TI_symbol_name("_IOINDATA2")
+    1360                      .dwattr $C$DW$141, DW_AT_data_member_location[DW_OP_plus_uconst 0x9]
+    1361                      .dwattr $C$DW$141, DW_AT_accessibility(DW_ACCESS_public)
+    1362              $C$DW$142       .dwtag  DW_TAG_member
+    1363                      .dwattr $C$DW$142, DW_AT_type(*$C$DW$T$20)
+    1364                      .dwattr $C$DW$142, DW_AT_name("IOOUTDATA1")
+    1365                      .dwattr $C$DW$142, DW_AT_TI_symbol_name("_IOOUTDATA1")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   39
+
+    1366                      .dwattr $C$DW$142, DW_AT_data_member_location[DW_OP_plus_uconst 0xa]
+    1367                      .dwattr $C$DW$142, DW_AT_accessibility(DW_ACCESS_public)
+    1368              $C$DW$143       .dwtag  DW_TAG_member
+    1369                      .dwattr $C$DW$143, DW_AT_type(*$C$DW$T$20)
+    1370                      .dwattr $C$DW$143, DW_AT_name("IOOUTDATA2")
+    1371                      .dwattr $C$DW$143, DW_AT_TI_symbol_name("_IOOUTDATA2")
+    1372                      .dwattr $C$DW$143, DW_AT_data_member_location[DW_OP_plus_uconst 0xb]
+    1373                      .dwattr $C$DW$143, DW_AT_accessibility(DW_ACCESS_public)
+    1374              $C$DW$144       .dwtag  DW_TAG_member
+    1375                      .dwattr $C$DW$144, DW_AT_type(*$C$DW$T$20)
+    1376                      .dwattr $C$DW$144, DW_AT_name("IOINTEDG1")
+    1377                      .dwattr $C$DW$144, DW_AT_TI_symbol_name("_IOINTEDG1")
+    1378                      .dwattr $C$DW$144, DW_AT_data_member_location[DW_OP_plus_uconst 0xc]
+    1379                      .dwattr $C$DW$144, DW_AT_accessibility(DW_ACCESS_public)
+    1380              $C$DW$145       .dwtag  DW_TAG_member
+    1381                      .dwattr $C$DW$145, DW_AT_type(*$C$DW$T$20)
+    1382                      .dwattr $C$DW$145, DW_AT_name("IOINTEDG2")
+    1383                      .dwattr $C$DW$145, DW_AT_TI_symbol_name("_IOINTEDG2")
+    1384                      .dwattr $C$DW$145, DW_AT_data_member_location[DW_OP_plus_uconst 0xd]
+    1385                      .dwattr $C$DW$145, DW_AT_accessibility(DW_ACCESS_public)
+    1386              $C$DW$146       .dwtag  DW_TAG_member
+    1387                      .dwattr $C$DW$146, DW_AT_type(*$C$DW$T$20)
+    1388                      .dwattr $C$DW$146, DW_AT_name("IOINTEN1")
+    1389                      .dwattr $C$DW$146, DW_AT_TI_symbol_name("_IOINTEN1")
+    1390                      .dwattr $C$DW$146, DW_AT_data_member_location[DW_OP_plus_uconst 0xe]
+    1391                      .dwattr $C$DW$146, DW_AT_accessibility(DW_ACCESS_public)
+    1392              $C$DW$147       .dwtag  DW_TAG_member
+    1393                      .dwattr $C$DW$147, DW_AT_type(*$C$DW$T$20)
+    1394                      .dwattr $C$DW$147, DW_AT_name("IOINTEN2")
+    1395                      .dwattr $C$DW$147, DW_AT_TI_symbol_name("_IOINTEN2")
+    1396                      .dwattr $C$DW$147, DW_AT_data_member_location[DW_OP_plus_uconst 0xf]
+    1397                      .dwattr $C$DW$147, DW_AT_accessibility(DW_ACCESS_public)
+    1398              $C$DW$148       .dwtag  DW_TAG_member
+    1399                      .dwattr $C$DW$148, DW_AT_type(*$C$DW$T$20)
+    1400                      .dwattr $C$DW$148, DW_AT_name("IOINTFLG1")
+    1401                      .dwattr $C$DW$148, DW_AT_TI_symbol_name("_IOINTFLG1")
+    1402                      .dwattr $C$DW$148, DW_AT_data_member_location[DW_OP_plus_uconst 0x10]
+    1403                      .dwattr $C$DW$148, DW_AT_accessibility(DW_ACCESS_public)
+    1404              $C$DW$149       .dwtag  DW_TAG_member
+    1405                      .dwattr $C$DW$149, DW_AT_type(*$C$DW$T$20)
+    1406                      .dwattr $C$DW$149, DW_AT_name("IOINTFLG2")
+    1407                      .dwattr $C$DW$149, DW_AT_TI_symbol_name("_IOINTFLG2")
+    1408                      .dwattr $C$DW$149, DW_AT_data_member_location[DW_OP_plus_uconst 0x11]
+    1409                      .dwattr $C$DW$149, DW_AT_accessibility(DW_ACCESS_public)
+    1410                      .dwendtag $C$DW$T$22
+    1411              
+    1412              $C$DW$T$23      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_GpioRegs")
+    1413                      .dwattr $C$DW$T$23, DW_AT_type(*$C$DW$T$22)
+    1414                      .dwattr $C$DW$T$23, DW_AT_language(DW_LANG_C)
+    1415              $C$DW$150       .dwtag  DW_TAG_TI_far_type
+    1416                      .dwattr $C$DW$150, DW_AT_type(*$C$DW$T$23)
+    1417              $C$DW$151       .dwtag  DW_TAG_TI_ioport_type
+    1418                      .dwattr $C$DW$151, DW_AT_type(*$C$DW$150)
+    1419              $C$DW$T$24      .dwtag  DW_TAG_volatile_type
+    1420                      .dwattr $C$DW$T$24, DW_AT_type(*$C$DW$151)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   40
+
+    1421              $C$DW$T$25      .dwtag  DW_TAG_pointer_type
+    1422                      .dwattr $C$DW$T$25, DW_AT_type(*$C$DW$T$24)
+    1423                      .dwattr $C$DW$T$25, DW_AT_address_class(0x10)
+    1424              $C$DW$T$26      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_GpioRegsOvly")
+    1425                      .dwattr $C$DW$T$26, DW_AT_type(*$C$DW$T$25)
+    1426                      .dwattr $C$DW$T$26, DW_AT_language(DW_LANG_C)
+    1427              
+    1428              $C$DW$T$28      .dwtag  DW_TAG_structure_type
+    1429                      .dwattr $C$DW$T$28, DW_AT_byte_size(0x02)
+    1430              $C$DW$152       .dwtag  DW_TAG_member
+    1431                      .dwattr $C$DW$152, DW_AT_type(*$C$DW$T$26)
+    1432                      .dwattr $C$DW$152, DW_AT_name("baseAddr")
+    1433                      .dwattr $C$DW$152, DW_AT_TI_symbol_name("_baseAddr")
+    1434                      .dwattr $C$DW$152, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1435                      .dwattr $C$DW$152, DW_AT_accessibility(DW_ACCESS_public)
+    1436              $C$DW$153       .dwtag  DW_TAG_member
+    1437                      .dwattr $C$DW$153, DW_AT_type(*$C$DW$T$27)
+    1438                      .dwattr $C$DW$153, DW_AT_name("numPins")
+    1439                      .dwattr $C$DW$153, DW_AT_TI_symbol_name("_numPins")
+    1440                      .dwattr $C$DW$153, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+    1441                      .dwattr $C$DW$153, DW_AT_accessibility(DW_ACCESS_public)
+    1442                      .dwendtag $C$DW$T$28
+    1443              
+    1444              $C$DW$T$40      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_GpioObj")
+    1445                      .dwattr $C$DW$T$40, DW_AT_type(*$C$DW$T$28)
+    1446                      .dwattr $C$DW$T$40, DW_AT_language(DW_LANG_C)
+    1447              $C$DW$T$41      .dwtag  DW_TAG_pointer_type
+    1448                      .dwattr $C$DW$T$41, DW_AT_type(*$C$DW$T$40)
+    1449                      .dwattr $C$DW$T$41, DW_AT_address_class(0x17)
+    1450              $C$DW$T$42      .dwtag  DW_TAG_typedef, DW_AT_name("GPIO_Handle")
+    1451                      .dwattr $C$DW$T$42, DW_AT_type(*$C$DW$T$41)
+    1452                      .dwattr $C$DW$T$42, DW_AT_language(DW_LANG_C)
+    1453              
+    1454              $C$DW$T$35      .dwtag  DW_TAG_structure_type
+    1455                      .dwattr $C$DW$T$35, DW_AT_byte_size(0x03)
+    1456              $C$DW$154       .dwtag  DW_TAG_member
+    1457                      .dwattr $C$DW$154, DW_AT_type(*$C$DW$T$30)
+    1458                      .dwattr $C$DW$154, DW_AT_name("pinNum")
+    1459                      .dwattr $C$DW$154, DW_AT_TI_symbol_name("_pinNum")
+    1460                      .dwattr $C$DW$154, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1461                      .dwattr $C$DW$154, DW_AT_accessibility(DW_ACCESS_public)
+    1462              $C$DW$155       .dwtag  DW_TAG_member
+    1463                      .dwattr $C$DW$155, DW_AT_type(*$C$DW$T$32)
+    1464                      .dwattr $C$DW$155, DW_AT_name("direction")
+    1465                      .dwattr $C$DW$155, DW_AT_TI_symbol_name("_direction")
+    1466                      .dwattr $C$DW$155, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+    1467                      .dwattr $C$DW$155, DW_AT_accessibility(DW_ACCESS_public)
+    1468              $C$DW$156       .dwtag  DW_TAG_member
+    1469                      .dwattr $C$DW$156, DW_AT_type(*$C$DW$T$34)
+    1470                      .dwattr $C$DW$156, DW_AT_name("trigger")
+    1471                      .dwattr $C$DW$156, DW_AT_TI_symbol_name("_trigger")
+    1472                      .dwattr $C$DW$156, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    1473                      .dwattr $C$DW$156, DW_AT_accessibility(DW_ACCESS_public)
+    1474                      .dwendtag $C$DW$T$35
+    1475              
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   41
+
+    1476              $C$DW$T$48      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_GpioPinConfig")
+    1477                      .dwattr $C$DW$T$48, DW_AT_type(*$C$DW$T$35)
+    1478                      .dwattr $C$DW$T$48, DW_AT_language(DW_LANG_C)
+    1479              $C$DW$T$49      .dwtag  DW_TAG_pointer_type
+    1480                      .dwattr $C$DW$T$49, DW_AT_type(*$C$DW$T$48)
+    1481                      .dwattr $C$DW$T$49, DW_AT_address_class(0x17)
+    1482              
+    1483              $C$DW$T$39      .dwtag  DW_TAG_structure_type
+    1484                      .dwattr $C$DW$T$39, DW_AT_byte_size(0x48)
+    1485              $C$DW$157       .dwtag  DW_TAG_member
+    1486                      .dwattr $C$DW$157, DW_AT_type(*$C$DW$T$20)
+    1487                      .dwattr $C$DW$157, DW_AT_name("EBSR")
+    1488                      .dwattr $C$DW$157, DW_AT_TI_symbol_name("_EBSR")
+    1489                      .dwattr $C$DW$157, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1490                      .dwattr $C$DW$157, DW_AT_accessibility(DW_ACCESS_public)
+    1491              $C$DW$158       .dwtag  DW_TAG_member
+    1492                      .dwattr $C$DW$158, DW_AT_type(*$C$DW$T$20)
+    1493                      .dwattr $C$DW$158, DW_AT_name("RSVD0")
+    1494                      .dwattr $C$DW$158, DW_AT_TI_symbol_name("_RSVD0")
+    1495                      .dwattr $C$DW$158, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+    1496                      .dwattr $C$DW$158, DW_AT_accessibility(DW_ACCESS_public)
+    1497              $C$DW$159       .dwtag  DW_TAG_member
+    1498                      .dwattr $C$DW$159, DW_AT_type(*$C$DW$T$20)
+    1499                      .dwattr $C$DW$159, DW_AT_name("PCGCR1")
+    1500                      .dwattr $C$DW$159, DW_AT_TI_symbol_name("_PCGCR1")
+    1501                      .dwattr $C$DW$159, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    1502                      .dwattr $C$DW$159, DW_AT_accessibility(DW_ACCESS_public)
+    1503              $C$DW$160       .dwtag  DW_TAG_member
+    1504                      .dwattr $C$DW$160, DW_AT_type(*$C$DW$T$20)
+    1505                      .dwattr $C$DW$160, DW_AT_name("PCGCR2")
+    1506                      .dwattr $C$DW$160, DW_AT_TI_symbol_name("_PCGCR2")
+    1507                      .dwattr $C$DW$160, DW_AT_data_member_location[DW_OP_plus_uconst 0x3]
+    1508                      .dwattr $C$DW$160, DW_AT_accessibility(DW_ACCESS_public)
+    1509              $C$DW$161       .dwtag  DW_TAG_member
+    1510                      .dwattr $C$DW$161, DW_AT_type(*$C$DW$T$20)
+    1511                      .dwattr $C$DW$161, DW_AT_name("PSRCR")
+    1512                      .dwattr $C$DW$161, DW_AT_TI_symbol_name("_PSRCR")
+    1513                      .dwattr $C$DW$161, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+    1514                      .dwattr $C$DW$161, DW_AT_accessibility(DW_ACCESS_public)
+    1515              $C$DW$162       .dwtag  DW_TAG_member
+    1516                      .dwattr $C$DW$162, DW_AT_type(*$C$DW$T$20)
+    1517                      .dwattr $C$DW$162, DW_AT_name("PRCR")
+    1518                      .dwattr $C$DW$162, DW_AT_TI_symbol_name("_PRCR")
+    1519                      .dwattr $C$DW$162, DW_AT_data_member_location[DW_OP_plus_uconst 0x5]
+    1520                      .dwattr $C$DW$162, DW_AT_accessibility(DW_ACCESS_public)
+    1521              $C$DW$163       .dwtag  DW_TAG_member
+    1522                      .dwattr $C$DW$163, DW_AT_type(*$C$DW$T$36)
+    1523                      .dwattr $C$DW$163, DW_AT_name("RSVD1")
+    1524                      .dwattr $C$DW$163, DW_AT_TI_symbol_name("_RSVD1")
+    1525                      .dwattr $C$DW$163, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+    1526                      .dwattr $C$DW$163, DW_AT_accessibility(DW_ACCESS_public)
+    1527              $C$DW$164       .dwtag  DW_TAG_member
+    1528                      .dwattr $C$DW$164, DW_AT_type(*$C$DW$T$20)
+    1529                      .dwattr $C$DW$164, DW_AT_name("TIAFR")
+    1530                      .dwattr $C$DW$164, DW_AT_TI_symbol_name("_TIAFR")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   42
+
+    1531                      .dwattr $C$DW$164, DW_AT_data_member_location[DW_OP_plus_uconst 0x14]
+    1532                      .dwattr $C$DW$164, DW_AT_accessibility(DW_ACCESS_public)
+    1533              $C$DW$165       .dwtag  DW_TAG_member
+    1534                      .dwattr $C$DW$165, DW_AT_type(*$C$DW$T$20)
+    1535                      .dwattr $C$DW$165, DW_AT_name("RSVD2")
+    1536                      .dwattr $C$DW$165, DW_AT_TI_symbol_name("_RSVD2")
+    1537                      .dwattr $C$DW$165, DW_AT_data_member_location[DW_OP_plus_uconst 0x15]
+    1538                      .dwattr $C$DW$165, DW_AT_accessibility(DW_ACCESS_public)
+    1539              $C$DW$166       .dwtag  DW_TAG_member
+    1540                      .dwattr $C$DW$166, DW_AT_type(*$C$DW$T$20)
+    1541                      .dwattr $C$DW$166, DW_AT_name("ODSCR")
+    1542                      .dwattr $C$DW$166, DW_AT_TI_symbol_name("_ODSCR")
+    1543                      .dwattr $C$DW$166, DW_AT_data_member_location[DW_OP_plus_uconst 0x16]
+    1544                      .dwattr $C$DW$166, DW_AT_accessibility(DW_ACCESS_public)
+    1545              $C$DW$167       .dwtag  DW_TAG_member
+    1546                      .dwattr $C$DW$167, DW_AT_type(*$C$DW$T$20)
+    1547                      .dwattr $C$DW$167, DW_AT_name("PDINHIBR1")
+    1548                      .dwattr $C$DW$167, DW_AT_TI_symbol_name("_PDINHIBR1")
+    1549                      .dwattr $C$DW$167, DW_AT_data_member_location[DW_OP_plus_uconst 0x17]
+    1550                      .dwattr $C$DW$167, DW_AT_accessibility(DW_ACCESS_public)
+    1551              $C$DW$168       .dwtag  DW_TAG_member
+    1552                      .dwattr $C$DW$168, DW_AT_type(*$C$DW$T$20)
+    1553                      .dwattr $C$DW$168, DW_AT_name("PDINHIBR2")
+    1554                      .dwattr $C$DW$168, DW_AT_TI_symbol_name("_PDINHIBR2")
+    1555                      .dwattr $C$DW$168, DW_AT_data_member_location[DW_OP_plus_uconst 0x18]
+    1556                      .dwattr $C$DW$168, DW_AT_accessibility(DW_ACCESS_public)
+    1557              $C$DW$169       .dwtag  DW_TAG_member
+    1558                      .dwattr $C$DW$169, DW_AT_type(*$C$DW$T$20)
+    1559                      .dwattr $C$DW$169, DW_AT_name("PDINHIBR3")
+    1560                      .dwattr $C$DW$169, DW_AT_TI_symbol_name("_PDINHIBR3")
+    1561                      .dwattr $C$DW$169, DW_AT_data_member_location[DW_OP_plus_uconst 0x19]
+    1562                      .dwattr $C$DW$169, DW_AT_accessibility(DW_ACCESS_public)
+    1563              $C$DW$170       .dwtag  DW_TAG_member
+    1564                      .dwattr $C$DW$170, DW_AT_type(*$C$DW$T$20)
+    1565                      .dwattr $C$DW$170, DW_AT_name("DMA0CESR1")
+    1566                      .dwattr $C$DW$170, DW_AT_TI_symbol_name("_DMA0CESR1")
+    1567                      .dwattr $C$DW$170, DW_AT_data_member_location[DW_OP_plus_uconst 0x1a]
+    1568                      .dwattr $C$DW$170, DW_AT_accessibility(DW_ACCESS_public)
+    1569              $C$DW$171       .dwtag  DW_TAG_member
+    1570                      .dwattr $C$DW$171, DW_AT_type(*$C$DW$T$20)
+    1571                      .dwattr $C$DW$171, DW_AT_name("DMA0CESR2")
+    1572                      .dwattr $C$DW$171, DW_AT_TI_symbol_name("_DMA0CESR2")
+    1573                      .dwattr $C$DW$171, DW_AT_data_member_location[DW_OP_plus_uconst 0x1b]
+    1574                      .dwattr $C$DW$171, DW_AT_accessibility(DW_ACCESS_public)
+    1575              $C$DW$172       .dwtag  DW_TAG_member
+    1576                      .dwattr $C$DW$172, DW_AT_type(*$C$DW$T$20)
+    1577                      .dwattr $C$DW$172, DW_AT_name("DMA1CESR1")
+    1578                      .dwattr $C$DW$172, DW_AT_TI_symbol_name("_DMA1CESR1")
+    1579                      .dwattr $C$DW$172, DW_AT_data_member_location[DW_OP_plus_uconst 0x1c]
+    1580                      .dwattr $C$DW$172, DW_AT_accessibility(DW_ACCESS_public)
+    1581              $C$DW$173       .dwtag  DW_TAG_member
+    1582                      .dwattr $C$DW$173, DW_AT_type(*$C$DW$T$20)
+    1583                      .dwattr $C$DW$173, DW_AT_name("DMA1CESR2")
+    1584                      .dwattr $C$DW$173, DW_AT_TI_symbol_name("_DMA1CESR2")
+    1585                      .dwattr $C$DW$173, DW_AT_data_member_location[DW_OP_plus_uconst 0x1d]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   43
+
+    1586                      .dwattr $C$DW$173, DW_AT_accessibility(DW_ACCESS_public)
+    1587              $C$DW$174       .dwtag  DW_TAG_member
+    1588                      .dwattr $C$DW$174, DW_AT_type(*$C$DW$T$20)
+    1589                      .dwattr $C$DW$174, DW_AT_name("SDRAMCCR")
+    1590                      .dwattr $C$DW$174, DW_AT_TI_symbol_name("_SDRAMCCR")
+    1591                      .dwattr $C$DW$174, DW_AT_data_member_location[DW_OP_plus_uconst 0x1e]
+    1592                      .dwattr $C$DW$174, DW_AT_accessibility(DW_ACCESS_public)
+    1593              $C$DW$175       .dwtag  DW_TAG_member
+    1594                      .dwattr $C$DW$175, DW_AT_type(*$C$DW$T$20)
+    1595                      .dwattr $C$DW$175, DW_AT_name("CCR2")
+    1596                      .dwattr $C$DW$175, DW_AT_TI_symbol_name("_CCR2")
+    1597                      .dwattr $C$DW$175, DW_AT_data_member_location[DW_OP_plus_uconst 0x1f]
+    1598                      .dwattr $C$DW$175, DW_AT_accessibility(DW_ACCESS_public)
+    1599              $C$DW$176       .dwtag  DW_TAG_member
+    1600                      .dwattr $C$DW$176, DW_AT_type(*$C$DW$T$20)
+    1601                      .dwattr $C$DW$176, DW_AT_name("CGCR1")
+    1602                      .dwattr $C$DW$176, DW_AT_TI_symbol_name("_CGCR1")
+    1603                      .dwattr $C$DW$176, DW_AT_data_member_location[DW_OP_plus_uconst 0x20]
+    1604                      .dwattr $C$DW$176, DW_AT_accessibility(DW_ACCESS_public)
+    1605              $C$DW$177       .dwtag  DW_TAG_member
+    1606                      .dwattr $C$DW$177, DW_AT_type(*$C$DW$T$20)
+    1607                      .dwattr $C$DW$177, DW_AT_name("CGICR")
+    1608                      .dwattr $C$DW$177, DW_AT_TI_symbol_name("_CGICR")
+    1609                      .dwattr $C$DW$177, DW_AT_data_member_location[DW_OP_plus_uconst 0x21]
+    1610                      .dwattr $C$DW$177, DW_AT_accessibility(DW_ACCESS_public)
+    1611              $C$DW$178       .dwtag  DW_TAG_member
+    1612                      .dwattr $C$DW$178, DW_AT_type(*$C$DW$T$20)
+    1613                      .dwattr $C$DW$178, DW_AT_name("CGCR2")
+    1614                      .dwattr $C$DW$178, DW_AT_TI_symbol_name("_CGCR2")
+    1615                      .dwattr $C$DW$178, DW_AT_data_member_location[DW_OP_plus_uconst 0x22]
+    1616                      .dwattr $C$DW$178, DW_AT_accessibility(DW_ACCESS_public)
+    1617              $C$DW$179       .dwtag  DW_TAG_member
+    1618                      .dwattr $C$DW$179, DW_AT_type(*$C$DW$T$20)
+    1619                      .dwattr $C$DW$179, DW_AT_name("CGOCR")
+    1620                      .dwattr $C$DW$179, DW_AT_TI_symbol_name("_CGOCR")
+    1621                      .dwattr $C$DW$179, DW_AT_data_member_location[DW_OP_plus_uconst 0x23]
+    1622                      .dwattr $C$DW$179, DW_AT_accessibility(DW_ACCESS_public)
+    1623              $C$DW$180       .dwtag  DW_TAG_member
+    1624                      .dwattr $C$DW$180, DW_AT_type(*$C$DW$T$20)
+    1625                      .dwattr $C$DW$180, DW_AT_name("CCSSR")
+    1626                      .dwattr $C$DW$180, DW_AT_TI_symbol_name("_CCSSR")
+    1627                      .dwattr $C$DW$180, DW_AT_data_member_location[DW_OP_plus_uconst 0x24]
+    1628                      .dwattr $C$DW$180, DW_AT_accessibility(DW_ACCESS_public)
+    1629              $C$DW$181       .dwtag  DW_TAG_member
+    1630                      .dwattr $C$DW$181, DW_AT_type(*$C$DW$T$20)
+    1631                      .dwattr $C$DW$181, DW_AT_name("RSVD3")
+    1632                      .dwattr $C$DW$181, DW_AT_TI_symbol_name("_RSVD3")
+    1633                      .dwattr $C$DW$181, DW_AT_data_member_location[DW_OP_plus_uconst 0x25]
+    1634                      .dwattr $C$DW$181, DW_AT_accessibility(DW_ACCESS_public)
+    1635              $C$DW$182       .dwtag  DW_TAG_member
+    1636                      .dwattr $C$DW$182, DW_AT_type(*$C$DW$T$20)
+    1637                      .dwattr $C$DW$182, DW_AT_name("ECDR")
+    1638                      .dwattr $C$DW$182, DW_AT_TI_symbol_name("_ECDR")
+    1639                      .dwattr $C$DW$182, DW_AT_data_member_location[DW_OP_plus_uconst 0x26]
+    1640                      .dwattr $C$DW$182, DW_AT_accessibility(DW_ACCESS_public)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   44
+
+    1641              $C$DW$183       .dwtag  DW_TAG_member
+    1642                      .dwattr $C$DW$183, DW_AT_type(*$C$DW$T$20)
+    1643                      .dwattr $C$DW$183, DW_AT_name("RSVD4")
+    1644                      .dwattr $C$DW$183, DW_AT_TI_symbol_name("_RSVD4")
+    1645                      .dwattr $C$DW$183, DW_AT_data_member_location[DW_OP_plus_uconst 0x27]
+    1646                      .dwattr $C$DW$183, DW_AT_accessibility(DW_ACCESS_public)
+    1647              $C$DW$184       .dwtag  DW_TAG_member
+    1648                      .dwattr $C$DW$184, DW_AT_type(*$C$DW$T$20)
+    1649                      .dwattr $C$DW$184, DW_AT_name("RAMSLPMDCNTLR1")
+    1650                      .dwattr $C$DW$184, DW_AT_TI_symbol_name("_RAMSLPMDCNTLR1")
+    1651                      .dwattr $C$DW$184, DW_AT_data_member_location[DW_OP_plus_uconst 0x28]
+    1652                      .dwattr $C$DW$184, DW_AT_accessibility(DW_ACCESS_public)
+    1653              $C$DW$185       .dwtag  DW_TAG_member
+    1654                      .dwattr $C$DW$185, DW_AT_type(*$C$DW$T$20)
+    1655                      .dwattr $C$DW$185, DW_AT_name("RSVD5")
+    1656                      .dwattr $C$DW$185, DW_AT_TI_symbol_name("_RSVD5")
+    1657                      .dwattr $C$DW$185, DW_AT_data_member_location[DW_OP_plus_uconst 0x29]
+    1658                      .dwattr $C$DW$185, DW_AT_accessibility(DW_ACCESS_public)
+    1659              $C$DW$186       .dwtag  DW_TAG_member
+    1660                      .dwattr $C$DW$186, DW_AT_type(*$C$DW$T$20)
+    1661                      .dwattr $C$DW$186, DW_AT_name("RAMSLPMDCNTLR2")
+    1662                      .dwattr $C$DW$186, DW_AT_TI_symbol_name("_RAMSLPMDCNTLR2")
+    1663                      .dwattr $C$DW$186, DW_AT_data_member_location[DW_OP_plus_uconst 0x2a]
+    1664                      .dwattr $C$DW$186, DW_AT_accessibility(DW_ACCESS_public)
+    1665              $C$DW$187       .dwtag  DW_TAG_member
+    1666                      .dwattr $C$DW$187, DW_AT_type(*$C$DW$T$20)
+    1667                      .dwattr $C$DW$187, DW_AT_name("RAMSLPMDCNTLR3")
+    1668                      .dwattr $C$DW$187, DW_AT_TI_symbol_name("_RAMSLPMDCNTLR3")
+    1669                      .dwattr $C$DW$187, DW_AT_data_member_location[DW_OP_plus_uconst 0x2b]
+    1670                      .dwattr $C$DW$187, DW_AT_accessibility(DW_ACCESS_public)
+    1671              $C$DW$188       .dwtag  DW_TAG_member
+    1672                      .dwattr $C$DW$188, DW_AT_type(*$C$DW$T$20)
+    1673                      .dwattr $C$DW$188, DW_AT_name("RAMSLPMDCNTLR4")
+    1674                      .dwattr $C$DW$188, DW_AT_TI_symbol_name("_RAMSLPMDCNTLR4")
+    1675                      .dwattr $C$DW$188, DW_AT_data_member_location[DW_OP_plus_uconst 0x2c]
+    1676                      .dwattr $C$DW$188, DW_AT_accessibility(DW_ACCESS_public)
+    1677              $C$DW$189       .dwtag  DW_TAG_member
+    1678                      .dwattr $C$DW$189, DW_AT_type(*$C$DW$T$20)
+    1679                      .dwattr $C$DW$189, DW_AT_name("RAMSLPMDCNTLR5")
+    1680                      .dwattr $C$DW$189, DW_AT_TI_symbol_name("_RAMSLPMDCNTLR5")
+    1681                      .dwattr $C$DW$189, DW_AT_data_member_location[DW_OP_plus_uconst 0x2d]
+    1682                      .dwattr $C$DW$189, DW_AT_accessibility(DW_ACCESS_public)
+    1683              $C$DW$190       .dwtag  DW_TAG_member
+    1684                      .dwattr $C$DW$190, DW_AT_type(*$C$DW$T$37)
+    1685                      .dwattr $C$DW$190, DW_AT_name("RSVD6")
+    1686                      .dwattr $C$DW$190, DW_AT_TI_symbol_name("_RSVD6")
+    1687                      .dwattr $C$DW$190, DW_AT_data_member_location[DW_OP_plus_uconst 0x2e]
+    1688                      .dwattr $C$DW$190, DW_AT_accessibility(DW_ACCESS_public)
+    1689              $C$DW$191       .dwtag  DW_TAG_member
+    1690                      .dwattr $C$DW$191, DW_AT_type(*$C$DW$T$20)
+    1691                      .dwattr $C$DW$191, DW_AT_name("DMAIFR")
+    1692                      .dwattr $C$DW$191, DW_AT_TI_symbol_name("_DMAIFR")
+    1693                      .dwattr $C$DW$191, DW_AT_data_member_location[DW_OP_plus_uconst 0x30]
+    1694                      .dwattr $C$DW$191, DW_AT_accessibility(DW_ACCESS_public)
+    1695              $C$DW$192       .dwtag  DW_TAG_member
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   45
+
+    1696                      .dwattr $C$DW$192, DW_AT_type(*$C$DW$T$20)
+    1697                      .dwattr $C$DW$192, DW_AT_name("DMAIER")
+    1698                      .dwattr $C$DW$192, DW_AT_TI_symbol_name("_DMAIER")
+    1699                      .dwattr $C$DW$192, DW_AT_data_member_location[DW_OP_plus_uconst 0x31]
+    1700                      .dwattr $C$DW$192, DW_AT_accessibility(DW_ACCESS_public)
+    1701              $C$DW$193       .dwtag  DW_TAG_member
+    1702                      .dwattr $C$DW$193, DW_AT_type(*$C$DW$T$20)
+    1703                      .dwattr $C$DW$193, DW_AT_name("USBSCR")
+    1704                      .dwattr $C$DW$193, DW_AT_TI_symbol_name("_USBSCR")
+    1705                      .dwattr $C$DW$193, DW_AT_data_member_location[DW_OP_plus_uconst 0x32]
+    1706                      .dwattr $C$DW$193, DW_AT_accessibility(DW_ACCESS_public)
+    1707              $C$DW$194       .dwtag  DW_TAG_member
+    1708                      .dwattr $C$DW$194, DW_AT_type(*$C$DW$T$20)
+    1709                      .dwattr $C$DW$194, DW_AT_name("ESCR")
+    1710                      .dwattr $C$DW$194, DW_AT_TI_symbol_name("_ESCR")
+    1711                      .dwattr $C$DW$194, DW_AT_data_member_location[DW_OP_plus_uconst 0x33]
+    1712                      .dwattr $C$DW$194, DW_AT_accessibility(DW_ACCESS_public)
+    1713              $C$DW$195       .dwtag  DW_TAG_member
+    1714                      .dwattr $C$DW$195, DW_AT_type(*$C$DW$T$37)
+    1715                      .dwattr $C$DW$195, DW_AT_name("RSVD7")
+    1716                      .dwattr $C$DW$195, DW_AT_TI_symbol_name("_RSVD7")
+    1717                      .dwattr $C$DW$195, DW_AT_data_member_location[DW_OP_plus_uconst 0x34]
+    1718                      .dwattr $C$DW$195, DW_AT_accessibility(DW_ACCESS_public)
+    1719              $C$DW$196       .dwtag  DW_TAG_member
+    1720                      .dwattr $C$DW$196, DW_AT_type(*$C$DW$T$20)
+    1721                      .dwattr $C$DW$196, DW_AT_name("DMA2CESR1")
+    1722                      .dwattr $C$DW$196, DW_AT_TI_symbol_name("_DMA2CESR1")
+    1723                      .dwattr $C$DW$196, DW_AT_data_member_location[DW_OP_plus_uconst 0x36]
+    1724                      .dwattr $C$DW$196, DW_AT_accessibility(DW_ACCESS_public)
+    1725              $C$DW$197       .dwtag  DW_TAG_member
+    1726                      .dwattr $C$DW$197, DW_AT_type(*$C$DW$T$20)
+    1727                      .dwattr $C$DW$197, DW_AT_name("DMA2CESR2")
+    1728                      .dwattr $C$DW$197, DW_AT_TI_symbol_name("_DMA2CESR2")
+    1729                      .dwattr $C$DW$197, DW_AT_data_member_location[DW_OP_plus_uconst 0x37]
+    1730                      .dwattr $C$DW$197, DW_AT_accessibility(DW_ACCESS_public)
+    1731              $C$DW$198       .dwtag  DW_TAG_member
+    1732                      .dwattr $C$DW$198, DW_AT_type(*$C$DW$T$20)
+    1733                      .dwattr $C$DW$198, DW_AT_name("DMA3CESR1")
+    1734                      .dwattr $C$DW$198, DW_AT_TI_symbol_name("_DMA3CESR1")
+    1735                      .dwattr $C$DW$198, DW_AT_data_member_location[DW_OP_plus_uconst 0x38]
+    1736                      .dwattr $C$DW$198, DW_AT_accessibility(DW_ACCESS_public)
+    1737              $C$DW$199       .dwtag  DW_TAG_member
+    1738                      .dwattr $C$DW$199, DW_AT_type(*$C$DW$T$20)
+    1739                      .dwattr $C$DW$199, DW_AT_name("DMA3CESR2")
+    1740                      .dwattr $C$DW$199, DW_AT_TI_symbol_name("_DMA3CESR2")
+    1741                      .dwattr $C$DW$199, DW_AT_data_member_location[DW_OP_plus_uconst 0x39]
+    1742                      .dwattr $C$DW$199, DW_AT_accessibility(DW_ACCESS_public)
+    1743              $C$DW$200       .dwtag  DW_TAG_member
+    1744                      .dwattr $C$DW$200, DW_AT_type(*$C$DW$T$20)
+    1745                      .dwattr $C$DW$200, DW_AT_name("CLKSTOP")
+    1746                      .dwattr $C$DW$200, DW_AT_TI_symbol_name("_CLKSTOP")
+    1747                      .dwattr $C$DW$200, DW_AT_data_member_location[DW_OP_plus_uconst 0x3a]
+    1748                      .dwattr $C$DW$200, DW_AT_accessibility(DW_ACCESS_public)
+    1749              $C$DW$201       .dwtag  DW_TAG_member
+    1750                      .dwattr $C$DW$201, DW_AT_type(*$C$DW$T$38)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   46
+
+    1751                      .dwattr $C$DW$201, DW_AT_name("RSVD8")
+    1752                      .dwattr $C$DW$201, DW_AT_TI_symbol_name("_RSVD8")
+    1753                      .dwattr $C$DW$201, DW_AT_data_member_location[DW_OP_plus_uconst 0x3b]
+    1754                      .dwattr $C$DW$201, DW_AT_accessibility(DW_ACCESS_public)
+    1755              $C$DW$202       .dwtag  DW_TAG_member
+    1756                      .dwattr $C$DW$202, DW_AT_type(*$C$DW$T$20)
+    1757                      .dwattr $C$DW$202, DW_AT_name("DIEIDR0")
+    1758                      .dwattr $C$DW$202, DW_AT_TI_symbol_name("_DIEIDR0")
+    1759                      .dwattr $C$DW$202, DW_AT_data_member_location[DW_OP_plus_uconst 0x40]
+    1760                      .dwattr $C$DW$202, DW_AT_accessibility(DW_ACCESS_public)
+    1761              $C$DW$203       .dwtag  DW_TAG_member
+    1762                      .dwattr $C$DW$203, DW_AT_type(*$C$DW$T$20)
+    1763                      .dwattr $C$DW$203, DW_AT_name("DIEIDR1")
+    1764                      .dwattr $C$DW$203, DW_AT_TI_symbol_name("_DIEIDR1")
+    1765                      .dwattr $C$DW$203, DW_AT_data_member_location[DW_OP_plus_uconst 0x41]
+    1766                      .dwattr $C$DW$203, DW_AT_accessibility(DW_ACCESS_public)
+    1767              $C$DW$204       .dwtag  DW_TAG_member
+    1768                      .dwattr $C$DW$204, DW_AT_type(*$C$DW$T$20)
+    1769                      .dwattr $C$DW$204, DW_AT_name("DIEIDR2")
+    1770                      .dwattr $C$DW$204, DW_AT_TI_symbol_name("_DIEIDR2")
+    1771                      .dwattr $C$DW$204, DW_AT_data_member_location[DW_OP_plus_uconst 0x42]
+    1772                      .dwattr $C$DW$204, DW_AT_accessibility(DW_ACCESS_public)
+    1773              $C$DW$205       .dwtag  DW_TAG_member
+    1774                      .dwattr $C$DW$205, DW_AT_type(*$C$DW$T$20)
+    1775                      .dwattr $C$DW$205, DW_AT_name("DIEIDR3")
+    1776                      .dwattr $C$DW$205, DW_AT_TI_symbol_name("_DIEIDR3")
+    1777                      .dwattr $C$DW$205, DW_AT_data_member_location[DW_OP_plus_uconst 0x43]
+    1778                      .dwattr $C$DW$205, DW_AT_accessibility(DW_ACCESS_public)
+    1779              $C$DW$206       .dwtag  DW_TAG_member
+    1780                      .dwattr $C$DW$206, DW_AT_type(*$C$DW$T$20)
+    1781                      .dwattr $C$DW$206, DW_AT_name("DIEIDR4")
+    1782                      .dwattr $C$DW$206, DW_AT_TI_symbol_name("_DIEIDR4")
+    1783                      .dwattr $C$DW$206, DW_AT_data_member_location[DW_OP_plus_uconst 0x44]
+    1784                      .dwattr $C$DW$206, DW_AT_accessibility(DW_ACCESS_public)
+    1785              $C$DW$207       .dwtag  DW_TAG_member
+    1786                      .dwattr $C$DW$207, DW_AT_type(*$C$DW$T$20)
+    1787                      .dwattr $C$DW$207, DW_AT_name("DIEIDR5")
+    1788                      .dwattr $C$DW$207, DW_AT_TI_symbol_name("_DIEIDR5")
+    1789                      .dwattr $C$DW$207, DW_AT_data_member_location[DW_OP_plus_uconst 0x45]
+    1790                      .dwattr $C$DW$207, DW_AT_accessibility(DW_ACCESS_public)
+    1791              $C$DW$208       .dwtag  DW_TAG_member
+    1792                      .dwattr $C$DW$208, DW_AT_type(*$C$DW$T$20)
+    1793                      .dwattr $C$DW$208, DW_AT_name("DIEIDR6")
+    1794                      .dwattr $C$DW$208, DW_AT_TI_symbol_name("_DIEIDR6")
+    1795                      .dwattr $C$DW$208, DW_AT_data_member_location[DW_OP_plus_uconst 0x46]
+    1796                      .dwattr $C$DW$208, DW_AT_accessibility(DW_ACCESS_public)
+    1797              $C$DW$209       .dwtag  DW_TAG_member
+    1798                      .dwattr $C$DW$209, DW_AT_type(*$C$DW$T$20)
+    1799                      .dwattr $C$DW$209, DW_AT_name("DIEIDR7")
+    1800                      .dwattr $C$DW$209, DW_AT_TI_symbol_name("_DIEIDR7")
+    1801                      .dwattr $C$DW$209, DW_AT_data_member_location[DW_OP_plus_uconst 0x47]
+    1802                      .dwattr $C$DW$209, DW_AT_accessibility(DW_ACCESS_public)
+    1803                      .dwendtag $C$DW$T$39
+    1804              
+    1805              $C$DW$T$50      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_SysRegs")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   47
+
+    1806                      .dwattr $C$DW$T$50, DW_AT_type(*$C$DW$T$39)
+    1807                      .dwattr $C$DW$T$50, DW_AT_language(DW_LANG_C)
+    1808              $C$DW$210       .dwtag  DW_TAG_TI_far_type
+    1809                      .dwattr $C$DW$210, DW_AT_type(*$C$DW$T$50)
+    1810              $C$DW$211       .dwtag  DW_TAG_TI_ioport_type
+    1811                      .dwattr $C$DW$211, DW_AT_type(*$C$DW$210)
+    1812              $C$DW$T$51      .dwtag  DW_TAG_volatile_type
+    1813                      .dwattr $C$DW$T$51, DW_AT_type(*$C$DW$211)
+    1814              $C$DW$T$52      .dwtag  DW_TAG_pointer_type
+    1815                      .dwattr $C$DW$T$52, DW_AT_type(*$C$DW$T$51)
+    1816                      .dwattr $C$DW$T$52, DW_AT_address_class(0x10)
+    1817              $C$DW$T$53      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_SysRegsOvly")
+    1818                      .dwattr $C$DW$T$53, DW_AT_type(*$C$DW$T$52)
+    1819                      .dwattr $C$DW$T$53, DW_AT_language(DW_LANG_C)
+    1820              
+    1821              $C$DW$T$54      .dwtag  DW_TAG_subroutine_type
+    1822                      .dwattr $C$DW$T$54, DW_AT_language(DW_LANG_C)
+    1823              $C$DW$T$55      .dwtag  DW_TAG_pointer_type
+    1824                      .dwattr $C$DW$T$55, DW_AT_type(*$C$DW$T$54)
+    1825                      .dwattr $C$DW$T$55, DW_AT_address_class(0x20)
+    1826              $C$DW$T$56      .dwtag  DW_TAG_typedef, DW_AT_name("IRQ_IsrPtr")
+    1827                      .dwattr $C$DW$T$56, DW_AT_type(*$C$DW$T$55)
+    1828                      .dwattr $C$DW$T$56, DW_AT_language(DW_LANG_C)
+    1829              $C$DW$T$4       .dwtag  DW_TAG_base_type
+    1830                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+    1831                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+    1832                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+    1833              $C$DW$T$5       .dwtag  DW_TAG_base_type
+    1834                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+    1835                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+    1836                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+    1837              $C$DW$T$6       .dwtag  DW_TAG_base_type
+    1838                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+    1839                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+    1840                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+    1841              $C$DW$T$27      .dwtag  DW_TAG_typedef, DW_AT_name("Uint8")
+    1842                      .dwattr $C$DW$T$27, DW_AT_type(*$C$DW$T$6)
+    1843                      .dwattr $C$DW$T$27, DW_AT_language(DW_LANG_C)
+    1844              $C$DW$T$7       .dwtag  DW_TAG_base_type
+    1845                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+    1846                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+    1847                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+    1848              $C$DW$T$8       .dwtag  DW_TAG_base_type
+    1849                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+    1850                      .dwattr $C$DW$T$8, DW_AT_name("short")
+    1851                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+    1852              $C$DW$T$43      .dwtag  DW_TAG_typedef, DW_AT_name("Int16")
+    1853                      .dwattr $C$DW$T$43, DW_AT_type(*$C$DW$T$8)
+    1854                      .dwattr $C$DW$T$43, DW_AT_language(DW_LANG_C)
+    1855              $C$DW$T$44      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_Status")
+    1856                      .dwattr $C$DW$T$44, DW_AT_type(*$C$DW$T$43)
+    1857                      .dwattr $C$DW$T$44, DW_AT_language(DW_LANG_C)
+    1858              $C$DW$T$45      .dwtag  DW_TAG_pointer_type
+    1859                      .dwattr $C$DW$T$45, DW_AT_type(*$C$DW$T$44)
+    1860                      .dwattr $C$DW$T$45, DW_AT_address_class(0x17)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   48
+
+    1861              $C$DW$212       .dwtag  DW_TAG_TI_far_type
+    1862                      .dwattr $C$DW$212, DW_AT_type(*$C$DW$T$43)
+    1863              $C$DW$T$73      .dwtag  DW_TAG_volatile_type
+    1864                      .dwattr $C$DW$T$73, DW_AT_type(*$C$DW$212)
+    1865              $C$DW$T$9       .dwtag  DW_TAG_base_type
+    1866                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+    1867                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+    1868                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+    1869              $C$DW$T$19      .dwtag  DW_TAG_typedef, DW_AT_name("Uint16")
+    1870                      .dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$9)
+    1871                      .dwattr $C$DW$T$19, DW_AT_language(DW_LANG_C)
+    1872              $C$DW$213       .dwtag  DW_TAG_TI_far_type
+    1873                      .dwattr $C$DW$213, DW_AT_type(*$C$DW$T$19)
+    1874              $C$DW$T$20      .dwtag  DW_TAG_volatile_type
+    1875                      .dwattr $C$DW$T$20, DW_AT_type(*$C$DW$213)
+    1876              
+    1877              $C$DW$T$21      .dwtag  DW_TAG_array_type
+    1878                      .dwattr $C$DW$T$21, DW_AT_type(*$C$DW$T$20)
+    1879                      .dwattr $C$DW$T$21, DW_AT_language(DW_LANG_C)
+    1880                      .dwattr $C$DW$T$21, DW_AT_byte_size(0x06)
+    1881              $C$DW$214       .dwtag  DW_TAG_subrange_type
+    1882                      .dwattr $C$DW$214, DW_AT_upper_bound(0x05)
+    1883                      .dwendtag $C$DW$T$21
+    1884              
+    1885              
+    1886              $C$DW$T$36      .dwtag  DW_TAG_array_type
+    1887                      .dwattr $C$DW$T$36, DW_AT_type(*$C$DW$T$20)
+    1888                      .dwattr $C$DW$T$36, DW_AT_language(DW_LANG_C)
+    1889                      .dwattr $C$DW$T$36, DW_AT_byte_size(0x0e)
+    1890              $C$DW$215       .dwtag  DW_TAG_subrange_type
+    1891                      .dwattr $C$DW$215, DW_AT_upper_bound(0x0d)
+    1892                      .dwendtag $C$DW$T$36
+    1893              
+    1894              
+    1895              $C$DW$T$37      .dwtag  DW_TAG_array_type
+    1896                      .dwattr $C$DW$T$37, DW_AT_type(*$C$DW$T$20)
+    1897                      .dwattr $C$DW$T$37, DW_AT_language(DW_LANG_C)
+    1898                      .dwattr $C$DW$T$37, DW_AT_byte_size(0x02)
+    1899              $C$DW$216       .dwtag  DW_TAG_subrange_type
+    1900                      .dwattr $C$DW$216, DW_AT_upper_bound(0x01)
+    1901                      .dwendtag $C$DW$T$37
+    1902              
+    1903              
+    1904              $C$DW$T$38      .dwtag  DW_TAG_array_type
+    1905                      .dwattr $C$DW$T$38, DW_AT_type(*$C$DW$T$20)
+    1906                      .dwattr $C$DW$T$38, DW_AT_language(DW_LANG_C)
+    1907                      .dwattr $C$DW$T$38, DW_AT_byte_size(0x05)
+    1908              $C$DW$217       .dwtag  DW_TAG_subrange_type
+    1909                      .dwattr $C$DW$217, DW_AT_upper_bound(0x04)
+    1910                      .dwendtag $C$DW$T$38
+    1911              
+    1912              $C$DW$T$57      .dwtag  DW_TAG_pointer_type
+    1913                      .dwattr $C$DW$T$57, DW_AT_type(*$C$DW$T$19)
+    1914                      .dwattr $C$DW$T$57, DW_AT_address_class(0x17)
+    1915              $C$DW$T$10      .dwtag  DW_TAG_base_type
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   49
+
+    1916                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+    1917                      .dwattr $C$DW$T$10, DW_AT_name("int")
+    1918                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+    1919              $C$DW$T$75      .dwtag  DW_TAG_typedef, DW_AT_name("Bool")
+    1920                      .dwattr $C$DW$T$75, DW_AT_type(*$C$DW$T$10)
+    1921                      .dwattr $C$DW$T$75, DW_AT_language(DW_LANG_C)
+    1922              $C$DW$T$11      .dwtag  DW_TAG_base_type
+    1923                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+    1924                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+    1925                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+    1926              $C$DW$T$12      .dwtag  DW_TAG_base_type
+    1927                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+    1928                      .dwattr $C$DW$T$12, DW_AT_name("long")
+    1929                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+    1930              $C$DW$T$13      .dwtag  DW_TAG_base_type
+    1931                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+    1932                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+    1933                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+    1934              $C$DW$T$70      .dwtag  DW_TAG_typedef, DW_AT_name("Uint32")
+    1935                      .dwattr $C$DW$T$70, DW_AT_type(*$C$DW$T$13)
+    1936                      .dwattr $C$DW$T$70, DW_AT_language(DW_LANG_C)
+    1937              $C$DW$T$14      .dwtag  DW_TAG_base_type
+    1938                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+    1939                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+    1940                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+    1941                      .dwattr $C$DW$T$14, DW_AT_bit_size(0x28)
+    1942                      .dwattr $C$DW$T$14, DW_AT_bit_offset(0x18)
+    1943              $C$DW$T$15      .dwtag  DW_TAG_base_type
+    1944                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+    1945                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+    1946                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+    1947                      .dwattr $C$DW$T$15, DW_AT_bit_size(0x28)
+    1948                      .dwattr $C$DW$T$15, DW_AT_bit_offset(0x18)
+    1949              $C$DW$T$16      .dwtag  DW_TAG_base_type
+    1950                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+    1951                      .dwattr $C$DW$T$16, DW_AT_name("float")
+    1952                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+    1953              $C$DW$T$17      .dwtag  DW_TAG_base_type
+    1954                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+    1955                      .dwattr $C$DW$T$17, DW_AT_name("double")
+    1956                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+    1957              $C$DW$T$18      .dwtag  DW_TAG_base_type
+    1958                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+    1959                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+    1960                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x02)
+    1961              $C$DW$T$84      .dwtag  DW_TAG_base_type
+    1962                      .dwattr $C$DW$T$84, DW_AT_encoding(DW_ATE_signed_char)
+    1963                      .dwattr $C$DW$T$84, DW_AT_name("signed char")
+    1964                      .dwattr $C$DW$T$84, DW_AT_byte_size(0x01)
+    1965              $C$DW$218       .dwtag  DW_TAG_TI_far_type
+    1966                      .dwattr $C$DW$218, DW_AT_type(*$C$DW$T$84)
+    1967              $C$DW$T$85      .dwtag  DW_TAG_const_type
+    1968                      .dwattr $C$DW$T$85, DW_AT_type(*$C$DW$218)
+    1969              $C$DW$T$86      .dwtag  DW_TAG_pointer_type
+    1970                      .dwattr $C$DW$T$86, DW_AT_type(*$C$DW$T$85)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   50
+
+    1971                      .dwattr $C$DW$T$86, DW_AT_address_class(0x17)
+    1972                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+    1973              
+    1974              ;***************************************************************
+    1975              ;* DWARF CIE ENTRIES                                           *
+    1976              ;***************************************************************
+    1977              
+    1978              $C$DW$CIE       .dwcie 91
+    1979                      .dwcfi  cfa_register, 36
+    1980                      .dwcfi  cfa_offset, 0
+    1981                      .dwcfi  undefined, 0
+    1982                      .dwcfi  undefined, 1
+    1983                      .dwcfi  undefined, 2
+    1984                      .dwcfi  undefined, 3
+    1985                      .dwcfi  undefined, 4
+    1986                      .dwcfi  undefined, 5
+    1987                      .dwcfi  undefined, 6
+    1988                      .dwcfi  undefined, 7
+    1989                      .dwcfi  undefined, 8
+    1990                      .dwcfi  undefined, 9
+    1991                      .dwcfi  undefined, 10
+    1992                      .dwcfi  undefined, 11
+    1993                      .dwcfi  undefined, 12
+    1994                      .dwcfi  undefined, 13
+    1995                      .dwcfi  same_value, 14
+    1996                      .dwcfi  same_value, 15
+    1997                      .dwcfi  undefined, 16
+    1998                      .dwcfi  undefined, 17
+    1999                      .dwcfi  undefined, 18
+    2000                      .dwcfi  undefined, 19
+    2001                      .dwcfi  undefined, 20
+    2002                      .dwcfi  undefined, 21
+    2003                      .dwcfi  undefined, 22
+    2004                      .dwcfi  undefined, 23
+    2005                      .dwcfi  undefined, 24
+    2006                      .dwcfi  undefined, 25
+    2007                      .dwcfi  same_value, 26
+    2008                      .dwcfi  same_value, 27
+    2009                      .dwcfi  same_value, 28
+    2010                      .dwcfi  same_value, 29
+    2011                      .dwcfi  same_value, 30
+    2012                      .dwcfi  same_value, 31
+    2013                      .dwcfi  undefined, 32
+    2014                      .dwcfi  undefined, 33
+    2015                      .dwcfi  undefined, 34
+    2016                      .dwcfi  undefined, 35
+    2017                      .dwcfi  undefined, 36
+    2018                      .dwcfi  undefined, 37
+    2019                      .dwcfi  undefined, 38
+    2020                      .dwcfi  undefined, 39
+    2021                      .dwcfi  undefined, 40
+    2022                      .dwcfi  undefined, 41
+    2023                      .dwcfi  undefined, 42
+    2024                      .dwcfi  undefined, 43
+    2025                      .dwcfi  undefined, 44
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   51
+
+    2026                      .dwcfi  undefined, 45
+    2027                      .dwcfi  undefined, 46
+    2028                      .dwcfi  undefined, 47
+    2029                      .dwcfi  undefined, 48
+    2030                      .dwcfi  undefined, 49
+    2031                      .dwcfi  undefined, 50
+    2032                      .dwcfi  undefined, 51
+    2033                      .dwcfi  undefined, 52
+    2034                      .dwcfi  undefined, 53
+    2035                      .dwcfi  undefined, 54
+    2036                      .dwcfi  undefined, 55
+    2037                      .dwcfi  undefined, 56
+    2038                      .dwcfi  undefined, 57
+    2039                      .dwcfi  undefined, 58
+    2040                      .dwcfi  undefined, 59
+    2041                      .dwcfi  undefined, 60
+    2042                      .dwcfi  undefined, 61
+    2043                      .dwcfi  undefined, 62
+    2044                      .dwcfi  undefined, 63
+    2045                      .dwcfi  undefined, 64
+    2046                      .dwcfi  undefined, 65
+    2047                      .dwcfi  undefined, 66
+    2048                      .dwcfi  undefined, 67
+    2049                      .dwcfi  undefined, 68
+    2050                      .dwcfi  undefined, 69
+    2051                      .dwcfi  undefined, 70
+    2052                      .dwcfi  undefined, 71
+    2053                      .dwcfi  undefined, 72
+    2054                      .dwcfi  undefined, 73
+    2055                      .dwcfi  undefined, 74
+    2056                      .dwcfi  undefined, 75
+    2057                      .dwcfi  undefined, 76
+    2058                      .dwcfi  undefined, 77
+    2059                      .dwcfi  undefined, 78
+    2060                      .dwcfi  undefined, 79
+    2061                      .dwcfi  undefined, 80
+    2062                      .dwcfi  undefined, 81
+    2063                      .dwcfi  undefined, 82
+    2064                      .dwcfi  undefined, 83
+    2065                      .dwcfi  undefined, 84
+    2066                      .dwcfi  undefined, 85
+    2067                      .dwcfi  undefined, 86
+    2068                      .dwcfi  undefined, 87
+    2069                      .dwcfi  undefined, 88
+    2070                      .dwcfi  undefined, 89
+    2071                      .dwcfi  undefined, 90
+    2072                      .dwcfi  undefined, 91
+    2073                      .dwendentry
+    2074              
+    2075              ;***************************************************************
+    2076              ;* DWARF REGISTER MAP                                          *
+    2077              ;***************************************************************
+    2078              
+    2079              $C$DW$219       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    2080                      .dwattr $C$DW$219, DW_AT_location[DW_OP_reg0]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   52
+
+    2081              $C$DW$220       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    2082                      .dwattr $C$DW$220, DW_AT_location[DW_OP_reg1]
+    2083              $C$DW$221       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0_G")
+    2084                      .dwattr $C$DW$221, DW_AT_location[DW_OP_reg2]
+    2085              $C$DW$222       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    2086                      .dwattr $C$DW$222, DW_AT_location[DW_OP_reg3]
+    2087              $C$DW$223       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    2088                      .dwattr $C$DW$223, DW_AT_location[DW_OP_reg4]
+    2089              $C$DW$224       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1_G")
+    2090                      .dwattr $C$DW$224, DW_AT_location[DW_OP_reg5]
+    2091              $C$DW$225       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    2092                      .dwattr $C$DW$225, DW_AT_location[DW_OP_reg6]
+    2093              $C$DW$226       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    2094                      .dwattr $C$DW$226, DW_AT_location[DW_OP_reg7]
+    2095              $C$DW$227       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2_G")
+    2096                      .dwattr $C$DW$227, DW_AT_location[DW_OP_reg8]
+    2097              $C$DW$228       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    2098                      .dwattr $C$DW$228, DW_AT_location[DW_OP_reg9]
+    2099              $C$DW$229       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    2100                      .dwattr $C$DW$229, DW_AT_location[DW_OP_reg10]
+    2101              $C$DW$230       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3_G")
+    2102                      .dwattr $C$DW$230, DW_AT_location[DW_OP_reg11]
+    2103              $C$DW$231       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T0")
+    2104                      .dwattr $C$DW$231, DW_AT_location[DW_OP_reg12]
+    2105              $C$DW$232       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T1")
+    2106                      .dwattr $C$DW$232, DW_AT_location[DW_OP_reg13]
+    2107              $C$DW$233       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T2")
+    2108                      .dwattr $C$DW$233, DW_AT_location[DW_OP_reg14]
+    2109              $C$DW$234       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T3")
+    2110                      .dwattr $C$DW$234, DW_AT_location[DW_OP_reg15]
+    2111              $C$DW$235       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+    2112                      .dwattr $C$DW$235, DW_AT_location[DW_OP_reg16]
+    2113              $C$DW$236       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+    2114                      .dwattr $C$DW$236, DW_AT_location[DW_OP_reg17]
+    2115              $C$DW$237       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+    2116                      .dwattr $C$DW$237, DW_AT_location[DW_OP_reg18]
+    2117              $C$DW$238       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+    2118                      .dwattr $C$DW$238, DW_AT_location[DW_OP_reg19]
+    2119              $C$DW$239       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+    2120                      .dwattr $C$DW$239, DW_AT_location[DW_OP_reg20]
+    2121              $C$DW$240       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+    2122                      .dwattr $C$DW$240, DW_AT_location[DW_OP_reg21]
+    2123              $C$DW$241       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+    2124                      .dwattr $C$DW$241, DW_AT_location[DW_OP_reg22]
+    2125              $C$DW$242       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+    2126                      .dwattr $C$DW$242, DW_AT_location[DW_OP_reg23]
+    2127              $C$DW$243       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+    2128                      .dwattr $C$DW$243, DW_AT_location[DW_OP_reg24]
+    2129              $C$DW$244       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+    2130                      .dwattr $C$DW$244, DW_AT_location[DW_OP_reg25]
+    2131              $C$DW$245       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+    2132                      .dwattr $C$DW$245, DW_AT_location[DW_OP_reg26]
+    2133              $C$DW$246       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+    2134                      .dwattr $C$DW$246, DW_AT_location[DW_OP_reg27]
+    2135              $C$DW$247       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   53
+
+    2136                      .dwattr $C$DW$247, DW_AT_location[DW_OP_reg28]
+    2137              $C$DW$248       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+    2138                      .dwattr $C$DW$248, DW_AT_location[DW_OP_reg29]
+    2139              $C$DW$249       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+    2140                      .dwattr $C$DW$249, DW_AT_location[DW_OP_reg30]
+    2141              $C$DW$250       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+    2142                      .dwattr $C$DW$250, DW_AT_location[DW_OP_reg31]
+    2143              $C$DW$251       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+    2144                      .dwattr $C$DW$251, DW_AT_location[DW_OP_regx 0x20]
+    2145              $C$DW$252       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XFP")
+    2146                      .dwattr $C$DW$252, DW_AT_location[DW_OP_regx 0x21]
+    2147              $C$DW$253       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+    2148                      .dwattr $C$DW$253, DW_AT_location[DW_OP_regx 0x22]
+    2149              $C$DW$254       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+    2150                      .dwattr $C$DW$254, DW_AT_location[DW_OP_regx 0x23]
+    2151              $C$DW$255       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XSP")
+    2152                      .dwattr $C$DW$255, DW_AT_location[DW_OP_regx 0x24]
+    2153              $C$DW$256       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BKC")
+    2154                      .dwattr $C$DW$256, DW_AT_location[DW_OP_regx 0x25]
+    2155              $C$DW$257       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK03")
+    2156                      .dwattr $C$DW$257, DW_AT_location[DW_OP_regx 0x26]
+    2157              $C$DW$258       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK47")
+    2158                      .dwattr $C$DW$258, DW_AT_location[DW_OP_regx 0x27]
+    2159              $C$DW$259       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+    2160                      .dwattr $C$DW$259, DW_AT_location[DW_OP_regx 0x28]
+    2161              $C$DW$260       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+    2162                      .dwattr $C$DW$260, DW_AT_location[DW_OP_regx 0x29]
+    2163              $C$DW$261       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST2")
+    2164                      .dwattr $C$DW$261, DW_AT_location[DW_OP_regx 0x2a]
+    2165              $C$DW$262       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST3")
+    2166                      .dwattr $C$DW$262, DW_AT_location[DW_OP_regx 0x2b]
+    2167              $C$DW$263       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP")
+    2168                      .dwattr $C$DW$263, DW_AT_location[DW_OP_regx 0x2c]
+    2169              $C$DW$264       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP05")
+    2170                      .dwattr $C$DW$264, DW_AT_location[DW_OP_regx 0x2d]
+    2171              $C$DW$265       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP67")
+    2172                      .dwattr $C$DW$265, DW_AT_location[DW_OP_regx 0x2e]
+    2173              $C$DW$266       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC0")
+    2174                      .dwattr $C$DW$266, DW_AT_location[DW_OP_regx 0x2f]
+    2175              $C$DW$267       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0")
+    2176                      .dwattr $C$DW$267, DW_AT_location[DW_OP_regx 0x30]
+    2177              $C$DW$268       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0_H")
+    2178                      .dwattr $C$DW$268, DW_AT_location[DW_OP_regx 0x31]
+    2179              $C$DW$269       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0")
+    2180                      .dwattr $C$DW$269, DW_AT_location[DW_OP_regx 0x32]
+    2181              $C$DW$270       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0_H")
+    2182                      .dwattr $C$DW$270, DW_AT_location[DW_OP_regx 0x33]
+    2183              $C$DW$271       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRS1")
+    2184                      .dwattr $C$DW$271, DW_AT_location[DW_OP_regx 0x34]
+    2185              $C$DW$272       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC1")
+    2186                      .dwattr $C$DW$272, DW_AT_location[DW_OP_regx 0x35]
+    2187              $C$DW$273       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1")
+    2188                      .dwattr $C$DW$273, DW_AT_location[DW_OP_regx 0x36]
+    2189              $C$DW$274       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1_H")
+    2190                      .dwattr $C$DW$274, DW_AT_location[DW_OP_regx 0x37]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   54
+
+    2191              $C$DW$275       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1")
+    2192                      .dwattr $C$DW$275, DW_AT_location[DW_OP_regx 0x38]
+    2193              $C$DW$276       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1_H")
+    2194                      .dwattr $C$DW$276, DW_AT_location[DW_OP_regx 0x39]
+    2195              $C$DW$277       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CSR")
+    2196                      .dwattr $C$DW$277, DW_AT_location[DW_OP_regx 0x3a]
+    2197              $C$DW$278       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPTC")
+    2198                      .dwattr $C$DW$278, DW_AT_location[DW_OP_regx 0x3b]
+    2199              $C$DW$279       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDP")
+    2200                      .dwattr $C$DW$279, DW_AT_location[DW_OP_regx 0x3c]
+    2201              $C$DW$280       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XCDP")
+    2202                      .dwattr $C$DW$280, DW_AT_location[DW_OP_regx 0x3d]
+    2203              $C$DW$281       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN0")
+    2204                      .dwattr $C$DW$281, DW_AT_location[DW_OP_regx 0x3e]
+    2205              $C$DW$282       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN1")
+    2206                      .dwattr $C$DW$282, DW_AT_location[DW_OP_regx 0x3f]
+    2207              $C$DW$283       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA01")
+    2208                      .dwattr $C$DW$283, DW_AT_location[DW_OP_regx 0x40]
+    2209              $C$DW$284       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA23")
+    2210                      .dwattr $C$DW$284, DW_AT_location[DW_OP_regx 0x41]
+    2211              $C$DW$285       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA45")
+    2212                      .dwattr $C$DW$285, DW_AT_location[DW_OP_regx 0x42]
+    2213              $C$DW$286       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA67")
+    2214                      .dwattr $C$DW$286, DW_AT_location[DW_OP_regx 0x43]
+    2215              $C$DW$287       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSAC")
+    2216                      .dwattr $C$DW$287, DW_AT_location[DW_OP_regx 0x44]
+    2217              $C$DW$288       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CARRY")
+    2218                      .dwattr $C$DW$288, DW_AT_location[DW_OP_regx 0x45]
+    2219              $C$DW$289       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC1")
+    2220                      .dwattr $C$DW$289, DW_AT_location[DW_OP_regx 0x46]
+    2221              $C$DW$290       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC2")
+    2222                      .dwattr $C$DW$290, DW_AT_location[DW_OP_regx 0x47]
+    2223              $C$DW$291       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("M40")
+    2224                      .dwattr $C$DW$291, DW_AT_location[DW_OP_regx 0x48]
+    2225              $C$DW$292       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXMD")
+    2226                      .dwattr $C$DW$292, DW_AT_location[DW_OP_regx 0x49]
+    2227              $C$DW$293       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ARMS")
+    2228                      .dwattr $C$DW$293, DW_AT_location[DW_OP_regx 0x4a]
+    2229              $C$DW$294       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("C54CM")
+    2230                      .dwattr $C$DW$294, DW_AT_location[DW_OP_regx 0x4b]
+    2231              $C$DW$295       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATA")
+    2232                      .dwattr $C$DW$295, DW_AT_location[DW_OP_regx 0x4c]
+    2233              $C$DW$296       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATD")
+    2234                      .dwattr $C$DW$296, DW_AT_location[DW_OP_regx 0x4d]
+    2235              $C$DW$297       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RDM")
+    2236                      .dwattr $C$DW$297, DW_AT_location[DW_OP_regx 0x4e]
+    2237              $C$DW$298       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FRCT")
+    2238                      .dwattr $C$DW$298, DW_AT_location[DW_OP_regx 0x4f]
+    2239              $C$DW$299       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SMUL")
+    2240                      .dwattr $C$DW$299, DW_AT_location[DW_OP_regx 0x50]
+    2241              $C$DW$300       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+    2242                      .dwattr $C$DW$300, DW_AT_location[DW_OP_regx 0x51]
+    2243              $C$DW$301       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0LC")
+    2244                      .dwattr $C$DW$301, DW_AT_location[DW_OP_regx 0x52]
+    2245              $C$DW$302       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1LC")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:40 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+gpio_Input_Pin_Example.asm                                           PAGE   55
+
+    2246                      .dwattr $C$DW$302, DW_AT_location[DW_OP_regx 0x53]
+    2247              $C$DW$303       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2LC")
+    2248                      .dwattr $C$DW$303, DW_AT_location[DW_OP_regx 0x54]
+    2249              $C$DW$304       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3LC")
+    2250                      .dwattr $C$DW$304, DW_AT_location[DW_OP_regx 0x55]
+    2251              $C$DW$305       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4LC")
+    2252                      .dwattr $C$DW$305, DW_AT_location[DW_OP_regx 0x56]
+    2253              $C$DW$306       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5LC")
+    2254                      .dwattr $C$DW$306, DW_AT_location[DW_OP_regx 0x57]
+    2255              $C$DW$307       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6LC")
+    2256                      .dwattr $C$DW$307, DW_AT_location[DW_OP_regx 0x58]
+    2257              $C$DW$308       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7LC")
+    2258                      .dwattr $C$DW$308, DW_AT_location[DW_OP_regx 0x59]
+    2259              $C$DW$309       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDPLC")
+    2260                      .dwattr $C$DW$309, DW_AT_location[DW_OP_regx 0x5a]
+    2261              $C$DW$310       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+    2262                      .dwattr $C$DW$310, DW_AT_location[DW_OP_regx 0x5b]
+    2263                      .dwendtag $C$DW$CU
+    2264              
+    2264              
+    2264              
+
+No Assembly Errors, No Assembly Warnings

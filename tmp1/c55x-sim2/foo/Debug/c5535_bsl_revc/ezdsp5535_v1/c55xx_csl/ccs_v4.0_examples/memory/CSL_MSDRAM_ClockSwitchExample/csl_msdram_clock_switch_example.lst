@@ -1,0 +1,1462 @@
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE    1
+
+     885              ; Temporary Registers Used: None
+       1              ;*******************************************************************************
+       2              ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
+       3              ;* Date/Time created: Sat Sep 29 23:09:04 2018                                 *
+       4              ;*******************************************************************************
+       5                      .compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --si
+       6                      .mmregs
+       7                      .cpl_on
+       8                      .arms_on
+       9                      .c54cm_off
+      10                      .asg AR6, FP
+      11                      .asg XAR6, XFP
+      12                      .asg DPH, MDP
+      13                      .model call=c55_std
+      14                      .model mem=large
+      15                      .noremark 5002  ; code respects overwrite rules
+      16              ;*******************************************************************************
+      17              ;* GLOBAL FILE PARAMETERS                                                      *
+      18              ;*                                                                             *
+      19              ;*   Architecture       : TMS320C55x                                           *
+      20              ;*   Optimizing for     : Speed                                                *
+      21              ;*   Memory             : Large Model (23-Bit Data Pointers)                   *
+      22              ;*   Calls              : Normal Library ASM calls                             *
+      23              ;*   Debug Info         : Standard TI Debug Information                        *
+      24              ;*******************************************************************************
+      25              
+      26              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+      27                      .dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_M
+      28                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas In
+      29                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      30                      .dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+      31              ;******************************************************************************
+      32              ;* CINIT RECORDS                                                              *
+      33              ;******************************************************************************
+      34 000000               .sect   ".cinit"
+      35                      .align  1
+      36 000000 0001          .field          1,16
+      37 000001 0000-         .field          _PaSs_StAtE+0,24
+         000002 0000 
+      38 000002 0000          .field          0,8
+      39 000003 0001          .field  1,16                    ; _PaSs_StAtE @ 0
+      40              
+      41 000004               .sect   ".cinit"
+      42                      .align  1
+      43 000004 0001          .field          1,16
+      44 000005 0000-         .field          _PaSs+0,24
+         000006 0100 
+      45 000006 0100          .field          0,8
+      46 000007 0000          .field  0,16                    ; _PaSs @ 0
+      47              
+      48              
+      49              $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("MEM_init")
+      50                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_MEM_init")
+      51                      .dwattr $C$DW$1, DW_AT_type(*$C$DW$T$23)
+      52                      .dwattr $C$DW$1, DW_AT_declaration
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE    2
+
+      53                      .dwattr $C$DW$1, DW_AT_external
+      54              
+      55              $C$DW$2 .dwtag  DW_TAG_subprogram, DW_AT_name("MEM_setmSDRAMClock")
+      56                      .dwattr $C$DW$2, DW_AT_TI_symbol_name("_MEM_setmSDRAMClock")
+      57                      .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$23)
+      58                      .dwattr $C$DW$2, DW_AT_declaration
+      59                      .dwattr $C$DW$2, DW_AT_external
+      60              $C$DW$3 .dwtag  DW_TAG_formal_parameter
+      61                      .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$20)
+      62                      .dwendtag $C$DW$2
+      63              
+      64              
+      65              $C$DW$4 .dwtag  DW_TAG_subprogram, DW_AT_name("MEM_getmSDRAMClock")
+      66                      .dwattr $C$DW$4, DW_AT_TI_symbol_name("_MEM_getmSDRAMClock")
+      67                      .dwattr $C$DW$4, DW_AT_type(*$C$DW$T$29)
+      68                      .dwattr $C$DW$4, DW_AT_declaration
+      69                      .dwattr $C$DW$4, DW_AT_external
+      70              
+      71              $C$DW$5 .dwtag  DW_TAG_subprogram, DW_AT_name("printf")
+      72                      .dwattr $C$DW$5, DW_AT_TI_symbol_name("_printf")
+      73                      .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$10)
+      74                      .dwattr $C$DW$5, DW_AT_declaration
+      75                      .dwattr $C$DW$5, DW_AT_external
+      76              $C$DW$6 .dwtag  DW_TAG_formal_parameter
+      77                      .dwattr $C$DW$6, DW_AT_type(*$C$DW$T$34)
+      78              $C$DW$7 .dwtag  DW_TAG_unspecified_parameters
+      79                      .dwendtag $C$DW$5
+      80              
+      81                      .global _PaSs_StAtE
+      82 000000               .bss    _PaSs_StAtE,1,0,0
+      83              $C$DW$8 .dwtag  DW_TAG_variable, DW_AT_name("PaSs_StAtE")
+      84                      .dwattr $C$DW$8, DW_AT_TI_symbol_name("_PaSs_StAtE")
+      85                      .dwattr $C$DW$8, DW_AT_location[DW_OP_addr _PaSs_StAtE]
+      86                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$28)
+      87                      .dwattr $C$DW$8, DW_AT_external
+      88                      .global _PaSs
+      89 000001               .bss    _PaSs,1,0,0
+      90              $C$DW$9 .dwtag  DW_TAG_variable, DW_AT_name("PaSs")
+      91                      .dwattr $C$DW$9, DW_AT_TI_symbol_name("_PaSs")
+      92                      .dwattr $C$DW$9, DW_AT_location[DW_OP_addr _PaSs]
+      93                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$28)
+      94                      .dwattr $C$DW$9, DW_AT_external
+      95              ;       F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1378012 
+      96 000000               .sect   ".text"
+      97                      .align 4
+      98                      .global _main
+      99              
+     100              $C$DW$10        .dwtag  DW_TAG_subprogram, DW_AT_name("main")
+     101                      .dwattr $C$DW$10, DW_AT_low_pc(_main)
+     102                      .dwattr $C$DW$10, DW_AT_high_pc(0x00)
+     103                      .dwattr $C$DW$10, DW_AT_TI_symbol_name("_main")
+     104                      .dwattr $C$DW$10, DW_AT_external
+     105                      .dwattr $C$DW$10, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/mem
+     106                      .dwattr $C$DW$10, DW_AT_TI_begin_line(0x54)
+     107                      .dwattr $C$DW$10, DW_AT_TI_begin_column(0x06)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE    3
+
+     108                      .dwattr $C$DW$10, DW_AT_TI_max_frame_size(0x04)
+     109                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     110              
+     111                      .dwfde $C$DW$CIE, _main
+     112              ;*******************************************************************************
+     113              ;* FUNCTION NAME: main                                                         *
+     114              ;*                                                                             *
+     115              ;*   Function Uses Regs : T0,AR1,AR2,AR3,XAR3,SP,TC1,M40,SATA,SATD,RDM,FRCT,   *
+     116              ;*                        SMUL                                                 *
+     117              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     118              ;*   Total Frame Size   : 4 words                                              *
+     119              ;*                        (1 return address/alignment)                         *
+     120              ;*                        (2 function parameters)                              *
+     121              ;*                        (1 local values)                                     *
+     122              ;*   Min System Stack   : 1 word                                               *
+     123              ;*******************************************************************************
+     124 000000       _main:
+     125                      .dwcfi  cfa_offset, 1
+     126                      .dwcfi  save_reg_to_mem, 91, -1
+     127 000000 4EFD          AADD #-3, SP
+     128                      .dwcfi  cfa_offset, 4
+     129              $C$DW$11        .dwtag  DW_TAG_variable, DW_AT_name("status")
+     130                      .dwattr $C$DW$11, DW_AT_TI_symbol_name("_status")
+     131                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$23)
+     132                      .dwattr $C$DW$11, DW_AT_location[DW_OP_bregx 0x24 2]
+     133                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     134 000002 EC31          AMOV #$C$FSL1, XAR3 ; |91| 
+         000004 BE00 
+         000006 0000+
+     135 000008 EB00          MOV XAR3, dbl(*SP(#0))
+         00000a B5   
+     136              $C$DW$12        .dwtag  DW_TAG_TI_branch
+     137                      .dwattr $C$DW$12, DW_AT_low_pc(0x00)
+     138                      .dwattr $C$DW$12, DW_AT_name("_printf")
+     139                      .dwattr $C$DW$12, DW_AT_TI_call
+     140 00000b 6C00          CALL #_printf ; |91| 
+         00000d 0000!
+     141                                                      ; call occurs [#_printf] ; |91| 
+     142                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     143              $C$DW$13        .dwtag  DW_TAG_TI_branch
+     144                      .dwattr $C$DW$13, DW_AT_low_pc(0x00)
+     145                      .dwattr $C$DW$13, DW_AT_name("_CSL_MSDRAM_ClockSwitchTest")
+     146                      .dwattr $C$DW$13, DW_AT_TI_call
+     147 00000f 0800          CALL #_CSL_MSDRAM_ClockSwitchTest ; |93| 
+         000011 3E   
+     148                                                      ; call occurs [#_CSL_MSDRAM_ClockSwitchTest] ; |93| 
+     149 000012 C404          MOV T0, *SP(#2) ; |93| 
+     150                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     151              
+     152 000014 A904          MOV *SP(#2), AR1 ; |94| 
+     153 000016 3D1A  ||      MOV #1, AR2
+     154              
+     155 000018 12AC          CMPU AR2 != AR1, TC1 ; |94| 
+         00001a 94   
+     156 00001b 67E4          BCC $C$L1,TC1 ; |94| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE    4
+
+     157                                                      ; branchcc occurs ; |94| 
+     158                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     159 00001d EC31          AMOV #$C$FSL2, XAR3 ; |96| 
+         00001f BE00 
+         000021 0024+
+     160 000023 EB00          MOV XAR3, dbl(*SP(#0))
+         000025 B5   
+     161              $C$DW$14        .dwtag  DW_TAG_TI_branch
+     162                      .dwattr $C$DW$14, DW_AT_low_pc(0x00)
+     163                      .dwattr $C$DW$14, DW_AT_name("_printf")
+     164                      .dwattr $C$DW$14, DW_AT_TI_call
+     165 000026 6C00          CALL #_printf ; |96| 
+         000028 0000!
+     166                                                      ; call occurs [#_printf] ; |96| 
+     167                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     168 00002a 4A13          B $C$L2   ; |97| 
+     169                                                      ; branch occurs ; |97| 
+     170 00002c       $C$L1:    
+     171                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     172 00002c EC31          AMOV #$C$FSL3, XAR3 ; |100| 
+         00002e BE00 
+         000030 0050+
+     173 000032 EB00          MOV XAR3, dbl(*SP(#0))
+         000034 B5   
+     174              $C$DW$15        .dwtag  DW_TAG_TI_branch
+     175                      .dwattr $C$DW$15, DW_AT_low_pc(0x00)
+     176                      .dwattr $C$DW$15, DW_AT_name("_printf")
+     177                      .dwattr $C$DW$15, DW_AT_TI_call
+     178 000035 6C00          CALL #_printf ; |100| 
+         000037 0000!
+     179                                                      ; call occurs [#_printf] ; |100| 
+     180                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     181 000039 E631          MOV #0, *(#_PaSs_StAtE) ; |103| 
+         00003b 0000 
+         00003d 0000-
+     182 00003f       $C$L2:    
+     183                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     184 00003f A931          MOV *(#_PaSs_StAtE), AR1 ; |118| 
+         000041 0000 
+         000043 00-  
+     185 000044 C931          MOV AR1, *(#_PaSs) ; |118| 
+         000046 0000 
+         000048 01-  
+     186                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     187 000049 4E03          AADD #3, SP
+     188                      .dwcfi  cfa_offset, 1
+     189              $C$DW$16        .dwtag  DW_TAG_TI_branch
+     190                      .dwattr $C$DW$16, DW_AT_low_pc(0x00)
+     191                      .dwattr $C$DW$16, DW_AT_TI_return
+     192 00004b 4804          RET
+     193                                                      ; return occurs
+     194                      .dwattr $C$DW$10, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memor
+     195                      .dwattr $C$DW$10, DW_AT_TI_end_line(0x7b)
+     196                      .dwattr $C$DW$10, DW_AT_TI_end_column(0x01)
+     197                      .dwendentry
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE    5
+
+     198                      .dwendtag $C$DW$10
+     199              
+     200 00004d               .sect   ".text"
+     201                      .align 4
+     202                      .global _CSL_MSDRAM_ClockSwitchTest
+     203              
+     204              $C$DW$17        .dwtag  DW_TAG_subprogram, DW_AT_name("CSL_MSDRAM_ClockSwitchTest")
+     205                      .dwattr $C$DW$17, DW_AT_low_pc(_CSL_MSDRAM_ClockSwitchTest)
+     206                      .dwattr $C$DW$17, DW_AT_high_pc(0x00)
+     207                      .dwattr $C$DW$17, DW_AT_TI_symbol_name("_CSL_MSDRAM_ClockSwitchTest")
+     208                      .dwattr $C$DW$17, DW_AT_external
+     209                      .dwattr $C$DW$17, DW_AT_type(*$C$DW$T$23)
+     210                      .dwattr $C$DW$17, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/mem
+     211                      .dwattr $C$DW$17, DW_AT_TI_begin_line(0x84)
+     212                      .dwattr $C$DW$17, DW_AT_TI_begin_column(0x0c)
+     213                      .dwattr $C$DW$17, DW_AT_TI_max_frame_size(0x06)
+     214                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     215              
+     216                      .dwfde $C$DW$CIE, _CSL_MSDRAM_ClockSwitchTest
+     217              ;*******************************************************************************
+     218              ;* FUNCTION NAME: CSL_MSDRAM_ClockSwitchTest                                   *
+     219              ;*                                                                             *
+     220              ;*   Function Uses Regs : T0,AR1,AR3,XAR3,SP,TC1,M40,SATA,SATD,RDM,FRCT,SMUL   *
+     221              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     222              ;*   Total Frame Size   : 6 words                                              *
+     223              ;*                        (1 return address/alignment)                         *
+     224              ;*                        (2 function parameters)                              *
+     225              ;*                        (3 local values)                                     *
+     226              ;*   Min System Stack   : 1 word                                               *
+     227              ;*******************************************************************************
+     228 000050       _CSL_MSDRAM_ClockSwitchTest:
+     229                      .dwcfi  cfa_offset, 1
+     230                      .dwcfi  save_reg_to_mem, 91, -1
+     231 000050 4EFB          AADD #-5, SP
+     232                      .dwcfi  cfa_offset, 6
+     233              $C$DW$18        .dwtag  DW_TAG_variable, DW_AT_name("msdramClock")
+     234                      .dwattr $C$DW$18, DW_AT_TI_symbol_name("_msdramClock")
+     235                      .dwattr $C$DW$18, DW_AT_type(*$C$DW$T$29)
+     236                      .dwattr $C$DW$18, DW_AT_location[DW_OP_bregx 0x24 2]
+     237              $C$DW$19        .dwtag  DW_TAG_variable, DW_AT_name("status")
+     238                      .dwattr $C$DW$19, DW_AT_TI_symbol_name("_status")
+     239                      .dwattr $C$DW$19, DW_AT_type(*$C$DW$T$23)
+     240                      .dwattr $C$DW$19, DW_AT_location[DW_OP_bregx 0x24 3]
+     241              $C$DW$20        .dwtag  DW_TAG_variable, DW_AT_name("result")
+     242                      .dwattr $C$DW$20, DW_AT_TI_symbol_name("_result")
+     243                      .dwattr $C$DW$20, DW_AT_type(*$C$DW$T$23)
+     244                      .dwattr $C$DW$20, DW_AT_location[DW_OP_bregx 0x24 4]
+     245                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     246 000052 E608          MOV #0, *SP(#4) ; |140| 
+         000054 00   
+     247                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     248              $C$DW$21        .dwtag  DW_TAG_TI_branch
+     249                      .dwattr $C$DW$21, DW_AT_low_pc(0x00)
+     250                      .dwattr $C$DW$21, DW_AT_name("_MEM_init")
+     251                      .dwattr $C$DW$21, DW_AT_TI_call
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE    6
+
+     252 000055 6C00          CALL #_MEM_init ; |143| 
+         000057 0000!
+     253                                                      ; call occurs [#_MEM_init] ; |143| 
+     254 000059 C406          MOV T0, *SP(#3) ; |143| 
+     255                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     256 00005b 2249          MOV T0, AR1
+     257 00005d 0409          BCC $C$L3,AR1 == #0 ; |144| 
+         00005f 12   
+     258                                                      ; branchcc occurs ; |144| 
+     259                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     260 000060 EC31          AMOV #$C$FSL4, XAR3 ; |146| 
+         000062 BE00 
+         000064 007C+
+     261 000066 EB00          MOV XAR3, dbl(*SP(#0))
+         000068 B5   
+     262              $C$DW$22        .dwtag  DW_TAG_TI_branch
+     263                      .dwattr $C$DW$22, DW_AT_low_pc(0x00)
+     264                      .dwattr $C$DW$22, DW_AT_name("_printf")
+     265                      .dwattr $C$DW$22, DW_AT_TI_call
+     266 000069 6C00          CALL #_printf ; |146| 
+         00006b 0000!
+     267                                                      ; call occurs [#_printf] ; |146| 
+     268                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     269 00006d A408          MOV *SP(#4), T0 ; |147| 
+     270 00006f 0600          B $C$L10  ; |147| 
+         000071 C4   
+     271                                                      ; branch occurs ; |147| 
+     272 000072       $C$L3:    
+     273                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     274 000072 EC31          AMOV #$C$FSL5, XAR3 ; |150| 
+         000074 BE00 
+         000076 008C+
+     275 000078 EB00          MOV XAR3, dbl(*SP(#0))
+         00007a B5   
+     276              $C$DW$23        .dwtag  DW_TAG_TI_branch
+     277                      .dwattr $C$DW$23, DW_AT_low_pc(0x00)
+     278                      .dwattr $C$DW$23, DW_AT_name("_printf")
+     279                      .dwattr $C$DW$23, DW_AT_TI_call
+     280 00007b 6C00          CALL #_printf ; |150| 
+         00007d 0000!
+     281                                                      ; call occurs [#_printf] ; |150| 
+     282                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     283              $C$DW$24        .dwtag  DW_TAG_TI_branch
+     284                      .dwattr $C$DW$24, DW_AT_low_pc(0x00)
+     285                      .dwattr $C$DW$24, DW_AT_name("_MEM_setmSDRAMClock")
+     286                      .dwattr $C$DW$24, DW_AT_TI_call
+     287              
+     288 00007f 6C00          CALL #_MEM_setmSDRAMClock ; |153| 
+         000081 0000!
+     289 000083 3D04  ||      MOV #0, T0
+     290              
+     291                                                      ; call occurs [#_MEM_setmSDRAMClock] ; |153| 
+     292 000085 C406          MOV T0, *SP(#3) ; |153| 
+     293                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     294 000087 2249          MOV T0, AR1
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE    7
+
+     295 000089 0409          BCC $C$L4,AR1 == #0 ; |154| 
+         00008b 12   
+     296                                                      ; branchcc occurs ; |154| 
+     297                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     298 00008c EC31          AMOV #$C$FSL6, XAR3 ; |156| 
+         00008e BE00 
+         000090 00A8+
+     299 000092 EB00          MOV XAR3, dbl(*SP(#0))
+         000094 B5   
+     300              $C$DW$25        .dwtag  DW_TAG_TI_branch
+     301                      .dwattr $C$DW$25, DW_AT_low_pc(0x00)
+     302                      .dwattr $C$DW$25, DW_AT_name("_printf")
+     303                      .dwattr $C$DW$25, DW_AT_TI_call
+     304 000095 6C00          CALL #_printf ; |156| 
+         000097 0000!
+     305                                                      ; call occurs [#_printf] ; |156| 
+     306                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     307 000099 A408          MOV *SP(#4), T0 ; |157| 
+     308 00009b 0600          B $C$L10  ; |157| 
+         00009d 98   
+     309                                                      ; branch occurs ; |157| 
+     310 00009e       $C$L4:    
+     311                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     312 00009e EC31          AMOV #$C$FSL7, XAR3 ; |160| 
+         0000a0 BE00 
+         0000a2 00CA+
+     313 0000a4 EB00          MOV XAR3, dbl(*SP(#0))
+         0000a6 B5   
+     314              $C$DW$26        .dwtag  DW_TAG_TI_branch
+     315                      .dwattr $C$DW$26, DW_AT_low_pc(0x00)
+     316                      .dwattr $C$DW$26, DW_AT_name("_printf")
+     317                      .dwattr $C$DW$26, DW_AT_TI_call
+     318 0000a7 6C00          CALL #_printf ; |160| 
+         0000a9 0000!
+     319                                                      ; call occurs [#_printf] ; |160| 
+     320                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     321              $C$DW$27        .dwtag  DW_TAG_TI_branch
+     322                      .dwattr $C$DW$27, DW_AT_low_pc(0x00)
+     323                      .dwattr $C$DW$27, DW_AT_name("_MEM_getmSDRAMClock")
+     324                      .dwattr $C$DW$27, DW_AT_TI_call
+     325 0000ab 6C00          CALL #_MEM_getmSDRAMClock ; |163| 
+         0000ad 0000!
+     326                                                      ; call occurs [#_MEM_getmSDRAMClock] ; |163| 
+     327 0000af C404          MOV T0, *SP(#2) ; |163| 
+     328                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     329 0000b1 2249          MOV T0, AR1
+     330 0000b3 6789          BCC $C$L5,AR1 == #0 ; |164| 
+     331                                                      ; branchcc occurs ; |164| 
+     332                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     333 0000b5 EC31          AMOV #$C$FSL8, XAR3 ; |166| 
+         0000b7 BE00 
+         0000b9 00E0+
+     334 0000bb EB00          MOV XAR3, dbl(*SP(#0))
+         0000bd B5   
+     335              $C$DW$28        .dwtag  DW_TAG_TI_branch
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE    8
+
+     336                      .dwattr $C$DW$28, DW_AT_low_pc(0x00)
+     337                      .dwattr $C$DW$28, DW_AT_name("_printf")
+     338                      .dwattr $C$DW$28, DW_AT_TI_call
+     339 0000be 6C00          CALL #_printf ; |166| 
+         0000c0 0000!
+     340                                                      ; call occurs [#_printf] ; |166| 
+     341                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     342 0000c2 4A0D          B $C$L6   ; |167| 
+     343                                                      ; branch occurs ; |167| 
+     344 0000c4       $C$L5:    
+     345                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     346 0000c4 EC31          AMOV #$C$FSL9, XAR3 ; |170| 
+         0000c6 BE00 
+         0000c8 00FE+
+     347 0000ca EB00          MOV XAR3, dbl(*SP(#0))
+         0000cc B5   
+     348              $C$DW$29        .dwtag  DW_TAG_TI_branch
+     349                      .dwattr $C$DW$29, DW_AT_low_pc(0x00)
+     350                      .dwattr $C$DW$29, DW_AT_name("_printf")
+     351                      .dwattr $C$DW$29, DW_AT_TI_call
+     352 0000cd 6C00          CALL #_printf ; |170| 
+         0000cf 0000!
+     353                                                      ; call occurs [#_printf] ; |170| 
+     354 0000d1       $C$L6:    
+     355                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     356 0000d1 EC31          AMOV #$C$FSL10, XAR3 ; |173| 
+         0000d3 BE00 
+         0000d5 011E+
+     357 0000d7 EB00          MOV XAR3, dbl(*SP(#0))
+         0000d9 B5   
+     358              $C$DW$30        .dwtag  DW_TAG_TI_branch
+     359                      .dwattr $C$DW$30, DW_AT_low_pc(0x00)
+     360                      .dwattr $C$DW$30, DW_AT_name("_printf")
+     361                      .dwattr $C$DW$30, DW_AT_TI_call
+     362 0000da 6C00          CALL #_printf ; |173| 
+         0000dc 0000!
+     363                                                      ; call occurs [#_printf] ; |173| 
+     364                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     365              $C$DW$31        .dwtag  DW_TAG_TI_branch
+     366                      .dwattr $C$DW$31, DW_AT_low_pc(0x00)
+     367                      .dwattr $C$DW$31, DW_AT_name("_MEM_setmSDRAMClock")
+     368                      .dwattr $C$DW$31, DW_AT_TI_call
+     369              
+     370 0000de 6C00          CALL #_MEM_setmSDRAMClock ; |176| 
+         0000e0 0000!
+     371 0000e2 3D14  ||      MOV #1, T0
+     372              
+     373                                                      ; call occurs [#_MEM_setmSDRAMClock] ; |176| 
+     374 0000e4 C406          MOV T0, *SP(#3) ; |176| 
+     375                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     376 0000e6 2249          MOV T0, AR1
+     377 0000e8 0409          BCC $C$L7,AR1 == #0 ; |177| 
+         0000ea 11   
+     378                                                      ; branchcc occurs ; |177| 
+     379                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE    9
+
+     380 0000eb EC31          AMOV #$C$FSL11, XAR3 ; |179| 
+         0000ed BE00 
+         0000ef 013C+
+     381 0000f1 EB00          MOV XAR3, dbl(*SP(#0))
+         0000f3 B5   
+     382              $C$DW$32        .dwtag  DW_TAG_TI_branch
+     383                      .dwattr $C$DW$32, DW_AT_low_pc(0x00)
+     384                      .dwattr $C$DW$32, DW_AT_name("_printf")
+     385                      .dwattr $C$DW$32, DW_AT_TI_call
+     386 0000f4 6C00          CALL #_printf ; |179| 
+         0000f6 0000!
+     387                                                      ; call occurs [#_printf] ; |179| 
+     388                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     389 0000f8 A408          MOV *SP(#4), T0 ; |180| 
+     390 0000fa 4A3A          B $C$L10  ; |180| 
+     391                                                      ; branch occurs ; |180| 
+     392 0000fc       $C$L7:    
+     393                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     394 0000fc EC31          AMOV #$C$FSL7, XAR3 ; |183| 
+         0000fe BE00 
+         000100 00CA+
+     395 000102 EB00          MOV XAR3, dbl(*SP(#0))
+         000104 B5   
+     396              $C$DW$33        .dwtag  DW_TAG_TI_branch
+     397                      .dwattr $C$DW$33, DW_AT_low_pc(0x00)
+     398                      .dwattr $C$DW$33, DW_AT_name("_printf")
+     399                      .dwattr $C$DW$33, DW_AT_TI_call
+     400 000105 6C00          CALL #_printf ; |183| 
+         000107 0000!
+     401                                                      ; call occurs [#_printf] ; |183| 
+     402                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     403              $C$DW$34        .dwtag  DW_TAG_TI_branch
+     404                      .dwattr $C$DW$34, DW_AT_low_pc(0x00)
+     405                      .dwattr $C$DW$34, DW_AT_name("_MEM_getmSDRAMClock")
+     406                      .dwattr $C$DW$34, DW_AT_TI_call
+     407 000109 6C00          CALL #_MEM_getmSDRAMClock ; |186| 
+         00010b 0000!
+     408                                                      ; call occurs [#_MEM_getmSDRAMClock] ; |186| 
+     409 00010d C404          MOV T0, *SP(#2) ; |186| 
+     410                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     411 00010f F004          CMP *SP(#2) == #1, TC1 ; |187| 
+         000111 0001 
+     412 000113 67E4          BCC $C$L8,TC1 ; |187| 
+     413                                                      ; branchcc occurs ; |187| 
+     414                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     415 000115 EC31          AMOV #$C$FSL8, XAR3 ; |189| 
+         000117 BE00 
+         000119 00E0+
+     416 00011b EB00          MOV XAR3, dbl(*SP(#0))
+         00011d B5   
+     417              $C$DW$35        .dwtag  DW_TAG_TI_branch
+     418                      .dwattr $C$DW$35, DW_AT_low_pc(0x00)
+     419                      .dwattr $C$DW$35, DW_AT_name("_printf")
+     420                      .dwattr $C$DW$35, DW_AT_TI_call
+     421 00011e 6C00          CALL #_printf ; |189| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   10
+
+         000120 0000!
+     422                                                      ; call occurs [#_printf] ; |189| 
+     423                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     424 000122 4A0D          B $C$L9   ; |190| 
+     425                                                      ; branch occurs ; |190| 
+     426 000124       $C$L8:    
+     427                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     428 000124 EC31          AMOV #$C$FSL12, XAR3 ; |193| 
+         000126 BE00 
+         000128 0160+
+     429 00012a EB00          MOV XAR3, dbl(*SP(#0))
+         00012c B5   
+     430              $C$DW$36        .dwtag  DW_TAG_TI_branch
+     431                      .dwattr $C$DW$36, DW_AT_low_pc(0x00)
+     432                      .dwattr $C$DW$36, DW_AT_name("_printf")
+     433                      .dwattr $C$DW$36, DW_AT_TI_call
+     434 00012d 6C00          CALL #_printf ; |193| 
+         00012f 0000!
+     435                                                      ; call occurs [#_printf] ; |193| 
+     436 000131       $C$L9:    
+     437                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     438 000131 E608          MOV #1, *SP(#4) ; |196| 
+         000133 01   
+     439                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     440 000134 A408          MOV *SP(#4), T0 ; |198| 
+     441 000136       $C$L10:    
+     442                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MSDRAM_ClockSwitc
+     443 000136 4E05          AADD #5, SP
+     444                      .dwcfi  cfa_offset, 1
+     445              $C$DW$37        .dwtag  DW_TAG_TI_branch
+     446                      .dwattr $C$DW$37, DW_AT_low_pc(0x00)
+     447                      .dwattr $C$DW$37, DW_AT_TI_return
+     448 000138 4804          RET
+     449                                                      ; return occurs
+     450                      .dwattr $C$DW$17, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memor
+     451                      .dwattr $C$DW$17, DW_AT_TI_end_line(0xcd)
+     452                      .dwattr $C$DW$17, DW_AT_TI_end_column(0x01)
+     453                      .dwendentry
+     454                      .dwendtag $C$DW$17
+     455              
+     456              ;*******************************************************************************
+     457              ;* FAR STRINGS                                                                 *
+     458              ;*******************************************************************************
+     459 000000               .sect   ".const:.string"
+     460                      .align  2
+     461 000000 004D  $C$FSL1:        .string "MSDRAM Clock Output Switch Test!",10,10,0
+         000001 0053 
+         000002 0044 
+         000003 0052 
+         000004 0041 
+         000005 004D 
+         000006 0020 
+         000007 0043 
+         000008 006C 
+         000009 006F 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   11
+
+         00000a 0063 
+         00000b 006B 
+         00000c 0020 
+         00000d 004F 
+         00000e 0075 
+         00000f 0074 
+         000010 0070 
+         000011 0075 
+         000012 0074 
+         000013 0020 
+         000014 0053 
+         000015 0077 
+         000016 0069 
+         000017 0074 
+         000018 0063 
+         000019 0068 
+         00001a 0020 
+         00001b 0054 
+         00001c 0065 
+         00001d 0073 
+         00001e 0074 
+         00001f 0021 
+         000020 000A 
+         000021 000A 
+         000022 0000 
+     462                      .align  2
+     463 000024 000A  $C$FSL2:        .string 10,"MSDRAM Clock Output Switch Test Passed!!",10,10,0
+         000025 004D 
+         000026 0053 
+         000027 0044 
+         000028 0052 
+         000029 0041 
+         00002a 004D 
+         00002b 0020 
+         00002c 0043 
+         00002d 006C 
+         00002e 006F 
+         00002f 0063 
+         000030 006B 
+         000031 0020 
+         000032 004F 
+         000033 0075 
+         000034 0074 
+         000035 0070 
+         000036 0075 
+         000037 0074 
+         000038 0020 
+         000039 0053 
+         00003a 0077 
+         00003b 0069 
+         00003c 0074 
+         00003d 0063 
+         00003e 0068 
+         00003f 0020 
+         000040 0054 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   12
+
+         000041 0065 
+         000042 0073 
+         000043 0074 
+         000044 0020 
+         000045 0050 
+         000046 0061 
+         000047 0073 
+         000048 0073 
+         000049 0065 
+         00004a 0064 
+         00004b 0021 
+         00004c 0021 
+         00004d 000A 
+         00004e 000A 
+         00004f 0000 
+     464                      .align  2
+     465 000050 000A  $C$FSL3:        .string 10,"MSDRAM Clock Output Switch Test Failed!!",10,10,0
+         000051 004D 
+         000052 0053 
+         000053 0044 
+         000054 0052 
+         000055 0041 
+         000056 004D 
+         000057 0020 
+         000058 0043 
+         000059 006C 
+         00005a 006F 
+         00005b 0063 
+         00005c 006B 
+         00005d 0020 
+         00005e 004F 
+         00005f 0075 
+         000060 0074 
+         000061 0070 
+         000062 0075 
+         000063 0074 
+         000064 0020 
+         000065 0053 
+         000066 0077 
+         000067 0069 
+         000068 0074 
+         000069 0063 
+         00006a 0068 
+         00006b 0020 
+         00006c 0054 
+         00006d 0065 
+         00006e 0073 
+         00006f 0074 
+         000070 0020 
+         000071 0046 
+         000072 0061 
+         000073 0069 
+         000074 006C 
+         000075 0065 
+         000076 0064 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   13
+
+         000077 0021 
+         000078 0021 
+         000079 000A 
+         00007a 000A 
+         00007b 0000 
+     466                      .align  2
+     467 00007c 004D  $C$FSL4:        .string "MEM_init failed",0
+         00007d 0045 
+         00007e 004D 
+         00007f 005F 
+         000080 0069 
+         000081 006E 
+         000082 0069 
+         000083 0074 
+         000084 0020 
+         000085 0066 
+         000086 0061 
+         000087 0069 
+         000088 006C 
+         000089 0065 
+         00008a 0064 
+         00008b 0000 
+     468                      .align  2
+     469 00008c 0053  $C$FSL5:        .string "Switching mSDRAM Clock ON",10,0
+         00008d 0077 
+         00008e 0069 
+         00008f 0074 
+         000090 0063 
+         000091 0068 
+         000092 0069 
+         000093 006E 
+         000094 0067 
+         000095 0020 
+         000096 006D 
+         000097 0053 
+         000098 0044 
+         000099 0052 
+         00009a 0041 
+         00009b 004D 
+         00009c 0020 
+         00009d 0043 
+         00009e 006C 
+         00009f 006F 
+         0000a0 0063 
+         0000a1 006B 
+         0000a2 0020 
+         0000a3 004F 
+         0000a4 004E 
+         0000a5 000A 
+         0000a6 0000 
+     470                      .align  2
+     471 0000a8 0053  $C$FSL6:        .string "Switching mSDRAM clock ON Failed",10,0
+         0000a9 0077 
+         0000aa 0069 
+         0000ab 0074 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   14
+
+         0000ac 0063 
+         0000ad 0068 
+         0000ae 0069 
+         0000af 006E 
+         0000b0 0067 
+         0000b1 0020 
+         0000b2 006D 
+         0000b3 0053 
+         0000b4 0044 
+         0000b5 0052 
+         0000b6 0041 
+         0000b7 004D 
+         0000b8 0020 
+         0000b9 0063 
+         0000ba 006C 
+         0000bb 006F 
+         0000bc 0063 
+         0000bd 006B 
+         0000be 0020 
+         0000bf 004F 
+         0000c0 004E 
+         0000c1 0020 
+         0000c2 0046 
+         0000c3 0061 
+         0000c4 0069 
+         0000c5 006C 
+         0000c6 0065 
+         0000c7 0064 
+         0000c8 000A 
+         0000c9 0000 
+     472                      .align  2
+     473 0000ca 0052  $C$FSL7:        .string "Reading Clock State",10,0
+         0000cb 0065 
+         0000cc 0061 
+         0000cd 0064 
+         0000ce 0069 
+         0000cf 006E 
+         0000d0 0067 
+         0000d1 0020 
+         0000d2 0043 
+         0000d3 006C 
+         0000d4 006F 
+         0000d5 0063 
+         0000d6 006B 
+         0000d7 0020 
+         0000d8 0053 
+         0000d9 0074 
+         0000da 0061 
+         0000db 0074 
+         0000dc 0065 
+         0000dd 000A 
+         0000de 0000 
+     474                      .align  2
+     475 0000e0 0043  $C$FSL8:        .string "Clock State Read is Invalid!",10,0
+         0000e1 006C 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   15
+
+         0000e2 006F 
+         0000e3 0063 
+         0000e4 006B 
+         0000e5 0020 
+         0000e6 0053 
+         0000e7 0074 
+         0000e8 0061 
+         0000e9 0074 
+         0000ea 0065 
+         0000eb 0020 
+         0000ec 0052 
+         0000ed 0065 
+         0000ee 0061 
+         0000ef 0064 
+         0000f0 0020 
+         0000f1 0069 
+         0000f2 0073 
+         0000f3 0020 
+         0000f4 0049 
+         0000f5 006E 
+         0000f6 0076 
+         0000f7 0061 
+         0000f8 006C 
+         0000f9 0069 
+         0000fa 0064 
+         0000fb 0021 
+         0000fc 000A 
+         0000fd 0000 
+     476                      .align  2
+     477 0000fe 0043  $C$FSL9:        .string "Clock State Read is Valid - ON",10,0
+         0000ff 006C 
+         000100 006F 
+         000101 0063 
+         000102 006B 
+         000103 0020 
+         000104 0053 
+         000105 0074 
+         000106 0061 
+         000107 0074 
+         000108 0065 
+         000109 0020 
+         00010a 0052 
+         00010b 0065 
+         00010c 0061 
+         00010d 0064 
+         00010e 0020 
+         00010f 0069 
+         000110 0073 
+         000111 0020 
+         000112 0056 
+         000113 0061 
+         000114 006C 
+         000115 0069 
+         000116 0064 
+         000117 0020 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   16
+
+         000118 002D 
+         000119 0020 
+         00011a 004F 
+         00011b 004E 
+         00011c 000A 
+         00011d 0000 
+     478                      .align  2
+     479 00011e 000A  $C$FSL10:       .string 10,"Switching mSDRAM Clock OFF",10,0
+         00011f 0053 
+         000120 0077 
+         000121 0069 
+         000122 0074 
+         000123 0063 
+         000124 0068 
+         000125 0069 
+         000126 006E 
+         000127 0067 
+         000128 0020 
+         000129 006D 
+         00012a 0053 
+         00012b 0044 
+         00012c 0052 
+         00012d 0041 
+         00012e 004D 
+         00012f 0020 
+         000130 0043 
+         000131 006C 
+         000132 006F 
+         000133 0063 
+         000134 006B 
+         000135 0020 
+         000136 004F 
+         000137 0046 
+         000138 0046 
+         000139 000A 
+         00013a 0000 
+     480                      .align  2
+     481 00013c 0053  $C$FSL11:       .string "Switching mSDRAM clock OFF Failed",10,0
+         00013d 0077 
+         00013e 0069 
+         00013f 0074 
+         000140 0063 
+         000141 0068 
+         000142 0069 
+         000143 006E 
+         000144 0067 
+         000145 0020 
+         000146 006D 
+         000147 0053 
+         000148 0044 
+         000149 0052 
+         00014a 0041 
+         00014b 004D 
+         00014c 0020 
+         00014d 0063 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   17
+
+         00014e 006C 
+         00014f 006F 
+         000150 0063 
+         000151 006B 
+         000152 0020 
+         000153 004F 
+         000154 0046 
+         000155 0046 
+         000156 0020 
+         000157 0046 
+         000158 0061 
+         000159 0069 
+         00015a 006C 
+         00015b 0065 
+         00015c 0064 
+         00015d 000A 
+         00015e 0000 
+     482                      .align  2
+     483 000160 0043  $C$FSL12:       .string "Clock State Read is Valid - OFF",10,0
+         000161 006C 
+         000162 006F 
+         000163 0063 
+         000164 006B 
+         000165 0020 
+         000166 0053 
+         000167 0074 
+         000168 0061 
+         000169 0074 
+         00016a 0065 
+         00016b 0020 
+         00016c 0052 
+         00016d 0065 
+         00016e 0061 
+         00016f 0064 
+         000170 0020 
+         000171 0069 
+         000172 0073 
+         000173 0020 
+         000174 0056 
+         000175 0061 
+         000176 006C 
+         000177 0069 
+         000178 0064 
+         000179 0020 
+         00017a 002D 
+         00017b 0020 
+         00017c 004F 
+         00017d 0046 
+         00017e 0046 
+         00017f 000A 
+         000180 0000 
+     484              ;******************************************************************************
+     485              ;* UNDEFINED EXTERNAL REFERENCES                                              *
+     486              ;******************************************************************************
+     487                      .global _MEM_init
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   18
+
+     488                      .global _MEM_setmSDRAMClock
+     489                      .global _MEM_getmSDRAMClock
+     490                      .global _printf
+     491              
+     492              ;*******************************************************************************
+     493              ;* TYPE INFORMATION                                                            *
+     494              ;*******************************************************************************
+     495              
+     496              $C$DW$T$19      .dwtag  DW_TAG_enumeration_type
+     497                      .dwattr $C$DW$T$19, DW_AT_byte_size(0x01)
+     498              $C$DW$38        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_MEM_MSDARAM_CLOCK_ON"), DW_AT_const_value(0x00)
+     499              $C$DW$39        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_MEM_MSDARAM_CLOCK_OFF"), DW_AT_const_value(0x01)
+     500                      .dwendtag $C$DW$T$19
+     501              
+     502              $C$DW$T$20      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_MEMmSDRAMClock")
+     503                      .dwattr $C$DW$T$20, DW_AT_type(*$C$DW$T$19)
+     504                      .dwattr $C$DW$T$20, DW_AT_language(DW_LANG_C)
+     505              $C$DW$T$4       .dwtag  DW_TAG_base_type
+     506                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+     507                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+     508                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+     509              $C$DW$T$5       .dwtag  DW_TAG_base_type
+     510                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+     511                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+     512                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+     513              $C$DW$T$6       .dwtag  DW_TAG_base_type
+     514                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+     515                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+     516                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+     517              $C$DW$T$7       .dwtag  DW_TAG_base_type
+     518                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+     519                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+     520                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+     521              $C$DW$T$8       .dwtag  DW_TAG_base_type
+     522                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+     523                      .dwattr $C$DW$T$8, DW_AT_name("short")
+     524                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+     525              $C$DW$T$22      .dwtag  DW_TAG_typedef, DW_AT_name("Int16")
+     526                      .dwattr $C$DW$T$22, DW_AT_type(*$C$DW$T$8)
+     527                      .dwattr $C$DW$T$22, DW_AT_language(DW_LANG_C)
+     528              $C$DW$T$23      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_Status")
+     529                      .dwattr $C$DW$T$23, DW_AT_type(*$C$DW$T$22)
+     530                      .dwattr $C$DW$T$23, DW_AT_language(DW_LANG_C)
+     531              $C$DW$40        .dwtag  DW_TAG_TI_far_type
+     532                      .dwattr $C$DW$40, DW_AT_type(*$C$DW$T$22)
+     533              $C$DW$T$28      .dwtag  DW_TAG_volatile_type
+     534                      .dwattr $C$DW$T$28, DW_AT_type(*$C$DW$40)
+     535              $C$DW$T$9       .dwtag  DW_TAG_base_type
+     536                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+     537                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+     538                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+     539              $C$DW$T$10      .dwtag  DW_TAG_base_type
+     540                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+     541                      .dwattr $C$DW$T$10, DW_AT_name("int")
+     542                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   19
+
+     543              $C$DW$T$29      .dwtag  DW_TAG_typedef, DW_AT_name("Bool")
+     544                      .dwattr $C$DW$T$29, DW_AT_type(*$C$DW$T$10)
+     545                      .dwattr $C$DW$T$29, DW_AT_language(DW_LANG_C)
+     546              $C$DW$T$11      .dwtag  DW_TAG_base_type
+     547                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+     548                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+     549                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+     550              $C$DW$T$12      .dwtag  DW_TAG_base_type
+     551                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+     552                      .dwattr $C$DW$T$12, DW_AT_name("long")
+     553                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+     554              $C$DW$T$13      .dwtag  DW_TAG_base_type
+     555                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+     556                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+     557                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+     558              $C$DW$T$14      .dwtag  DW_TAG_base_type
+     559                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+     560                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+     561                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+     562                      .dwattr $C$DW$T$14, DW_AT_bit_size(0x28)
+     563                      .dwattr $C$DW$T$14, DW_AT_bit_offset(0x18)
+     564              $C$DW$T$15      .dwtag  DW_TAG_base_type
+     565                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+     566                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+     567                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+     568                      .dwattr $C$DW$T$15, DW_AT_bit_size(0x28)
+     569                      .dwattr $C$DW$T$15, DW_AT_bit_offset(0x18)
+     570              $C$DW$T$16      .dwtag  DW_TAG_base_type
+     571                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+     572                      .dwattr $C$DW$T$16, DW_AT_name("float")
+     573                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+     574              $C$DW$T$17      .dwtag  DW_TAG_base_type
+     575                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+     576                      .dwattr $C$DW$T$17, DW_AT_name("double")
+     577                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+     578              $C$DW$T$18      .dwtag  DW_TAG_base_type
+     579                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+     580                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+     581                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x02)
+     582              $C$DW$T$32      .dwtag  DW_TAG_base_type
+     583                      .dwattr $C$DW$T$32, DW_AT_encoding(DW_ATE_signed_char)
+     584                      .dwattr $C$DW$T$32, DW_AT_name("signed char")
+     585                      .dwattr $C$DW$T$32, DW_AT_byte_size(0x01)
+     586              $C$DW$41        .dwtag  DW_TAG_TI_far_type
+     587                      .dwattr $C$DW$41, DW_AT_type(*$C$DW$T$32)
+     588              $C$DW$T$33      .dwtag  DW_TAG_const_type
+     589                      .dwattr $C$DW$T$33, DW_AT_type(*$C$DW$41)
+     590              $C$DW$T$34      .dwtag  DW_TAG_pointer_type
+     591                      .dwattr $C$DW$T$34, DW_AT_type(*$C$DW$T$33)
+     592                      .dwattr $C$DW$T$34, DW_AT_address_class(0x17)
+     593                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+     594              
+     595              ;***************************************************************
+     596              ;* DWARF CIE ENTRIES                                           *
+     597              ;***************************************************************
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   20
+
+     598              
+     599              $C$DW$CIE       .dwcie 91
+     600                      .dwcfi  cfa_register, 36
+     601                      .dwcfi  cfa_offset, 0
+     602                      .dwcfi  undefined, 0
+     603                      .dwcfi  undefined, 1
+     604                      .dwcfi  undefined, 2
+     605                      .dwcfi  undefined, 3
+     606                      .dwcfi  undefined, 4
+     607                      .dwcfi  undefined, 5
+     608                      .dwcfi  undefined, 6
+     609                      .dwcfi  undefined, 7
+     610                      .dwcfi  undefined, 8
+     611                      .dwcfi  undefined, 9
+     612                      .dwcfi  undefined, 10
+     613                      .dwcfi  undefined, 11
+     614                      .dwcfi  undefined, 12
+     615                      .dwcfi  undefined, 13
+     616                      .dwcfi  same_value, 14
+     617                      .dwcfi  same_value, 15
+     618                      .dwcfi  undefined, 16
+     619                      .dwcfi  undefined, 17
+     620                      .dwcfi  undefined, 18
+     621                      .dwcfi  undefined, 19
+     622                      .dwcfi  undefined, 20
+     623                      .dwcfi  undefined, 21
+     624                      .dwcfi  undefined, 22
+     625                      .dwcfi  undefined, 23
+     626                      .dwcfi  undefined, 24
+     627                      .dwcfi  undefined, 25
+     628                      .dwcfi  same_value, 26
+     629                      .dwcfi  same_value, 27
+     630                      .dwcfi  same_value, 28
+     631                      .dwcfi  same_value, 29
+     632                      .dwcfi  same_value, 30
+     633                      .dwcfi  same_value, 31
+     634                      .dwcfi  undefined, 32
+     635                      .dwcfi  undefined, 33
+     636                      .dwcfi  undefined, 34
+     637                      .dwcfi  undefined, 35
+     638                      .dwcfi  undefined, 36
+     639                      .dwcfi  undefined, 37
+     640                      .dwcfi  undefined, 38
+     641                      .dwcfi  undefined, 39
+     642                      .dwcfi  undefined, 40
+     643                      .dwcfi  undefined, 41
+     644                      .dwcfi  undefined, 42
+     645                      .dwcfi  undefined, 43
+     646                      .dwcfi  undefined, 44
+     647                      .dwcfi  undefined, 45
+     648                      .dwcfi  undefined, 46
+     649                      .dwcfi  undefined, 47
+     650                      .dwcfi  undefined, 48
+     651                      .dwcfi  undefined, 49
+     652                      .dwcfi  undefined, 50
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   21
+
+     653                      .dwcfi  undefined, 51
+     654                      .dwcfi  undefined, 52
+     655                      .dwcfi  undefined, 53
+     656                      .dwcfi  undefined, 54
+     657                      .dwcfi  undefined, 55
+     658                      .dwcfi  undefined, 56
+     659                      .dwcfi  undefined, 57
+     660                      .dwcfi  undefined, 58
+     661                      .dwcfi  undefined, 59
+     662                      .dwcfi  undefined, 60
+     663                      .dwcfi  undefined, 61
+     664                      .dwcfi  undefined, 62
+     665                      .dwcfi  undefined, 63
+     666                      .dwcfi  undefined, 64
+     667                      .dwcfi  undefined, 65
+     668                      .dwcfi  undefined, 66
+     669                      .dwcfi  undefined, 67
+     670                      .dwcfi  undefined, 68
+     671                      .dwcfi  undefined, 69
+     672                      .dwcfi  undefined, 70
+     673                      .dwcfi  undefined, 71
+     674                      .dwcfi  undefined, 72
+     675                      .dwcfi  undefined, 73
+     676                      .dwcfi  undefined, 74
+     677                      .dwcfi  undefined, 75
+     678                      .dwcfi  undefined, 76
+     679                      .dwcfi  undefined, 77
+     680                      .dwcfi  undefined, 78
+     681                      .dwcfi  undefined, 79
+     682                      .dwcfi  undefined, 80
+     683                      .dwcfi  undefined, 81
+     684                      .dwcfi  undefined, 82
+     685                      .dwcfi  undefined, 83
+     686                      .dwcfi  undefined, 84
+     687                      .dwcfi  undefined, 85
+     688                      .dwcfi  undefined, 86
+     689                      .dwcfi  undefined, 87
+     690                      .dwcfi  undefined, 88
+     691                      .dwcfi  undefined, 89
+     692                      .dwcfi  undefined, 90
+     693                      .dwcfi  undefined, 91
+     694                      .dwendentry
+     695              
+     696              ;***************************************************************
+     697              ;* DWARF REGISTER MAP                                          *
+     698              ;***************************************************************
+     699              
+     700              $C$DW$42        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+     701                      .dwattr $C$DW$42, DW_AT_location[DW_OP_reg0]
+     702              $C$DW$43        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+     703                      .dwattr $C$DW$43, DW_AT_location[DW_OP_reg1]
+     704              $C$DW$44        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0_G")
+     705                      .dwattr $C$DW$44, DW_AT_location[DW_OP_reg2]
+     706              $C$DW$45        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+     707                      .dwattr $C$DW$45, DW_AT_location[DW_OP_reg3]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   22
+
+     708              $C$DW$46        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+     709                      .dwattr $C$DW$46, DW_AT_location[DW_OP_reg4]
+     710              $C$DW$47        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1_G")
+     711                      .dwattr $C$DW$47, DW_AT_location[DW_OP_reg5]
+     712              $C$DW$48        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+     713                      .dwattr $C$DW$48, DW_AT_location[DW_OP_reg6]
+     714              $C$DW$49        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+     715                      .dwattr $C$DW$49, DW_AT_location[DW_OP_reg7]
+     716              $C$DW$50        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2_G")
+     717                      .dwattr $C$DW$50, DW_AT_location[DW_OP_reg8]
+     718              $C$DW$51        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+     719                      .dwattr $C$DW$51, DW_AT_location[DW_OP_reg9]
+     720              $C$DW$52        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+     721                      .dwattr $C$DW$52, DW_AT_location[DW_OP_reg10]
+     722              $C$DW$53        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3_G")
+     723                      .dwattr $C$DW$53, DW_AT_location[DW_OP_reg11]
+     724              $C$DW$54        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T0")
+     725                      .dwattr $C$DW$54, DW_AT_location[DW_OP_reg12]
+     726              $C$DW$55        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T1")
+     727                      .dwattr $C$DW$55, DW_AT_location[DW_OP_reg13]
+     728              $C$DW$56        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T2")
+     729                      .dwattr $C$DW$56, DW_AT_location[DW_OP_reg14]
+     730              $C$DW$57        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T3")
+     731                      .dwattr $C$DW$57, DW_AT_location[DW_OP_reg15]
+     732              $C$DW$58        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+     733                      .dwattr $C$DW$58, DW_AT_location[DW_OP_reg16]
+     734              $C$DW$59        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+     735                      .dwattr $C$DW$59, DW_AT_location[DW_OP_reg17]
+     736              $C$DW$60        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+     737                      .dwattr $C$DW$60, DW_AT_location[DW_OP_reg18]
+     738              $C$DW$61        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+     739                      .dwattr $C$DW$61, DW_AT_location[DW_OP_reg19]
+     740              $C$DW$62        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+     741                      .dwattr $C$DW$62, DW_AT_location[DW_OP_reg20]
+     742              $C$DW$63        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+     743                      .dwattr $C$DW$63, DW_AT_location[DW_OP_reg21]
+     744              $C$DW$64        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+     745                      .dwattr $C$DW$64, DW_AT_location[DW_OP_reg22]
+     746              $C$DW$65        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+     747                      .dwattr $C$DW$65, DW_AT_location[DW_OP_reg23]
+     748              $C$DW$66        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+     749                      .dwattr $C$DW$66, DW_AT_location[DW_OP_reg24]
+     750              $C$DW$67        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+     751                      .dwattr $C$DW$67, DW_AT_location[DW_OP_reg25]
+     752              $C$DW$68        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+     753                      .dwattr $C$DW$68, DW_AT_location[DW_OP_reg26]
+     754              $C$DW$69        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+     755                      .dwattr $C$DW$69, DW_AT_location[DW_OP_reg27]
+     756              $C$DW$70        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+     757                      .dwattr $C$DW$70, DW_AT_location[DW_OP_reg28]
+     758              $C$DW$71        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+     759                      .dwattr $C$DW$71, DW_AT_location[DW_OP_reg29]
+     760              $C$DW$72        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+     761                      .dwattr $C$DW$72, DW_AT_location[DW_OP_reg30]
+     762              $C$DW$73        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   23
+
+     763                      .dwattr $C$DW$73, DW_AT_location[DW_OP_reg31]
+     764              $C$DW$74        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+     765                      .dwattr $C$DW$74, DW_AT_location[DW_OP_regx 0x20]
+     766              $C$DW$75        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XFP")
+     767                      .dwattr $C$DW$75, DW_AT_location[DW_OP_regx 0x21]
+     768              $C$DW$76        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+     769                      .dwattr $C$DW$76, DW_AT_location[DW_OP_regx 0x22]
+     770              $C$DW$77        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+     771                      .dwattr $C$DW$77, DW_AT_location[DW_OP_regx 0x23]
+     772              $C$DW$78        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XSP")
+     773                      .dwattr $C$DW$78, DW_AT_location[DW_OP_regx 0x24]
+     774              $C$DW$79        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BKC")
+     775                      .dwattr $C$DW$79, DW_AT_location[DW_OP_regx 0x25]
+     776              $C$DW$80        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK03")
+     777                      .dwattr $C$DW$80, DW_AT_location[DW_OP_regx 0x26]
+     778              $C$DW$81        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK47")
+     779                      .dwattr $C$DW$81, DW_AT_location[DW_OP_regx 0x27]
+     780              $C$DW$82        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+     781                      .dwattr $C$DW$82, DW_AT_location[DW_OP_regx 0x28]
+     782              $C$DW$83        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+     783                      .dwattr $C$DW$83, DW_AT_location[DW_OP_regx 0x29]
+     784              $C$DW$84        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST2")
+     785                      .dwattr $C$DW$84, DW_AT_location[DW_OP_regx 0x2a]
+     786              $C$DW$85        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST3")
+     787                      .dwattr $C$DW$85, DW_AT_location[DW_OP_regx 0x2b]
+     788              $C$DW$86        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP")
+     789                      .dwattr $C$DW$86, DW_AT_location[DW_OP_regx 0x2c]
+     790              $C$DW$87        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP05")
+     791                      .dwattr $C$DW$87, DW_AT_location[DW_OP_regx 0x2d]
+     792              $C$DW$88        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP67")
+     793                      .dwattr $C$DW$88, DW_AT_location[DW_OP_regx 0x2e]
+     794              $C$DW$89        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC0")
+     795                      .dwattr $C$DW$89, DW_AT_location[DW_OP_regx 0x2f]
+     796              $C$DW$90        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0")
+     797                      .dwattr $C$DW$90, DW_AT_location[DW_OP_regx 0x30]
+     798              $C$DW$91        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0_H")
+     799                      .dwattr $C$DW$91, DW_AT_location[DW_OP_regx 0x31]
+     800              $C$DW$92        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0")
+     801                      .dwattr $C$DW$92, DW_AT_location[DW_OP_regx 0x32]
+     802              $C$DW$93        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0_H")
+     803                      .dwattr $C$DW$93, DW_AT_location[DW_OP_regx 0x33]
+     804              $C$DW$94        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRS1")
+     805                      .dwattr $C$DW$94, DW_AT_location[DW_OP_regx 0x34]
+     806              $C$DW$95        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC1")
+     807                      .dwattr $C$DW$95, DW_AT_location[DW_OP_regx 0x35]
+     808              $C$DW$96        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1")
+     809                      .dwattr $C$DW$96, DW_AT_location[DW_OP_regx 0x36]
+     810              $C$DW$97        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1_H")
+     811                      .dwattr $C$DW$97, DW_AT_location[DW_OP_regx 0x37]
+     812              $C$DW$98        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1")
+     813                      .dwattr $C$DW$98, DW_AT_location[DW_OP_regx 0x38]
+     814              $C$DW$99        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1_H")
+     815                      .dwattr $C$DW$99, DW_AT_location[DW_OP_regx 0x39]
+     816              $C$DW$100       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CSR")
+     817                      .dwattr $C$DW$100, DW_AT_location[DW_OP_regx 0x3a]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   24
+
+     818              $C$DW$101       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPTC")
+     819                      .dwattr $C$DW$101, DW_AT_location[DW_OP_regx 0x3b]
+     820              $C$DW$102       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDP")
+     821                      .dwattr $C$DW$102, DW_AT_location[DW_OP_regx 0x3c]
+     822              $C$DW$103       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XCDP")
+     823                      .dwattr $C$DW$103, DW_AT_location[DW_OP_regx 0x3d]
+     824              $C$DW$104       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN0")
+     825                      .dwattr $C$DW$104, DW_AT_location[DW_OP_regx 0x3e]
+     826              $C$DW$105       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN1")
+     827                      .dwattr $C$DW$105, DW_AT_location[DW_OP_regx 0x3f]
+     828              $C$DW$106       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA01")
+     829                      .dwattr $C$DW$106, DW_AT_location[DW_OP_regx 0x40]
+     830              $C$DW$107       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA23")
+     831                      .dwattr $C$DW$107, DW_AT_location[DW_OP_regx 0x41]
+     832              $C$DW$108       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA45")
+     833                      .dwattr $C$DW$108, DW_AT_location[DW_OP_regx 0x42]
+     834              $C$DW$109       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA67")
+     835                      .dwattr $C$DW$109, DW_AT_location[DW_OP_regx 0x43]
+     836              $C$DW$110       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSAC")
+     837                      .dwattr $C$DW$110, DW_AT_location[DW_OP_regx 0x44]
+     838              $C$DW$111       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CARRY")
+     839                      .dwattr $C$DW$111, DW_AT_location[DW_OP_regx 0x45]
+     840              $C$DW$112       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC1")
+     841                      .dwattr $C$DW$112, DW_AT_location[DW_OP_regx 0x46]
+     842              $C$DW$113       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC2")
+     843                      .dwattr $C$DW$113, DW_AT_location[DW_OP_regx 0x47]
+     844              $C$DW$114       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("M40")
+     845                      .dwattr $C$DW$114, DW_AT_location[DW_OP_regx 0x48]
+     846              $C$DW$115       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXMD")
+     847                      .dwattr $C$DW$115, DW_AT_location[DW_OP_regx 0x49]
+     848              $C$DW$116       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ARMS")
+     849                      .dwattr $C$DW$116, DW_AT_location[DW_OP_regx 0x4a]
+     850              $C$DW$117       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("C54CM")
+     851                      .dwattr $C$DW$117, DW_AT_location[DW_OP_regx 0x4b]
+     852              $C$DW$118       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATA")
+     853                      .dwattr $C$DW$118, DW_AT_location[DW_OP_regx 0x4c]
+     854              $C$DW$119       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATD")
+     855                      .dwattr $C$DW$119, DW_AT_location[DW_OP_regx 0x4d]
+     856              $C$DW$120       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RDM")
+     857                      .dwattr $C$DW$120, DW_AT_location[DW_OP_regx 0x4e]
+     858              $C$DW$121       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FRCT")
+     859                      .dwattr $C$DW$121, DW_AT_location[DW_OP_regx 0x4f]
+     860              $C$DW$122       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SMUL")
+     861                      .dwattr $C$DW$122, DW_AT_location[DW_OP_regx 0x50]
+     862              $C$DW$123       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+     863                      .dwattr $C$DW$123, DW_AT_location[DW_OP_regx 0x51]
+     864              $C$DW$124       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0LC")
+     865                      .dwattr $C$DW$124, DW_AT_location[DW_OP_regx 0x52]
+     866              $C$DW$125       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1LC")
+     867                      .dwattr $C$DW$125, DW_AT_location[DW_OP_regx 0x53]
+     868              $C$DW$126       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2LC")
+     869                      .dwattr $C$DW$126, DW_AT_location[DW_OP_regx 0x54]
+     870              $C$DW$127       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3LC")
+     871                      .dwattr $C$DW$127, DW_AT_location[DW_OP_regx 0x55]
+     872              $C$DW$128       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4LC")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:04 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_msdram_clock_switch_example.asm                                  PAGE   25
+
+     873                      .dwattr $C$DW$128, DW_AT_location[DW_OP_regx 0x56]
+     874              $C$DW$129       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5LC")
+     875                      .dwattr $C$DW$129, DW_AT_location[DW_OP_regx 0x57]
+     876              $C$DW$130       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6LC")
+     877                      .dwattr $C$DW$130, DW_AT_location[DW_OP_regx 0x58]
+     878              $C$DW$131       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7LC")
+     879                      .dwattr $C$DW$131, DW_AT_location[DW_OP_regx 0x59]
+     880              $C$DW$132       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDPLC")
+     881                      .dwattr $C$DW$132, DW_AT_location[DW_OP_regx 0x5a]
+     882              $C$DW$133       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+     883                      .dwattr $C$DW$133, DW_AT_location[DW_OP_regx 0x5b]
+     884                      .dwendtag $C$DW$CU
+     885              
+     885              
+     885              
+
+No Assembly Errors, No Assembly Warnings

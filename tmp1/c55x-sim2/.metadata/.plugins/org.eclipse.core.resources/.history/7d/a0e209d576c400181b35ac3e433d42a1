@@ -1,0 +1,80 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+ASM_SRCS += \
+../src/vector.asm 
+
+C_SRCS += \
+../src/dma.c \
+../src/i2s.c \
+../src/i2s_sample.c \
+../src/main.c \
+../src/oled_test.c \
+../src/rtc.c \
+../src/sar.c \
+../src/timer.c 
+
+OBJS += \
+./src/dma.obj \
+./src/i2s.obj \
+./src/i2s_sample.obj \
+./src/main.obj \
+./src/oled_test.obj \
+./src/rtc.obj \
+./src/sar.obj \
+./src/timer.obj \
+./src/vector.obj 
+
+ASM_DEPS += \
+./src/vector.pp 
+
+C_DEPS += \
+./src/dma.pp \
+./src/i2s.pp \
+./src/i2s_sample.pp \
+./src/main.pp \
+./src/oled_test.pp \
+./src/rtc.pp \
+./src/sar.pp \
+./src/timer.pp 
+
+C_DEPS__QUOTED += \
+"src\dma.pp" \
+"src\i2s.pp" \
+"src\i2s_sample.pp" \
+"src\main.pp" \
+"src\oled_test.pp" \
+"src\rtc.pp" \
+"src\sar.pp" \
+"src\timer.pp" 
+
+OBJS__QUOTED += \
+"src\dma.obj" \
+"src\i2s.obj" \
+"src\i2s_sample.obj" \
+"src\main.obj" \
+"src\oled_test.obj" \
+"src\rtc.obj" \
+"src\sar.obj" \
+"src\timer.obj" \
+"src\vector.obj" 
+
+ASM_DEPS__QUOTED += \
+"src\vector.pp" 
+
+C_SRCS__QUOTED += \
+"../src/dma.c" \
+"../src/i2s.c" \
+"../src/i2s_sample.c" \
+"../src/main.c" \
+"../src/oled_test.c" \
+"../src/rtc.c" \
+"../src/sar.c" \
+"../src/timer.c" 
+
+ASM_SRCS__QUOTED += \
+"../src/vector.asm" 
+
+

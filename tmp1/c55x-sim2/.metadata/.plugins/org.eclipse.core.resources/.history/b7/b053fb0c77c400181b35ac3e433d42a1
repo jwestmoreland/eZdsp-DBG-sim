@@ -1,0 +1,240 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../FreeRTOS/Demo/Common/Minimal/AbortDelay.c \
+../FreeRTOS/Demo/Common/Minimal/AltBlckQ.c \
+../FreeRTOS/Demo/Common/Minimal/AltBlock.c \
+../FreeRTOS/Demo/Common/Minimal/AltPollQ.c \
+../FreeRTOS/Demo/Common/Minimal/AltQTest.c \
+../FreeRTOS/Demo/Common/Minimal/BlockQ.c \
+../FreeRTOS/Demo/Common/Minimal/EventGroupsDemo.c \
+../FreeRTOS/Demo/Common/Minimal/GenQTest.c \
+../FreeRTOS/Demo/Common/Minimal/IntQueue.c \
+../FreeRTOS/Demo/Common/Minimal/IntSemTest.c \
+../FreeRTOS/Demo/Common/Minimal/MessageBufferAMP.c \
+../FreeRTOS/Demo/Common/Minimal/MessageBufferDemo.c \
+../FreeRTOS/Demo/Common/Minimal/PollQ.c \
+../FreeRTOS/Demo/Common/Minimal/QPeek.c \
+../FreeRTOS/Demo/Common/Minimal/QueueOverwrite.c \
+../FreeRTOS/Demo/Common/Minimal/QueueSet.c \
+../FreeRTOS/Demo/Common/Minimal/QueueSetPolling.c \
+../FreeRTOS/Demo/Common/Minimal/StaticAllocation.c \
+../FreeRTOS/Demo/Common/Minimal/StreamBufferDemo.c \
+../FreeRTOS/Demo/Common/Minimal/StreamBufferInterrupt.c \
+../FreeRTOS/Demo/Common/Minimal/TaskNotify.c \
+../FreeRTOS/Demo/Common/Minimal/TimerDemo.c \
+../FreeRTOS/Demo/Common/Minimal/blocktim.c \
+../FreeRTOS/Demo/Common/Minimal/comtest.c \
+../FreeRTOS/Demo/Common/Minimal/comtest_strings.c \
+../FreeRTOS/Demo/Common/Minimal/countsem.c \
+../FreeRTOS/Demo/Common/Minimal/crflash.c \
+../FreeRTOS/Demo/Common/Minimal/crhook.c \
+../FreeRTOS/Demo/Common/Minimal/death.c \
+../FreeRTOS/Demo/Common/Minimal/dynamic.c \
+../FreeRTOS/Demo/Common/Minimal/flash.c \
+../FreeRTOS/Demo/Common/Minimal/flash_timer.c \
+../FreeRTOS/Demo/Common/Minimal/flop.c \
+../FreeRTOS/Demo/Common/Minimal/integer.c \
+../FreeRTOS/Demo/Common/Minimal/recmutex.c \
+../FreeRTOS/Demo/Common/Minimal/semtest.c \
+../FreeRTOS/Demo/Common/Minimal/sp_flop.c 
+
+OBJS += \
+./FreeRTOS/Demo/Common/Minimal/AbortDelay.obj \
+./FreeRTOS/Demo/Common/Minimal/AltBlckQ.obj \
+./FreeRTOS/Demo/Common/Minimal/AltBlock.obj \
+./FreeRTOS/Demo/Common/Minimal/AltPollQ.obj \
+./FreeRTOS/Demo/Common/Minimal/AltQTest.obj \
+./FreeRTOS/Demo/Common/Minimal/BlockQ.obj \
+./FreeRTOS/Demo/Common/Minimal/EventGroupsDemo.obj \
+./FreeRTOS/Demo/Common/Minimal/GenQTest.obj \
+./FreeRTOS/Demo/Common/Minimal/IntQueue.obj \
+./FreeRTOS/Demo/Common/Minimal/IntSemTest.obj \
+./FreeRTOS/Demo/Common/Minimal/MessageBufferAMP.obj \
+./FreeRTOS/Demo/Common/Minimal/MessageBufferDemo.obj \
+./FreeRTOS/Demo/Common/Minimal/PollQ.obj \
+./FreeRTOS/Demo/Common/Minimal/QPeek.obj \
+./FreeRTOS/Demo/Common/Minimal/QueueOverwrite.obj \
+./FreeRTOS/Demo/Common/Minimal/QueueSet.obj \
+./FreeRTOS/Demo/Common/Minimal/QueueSetPolling.obj \
+./FreeRTOS/Demo/Common/Minimal/StaticAllocation.obj \
+./FreeRTOS/Demo/Common/Minimal/StreamBufferDemo.obj \
+./FreeRTOS/Demo/Common/Minimal/StreamBufferInterrupt.obj \
+./FreeRTOS/Demo/Common/Minimal/TaskNotify.obj \
+./FreeRTOS/Demo/Common/Minimal/TimerDemo.obj \
+./FreeRTOS/Demo/Common/Minimal/blocktim.obj \
+./FreeRTOS/Demo/Common/Minimal/comtest.obj \
+./FreeRTOS/Demo/Common/Minimal/comtest_strings.obj \
+./FreeRTOS/Demo/Common/Minimal/countsem.obj \
+./FreeRTOS/Demo/Common/Minimal/crflash.obj \
+./FreeRTOS/Demo/Common/Minimal/crhook.obj \
+./FreeRTOS/Demo/Common/Minimal/death.obj \
+./FreeRTOS/Demo/Common/Minimal/dynamic.obj \
+./FreeRTOS/Demo/Common/Minimal/flash.obj \
+./FreeRTOS/Demo/Common/Minimal/flash_timer.obj \
+./FreeRTOS/Demo/Common/Minimal/flop.obj \
+./FreeRTOS/Demo/Common/Minimal/integer.obj \
+./FreeRTOS/Demo/Common/Minimal/recmutex.obj \
+./FreeRTOS/Demo/Common/Minimal/semtest.obj \
+./FreeRTOS/Demo/Common/Minimal/sp_flop.obj 
+
+C_DEPS += \
+./FreeRTOS/Demo/Common/Minimal/AbortDelay.pp \
+./FreeRTOS/Demo/Common/Minimal/AltBlckQ.pp \
+./FreeRTOS/Demo/Common/Minimal/AltBlock.pp \
+./FreeRTOS/Demo/Common/Minimal/AltPollQ.pp \
+./FreeRTOS/Demo/Common/Minimal/AltQTest.pp \
+./FreeRTOS/Demo/Common/Minimal/BlockQ.pp \
+./FreeRTOS/Demo/Common/Minimal/EventGroupsDemo.pp \
+./FreeRTOS/Demo/Common/Minimal/GenQTest.pp \
+./FreeRTOS/Demo/Common/Minimal/IntQueue.pp \
+./FreeRTOS/Demo/Common/Minimal/IntSemTest.pp \
+./FreeRTOS/Demo/Common/Minimal/MessageBufferAMP.pp \
+./FreeRTOS/Demo/Common/Minimal/MessageBufferDemo.pp \
+./FreeRTOS/Demo/Common/Minimal/PollQ.pp \
+./FreeRTOS/Demo/Common/Minimal/QPeek.pp \
+./FreeRTOS/Demo/Common/Minimal/QueueOverwrite.pp \
+./FreeRTOS/Demo/Common/Minimal/QueueSet.pp \
+./FreeRTOS/Demo/Common/Minimal/QueueSetPolling.pp \
+./FreeRTOS/Demo/Common/Minimal/StaticAllocation.pp \
+./FreeRTOS/Demo/Common/Minimal/StreamBufferDemo.pp \
+./FreeRTOS/Demo/Common/Minimal/StreamBufferInterrupt.pp \
+./FreeRTOS/Demo/Common/Minimal/TaskNotify.pp \
+./FreeRTOS/Demo/Common/Minimal/TimerDemo.pp \
+./FreeRTOS/Demo/Common/Minimal/blocktim.pp \
+./FreeRTOS/Demo/Common/Minimal/comtest.pp \
+./FreeRTOS/Demo/Common/Minimal/comtest_strings.pp \
+./FreeRTOS/Demo/Common/Minimal/countsem.pp \
+./FreeRTOS/Demo/Common/Minimal/crflash.pp \
+./FreeRTOS/Demo/Common/Minimal/crhook.pp \
+./FreeRTOS/Demo/Common/Minimal/death.pp \
+./FreeRTOS/Demo/Common/Minimal/dynamic.pp \
+./FreeRTOS/Demo/Common/Minimal/flash.pp \
+./FreeRTOS/Demo/Common/Minimal/flash_timer.pp \
+./FreeRTOS/Demo/Common/Minimal/flop.pp \
+./FreeRTOS/Demo/Common/Minimal/integer.pp \
+./FreeRTOS/Demo/Common/Minimal/recmutex.pp \
+./FreeRTOS/Demo/Common/Minimal/semtest.pp \
+./FreeRTOS/Demo/Common/Minimal/sp_flop.pp 
+
+C_DEPS__QUOTED += \
+"FreeRTOS\Demo\Common\Minimal\AbortDelay.pp" \
+"FreeRTOS\Demo\Common\Minimal\AltBlckQ.pp" \
+"FreeRTOS\Demo\Common\Minimal\AltBlock.pp" \
+"FreeRTOS\Demo\Common\Minimal\AltPollQ.pp" \
+"FreeRTOS\Demo\Common\Minimal\AltQTest.pp" \
+"FreeRTOS\Demo\Common\Minimal\BlockQ.pp" \
+"FreeRTOS\Demo\Common\Minimal\EventGroupsDemo.pp" \
+"FreeRTOS\Demo\Common\Minimal\GenQTest.pp" \
+"FreeRTOS\Demo\Common\Minimal\IntQueue.pp" \
+"FreeRTOS\Demo\Common\Minimal\IntSemTest.pp" \
+"FreeRTOS\Demo\Common\Minimal\MessageBufferAMP.pp" \
+"FreeRTOS\Demo\Common\Minimal\MessageBufferDemo.pp" \
+"FreeRTOS\Demo\Common\Minimal\PollQ.pp" \
+"FreeRTOS\Demo\Common\Minimal\QPeek.pp" \
+"FreeRTOS\Demo\Common\Minimal\QueueOverwrite.pp" \
+"FreeRTOS\Demo\Common\Minimal\QueueSet.pp" \
+"FreeRTOS\Demo\Common\Minimal\QueueSetPolling.pp" \
+"FreeRTOS\Demo\Common\Minimal\StaticAllocation.pp" \
+"FreeRTOS\Demo\Common\Minimal\StreamBufferDemo.pp" \
+"FreeRTOS\Demo\Common\Minimal\StreamBufferInterrupt.pp" \
+"FreeRTOS\Demo\Common\Minimal\TaskNotify.pp" \
+"FreeRTOS\Demo\Common\Minimal\TimerDemo.pp" \
+"FreeRTOS\Demo\Common\Minimal\blocktim.pp" \
+"FreeRTOS\Demo\Common\Minimal\comtest.pp" \
+"FreeRTOS\Demo\Common\Minimal\comtest_strings.pp" \
+"FreeRTOS\Demo\Common\Minimal\countsem.pp" \
+"FreeRTOS\Demo\Common\Minimal\crflash.pp" \
+"FreeRTOS\Demo\Common\Minimal\crhook.pp" \
+"FreeRTOS\Demo\Common\Minimal\death.pp" \
+"FreeRTOS\Demo\Common\Minimal\dynamic.pp" \
+"FreeRTOS\Demo\Common\Minimal\flash.pp" \
+"FreeRTOS\Demo\Common\Minimal\flash_timer.pp" \
+"FreeRTOS\Demo\Common\Minimal\flop.pp" \
+"FreeRTOS\Demo\Common\Minimal\integer.pp" \
+"FreeRTOS\Demo\Common\Minimal\recmutex.pp" \
+"FreeRTOS\Demo\Common\Minimal\semtest.pp" \
+"FreeRTOS\Demo\Common\Minimal\sp_flop.pp" 
+
+OBJS__QUOTED += \
+"FreeRTOS\Demo\Common\Minimal\AbortDelay.obj" \
+"FreeRTOS\Demo\Common\Minimal\AltBlckQ.obj" \
+"FreeRTOS\Demo\Common\Minimal\AltBlock.obj" \
+"FreeRTOS\Demo\Common\Minimal\AltPollQ.obj" \
+"FreeRTOS\Demo\Common\Minimal\AltQTest.obj" \
+"FreeRTOS\Demo\Common\Minimal\BlockQ.obj" \
+"FreeRTOS\Demo\Common\Minimal\EventGroupsDemo.obj" \
+"FreeRTOS\Demo\Common\Minimal\GenQTest.obj" \
+"FreeRTOS\Demo\Common\Minimal\IntQueue.obj" \
+"FreeRTOS\Demo\Common\Minimal\IntSemTest.obj" \
+"FreeRTOS\Demo\Common\Minimal\MessageBufferAMP.obj" \
+"FreeRTOS\Demo\Common\Minimal\MessageBufferDemo.obj" \
+"FreeRTOS\Demo\Common\Minimal\PollQ.obj" \
+"FreeRTOS\Demo\Common\Minimal\QPeek.obj" \
+"FreeRTOS\Demo\Common\Minimal\QueueOverwrite.obj" \
+"FreeRTOS\Demo\Common\Minimal\QueueSet.obj" \
+"FreeRTOS\Demo\Common\Minimal\QueueSetPolling.obj" \
+"FreeRTOS\Demo\Common\Minimal\StaticAllocation.obj" \
+"FreeRTOS\Demo\Common\Minimal\StreamBufferDemo.obj" \
+"FreeRTOS\Demo\Common\Minimal\StreamBufferInterrupt.obj" \
+"FreeRTOS\Demo\Common\Minimal\TaskNotify.obj" \
+"FreeRTOS\Demo\Common\Minimal\TimerDemo.obj" \
+"FreeRTOS\Demo\Common\Minimal\blocktim.obj" \
+"FreeRTOS\Demo\Common\Minimal\comtest.obj" \
+"FreeRTOS\Demo\Common\Minimal\comtest_strings.obj" \
+"FreeRTOS\Demo\Common\Minimal\countsem.obj" \
+"FreeRTOS\Demo\Common\Minimal\crflash.obj" \
+"FreeRTOS\Demo\Common\Minimal\crhook.obj" \
+"FreeRTOS\Demo\Common\Minimal\death.obj" \
+"FreeRTOS\Demo\Common\Minimal\dynamic.obj" \
+"FreeRTOS\Demo\Common\Minimal\flash.obj" \
+"FreeRTOS\Demo\Common\Minimal\flash_timer.obj" \
+"FreeRTOS\Demo\Common\Minimal\flop.obj" \
+"FreeRTOS\Demo\Common\Minimal\integer.obj" \
+"FreeRTOS\Demo\Common\Minimal\recmutex.obj" \
+"FreeRTOS\Demo\Common\Minimal\semtest.obj" \
+"FreeRTOS\Demo\Common\Minimal\sp_flop.obj" 
+
+C_SRCS__QUOTED += \
+"../FreeRTOS/Demo/Common/Minimal/AbortDelay.c" \
+"../FreeRTOS/Demo/Common/Minimal/AltBlckQ.c" \
+"../FreeRTOS/Demo/Common/Minimal/AltBlock.c" \
+"../FreeRTOS/Demo/Common/Minimal/AltPollQ.c" \
+"../FreeRTOS/Demo/Common/Minimal/AltQTest.c" \
+"../FreeRTOS/Demo/Common/Minimal/BlockQ.c" \
+"../FreeRTOS/Demo/Common/Minimal/EventGroupsDemo.c" \
+"../FreeRTOS/Demo/Common/Minimal/GenQTest.c" \
+"../FreeRTOS/Demo/Common/Minimal/IntQueue.c" \
+"../FreeRTOS/Demo/Common/Minimal/IntSemTest.c" \
+"../FreeRTOS/Demo/Common/Minimal/MessageBufferAMP.c" \
+"../FreeRTOS/Demo/Common/Minimal/MessageBufferDemo.c" \
+"../FreeRTOS/Demo/Common/Minimal/PollQ.c" \
+"../FreeRTOS/Demo/Common/Minimal/QPeek.c" \
+"../FreeRTOS/Demo/Common/Minimal/QueueOverwrite.c" \
+"../FreeRTOS/Demo/Common/Minimal/QueueSet.c" \
+"../FreeRTOS/Demo/Common/Minimal/QueueSetPolling.c" \
+"../FreeRTOS/Demo/Common/Minimal/StaticAllocation.c" \
+"../FreeRTOS/Demo/Common/Minimal/StreamBufferDemo.c" \
+"../FreeRTOS/Demo/Common/Minimal/StreamBufferInterrupt.c" \
+"../FreeRTOS/Demo/Common/Minimal/TaskNotify.c" \
+"../FreeRTOS/Demo/Common/Minimal/TimerDemo.c" \
+"../FreeRTOS/Demo/Common/Minimal/blocktim.c" \
+"../FreeRTOS/Demo/Common/Minimal/comtest.c" \
+"../FreeRTOS/Demo/Common/Minimal/comtest_strings.c" \
+"../FreeRTOS/Demo/Common/Minimal/countsem.c" \
+"../FreeRTOS/Demo/Common/Minimal/crflash.c" \
+"../FreeRTOS/Demo/Common/Minimal/crhook.c" \
+"../FreeRTOS/Demo/Common/Minimal/death.c" \
+"../FreeRTOS/Demo/Common/Minimal/dynamic.c" \
+"../FreeRTOS/Demo/Common/Minimal/flash.c" \
+"../FreeRTOS/Demo/Common/Minimal/flash_timer.c" \
+"../FreeRTOS/Demo/Common/Minimal/flop.c" \
+"../FreeRTOS/Demo/Common/Minimal/integer.c" \
+"../FreeRTOS/Demo/Common/Minimal/recmutex.c" \
+"../FreeRTOS/Demo/Common/Minimal/semtest.c" \
+"../FreeRTOS/Demo/Common/Minimal/sp_flop.c" 
+
+

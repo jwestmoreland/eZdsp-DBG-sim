@@ -1,0 +1,1946 @@
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE    1
+
+    1366              ; Temporary Registers Used: None
+       1              ;*******************************************************************************
+       2              ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
+       3              ;* Date/Time created: Sat Sep 29 23:09:34 2018                                 *
+       4              ;*******************************************************************************
+       5                      .compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --si
+       6                      .mmregs
+       7                      .cpl_on
+       8                      .arms_on
+       9                      .c54cm_off
+      10                      .asg AR6, FP
+      11                      .asg XAR6, XFP
+      12                      .asg DPH, MDP
+      13                      .model call=c55_std
+      14                      .model mem=large
+      15                      .noremark 5002  ; code respects overwrite rules
+      16              ;*******************************************************************************
+      17              ;* GLOBAL FILE PARAMETERS                                                      *
+      18              ;*                                                                             *
+      19              ;*   Architecture       : TMS320C55x                                           *
+      20              ;*   Optimizing for     : Speed                                                *
+      21              ;*   Memory             : Large Model (23-Bit Data Pointers)                   *
+      22              ;*   Calls              : Normal Library ASM calls                             *
+      23              ;*   Debug Info         : Standard TI Debug Information                        *
+      24              ;*******************************************************************************
+      25              
+      26              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+      27                      .dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_
+      28                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas In
+      29                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      30                      .dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+      31              ;******************************************************************************
+      32              ;* CINIT RECORDS                                                              *
+      33              ;******************************************************************************
+      34 000000               .sect   ".cinit"
+      35                      .align  1
+      36 000000 0001          .field          1,16
+      37 000001 0000-         .field          _PaSs_StAtE+0,24
+         000002 9500 
+      38 000002 9500          .field          0,8
+      39 000003 0001          .field  1,16                    ; _PaSs_StAtE @ 0
+      40              
+      41 000004               .sect   ".cinit"
+      42                      .align  1
+      43 000004 0001          .field          1,16
+      44 000005 0000-         .field          _PaSs+0,24
+         000006 9600 
+      45 000006 9600          .field          0,8
+      46 000007 0000          .field  0,16                    ; _PaSs @ 0
+      47              
+      48              
+      49              $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("I2C_init")
+      50                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_I2C_init")
+      51                      .dwattr $C$DW$1, DW_AT_type(*$C$DW$T$38)
+      52                      .dwattr $C$DW$1, DW_AT_declaration
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE    2
+
+      53                      .dwattr $C$DW$1, DW_AT_external
+      54              $C$DW$2 .dwtag  DW_TAG_formal_parameter
+      55                      .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$19)
+      56                      .dwendtag $C$DW$1
+      57              
+      58              
+      59              $C$DW$3 .dwtag  DW_TAG_subprogram, DW_AT_name("I2C_setup")
+      60                      .dwattr $C$DW$3, DW_AT_TI_symbol_name("_I2C_setup")
+      61                      .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$38)
+      62                      .dwattr $C$DW$3, DW_AT_declaration
+      63                      .dwattr $C$DW$3, DW_AT_external
+      64              $C$DW$4 .dwtag  DW_TAG_formal_parameter
+      65                      .dwattr $C$DW$4, DW_AT_type(*$C$DW$T$35)
+      66                      .dwendtag $C$DW$3
+      67              
+      68              
+      69              $C$DW$5 .dwtag  DW_TAG_subprogram, DW_AT_name("I2C_write")
+      70                      .dwattr $C$DW$5, DW_AT_TI_symbol_name("_I2C_write")
+      71                      .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$38)
+      72                      .dwattr $C$DW$5, DW_AT_declaration
+      73                      .dwattr $C$DW$5, DW_AT_external
+      74              $C$DW$6 .dwtag  DW_TAG_formal_parameter
+      75                      .dwattr $C$DW$6, DW_AT_type(*$C$DW$T$43)
+      76              $C$DW$7 .dwtag  DW_TAG_formal_parameter
+      77                      .dwattr $C$DW$7, DW_AT_type(*$C$DW$T$19)
+      78              $C$DW$8 .dwtag  DW_TAG_formal_parameter
+      79                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$19)
+      80              $C$DW$9 .dwtag  DW_TAG_formal_parameter
+      81                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$44)
+      82              $C$DW$10        .dwtag  DW_TAG_formal_parameter
+      83                      .dwattr $C$DW$10, DW_AT_type(*$C$DW$T$19)
+      84              $C$DW$11        .dwtag  DW_TAG_formal_parameter
+      85                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$19)
+      86                      .dwendtag $C$DW$5
+      87              
+      88              
+      89              $C$DW$12        .dwtag  DW_TAG_subprogram, DW_AT_name("I2C_read")
+      90                      .dwattr $C$DW$12, DW_AT_TI_symbol_name("_I2C_read")
+      91                      .dwattr $C$DW$12, DW_AT_type(*$C$DW$T$38)
+      92                      .dwattr $C$DW$12, DW_AT_declaration
+      93                      .dwattr $C$DW$12, DW_AT_external
+      94              $C$DW$13        .dwtag  DW_TAG_formal_parameter
+      95                      .dwattr $C$DW$13, DW_AT_type(*$C$DW$T$43)
+      96              $C$DW$14        .dwtag  DW_TAG_formal_parameter
+      97                      .dwattr $C$DW$14, DW_AT_type(*$C$DW$T$19)
+      98              $C$DW$15        .dwtag  DW_TAG_formal_parameter
+      99                      .dwattr $C$DW$15, DW_AT_type(*$C$DW$T$19)
+     100              $C$DW$16        .dwtag  DW_TAG_formal_parameter
+     101                      .dwattr $C$DW$16, DW_AT_type(*$C$DW$T$44)
+     102              $C$DW$17        .dwtag  DW_TAG_formal_parameter
+     103                      .dwattr $C$DW$17, DW_AT_type(*$C$DW$T$19)
+     104              $C$DW$18        .dwtag  DW_TAG_formal_parameter
+     105                      .dwattr $C$DW$18, DW_AT_type(*$C$DW$T$19)
+     106              $C$DW$19        .dwtag  DW_TAG_formal_parameter
+     107                      .dwattr $C$DW$19, DW_AT_type(*$C$DW$T$44)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE    3
+
+     108                      .dwendtag $C$DW$12
+     109              
+     110              
+     111              $C$DW$20        .dwtag  DW_TAG_subprogram, DW_AT_name("printf")
+     112                      .dwattr $C$DW$20, DW_AT_TI_symbol_name("_printf")
+     113                      .dwattr $C$DW$20, DW_AT_type(*$C$DW$T$10)
+     114                      .dwattr $C$DW$20, DW_AT_declaration
+     115                      .dwattr $C$DW$20, DW_AT_external
+     116              $C$DW$21        .dwtag  DW_TAG_formal_parameter
+     117                      .dwattr $C$DW$21, DW_AT_type(*$C$DW$T$57)
+     118              $C$DW$22        .dwtag  DW_TAG_unspecified_parameters
+     119                      .dwendtag $C$DW$20
+     120              
+     121                      .global _gI2cWrBuf
+     122 000000               .bss    _gI2cWrBuf,66,0,0
+     123              $C$DW$23        .dwtag  DW_TAG_variable, DW_AT_name("gI2cWrBuf")
+     124                      .dwattr $C$DW$23, DW_AT_TI_symbol_name("_gI2cWrBuf")
+     125                      .dwattr $C$DW$23, DW_AT_location[DW_OP_addr _gI2cWrBuf]
+     126                      .dwattr $C$DW$23, DW_AT_type(*$C$DW$T$53)
+     127                      .dwattr $C$DW$23, DW_AT_external
+     128                      .global _gI2cRdBuf
+     129 000042               .bss    _gI2cRdBuf,64,0,0
+     130              $C$DW$24        .dwtag  DW_TAG_variable, DW_AT_name("gI2cRdBuf")
+     131                      .dwattr $C$DW$24, DW_AT_TI_symbol_name("_gI2cRdBuf")
+     132                      .dwattr $C$DW$24, DW_AT_location[DW_OP_addr _gI2cRdBuf]
+     133                      .dwattr $C$DW$24, DW_AT_type(*$C$DW$T$54)
+     134                      .dwattr $C$DW$24, DW_AT_external
+     135                      .global _i2cSetup
+     136 000082               .bss    _i2cSetup,10,0,2
+     137              $C$DW$25        .dwtag  DW_TAG_variable, DW_AT_name("i2cSetup")
+     138                      .dwattr $C$DW$25, DW_AT_TI_symbol_name("_i2cSetup")
+     139                      .dwattr $C$DW$25, DW_AT_location[DW_OP_addr _i2cSetup]
+     140                      .dwattr $C$DW$25, DW_AT_type(*$C$DW$T$34)
+     141                      .dwattr $C$DW$25, DW_AT_external
+     142                      .global _i2cConfig
+     143 00008c               .bss    _i2cConfig,9,0,0
+     144              $C$DW$26        .dwtag  DW_TAG_variable, DW_AT_name("i2cConfig")
+     145                      .dwattr $C$DW$26, DW_AT_TI_symbol_name("_i2cConfig")
+     146                      .dwattr $C$DW$26, DW_AT_location[DW_OP_addr _i2cConfig]
+     147                      .dwattr $C$DW$26, DW_AT_type(*$C$DW$T$33)
+     148                      .dwattr $C$DW$26, DW_AT_external
+     149                      .global _PaSs_StAtE
+     150 000095               .bss    _PaSs_StAtE,1,0,0
+     151              $C$DW$27        .dwtag  DW_TAG_variable, DW_AT_name("PaSs_StAtE")
+     152                      .dwattr $C$DW$27, DW_AT_TI_symbol_name("_PaSs_StAtE")
+     153                      .dwattr $C$DW$27, DW_AT_location[DW_OP_addr _PaSs_StAtE]
+     154                      .dwattr $C$DW$27, DW_AT_type(*$C$DW$T$51)
+     155                      .dwattr $C$DW$27, DW_AT_external
+     156                      .global _PaSs
+     157 000096               .bss    _PaSs,1,0,0
+     158              $C$DW$28        .dwtag  DW_TAG_variable, DW_AT_name("PaSs")
+     159                      .dwattr $C$DW$28, DW_AT_TI_symbol_name("_PaSs")
+     160                      .dwattr $C$DW$28, DW_AT_location[DW_OP_addr _PaSs]
+     161                      .dwattr $C$DW$28, DW_AT_type(*$C$DW$T$51)
+     162                      .dwattr $C$DW$28, DW_AT_external
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE    4
+
+     163              ;       F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1976812 
+     164 000000               .sect   ".text"
+     165                      .align 4
+     166                      .global _main
+     167              
+     168              $C$DW$29        .dwtag  DW_TAG_subprogram, DW_AT_name("main")
+     169                      .dwattr $C$DW$29, DW_AT_low_pc(_main)
+     170                      .dwattr $C$DW$29, DW_AT_high_pc(0x00)
+     171                      .dwattr $C$DW$29, DW_AT_TI_symbol_name("_main")
+     172                      .dwattr $C$DW$29, DW_AT_external
+     173                      .dwattr $C$DW$29, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c
+     174                      .dwattr $C$DW$29, DW_AT_TI_begin_line(0x80)
+     175                      .dwattr $C$DW$29, DW_AT_TI_begin_column(0x06)
+     176                      .dwattr $C$DW$29, DW_AT_TI_max_frame_size(0x04)
+     177                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     178              
+     179                      .dwfde $C$DW$CIE, _main
+     180              ;*******************************************************************************
+     181              ;* FUNCTION NAME: main                                                         *
+     182              ;*                                                                             *
+     183              ;*   Function Uses Regs : T0,AR1,AR3,XAR3,SP,M40,SATA,SATD,RDM,FRCT,SMUL       *
+     184              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     185              ;*   Total Frame Size   : 4 words                                              *
+     186              ;*                        (1 return address/alignment)                         *
+     187              ;*                        (2 function parameters)                              *
+     188              ;*                        (1 local values)                                     *
+     189              ;*   Min System Stack   : 1 word                                               *
+     190              ;*******************************************************************************
+     191 000000       _main:
+     192                      .dwcfi  cfa_offset, 1
+     193                      .dwcfi  save_reg_to_mem, 91, -1
+     194 000000 4EFD          AADD #-3, SP
+     195                      .dwcfi  cfa_offset, 4
+     196              $C$DW$30        .dwtag  DW_TAG_variable, DW_AT_name("result")
+     197                      .dwattr $C$DW$30, DW_AT_TI_symbol_name("_result")
+     198                      .dwattr $C$DW$30, DW_AT_type(*$C$DW$T$38)
+     199                      .dwattr $C$DW$30, DW_AT_location[DW_OP_bregx 0x24 2]
+     200                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     201 000002 EC31          AMOV #$C$FSL1, XAR3 ; |132| 
+         000004 BE00 
+         000006 0000+
+     202 000008 EB00          MOV XAR3, dbl(*SP(#0))
+         00000a B5   
+     203              $C$DW$31        .dwtag  DW_TAG_TI_branch
+     204                      .dwattr $C$DW$31, DW_AT_low_pc(0x00)
+     205                      .dwattr $C$DW$31, DW_AT_name("_printf")
+     206                      .dwattr $C$DW$31, DW_AT_TI_call
+     207 00000b 6C00          CALL #_printf ; |132| 
+         00000d 0000!
+     208                                                      ; call occurs [#_printf] ; |132| 
+     209                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     210              $C$DW$32        .dwtag  DW_TAG_TI_branch
+     211                      .dwattr $C$DW$32, DW_AT_low_pc(0x00)
+     212                      .dwattr $C$DW$32, DW_AT_name("_CSL_i2cPolledTest")
+     213                      .dwattr $C$DW$32, DW_AT_TI_call
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE    5
+
+     214 00000f 0800          CALL #_CSL_i2cPolledTest ; |134| 
+         000011 36   
+     215                                                      ; call occurs [#_CSL_i2cPolledTest] ; |134| 
+     216 000012 C404          MOV T0, *SP(#2) ; |134| 
+     217                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     218 000014 2249          MOV T0, AR1
+     219 000016 6799          BCC $C$L1,AR1 != #0 ; |136| 
+     220                                                      ; branchcc occurs ; |136| 
+     221                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     222 000018 EC31          AMOV #$C$FSL2, XAR3 ; |138| 
+         00001a BE00 
+         00001c 0018+
+     223 00001e EB00          MOV XAR3, dbl(*SP(#0))
+         000020 B5   
+     224              $C$DW$33        .dwtag  DW_TAG_TI_branch
+     225                      .dwattr $C$DW$33, DW_AT_low_pc(0x00)
+     226                      .dwattr $C$DW$33, DW_AT_name("_printf")
+     227                      .dwattr $C$DW$33, DW_AT_TI_call
+     228 000021 6C00          CALL #_printf ; |138| 
+         000023 0000!
+     229                                                      ; call occurs [#_printf] ; |138| 
+     230                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     231 000025 4A13          B $C$L2   ; |139| 
+     232                                                      ; branch occurs ; |139| 
+     233 000027       $C$L1:    
+     234                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     235 000027 EC31          AMOV #$C$FSL3, XAR3 ; |142| 
+         000029 BE00 
+         00002b 0038+
+     236 00002d EB00          MOV XAR3, dbl(*SP(#0))
+         00002f B5   
+     237              $C$DW$34        .dwtag  DW_TAG_TI_branch
+     238                      .dwattr $C$DW$34, DW_AT_low_pc(0x00)
+     239                      .dwattr $C$DW$34, DW_AT_name("_printf")
+     240                      .dwattr $C$DW$34, DW_AT_TI_call
+     241 000030 6C00          CALL #_printf ; |142| 
+         000032 0000!
+     242                                                      ; call occurs [#_printf] ; |142| 
+     243                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     244 000034 E631          MOV #0, *(#_PaSs_StAtE) ; |145| 
+         000036 0000 
+         000038 0095-
+     245 00003a       $C$L2:    
+     246                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     247 00003a A931          MOV *(#_PaSs_StAtE), AR1 ; |150| 
+         00003c 0000 
+         00003e 95-  
+     248 00003f C931          MOV AR1, *(#_PaSs) ; |150| 
+         000041 0000 
+         000043 96-  
+     249                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     250 000044 4E03          AADD #3, SP
+     251                      .dwcfi  cfa_offset, 1
+     252              $C$DW$35        .dwtag  DW_TAG_TI_branch
+     253                      .dwattr $C$DW$35, DW_AT_low_pc(0x00)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE    6
+
+     254                      .dwattr $C$DW$35, DW_AT_TI_return
+     255 000046 4804          RET
+     256                                                      ; return occurs
+     257                      .dwattr $C$DW$29, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/C
+     258                      .dwattr $C$DW$29, DW_AT_TI_end_line(0x9b)
+     259                      .dwattr $C$DW$29, DW_AT_TI_end_column(0x01)
+     260                      .dwendentry
+     261                      .dwendtag $C$DW$29
+     262              
+     263 000048               .sect   ".text"
+     264                      .align 4
+     265                      .global _CSL_i2cPolledTest
+     266              
+     267              $C$DW$36        .dwtag  DW_TAG_subprogram, DW_AT_name("CSL_i2cPolledTest")
+     268                      .dwattr $C$DW$36, DW_AT_low_pc(_CSL_i2cPolledTest)
+     269                      .dwattr $C$DW$36, DW_AT_high_pc(0x00)
+     270                      .dwattr $C$DW$36, DW_AT_TI_symbol_name("_CSL_i2cPolledTest")
+     271                      .dwattr $C$DW$36, DW_AT_external
+     272                      .dwattr $C$DW$36, DW_AT_type(*$C$DW$T$38)
+     273                      .dwattr $C$DW$36, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c
+     274                      .dwattr $C$DW$36, DW_AT_TI_begin_line(0xa4)
+     275                      .dwattr $C$DW$36, DW_AT_TI_begin_column(0x0d)
+     276                      .dwattr $C$DW$36, DW_AT_TI_max_frame_size(0x08)
+     277                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     278              
+     279                      .dwfde $C$DW$CIE, _CSL_i2cPolledTest
+     280              ;*******************************************************************************
+     281              ;* FUNCTION NAME: CSL_i2cPolledTest                                            *
+     282              ;*                                                                             *
+     283              ;*   Function Uses Regs : AC0,AC0,T0,T1,AR0,XAR0,AR1,AR2,AR3,XAR3,AR4,SP,CARRY,*
+     284              ;*                        TC1,M40,SATA,SATD,RDM,FRCT,SMUL                      *
+     285              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     286              ;*   Total Frame Size   : 8 words                                              *
+     287              ;*                        (2 return address/alignment)                         *
+     288              ;*                        (2 function parameters)                              *
+     289              ;*                        (4 local values)                                     *
+     290              ;*   Min System Stack   : 1 word                                               *
+     291              ;*******************************************************************************
+     292 000048       _CSL_i2cPolledTest:
+     293                      .dwcfi  cfa_offset, 1
+     294                      .dwcfi  save_reg_to_mem, 91, -1
+     295 000048 4EF9          AADD #-7, SP
+     296                      .dwcfi  cfa_offset, 8
+     297              $C$DW$37        .dwtag  DW_TAG_variable, DW_AT_name("status")
+     298                      .dwattr $C$DW$37, DW_AT_TI_symbol_name("_status")
+     299                      .dwattr $C$DW$37, DW_AT_type(*$C$DW$T$38)
+     300                      .dwattr $C$DW$37, DW_AT_location[DW_OP_bregx 0x24 2]
+     301              $C$DW$38        .dwtag  DW_TAG_variable, DW_AT_name("result")
+     302                      .dwattr $C$DW$38, DW_AT_TI_symbol_name("_result")
+     303                      .dwattr $C$DW$38, DW_AT_type(*$C$DW$T$38)
+     304                      .dwattr $C$DW$38, DW_AT_location[DW_OP_bregx 0x24 3]
+     305              $C$DW$39        .dwtag  DW_TAG_variable, DW_AT_name("startStop")
+     306                      .dwattr $C$DW$39, DW_AT_TI_symbol_name("_startStop")
+     307                      .dwattr $C$DW$39, DW_AT_type(*$C$DW$T$19)
+     308                      .dwattr $C$DW$39, DW_AT_location[DW_OP_bregx 0x24 4]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE    7
+
+     309              $C$DW$40        .dwtag  DW_TAG_variable, DW_AT_name("looper")
+     310                      .dwattr $C$DW$40, DW_AT_TI_symbol_name("_looper")
+     311                      .dwattr $C$DW$40, DW_AT_type(*$C$DW$T$52)
+     312                      .dwattr $C$DW$40, DW_AT_location[DW_OP_bregx 0x24 5]
+     313                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     314 00004a E606          MOV #1, *SP(#3) ; |171| 
+         00004c 01   
+     315                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     316 00004d E631          MOV #0, *(#_gI2cWrBuf) ; |174| 
+         00004f 0000 
+         000051 0000-
+     317                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     318 000053 E631          MOV #0, *(#(_gI2cWrBuf+1)) ; |175| 
+         000055 0000 
+         000057 0001-
+     319                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     320 000059 E60A          MOV #0, *SP(#5) ; |177| 
+         00005b 00   
+     321 00005c 20            NOP
+     322 00005d 20            NOP
+     323                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     324 00005e 7600          MOV #64, AR2 ; |177| 
+         000060 40A8 
+     325 000062 A90A          MOV *SP(#5), AR1 ; |177| 
+     326 000064 1298          CMPU AR1 >= AR2, TC1 ; |177| 
+         000066 A4   
+     327 000067 0464          BCC $C$L4,TC1 ; |177| 
+         000069 28   
+     328                                                      ; branchcc occurs ; |177| 
+     329 00006a       $C$L3:    
+     330 00006a       $C$DW$L$_CSL_i2cPolledTest$2$B:
+     331                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     332 00006a A40A          MOV *SP(#5), T0 ; |179| 
+     333 00006c 4024          ADD #2, T0 ; |179| 
+     334 00006e EC31          AMOV #_gI2cWrBuf, XAR3 ; |179| 
+         000070 BE00 
+         000072 0000-
+     335 000074 A90A          MOV *SP(#5), AR1 ; |179| 
+     336 000076 C96B          MOV AR1, *AR3(T0) ; |179| 
+     337                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     338 000078 A40A          MOV *SP(#5), T0 ; |180| 
+     339 00007a EC31          AMOV #_gI2cRdBuf, XAR3 ; |180| 
+         00007c BE00 
+         00007e 0042-
+     340 000080 E66B          MOV #0, *AR3(T0) ; |180| 
+         000082 00   
+     341                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     342 000083 F70A          ADD #1, *SP(#5) ; |177| 
+         000085 0001 
+     343 000087 20            NOP
+     344 000088 20            NOP
+     345 000089 20            NOP
+     346                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     347 00008a A90A          MOV *SP(#5), AR1 ; |177| 
+     348 00008c 1294          CMPU AR1 < AR2, TC1 ; |177| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE    8
+
+         00008e A4   
+     349 00008f 0464          BCC $C$L3,TC1 ; |177| 
+         000091 D8   
+     350                                                      ; branchcc occurs ; |177| 
+     351 000092       $C$DW$L$_CSL_i2cPolledTest$2$E:
+     352 000092       $C$L4:    
+     353                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     354              $C$DW$41        .dwtag  DW_TAG_TI_branch
+     355                      .dwattr $C$DW$41, DW_AT_low_pc(0x00)
+     356                      .dwattr $C$DW$41, DW_AT_name("_I2C_init")
+     357                      .dwattr $C$DW$41, DW_AT_TI_call
+     358              
+     359 000092 6C00          CALL #_I2C_init ; |184| 
+         000094 0000!
+     360 000096 3D04  ||      MOV #0, T0
+     361              
+     362                                                      ; call occurs [#_I2C_init] ; |184| 
+     363 000098 C404          MOV T0, *SP(#2) ; |184| 
+     364                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     365 00009a 2249          MOV T0, AR1
+     366 00009c 0409          BCC $C$L5,AR1 == #0 ; |185| 
+         00009e 12   
+     367                                                      ; branchcc occurs ; |185| 
+     368                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     369 00009f EC31          AMOV #$C$FSL4, XAR3 ; |187| 
+         0000a1 BE00 
+         0000a3 0058+
+     370 0000a5 EB00          MOV XAR3, dbl(*SP(#0))
+         0000a7 B5   
+     371              $C$DW$42        .dwtag  DW_TAG_TI_branch
+     372                      .dwattr $C$DW$42, DW_AT_low_pc(0x00)
+     373                      .dwattr $C$DW$42, DW_AT_name("_printf")
+     374                      .dwattr $C$DW$42, DW_AT_TI_call
+     375 0000a8 6C00          CALL #_printf ; |187| 
+         0000aa 0000!
+     376                                                      ; call occurs [#_printf] ; |187| 
+     377                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     378 0000ac A406          MOV *SP(#3), T0 ; |188| 
+     379 0000ae 0601          B $C$L18  ; |188| 
+         0000b0 B6   
+     380                                                      ; branch occurs ; |188| 
+     381 0000b1       $C$L5:    
+     382                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     383 0000b1 E631          MOV #0, *(#_i2cSetup) ; |192| 
+         0000b3 0000 
+         0000b5 0082-
+     384                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     385 0000b7 E631          MOV #0, *(#(_i2cSetup+1)) ; |193| 
+         0000b9 0000 
+         0000bb 0083-
+     386                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     387 0000bd E631          MOV #0, *(#(_i2cSetup+2)) ; |194| 
+         0000bf 0000 
+         0000c1 0084-
+     388                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE    9
+
+     389 0000c3 E631          MOV #0, *(#(_i2cSetup+3)) ; |195| 
+         0000c5 0000 
+         0000c7 0085-
+     390                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     391 0000c9 E631          MOV #0, *(#(_i2cSetup+4)) ; |196| 
+         0000cb 0000 
+         0000cd 0086-
+     392                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     393 0000cf E631          MOV #47, *(#(_i2cSetup+5)) ; |197| 
+         0000d1 2F00 
+         0000d3 0087-
+     394                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     395 0000d5 7600          MOV #100, AC0 ; |198| 
+         0000d7 6408 
+     396 0000d9 EB31          MOV AC0, dbl(*(#(_i2cSetup+6))) ; |198| 
+         0000db 0800 
+         0000dd 0088-
+     397                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     398 0000df 3CA0          MOV #10, AC0 ; |199| 
+     399 0000e1 EB31          MOV AC0, dbl(*(#(_i2cSetup+8))) ; |199| 
+         0000e3 0800 
+         0000e5 008A-
+     400                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     401 0000e7 FB08          MOV #768, *SP(#4) ; |200| 
+         0000e9 0300 
+     402                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     403 0000eb EC31          AMOV #_i2cSetup, XAR0 ; |202| 
+         0000ed 8E00 
+         0000ef 0082-
+     404              $C$DW$43        .dwtag  DW_TAG_TI_branch
+     405                      .dwattr $C$DW$43, DW_AT_low_pc(0x00)
+     406                      .dwattr $C$DW$43, DW_AT_name("_I2C_setup")
+     407                      .dwattr $C$DW$43, DW_AT_TI_call
+     408 0000f1 6C00          CALL #_I2C_setup ; |202| 
+         0000f3 0000!
+     409                                                      ; call occurs [#_I2C_setup] ; |202| 
+     410 0000f5 C404          MOV T0, *SP(#2) ; |202| 
+     411                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     412 0000f7 2249          MOV T0, AR1
+     413 0000f9 0409          BCC $C$L6,AR1 == #0 ; |203| 
+         0000fb 12   
+     414                                                      ; branchcc occurs ; |203| 
+     415                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     416 0000fc EC31          AMOV #$C$FSL5, XAR3 ; |205| 
+         0000fe BE00 
+         000100 006C+
+     417 000102 EB00          MOV XAR3, dbl(*SP(#0))
+         000104 B5   
+     418              $C$DW$44        .dwtag  DW_TAG_TI_branch
+     419                      .dwattr $C$DW$44, DW_AT_low_pc(0x00)
+     420                      .dwattr $C$DW$44, DW_AT_name("_printf")
+     421                      .dwattr $C$DW$44, DW_AT_TI_call
+     422 000105 6C00          CALL #_printf ; |205| 
+         000107 0000!
+     423                                                      ; call occurs [#_printf] ; |205| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   10
+
+     424                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     425 000109 A406          MOV *SP(#3), T0 ; |206| 
+     426 00010b 0601          B $C$L18  ; |206| 
+         00010d 59   
+     427                                                      ; branch occurs ; |206| 
+     428 00010e       $C$L6:    
+     429                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     430 00010e AA08          MOV *SP(#4), AR2 ; |210| 
+     431 000110 EC31          AMOV #_gI2cWrBuf, XAR0 ; |210| 
+         000112 8E00 
+         000114 0000-
+     432 000116 76FF          MOV #65535, AR3 ; |210| 
+         000118 FFB8 
+     433 00011a 7600          MOV #80, T1 ; |210| 
+         00011c 5058 
+     434 00011e 7600          MOV #66, T0 ; |210| 
+         000120 4248 
+     435              $C$DW$45        .dwtag  DW_TAG_TI_branch
+     436                      .dwattr $C$DW$45, DW_AT_low_pc(0x00)
+     437                      .dwattr $C$DW$45, DW_AT_name("_I2C_write")
+     438                      .dwattr $C$DW$45, DW_AT_TI_call
+     439              
+     440 000122 6C00          CALL #_I2C_write ; |210| 
+         000124 0000!
+     441 000126 3D19  ||      MOV #1, AR1
+     442              
+     443                                                      ; call occurs [#_I2C_write] ; |210| 
+     444 000128 C404          MOV T0, *SP(#2) ; |210| 
+     445                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     446 00012a 2249          MOV T0, AR1
+     447 00012c 0409          BCC $C$L7,AR1 == #0 ; |213| 
+         00012e 12   
+     448                                                      ; branchcc occurs ; |213| 
+     449                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     450 00012f EC31          AMOV #$C$FSL6, XAR3 ; |215| 
+         000131 BE00 
+         000133 0080+
+     451 000135 EB00          MOV XAR3, dbl(*SP(#0))
+         000137 B5   
+     452              $C$DW$46        .dwtag  DW_TAG_TI_branch
+     453                      .dwattr $C$DW$46, DW_AT_low_pc(0x00)
+     454                      .dwattr $C$DW$46, DW_AT_name("_printf")
+     455                      .dwattr $C$DW$46, DW_AT_TI_call
+     456 000138 6C00          CALL #_printf ; |215| 
+         00013a 0000!
+     457                                                      ; call occurs [#_printf] ; |215| 
+     458                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     459 00013c A406          MOV *SP(#3), T0 ; |216| 
+     460 00013e 0601          B $C$L18  ; |216| 
+         000140 26   
+     461                                                      ; branch occurs ; |216| 
+     462 000141       $C$L7:    
+     463                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     464 000141 EC31          AMOV #$C$FSL7, XAR3 ; |219| 
+         000143 BE00 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   11
+
+         000145 0094+
+     465 000147 EB00          MOV XAR3, dbl(*SP(#0))
+         000149 B5   
+     466              $C$DW$47        .dwtag  DW_TAG_TI_branch
+     467                      .dwattr $C$DW$47, DW_AT_low_pc(0x00)
+     468                      .dwattr $C$DW$47, DW_AT_name("_printf")
+     469                      .dwattr $C$DW$47, DW_AT_TI_call
+     470 00014a 6C00          CALL #_printf ; |219| 
+         00014c 0000!
+     471                                                      ; call occurs [#_printf] ; |219| 
+     472                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     473 00014e E60A          MOV #0, *SP(#5) ; |222| 
+         000150 00   
+     474 000151 20            NOP
+     475 000152 20            NOP
+     476                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     477 000153 76FF          MOV #65535, AR2 ; |222| 
+         000155 FFA8 
+     478 000157 A90A          MOV *SP(#5), AR1 ; |222| 
+     479 000159 1298          CMPU AR1 >= AR2, TC1 ; |222| 
+         00015b A4   
+     480 00015c 67E4          BCC $C$L9,TC1 ; |222| 
+     481                                                      ; branchcc occurs ; |222| 
+     482 00015e       $C$L8:    
+     483 00015e       $C$DW$L$_CSL_i2cPolledTest$10$B:
+     484                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     485 00015e F70A          ADD #1, *SP(#5) ; |222| 
+         000160 0001 
+     486 000162 20            NOP
+     487 000163 20            NOP
+     488 000164 20            NOP
+     489                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     490 000165 A90A          MOV *SP(#5), AR1 ; |222| 
+     491 000167 1294          CMPU AR1 < AR2, TC1 ; |222| 
+         000169 A4   
+     492 00016a 0464          BCC $C$L8,TC1 ; |222| 
+         00016c F1   
+     493                                                      ; branchcc occurs ; |222| 
+     494 00016d       $C$DW$L$_CSL_i2cPolledTest$10$E:
+     495 00016d       $C$L9:    
+     496                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     497 00016d AA08          MOV *SP(#4), AR2 ; |225| 
+     498 00016f EC31          AMOV #_gI2cWrBuf, XAR0 ; |225| 
+         000171 8E00 
+         000173 0000-
+     499 000175 7600          MOV #80, T1 ; |225| 
+         000177 5058 
+     500              
+     501 00017d 3D24          MOV #2, T0
+     502 000179 76FF  ||      MOV #65535, AR3 ; |225| 
+         00017b FFB8 
+     503              
+     504              $C$DW$48        .dwtag  DW_TAG_TI_branch
+     505                      .dwattr $C$DW$48, DW_AT_low_pc(0x00)
+     506                      .dwattr $C$DW$48, DW_AT_name("_I2C_write")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   12
+
+     507                      .dwattr $C$DW$48, DW_AT_TI_call
+     508              
+     509 00017f 6C00          CALL #_I2C_write ; |225| 
+         000181 0000!
+     510 000183 3D19  ||      MOV #1, AR1
+     511              
+     512                                                      ; call occurs [#_I2C_write] ; |225| 
+     513 000185 C404          MOV T0, *SP(#2) ; |225| 
+     514                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     515 000187 2249          MOV T0, AR1
+     516 000189 0409          BCC $C$L10,AR1 == #0 ; |227| 
+         00018b 12   
+     517                                                      ; branchcc occurs ; |227| 
+     518                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     519 00018c EC31          AMOV #$C$FSL6, XAR3 ; |229| 
+         00018e BE00 
+         000190 0080+
+     520 000192 EB00          MOV XAR3, dbl(*SP(#0))
+         000194 B5   
+     521              $C$DW$49        .dwtag  DW_TAG_TI_branch
+     522                      .dwattr $C$DW$49, DW_AT_low_pc(0x00)
+     523                      .dwattr $C$DW$49, DW_AT_name("_printf")
+     524                      .dwattr $C$DW$49, DW_AT_TI_call
+     525 000195 6C00          CALL #_printf ; |229| 
+         000197 0000!
+     526                                                      ; call occurs [#_printf] ; |229| 
+     527                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     528 000199 A406          MOV *SP(#3), T0 ; |230| 
+     529 00019b 0600          B $C$L18  ; |230| 
+         00019d C9   
+     530                                                      ; branch occurs ; |230| 
+     531 00019e       $C$L10:    
+     532                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     533 00019e E60A          MOV #0, *SP(#5) ; |234| 
+         0001a0 00   
+     534 0001a1 20            NOP
+     535 0001a2 20            NOP
+     536                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     537 0001a3 76FF          MOV #65535, AR2 ; |234| 
+         0001a5 FFA8 
+     538 0001a7 A90A          MOV *SP(#5), AR1 ; |234| 
+     539 0001a9 1298          CMPU AR1 >= AR2, TC1 ; |234| 
+         0001ab A4   
+     540 0001ac 67E4          BCC $C$L12,TC1 ; |234| 
+     541                                                      ; branchcc occurs ; |234| 
+     542 0001ae       $C$L11:    
+     543 0001ae       $C$DW$L$_CSL_i2cPolledTest$14$B:
+     544                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     545 0001ae F70A          ADD #1, *SP(#5) ; |234| 
+         0001b0 0001 
+     546 0001b2 20            NOP
+     547 0001b3 20            NOP
+     548 0001b4 20            NOP
+     549                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     550 0001b5 A90A          MOV *SP(#5), AR1 ; |234| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   13
+
+     551 0001b7 1294          CMPU AR1 < AR2, TC1 ; |234| 
+         0001b9 A4   
+     552 0001ba 0464          BCC $C$L11,TC1 ; |234| 
+         0001bc F1   
+     553                                                      ; branchcc occurs ; |234| 
+     554 0001bd       $C$DW$L$_CSL_i2cPolledTest$14$E:
+     555 0001bd       $C$L12:    
+     556                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     557 0001bd AA08          MOV *SP(#4), AR2 ; |237| 
+     558 0001bf EC31          AMOV #_gI2cRdBuf, XAR0 ; |237| 
+         0001c1 8E00 
+         0001c3 0042-
+     559 0001c5 76FF          MOV #65535, AR3 ; |237| 
+         0001c7 FFB8 
+     560 0001c9 7600          MOV #80, T1 ; |237| 
+         0001cb 5058 
+     561              
+     562 0001cd 7600          MOV #64, T0 ; |237| 
+         0001cf 4048 
+     563 0001d1 3D19  ||      MOV #1, AR1
+     564              
+     565              $C$DW$50        .dwtag  DW_TAG_TI_branch
+     566                      .dwattr $C$DW$50, DW_AT_low_pc(0x00)
+     567                      .dwattr $C$DW$50, DW_AT_name("_I2C_read")
+     568                      .dwattr $C$DW$50, DW_AT_TI_call
+     569              
+     570 0001d3 6C00          CALL #_I2C_read ; |237| 
+         0001d5 0000!
+     571 0001d7 3D0C  ||      MOV #0, AR4
+     572              
+     573                                                      ; call occurs [#_I2C_read] ; |237| 
+     574 0001d9 C404          MOV T0, *SP(#2) ; |237| 
+     575                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     576 0001db 2249          MOV T0, AR1
+     577 0001dd 0409          BCC $C$L13,AR1 == #0 ; |239| 
+         0001df 12   
+     578                                                      ; branchcc occurs ; |239| 
+     579                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     580 0001e0 EC31          AMOV #$C$FSL8, XAR3 ; |241| 
+         0001e2 BE00 
+         0001e4 00A8+
+     581 0001e6 EB00          MOV XAR3, dbl(*SP(#0))
+         0001e8 B5   
+     582              $C$DW$51        .dwtag  DW_TAG_TI_branch
+     583                      .dwattr $C$DW$51, DW_AT_low_pc(0x00)
+     584                      .dwattr $C$DW$51, DW_AT_name("_printf")
+     585                      .dwattr $C$DW$51, DW_AT_TI_call
+     586 0001e9 6C00          CALL #_printf ; |241| 
+         0001eb 0000!
+     587                                                      ; call occurs [#_printf] ; |241| 
+     588                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     589 0001ed A406          MOV *SP(#3), T0 ; |242| 
+     590 0001ef 0600          B $C$L18  ; |242| 
+         0001f1 75   
+     591                                                      ; branch occurs ; |242| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   14
+
+     592 0001f2       $C$L13:    
+     593                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     594 0001f2 EC31          AMOV #$C$FSL9, XAR3 ; |245| 
+         0001f4 BE00 
+         0001f6 00BC+
+     595 0001f8 EB00          MOV XAR3, dbl(*SP(#0))
+         0001fa B5   
+     596              $C$DW$52        .dwtag  DW_TAG_TI_branch
+     597                      .dwattr $C$DW$52, DW_AT_low_pc(0x00)
+     598                      .dwattr $C$DW$52, DW_AT_name("_printf")
+     599                      .dwattr $C$DW$52, DW_AT_TI_call
+     600 0001fb 6C00          CALL #_printf ; |245| 
+         0001fd 0000!
+     601                                                      ; call occurs [#_printf] ; |245| 
+     602                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     603 0001ff E60A          MOV #0, *SP(#5) ; |248| 
+         000201 00   
+     604 000202 20            NOP
+     605 000203 20            NOP
+     606                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     607 000204 7600          MOV #64, AR2 ; |248| 
+         000206 40A8 
+     608 000208 A90A          MOV *SP(#5), AR1 ; |248| 
+     609 00020a 1298          CMPU AR1 >= AR2, TC1 ; |248| 
+         00020c A4   
+     610 00020d 0464          BCC $C$L16,TC1 ; |248| 
+         00020f 3F   
+     611                                                      ; branchcc occurs ; |248| 
+     612 000210       $C$L14:    
+     613 000210       $C$DW$L$_CSL_i2cPolledTest$18$B:
+     614                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     615 000210 A40A          MOV *SP(#5), T0 ; |250| 
+     616 000212 EC31          AMOV #_gI2cRdBuf, XAR3 ; |250| 
+         000214 BE00 
+         000216 0042-
+     617 000218 A96B          MOV *AR3(T0), AR1 ; |250| 
+     618 00021a A40A          MOV *SP(#5), T0 ; |250| 
+     619 00021c 4024          ADD #2, T0 ; |250| 
+     620 00021e EC31          AMOV #_gI2cWrBuf, XAR3 ; |250| 
+         000220 BE00 
+         000222 0000-
+     621 000224 AA6B          MOV *AR3(T0), AR2 ; |250| 
+     622 000226 12A0          CMPU AR2 == AR1, TC1 ; |250| 
+         000228 94   
+     623 000229 0464          BCC $C$L15,TC1 ; |250| 
+         00022b 11   
+     624                                                      ; branchcc occurs ; |250| 
+     625 00022c       $C$DW$L$_CSL_i2cPolledTest$18$E:
+     626                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     627 00022c EC31          AMOV #$C$FSL10, XAR3 ; |252| 
+         00022e BE00 
+         000230 00D0+
+     628 000232 EB00          MOV XAR3, dbl(*SP(#0))
+         000234 B5   
+     629              $C$DW$53        .dwtag  DW_TAG_TI_branch
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   15
+
+     630                      .dwattr $C$DW$53, DW_AT_low_pc(0x00)
+     631                      .dwattr $C$DW$53, DW_AT_name("_printf")
+     632                      .dwattr $C$DW$53, DW_AT_TI_call
+     633 000235 6C00          CALL #_printf ; |252| 
+         000237 0000!
+     634                                                      ; call occurs [#_printf] ; |252| 
+     635                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     636 000239 A406          MOV *SP(#3), T0 ; |253| 
+     637 00023b 4A2A          B $C$L18  ; |253| 
+     638                                                      ; branch occurs ; |253| 
+     639 00023d       $C$L15:    
+     640 00023d       $C$DW$L$_CSL_i2cPolledTest$20$B:
+     641                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     642 00023d F70A          ADD #1, *SP(#5) ; |248| 
+         00023f 0001 
+     643 000241 20            NOP
+     644 000242 20            NOP
+     645                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     646 000243 7600          MOV #64, AR2 ; |248| 
+         000245 40A8 
+     647 000247 A90A          MOV *SP(#5), AR1 ; |248| 
+     648 000249 1294          CMPU AR1 < AR2, TC1 ; |248| 
+         00024b A4   
+     649 00024c 0464          BCC $C$L14,TC1 ; |248| 
+         00024e C1   
+     650                                                      ; branchcc occurs ; |248| 
+     651 00024f       $C$DW$L$_CSL_i2cPolledTest$20$E:
+     652 00024f       $C$L16:    
+     653                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     654 00024f F00A          CMP *SP(#5) == #64, TC1 ; |257| 
+         000251 0040 
+     655 000253 66F4          BCC $C$L17,!TC1 ; |257| 
+     656                                                      ; branchcc occurs ; |257| 
+     657                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     658 000255 EC31          AMOV #$C$FSL11, XAR3 ; |259| 
+         000257 BE00 
+         000259 00F6+
+     659 00025b EB00          MOV XAR3, dbl(*SP(#0))
+         00025d B5   
+     660              $C$DW$54        .dwtag  DW_TAG_TI_branch
+     661                      .dwattr $C$DW$54, DW_AT_low_pc(0x00)
+     662                      .dwattr $C$DW$54, DW_AT_name("_printf")
+     663                      .dwattr $C$DW$54, DW_AT_TI_call
+     664 00025e 6C00          CALL #_printf ; |259| 
+         000260 0000!
+     665                                                      ; call occurs [#_printf] ; |259| 
+     666 000262       $C$L17:    
+     667                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     668 000262 E606          MOV #0, *SP(#3) ; |262| 
+         000264 00   
+     669                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     670 000265 A406          MOV *SP(#3), T0 ; |263| 
+     671 000267       $C$L18:    
+     672                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/CSL_I2C_PollExample/csl_
+     673 000267 4E07          AADD #7, SP
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   16
+
+     674                      .dwcfi  cfa_offset, 1
+     675              $C$DW$55        .dwtag  DW_TAG_TI_branch
+     676                      .dwattr $C$DW$55, DW_AT_low_pc(0x00)
+     677                      .dwattr $C$DW$55, DW_AT_TI_return
+     678 000269 4804          RET
+     679                                                      ; return occurs
+     680              
+     681              $C$DW$56        .dwtag  DW_TAG_TI_loop
+     682                      .dwattr $C$DW$56, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_i2c_polled_example.asm:$C$L14
+     683                      .dwattr $C$DW$56, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c
+     684                      .dwattr $C$DW$56, DW_AT_TI_begin_line(0xf8)
+     685                      .dwattr $C$DW$56, DW_AT_TI_end_line(0xff)
+     686              $C$DW$57        .dwtag  DW_TAG_TI_loop_range
+     687                      .dwattr $C$DW$57, DW_AT_low_pc($C$DW$L$_CSL_i2cPolledTest$18$B)
+     688                      .dwattr $C$DW$57, DW_AT_high_pc($C$DW$L$_CSL_i2cPolledTest$18$E)
+     689              $C$DW$58        .dwtag  DW_TAG_TI_loop_range
+     690                      .dwattr $C$DW$58, DW_AT_low_pc($C$DW$L$_CSL_i2cPolledTest$20$B)
+     691                      .dwattr $C$DW$58, DW_AT_high_pc($C$DW$L$_CSL_i2cPolledTest$20$E)
+     692                      .dwendtag $C$DW$56
+     693              
+     694              
+     695              $C$DW$59        .dwtag  DW_TAG_TI_loop
+     696                      .dwattr $C$DW$59, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_i2c_polled_example.asm:$C$L11
+     697                      .dwattr $C$DW$59, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c
+     698                      .dwattr $C$DW$59, DW_AT_TI_begin_line(0xea)
+     699                      .dwattr $C$DW$59, DW_AT_TI_end_line(0xea)
+     700              $C$DW$60        .dwtag  DW_TAG_TI_loop_range
+     701                      .dwattr $C$DW$60, DW_AT_low_pc($C$DW$L$_CSL_i2cPolledTest$14$B)
+     702                      .dwattr $C$DW$60, DW_AT_high_pc($C$DW$L$_CSL_i2cPolledTest$14$E)
+     703                      .dwendtag $C$DW$59
+     704              
+     705              
+     706              $C$DW$61        .dwtag  DW_TAG_TI_loop
+     707                      .dwattr $C$DW$61, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_i2c_polled_example.asm:$C$L8:
+     708                      .dwattr $C$DW$61, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c
+     709                      .dwattr $C$DW$61, DW_AT_TI_begin_line(0xde)
+     710                      .dwattr $C$DW$61, DW_AT_TI_end_line(0xde)
+     711              $C$DW$62        .dwtag  DW_TAG_TI_loop_range
+     712                      .dwattr $C$DW$62, DW_AT_low_pc($C$DW$L$_CSL_i2cPolledTest$10$B)
+     713                      .dwattr $C$DW$62, DW_AT_high_pc($C$DW$L$_CSL_i2cPolledTest$10$E)
+     714                      .dwendtag $C$DW$61
+     715              
+     716              
+     717              $C$DW$63        .dwtag  DW_TAG_TI_loop
+     718                      .dwattr $C$DW$63, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_i2c_polled_example.asm:$C$L3:
+     719                      .dwattr $C$DW$63, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c
+     720                      .dwattr $C$DW$63, DW_AT_TI_begin_line(0xb1)
+     721                      .dwattr $C$DW$63, DW_AT_TI_end_line(0xb5)
+     722              $C$DW$64        .dwtag  DW_TAG_TI_loop_range
+     723                      .dwattr $C$DW$64, DW_AT_low_pc($C$DW$L$_CSL_i2cPolledTest$2$B)
+     724                      .dwattr $C$DW$64, DW_AT_high_pc($C$DW$L$_CSL_i2cPolledTest$2$E)
+     725                      .dwendtag $C$DW$63
+     726              
+     727                      .dwattr $C$DW$36, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/i2c/C
+     728                      .dwattr $C$DW$36, DW_AT_TI_end_line(0x108)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   17
+
+     729                      .dwattr $C$DW$36, DW_AT_TI_end_column(0x01)
+     730                      .dwendentry
+     731                      .dwendtag $C$DW$36
+     732              
+     733              ;*******************************************************************************
+     734              ;* FAR STRINGS                                                                 *
+     735              ;*******************************************************************************
+     736 000000               .sect   ".const:.string"
+     737                      .align  2
+     738 000000 0049  $C$FSL1:        .string "I2C POLLED MODE TEST!",10,10,0
+         000001 0032 
+         000002 0043 
+         000003 0020 
+         000004 0050 
+         000005 004F 
+         000006 004C 
+         000007 004C 
+         000008 0045 
+         000009 0044 
+         00000a 0020 
+         00000b 004D 
+         00000c 004F 
+         00000d 0044 
+         00000e 0045 
+         00000f 0020 
+         000010 0054 
+         000011 0045 
+         000012 0053 
+         000013 0054 
+         000014 0021 
+         000015 000A 
+         000016 000A 
+         000017 0000 
+     739                      .align  2
+     740 000018 000A  $C$FSL2:        .string 10,"I2C POLLED MODE TEST PASSED!!",10,0
+         000019 0049 
+         00001a 0032 
+         00001b 0043 
+         00001c 0020 
+         00001d 0050 
+         00001e 004F 
+         00001f 004C 
+         000020 004C 
+         000021 0045 
+         000022 0044 
+         000023 0020 
+         000024 004D 
+         000025 004F 
+         000026 0044 
+         000027 0045 
+         000028 0020 
+         000029 0054 
+         00002a 0045 
+         00002b 0053 
+         00002c 0054 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   18
+
+         00002d 0020 
+         00002e 0050 
+         00002f 0041 
+         000030 0053 
+         000031 0053 
+         000032 0045 
+         000033 0044 
+         000034 0021 
+         000035 0021 
+         000036 000A 
+         000037 0000 
+     741                      .align  2
+     742 000038 000A  $C$FSL3:        .string 10,"I2C POLLED MODE TEST FAILED!!",10,0
+         000039 0049 
+         00003a 0032 
+         00003b 0043 
+         00003c 0020 
+         00003d 0050 
+         00003e 004F 
+         00003f 004C 
+         000040 004C 
+         000041 0045 
+         000042 0044 
+         000043 0020 
+         000044 004D 
+         000045 004F 
+         000046 0044 
+         000047 0045 
+         000048 0020 
+         000049 0054 
+         00004a 0045 
+         00004b 0053 
+         00004c 0054 
+         00004d 0020 
+         00004e 0046 
+         00004f 0041 
+         000050 0049 
+         000051 004C 
+         000052 0045 
+         000053 0044 
+         000054 0021 
+         000055 0021 
+         000056 000A 
+         000057 0000 
+     743                      .align  2
+     744 000058 0049  $C$FSL4:        .string "I2C Init Failed!!",10,0
+         000059 0032 
+         00005a 0043 
+         00005b 0020 
+         00005c 0049 
+         00005d 006E 
+         00005e 0069 
+         00005f 0074 
+         000060 0020 
+         000061 0046 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   19
+
+         000062 0061 
+         000063 0069 
+         000064 006C 
+         000065 0065 
+         000066 0064 
+         000067 0021 
+         000068 0021 
+         000069 000A 
+         00006a 0000 
+     745                      .align  2
+     746 00006c 0049  $C$FSL5:        .string "I2C Setup Failed!!",10,0
+         00006d 0032 
+         00006e 0043 
+         00006f 0020 
+         000070 0053 
+         000071 0065 
+         000072 0074 
+         000073 0075 
+         000074 0070 
+         000075 0020 
+         000076 0046 
+         000077 0061 
+         000078 0069 
+         000079 006C 
+         00007a 0065 
+         00007b 0064 
+         00007c 0021 
+         00007d 0021 
+         00007e 000A 
+         00007f 0000 
+     747                      .align  2
+     748 000080 0049  $C$FSL6:        .string "I2C Write Failed!!",10,0
+         000081 0032 
+         000082 0043 
+         000083 0020 
+         000084 0057 
+         000085 0072 
+         000086 0069 
+         000087 0074 
+         000088 0065 
+         000089 0020 
+         00008a 0046 
+         00008b 0061 
+         00008c 0069 
+         00008d 006C 
+         00008e 0065 
+         00008f 0064 
+         000090 0021 
+         000091 0021 
+         000092 000A 
+         000093 0000 
+     749                      .align  2
+     750 000094 0049  $C$FSL7:        .string "I2C Write Complete",10,0
+         000095 0032 
+         000096 0043 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   20
+
+         000097 0020 
+         000098 0057 
+         000099 0072 
+         00009a 0069 
+         00009b 0074 
+         00009c 0065 
+         00009d 0020 
+         00009e 0043 
+         00009f 006F 
+         0000a0 006D 
+         0000a1 0070 
+         0000a2 006C 
+         0000a3 0065 
+         0000a4 0074 
+         0000a5 0065 
+         0000a6 000A 
+         0000a7 0000 
+     751                      .align  2
+     752 0000a8 0049  $C$FSL8:        .string "I2C Read Failed!!",10,0
+         0000a9 0032 
+         0000aa 0043 
+         0000ab 0020 
+         0000ac 0052 
+         0000ad 0065 
+         0000ae 0061 
+         0000af 0064 
+         0000b0 0020 
+         0000b1 0046 
+         0000b2 0061 
+         0000b3 0069 
+         0000b4 006C 
+         0000b5 0065 
+         0000b6 0064 
+         0000b7 0021 
+         0000b8 0021 
+         0000b9 000A 
+         0000ba 0000 
+     753                      .align  2
+     754 0000bc 0049  $C$FSL9:        .string "I2C Read Complete",10,0
+         0000bd 0032 
+         0000be 0043 
+         0000bf 0020 
+         0000c0 0052 
+         0000c1 0065 
+         0000c2 0061 
+         0000c3 0064 
+         0000c4 0020 
+         0000c5 0043 
+         0000c6 006F 
+         0000c7 006D 
+         0000c8 0070 
+         0000c9 006C 
+         0000ca 0065 
+         0000cb 0074 
+         0000cc 0065 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   21
+
+         0000cd 000A 
+         0000ce 0000 
+     755                      .align  2
+     756 0000d0 0052  $C$FSL10:       .string "Read Write Buffers Does not Match!!",10,0
+         0000d1 0065 
+         0000d2 0061 
+         0000d3 0064 
+         0000d4 0020 
+         0000d5 0057 
+         0000d6 0072 
+         0000d7 0069 
+         0000d8 0074 
+         0000d9 0065 
+         0000da 0020 
+         0000db 0042 
+         0000dc 0075 
+         0000dd 0066 
+         0000de 0066 
+         0000df 0065 
+         0000e0 0072 
+         0000e1 0073 
+         0000e2 0020 
+         0000e3 0044 
+         0000e4 006F 
+         0000e5 0065 
+         0000e6 0073 
+         0000e7 0020 
+         0000e8 006E 
+         0000e9 006F 
+         0000ea 0074 
+         0000eb 0020 
+         0000ec 004D 
+         0000ed 0061 
+         0000ee 0074 
+         0000ef 0063 
+         0000f0 0068 
+         0000f1 0021 
+         0000f2 0021 
+         0000f3 000A 
+         0000f4 0000 
+     757                      .align  2
+     758 0000f6 0052  $C$FSL11:       .string "Read Write Buffers Match!!",10,0
+         0000f7 0065 
+         0000f8 0061 
+         0000f9 0064 
+         0000fa 0020 
+         0000fb 0057 
+         0000fc 0072 
+         0000fd 0069 
+         0000fe 0074 
+         0000ff 0065 
+         000100 0020 
+         000101 0042 
+         000102 0075 
+         000103 0066 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   22
+
+         000104 0066 
+         000105 0065 
+         000106 0072 
+         000107 0073 
+         000108 0020 
+         000109 004D 
+         00010a 0061 
+         00010b 0074 
+         00010c 0063 
+         00010d 0068 
+         00010e 0021 
+         00010f 0021 
+         000110 000A 
+         000111 0000 
+     759              ;******************************************************************************
+     760              ;* UNDEFINED EXTERNAL REFERENCES                                              *
+     761              ;******************************************************************************
+     762                      .global _I2C_init
+     763                      .global _I2C_setup
+     764                      .global _I2C_write
+     765                      .global _I2C_read
+     766                      .global _printf
+     767              
+     768              ;*******************************************************************************
+     769              ;* TYPE INFORMATION                                                            *
+     770              ;*******************************************************************************
+     771              
+     772              $C$DW$T$21      .dwtag  DW_TAG_enumeration_type
+     773                      .dwattr $C$DW$T$21, DW_AT_name("CSL_I2cAddrMode")
+     774                      .dwattr $C$DW$T$21, DW_AT_byte_size(0x01)
+     775              $C$DW$65        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_ADDR_7BIT"), DW_AT_const_value(0x00)
+     776              $C$DW$66        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_ADDR_10BIT"), DW_AT_const_value(0x01)
+     777                      .dwendtag $C$DW$T$21
+     778              
+     779              $C$DW$T$22      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_I2cAddrMode")
+     780                      .dwattr $C$DW$T$22, DW_AT_type(*$C$DW$T$21)
+     781                      .dwattr $C$DW$T$22, DW_AT_language(DW_LANG_C)
+     782              
+     783              $C$DW$T$23      .dwtag  DW_TAG_enumeration_type
+     784                      .dwattr $C$DW$T$23, DW_AT_name("CSL_I2cBitCount")
+     785                      .dwattr $C$DW$T$23, DW_AT_byte_size(0x01)
+     786              $C$DW$67        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_BC_8BITS"), DW_AT_const_value(0x00)
+     787              $C$DW$68        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_BC_RSVD"), DW_AT_const_value(0x01)
+     788              $C$DW$69        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_BC_2BITS"), DW_AT_const_value(0x02)
+     789              $C$DW$70        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_BC_3BITS"), DW_AT_const_value(0x03)
+     790              $C$DW$71        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_BC_4BITS"), DW_AT_const_value(0x04)
+     791              $C$DW$72        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_BC_5BITS"), DW_AT_const_value(0x05)
+     792              $C$DW$73        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_BC_6BITS"), DW_AT_const_value(0x06)
+     793              $C$DW$74        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_BC_7BITS"), DW_AT_const_value(0x07)
+     794                      .dwendtag $C$DW$T$23
+     795              
+     796              $C$DW$T$24      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_I2cBitCount")
+     797                      .dwattr $C$DW$T$24, DW_AT_type(*$C$DW$T$23)
+     798                      .dwattr $C$DW$T$24, DW_AT_language(DW_LANG_C)
+     799              
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   23
+
+     800              $C$DW$T$20      .dwtag  DW_TAG_structure_type
+     801                      .dwattr $C$DW$T$20, DW_AT_name("CSL_I2cConfig")
+     802                      .dwattr $C$DW$T$20, DW_AT_byte_size(0x09)
+     803              $C$DW$75        .dwtag  DW_TAG_member
+     804                      .dwattr $C$DW$75, DW_AT_type(*$C$DW$T$19)
+     805                      .dwattr $C$DW$75, DW_AT_name("icoar")
+     806                      .dwattr $C$DW$75, DW_AT_TI_symbol_name("_icoar")
+     807                      .dwattr $C$DW$75, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+     808                      .dwattr $C$DW$75, DW_AT_accessibility(DW_ACCESS_public)
+     809              $C$DW$76        .dwtag  DW_TAG_member
+     810                      .dwattr $C$DW$76, DW_AT_type(*$C$DW$T$19)
+     811                      .dwattr $C$DW$76, DW_AT_name("icimr")
+     812                      .dwattr $C$DW$76, DW_AT_TI_symbol_name("_icimr")
+     813                      .dwattr $C$DW$76, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+     814                      .dwattr $C$DW$76, DW_AT_accessibility(DW_ACCESS_public)
+     815              $C$DW$77        .dwtag  DW_TAG_member
+     816                      .dwattr $C$DW$77, DW_AT_type(*$C$DW$T$19)
+     817                      .dwattr $C$DW$77, DW_AT_name("icclkl")
+     818                      .dwattr $C$DW$77, DW_AT_TI_symbol_name("_icclkl")
+     819                      .dwattr $C$DW$77, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+     820                      .dwattr $C$DW$77, DW_AT_accessibility(DW_ACCESS_public)
+     821              $C$DW$78        .dwtag  DW_TAG_member
+     822                      .dwattr $C$DW$78, DW_AT_type(*$C$DW$T$19)
+     823                      .dwattr $C$DW$78, DW_AT_name("icclkh")
+     824                      .dwattr $C$DW$78, DW_AT_TI_symbol_name("_icclkh")
+     825                      .dwattr $C$DW$78, DW_AT_data_member_location[DW_OP_plus_uconst 0x3]
+     826                      .dwattr $C$DW$78, DW_AT_accessibility(DW_ACCESS_public)
+     827              $C$DW$79        .dwtag  DW_TAG_member
+     828                      .dwattr $C$DW$79, DW_AT_type(*$C$DW$T$19)
+     829                      .dwattr $C$DW$79, DW_AT_name("iccnt")
+     830                      .dwattr $C$DW$79, DW_AT_TI_symbol_name("_iccnt")
+     831                      .dwattr $C$DW$79, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+     832                      .dwattr $C$DW$79, DW_AT_accessibility(DW_ACCESS_public)
+     833              $C$DW$80        .dwtag  DW_TAG_member
+     834                      .dwattr $C$DW$80, DW_AT_type(*$C$DW$T$19)
+     835                      .dwattr $C$DW$80, DW_AT_name("icsar")
+     836                      .dwattr $C$DW$80, DW_AT_TI_symbol_name("_icsar")
+     837                      .dwattr $C$DW$80, DW_AT_data_member_location[DW_OP_plus_uconst 0x5]
+     838                      .dwattr $C$DW$80, DW_AT_accessibility(DW_ACCESS_public)
+     839              $C$DW$81        .dwtag  DW_TAG_member
+     840                      .dwattr $C$DW$81, DW_AT_type(*$C$DW$T$19)
+     841                      .dwattr $C$DW$81, DW_AT_name("icmdr")
+     842                      .dwattr $C$DW$81, DW_AT_TI_symbol_name("_icmdr")
+     843                      .dwattr $C$DW$81, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+     844                      .dwattr $C$DW$81, DW_AT_accessibility(DW_ACCESS_public)
+     845              $C$DW$82        .dwtag  DW_TAG_member
+     846                      .dwattr $C$DW$82, DW_AT_type(*$C$DW$T$19)
+     847                      .dwattr $C$DW$82, DW_AT_name("icemdr")
+     848                      .dwattr $C$DW$82, DW_AT_TI_symbol_name("_icemdr")
+     849                      .dwattr $C$DW$82, DW_AT_data_member_location[DW_OP_plus_uconst 0x7]
+     850                      .dwattr $C$DW$82, DW_AT_accessibility(DW_ACCESS_public)
+     851              $C$DW$83        .dwtag  DW_TAG_member
+     852                      .dwattr $C$DW$83, DW_AT_type(*$C$DW$T$19)
+     853                      .dwattr $C$DW$83, DW_AT_name("icpsc")
+     854                      .dwattr $C$DW$83, DW_AT_TI_symbol_name("_icpsc")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   24
+
+     855                      .dwattr $C$DW$83, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
+     856                      .dwattr $C$DW$83, DW_AT_accessibility(DW_ACCESS_public)
+     857                      .dwendtag $C$DW$T$20
+     858              
+     859              $C$DW$T$33      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_I2cConfig")
+     860                      .dwattr $C$DW$T$33, DW_AT_type(*$C$DW$T$20)
+     861                      .dwattr $C$DW$T$33, DW_AT_language(DW_LANG_C)
+     862              
+     863              $C$DW$T$27      .dwtag  DW_TAG_enumeration_type
+     864                      .dwattr $C$DW$T$27, DW_AT_name("CSL_I2cFreeMode")
+     865                      .dwattr $C$DW$T$27, DW_AT_byte_size(0x01)
+     866              $C$DW$84        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_FREEMODE_DISABLE"), DW_AT_const_value(0x00)
+     867              $C$DW$85        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_FREEMODE_ENABLE"), DW_AT_const_value(0x01)
+     868                      .dwendtag $C$DW$T$27
+     869              
+     870              $C$DW$T$28      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_I2cFreeMode")
+     871                      .dwattr $C$DW$T$28, DW_AT_type(*$C$DW$T$27)
+     872                      .dwattr $C$DW$T$28, DW_AT_language(DW_LANG_C)
+     873              
+     874              $C$DW$T$25      .dwtag  DW_TAG_enumeration_type
+     875                      .dwattr $C$DW$T$25, DW_AT_name("CSL_I2cLoopback")
+     876                      .dwattr $C$DW$T$25, DW_AT_byte_size(0x01)
+     877              $C$DW$86        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_LOOPBACK_DISABLE"), DW_AT_const_value(0x00)
+     878              $C$DW$87        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_LOOPBACK_ENABLE"), DW_AT_const_value(0x01)
+     879                      .dwendtag $C$DW$T$25
+     880              
+     881              $C$DW$T$26      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_I2cLoopback")
+     882                      .dwattr $C$DW$T$26, DW_AT_type(*$C$DW$T$25)
+     883                      .dwattr $C$DW$T$26, DW_AT_language(DW_LANG_C)
+     884              
+     885              $C$DW$T$29      .dwtag  DW_TAG_enumeration_type
+     886                      .dwattr $C$DW$T$29, DW_AT_name("CSL_I2cRepeatMode")
+     887                      .dwattr $C$DW$T$29, DW_AT_byte_size(0x01)
+     888              $C$DW$88        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_REPEATMODE_DISABLE"), DW_AT_const_value(0x00)
+     889              $C$DW$89        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_I2C_REPEATMODE_ENABLE"), DW_AT_const_value(0x01)
+     890                      .dwendtag $C$DW$T$29
+     891              
+     892              $C$DW$T$30      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_I2cRepeatMode")
+     893                      .dwattr $C$DW$T$30, DW_AT_type(*$C$DW$T$29)
+     894                      .dwattr $C$DW$T$30, DW_AT_language(DW_LANG_C)
+     895              
+     896              $C$DW$T$32      .dwtag  DW_TAG_structure_type
+     897                      .dwattr $C$DW$T$32, DW_AT_name("CSL_I2cSetup")
+     898                      .dwattr $C$DW$T$32, DW_AT_byte_size(0x0a)
+     899              $C$DW$90        .dwtag  DW_TAG_member
+     900                      .dwattr $C$DW$90, DW_AT_type(*$C$DW$T$22)
+     901                      .dwattr $C$DW$90, DW_AT_name("addrMode")
+     902                      .dwattr $C$DW$90, DW_AT_TI_symbol_name("_addrMode")
+     903                      .dwattr $C$DW$90, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+     904                      .dwattr $C$DW$90, DW_AT_accessibility(DW_ACCESS_public)
+     905              $C$DW$91        .dwtag  DW_TAG_member
+     906                      .dwattr $C$DW$91, DW_AT_type(*$C$DW$T$24)
+     907                      .dwattr $C$DW$91, DW_AT_name("bitCount")
+     908                      .dwattr $C$DW$91, DW_AT_TI_symbol_name("_bitCount")
+     909                      .dwattr $C$DW$91, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   25
+
+     910                      .dwattr $C$DW$91, DW_AT_accessibility(DW_ACCESS_public)
+     911              $C$DW$92        .dwtag  DW_TAG_member
+     912                      .dwattr $C$DW$92, DW_AT_type(*$C$DW$T$26)
+     913                      .dwattr $C$DW$92, DW_AT_name("loopBack")
+     914                      .dwattr $C$DW$92, DW_AT_TI_symbol_name("_loopBack")
+     915                      .dwattr $C$DW$92, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+     916                      .dwattr $C$DW$92, DW_AT_accessibility(DW_ACCESS_public)
+     917              $C$DW$93        .dwtag  DW_TAG_member
+     918                      .dwattr $C$DW$93, DW_AT_type(*$C$DW$T$28)
+     919                      .dwattr $C$DW$93, DW_AT_name("freeMode")
+     920                      .dwattr $C$DW$93, DW_AT_TI_symbol_name("_freeMode")
+     921                      .dwattr $C$DW$93, DW_AT_data_member_location[DW_OP_plus_uconst 0x3]
+     922                      .dwattr $C$DW$93, DW_AT_accessibility(DW_ACCESS_public)
+     923              $C$DW$94        .dwtag  DW_TAG_member
+     924                      .dwattr $C$DW$94, DW_AT_type(*$C$DW$T$30)
+     925                      .dwattr $C$DW$94, DW_AT_name("repeatMode")
+     926                      .dwattr $C$DW$94, DW_AT_TI_symbol_name("_repeatMode")
+     927                      .dwattr $C$DW$94, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+     928                      .dwattr $C$DW$94, DW_AT_accessibility(DW_ACCESS_public)
+     929              $C$DW$95        .dwtag  DW_TAG_member
+     930                      .dwattr $C$DW$95, DW_AT_type(*$C$DW$T$19)
+     931                      .dwattr $C$DW$95, DW_AT_name("ownAddr")
+     932                      .dwattr $C$DW$95, DW_AT_TI_symbol_name("_ownAddr")
+     933                      .dwattr $C$DW$95, DW_AT_data_member_location[DW_OP_plus_uconst 0x5]
+     934                      .dwattr $C$DW$95, DW_AT_accessibility(DW_ACCESS_public)
+     935              $C$DW$96        .dwtag  DW_TAG_member
+     936                      .dwattr $C$DW$96, DW_AT_type(*$C$DW$T$31)
+     937                      .dwattr $C$DW$96, DW_AT_name("sysInputClk")
+     938                      .dwattr $C$DW$96, DW_AT_TI_symbol_name("_sysInputClk")
+     939                      .dwattr $C$DW$96, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+     940                      .dwattr $C$DW$96, DW_AT_accessibility(DW_ACCESS_public)
+     941              $C$DW$97        .dwtag  DW_TAG_member
+     942                      .dwattr $C$DW$97, DW_AT_type(*$C$DW$T$31)
+     943                      .dwattr $C$DW$97, DW_AT_name("i2cBusFreq")
+     944                      .dwattr $C$DW$97, DW_AT_TI_symbol_name("_i2cBusFreq")
+     945                      .dwattr $C$DW$97, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
+     946                      .dwattr $C$DW$97, DW_AT_accessibility(DW_ACCESS_public)
+     947                      .dwendtag $C$DW$T$32
+     948              
+     949              $C$DW$T$34      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_I2cSetup")
+     950                      .dwattr $C$DW$T$34, DW_AT_type(*$C$DW$T$32)
+     951                      .dwattr $C$DW$T$34, DW_AT_language(DW_LANG_C)
+     952              $C$DW$T$35      .dwtag  DW_TAG_pointer_type
+     953                      .dwattr $C$DW$T$35, DW_AT_type(*$C$DW$T$34)
+     954                      .dwattr $C$DW$T$35, DW_AT_address_class(0x17)
+     955              $C$DW$T$4       .dwtag  DW_TAG_base_type
+     956                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+     957                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+     958                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+     959              $C$DW$T$5       .dwtag  DW_TAG_base_type
+     960                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+     961                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+     962                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+     963              $C$DW$T$6       .dwtag  DW_TAG_base_type
+     964                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   26
+
+     965                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+     966                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+     967              $C$DW$T$7       .dwtag  DW_TAG_base_type
+     968                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+     969                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+     970                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+     971              $C$DW$T$8       .dwtag  DW_TAG_base_type
+     972                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+     973                      .dwattr $C$DW$T$8, DW_AT_name("short")
+     974                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+     975              $C$DW$T$37      .dwtag  DW_TAG_typedef, DW_AT_name("Int16")
+     976                      .dwattr $C$DW$T$37, DW_AT_type(*$C$DW$T$8)
+     977                      .dwattr $C$DW$T$37, DW_AT_language(DW_LANG_C)
+     978              $C$DW$T$38      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_Status")
+     979                      .dwattr $C$DW$T$38, DW_AT_type(*$C$DW$T$37)
+     980                      .dwattr $C$DW$T$38, DW_AT_language(DW_LANG_C)
+     981              $C$DW$98        .dwtag  DW_TAG_TI_far_type
+     982                      .dwattr $C$DW$98, DW_AT_type(*$C$DW$T$37)
+     983              $C$DW$T$51      .dwtag  DW_TAG_volatile_type
+     984                      .dwattr $C$DW$T$51, DW_AT_type(*$C$DW$98)
+     985              $C$DW$T$9       .dwtag  DW_TAG_base_type
+     986                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+     987                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+     988                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+     989              $C$DW$T$19      .dwtag  DW_TAG_typedef, DW_AT_name("Uint16")
+     990                      .dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$9)
+     991                      .dwattr $C$DW$T$19, DW_AT_language(DW_LANG_C)
+     992              $C$DW$99        .dwtag  DW_TAG_TI_far_type
+     993                      .dwattr $C$DW$99, DW_AT_type(*$C$DW$T$19)
+     994              $C$DW$T$52      .dwtag  DW_TAG_volatile_type
+     995                      .dwattr $C$DW$T$52, DW_AT_type(*$C$DW$99)
+     996              $C$DW$T$43      .dwtag  DW_TAG_pointer_type
+     997                      .dwattr $C$DW$T$43, DW_AT_type(*$C$DW$T$19)
+     998                      .dwattr $C$DW$T$43, DW_AT_address_class(0x17)
+     999              
+    1000              $C$DW$T$53      .dwtag  DW_TAG_array_type
+    1001                      .dwattr $C$DW$T$53, DW_AT_type(*$C$DW$T$19)
+    1002                      .dwattr $C$DW$T$53, DW_AT_language(DW_LANG_C)
+    1003                      .dwattr $C$DW$T$53, DW_AT_byte_size(0x42)
+    1004              $C$DW$100       .dwtag  DW_TAG_subrange_type
+    1005                      .dwattr $C$DW$100, DW_AT_upper_bound(0x41)
+    1006                      .dwendtag $C$DW$T$53
+    1007              
+    1008              
+    1009              $C$DW$T$54      .dwtag  DW_TAG_array_type
+    1010                      .dwattr $C$DW$T$54, DW_AT_type(*$C$DW$T$19)
+    1011                      .dwattr $C$DW$T$54, DW_AT_language(DW_LANG_C)
+    1012                      .dwattr $C$DW$T$54, DW_AT_byte_size(0x40)
+    1013              $C$DW$101       .dwtag  DW_TAG_subrange_type
+    1014                      .dwattr $C$DW$101, DW_AT_upper_bound(0x3f)
+    1015                      .dwendtag $C$DW$T$54
+    1016              
+    1017              $C$DW$T$10      .dwtag  DW_TAG_base_type
+    1018                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+    1019                      .dwattr $C$DW$T$10, DW_AT_name("int")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   27
+
+    1020                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+    1021              $C$DW$T$44      .dwtag  DW_TAG_typedef, DW_AT_name("Bool")
+    1022                      .dwattr $C$DW$T$44, DW_AT_type(*$C$DW$T$10)
+    1023                      .dwattr $C$DW$T$44, DW_AT_language(DW_LANG_C)
+    1024              $C$DW$T$11      .dwtag  DW_TAG_base_type
+    1025                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+    1026                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+    1027                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+    1028              $C$DW$T$12      .dwtag  DW_TAG_base_type
+    1029                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+    1030                      .dwattr $C$DW$T$12, DW_AT_name("long")
+    1031                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+    1032              $C$DW$T$13      .dwtag  DW_TAG_base_type
+    1033                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+    1034                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+    1035                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+    1036              $C$DW$T$31      .dwtag  DW_TAG_typedef, DW_AT_name("Uint32")
+    1037                      .dwattr $C$DW$T$31, DW_AT_type(*$C$DW$T$13)
+    1038                      .dwattr $C$DW$T$31, DW_AT_language(DW_LANG_C)
+    1039              $C$DW$T$14      .dwtag  DW_TAG_base_type
+    1040                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+    1041                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+    1042                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+    1043                      .dwattr $C$DW$T$14, DW_AT_bit_size(0x28)
+    1044                      .dwattr $C$DW$T$14, DW_AT_bit_offset(0x18)
+    1045              $C$DW$T$15      .dwtag  DW_TAG_base_type
+    1046                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+    1047                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+    1048                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+    1049                      .dwattr $C$DW$T$15, DW_AT_bit_size(0x28)
+    1050                      .dwattr $C$DW$T$15, DW_AT_bit_offset(0x18)
+    1051              $C$DW$T$16      .dwtag  DW_TAG_base_type
+    1052                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+    1053                      .dwattr $C$DW$T$16, DW_AT_name("float")
+    1054                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+    1055              $C$DW$T$17      .dwtag  DW_TAG_base_type
+    1056                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+    1057                      .dwattr $C$DW$T$17, DW_AT_name("double")
+    1058                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+    1059              $C$DW$T$18      .dwtag  DW_TAG_base_type
+    1060                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+    1061                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+    1062                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x02)
+    1063              $C$DW$T$55      .dwtag  DW_TAG_base_type
+    1064                      .dwattr $C$DW$T$55, DW_AT_encoding(DW_ATE_signed_char)
+    1065                      .dwattr $C$DW$T$55, DW_AT_name("signed char")
+    1066                      .dwattr $C$DW$T$55, DW_AT_byte_size(0x01)
+    1067              $C$DW$102       .dwtag  DW_TAG_TI_far_type
+    1068                      .dwattr $C$DW$102, DW_AT_type(*$C$DW$T$55)
+    1069              $C$DW$T$56      .dwtag  DW_TAG_const_type
+    1070                      .dwattr $C$DW$T$56, DW_AT_type(*$C$DW$102)
+    1071              $C$DW$T$57      .dwtag  DW_TAG_pointer_type
+    1072                      .dwattr $C$DW$T$57, DW_AT_type(*$C$DW$T$56)
+    1073                      .dwattr $C$DW$T$57, DW_AT_address_class(0x17)
+    1074                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   28
+
+    1075              
+    1076              ;***************************************************************
+    1077              ;* DWARF CIE ENTRIES                                           *
+    1078              ;***************************************************************
+    1079              
+    1080              $C$DW$CIE       .dwcie 91
+    1081                      .dwcfi  cfa_register, 36
+    1082                      .dwcfi  cfa_offset, 0
+    1083                      .dwcfi  undefined, 0
+    1084                      .dwcfi  undefined, 1
+    1085                      .dwcfi  undefined, 2
+    1086                      .dwcfi  undefined, 3
+    1087                      .dwcfi  undefined, 4
+    1088                      .dwcfi  undefined, 5
+    1089                      .dwcfi  undefined, 6
+    1090                      .dwcfi  undefined, 7
+    1091                      .dwcfi  undefined, 8
+    1092                      .dwcfi  undefined, 9
+    1093                      .dwcfi  undefined, 10
+    1094                      .dwcfi  undefined, 11
+    1095                      .dwcfi  undefined, 12
+    1096                      .dwcfi  undefined, 13
+    1097                      .dwcfi  same_value, 14
+    1098                      .dwcfi  same_value, 15
+    1099                      .dwcfi  undefined, 16
+    1100                      .dwcfi  undefined, 17
+    1101                      .dwcfi  undefined, 18
+    1102                      .dwcfi  undefined, 19
+    1103                      .dwcfi  undefined, 20
+    1104                      .dwcfi  undefined, 21
+    1105                      .dwcfi  undefined, 22
+    1106                      .dwcfi  undefined, 23
+    1107                      .dwcfi  undefined, 24
+    1108                      .dwcfi  undefined, 25
+    1109                      .dwcfi  same_value, 26
+    1110                      .dwcfi  same_value, 27
+    1111                      .dwcfi  same_value, 28
+    1112                      .dwcfi  same_value, 29
+    1113                      .dwcfi  same_value, 30
+    1114                      .dwcfi  same_value, 31
+    1115                      .dwcfi  undefined, 32
+    1116                      .dwcfi  undefined, 33
+    1117                      .dwcfi  undefined, 34
+    1118                      .dwcfi  undefined, 35
+    1119                      .dwcfi  undefined, 36
+    1120                      .dwcfi  undefined, 37
+    1121                      .dwcfi  undefined, 38
+    1122                      .dwcfi  undefined, 39
+    1123                      .dwcfi  undefined, 40
+    1124                      .dwcfi  undefined, 41
+    1125                      .dwcfi  undefined, 42
+    1126                      .dwcfi  undefined, 43
+    1127                      .dwcfi  undefined, 44
+    1128                      .dwcfi  undefined, 45
+    1129                      .dwcfi  undefined, 46
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   29
+
+    1130                      .dwcfi  undefined, 47
+    1131                      .dwcfi  undefined, 48
+    1132                      .dwcfi  undefined, 49
+    1133                      .dwcfi  undefined, 50
+    1134                      .dwcfi  undefined, 51
+    1135                      .dwcfi  undefined, 52
+    1136                      .dwcfi  undefined, 53
+    1137                      .dwcfi  undefined, 54
+    1138                      .dwcfi  undefined, 55
+    1139                      .dwcfi  undefined, 56
+    1140                      .dwcfi  undefined, 57
+    1141                      .dwcfi  undefined, 58
+    1142                      .dwcfi  undefined, 59
+    1143                      .dwcfi  undefined, 60
+    1144                      .dwcfi  undefined, 61
+    1145                      .dwcfi  undefined, 62
+    1146                      .dwcfi  undefined, 63
+    1147                      .dwcfi  undefined, 64
+    1148                      .dwcfi  undefined, 65
+    1149                      .dwcfi  undefined, 66
+    1150                      .dwcfi  undefined, 67
+    1151                      .dwcfi  undefined, 68
+    1152                      .dwcfi  undefined, 69
+    1153                      .dwcfi  undefined, 70
+    1154                      .dwcfi  undefined, 71
+    1155                      .dwcfi  undefined, 72
+    1156                      .dwcfi  undefined, 73
+    1157                      .dwcfi  undefined, 74
+    1158                      .dwcfi  undefined, 75
+    1159                      .dwcfi  undefined, 76
+    1160                      .dwcfi  undefined, 77
+    1161                      .dwcfi  undefined, 78
+    1162                      .dwcfi  undefined, 79
+    1163                      .dwcfi  undefined, 80
+    1164                      .dwcfi  undefined, 81
+    1165                      .dwcfi  undefined, 82
+    1166                      .dwcfi  undefined, 83
+    1167                      .dwcfi  undefined, 84
+    1168                      .dwcfi  undefined, 85
+    1169                      .dwcfi  undefined, 86
+    1170                      .dwcfi  undefined, 87
+    1171                      .dwcfi  undefined, 88
+    1172                      .dwcfi  undefined, 89
+    1173                      .dwcfi  undefined, 90
+    1174                      .dwcfi  undefined, 91
+    1175                      .dwendentry
+    1176              
+    1177              ;***************************************************************
+    1178              ;* DWARF REGISTER MAP                                          *
+    1179              ;***************************************************************
+    1180              
+    1181              $C$DW$103       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1182                      .dwattr $C$DW$103, DW_AT_location[DW_OP_reg0]
+    1183              $C$DW$104       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1184                      .dwattr $C$DW$104, DW_AT_location[DW_OP_reg1]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   30
+
+    1185              $C$DW$105       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0_G")
+    1186                      .dwattr $C$DW$105, DW_AT_location[DW_OP_reg2]
+    1187              $C$DW$106       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1188                      .dwattr $C$DW$106, DW_AT_location[DW_OP_reg3]
+    1189              $C$DW$107       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1190                      .dwattr $C$DW$107, DW_AT_location[DW_OP_reg4]
+    1191              $C$DW$108       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1_G")
+    1192                      .dwattr $C$DW$108, DW_AT_location[DW_OP_reg5]
+    1193              $C$DW$109       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1194                      .dwattr $C$DW$109, DW_AT_location[DW_OP_reg6]
+    1195              $C$DW$110       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1196                      .dwattr $C$DW$110, DW_AT_location[DW_OP_reg7]
+    1197              $C$DW$111       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2_G")
+    1198                      .dwattr $C$DW$111, DW_AT_location[DW_OP_reg8]
+    1199              $C$DW$112       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    1200                      .dwattr $C$DW$112, DW_AT_location[DW_OP_reg9]
+    1201              $C$DW$113       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    1202                      .dwattr $C$DW$113, DW_AT_location[DW_OP_reg10]
+    1203              $C$DW$114       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3_G")
+    1204                      .dwattr $C$DW$114, DW_AT_location[DW_OP_reg11]
+    1205              $C$DW$115       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T0")
+    1206                      .dwattr $C$DW$115, DW_AT_location[DW_OP_reg12]
+    1207              $C$DW$116       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T1")
+    1208                      .dwattr $C$DW$116, DW_AT_location[DW_OP_reg13]
+    1209              $C$DW$117       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T2")
+    1210                      .dwattr $C$DW$117, DW_AT_location[DW_OP_reg14]
+    1211              $C$DW$118       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T3")
+    1212                      .dwattr $C$DW$118, DW_AT_location[DW_OP_reg15]
+    1213              $C$DW$119       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+    1214                      .dwattr $C$DW$119, DW_AT_location[DW_OP_reg16]
+    1215              $C$DW$120       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+    1216                      .dwattr $C$DW$120, DW_AT_location[DW_OP_reg17]
+    1217              $C$DW$121       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+    1218                      .dwattr $C$DW$121, DW_AT_location[DW_OP_reg18]
+    1219              $C$DW$122       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+    1220                      .dwattr $C$DW$122, DW_AT_location[DW_OP_reg19]
+    1221              $C$DW$123       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+    1222                      .dwattr $C$DW$123, DW_AT_location[DW_OP_reg20]
+    1223              $C$DW$124       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+    1224                      .dwattr $C$DW$124, DW_AT_location[DW_OP_reg21]
+    1225              $C$DW$125       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+    1226                      .dwattr $C$DW$125, DW_AT_location[DW_OP_reg22]
+    1227              $C$DW$126       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+    1228                      .dwattr $C$DW$126, DW_AT_location[DW_OP_reg23]
+    1229              $C$DW$127       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+    1230                      .dwattr $C$DW$127, DW_AT_location[DW_OP_reg24]
+    1231              $C$DW$128       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+    1232                      .dwattr $C$DW$128, DW_AT_location[DW_OP_reg25]
+    1233              $C$DW$129       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+    1234                      .dwattr $C$DW$129, DW_AT_location[DW_OP_reg26]
+    1235              $C$DW$130       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+    1236                      .dwattr $C$DW$130, DW_AT_location[DW_OP_reg27]
+    1237              $C$DW$131       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+    1238                      .dwattr $C$DW$131, DW_AT_location[DW_OP_reg28]
+    1239              $C$DW$132       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   31
+
+    1240                      .dwattr $C$DW$132, DW_AT_location[DW_OP_reg29]
+    1241              $C$DW$133       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+    1242                      .dwattr $C$DW$133, DW_AT_location[DW_OP_reg30]
+    1243              $C$DW$134       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+    1244                      .dwattr $C$DW$134, DW_AT_location[DW_OP_reg31]
+    1245              $C$DW$135       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+    1246                      .dwattr $C$DW$135, DW_AT_location[DW_OP_regx 0x20]
+    1247              $C$DW$136       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XFP")
+    1248                      .dwattr $C$DW$136, DW_AT_location[DW_OP_regx 0x21]
+    1249              $C$DW$137       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+    1250                      .dwattr $C$DW$137, DW_AT_location[DW_OP_regx 0x22]
+    1251              $C$DW$138       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+    1252                      .dwattr $C$DW$138, DW_AT_location[DW_OP_regx 0x23]
+    1253              $C$DW$139       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XSP")
+    1254                      .dwattr $C$DW$139, DW_AT_location[DW_OP_regx 0x24]
+    1255              $C$DW$140       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BKC")
+    1256                      .dwattr $C$DW$140, DW_AT_location[DW_OP_regx 0x25]
+    1257              $C$DW$141       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK03")
+    1258                      .dwattr $C$DW$141, DW_AT_location[DW_OP_regx 0x26]
+    1259              $C$DW$142       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK47")
+    1260                      .dwattr $C$DW$142, DW_AT_location[DW_OP_regx 0x27]
+    1261              $C$DW$143       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+    1262                      .dwattr $C$DW$143, DW_AT_location[DW_OP_regx 0x28]
+    1263              $C$DW$144       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+    1264                      .dwattr $C$DW$144, DW_AT_location[DW_OP_regx 0x29]
+    1265              $C$DW$145       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST2")
+    1266                      .dwattr $C$DW$145, DW_AT_location[DW_OP_regx 0x2a]
+    1267              $C$DW$146       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST3")
+    1268                      .dwattr $C$DW$146, DW_AT_location[DW_OP_regx 0x2b]
+    1269              $C$DW$147       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP")
+    1270                      .dwattr $C$DW$147, DW_AT_location[DW_OP_regx 0x2c]
+    1271              $C$DW$148       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP05")
+    1272                      .dwattr $C$DW$148, DW_AT_location[DW_OP_regx 0x2d]
+    1273              $C$DW$149       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP67")
+    1274                      .dwattr $C$DW$149, DW_AT_location[DW_OP_regx 0x2e]
+    1275              $C$DW$150       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC0")
+    1276                      .dwattr $C$DW$150, DW_AT_location[DW_OP_regx 0x2f]
+    1277              $C$DW$151       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0")
+    1278                      .dwattr $C$DW$151, DW_AT_location[DW_OP_regx 0x30]
+    1279              $C$DW$152       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0_H")
+    1280                      .dwattr $C$DW$152, DW_AT_location[DW_OP_regx 0x31]
+    1281              $C$DW$153       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0")
+    1282                      .dwattr $C$DW$153, DW_AT_location[DW_OP_regx 0x32]
+    1283              $C$DW$154       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0_H")
+    1284                      .dwattr $C$DW$154, DW_AT_location[DW_OP_regx 0x33]
+    1285              $C$DW$155       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRS1")
+    1286                      .dwattr $C$DW$155, DW_AT_location[DW_OP_regx 0x34]
+    1287              $C$DW$156       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC1")
+    1288                      .dwattr $C$DW$156, DW_AT_location[DW_OP_regx 0x35]
+    1289              $C$DW$157       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1")
+    1290                      .dwattr $C$DW$157, DW_AT_location[DW_OP_regx 0x36]
+    1291              $C$DW$158       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1_H")
+    1292                      .dwattr $C$DW$158, DW_AT_location[DW_OP_regx 0x37]
+    1293              $C$DW$159       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1")
+    1294                      .dwattr $C$DW$159, DW_AT_location[DW_OP_regx 0x38]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   32
+
+    1295              $C$DW$160       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1_H")
+    1296                      .dwattr $C$DW$160, DW_AT_location[DW_OP_regx 0x39]
+    1297              $C$DW$161       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CSR")
+    1298                      .dwattr $C$DW$161, DW_AT_location[DW_OP_regx 0x3a]
+    1299              $C$DW$162       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPTC")
+    1300                      .dwattr $C$DW$162, DW_AT_location[DW_OP_regx 0x3b]
+    1301              $C$DW$163       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDP")
+    1302                      .dwattr $C$DW$163, DW_AT_location[DW_OP_regx 0x3c]
+    1303              $C$DW$164       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XCDP")
+    1304                      .dwattr $C$DW$164, DW_AT_location[DW_OP_regx 0x3d]
+    1305              $C$DW$165       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN0")
+    1306                      .dwattr $C$DW$165, DW_AT_location[DW_OP_regx 0x3e]
+    1307              $C$DW$166       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN1")
+    1308                      .dwattr $C$DW$166, DW_AT_location[DW_OP_regx 0x3f]
+    1309              $C$DW$167       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA01")
+    1310                      .dwattr $C$DW$167, DW_AT_location[DW_OP_regx 0x40]
+    1311              $C$DW$168       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA23")
+    1312                      .dwattr $C$DW$168, DW_AT_location[DW_OP_regx 0x41]
+    1313              $C$DW$169       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA45")
+    1314                      .dwattr $C$DW$169, DW_AT_location[DW_OP_regx 0x42]
+    1315              $C$DW$170       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA67")
+    1316                      .dwattr $C$DW$170, DW_AT_location[DW_OP_regx 0x43]
+    1317              $C$DW$171       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSAC")
+    1318                      .dwattr $C$DW$171, DW_AT_location[DW_OP_regx 0x44]
+    1319              $C$DW$172       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CARRY")
+    1320                      .dwattr $C$DW$172, DW_AT_location[DW_OP_regx 0x45]
+    1321              $C$DW$173       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC1")
+    1322                      .dwattr $C$DW$173, DW_AT_location[DW_OP_regx 0x46]
+    1323              $C$DW$174       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC2")
+    1324                      .dwattr $C$DW$174, DW_AT_location[DW_OP_regx 0x47]
+    1325              $C$DW$175       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("M40")
+    1326                      .dwattr $C$DW$175, DW_AT_location[DW_OP_regx 0x48]
+    1327              $C$DW$176       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXMD")
+    1328                      .dwattr $C$DW$176, DW_AT_location[DW_OP_regx 0x49]
+    1329              $C$DW$177       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ARMS")
+    1330                      .dwattr $C$DW$177, DW_AT_location[DW_OP_regx 0x4a]
+    1331              $C$DW$178       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("C54CM")
+    1332                      .dwattr $C$DW$178, DW_AT_location[DW_OP_regx 0x4b]
+    1333              $C$DW$179       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATA")
+    1334                      .dwattr $C$DW$179, DW_AT_location[DW_OP_regx 0x4c]
+    1335              $C$DW$180       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATD")
+    1336                      .dwattr $C$DW$180, DW_AT_location[DW_OP_regx 0x4d]
+    1337              $C$DW$181       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RDM")
+    1338                      .dwattr $C$DW$181, DW_AT_location[DW_OP_regx 0x4e]
+    1339              $C$DW$182       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FRCT")
+    1340                      .dwattr $C$DW$182, DW_AT_location[DW_OP_regx 0x4f]
+    1341              $C$DW$183       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SMUL")
+    1342                      .dwattr $C$DW$183, DW_AT_location[DW_OP_regx 0x50]
+    1343              $C$DW$184       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+    1344                      .dwattr $C$DW$184, DW_AT_location[DW_OP_regx 0x51]
+    1345              $C$DW$185       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0LC")
+    1346                      .dwattr $C$DW$185, DW_AT_location[DW_OP_regx 0x52]
+    1347              $C$DW$186       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1LC")
+    1348                      .dwattr $C$DW$186, DW_AT_location[DW_OP_regx 0x53]
+    1349              $C$DW$187       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2LC")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:34 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_i2c_polled_example.asm                                           PAGE   33
+
+    1350                      .dwattr $C$DW$187, DW_AT_location[DW_OP_regx 0x54]
+    1351              $C$DW$188       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3LC")
+    1352                      .dwattr $C$DW$188, DW_AT_location[DW_OP_regx 0x55]
+    1353              $C$DW$189       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4LC")
+    1354                      .dwattr $C$DW$189, DW_AT_location[DW_OP_regx 0x56]
+    1355              $C$DW$190       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5LC")
+    1356                      .dwattr $C$DW$190, DW_AT_location[DW_OP_regx 0x57]
+    1357              $C$DW$191       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6LC")
+    1358                      .dwattr $C$DW$191, DW_AT_location[DW_OP_regx 0x58]
+    1359              $C$DW$192       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7LC")
+    1360                      .dwattr $C$DW$192, DW_AT_location[DW_OP_regx 0x59]
+    1361              $C$DW$193       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDPLC")
+    1362                      .dwattr $C$DW$193, DW_AT_location[DW_OP_regx 0x5a]
+    1363              $C$DW$194       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+    1364                      .dwattr $C$DW$194, DW_AT_location[DW_OP_regx 0x5b]
+    1365                      .dwendtag $C$DW$CU
+    1366              
+    1366              
+    1366              
+
+No Assembly Errors, No Assembly Warnings

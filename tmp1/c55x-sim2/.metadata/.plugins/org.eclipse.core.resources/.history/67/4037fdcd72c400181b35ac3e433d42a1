@@ -1,0 +1,16 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Each subdirectory must supply rules for building sources it contributes
+configPkg/linker.cmd: ../tisim_c55x_pv_ca.cfg
+	@echo 'Building file: $<'
+	@echo 'Invoking: XDCtools'
+	"F:/t/cc5p5/xdctools_3_25_03_72/xs" --xdcpath="F:/t/cc5p5/grace_2_20_01_12/packages;F:/t/cc5p5/ccsv5/ccs_base/msp430/msp430ware_1_40_01_44/packages;F:/t/cc5p5/xdais_7_21_01_07/packages;F:/t/cc5p5/xdais_7_21_01_07/examples;F:/t/cc5p5/ccsv5/ccs_base;" xdc.tools.configuro -o configPkg -t c5535 -p c5535 -r debug -c "F:/t/cc5p5/ccsv5/tools/compiler/c5500_4.4.1" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+configPkg/compiler.opt: | configPkg/linker.cmd
+configPkg/: | configPkg/linker.cmd
+
+

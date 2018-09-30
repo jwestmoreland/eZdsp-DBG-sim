@@ -1,0 +1,1558 @@
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE    1
+
+    1299              ; Temporary Registers Used: None
+       1              ;*******************************************************************************
+       2              ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
+       3              ;* Date/Time created: Sat Sep 29 23:07:20 2018                                 *
+       4              ;*******************************************************************************
+       5                      .compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --si
+       6                      .mmregs
+       7                      .cpl_on
+       8                      .arms_on
+       9                      .c54cm_off
+      10                      .asg AR6, FP
+      11                      .asg XAR6, XFP
+      12                      .asg DPH, MDP
+      13                      .model call=c55_std
+      14                      .model mem=large
+      15                      .noremark 5002  ; code respects overwrite rules
+      16              ;*******************************************************************************
+      17              ;* GLOBAL FILE PARAMETERS                                                      *
+      18              ;*                                                                             *
+      19              ;*   Architecture       : TMS320C55x                                           *
+      20              ;*   Optimizing for     : Speed                                                *
+      21              ;*   Memory             : Large Model (23-Bit Data Pointers)                   *
+      22              ;*   Calls              : Normal Library ASM calls                             *
+      23              ;*   Debug Info         : Standard TI Debug Information                        *
+      24              ;*******************************************************************************
+      25              
+      26              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+      27                      .dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c")
+      28                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas In
+      29                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      30                      .dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+      31              
+      32              $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("EZDSP5535_waitusec")
+      33                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_EZDSP5535_waitusec")
+      34                      .dwattr $C$DW$1, DW_AT_declaration
+      35                      .dwattr $C$DW$1, DW_AT_external
+      36              $C$DW$2 .dwtag  DW_TAG_formal_parameter
+      37                      .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$19)
+      38                      .dwendtag $C$DW$1
+      39              
+      40              
+      41              $C$DW$3 .dwtag  DW_TAG_subprogram, DW_AT_name("EZDSP5535_I2S_init")
+      42                      .dwattr $C$DW$3, DW_AT_TI_symbol_name("_EZDSP5535_I2S_init")
+      43                      .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$22)
+      44                      .dwattr $C$DW$3, DW_AT_declaration
+      45                      .dwattr $C$DW$3, DW_AT_external
+      46              
+      47              $C$DW$4 .dwtag  DW_TAG_subprogram, DW_AT_name("EZDSP5535_I2S_writeLeft")
+      48                      .dwattr $C$DW$4, DW_AT_TI_symbol_name("_EZDSP5535_I2S_writeLeft")
+      49                      .dwattr $C$DW$4, DW_AT_declaration
+      50                      .dwattr $C$DW$4, DW_AT_external
+      51              $C$DW$5 .dwtag  DW_TAG_formal_parameter
+      52                      .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$22)
+      53                      .dwendtag $C$DW$4
+      54              
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE    2
+
+      55              
+      56              $C$DW$6 .dwtag  DW_TAG_subprogram, DW_AT_name("EZDSP5535_I2S_writeRight")
+      57                      .dwattr $C$DW$6, DW_AT_TI_symbol_name("_EZDSP5535_I2S_writeRight")
+      58                      .dwattr $C$DW$6, DW_AT_declaration
+      59                      .dwattr $C$DW$6, DW_AT_external
+      60              $C$DW$7 .dwtag  DW_TAG_formal_parameter
+      61                      .dwattr $C$DW$7, DW_AT_type(*$C$DW$T$22)
+      62                      .dwendtag $C$DW$6
+      63              
+      64              
+      65              $C$DW$8 .dwtag  DW_TAG_subprogram, DW_AT_name("EZDSP5535_I2S_close")
+      66                      .dwattr $C$DW$8, DW_AT_TI_symbol_name("_EZDSP5535_I2S_close")
+      67                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$22)
+      68                      .dwattr $C$DW$8, DW_AT_declaration
+      69                      .dwattr $C$DW$8, DW_AT_external
+      70              
+      71              $C$DW$9 .dwtag  DW_TAG_subprogram, DW_AT_name("AIC3204_rset")
+      72                      .dwattr $C$DW$9, DW_AT_TI_symbol_name("_AIC3204_rset")
+      73                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$22)
+      74                      .dwattr $C$DW$9, DW_AT_declaration
+      75                      .dwattr $C$DW$9, DW_AT_external
+      76              $C$DW$10        .dwtag  DW_TAG_formal_parameter
+      77                      .dwattr $C$DW$10, DW_AT_type(*$C$DW$T$29)
+      78              $C$DW$11        .dwtag  DW_TAG_formal_parameter
+      79                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$29)
+      80                      .dwendtag $C$DW$9
+      81              
+      82 000000               .sect   ".const:_$P$T0$1"
+      83                      .clink
+      84                      .align  1
+      85 000000       _$P$T0$1:
+      86 000000 0000          .field  0,16                    ; _$P$T0$1[0] @ 0
+      87 000001 10B4          .field  4276,16                 ; _$P$T0$1[1] @ 16
+      88 000002 2120          .field  8480,16                 ; _$P$T0$1[2] @ 32
+      89 000003 30FB          .field  12539,16                        ; _$P$T0$1[3] @ 48
+      90 000004 3FFF          .field  16383,16                        ; _$P$T0$1[4] @ 64
+      91 000005 4DEA          .field  19946,16                        ; _$P$T0$1[5] @ 80
+      92 000006 5A81          .field  23169,16                        ; _$P$T0$1[6] @ 96
+      93 000007 658B          .field  25995,16                        ; _$P$T0$1[7] @ 112
+      94 000008 6ED8          .field  28376,16                        ; _$P$T0$1[8] @ 128
+      95 000009 763F          .field  30271,16                        ; _$P$T0$1[9] @ 144
+      96 00000a 7BA1          .field  31649,16                        ; _$P$T0$1[10] @ 160
+      97 00000b 7EE5          .field  32485,16                        ; _$P$T0$1[11] @ 176
+      98 00000c 7FFD          .field  32765,16                        ; _$P$T0$1[12] @ 192
+      99 00000d 7EE5          .field  32485,16                        ; _$P$T0$1[13] @ 208
+     100 00000e 7BA1          .field  31649,16                        ; _$P$T0$1[14] @ 224
+     101 00000f 76EF          .field  30447,16                        ; _$P$T0$1[15] @ 240
+     102 000010 6ED8          .field  28376,16                        ; _$P$T0$1[16] @ 256
+     103 000011 658B          .field  25995,16                        ; _$P$T0$1[17] @ 272
+     104 000012 5A81          .field  23169,16                        ; _$P$T0$1[18] @ 288
+     105 000013 4DEA          .field  19946,16                        ; _$P$T0$1[19] @ 304
+     106 000014 3FFF          .field  16383,16                        ; _$P$T0$1[20] @ 320
+     107 000015 30FB          .field  12539,16                        ; _$P$T0$1[21] @ 336
+     108 000016 2120          .field  8480,16                 ; _$P$T0$1[22] @ 352
+     109 000017 10B4          .field  4276,16                 ; _$P$T0$1[23] @ 368
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE    3
+
+     110 000018 0000          .field  0,16                    ; _$P$T0$1[24] @ 384
+     111 000019 EF4C          .field  -4276,16                        ; _$P$T0$1[25] @ 400
+     112 00001a DEE0          .field  -8480,16                        ; _$P$T0$1[26] @ 416
+     113 00001b CF06          .field  -12538,16                       ; _$P$T0$1[27] @ 432
+     114 00001c C002          .field  -16382,16                       ; _$P$T0$1[28] @ 448
+     115 00001d B216          .field  -19946,16                       ; _$P$T0$1[29] @ 464
+     116 00001e A57F          .field  -23169,16                       ; _$P$T0$1[30] @ 480
+     117 00001f 9A75          .field  -25995,16                       ; _$P$T0$1[31] @ 496
+     118 000020 9128          .field  -28376,16                       ; _$P$T0$1[32] @ 512
+     119 000021 89C1          .field  -30271,16                       ; _$P$T0$1[33] @ 528
+     120 000022 845F          .field  -31649,16                       ; _$P$T0$1[34] @ 544
+     121 000023 811B          .field  -32485,16                       ; _$P$T0$1[35] @ 560
+     122 000024 8002          .field  -32766,16                       ; _$P$T0$1[36] @ 576
+     123 000025 811B          .field  -32485,16                       ; _$P$T0$1[37] @ 592
+     124 000026 845F          .field  -31649,16                       ; _$P$T0$1[38] @ 608
+     125 000027 89C1          .field  -30271,16                       ; _$P$T0$1[39] @ 624
+     126 000028 9128          .field  -28376,16                       ; _$P$T0$1[40] @ 640
+     127 000029 9A76          .field  -25994,16                       ; _$P$T0$1[41] @ 656
+     128 00002a A57F          .field  -23169,16                       ; _$P$T0$1[42] @ 672
+     129 00002b B216          .field  -19946,16                       ; _$P$T0$1[43] @ 688
+     130 00002c C002          .field  -16382,16                       ; _$P$T0$1[44] @ 704
+     131 00002d CF06          .field  -12538,16                       ; _$P$T0$1[45] @ 720
+     132 00002e DEE0          .field  -8480,16                        ; _$P$T0$1[46] @ 736
+     133 00002f EF4C          .field  -4276,16                        ; _$P$T0$1[47] @ 752
+     134              
+     135              $C$DW$12        .dwtag  DW_TAG_variable, DW_AT_name("$P$T0$1")
+     136                      .dwattr $C$DW$12, DW_AT_TI_symbol_name("_$P$T0$1")
+     137                      .dwattr $C$DW$12, DW_AT_type(*$C$DW$T$26)
+     138                      .dwattr $C$DW$12, DW_AT_location[DW_OP_addr _$P$T0$1]
+     139              ;       F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2550812 
+     140 000000               .sect   ".text"
+     141                      .align 4
+     142                      .global _aic3204_tone_headphone
+     143              
+     144              $C$DW$13        .dwtag  DW_TAG_subprogram, DW_AT_name("aic3204_tone_headphone")
+     145                      .dwattr $C$DW$13, DW_AT_low_pc(_aic3204_tone_headphone)
+     146                      .dwattr $C$DW$13, DW_AT_high_pc(0x00)
+     147                      .dwattr $C$DW$13, DW_AT_TI_symbol_name("_aic3204_tone_headphone")
+     148                      .dwattr $C$DW$13, DW_AT_external
+     149                      .dwattr $C$DW$13, DW_AT_type(*$C$DW$T$22)
+     150                      .dwattr $C$DW$13, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_head
+     151                      .dwattr $C$DW$13, DW_AT_TI_begin_line(0x33)
+     152                      .dwattr $C$DW$13, DW_AT_TI_begin_column(0x07)
+     153                      .dwattr $C$DW$13, DW_AT_TI_max_frame_size(0x34)
+     154                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 52,column 1
+     155              
+     156                      .dwfde $C$DW$CIE, _aic3204_tone_headphone
+     157              ;*******************************************************************************
+     158              ;* FUNCTION NAME: aic3204_tone_headphone                                       *
+     159              ;*                                                                             *
+     160              ;*   Function Uses Regs : AC0,AC0,T0,T1,AR1,AR2,XAR2,AR3,XAR3,SP,CSR,RPTC,     *
+     161              ;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
+     162              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     163              ;*   Total Frame Size   : 52 words                                             *
+     164              ;*                        (1 return address/alignment)                         *
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE    4
+
+     165              ;*                        (51 local values)                                    *
+     166              ;*   Min System Stack   : 1 word                                               *
+     167              ;*******************************************************************************
+     168 000000       _aic3204_tone_headphone:
+     169                      .dwcfi  cfa_offset, 1
+     170                      .dwcfi  save_reg_to_mem, 91, -1
+     171 000000 4ECD          AADD #-51, SP
+     172                      .dwcfi  cfa_offset, 52
+     173              $C$DW$14        .dwtag  DW_TAG_variable, DW_AT_name("sinetable")
+     174                      .dwattr $C$DW$14, DW_AT_TI_symbol_name("_sinetable")
+     175                      .dwattr $C$DW$14, DW_AT_type(*$C$DW$T$32)
+     176                      .dwattr $C$DW$14, DW_AT_location[DW_OP_bregx 0x24 0]
+     177              $C$DW$15        .dwtag  DW_TAG_variable, DW_AT_name("sec")
+     178                      .dwattr $C$DW$15, DW_AT_TI_symbol_name("_sec")
+     179                      .dwattr $C$DW$15, DW_AT_type(*$C$DW$T$22)
+     180                      .dwattr $C$DW$15, DW_AT_location[DW_OP_bregx 0x24 48]
+     181              $C$DW$16        .dwtag  DW_TAG_variable, DW_AT_name("msec")
+     182                      .dwattr $C$DW$16, DW_AT_TI_symbol_name("_msec")
+     183                      .dwattr $C$DW$16, DW_AT_type(*$C$DW$T$22)
+     184                      .dwattr $C$DW$16, DW_AT_location[DW_OP_bregx 0x24 49]
+     185              $C$DW$17        .dwtag  DW_TAG_variable, DW_AT_name("sample")
+     186                      .dwattr $C$DW$17, DW_AT_TI_symbol_name("_sample")
+     187                      .dwattr $C$DW$17, DW_AT_type(*$C$DW$T$22)
+     188                      .dwattr $C$DW$17, DW_AT_location[DW_OP_bregx 0x24 50]
+     189                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 54,column 1
+     190 000002 EC31          AMOV #_$P$T0$1, XAR3 ; |54| 
+         000004 BE00 
+         000006 0000+
+     191              
+     192 00000b 4D2F          RPT #47   ; |54| 
+     193 000008 EC00  ||      AMAR *SP(#0), XAR2
+         00000a AE   
+     194              
+     195                                                          ; loop starts ; |54| 
+     196 00000d       $C$L1:    
+     197 00000d       $C$DW$L$_aic3204_tone_headphone$2$B:
+     198 00000d 8065              MOV *AR3+, *AR2+ ; |54| 
+         00000f 14   
+     199                                                      ; loop ends ; |54| 
+     200 000010       $C$DW$L$_aic3204_tone_headphone$2$E:
+     201 000010       $C$L2:    
+     202                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 66,column 5
+     203 000010 3C04          MOV #0, T0
+     204              $C$DW$18        .dwtag  DW_TAG_TI_branch
+     205                      .dwattr $C$DW$18, DW_AT_low_pc(0x00)
+     206                      .dwattr $C$DW$18, DW_AT_name("_AIC3204_rset")
+     207                      .dwattr $C$DW$18, DW_AT_TI_call
+     208              
+     209 000012 6C00          CALL #_AIC3204_rset ; |66| 
+         000014 0000!
+     210 000016 3D05  ||      MOV #0, T1
+     211              
+     212                                                      ; call occurs [#_AIC3204_rset] ; |66| 
+     213                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 67,column 5
+     214 000018 3C14          MOV #1, T0
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE    5
+
+     215              $C$DW$19        .dwtag  DW_TAG_TI_branch
+     216                      .dwattr $C$DW$19, DW_AT_low_pc(0x00)
+     217                      .dwattr $C$DW$19, DW_AT_name("_AIC3204_rset")
+     218                      .dwattr $C$DW$19, DW_AT_TI_call
+     219              
+     220 00001a 6C00          CALL #_AIC3204_rset ; |67| 
+         00001c 0000!
+     221 00001e 3D15  ||      MOV #1, T1
+     222              
+     223                                                      ; call occurs [#_AIC3204_rset] ; |67| 
+     224                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 68,column 5
+     225 000020 7603          MOV #1000, AC0 ; |68| 
+         000022 E808 
+     226              $C$DW$20        .dwtag  DW_TAG_TI_branch
+     227                      .dwattr $C$DW$20, DW_AT_low_pc(0x00)
+     228                      .dwattr $C$DW$20, DW_AT_name("_EZDSP5535_waitusec")
+     229                      .dwattr $C$DW$20, DW_AT_TI_call
+     230 000024 6C00          CALL #_EZDSP5535_waitusec ; |68| 
+         000026 0000!
+     231                                                      ; call occurs [#_EZDSP5535_waitusec] ; |68| 
+     232                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 69,column 5
+     233 000028 3C04          MOV #0, T0
+     234              $C$DW$21        .dwtag  DW_TAG_TI_branch
+     235                      .dwattr $C$DW$21, DW_AT_low_pc(0x00)
+     236                      .dwattr $C$DW$21, DW_AT_name("_AIC3204_rset")
+     237                      .dwattr $C$DW$21, DW_AT_TI_call
+     238              
+     239 00002a 6C00          CALL #_AIC3204_rset ; |69| 
+         00002c 0000!
+     240 00002e 3D15  ||      MOV #1, T1
+     241              
+     242                                                      ; call occurs [#_AIC3204_rset] ; |69| 
+     243                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 70,column 5
+     244 000030 3C14          MOV #1, T0
+     245              $C$DW$22        .dwtag  DW_TAG_TI_branch
+     246                      .dwattr $C$DW$22, DW_AT_low_pc(0x00)
+     247                      .dwattr $C$DW$22, DW_AT_name("_AIC3204_rset")
+     248                      .dwattr $C$DW$22, DW_AT_TI_call
+     249              
+     250 000032 6C00          CALL #_AIC3204_rset ; |70| 
+         000034 0000!
+     251 000036 3D85  ||      MOV #8, T1
+     252              
+     253                                                      ; call occurs [#_AIC3204_rset] ; |70| 
+     254                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 71,column 5
+     255 000038 3C24          MOV #2, T0
+     256              $C$DW$23        .dwtag  DW_TAG_TI_branch
+     257                      .dwattr $C$DW$23, DW_AT_low_pc(0x00)
+     258                      .dwattr $C$DW$23, DW_AT_name("_AIC3204_rset")
+     259                      .dwattr $C$DW$23, DW_AT_TI_call
+     260              
+     261 00003a 6C00          CALL #_AIC3204_rset ; |71| 
+         00003c 0000!
+     262 00003e 3D15  ||      MOV #1, T1
+     263              
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE    6
+
+     264                                                      ; call occurs [#_AIC3204_rset] ; |71| 
+     265                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 72,column 5
+     266 000040 7600          MOV #123, T0 ; |72| 
+         000042 7B48 
+     267              $C$DW$24        .dwtag  DW_TAG_TI_branch
+     268                      .dwattr $C$DW$24, DW_AT_low_pc(0x00)
+     269                      .dwattr $C$DW$24, DW_AT_name("_AIC3204_rset")
+     270                      .dwattr $C$DW$24, DW_AT_TI_call
+     271              
+     272 000044 6C00          CALL #_AIC3204_rset ; |72| 
+         000046 0000!
+     273 000048 3D55  ||      MOV #5, T1
+     274              
+     275                                                      ; call occurs [#_AIC3204_rset] ; |72| 
+     276                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 73,column 5
+     277 00004a 76C3          MOV #50000, AR1 ; |73| 
+         00004c 5098 
+     278 00004e 7DFF          AND #0xffff, AR1, AC0 ; |73| 
+         000050 FF09 
+     279              $C$DW$25        .dwtag  DW_TAG_TI_branch
+     280                      .dwattr $C$DW$25, DW_AT_low_pc(0x00)
+     281                      .dwattr $C$DW$25, DW_AT_name("_EZDSP5535_waitusec")
+     282                      .dwattr $C$DW$25, DW_AT_TI_call
+     283 000052 6C00          CALL #_EZDSP5535_waitusec ; |73| 
+         000054 0000!
+     284                                                      ; call occurs [#_EZDSP5535_waitusec] ; |73| 
+     285                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 74,column 5
+     286 000056 3C04          MOV #0, T0
+     287              $C$DW$26        .dwtag  DW_TAG_TI_branch
+     288                      .dwattr $C$DW$26, DW_AT_low_pc(0x00)
+     289                      .dwattr $C$DW$26, DW_AT_name("_AIC3204_rset")
+     290                      .dwattr $C$DW$26, DW_AT_TI_call
+     291              
+     292 000058 6C00          CALL #_AIC3204_rset ; |74| 
+         00005a 0000!
+     293 00005c 3D05  ||      MOV #0, T1
+     294              
+     295                                                      ; call occurs [#_AIC3204_rset] ; |74| 
+     296                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 77,column 5
+     297 00005e 7600          MOV #27, T0 ; |77| 
+         000060 1B48 
+     298              $C$DW$27        .dwtag  DW_TAG_TI_branch
+     299                      .dwattr $C$DW$27, DW_AT_low_pc(0x00)
+     300                      .dwattr $C$DW$27, DW_AT_name("_AIC3204_rset")
+     301                      .dwattr $C$DW$27, DW_AT_TI_call
+     302              
+     303 000062 6C00          CALL #_AIC3204_rset ; |77| 
+         000064 0000!
+     304 000066 3DD5  ||      MOV #13, T1
+     305              
+     306                                                      ; call occurs [#_AIC3204_rset] ; |77| 
+     307                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 78,column 5
+     308 000068 7600          MOV #28, T0 ; |78| 
+         00006a 1C48 
+     309              $C$DW$28        .dwtag  DW_TAG_TI_branch
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE    7
+
+     310                      .dwattr $C$DW$28, DW_AT_low_pc(0x00)
+     311                      .dwattr $C$DW$28, DW_AT_name("_AIC3204_rset")
+     312                      .dwattr $C$DW$28, DW_AT_TI_call
+     313              
+     314 00006c 6C00          CALL #_AIC3204_rset ; |78| 
+         00006e 0000!
+     315 000070 3D05  ||      MOV #0, T1
+     316              
+     317                                                      ; call occurs [#_AIC3204_rset] ; |78| 
+     318                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 79,column 5
+     319 000072 3C44          MOV #4, T0
+     320              $C$DW$29        .dwtag  DW_TAG_TI_branch
+     321                      .dwattr $C$DW$29, DW_AT_low_pc(0x00)
+     322                      .dwattr $C$DW$29, DW_AT_name("_AIC3204_rset")
+     323                      .dwattr $C$DW$29, DW_AT_TI_call
+     324              
+     325 000074 6C00          CALL #_AIC3204_rset ; |79| 
+         000076 0000!
+     326 000078 3D35  ||      MOV #3, T1
+     327              
+     328                                                      ; call occurs [#_AIC3204_rset] ; |79| 
+     329                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 80,column 5
+     330 00007a 3C64          MOV #6, T0
+     331              $C$DW$30        .dwtag  DW_TAG_TI_branch
+     332                      .dwattr $C$DW$30, DW_AT_low_pc(0x00)
+     333                      .dwattr $C$DW$30, DW_AT_name("_AIC3204_rset")
+     334                      .dwattr $C$DW$30, DW_AT_TI_call
+     335              
+     336 00007c 6C00          CALL #_AIC3204_rset ; |80| 
+         00007e 0000!
+     337 000080 3D75  ||      MOV #7, T1
+     338              
+     339                                                      ; call occurs [#_AIC3204_rset] ; |80| 
+     340                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 81,column 5
+     341 000082 3C74          MOV #7, T0
+     342              $C$DW$31        .dwtag  DW_TAG_TI_branch
+     343                      .dwattr $C$DW$31, DW_AT_low_pc(0x00)
+     344                      .dwattr $C$DW$31, DW_AT_name("_AIC3204_rset")
+     345                      .dwattr $C$DW$31, DW_AT_TI_call
+     346              
+     347 000084 6C00          CALL #_AIC3204_rset ; |81| 
+         000086 0000!
+     348 000088 3D65  ||      MOV #6, T1
+     349              
+     350                                                      ; call occurs [#_AIC3204_rset] ; |81| 
+     351                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 82,column 5
+     352 00008a 7600          MOV #144, T1 ; |82| 
+         00008c 9058 
+     353              $C$DW$32        .dwtag  DW_TAG_TI_branch
+     354                      .dwattr $C$DW$32, DW_AT_low_pc(0x00)
+     355                      .dwattr $C$DW$32, DW_AT_name("_AIC3204_rset")
+     356                      .dwattr $C$DW$32, DW_AT_TI_call
+     357              
+     358 00008e 6C00          CALL #_AIC3204_rset ; |82| 
+         000090 0000!
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE    8
+
+     359 000092 3D84  ||      MOV #8, T0
+     360              
+     361                                                      ; call occurs [#_AIC3204_rset] ; |82| 
+     362                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 83,column 5
+     363 000094 7600          MOV #136, T1 ; |83| 
+         000096 8858 
+     364 000098 7600          MOV #30, T0 ; |83| 
+         00009a 1E48 
+     365              $C$DW$33        .dwtag  DW_TAG_TI_branch
+     366                      .dwattr $C$DW$33, DW_AT_low_pc(0x00)
+     367                      .dwattr $C$DW$33, DW_AT_name("_AIC3204_rset")
+     368                      .dwattr $C$DW$33, DW_AT_TI_call
+     369 00009c 6C00          CALL #_AIC3204_rset ; |83| 
+         00009e 0000!
+     370                                                      ; call occurs [#_AIC3204_rset] ; |83| 
+     371                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 85,column 5
+     372 0000a0 7600          MOV #145, T1 ; |85| 
+         0000a2 9158 
+     373              $C$DW$34        .dwtag  DW_TAG_TI_branch
+     374                      .dwattr $C$DW$34, DW_AT_low_pc(0x00)
+     375                      .dwattr $C$DW$34, DW_AT_name("_AIC3204_rset")
+     376                      .dwattr $C$DW$34, DW_AT_TI_call
+     377              
+     378 0000a4 6C00          CALL #_AIC3204_rset ; |85| 
+         0000a6 0000!
+     379 0000a8 3D54  ||      MOV #5, T0
+     380              
+     381                                                      ; call occurs [#_AIC3204_rset] ; |85| 
+     382                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 86,column 5
+     383 0000aa 7627          MOV #10000, AC0 ; |86| 
+         0000ac 1008 
+     384              $C$DW$35        .dwtag  DW_TAG_TI_branch
+     385                      .dwattr $C$DW$35, DW_AT_low_pc(0x00)
+     386                      .dwattr $C$DW$35, DW_AT_name("_EZDSP5535_waitusec")
+     387                      .dwattr $C$DW$35, DW_AT_TI_call
+     388 0000ae 6C00          CALL #_EZDSP5535_waitusec ; |86| 
+         0000b0 0000!
+     389                                                      ; call occurs [#_EZDSP5535_waitusec] ; |86| 
+     390                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 87,column 5
+     391 0000b2 3CD4          MOV #13, T0
+     392              $C$DW$36        .dwtag  DW_TAG_TI_branch
+     393                      .dwattr $C$DW$36, DW_AT_low_pc(0x00)
+     394                      .dwattr $C$DW$36, DW_AT_name("_AIC3204_rset")
+     395                      .dwattr $C$DW$36, DW_AT_TI_call
+     396              
+     397 0000b4 6C00          CALL #_AIC3204_rset ; |87| 
+         0000b6 0000!
+     398 0000b8 3D05  ||      MOV #0, T1
+     399              
+     400                                                      ; call occurs [#_AIC3204_rset] ; |87| 
+     401                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 88,column 5
+     402 0000ba 7600          MOV #128, T1 ; |88| 
+         0000bc 8058 
+     403              $C$DW$37        .dwtag  DW_TAG_TI_branch
+     404                      .dwattr $C$DW$37, DW_AT_low_pc(0x00)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE    9
+
+     405                      .dwattr $C$DW$37, DW_AT_name("_AIC3204_rset")
+     406                      .dwattr $C$DW$37, DW_AT_TI_call
+     407              
+     408 0000be 6C00          CALL #_AIC3204_rset ; |88| 
+         0000c0 0000!
+     409 0000c2 3DE4  ||      MOV #14, T0
+     410              
+     411                                                      ; call occurs [#_AIC3204_rset] ; |88| 
+     412                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 89,column 5
+     413 0000c4 7600          MOV #128, T1 ; |89| 
+         0000c6 8058 
+     414 0000c8 7600          MOV #20, T0 ; |89| 
+         0000ca 1448 
+     415              $C$DW$38        .dwtag  DW_TAG_TI_branch
+     416                      .dwattr $C$DW$38, DW_AT_low_pc(0x00)
+     417                      .dwattr $C$DW$38, DW_AT_name("_AIC3204_rset")
+     418                      .dwattr $C$DW$38, DW_AT_TI_call
+     419 0000cc 6C00          CALL #_AIC3204_rset ; |89| 
+         0000ce 0000!
+     420                                                      ; call occurs [#_AIC3204_rset] ; |89| 
+     421                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 90,column 5
+     422 0000d0 7600          MOV #130, T1 ; |90| 
+         0000d2 8258 
+     423              $C$DW$39        .dwtag  DW_TAG_TI_branch
+     424                      .dwattr $C$DW$39, DW_AT_low_pc(0x00)
+     425                      .dwattr $C$DW$39, DW_AT_name("_AIC3204_rset")
+     426                      .dwattr $C$DW$39, DW_AT_TI_call
+     427              
+     428 0000d4 6C00          CALL #_AIC3204_rset ; |90| 
+         0000d6 0000!
+     429 0000d8 3DB4  ||      MOV #11, T0
+     430              
+     431                                                      ; call occurs [#_AIC3204_rset] ; |90| 
+     432                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 91,column 5
+     433 0000da 7600          MOV #135, T1 ; |91| 
+         0000dc 8758 
+     434              $C$DW$40        .dwtag  DW_TAG_TI_branch
+     435                      .dwattr $C$DW$40, DW_AT_low_pc(0x00)
+     436                      .dwattr $C$DW$40, DW_AT_name("_AIC3204_rset")
+     437                      .dwattr $C$DW$40, DW_AT_TI_call
+     438              
+     439 0000de 6C00          CALL #_AIC3204_rset ; |91| 
+         0000e0 0000!
+     440 0000e2 3DC4  ||      MOV #12, T0
+     441              
+     442                                                      ; call occurs [#_AIC3204_rset] ; |91| 
+     443                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 92,column 5
+     444 0000e4 7600          MOV #135, T1 ; |92| 
+         0000e6 8758 
+     445 0000e8 7600          MOV #18, T0 ; |92| 
+         0000ea 1248 
+     446              $C$DW$41        .dwtag  DW_TAG_TI_branch
+     447                      .dwattr $C$DW$41, DW_AT_low_pc(0x00)
+     448                      .dwattr $C$DW$41, DW_AT_name("_AIC3204_rset")
+     449                      .dwattr $C$DW$41, DW_AT_TI_call
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   10
+
+     450 0000ec 6C00          CALL #_AIC3204_rset ; |92| 
+         0000ee 0000!
+     451                                                      ; call occurs [#_AIC3204_rset] ; |92| 
+     452                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 93,column 5
+     453 0000f0 7600          MOV #130, T1 ; |93| 
+         0000f2 8258 
+     454 0000f4 7600          MOV #19, T0 ; |93| 
+         0000f6 1348 
+     455              $C$DW$42        .dwtag  DW_TAG_TI_branch
+     456                      .dwattr $C$DW$42, DW_AT_low_pc(0x00)
+     457                      .dwattr $C$DW$42, DW_AT_name("_AIC3204_rset")
+     458                      .dwattr $C$DW$42, DW_AT_TI_call
+     459 0000f8 6C00          CALL #_AIC3204_rset ; |93| 
+         0000fa 0000!
+     460                                                      ; call occurs [#_AIC3204_rset] ; |93| 
+     461                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 96,column 5
+     462 0000fc 3C04          MOV #0, T0
+     463              $C$DW$43        .dwtag  DW_TAG_TI_branch
+     464                      .dwattr $C$DW$43, DW_AT_low_pc(0x00)
+     465                      .dwattr $C$DW$43, DW_AT_name("_AIC3204_rset")
+     466                      .dwattr $C$DW$43, DW_AT_TI_call
+     467              
+     468 0000fe 6C00          CALL #_AIC3204_rset ; |96| 
+         000100 0000!
+     469 000102 3D15  ||      MOV #1, T1
+     470              
+     471                                                      ; call occurs [#_AIC3204_rset] ; |96| 
+     472                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 97,column 5
+     473 000104 3CC4          MOV #12, T0
+     474              $C$DW$44        .dwtag  DW_TAG_TI_branch
+     475                      .dwattr $C$DW$44, DW_AT_low_pc(0x00)
+     476                      .dwattr $C$DW$44, DW_AT_name("_AIC3204_rset")
+     477                      .dwattr $C$DW$44, DW_AT_TI_call
+     478              
+     479 000106 6C00          CALL #_AIC3204_rset ; |97| 
+         000108 0000!
+     480 00010a 3D85  ||      MOV #8, T1
+     481              
+     482                                                      ; call occurs [#_AIC3204_rset] ; |97| 
+     483                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 98,column 5
+     484 00010c 3CD4          MOV #13, T0
+     485              $C$DW$45        .dwtag  DW_TAG_TI_branch
+     486                      .dwattr $C$DW$45, DW_AT_low_pc(0x00)
+     487                      .dwattr $C$DW$45, DW_AT_name("_AIC3204_rset")
+     488                      .dwattr $C$DW$45, DW_AT_TI_call
+     489              
+     490 00010e 6C00          CALL #_AIC3204_rset ; |98| 
+         000110 0000!
+     491 000112 3D85  ||      MOV #8, T1
+     492              
+     493                                                      ; call occurs [#_AIC3204_rset] ; |98| 
+     494                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 99,column 5
+     495 000114 3C04          MOV #0, T0
+     496              $C$DW$46        .dwtag  DW_TAG_TI_branch
+     497                      .dwattr $C$DW$46, DW_AT_low_pc(0x00)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   11
+
+     498                      .dwattr $C$DW$46, DW_AT_name("_AIC3204_rset")
+     499                      .dwattr $C$DW$46, DW_AT_TI_call
+     500              
+     501 000116 6C00          CALL #_AIC3204_rset ; |99| 
+         000118 0000!
+     502 00011a 3D05  ||      MOV #0, T1
+     503              
+     504                                                      ; call occurs [#_AIC3204_rset] ; |99| 
+     505                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 100,column 
+     506 00011c 7600          MOV #64, T0 ; |100| 
+         00011e 4048 
+     507              $C$DW$47        .dwtag  DW_TAG_TI_branch
+     508                      .dwattr $C$DW$47, DW_AT_low_pc(0x00)
+     509                      .dwattr $C$DW$47, DW_AT_name("_AIC3204_rset")
+     510                      .dwattr $C$DW$47, DW_AT_TI_call
+     511              
+     512 000120 6C00          CALL #_AIC3204_rset ; |100| 
+         000122 0000!
+     513 000124 3D25  ||      MOV #2, T1
+     514              
+     515                                                      ; call occurs [#_AIC3204_rset] ; |100| 
+     516                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 101,column 
+     517 000126 7600          MOV #65, T0 ; |101| 
+         000128 4148 
+     518              $C$DW$48        .dwtag  DW_TAG_TI_branch
+     519                      .dwattr $C$DW$48, DW_AT_low_pc(0x00)
+     520                      .dwattr $C$DW$48, DW_AT_name("_AIC3204_rset")
+     521                      .dwattr $C$DW$48, DW_AT_TI_call
+     522              
+     523 00012a 6C00          CALL #_AIC3204_rset ; |101| 
+         00012c 0000!
+     524 00012e 3D05  ||      MOV #0, T1
+     525              
+     526                                                      ; call occurs [#_AIC3204_rset] ; |101| 
+     527                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 102,column 
+     528 000130 7600          MOV #212, T1 ; |102| 
+         000132 D458 
+     529 000134 7600          MOV #63, T0 ; |102| 
+         000136 3F48 
+     530              $C$DW$49        .dwtag  DW_TAG_TI_branch
+     531                      .dwattr $C$DW$49, DW_AT_low_pc(0x00)
+     532                      .dwattr $C$DW$49, DW_AT_name("_AIC3204_rset")
+     533                      .dwattr $C$DW$49, DW_AT_TI_call
+     534 000138 6C00          CALL #_AIC3204_rset ; |102| 
+         00013a 0000!
+     535                                                      ; call occurs [#_AIC3204_rset] ; |102| 
+     536                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 103,column 
+     537 00013c 3C04          MOV #0, T0
+     538              $C$DW$50        .dwtag  DW_TAG_TI_branch
+     539                      .dwattr $C$DW$50, DW_AT_low_pc(0x00)
+     540                      .dwattr $C$DW$50, DW_AT_name("_AIC3204_rset")
+     541                      .dwattr $C$DW$50, DW_AT_TI_call
+     542              
+     543 00013e 6C00          CALL #_AIC3204_rset ; |103| 
+         000140 0000!
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   12
+
+     544 000142 3D15  ||      MOV #1, T1
+     545              
+     546                                                      ; call occurs [#_AIC3204_rset] ; |103| 
+     547                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 104,column 
+     548 000144 7600          MOV #16, T0 ; |104| 
+         000146 1048 
+     549              $C$DW$51        .dwtag  DW_TAG_TI_branch
+     550                      .dwattr $C$DW$51, DW_AT_low_pc(0x00)
+     551                      .dwattr $C$DW$51, DW_AT_name("_AIC3204_rset")
+     552                      .dwattr $C$DW$51, DW_AT_TI_call
+     553              
+     554 000148 6C00          CALL #_AIC3204_rset ; |104| 
+         00014a 0000!
+     555 00014c 3D05  ||      MOV #0, T1
+     556              
+     557                                                      ; call occurs [#_AIC3204_rset] ; |104| 
+     558                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 105,column 
+     559 00014e 7600          MOV #17, T0 ; |105| 
+         000150 1148 
+     560              $C$DW$52        .dwtag  DW_TAG_TI_branch
+     561                      .dwattr $C$DW$52, DW_AT_low_pc(0x00)
+     562                      .dwattr $C$DW$52, DW_AT_name("_AIC3204_rset")
+     563                      .dwattr $C$DW$52, DW_AT_TI_call
+     564              
+     565 000152 6C00          CALL #_AIC3204_rset ; |105| 
+         000154 0000!
+     566 000156 3D05  ||      MOV #0, T1
+     567              
+     568                                                      ; call occurs [#_AIC3204_rset] ; |105| 
+     569                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 106,column 
+     570 000158 7600          MOV #48, T1 ; |106| 
+         00015a 3058 
+     571              $C$DW$53        .dwtag  DW_TAG_TI_branch
+     572                      .dwattr $C$DW$53, DW_AT_low_pc(0x00)
+     573                      .dwattr $C$DW$53, DW_AT_name("_AIC3204_rset")
+     574                      .dwattr $C$DW$53, DW_AT_TI_call
+     575              
+     576 00015c 6C00          CALL #_AIC3204_rset ; |106| 
+         00015e 0000!
+     577 000160 3D94  ||      MOV #9, T0
+     578              
+     579                                                      ; call occurs [#_AIC3204_rset] ; |106| 
+     580                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 107,column 
+     581 000162 7600          MOV #100, AC0 ; |107| 
+         000164 6408 
+     582              $C$DW$54        .dwtag  DW_TAG_TI_branch
+     583                      .dwattr $C$DW$54, DW_AT_low_pc(0x00)
+     584                      .dwattr $C$DW$54, DW_AT_name("_EZDSP5535_waitusec")
+     585                      .dwattr $C$DW$54, DW_AT_TI_call
+     586 000166 6C00          CALL #_EZDSP5535_waitusec ; |107| 
+         000168 0000!
+     587                                                      ; call occurs [#_EZDSP5535_waitusec] ; |107| 
+     588                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 110,column 
+     589 00016a 3C04          MOV #0, T0
+     590              $C$DW$55        .dwtag  DW_TAG_TI_branch
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   13
+
+     591                      .dwattr $C$DW$55, DW_AT_low_pc(0x00)
+     592                      .dwattr $C$DW$55, DW_AT_name("_AIC3204_rset")
+     593                      .dwattr $C$DW$55, DW_AT_TI_call
+     594              
+     595 00016c 6C00          CALL #_AIC3204_rset ; |110| 
+         00016e 0000!
+     596 000170 3D15  ||      MOV #1, T1
+     597              
+     598                                                      ; call occurs [#_AIC3204_rset] ; |110| 
+     599                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 111,column 
+     600 000172 7600          MOV #48, T1 ; |111| 
+         000174 3058 
+     601 000176 7600          MOV #52, T0 ; |111| 
+         000178 3448 
+     602              $C$DW$56        .dwtag  DW_TAG_TI_branch
+     603                      .dwattr $C$DW$56, DW_AT_low_pc(0x00)
+     604                      .dwattr $C$DW$56, DW_AT_name("_AIC3204_rset")
+     605                      .dwattr $C$DW$56, DW_AT_TI_call
+     606 00017a 6C00          CALL #_AIC3204_rset ; |111| 
+         00017c 0000!
+     607                                                      ; call occurs [#_AIC3204_rset] ; |111| 
+     608                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 113,column 
+     609 00017e 7600          MOV #48, T1 ; |113| 
+         000180 3058 
+     610 000182 7600          MOV #55, T0 ; |113| 
+         000184 3748 
+     611              $C$DW$57        .dwtag  DW_TAG_TI_branch
+     612                      .dwattr $C$DW$57, DW_AT_low_pc(0x00)
+     613                      .dwattr $C$DW$57, DW_AT_name("_AIC3204_rset")
+     614                      .dwattr $C$DW$57, DW_AT_TI_call
+     615 000186 6C00          CALL #_AIC3204_rset ; |113| 
+         000188 0000!
+     616                                                      ; call occurs [#_AIC3204_rset] ; |113| 
+     617                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 114,column 
+     618 00018a 7600          MOV #54, T0 ; |114| 
+         00018c 3648 
+     619              $C$DW$58        .dwtag  DW_TAG_TI_branch
+     620                      .dwattr $C$DW$58, DW_AT_low_pc(0x00)
+     621                      .dwattr $C$DW$58, DW_AT_name("_AIC3204_rset")
+     622                      .dwattr $C$DW$58, DW_AT_TI_call
+     623              
+     624 00018e 6C00          CALL #_AIC3204_rset ; |114| 
+         000190 0000!
+     625 000192 3D35  ||      MOV #3, T1
+     626              
+     627                                                      ; call occurs [#_AIC3204_rset] ; |114| 
+     628                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 115,column 
+     629 000194 7600          MOV #192, T1 ; |115| 
+         000196 C058 
+     630 000198 7600          MOV #57, T0 ; |115| 
+         00019a 3948 
+     631              $C$DW$59        .dwtag  DW_TAG_TI_branch
+     632                      .dwattr $C$DW$59, DW_AT_low_pc(0x00)
+     633                      .dwattr $C$DW$59, DW_AT_name("_AIC3204_rset")
+     634                      .dwattr $C$DW$59, DW_AT_TI_call
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   14
+
+     635 00019c 6C00          CALL #_AIC3204_rset ; |115| 
+         00019e 0000!
+     636                                                      ; call occurs [#_AIC3204_rset] ; |115| 
+     637                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 116,column 
+     638 0001a0 7600          MOV #59, T0 ; |116| 
+         0001a2 3B48 
+     639              $C$DW$60        .dwtag  DW_TAG_TI_branch
+     640                      .dwattr $C$DW$60, DW_AT_low_pc(0x00)
+     641                      .dwattr $C$DW$60, DW_AT_name("_AIC3204_rset")
+     642                      .dwattr $C$DW$60, DW_AT_TI_call
+     643              
+     644 0001a4 6C00          CALL #_AIC3204_rset ; |116| 
+         0001a6 0000!
+     645 0001a8 3D05  ||      MOV #0, T1
+     646              
+     647                                                      ; call occurs [#_AIC3204_rset] ; |116| 
+     648                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 117,column 
+     649 0001aa 7600          MOV #60, T0 ; |117| 
+         0001ac 3C48 
+     650              $C$DW$61        .dwtag  DW_TAG_TI_branch
+     651                      .dwattr $C$DW$61, DW_AT_low_pc(0x00)
+     652                      .dwattr $C$DW$61, DW_AT_name("_AIC3204_rset")
+     653                      .dwattr $C$DW$61, DW_AT_TI_call
+     654              
+     655 0001ae 6C00          CALL #_AIC3204_rset ; |117| 
+         0001b0 0000!
+     656 0001b2 3D05  ||      MOV #0, T1
+     657              
+     658                                                      ; call occurs [#_AIC3204_rset] ; |117| 
+     659                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 118,column 
+     660 0001b4 3C04          MOV #0, T0
+     661              $C$DW$62        .dwtag  DW_TAG_TI_branch
+     662                      .dwattr $C$DW$62, DW_AT_low_pc(0x00)
+     663                      .dwattr $C$DW$62, DW_AT_name("_AIC3204_rset")
+     664                      .dwattr $C$DW$62, DW_AT_TI_call
+     665              
+     666 0001b6 6C00          CALL #_AIC3204_rset ; |118| 
+         0001b8 0000!
+     667 0001ba 3D05  ||      MOV #0, T1
+     668              
+     669                                                      ; call occurs [#_AIC3204_rset] ; |118| 
+     670                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 119,column 
+     671 0001bc 7600          MOV #192, T1 ; |119| 
+         0001be C058 
+     672 0001c0 7600          MOV #81, T0 ; |119| 
+         0001c2 5148 
+     673              $C$DW$63        .dwtag  DW_TAG_TI_branch
+     674                      .dwattr $C$DW$63, DW_AT_low_pc(0x00)
+     675                      .dwattr $C$DW$63, DW_AT_name("_AIC3204_rset")
+     676                      .dwattr $C$DW$63, DW_AT_TI_call
+     677 0001c4 6C00          CALL #_AIC3204_rset ; |119| 
+         0001c6 0000!
+     678                                                      ; call occurs [#_AIC3204_rset] ; |119| 
+     679                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 120,column 
+     680 0001c8 7600          MOV #82, T0 ; |120| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   15
+
+         0001ca 5248 
+     681              $C$DW$64        .dwtag  DW_TAG_TI_branch
+     682                      .dwattr $C$DW$64, DW_AT_low_pc(0x00)
+     683                      .dwattr $C$DW$64, DW_AT_name("_AIC3204_rset")
+     684                      .dwattr $C$DW$64, DW_AT_TI_call
+     685              
+     686 0001cc 6C00          CALL #_AIC3204_rset ; |120| 
+         0001ce 0000!
+     687 0001d0 3D05  ||      MOV #0, T1
+     688              
+     689                                                      ; call occurs [#_AIC3204_rset] ; |120| 
+     690                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 121,column 
+     691 0001d2 3C04          MOV #0, T0
+     692              $C$DW$65        .dwtag  DW_TAG_TI_branch
+     693                      .dwattr $C$DW$65, DW_AT_low_pc(0x00)
+     694                      .dwattr $C$DW$65, DW_AT_name("_AIC3204_rset")
+     695                      .dwattr $C$DW$65, DW_AT_TI_call
+     696              
+     697 0001d4 6C00          CALL #_AIC3204_rset ; |121| 
+         0001d6 0000!
+     698 0001d8 3D05  ||      MOV #0, T1
+     699              
+     700                                                      ; call occurs [#_AIC3204_rset] ; |121| 
+     701                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 122,column 
+     702 0001da 7600          MOV #100, AC0 ; |122| 
+         0001dc 6408 
+     703              $C$DW$66        .dwtag  DW_TAG_TI_branch
+     704                      .dwattr $C$DW$66, DW_AT_low_pc(0x00)
+     705                      .dwattr $C$DW$66, DW_AT_name("_EZDSP5535_waitusec")
+     706                      .dwattr $C$DW$66, DW_AT_TI_call
+     707 0001de 6C00          CALL #_EZDSP5535_waitusec ; |122| 
+         0001e0 0000!
+     708                                                      ; call occurs [#_EZDSP5535_waitusec] ; |122| 
+     709                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 125,column 
+     710              $C$DW$67        .dwtag  DW_TAG_TI_branch
+     711                      .dwattr $C$DW$67, DW_AT_low_pc(0x00)
+     712                      .dwattr $C$DW$67, DW_AT_name("_EZDSP5535_I2S_init")
+     713                      .dwattr $C$DW$67, DW_AT_TI_call
+     714 0001e2 6C00          CALL #_EZDSP5535_I2S_init ; |125| 
+         0001e4 0000!
+     715                                                      ; call occurs [#_EZDSP5535_I2S_init] ; |125| 
+     716                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 128,column 
+     717 0001e6 E660          MOV #0, *SP(#48) ; |128| 
+         0001e8 00   
+     718                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 128,column 
+     719              
+     720 0001e9 A960          MOV *SP(#48), AR1 ; |128| 
+     721 0001eb 3D5A  ||      MOV #5, AR2
+     722              
+     723 0001ed 1298          CMP AR1 >= AR2, TC1 ; |128| 
+         0001ef A0   
+     724 0001f0 0464          BCC $C$L8,TC1 ; |128| 
+         0001f2 62   
+     725                                                      ; branchcc occurs ; |128| 
+     726 0001f3       $C$L3:    
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   16
+
+     727 0001f3       $C$DW$L$_aic3204_tone_headphone$8$B:
+     728                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 130,column 
+     729 0001f3 E662          MOV #0, *SP(#49) ; |130| 
+         0001f5 00   
+     730                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 130,column 
+     731 0001f6 7603          MOV #1000, AR2 ; |130| 
+         0001f8 E8A8 
+     732 0001fa A962          MOV *SP(#49), AR1 ; |130| 
+     733 0001fc 1298          CMP AR1 >= AR2, TC1 ; |130| 
+         0001fe A0   
+     734 0001ff 0464          BCC $C$L7,TC1 ; |130| 
+         000201 45   
+     735                                                      ; branchcc occurs ; |130| 
+     736 000202       $C$DW$L$_aic3204_tone_headphone$8$E:
+     737 000202       $C$L4:    
+     738 000202       $C$DW$L$_aic3204_tone_headphone$9$B:
+     739                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 132,column 
+     740 000202 E664          MOV #0, *SP(#50) ; |132| 
+         000204 00   
+     741                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 132,column 
+     742 000205 7600          MOV #48, AR2 ; |132| 
+         000207 30A8 
+     743 000209 A964          MOV *SP(#50), AR1 ; |132| 
+     744 00020b 1298          CMP AR1 >= AR2, TC1 ; |132| 
+         00020d A0   
+     745 00020e 0464          BCC $C$L6,TC1 ; |132| 
+         000210 26   
+     746                                                      ; branchcc occurs ; |132| 
+     747 000211       $C$DW$L$_aic3204_tone_headphone$9$E:
+     748 000211       $C$L5:    
+     749 000211       $C$DW$L$_aic3204_tone_headphone$10$B:
+     750                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 135,column 
+     751 000211 2294          MOV AR1, T0
+     752 000213 EC00          AMAR *SP(#0), XAR3
+         000215 BE   
+     753 000216 A46B          MOV *AR3(T0), T0 ; |135| 
+     754              $C$DW$68        .dwtag  DW_TAG_TI_branch
+     755                      .dwattr $C$DW$68, DW_AT_low_pc(0x00)
+     756                      .dwattr $C$DW$68, DW_AT_name("_EZDSP5535_I2S_writeLeft")
+     757                      .dwattr $C$DW$68, DW_AT_TI_call
+     758 000218 6C00          CALL #_EZDSP5535_I2S_writeLeft ; |135| 
+         00021a 0000!
+     759                                                      ; call occurs [#_EZDSP5535_I2S_writeLeft] ; |135| 
+     760                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 138,column 
+     761 00021c A464          MOV *SP(#50), T0 ; |138| 
+     762 00021e EC00          AMAR *SP(#0), XAR3
+         000220 BE   
+     763 000221 A46B          MOV *AR3(T0), T0 ; |138| 
+     764              $C$DW$69        .dwtag  DW_TAG_TI_branch
+     765                      .dwattr $C$DW$69, DW_AT_low_pc(0x00)
+     766                      .dwattr $C$DW$69, DW_AT_name("_EZDSP5535_I2S_writeRight")
+     767                      .dwattr $C$DW$69, DW_AT_TI_call
+     768 000223 6C00          CALL #_EZDSP5535_I2S_writeRight ; |138| 
+         000225 0000!
+     769                                                      ; call occurs [#_EZDSP5535_I2S_writeRight] ; |138| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   17
+
+     770                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 132,column 
+     771 000227 F764          ADD #1, *SP(#50) ; |132| 
+         000229 0001 
+     772                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 132,column 
+     773 00022b 7600          MOV #48, AR2 ; |132| 
+         00022d 30A8 
+     774 00022f A964          MOV *SP(#50), AR1 ; |132| 
+     775 000231 1294          CMP AR1 < AR2, TC1 ; |132| 
+         000233 A0   
+     776 000234 0464          BCC $C$L5,TC1 ; |132| 
+         000236 DA   
+     777                                                      ; branchcc occurs ; |132| 
+     778 000237       $C$DW$L$_aic3204_tone_headphone$10$E:
+     779 000237       $C$L6:    
+     780 000237       $C$DW$L$_aic3204_tone_headphone$11$B:
+     781                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 130,column 
+     782 000237 F762          ADD #1, *SP(#49) ; |130| 
+         000239 0001 
+     783                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 130,column 
+     784 00023b 7603          MOV #1000, AR2 ; |130| 
+         00023d E8A8 
+     785 00023f A962          MOV *SP(#49), AR1 ; |130| 
+     786 000241 1294          CMP AR1 < AR2, TC1 ; |130| 
+         000243 A0   
+     787 000244 0464          BCC $C$L4,TC1 ; |130| 
+         000246 BB   
+     788                                                      ; branchcc occurs ; |130| 
+     789 000247       $C$DW$L$_aic3204_tone_headphone$11$E:
+     790 000247       $C$L7:    
+     791 000247       $C$DW$L$_aic3204_tone_headphone$12$B:
+     792                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 128,column 
+     793 000247 F760          ADD #1, *SP(#48) ; |128| 
+         000249 0001 
+     794                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 128,column 
+     795              
+     796 00024b A960          MOV *SP(#48), AR1 ; |128| 
+     797 00024d 3D5A  ||      MOV #5, AR2
+     798              
+     799 00024f 1294          CMP AR1 < AR2, TC1 ; |128| 
+         000251 A0   
+     800 000252 0464          BCC $C$L3,TC1 ; |128| 
+         000254 9E   
+     801                                                      ; branchcc occurs ; |128| 
+     802 000255       $C$DW$L$_aic3204_tone_headphone$12$E:
+     803 000255       $C$L8:    
+     804                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 142,column 
+     805              $C$DW$70        .dwtag  DW_TAG_TI_branch
+     806                      .dwattr $C$DW$70, DW_AT_low_pc(0x00)
+     807                      .dwattr $C$DW$70, DW_AT_name("_EZDSP5535_I2S_close")
+     808                      .dwattr $C$DW$70, DW_AT_TI_call
+     809 000255 6C00          CALL #_EZDSP5535_I2S_close ; |142| 
+         000257 0000!
+     810                                                      ; call occurs [#_EZDSP5535_I2S_close] ; |142| 
+     811                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 143,column 
+     812 000259 3C04          MOV #0, T0
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   18
+
+     813              $C$DW$71        .dwtag  DW_TAG_TI_branch
+     814                      .dwattr $C$DW$71, DW_AT_low_pc(0x00)
+     815                      .dwattr $C$DW$71, DW_AT_name("_AIC3204_rset")
+     816                      .dwattr $C$DW$71, DW_AT_TI_call
+     817              
+     818 00025b 6C00          CALL #_AIC3204_rset ; |143| 
+         00025d 0000!
+     819 00025f 3D05  ||      MOV #0, T1
+     820              
+     821                                                      ; call occurs [#_AIC3204_rset] ; |143| 
+     822                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 144,column 
+     823 000261 3C14          MOV #1, T0
+     824              $C$DW$72        .dwtag  DW_TAG_TI_branch
+     825                      .dwattr $C$DW$72, DW_AT_low_pc(0x00)
+     826                      .dwattr $C$DW$72, DW_AT_name("_AIC3204_rset")
+     827                      .dwattr $C$DW$72, DW_AT_TI_call
+     828              
+     829 000263 6C00          CALL #_AIC3204_rset ; |144| 
+         000265 0000!
+     830 000267 3D15  ||      MOV #1, T1
+     831              
+     832                                                      ; call occurs [#_AIC3204_rset] ; |144| 
+     833                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 146,column 
+     834 000269 3C04          MOV #0, T0
+     835                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headphone.c",line 147,column 
+     836 00026b 4E33          AADD #51, SP
+     837                      .dwcfi  cfa_offset, 1
+     838              $C$DW$73        .dwtag  DW_TAG_TI_branch
+     839                      .dwattr $C$DW$73, DW_AT_low_pc(0x00)
+     840                      .dwattr $C$DW$73, DW_AT_TI_return
+     841 00026d 4804          RET
+     842                                                      ; return occurs
+     843              
+     844              $C$DW$74        .dwtag  DW_TAG_TI_loop
+     845                      .dwattr $C$DW$74, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\aic3204_tone_headphone.asm:$C$L3:
+     846                      .dwattr $C$DW$74, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_head
+     847                      .dwattr $C$DW$74, DW_AT_TI_begin_line(0x80)
+     848                      .dwattr $C$DW$74, DW_AT_TI_end_line(0x8d)
+     849              $C$DW$75        .dwtag  DW_TAG_TI_loop_range
+     850                      .dwattr $C$DW$75, DW_AT_low_pc($C$DW$L$_aic3204_tone_headphone$8$B)
+     851                      .dwattr $C$DW$75, DW_AT_high_pc($C$DW$L$_aic3204_tone_headphone$8$E)
+     852              $C$DW$76        .dwtag  DW_TAG_TI_loop_range
+     853                      .dwattr $C$DW$76, DW_AT_low_pc($C$DW$L$_aic3204_tone_headphone$12$B)
+     854                      .dwattr $C$DW$76, DW_AT_high_pc($C$DW$L$_aic3204_tone_headphone$12$E)
+     855              
+     856              $C$DW$77        .dwtag  DW_TAG_TI_loop
+     857                      .dwattr $C$DW$77, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\aic3204_tone_headphone.asm:$C$L4:
+     858                      .dwattr $C$DW$77, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_head
+     859                      .dwattr $C$DW$77, DW_AT_TI_begin_line(0x82)
+     860                      .dwattr $C$DW$77, DW_AT_TI_end_line(0x8c)
+     861              $C$DW$78        .dwtag  DW_TAG_TI_loop_range
+     862                      .dwattr $C$DW$78, DW_AT_low_pc($C$DW$L$_aic3204_tone_headphone$9$B)
+     863                      .dwattr $C$DW$78, DW_AT_high_pc($C$DW$L$_aic3204_tone_headphone$9$E)
+     864              $C$DW$79        .dwtag  DW_TAG_TI_loop_range
+     865                      .dwattr $C$DW$79, DW_AT_low_pc($C$DW$L$_aic3204_tone_headphone$11$B)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   19
+
+     866                      .dwattr $C$DW$79, DW_AT_high_pc($C$DW$L$_aic3204_tone_headphone$11$E)
+     867              
+     868              $C$DW$80        .dwtag  DW_TAG_TI_loop
+     869                      .dwattr $C$DW$80, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\aic3204_tone_headphone.asm:$C$L5:
+     870                      .dwattr $C$DW$80, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_head
+     871                      .dwattr $C$DW$80, DW_AT_TI_begin_line(0x84)
+     872                      .dwattr $C$DW$80, DW_AT_TI_end_line(0x8b)
+     873              $C$DW$81        .dwtag  DW_TAG_TI_loop_range
+     874                      .dwattr $C$DW$81, DW_AT_low_pc($C$DW$L$_aic3204_tone_headphone$10$B)
+     875                      .dwattr $C$DW$81, DW_AT_high_pc($C$DW$L$_aic3204_tone_headphone$10$E)
+     876                      .dwendtag $C$DW$80
+     877              
+     878                      .dwendtag $C$DW$77
+     879              
+     880                      .dwendtag $C$DW$74
+     881              
+     882              
+     883              $C$DW$82        .dwtag  DW_TAG_TI_loop
+     884                      .dwattr $C$DW$82, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\aic3204_tone_headphone.asm:$C$L1:
+     885                      .dwattr $C$DW$82, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_head
+     886                      .dwattr $C$DW$82, DW_AT_TI_begin_line(0x36)
+     887                      .dwattr $C$DW$82, DW_AT_TI_end_line(0x36)
+     888              $C$DW$83        .dwtag  DW_TAG_TI_loop_range
+     889                      .dwattr $C$DW$83, DW_AT_low_pc($C$DW$L$_aic3204_tone_headphone$2$B)
+     890                      .dwattr $C$DW$83, DW_AT_high_pc($C$DW$L$_aic3204_tone_headphone$2$E)
+     891                      .dwendtag $C$DW$82
+     892              
+     893                      .dwattr $C$DW$13, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/tests/aic3204/aic3204_tone_headph
+     894                      .dwattr $C$DW$13, DW_AT_TI_end_line(0x93)
+     895                      .dwattr $C$DW$13, DW_AT_TI_end_column(0x01)
+     896                      .dwendentry
+     897                      .dwendtag $C$DW$13
+     898              
+     899              ;******************************************************************************
+     900              ;* UNDEFINED EXTERNAL REFERENCES                                              *
+     901              ;******************************************************************************
+     902                      .global _EZDSP5535_waitusec
+     903                      .global _EZDSP5535_I2S_init
+     904                      .global _EZDSP5535_I2S_writeLeft
+     905                      .global _EZDSP5535_I2S_writeRight
+     906                      .global _EZDSP5535_I2S_close
+     907                      .global _AIC3204_rset
+     908              
+     909              ;*******************************************************************************
+     910              ;* TYPE INFORMATION                                                            *
+     911              ;*******************************************************************************
+     912              $C$DW$T$4       .dwtag  DW_TAG_base_type
+     913                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+     914                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+     915                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+     916              $C$DW$T$5       .dwtag  DW_TAG_base_type
+     917                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+     918                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+     919                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+     920              $C$DW$T$6       .dwtag  DW_TAG_base_type
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   20
+
+     921                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+     922                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+     923                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+     924              $C$DW$T$7       .dwtag  DW_TAG_base_type
+     925                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+     926                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+     927                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+     928              $C$DW$T$8       .dwtag  DW_TAG_base_type
+     929                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+     930                      .dwattr $C$DW$T$8, DW_AT_name("short")
+     931                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+     932              $C$DW$T$22      .dwtag  DW_TAG_typedef, DW_AT_name("Int16")
+     933                      .dwattr $C$DW$T$22, DW_AT_type(*$C$DW$T$8)
+     934                      .dwattr $C$DW$T$22, DW_AT_language(DW_LANG_C)
+     935              $C$DW$84        .dwtag  DW_TAG_TI_far_type
+     936                      .dwattr $C$DW$84, DW_AT_type(*$C$DW$T$22)
+     937              $C$DW$T$25      .dwtag  DW_TAG_const_type
+     938                      .dwattr $C$DW$T$25, DW_AT_type(*$C$DW$84)
+     939              
+     940              $C$DW$T$26      .dwtag  DW_TAG_array_type
+     941                      .dwattr $C$DW$T$26, DW_AT_type(*$C$DW$T$25)
+     942                      .dwattr $C$DW$T$26, DW_AT_language(DW_LANG_C)
+     943                      .dwattr $C$DW$T$26, DW_AT_byte_size(0x30)
+     944              $C$DW$85        .dwtag  DW_TAG_subrange_type
+     945                      .dwattr $C$DW$85, DW_AT_upper_bound(0x2f)
+     946                      .dwendtag $C$DW$T$26
+     947              
+     948              
+     949              $C$DW$T$32      .dwtag  DW_TAG_array_type
+     950                      .dwattr $C$DW$T$32, DW_AT_type(*$C$DW$T$22)
+     951                      .dwattr $C$DW$T$32, DW_AT_language(DW_LANG_C)
+     952                      .dwattr $C$DW$T$32, DW_AT_byte_size(0x30)
+     953              $C$DW$86        .dwtag  DW_TAG_subrange_type
+     954                      .dwattr $C$DW$86, DW_AT_upper_bound(0x2f)
+     955                      .dwendtag $C$DW$T$32
+     956              
+     957              $C$DW$T$9       .dwtag  DW_TAG_base_type
+     958                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+     959                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+     960                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+     961              $C$DW$T$29      .dwtag  DW_TAG_typedef, DW_AT_name("Uint16")
+     962                      .dwattr $C$DW$T$29, DW_AT_type(*$C$DW$T$9)
+     963                      .dwattr $C$DW$T$29, DW_AT_language(DW_LANG_C)
+     964              $C$DW$T$10      .dwtag  DW_TAG_base_type
+     965                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+     966                      .dwattr $C$DW$T$10, DW_AT_name("int")
+     967                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+     968              $C$DW$T$11      .dwtag  DW_TAG_base_type
+     969                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+     970                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+     971                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+     972              $C$DW$T$12      .dwtag  DW_TAG_base_type
+     973                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+     974                      .dwattr $C$DW$T$12, DW_AT_name("long")
+     975                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   21
+
+     976              $C$DW$T$13      .dwtag  DW_TAG_base_type
+     977                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+     978                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+     979                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+     980              $C$DW$T$19      .dwtag  DW_TAG_typedef, DW_AT_name("Uint32")
+     981                      .dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$13)
+     982                      .dwattr $C$DW$T$19, DW_AT_language(DW_LANG_C)
+     983              $C$DW$T$14      .dwtag  DW_TAG_base_type
+     984                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+     985                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+     986                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+     987                      .dwattr $C$DW$T$14, DW_AT_bit_size(0x28)
+     988                      .dwattr $C$DW$T$14, DW_AT_bit_offset(0x18)
+     989              $C$DW$T$15      .dwtag  DW_TAG_base_type
+     990                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+     991                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+     992                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+     993                      .dwattr $C$DW$T$15, DW_AT_bit_size(0x28)
+     994                      .dwattr $C$DW$T$15, DW_AT_bit_offset(0x18)
+     995              $C$DW$T$16      .dwtag  DW_TAG_base_type
+     996                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+     997                      .dwattr $C$DW$T$16, DW_AT_name("float")
+     998                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+     999              $C$DW$T$17      .dwtag  DW_TAG_base_type
+    1000                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+    1001                      .dwattr $C$DW$T$17, DW_AT_name("double")
+    1002                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+    1003              $C$DW$T$18      .dwtag  DW_TAG_base_type
+    1004                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+    1005                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+    1006                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x02)
+    1007                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+    1008              
+    1009              ;***************************************************************
+    1010              ;* DWARF CIE ENTRIES                                           *
+    1011              ;***************************************************************
+    1012              
+    1013              $C$DW$CIE       .dwcie 91
+    1014                      .dwcfi  cfa_register, 36
+    1015                      .dwcfi  cfa_offset, 0
+    1016                      .dwcfi  undefined, 0
+    1017                      .dwcfi  undefined, 1
+    1018                      .dwcfi  undefined, 2
+    1019                      .dwcfi  undefined, 3
+    1020                      .dwcfi  undefined, 4
+    1021                      .dwcfi  undefined, 5
+    1022                      .dwcfi  undefined, 6
+    1023                      .dwcfi  undefined, 7
+    1024                      .dwcfi  undefined, 8
+    1025                      .dwcfi  undefined, 9
+    1026                      .dwcfi  undefined, 10
+    1027                      .dwcfi  undefined, 11
+    1028                      .dwcfi  undefined, 12
+    1029                      .dwcfi  undefined, 13
+    1030                      .dwcfi  same_value, 14
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   22
+
+    1031                      .dwcfi  same_value, 15
+    1032                      .dwcfi  undefined, 16
+    1033                      .dwcfi  undefined, 17
+    1034                      .dwcfi  undefined, 18
+    1035                      .dwcfi  undefined, 19
+    1036                      .dwcfi  undefined, 20
+    1037                      .dwcfi  undefined, 21
+    1038                      .dwcfi  undefined, 22
+    1039                      .dwcfi  undefined, 23
+    1040                      .dwcfi  undefined, 24
+    1041                      .dwcfi  undefined, 25
+    1042                      .dwcfi  same_value, 26
+    1043                      .dwcfi  same_value, 27
+    1044                      .dwcfi  same_value, 28
+    1045                      .dwcfi  same_value, 29
+    1046                      .dwcfi  same_value, 30
+    1047                      .dwcfi  same_value, 31
+    1048                      .dwcfi  undefined, 32
+    1049                      .dwcfi  undefined, 33
+    1050                      .dwcfi  undefined, 34
+    1051                      .dwcfi  undefined, 35
+    1052                      .dwcfi  undefined, 36
+    1053                      .dwcfi  undefined, 37
+    1054                      .dwcfi  undefined, 38
+    1055                      .dwcfi  undefined, 39
+    1056                      .dwcfi  undefined, 40
+    1057                      .dwcfi  undefined, 41
+    1058                      .dwcfi  undefined, 42
+    1059                      .dwcfi  undefined, 43
+    1060                      .dwcfi  undefined, 44
+    1061                      .dwcfi  undefined, 45
+    1062                      .dwcfi  undefined, 46
+    1063                      .dwcfi  undefined, 47
+    1064                      .dwcfi  undefined, 48
+    1065                      .dwcfi  undefined, 49
+    1066                      .dwcfi  undefined, 50
+    1067                      .dwcfi  undefined, 51
+    1068                      .dwcfi  undefined, 52
+    1069                      .dwcfi  undefined, 53
+    1070                      .dwcfi  undefined, 54
+    1071                      .dwcfi  undefined, 55
+    1072                      .dwcfi  undefined, 56
+    1073                      .dwcfi  undefined, 57
+    1074                      .dwcfi  undefined, 58
+    1075                      .dwcfi  undefined, 59
+    1076                      .dwcfi  undefined, 60
+    1077                      .dwcfi  undefined, 61
+    1078                      .dwcfi  undefined, 62
+    1079                      .dwcfi  undefined, 63
+    1080                      .dwcfi  undefined, 64
+    1081                      .dwcfi  undefined, 65
+    1082                      .dwcfi  undefined, 66
+    1083                      .dwcfi  undefined, 67
+    1084                      .dwcfi  undefined, 68
+    1085                      .dwcfi  undefined, 69
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   23
+
+    1086                      .dwcfi  undefined, 70
+    1087                      .dwcfi  undefined, 71
+    1088                      .dwcfi  undefined, 72
+    1089                      .dwcfi  undefined, 73
+    1090                      .dwcfi  undefined, 74
+    1091                      .dwcfi  undefined, 75
+    1092                      .dwcfi  undefined, 76
+    1093                      .dwcfi  undefined, 77
+    1094                      .dwcfi  undefined, 78
+    1095                      .dwcfi  undefined, 79
+    1096                      .dwcfi  undefined, 80
+    1097                      .dwcfi  undefined, 81
+    1098                      .dwcfi  undefined, 82
+    1099                      .dwcfi  undefined, 83
+    1100                      .dwcfi  undefined, 84
+    1101                      .dwcfi  undefined, 85
+    1102                      .dwcfi  undefined, 86
+    1103                      .dwcfi  undefined, 87
+    1104                      .dwcfi  undefined, 88
+    1105                      .dwcfi  undefined, 89
+    1106                      .dwcfi  undefined, 90
+    1107                      .dwcfi  undefined, 91
+    1108                      .dwendentry
+    1109              
+    1110              ;***************************************************************
+    1111              ;* DWARF REGISTER MAP                                          *
+    1112              ;***************************************************************
+    1113              
+    1114              $C$DW$87        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1115                      .dwattr $C$DW$87, DW_AT_location[DW_OP_reg0]
+    1116              $C$DW$88        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1117                      .dwattr $C$DW$88, DW_AT_location[DW_OP_reg1]
+    1118              $C$DW$89        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0_G")
+    1119                      .dwattr $C$DW$89, DW_AT_location[DW_OP_reg2]
+    1120              $C$DW$90        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1121                      .dwattr $C$DW$90, DW_AT_location[DW_OP_reg3]
+    1122              $C$DW$91        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1123                      .dwattr $C$DW$91, DW_AT_location[DW_OP_reg4]
+    1124              $C$DW$92        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1_G")
+    1125                      .dwattr $C$DW$92, DW_AT_location[DW_OP_reg5]
+    1126              $C$DW$93        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1127                      .dwattr $C$DW$93, DW_AT_location[DW_OP_reg6]
+    1128              $C$DW$94        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1129                      .dwattr $C$DW$94, DW_AT_location[DW_OP_reg7]
+    1130              $C$DW$95        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2_G")
+    1131                      .dwattr $C$DW$95, DW_AT_location[DW_OP_reg8]
+    1132              $C$DW$96        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    1133                      .dwattr $C$DW$96, DW_AT_location[DW_OP_reg9]
+    1134              $C$DW$97        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    1135                      .dwattr $C$DW$97, DW_AT_location[DW_OP_reg10]
+    1136              $C$DW$98        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3_G")
+    1137                      .dwattr $C$DW$98, DW_AT_location[DW_OP_reg11]
+    1138              $C$DW$99        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T0")
+    1139                      .dwattr $C$DW$99, DW_AT_location[DW_OP_reg12]
+    1140              $C$DW$100       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T1")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   24
+
+    1141                      .dwattr $C$DW$100, DW_AT_location[DW_OP_reg13]
+    1142              $C$DW$101       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T2")
+    1143                      .dwattr $C$DW$101, DW_AT_location[DW_OP_reg14]
+    1144              $C$DW$102       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T3")
+    1145                      .dwattr $C$DW$102, DW_AT_location[DW_OP_reg15]
+    1146              $C$DW$103       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+    1147                      .dwattr $C$DW$103, DW_AT_location[DW_OP_reg16]
+    1148              $C$DW$104       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+    1149                      .dwattr $C$DW$104, DW_AT_location[DW_OP_reg17]
+    1150              $C$DW$105       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+    1151                      .dwattr $C$DW$105, DW_AT_location[DW_OP_reg18]
+    1152              $C$DW$106       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+    1153                      .dwattr $C$DW$106, DW_AT_location[DW_OP_reg19]
+    1154              $C$DW$107       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+    1155                      .dwattr $C$DW$107, DW_AT_location[DW_OP_reg20]
+    1156              $C$DW$108       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+    1157                      .dwattr $C$DW$108, DW_AT_location[DW_OP_reg21]
+    1158              $C$DW$109       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+    1159                      .dwattr $C$DW$109, DW_AT_location[DW_OP_reg22]
+    1160              $C$DW$110       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+    1161                      .dwattr $C$DW$110, DW_AT_location[DW_OP_reg23]
+    1162              $C$DW$111       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+    1163                      .dwattr $C$DW$111, DW_AT_location[DW_OP_reg24]
+    1164              $C$DW$112       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+    1165                      .dwattr $C$DW$112, DW_AT_location[DW_OP_reg25]
+    1166              $C$DW$113       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+    1167                      .dwattr $C$DW$113, DW_AT_location[DW_OP_reg26]
+    1168              $C$DW$114       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+    1169                      .dwattr $C$DW$114, DW_AT_location[DW_OP_reg27]
+    1170              $C$DW$115       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+    1171                      .dwattr $C$DW$115, DW_AT_location[DW_OP_reg28]
+    1172              $C$DW$116       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+    1173                      .dwattr $C$DW$116, DW_AT_location[DW_OP_reg29]
+    1174              $C$DW$117       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+    1175                      .dwattr $C$DW$117, DW_AT_location[DW_OP_reg30]
+    1176              $C$DW$118       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+    1177                      .dwattr $C$DW$118, DW_AT_location[DW_OP_reg31]
+    1178              $C$DW$119       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+    1179                      .dwattr $C$DW$119, DW_AT_location[DW_OP_regx 0x20]
+    1180              $C$DW$120       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XFP")
+    1181                      .dwattr $C$DW$120, DW_AT_location[DW_OP_regx 0x21]
+    1182              $C$DW$121       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+    1183                      .dwattr $C$DW$121, DW_AT_location[DW_OP_regx 0x22]
+    1184              $C$DW$122       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+    1185                      .dwattr $C$DW$122, DW_AT_location[DW_OP_regx 0x23]
+    1186              $C$DW$123       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XSP")
+    1187                      .dwattr $C$DW$123, DW_AT_location[DW_OP_regx 0x24]
+    1188              $C$DW$124       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BKC")
+    1189                      .dwattr $C$DW$124, DW_AT_location[DW_OP_regx 0x25]
+    1190              $C$DW$125       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK03")
+    1191                      .dwattr $C$DW$125, DW_AT_location[DW_OP_regx 0x26]
+    1192              $C$DW$126       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK47")
+    1193                      .dwattr $C$DW$126, DW_AT_location[DW_OP_regx 0x27]
+    1194              $C$DW$127       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+    1195                      .dwattr $C$DW$127, DW_AT_location[DW_OP_regx 0x28]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   25
+
+    1196              $C$DW$128       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+    1197                      .dwattr $C$DW$128, DW_AT_location[DW_OP_regx 0x29]
+    1198              $C$DW$129       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST2")
+    1199                      .dwattr $C$DW$129, DW_AT_location[DW_OP_regx 0x2a]
+    1200              $C$DW$130       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST3")
+    1201                      .dwattr $C$DW$130, DW_AT_location[DW_OP_regx 0x2b]
+    1202              $C$DW$131       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP")
+    1203                      .dwattr $C$DW$131, DW_AT_location[DW_OP_regx 0x2c]
+    1204              $C$DW$132       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP05")
+    1205                      .dwattr $C$DW$132, DW_AT_location[DW_OP_regx 0x2d]
+    1206              $C$DW$133       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP67")
+    1207                      .dwattr $C$DW$133, DW_AT_location[DW_OP_regx 0x2e]
+    1208              $C$DW$134       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC0")
+    1209                      .dwattr $C$DW$134, DW_AT_location[DW_OP_regx 0x2f]
+    1210              $C$DW$135       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0")
+    1211                      .dwattr $C$DW$135, DW_AT_location[DW_OP_regx 0x30]
+    1212              $C$DW$136       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0_H")
+    1213                      .dwattr $C$DW$136, DW_AT_location[DW_OP_regx 0x31]
+    1214              $C$DW$137       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0")
+    1215                      .dwattr $C$DW$137, DW_AT_location[DW_OP_regx 0x32]
+    1216              $C$DW$138       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0_H")
+    1217                      .dwattr $C$DW$138, DW_AT_location[DW_OP_regx 0x33]
+    1218              $C$DW$139       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRS1")
+    1219                      .dwattr $C$DW$139, DW_AT_location[DW_OP_regx 0x34]
+    1220              $C$DW$140       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC1")
+    1221                      .dwattr $C$DW$140, DW_AT_location[DW_OP_regx 0x35]
+    1222              $C$DW$141       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1")
+    1223                      .dwattr $C$DW$141, DW_AT_location[DW_OP_regx 0x36]
+    1224              $C$DW$142       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1_H")
+    1225                      .dwattr $C$DW$142, DW_AT_location[DW_OP_regx 0x37]
+    1226              $C$DW$143       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1")
+    1227                      .dwattr $C$DW$143, DW_AT_location[DW_OP_regx 0x38]
+    1228              $C$DW$144       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1_H")
+    1229                      .dwattr $C$DW$144, DW_AT_location[DW_OP_regx 0x39]
+    1230              $C$DW$145       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CSR")
+    1231                      .dwattr $C$DW$145, DW_AT_location[DW_OP_regx 0x3a]
+    1232              $C$DW$146       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPTC")
+    1233                      .dwattr $C$DW$146, DW_AT_location[DW_OP_regx 0x3b]
+    1234              $C$DW$147       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDP")
+    1235                      .dwattr $C$DW$147, DW_AT_location[DW_OP_regx 0x3c]
+    1236              $C$DW$148       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XCDP")
+    1237                      .dwattr $C$DW$148, DW_AT_location[DW_OP_regx 0x3d]
+    1238              $C$DW$149       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN0")
+    1239                      .dwattr $C$DW$149, DW_AT_location[DW_OP_regx 0x3e]
+    1240              $C$DW$150       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN1")
+    1241                      .dwattr $C$DW$150, DW_AT_location[DW_OP_regx 0x3f]
+    1242              $C$DW$151       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA01")
+    1243                      .dwattr $C$DW$151, DW_AT_location[DW_OP_regx 0x40]
+    1244              $C$DW$152       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA23")
+    1245                      .dwattr $C$DW$152, DW_AT_location[DW_OP_regx 0x41]
+    1246              $C$DW$153       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA45")
+    1247                      .dwattr $C$DW$153, DW_AT_location[DW_OP_regx 0x42]
+    1248              $C$DW$154       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA67")
+    1249                      .dwattr $C$DW$154, DW_AT_location[DW_OP_regx 0x43]
+    1250              $C$DW$155       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSAC")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:07:20 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+aic3204_tone_headphone.asm                                           PAGE   26
+
+    1251                      .dwattr $C$DW$155, DW_AT_location[DW_OP_regx 0x44]
+    1252              $C$DW$156       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CARRY")
+    1253                      .dwattr $C$DW$156, DW_AT_location[DW_OP_regx 0x45]
+    1254              $C$DW$157       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC1")
+    1255                      .dwattr $C$DW$157, DW_AT_location[DW_OP_regx 0x46]
+    1256              $C$DW$158       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC2")
+    1257                      .dwattr $C$DW$158, DW_AT_location[DW_OP_regx 0x47]
+    1258              $C$DW$159       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("M40")
+    1259                      .dwattr $C$DW$159, DW_AT_location[DW_OP_regx 0x48]
+    1260              $C$DW$160       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXMD")
+    1261                      .dwattr $C$DW$160, DW_AT_location[DW_OP_regx 0x49]
+    1262              $C$DW$161       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ARMS")
+    1263                      .dwattr $C$DW$161, DW_AT_location[DW_OP_regx 0x4a]
+    1264              $C$DW$162       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("C54CM")
+    1265                      .dwattr $C$DW$162, DW_AT_location[DW_OP_regx 0x4b]
+    1266              $C$DW$163       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATA")
+    1267                      .dwattr $C$DW$163, DW_AT_location[DW_OP_regx 0x4c]
+    1268              $C$DW$164       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATD")
+    1269                      .dwattr $C$DW$164, DW_AT_location[DW_OP_regx 0x4d]
+    1270              $C$DW$165       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RDM")
+    1271                      .dwattr $C$DW$165, DW_AT_location[DW_OP_regx 0x4e]
+    1272              $C$DW$166       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FRCT")
+    1273                      .dwattr $C$DW$166, DW_AT_location[DW_OP_regx 0x4f]
+    1274              $C$DW$167       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SMUL")
+    1275                      .dwattr $C$DW$167, DW_AT_location[DW_OP_regx 0x50]
+    1276              $C$DW$168       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+    1277                      .dwattr $C$DW$168, DW_AT_location[DW_OP_regx 0x51]
+    1278              $C$DW$169       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0LC")
+    1279                      .dwattr $C$DW$169, DW_AT_location[DW_OP_regx 0x52]
+    1280              $C$DW$170       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1LC")
+    1281                      .dwattr $C$DW$170, DW_AT_location[DW_OP_regx 0x53]
+    1282              $C$DW$171       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2LC")
+    1283                      .dwattr $C$DW$171, DW_AT_location[DW_OP_regx 0x54]
+    1284              $C$DW$172       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3LC")
+    1285                      .dwattr $C$DW$172, DW_AT_location[DW_OP_regx 0x55]
+    1286              $C$DW$173       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4LC")
+    1287                      .dwattr $C$DW$173, DW_AT_location[DW_OP_regx 0x56]
+    1288              $C$DW$174       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5LC")
+    1289                      .dwattr $C$DW$174, DW_AT_location[DW_OP_regx 0x57]
+    1290              $C$DW$175       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6LC")
+    1291                      .dwattr $C$DW$175, DW_AT_location[DW_OP_regx 0x58]
+    1292              $C$DW$176       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7LC")
+    1293                      .dwattr $C$DW$176, DW_AT_location[DW_OP_regx 0x59]
+    1294              $C$DW$177       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDPLC")
+    1295                      .dwattr $C$DW$177, DW_AT_location[DW_OP_regx 0x5a]
+    1296              $C$DW$178       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+    1297                      .dwattr $C$DW$178, DW_AT_location[DW_OP_regx 0x5b]
+    1298                      .dwendtag $C$DW$CU
+    1299              
+    1299              
+    1299              
+
+No Assembly Errors, No Assembly Warnings

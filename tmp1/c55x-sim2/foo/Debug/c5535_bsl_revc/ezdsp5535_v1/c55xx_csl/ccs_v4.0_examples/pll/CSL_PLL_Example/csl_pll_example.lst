@@ -1,0 +1,2349 @@
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE    1
+
+    1666              ; Temporary Registers Used: None
+       1              ;*******************************************************************************
+       2              ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
+       3              ;* Date/Time created: Sat Sep 29 23:08:50 2018                                 *
+       4              ;*******************************************************************************
+       5                      .compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --si
+       6                      .mmregs
+       7                      .cpl_on
+       8                      .arms_on
+       9                      .c54cm_off
+      10                      .asg AR6, FP
+      11                      .asg XAR6, XFP
+      12                      .asg DPH, MDP
+      13                      .model call=c55_std
+      14                      .model mem=large
+      15                      .noremark 5002  ; code respects overwrite rules
+      16              ;*******************************************************************************
+      17              ;* GLOBAL FILE PARAMETERS                                                      *
+      18              ;*                                                                             *
+      19              ;*   Architecture       : TMS320C55x                                           *
+      20              ;*   Optimizing for     : Speed                                                *
+      21              ;*   Memory             : Large Model (23-Bit Data Pointers)                   *
+      22              ;*   Calls              : Normal Library ASM calls                             *
+      23              ;*   Debug Info         : Standard TI Debug Information                        *
+      24              ;*******************************************************************************
+      25              
+      26              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+      27                      .dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_
+      28                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas In
+      29                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      30                      .dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+      31              ;******************************************************************************
+      32              ;* CINIT RECORDS                                                              *
+      33              ;******************************************************************************
+      34 000000               .sect   ".cinit"
+      35                      .align  1
+      36 000000 0004          .field          $C$IR_1,16
+      37 000001 0000-         .field          _pllCfg_12p288MHz+0,24
+         000002 0C00 
+      38 000002 0C00          .field          0,8
+      39 000003 8173          .field  33139,16                        ; _pllCfg_12p288MHz._PLLCNTL1 @ 0
+      40 000004 8000          .field  32768,16                        ; _pllCfg_12p288MHz._PLLINCNTL @ 16
+      41 000005 0806          .field  2054,16                 ; _pllCfg_12p288MHz._PLLCNTL2 @ 32
+      42 000006 0000          .field  0,16                    ; _pllCfg_12p288MHz._PLLOUTCNTL @ 48
+      43              $C$IR_1:        .set    4
+      44              
+      45 000007               .sect   ".cinit"
+      46                      .align  1
+      47 000007 0004          .field          $C$IR_2,16
+      48 000008 0000-         .field          _pllCfg_40MHz+0,24
+         000009 1000 
+      49 000009 1000          .field          0,8
+      50 00000a 8988          .field  35208,16                        ; _pllCfg_40MHz._PLLCNTL1 @ 0
+      51 00000b 8000          .field  32768,16                        ; _pllCfg_40MHz._PLLINCNTL @ 16
+      52 00000c 0806          .field  2054,16                 ; _pllCfg_40MHz._PLLCNTL2 @ 32
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE    2
+
+      53 00000d 0201          .field  513,16                  ; _pllCfg_40MHz._PLLOUTCNTL @ 48
+      54              $C$IR_2:        .set    4
+      55              
+      56 00000e               .sect   ".cinit"
+      57                      .align  1
+      58 00000e 0004          .field          $C$IR_3,16
+      59 00000f 0000-         .field          _pllCfg_60MHz+0,24
+         000010 1400 
+      60 000010 1400          .field          0,8
+      61 000011 8724          .field  34596,16                        ; _pllCfg_60MHz._PLLCNTL1 @ 0
+      62 000012 8000          .field  32768,16                        ; _pllCfg_60MHz._PLLINCNTL @ 16
+      63 000013 0806          .field  2054,16                 ; _pllCfg_60MHz._PLLCNTL2 @ 32
+      64 000014 0000          .field  0,16                    ; _pllCfg_60MHz._PLLOUTCNTL @ 48
+      65              $C$IR_3:        .set    4
+      66              
+      67 000015               .sect   ".cinit"
+      68                      .align  1
+      69 000015 0004          .field          $C$IR_4,16
+      70 000016 0000-         .field          _pllCfg_75MHz+0,24
+         000017 1800 
+      71 000017 1800          .field          0,8
+      72 000018 88ED          .field  35053,16                        ; _pllCfg_75MHz._PLLCNTL1 @ 0
+      73 000019 8000          .field  32768,16                        ; _pllCfg_75MHz._PLLINCNTL @ 16
+      74 00001a 0806          .field  2054,16                 ; _pllCfg_75MHz._PLLCNTL2 @ 32
+      75 00001b 0000          .field  0,16                    ; _pllCfg_75MHz._PLLOUTCNTL @ 48
+      76              $C$IR_4:        .set    4
+      77              
+      78 00001c               .sect   ".cinit"
+      79                      .align  1
+      80 00001c 0004          .field          $C$IR_5,16
+      81 00001d 0000-         .field          _pllCfg_100MHz+0,24
+         00001e 1C00 
+      82 00001e 1C00          .field          0,8
+      83 00001f 8BE8          .field  35816,16                        ; _pllCfg_100MHz._PLLCNTL1 @ 0
+      84 000020 8000          .field  32768,16                        ; _pllCfg_100MHz._PLLINCNTL @ 16
+      85 000021 0806          .field  2054,16                 ; _pllCfg_100MHz._PLLCNTL2 @ 32
+      86 000022 0000          .field  0,16                    ; _pllCfg_100MHz._PLLOUTCNTL @ 48
+      87              $C$IR_5:        .set    4
+      88              
+      89 000023               .sect   ".cinit"
+      90                      .align  1
+      91 000023 0004          .field          $C$IR_6,16
+      92 000024 0000-         .field          _pllCfg_120MHz+0,24
+         000025 2000 
+      93 000025 2000          .field          0,8
+      94 000026 8E4A          .field  36426,16                        ; _pllCfg_120MHz._PLLCNTL1 @ 0
+      95 000027 8000          .field  32768,16                        ; _pllCfg_120MHz._PLLINCNTL @ 16
+      96 000028 0806          .field  2054,16                 ; _pllCfg_120MHz._PLLCNTL2 @ 32
+      97 000029 0000          .field  0,16                    ; _pllCfg_120MHz._PLLOUTCNTL @ 48
+      98              $C$IR_6:        .set    4
+      99              
+     100 00002a               .sect   ".cinit"
+     101                      .align  1
+     102 00002a 0001          .field          1,16
+     103 00002b 0000-         .field          _PaSs_StAtE+0,24
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE    3
+
+         00002c 2600 
+     104 00002c 2600          .field          0,8
+     105 00002d 0001          .field  1,16                    ; _PaSs_StAtE @ 0
+     106              
+     107 00002e               .sect   ".cinit"
+     108                      .align  1
+     109 00002e 0001          .field          1,16
+     110 00002f 0000-         .field          _PaSs+0,24
+         000030 2700 
+     111 000030 2700          .field          0,8
+     112 000031 0000          .field  0,16                    ; _PaSs @ 0
+     113              
+     114              
+     115              $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("printf")
+     116                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_printf")
+     117                      .dwattr $C$DW$1, DW_AT_type(*$C$DW$T$10)
+     118                      .dwattr $C$DW$1, DW_AT_declaration
+     119                      .dwattr $C$DW$1, DW_AT_external
+     120              $C$DW$2 .dwtag  DW_TAG_formal_parameter
+     121                      .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$53)
+     122              $C$DW$3 .dwtag  DW_TAG_unspecified_parameters
+     123                      .dwendtag $C$DW$1
+     124              
+     125              
+     126              $C$DW$4 .dwtag  DW_TAG_subprogram, DW_AT_name("PLL_init")
+     127                      .dwattr $C$DW$4, DW_AT_TI_symbol_name("_PLL_init")
+     128                      .dwattr $C$DW$4, DW_AT_type(*$C$DW$T$40)
+     129                      .dwattr $C$DW$4, DW_AT_declaration
+     130                      .dwattr $C$DW$4, DW_AT_external
+     131              $C$DW$5 .dwtag  DW_TAG_formal_parameter
+     132                      .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$35)
+     133              $C$DW$6 .dwtag  DW_TAG_formal_parameter
+     134                      .dwattr $C$DW$6, DW_AT_type(*$C$DW$T$28)
+     135                      .dwendtag $C$DW$4
+     136              
+     137              
+     138              $C$DW$7 .dwtag  DW_TAG_subprogram, DW_AT_name("PLL_config")
+     139                      .dwattr $C$DW$7, DW_AT_TI_symbol_name("_PLL_config")
+     140                      .dwattr $C$DW$7, DW_AT_type(*$C$DW$T$40)
+     141                      .dwattr $C$DW$7, DW_AT_declaration
+     142                      .dwattr $C$DW$7, DW_AT_external
+     143              $C$DW$8 .dwtag  DW_TAG_formal_parameter
+     144                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$37)
+     145              $C$DW$9 .dwtag  DW_TAG_formal_parameter
+     146                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$27)
+     147                      .dwendtag $C$DW$7
+     148              
+     149              
+     150              $C$DW$10        .dwtag  DW_TAG_subprogram, DW_AT_name("PLL_enable")
+     151                      .dwattr $C$DW$10, DW_AT_TI_symbol_name("_PLL_enable")
+     152                      .dwattr $C$DW$10, DW_AT_type(*$C$DW$T$40)
+     153                      .dwattr $C$DW$10, DW_AT_declaration
+     154                      .dwattr $C$DW$10, DW_AT_external
+     155              $C$DW$11        .dwtag  DW_TAG_formal_parameter
+     156                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$37)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE    4
+
+     157                      .dwendtag $C$DW$10
+     158              
+     159              
+     160              $C$DW$12        .dwtag  DW_TAG_subprogram, DW_AT_name("PLL_bypass")
+     161                      .dwattr $C$DW$12, DW_AT_TI_symbol_name("_PLL_bypass")
+     162                      .dwattr $C$DW$12, DW_AT_type(*$C$DW$T$40)
+     163                      .dwattr $C$DW$12, DW_AT_declaration
+     164                      .dwattr $C$DW$12, DW_AT_external
+     165              $C$DW$13        .dwtag  DW_TAG_formal_parameter
+     166                      .dwattr $C$DW$13, DW_AT_type(*$C$DW$T$37)
+     167                      .dwendtag $C$DW$12
+     168              
+     169              
+     170              $C$DW$14        .dwtag  DW_TAG_subprogram, DW_AT_name("PLL_reset")
+     171                      .dwattr $C$DW$14, DW_AT_TI_symbol_name("_PLL_reset")
+     172                      .dwattr $C$DW$14, DW_AT_type(*$C$DW$T$40)
+     173                      .dwattr $C$DW$14, DW_AT_declaration
+     174                      .dwattr $C$DW$14, DW_AT_external
+     175              $C$DW$15        .dwtag  DW_TAG_formal_parameter
+     176                      .dwattr $C$DW$15, DW_AT_type(*$C$DW$T$37)
+     177                      .dwendtag $C$DW$14
+     178              
+     179                      .global _pllObj
+     180 000000               .bss    _pllObj,6,0,2
+     181              $C$DW$16        .dwtag  DW_TAG_variable, DW_AT_name("pllObj")
+     182                      .dwattr $C$DW$16, DW_AT_TI_symbol_name("_pllObj")
+     183                      .dwattr $C$DW$16, DW_AT_location[DW_OP_addr _pllObj]
+     184                      .dwattr $C$DW$16, DW_AT_type(*$C$DW$T$34)
+     185                      .dwattr $C$DW$16, DW_AT_external
+     186                      .global _pllCfg1
+     187 000006               .bss    _pllCfg1,4,0,0
+     188              $C$DW$17        .dwtag  DW_TAG_variable, DW_AT_name("pllCfg1")
+     189                      .dwattr $C$DW$17, DW_AT_TI_symbol_name("_pllCfg1")
+     190                      .dwattr $C$DW$17, DW_AT_location[DW_OP_addr _pllCfg1]
+     191                      .dwattr $C$DW$17, DW_AT_type(*$C$DW$T$26)
+     192                      .dwattr $C$DW$17, DW_AT_external
+     193                      .global _hPll
+     194 00000a               .bss    _hPll,2,0,2
+     195              $C$DW$18        .dwtag  DW_TAG_variable, DW_AT_name("hPll")
+     196                      .dwattr $C$DW$18, DW_AT_TI_symbol_name("_hPll")
+     197                      .dwattr $C$DW$18, DW_AT_location[DW_OP_addr _hPll]
+     198                      .dwattr $C$DW$18, DW_AT_type(*$C$DW$T$37)
+     199                      .dwattr $C$DW$18, DW_AT_external
+     200                      .global _pllCfg_12p288MHz
+     201 00000c               .bss    _pllCfg_12p288MHz,4,0,0
+     202              $C$DW$19        .dwtag  DW_TAG_variable, DW_AT_name("pllCfg_12p288MHz")
+     203                      .dwattr $C$DW$19, DW_AT_TI_symbol_name("_pllCfg_12p288MHz")
+     204                      .dwattr $C$DW$19, DW_AT_location[DW_OP_addr _pllCfg_12p288MHz]
+     205                      .dwattr $C$DW$19, DW_AT_type(*$C$DW$T$26)
+     206                      .dwattr $C$DW$19, DW_AT_external
+     207                      .global _pllCfg_40MHz
+     208 000010               .bss    _pllCfg_40MHz,4,0,0
+     209              $C$DW$20        .dwtag  DW_TAG_variable, DW_AT_name("pllCfg_40MHz")
+     210                      .dwattr $C$DW$20, DW_AT_TI_symbol_name("_pllCfg_40MHz")
+     211                      .dwattr $C$DW$20, DW_AT_location[DW_OP_addr _pllCfg_40MHz]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE    5
+
+     212                      .dwattr $C$DW$20, DW_AT_type(*$C$DW$T$26)
+     213                      .dwattr $C$DW$20, DW_AT_external
+     214                      .global _pllCfg_60MHz
+     215 000014               .bss    _pllCfg_60MHz,4,0,0
+     216              $C$DW$21        .dwtag  DW_TAG_variable, DW_AT_name("pllCfg_60MHz")
+     217                      .dwattr $C$DW$21, DW_AT_TI_symbol_name("_pllCfg_60MHz")
+     218                      .dwattr $C$DW$21, DW_AT_location[DW_OP_addr _pllCfg_60MHz]
+     219                      .dwattr $C$DW$21, DW_AT_type(*$C$DW$T$26)
+     220                      .dwattr $C$DW$21, DW_AT_external
+     221                      .global _pllCfg_75MHz
+     222 000018               .bss    _pllCfg_75MHz,4,0,0
+     223              $C$DW$22        .dwtag  DW_TAG_variable, DW_AT_name("pllCfg_75MHz")
+     224                      .dwattr $C$DW$22, DW_AT_TI_symbol_name("_pllCfg_75MHz")
+     225                      .dwattr $C$DW$22, DW_AT_location[DW_OP_addr _pllCfg_75MHz]
+     226                      .dwattr $C$DW$22, DW_AT_type(*$C$DW$T$26)
+     227                      .dwattr $C$DW$22, DW_AT_external
+     228                      .global _pllCfg_100MHz
+     229 00001c               .bss    _pllCfg_100MHz,4,0,0
+     230              $C$DW$23        .dwtag  DW_TAG_variable, DW_AT_name("pllCfg_100MHz")
+     231                      .dwattr $C$DW$23, DW_AT_TI_symbol_name("_pllCfg_100MHz")
+     232                      .dwattr $C$DW$23, DW_AT_location[DW_OP_addr _pllCfg_100MHz]
+     233                      .dwattr $C$DW$23, DW_AT_type(*$C$DW$T$26)
+     234                      .dwattr $C$DW$23, DW_AT_external
+     235                      .global _pllCfg_120MHz
+     236 000020               .bss    _pllCfg_120MHz,4,0,0
+     237              $C$DW$24        .dwtag  DW_TAG_variable, DW_AT_name("pllCfg_120MHz")
+     238                      .dwattr $C$DW$24, DW_AT_TI_symbol_name("_pllCfg_120MHz")
+     239                      .dwattr $C$DW$24, DW_AT_location[DW_OP_addr _pllCfg_120MHz]
+     240                      .dwattr $C$DW$24, DW_AT_type(*$C$DW$T$26)
+     241                      .dwattr $C$DW$24, DW_AT_external
+     242                      .global _pConfigInfo
+     243 000024               .bss    _pConfigInfo,2,0,2
+     244              $C$DW$25        .dwtag  DW_TAG_variable, DW_AT_name("pConfigInfo")
+     245                      .dwattr $C$DW$25, DW_AT_TI_symbol_name("_pConfigInfo")
+     246                      .dwattr $C$DW$25, DW_AT_location[DW_OP_addr _pConfigInfo]
+     247                      .dwattr $C$DW$25, DW_AT_type(*$C$DW$T$27)
+     248                      .dwattr $C$DW$25, DW_AT_external
+     249                      .global _PaSs_StAtE
+     250 000026               .bss    _PaSs_StAtE,1,0,0
+     251              $C$DW$26        .dwtag  DW_TAG_variable, DW_AT_name("PaSs_StAtE")
+     252                      .dwattr $C$DW$26, DW_AT_TI_symbol_name("_PaSs_StAtE")
+     253                      .dwattr $C$DW$26, DW_AT_location[DW_OP_addr _PaSs_StAtE]
+     254                      .dwattr $C$DW$26, DW_AT_type(*$C$DW$T$49)
+     255                      .dwattr $C$DW$26, DW_AT_external
+     256                      .global _PaSs
+     257 000027               .bss    _PaSs,1,0,0
+     258              $C$DW$27        .dwtag  DW_TAG_variable, DW_AT_name("PaSs")
+     259                      .dwattr $C$DW$27, DW_AT_TI_symbol_name("_PaSs")
+     260                      .dwattr $C$DW$27, DW_AT_location[DW_OP_addr _PaSs]
+     261                      .dwattr $C$DW$27, DW_AT_type(*$C$DW$T$49)
+     262                      .dwattr $C$DW$27, DW_AT_external
+     263              ;       F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2429612 
+     264 000000               .sect   ".text"
+     265                      .align 4
+     266              
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE    6
+
+     267              $C$DW$28        .dwtag  DW_TAG_subprogram, DW_AT_name("PLL_getConfig")
+     268                      .dwattr $C$DW$28, DW_AT_low_pc(_PLL_getConfig)
+     269                      .dwattr $C$DW$28, DW_AT_high_pc(0x00)
+     270                      .dwattr $C$DW$28, DW_AT_TI_symbol_name("_PLL_getConfig")
+     271                      .dwattr $C$DW$28, DW_AT_type(*$C$DW$T$40)
+     272                      .dwattr $C$DW$28, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c5
+     273                      .dwattr $C$DW$28, DW_AT_TI_begin_line(0x92)
+     274                      .dwattr $C$DW$28, DW_AT_TI_begin_column(0x0c)
+     275                      .dwattr $C$DW$28, DW_AT_TI_max_frame_size(0x06)
+     276                      .dwpsn  file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_pllAux.h"
+     277              
+     278                      .dwfde $C$DW$CIE, _PLL_getConfig
+     279              $C$DW$29        .dwtag  DW_TAG_formal_parameter, DW_AT_name("hPll")
+     280                      .dwattr $C$DW$29, DW_AT_TI_symbol_name("_hPll")
+     281                      .dwattr $C$DW$29, DW_AT_type(*$C$DW$T$37)
+     282                      .dwattr $C$DW$29, DW_AT_location[DW_OP_reg17]
+     283              $C$DW$30        .dwtag  DW_TAG_formal_parameter, DW_AT_name("pConfig")
+     284                      .dwattr $C$DW$30, DW_AT_TI_symbol_name("_pConfig")
+     285                      .dwattr $C$DW$30, DW_AT_type(*$C$DW$T$27)
+     286                      .dwattr $C$DW$30, DW_AT_location[DW_OP_reg19]
+     287              ;*******************************************************************************
+     288              ;* FUNCTION NAME: PLL_getConfig                                                *
+     289              ;*                                                                             *
+     290              ;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR3,XAR3,SP,TC1,*
+     291              ;*                        M40,SATA,SATD,RDM,FRCT,SMUL                          *
+     292              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     293              ;*   Total Frame Size   : 6 words                                              *
+     294              ;*                        (1 return address/alignment)                         *
+     295              ;*                        (5 local values)                                     *
+     296              ;*   Min System Stack   : 1 word                                               *
+     297              ;*******************************************************************************
+     298 000000       _PLL_getConfig:
+     299                      .dwcfi  cfa_offset, 1
+     300                      .dwcfi  save_reg_to_mem, 91, -1
+     301 000000 4EFB          AADD #-5, SP
+     302                      .dwcfi  cfa_offset, 6
+     303              $C$DW$31        .dwtag  DW_TAG_variable, DW_AT_name("hPll")
+     304                      .dwattr $C$DW$31, DW_AT_TI_symbol_name("_hPll")
+     305                      .dwattr $C$DW$31, DW_AT_type(*$C$DW$T$37)
+     306                      .dwattr $C$DW$31, DW_AT_location[DW_OP_bregx 0x24 0]
+     307              $C$DW$32        .dwtag  DW_TAG_variable, DW_AT_name("pConfig")
+     308                      .dwattr $C$DW$32, DW_AT_TI_symbol_name("_pConfig")
+     309                      .dwattr $C$DW$32, DW_AT_type(*$C$DW$T$27)
+     310                      .dwattr $C$DW$32, DW_AT_location[DW_OP_bregx 0x24 2]
+     311              $C$DW$33        .dwtag  DW_TAG_variable, DW_AT_name("status")
+     312                      .dwattr $C$DW$33, DW_AT_TI_symbol_name("_status")
+     313                      .dwattr $C$DW$33, DW_AT_type(*$C$DW$T$40)
+     314                      .dwattr $C$DW$33, DW_AT_location[DW_OP_bregx 0x24 4]
+     315 000002 EB04          MOV XAR1, dbl(*SP(#2))
+         000004 95   
+     316 000005 EB00          MOV XAR0, dbl(*SP(#0))
+         000007 85   
+     317                      .dwpsn  file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_pllAux.h"
+     318 000008 E608          MOV #0, *SP(#4) ; |148| 
+         00000a 00   
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE    7
+
+     319                      .dwpsn  file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_pllAux.h"
+     320 00000b ED00          MOV dbl(*SP(#0)), XAR3
+         00000d BF   
+     321              
+     322 00000e 90B0          MOV XAR3, AC0
+     323 000010 3D01  ||      MOV #0, AC1 ; |150| 
+     324              
+     325 000012 121C          CMPU AC1 != AC0, TC1 ; |150| 
+         000014 04   
+     326 000015 6464          BCC $C$L1,TC1 ; |150| 
+     327                                                      ; branchcc occurs ; |150| 
+     328                      .dwpsn  file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_pllAux.h"
+     329 000017 E608          MOV #-5, *SP(#4) ; |152| 
+         000019 FB   
+     330                      .dwpsn  file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_pllAux.h"
+     331 00001a A408          MOV *SP(#4), T0 ; |153| 
+     332 00001c 0600          B $C$L3   ; |153| 
+         00001e 58   
+     333                                                      ; branch occurs ; |153| 
+     334 00001f       $C$L1:    
+     335                      .dwpsn  file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_pllAux.h"
+     336 00001f ED04          MOV dbl(*SP(#2)), XAR3
+         000021 BF   
+     337 000022 90B0          MOV XAR3, AC0
+     338 000024 121C          CMPU AC1 != AC0, TC1 ; |156| 
+         000026 04   
+     339 000027 6464          BCC $C$L2,TC1 ; |156| 
+     340                                                      ; branchcc occurs ; |156| 
+     341                      .dwpsn  file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_pllAux.h"
+     342 000029 E608          MOV #-6, *SP(#4) ; |158| 
+         00002b FA   
+     343                      .dwpsn  file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_pllAux.h"
+     344 00002c A408          MOV *SP(#4), T0 ; |159| 
+     345 00002e 0600          B $C$L3   ; |159| 
+         000030 46   
+     346                                                      ; branch occurs ; |159| 
+     347 000031       $C$L2:    
+     348                      .dwpsn  file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_pllAux.h"
+     349 000031 ED00          MOV dbl(*SP(#0)), XAR3
+         000033 BF   
+     350 000034 7600          MOV #32, T0 ; |162| 
+         000036 2048 
+     351 000038 AB79          MOV *AR3(short(#4)), AR3 ; |162| 
+     352 00003a A96B          MOV port(*AR3(T0)), AR1 ; |162| 
+         00003c 99   
+     353 00003d ED04          MOV dbl(*SP(#2)), XAR3
+         00003f BF   
+     354 000040 C961          MOV AR1, *AR3 ; |162| 
+     355                      .dwpsn  file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_pllAux.h"
+     356 000042 ED00          MOV dbl(*SP(#0)), XAR3
+         000044 BF   
+     357 000045 7600          MOV #34, T0 ; |163| 
+         000047 2248 
+     358 000049 AB79          MOV *AR3(short(#4)), AR3 ; |163| 
+     359 00004b A96B          MOV port(*AR3(T0)), AR1 ; |163| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE    8
+
+         00004d 99   
+     360 00004e ED04          MOV dbl(*SP(#2)), XAR3
+         000050 BF   
+     361 000051 C975          MOV AR1, *AR3(short(#2)) ; |163| 
+     362                      .dwpsn  file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_pllAux.h"
+     363 000053 ED00          MOV dbl(*SP(#0)), XAR3
+         000055 BF   
+     364 000056 7600          MOV #33, T0 ; |164| 
+         000058 2148 
+     365 00005a AB79          MOV *AR3(short(#4)), AR3 ; |164| 
+     366 00005c A96B          MOV port(*AR3(T0)), AR1 ; |164| 
+         00005e 99   
+     367 00005f ED04          MOV dbl(*SP(#2)), XAR3
+         000061 BF   
+     368 000062 C973          MOV AR1, *AR3(short(#1)) ; |164| 
+     369                      .dwpsn  file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_pllAux.h"
+     370 000064 ED00          MOV dbl(*SP(#0)), XAR3
+         000066 BF   
+     371 000067 7600          MOV #35, T0 ; |165| 
+         000069 2348 
+     372 00006b AB79          MOV *AR3(short(#4)), AR3 ; |165| 
+     373 00006d A96B          MOV port(*AR3(T0)), AR1 ; |165| 
+         00006f 99   
+     374 000070 ED04          MOV dbl(*SP(#2)), XAR3
+         000072 BF   
+     375 000073 C977          MOV AR1, *AR3(short(#3)) ; |165| 
+     376                      .dwpsn  file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_pllAux.h"
+     377 000075 A408          MOV *SP(#4), T0 ; |166| 
+     378 000077       $C$L3:    
+     379                      .dwpsn  file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_pllAux.h"
+     380 000077 4E05          AADD #5, SP
+     381                      .dwcfi  cfa_offset, 1
+     382              $C$DW$34        .dwtag  DW_TAG_TI_branch
+     383                      .dwattr $C$DW$34, DW_AT_low_pc(0x00)
+     384                      .dwattr $C$DW$34, DW_AT_TI_return
+     385 000079 4804          RET
+     386                                                      ; return occurs
+     387                      .dwattr $C$DW$28, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55x
+     388                      .dwattr $C$DW$28, DW_AT_TI_end_line(0xa7)
+     389                      .dwattr $C$DW$28, DW_AT_TI_end_column(0x01)
+     390                      .dwendentry
+     391                      .dwendtag $C$DW$28
+     392              
+     393 00007b               .sect   ".text"
+     394                      .align 4
+     395                      .global _pll_sample
+     396              
+     397              $C$DW$35        .dwtag  DW_TAG_subprogram, DW_AT_name("pll_sample")
+     398                      .dwattr $C$DW$35, DW_AT_low_pc(_pll_sample)
+     399                      .dwattr $C$DW$35, DW_AT_high_pc(0x00)
+     400                      .dwattr $C$DW$35, DW_AT_TI_symbol_name("_pll_sample")
+     401                      .dwattr $C$DW$35, DW_AT_external
+     402                      .dwattr $C$DW$35, DW_AT_type(*$C$DW$T$40)
+     403                      .dwattr $C$DW$35, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll
+     404                      .dwattr $C$DW$35, DW_AT_TI_begin_line(0x60)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE    9
+
+     405                      .dwattr $C$DW$35, DW_AT_TI_begin_column(0x0c)
+     406                      .dwattr $C$DW$35, DW_AT_TI_max_frame_size(0x06)
+     407                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     408              
+     409                      .dwfde $C$DW$CIE, _pll_sample
+     410              ;*******************************************************************************
+     411              ;* FUNCTION NAME: pll_sample                                                   *
+     412              ;*                                                                             *
+     413              ;*   Function Uses Regs : AC0,AC0,T0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,TC1,M40,*
+     414              ;*                        SATA,SATD,RDM,FRCT,SMUL                              *
+     415              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     416              ;*   Total Frame Size   : 6 words                                              *
+     417              ;*                        (1 return address/alignment)                         *
+     418              ;*                        (4 function parameters)                              *
+     419              ;*                        (1 local values)                                     *
+     420              ;*   Min System Stack   : 1 word                                               *
+     421              ;*******************************************************************************
+     422 00007c       _pll_sample:
+     423                      .dwcfi  cfa_offset, 1
+     424                      .dwcfi  save_reg_to_mem, 91, -1
+     425 00007c 4EFB          AADD #-5, SP
+     426                      .dwcfi  cfa_offset, 6
+     427              $C$DW$36        .dwtag  DW_TAG_variable, DW_AT_name("status")
+     428                      .dwattr $C$DW$36, DW_AT_TI_symbol_name("_status")
+     429                      .dwattr $C$DW$36, DW_AT_type(*$C$DW$T$40)
+     430                      .dwattr $C$DW$36, DW_AT_location[DW_OP_bregx 0x24 4]
+     431                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     432 00007e EC31          AMOV #_pllObj, XAR0 ; |100| 
+         000080 8E00 
+         000082 0000-
+     433              $C$DW$37        .dwtag  DW_TAG_TI_branch
+     434                      .dwattr $C$DW$37, DW_AT_low_pc(0x00)
+     435                      .dwattr $C$DW$37, DW_AT_name("_PLL_init")
+     436                      .dwattr $C$DW$37, DW_AT_TI_call
+     437              
+     438 000084 6C00          CALL #_PLL_init ; |100| 
+         000086 0000!
+     439 000088 3D00  ||      MOV #0, AC0 ; |100| 
+     440              
+     441                                                      ; call occurs [#_PLL_init] ; |100| 
+     442 00008a C408          MOV T0, *SP(#4) ; |100| 
+     443                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     444              
+     445 00008c 2249          MOV T0, AR1
+     446 00008e 3D0A  ||      MOV #0, AR2
+     447              
+     448 000090 12A0          CMP AR2 == AR1, TC1 ; |101| 
+         000092 90   
+     449 000093 0464          BCC $C$L4,TC1 ; |101| 
+         000095 12   
+     450                                                      ; branchcc occurs ; |101| 
+     451                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     452 000096 EC31          AMOV #$C$FSL1, XAR3 ; |103| 
+         000098 BE00 
+         00009a 0000+
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   10
+
+     453 00009c EB00          MOV XAR3, dbl(*SP(#0))
+         00009e B5   
+     454              $C$DW$38        .dwtag  DW_TAG_TI_branch
+     455                      .dwattr $C$DW$38, DW_AT_low_pc(0x00)
+     456                      .dwattr $C$DW$38, DW_AT_name("_printf")
+     457                      .dwattr $C$DW$38, DW_AT_TI_call
+     458 00009f 6C00          CALL #_printf ; |103| 
+         0000a1 0000!
+     459                                                      ; call occurs [#_printf] ; |103| 
+     460                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     461 0000a3 A408          MOV *SP(#4), T0 ; |104| 
+     462 0000a5 0601          B $C$L9   ; |104| 
+         0000a7 70   
+     463                                                      ; branch occurs ; |104| 
+     464 0000a8       $C$L4:    
+     465                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     466 0000a8 EC31          AMOV #_pllObj, XAR3 ; |107| 
+         0000aa BE00 
+         0000ac 0000-
+     467 0000ae EB31          MOV XAR3, dbl(*(#_hPll))
+         0000b0 B500 
+         0000b2 000A-
+     468                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     469 0000b4 ED31          MOV dbl(*(#_hPll)), XAR0
+         0000b6 8F00 
+         0000b8 000A-
+     470              $C$DW$39        .dwtag  DW_TAG_TI_branch
+     471                      .dwattr $C$DW$39, DW_AT_low_pc(0x00)
+     472                      .dwattr $C$DW$39, DW_AT_name("_PLL_reset")
+     473                      .dwattr $C$DW$39, DW_AT_TI_call
+     474 0000ba 6C00          CALL #_PLL_reset ; |109| 
+         0000bc 0000!
+     475                                                      ; call occurs [#_PLL_reset] ; |109| 
+     476                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     477 0000be EC31          AMOV #_pllCfg_60MHz, XAR3 ; |112| 
+         0000c0 BE00 
+         0000c2 0014-
+     478 0000c4 EB31          MOV XAR3, dbl(*(#_pConfigInfo))
+         0000c6 B500 
+         0000c8 0024-
+     479                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     480 0000ca ED31          MOV dbl(*(#_hPll)), XAR0
+         0000cc 8F00 
+         0000ce 000A-
+     481 0000d0 ED31          MOV dbl(*(#_pConfigInfo)), XAR1
+         0000d2 9F00 
+         0000d4 0024-
+     482              $C$DW$40        .dwtag  DW_TAG_TI_branch
+     483                      .dwattr $C$DW$40, DW_AT_low_pc(0x00)
+     484                      .dwattr $C$DW$40, DW_AT_name("_PLL_config")
+     485                      .dwattr $C$DW$40, DW_AT_TI_call
+     486 0000d6 6C00          CALL #_PLL_config ; |114| 
+         0000d8 0000!
+     487                                                      ; call occurs [#_PLL_config] ; |114| 
+     488 0000da C408          MOV T0, *SP(#4) ; |114| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   11
+
+     489                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     490              
+     491 0000dc 2249          MOV T0, AR1
+     492 0000de 3D0A  ||      MOV #0, AR2
+     493              
+     494 0000e0 12A0          CMP AR2 == AR1, TC1 ; |115| 
+         0000e2 90   
+     495 0000e3 0464          BCC $C$L5,TC1 ; |115| 
+         0000e5 12   
+     496                                                      ; branchcc occurs ; |115| 
+     497                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     498 0000e6 EC31          AMOV #$C$FSL2, XAR3 ; |117| 
+         0000e8 BE00 
+         0000ea 0012+
+     499 0000ec EB00          MOV XAR3, dbl(*SP(#0))
+         0000ee B5   
+     500              $C$DW$41        .dwtag  DW_TAG_TI_branch
+     501                      .dwattr $C$DW$41, DW_AT_low_pc(0x00)
+     502                      .dwattr $C$DW$41, DW_AT_name("_printf")
+     503                      .dwattr $C$DW$41, DW_AT_TI_call
+     504 0000ef 6C00          CALL #_printf ; |117| 
+         0000f1 0000!
+     505                                                      ; call occurs [#_printf] ; |117| 
+     506                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     507 0000f3 A408          MOV *SP(#4), T0 ; |118| 
+     508 0000f5 0601          B $C$L9   ; |118| 
+         0000f7 20   
+     509                                                      ; branch occurs ; |118| 
+     510 0000f8       $C$L5:    
+     511                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     512 0000f8 ED31          MOV dbl(*(#_hPll)), XAR0
+         0000fa 8F00 
+         0000fc 000A-
+     513 0000fe EC31          AMOV #_pllCfg1, XAR1 ; |121| 
+         000100 9E00 
+         000102 0006-
+     514              $C$DW$42        .dwtag  DW_TAG_TI_branch
+     515                      .dwattr $C$DW$42, DW_AT_low_pc(0x00)
+     516                      .dwattr $C$DW$42, DW_AT_name("_PLL_getConfig")
+     517                      .dwattr $C$DW$42, DW_AT_TI_call
+     518 000104 08FE          CALL #_PLL_getConfig ; |121| 
+         000106 F9   
+     519                                                      ; call occurs [#_PLL_getConfig] ; |121| 
+     520 000107 C408          MOV T0, *SP(#4) ; |121| 
+     521                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     522 000109 2249          MOV T0, AR1
+     523 00010b 0409          BCC $C$L6,AR1 == #0 ; |122| 
+         00010d 23   
+     524                                                      ; branchcc occurs ; |122| 
+     525                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     526 00010e EC31          AMOV #$C$FSL3, XAR3 ; |124| 
+         000110 BE00 
+         000112 0026+
+     527 000114 EB00          MOV XAR3, dbl(*SP(#0))
+         000116 B5   
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   12
+
+     528              $C$DW$43        .dwtag  DW_TAG_TI_branch
+     529                      .dwattr $C$DW$43, DW_AT_low_pc(0x00)
+     530                      .dwattr $C$DW$43, DW_AT_name("_printf")
+     531                      .dwattr $C$DW$43, DW_AT_TI_call
+     532 000117 6C00          CALL #_printf ; |124| 
+         000119 0000!
+     533                                                      ; call occurs [#_printf] ; |124| 
+     534                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     535 00011b EC31          AMOV #$C$FSL4, XAR3 ; |125| 
+         00011d BE00 
+         00011f 004E+
+     536 000121 EB00          MOV XAR3, dbl(*SP(#0))
+         000123 B5   
+     537 000124 A908          MOV *SP(#4), AR1 ; |125| 
+     538 000126 C904          MOV AR1, *SP(#2) ; |125| 
+     539              $C$DW$44        .dwtag  DW_TAG_TI_branch
+     540                      .dwattr $C$DW$44, DW_AT_low_pc(0x00)
+     541                      .dwattr $C$DW$44, DW_AT_name("_printf")
+     542                      .dwattr $C$DW$44, DW_AT_TI_call
+     543 000128 6C00          CALL #_printf ; |125| 
+         00012a 0000!
+     544                                                      ; call occurs [#_printf] ; |125| 
+     545                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     546 00012c A408          MOV *SP(#4), T0 ; |126| 
+     547 00012e 0600          B $C$L9   ; |126| 
+         000130 E7   
+     548                                                      ; branch occurs ; |126| 
+     549 000131       $C$L6:    
+     550                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     551 000131 EC31          AMOV #$C$FSL5, XAR3 ; |129| 
+         000133 BE00 
+         000135 007E+
+     552 000137 EB00          MOV XAR3, dbl(*SP(#0))
+         000139 B5   
+     553              $C$DW$45        .dwtag  DW_TAG_TI_branch
+     554                      .dwattr $C$DW$45, DW_AT_low_pc(0x00)
+     555                      .dwattr $C$DW$45, DW_AT_name("_printf")
+     556                      .dwattr $C$DW$45, DW_AT_TI_call
+     557 00013a 6C00          CALL #_printf ; |129| 
+         00013c 0000!
+     558                                                      ; call occurs [#_printf] ; |129| 
+     559                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     560 00013e EC31          AMOV #$C$FSL6, XAR3 ; |131| 
+         000140 BE00 
+         000142 009A+
+     561 000144 EB00          MOV XAR3, dbl(*SP(#0))
+         000146 B5   
+     562 000147 ED31          MOV dbl(*(#_hPll)), XAR3
+         000149 BF00 
+         00014b 000A-
+     563 00014d A931          MOV *(#_pllCfg1), AR1 ; |131| 
+         00014f 0000 
+         000151 06-  
+     564 000152 C904          MOV AR1, *SP(#2) ; |131| 
+     565 000154 ED61          MOV dbl(*AR3), XAR3
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   13
+
+         000156 BF   
+     566 000157 A961          MOV *AR3, AR1 ; |131| 
+     567 000159 C906          MOV AR1, *SP(#3) ; |131| 
+     568              $C$DW$46        .dwtag  DW_TAG_TI_branch
+     569                      .dwattr $C$DW$46, DW_AT_low_pc(0x00)
+     570                      .dwattr $C$DW$46, DW_AT_name("_printf")
+     571                      .dwattr $C$DW$46, DW_AT_TI_call
+     572 00015b 6C00          CALL #_printf ; |131| 
+         00015d 0000!
+     573                                                      ; call occurs [#_printf] ; |131| 
+     574                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     575 00015f EC31          AMOV #$C$FSL7, XAR3 ; |132| 
+         000161 BE00 
+         000163 00AA+
+     576 000165 EB00          MOV XAR3, dbl(*SP(#0))
+         000167 B5   
+     577 000168 ED31          MOV dbl(*(#_hPll)), XAR3
+         00016a BF00 
+         00016c 000A-
+     578 00016e A931          MOV *(#(_pllCfg1+2)), AR1 ; |132| 
+         000170 0000 
+         000172 08-  
+     579 000173 C904          MOV AR1, *SP(#2) ; |132| 
+     580 000175 ED61          MOV dbl(*AR3), XAR3
+         000177 BF   
+     581 000178 A975          MOV *AR3(short(#2)), AR1 ; |132| 
+     582 00017a C906          MOV AR1, *SP(#3) ; |132| 
+     583              $C$DW$47        .dwtag  DW_TAG_TI_branch
+     584                      .dwattr $C$DW$47, DW_AT_low_pc(0x00)
+     585                      .dwattr $C$DW$47, DW_AT_name("_printf")
+     586                      .dwattr $C$DW$47, DW_AT_TI_call
+     587 00017c 6C00          CALL #_printf ; |132| 
+         00017e 0000!
+     588                                                      ; call occurs [#_printf] ; |132| 
+     589                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     590 000180 EC31          AMOV #$C$FSL6, XAR3 ; |134| 
+         000182 BE00 
+         000184 009A+
+     591 000186 EB00          MOV XAR3, dbl(*SP(#0))
+         000188 B5   
+     592 000189 ED31          MOV dbl(*(#_hPll)), XAR3
+         00018b BF00 
+         00018d 000A-
+     593 00018f A931          MOV *(#(_pllCfg1+1)), AR1 ; |134| 
+         000191 0000 
+         000193 07-  
+     594 000194 C904          MOV AR1, *SP(#2) ; |134| 
+     595 000196 ED61          MOV dbl(*AR3), XAR3
+         000198 BF   
+     596 000199 A973          MOV *AR3(short(#1)), AR1 ; |134| 
+     597 00019b C906          MOV AR1, *SP(#3) ; |134| 
+     598              $C$DW$48        .dwtag  DW_TAG_TI_branch
+     599                      .dwattr $C$DW$48, DW_AT_low_pc(0x00)
+     600                      .dwattr $C$DW$48, DW_AT_name("_printf")
+     601                      .dwattr $C$DW$48, DW_AT_TI_call
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   14
+
+     602 00019d 6C00          CALL #_printf ; |134| 
+         00019f 0000!
+     603                                                      ; call occurs [#_printf] ; |134| 
+     604                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     605 0001a1 EC31          AMOV #$C$FSL6, XAR3 ; |135| 
+         0001a3 BE00 
+         0001a5 009A+
+     606 0001a7 EB00          MOV XAR3, dbl(*SP(#0))
+         0001a9 B5   
+     607 0001aa ED31          MOV dbl(*(#_hPll)), XAR3
+         0001ac BF00 
+         0001ae 000A-
+     608 0001b0 A931          MOV *(#(_pllCfg1+3)), AR1 ; |135| 
+         0001b2 0000 
+         0001b4 09-  
+     609 0001b5 C904          MOV AR1, *SP(#2) ; |135| 
+     610 0001b7 ED61          MOV dbl(*AR3), XAR3
+         0001b9 BF   
+     611 0001ba A977          MOV *AR3(short(#3)), AR1 ; |135| 
+     612 0001bc C906          MOV AR1, *SP(#3) ; |135| 
+     613              $C$DW$49        .dwtag  DW_TAG_TI_branch
+     614                      .dwattr $C$DW$49, DW_AT_low_pc(0x00)
+     615                      .dwattr $C$DW$49, DW_AT_name("_printf")
+     616                      .dwattr $C$DW$49, DW_AT_TI_call
+     617 0001be 6C00          CALL #_printf ; |135| 
+         0001c0 0000!
+     618                                                      ; call occurs [#_printf] ; |135| 
+     619                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     620 0001c2 ED31          MOV dbl(*(#_hPll)), XAR0
+         0001c4 8F00 
+         0001c6 000A-
+     621              $C$DW$50        .dwtag  DW_TAG_TI_branch
+     622                      .dwattr $C$DW$50, DW_AT_low_pc(0x00)
+     623                      .dwattr $C$DW$50, DW_AT_name("_PLL_bypass")
+     624                      .dwattr $C$DW$50, DW_AT_TI_call
+     625 0001c8 6C00          CALL #_PLL_bypass ; |137| 
+         0001ca 0000!
+     626                                                      ; call occurs [#_PLL_bypass] ; |137| 
+     627 0001cc C408          MOV T0, *SP(#4) ; |137| 
+     628                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     629              
+     630 0001ce 3C0A          MOV #0, AR2
+     631 0001d0 2349  ||      MOV T0, AR1
+     632              
+     633 0001d2 12A0          CMP AR2 == AR1, TC1 ; |138| 
+         0001d4 90   
+     634 0001d5 0464          BCC $C$L7,TC1 ; |138| 
+         0001d7 14   
+     635                                                      ; branchcc occurs ; |138| 
+     636                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     637 0001d8 EC31          AMOV #$C$FSL8, XAR3 ; |140| 
+         0001da BE00 
+         0001dc 00E4+
+     638 0001de EB00          MOV XAR3, dbl(*SP(#0))
+         0001e0 B5   
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   15
+
+     639 0001e1 E604          MOV #-5, *SP(#2) ; |140| 
+         0001e3 FB   
+     640              $C$DW$51        .dwtag  DW_TAG_TI_branch
+     641                      .dwattr $C$DW$51, DW_AT_low_pc(0x00)
+     642                      .dwattr $C$DW$51, DW_AT_name("_printf")
+     643                      .dwattr $C$DW$51, DW_AT_TI_call
+     644 0001e4 6C00          CALL #_printf ; |140| 
+         0001e6 0000!
+     645                                                      ; call occurs [#_printf] ; |140| 
+     646                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     647 0001e8 A408          MOV *SP(#4), T0 ; |141| 
+     648 0001ea 4A2C          B $C$L9   ; |141| 
+     649                                                      ; branch occurs ; |141| 
+     650 0001ec       $C$L7:    
+     651                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     652 0001ec ED31          MOV dbl(*(#_hPll)), XAR0
+         0001ee 8F00 
+         0001f0 000A-
+     653              $C$DW$52        .dwtag  DW_TAG_TI_branch
+     654                      .dwattr $C$DW$52, DW_AT_low_pc(0x00)
+     655                      .dwattr $C$DW$52, DW_AT_name("_PLL_enable")
+     656                      .dwattr $C$DW$52, DW_AT_TI_call
+     657 0001f2 6C00          CALL #_PLL_enable ; |144| 
+         0001f4 0000!
+     658                                                      ; call occurs [#_PLL_enable] ; |144| 
+     659 0001f6 C408          MOV T0, *SP(#4) ; |144| 
+     660                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     661              
+     662 0001f8 2249          MOV T0, AR1
+     663 0001fa 3D0A  ||      MOV #0, AR2
+     664              
+     665 0001fc 12A0          CMP AR2 == AR1, TC1 ; |145| 
+         0001fe 90   
+     666 0001ff 0464          BCC $C$L8,TC1 ; |145| 
+         000201 14   
+     667                                                      ; branchcc occurs ; |145| 
+     668                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     669 000202 EC31          AMOV #$C$FSL9, XAR3 ; |147| 
+         000204 BE00 
+         000206 00FA+
+     670 000208 EB00          MOV XAR3, dbl(*SP(#0))
+         00020a B5   
+     671 00020b E604          MOV #-5, *SP(#2) ; |147| 
+         00020d FB   
+     672              $C$DW$53        .dwtag  DW_TAG_TI_branch
+     673                      .dwattr $C$DW$53, DW_AT_low_pc(0x00)
+     674                      .dwattr $C$DW$53, DW_AT_name("_printf")
+     675                      .dwattr $C$DW$53, DW_AT_TI_call
+     676 00020e 6C00          CALL #_printf ; |147| 
+         000210 0000!
+     677                                                      ; call occurs [#_printf] ; |147| 
+     678                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     679 000212 A408          MOV *SP(#4), T0 ; |148| 
+     680 000214 4A02          B $C$L9   ; |148| 
+     681                                                      ; branch occurs ; |148| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   16
+
+     682 000216       $C$L8:    
+     683                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     684 000216 3C04          MOV #0, T0
+     685 000218       $C$L9:    
+     686                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     687 000218 4E05          AADD #5, SP
+     688                      .dwcfi  cfa_offset, 1
+     689              $C$DW$54        .dwtag  DW_TAG_TI_branch
+     690                      .dwattr $C$DW$54, DW_AT_low_pc(0x00)
+     691                      .dwattr $C$DW$54, DW_AT_TI_return
+     692 00021a 4804          RET
+     693                                                      ; return occurs
+     694                      .dwattr $C$DW$35, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/C
+     695                      .dwattr $C$DW$35, DW_AT_TI_end_line(0x98)
+     696                      .dwattr $C$DW$35, DW_AT_TI_end_column(0x01)
+     697                      .dwendentry
+     698                      .dwendtag $C$DW$35
+     699              
+     700 00021c               .sect   ".text"
+     701                      .align 4
+     702                      .global _main
+     703              
+     704              $C$DW$55        .dwtag  DW_TAG_subprogram, DW_AT_name("main")
+     705                      .dwattr $C$DW$55, DW_AT_low_pc(_main)
+     706                      .dwattr $C$DW$55, DW_AT_high_pc(0x00)
+     707                      .dwattr $C$DW$55, DW_AT_TI_symbol_name("_main")
+     708                      .dwattr $C$DW$55, DW_AT_external
+     709                      .dwattr $C$DW$55, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll
+     710                      .dwattr $C$DW$55, DW_AT_TI_begin_line(0xa1)
+     711                      .dwattr $C$DW$55, DW_AT_TI_begin_column(0x06)
+     712                      .dwattr $C$DW$55, DW_AT_TI_max_frame_size(0x04)
+     713                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     714              
+     715                      .dwfde $C$DW$CIE, _main
+     716              ;*******************************************************************************
+     717              ;* FUNCTION NAME: main                                                         *
+     718              ;*                                                                             *
+     719              ;*   Function Uses Regs : T0,AR1,AR3,XAR3,SP,M40,SATA,SATD,RDM,FRCT,SMUL       *
+     720              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     721              ;*   Total Frame Size   : 4 words                                              *
+     722              ;*                        (1 return address/alignment)                         *
+     723              ;*                        (2 function parameters)                              *
+     724              ;*                        (1 local values)                                     *
+     725              ;*   Min System Stack   : 1 word                                               *
+     726              ;*******************************************************************************
+     727 00021c       _main:
+     728                      .dwcfi  cfa_offset, 1
+     729                      .dwcfi  save_reg_to_mem, 91, -1
+     730 00021c 4EFD          AADD #-3, SP
+     731                      .dwcfi  cfa_offset, 4
+     732              $C$DW$56        .dwtag  DW_TAG_variable, DW_AT_name("status")
+     733                      .dwattr $C$DW$56, DW_AT_TI_symbol_name("_status")
+     734                      .dwattr $C$DW$56, DW_AT_type(*$C$DW$T$40)
+     735                      .dwattr $C$DW$56, DW_AT_location[DW_OP_bregx 0x24 2]
+     736                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   17
+
+     737 00021e EC31          AMOV #$C$FSL10, XAR3 ; |165| 
+         000220 BE00 
+         000222 0110+
+     738 000224 EB00          MOV XAR3, dbl(*SP(#0))
+         000226 B5   
+     739              $C$DW$57        .dwtag  DW_TAG_TI_branch
+     740                      .dwattr $C$DW$57, DW_AT_low_pc(0x00)
+     741                      .dwattr $C$DW$57, DW_AT_name("_printf")
+     742                      .dwattr $C$DW$57, DW_AT_TI_call
+     743 000227 6C00          CALL #_printf ; |165| 
+         000229 0000!
+     744                                                      ; call occurs [#_printf] ; |165| 
+     745                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     746              $C$DW$58        .dwtag  DW_TAG_TI_branch
+     747                      .dwattr $C$DW$58, DW_AT_low_pc(0x00)
+     748                      .dwattr $C$DW$58, DW_AT_name("_pll_sample")
+     749                      .dwattr $C$DW$58, DW_AT_TI_call
+     750 00022b 08FE          CALL #_pll_sample ; |167| 
+         00022d 4E   
+     751                                                      ; call occurs [#_pll_sample] ; |167| 
+     752 00022e C404          MOV T0, *SP(#2) ; |167| 
+     753                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     754 000230 20            nop
+     755                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     756 000231 2249          MOV T0, AR1
+     757 000233 6799          BCC $C$L10,AR1 != #0 ; |170| 
+     758                                                      ; branchcc occurs ; |170| 
+     759                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     760 000235 EC31          AMOV #$C$FSL11, XAR3 ; |172| 
+         000237 BE00 
+         000239 0120+
+     761 00023b EB00          MOV XAR3, dbl(*SP(#0))
+         00023d B5   
+     762              $C$DW$59        .dwtag  DW_TAG_TI_branch
+     763                      .dwattr $C$DW$59, DW_AT_low_pc(0x00)
+     764                      .dwattr $C$DW$59, DW_AT_name("_printf")
+     765                      .dwattr $C$DW$59, DW_AT_TI_call
+     766 00023e 6C00          CALL #_printf ; |172| 
+         000240 0000!
+     767                                                      ; call occurs [#_printf] ; |172| 
+     768                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     769 000242 4A13          B $C$L11  ; |173| 
+     770                                                      ; branch occurs ; |173| 
+     771 000244       $C$L10:    
+     772                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     773 000244 EC31          AMOV #$C$FSL12, XAR3 ; |176| 
+         000246 BE00 
+         000248 0136+
+     774 00024a EB00          MOV XAR3, dbl(*SP(#0))
+         00024c B5   
+     775              $C$DW$60        .dwtag  DW_TAG_TI_branch
+     776                      .dwattr $C$DW$60, DW_AT_low_pc(0x00)
+     777                      .dwattr $C$DW$60, DW_AT_name("_printf")
+     778                      .dwattr $C$DW$60, DW_AT_TI_call
+     779 00024d 6C00          CALL #_printf ; |176| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   18
+
+         00024f 0000!
+     780                                                      ; call occurs [#_printf] ; |176| 
+     781                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     782 000251 E631          MOV #0, *(#_PaSs_StAtE) ; |179| 
+         000253 0000 
+         000255 0026-
+     783 000257       $C$L11:    
+     784                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     785 000257 A931          MOV *(#_PaSs_StAtE), AR1 ; |184| 
+         000259 0000 
+         00025b 26-  
+     786 00025c C931          MOV AR1, *(#_PaSs) ; |184| 
+         00025e 0000 
+         000260 27-  
+     787                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/CSL_PLL_Example/csl_pll_
+     788 000261 4E03          AADD #3, SP
+     789                      .dwcfi  cfa_offset, 1
+     790              $C$DW$61        .dwtag  DW_TAG_TI_branch
+     791                      .dwattr $C$DW$61, DW_AT_low_pc(0x00)
+     792                      .dwattr $C$DW$61, DW_AT_TI_return
+     793 000263 4804          RET
+     794                                                      ; return occurs
+     795                      .dwattr $C$DW$55, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/pll/C
+     796                      .dwattr $C$DW$55, DW_AT_TI_end_line(0xbd)
+     797                      .dwattr $C$DW$55, DW_AT_TI_end_column(0x01)
+     798                      .dwendentry
+     799                      .dwendtag $C$DW$55
+     800              
+     801              ;*******************************************************************************
+     802              ;* FAR STRINGS                                                                 *
+     803              ;*******************************************************************************
+     804 000000               .sect   ".const:.string"
+     805                      .align  2
+     806 000000 0050  $C$FSL1:        .string "PLL init failed ",10,0
+         000001 004C 
+         000002 004C 
+         000003 0020 
+         000004 0069 
+         000005 006E 
+         000006 0069 
+         000007 0074 
+         000008 0020 
+         000009 0066 
+         00000a 0061 
+         00000b 0069 
+         00000c 006C 
+         00000d 0065 
+         00000e 0064 
+         00000f 0020 
+         000010 000A 
+         000011 0000 
+     807                      .align  2
+     808 000012 0050  $C$FSL2:        .string "PLL config failed",10,0
+         000013 004C 
+         000014 004C 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   19
+
+         000015 0020 
+         000016 0063 
+         000017 006F 
+         000018 006E 
+         000019 0066 
+         00001a 0069 
+         00001b 0067 
+         00001c 0020 
+         00001d 0066 
+         00001e 0061 
+         00001f 0069 
+         000020 006C 
+         000021 0065 
+         000022 0064 
+         000023 000A 
+         000024 0000 
+     809                      .align  2
+     810 000026 0054  $C$FSL3:        .string "TEST FAILED: PLL get config... Failed.",10,0
+         000027 0045 
+         000028 0053 
+         000029 0054 
+         00002a 0020 
+         00002b 0046 
+         00002c 0041 
+         00002d 0049 
+         00002e 004C 
+         00002f 0045 
+         000030 0044 
+         000031 003A 
+         000032 0020 
+         000033 0050 
+         000034 004C 
+         000035 004C 
+         000036 0020 
+         000037 0067 
+         000038 0065 
+         000039 0074 
+         00003a 0020 
+         00003b 0063 
+         00003c 006F 
+         00003d 006E 
+         00003e 0066 
+         00003f 0069 
+         000040 0067 
+         000041 002E 
+         000042 002E 
+         000043 002E 
+         000044 0020 
+         000045 0046 
+         000046 0061 
+         000047 0069 
+         000048 006C 
+         000049 0065 
+         00004a 0064 
+         00004b 002E 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   20
+
+         00004c 000A 
+         00004d 0000 
+     811                      .align  2
+     812 00004e 0052  $C$FSL4:        .string "Reason: PLL_getConfig failed. [status = 0x%x].",10,0
+         00004f 0065 
+         000050 0061 
+         000051 0073 
+         000052 006F 
+         000053 006E 
+         000054 003A 
+         000055 0020 
+         000056 0050 
+         000057 004C 
+         000058 004C 
+         000059 005F 
+         00005a 0067 
+         00005b 0065 
+         00005c 0074 
+         00005d 0043 
+         00005e 006F 
+         00005f 006E 
+         000060 0066 
+         000061 0069 
+         000062 0067 
+         000063 0020 
+         000064 0066 
+         000065 0061 
+         000066 0069 
+         000067 006C 
+         000068 0065 
+         000069 0064 
+         00006a 002E 
+         00006b 0020 
+         00006c 005B 
+         00006d 0073 
+         00006e 0074 
+         00006f 0061 
+         000070 0074 
+         000071 0075 
+         000072 0073 
+         000073 0020 
+         000074 003D 
+         000075 0020 
+         000076 0030 
+         000077 0078 
+         000078 0025 
+         000079 0078 
+         00007a 005D 
+         00007b 002E 
+         00007c 000A 
+         00007d 0000 
+     813                      .align  2
+     814 00007e 0052  $C$FSL5:        .string "REGISTER --- CONFIG VALUES",10,0
+         00007f 0045 
+         000080 0047 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   21
+
+         000081 0049 
+         000082 0053 
+         000083 0054 
+         000084 0045 
+         000085 0052 
+         000086 0020 
+         000087 002D 
+         000088 002D 
+         000089 002D 
+         00008a 0020 
+         00008b 0043 
+         00008c 004F 
+         00008d 004E 
+         00008e 0046 
+         00008f 0049 
+         000090 0047 
+         000091 0020 
+         000092 0056 
+         000093 0041 
+         000094 004C 
+         000095 0055 
+         000096 0045 
+         000097 0053 
+         000098 000A 
+         000099 0000 
+     815                      .align  2
+     816 00009a 0025  $C$FSL6:        .string "%04x --- %04x",10,0
+         00009b 0030 
+         00009c 0034 
+         00009d 0078 
+         00009e 0020 
+         00009f 002D 
+         0000a0 002D 
+         0000a1 002D 
+         0000a2 0020 
+         0000a3 0025 
+         0000a4 0030 
+         0000a5 0034 
+         0000a6 0078 
+         0000a7 000A 
+         0000a8 0000 
+     817                      .align  2
+     818 0000aa 0025  $C$FSL7:        .string "%04x --- %04x Test Lock Mon will get set after PLL is up",10
+         0000ab 0030 
+         0000ac 0034 
+         0000ad 0078 
+         0000ae 0020 
+         0000af 002D 
+         0000b0 002D 
+         0000b1 002D 
+         0000b2 0020 
+         0000b3 0025 
+         0000b4 0030 
+         0000b5 0034 
+         0000b6 0078 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   22
+
+         0000b7 0020 
+         0000b8 0054 
+         0000b9 0065 
+         0000ba 0073 
+         0000bb 0074 
+         0000bc 0020 
+         0000bd 004C 
+         0000be 006F 
+         0000bf 0063 
+         0000c0 006B 
+         0000c1 0020 
+         0000c2 004D 
+         0000c3 006F 
+         0000c4 006E 
+         0000c5 0020 
+         0000c6 0077 
+         0000c7 0069 
+         0000c8 006C 
+         0000c9 006C 
+         0000ca 0020 
+         0000cb 0067 
+         0000cc 0065 
+         0000cd 0074 
+         0000ce 0020 
+         0000cf 0073 
+         0000d0 0065 
+         0000d1 0074 
+         0000d2 0020 
+         0000d3 0061 
+         0000d4 0066 
+         0000d5 0074 
+         0000d6 0065 
+         0000d7 0072 
+         0000d8 0020 
+         0000d9 0050 
+         0000da 004C 
+         0000db 004C 
+         0000dc 0020 
+         0000dd 0069 
+         0000de 0073 
+         0000df 0020 
+         0000e0 0075 
+         0000e1 0070 
+         0000e2 000A 
+     819 0000e3 0000          .string 0
+     820                      .align  2
+     821 0000e4 0050  $C$FSL8:        .string "PLL bypass failed:%d",10,0
+         0000e5 004C 
+         0000e6 004C 
+         0000e7 0020 
+         0000e8 0062 
+         0000e9 0079 
+         0000ea 0070 
+         0000eb 0061 
+         0000ec 0073 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   23
+
+         0000ed 0073 
+         0000ee 0020 
+         0000ef 0066 
+         0000f0 0061 
+         0000f1 0069 
+         0000f2 006C 
+         0000f3 0065 
+         0000f4 0064 
+         0000f5 003A 
+         0000f6 0025 
+         0000f7 0064 
+         0000f8 000A 
+         0000f9 0000 
+     822                      .align  2
+     823 0000fa 0050  $C$FSL9:        .string "PLL enable failed:%d",10,0
+         0000fb 004C 
+         0000fc 004C 
+         0000fd 0020 
+         0000fe 0065 
+         0000ff 006E 
+         000100 0061 
+         000101 0062 
+         000102 006C 
+         000103 0065 
+         000104 0020 
+         000105 0066 
+         000106 0061 
+         000107 0069 
+         000108 006C 
+         000109 0065 
+         00010a 0064 
+         00010b 003A 
+         00010c 0025 
+         00010d 0064 
+         00010e 000A 
+         00010f 0000 
+     824                      .align  2
+     825 000110 0043  $C$FSL10:       .string "CSL PLL TEST",10,10,0
+         000111 0053 
+         000112 004C 
+         000113 0020 
+         000114 0050 
+         000115 004C 
+         000116 004C 
+         000117 0020 
+         000118 0054 
+         000119 0045 
+         00011a 0053 
+         00011b 0054 
+         00011c 000A 
+         00011d 000A 
+         00011e 0000 
+     826                      .align  2
+     827 000120 000A  $C$FSL11:       .string 10,"CSL PLL TEST PASSED",10,0
+         000121 0043 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   24
+
+         000122 0053 
+         000123 004C 
+         000124 0020 
+         000125 0050 
+         000126 004C 
+         000127 004C 
+         000128 0020 
+         000129 0054 
+         00012a 0045 
+         00012b 0053 
+         00012c 0054 
+         00012d 0020 
+         00012e 0050 
+         00012f 0041 
+         000130 0053 
+         000131 0053 
+         000132 0045 
+         000133 0044 
+         000134 000A 
+         000135 0000 
+     828                      .align  2
+     829 000136 000A  $C$FSL12:       .string 10,"CSL PLL TEST FAILED",10,0
+         000137 0043 
+         000138 0053 
+         000139 004C 
+         00013a 0020 
+         00013b 0050 
+         00013c 004C 
+         00013d 004C 
+         00013e 0020 
+         00013f 0054 
+         000140 0045 
+         000141 0053 
+         000142 0054 
+         000143 0020 
+         000144 0046 
+         000145 0041 
+         000146 0049 
+         000147 004C 
+         000148 0045 
+         000149 0044 
+         00014a 000A 
+         00014b 0000 
+     830              ;******************************************************************************
+     831              ;* UNDEFINED EXTERNAL REFERENCES                                              *
+     832              ;******************************************************************************
+     833                      .global _printf
+     834                      .global _PLL_init
+     835                      .global _PLL_config
+     836                      .global _PLL_enable
+     837                      .global _PLL_bypass
+     838                      .global _PLL_reset
+     839              
+     840              ;*******************************************************************************
+     841              ;* TYPE INFORMATION                                                            *
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   25
+
+     842              ;*******************************************************************************
+     843              
+     844              $C$DW$T$20      .dwtag  DW_TAG_structure_type
+     845                      .dwattr $C$DW$T$20, DW_AT_byte_size(0x04)
+     846              $C$DW$62        .dwtag  DW_TAG_member
+     847                      .dwattr $C$DW$62, DW_AT_type(*$C$DW$T$19)
+     848                      .dwattr $C$DW$62, DW_AT_name("PLLCNTL1")
+     849                      .dwattr $C$DW$62, DW_AT_TI_symbol_name("_PLLCNTL1")
+     850                      .dwattr $C$DW$62, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+     851                      .dwattr $C$DW$62, DW_AT_accessibility(DW_ACCESS_public)
+     852              $C$DW$63        .dwtag  DW_TAG_member
+     853                      .dwattr $C$DW$63, DW_AT_type(*$C$DW$T$19)
+     854                      .dwattr $C$DW$63, DW_AT_name("PLLINCNTL")
+     855                      .dwattr $C$DW$63, DW_AT_TI_symbol_name("_PLLINCNTL")
+     856                      .dwattr $C$DW$63, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+     857                      .dwattr $C$DW$63, DW_AT_accessibility(DW_ACCESS_public)
+     858              $C$DW$64        .dwtag  DW_TAG_member
+     859                      .dwattr $C$DW$64, DW_AT_type(*$C$DW$T$19)
+     860                      .dwattr $C$DW$64, DW_AT_name("PLLCNTL2")
+     861                      .dwattr $C$DW$64, DW_AT_TI_symbol_name("_PLLCNTL2")
+     862                      .dwattr $C$DW$64, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+     863                      .dwattr $C$DW$64, DW_AT_accessibility(DW_ACCESS_public)
+     864              $C$DW$65        .dwtag  DW_TAG_member
+     865                      .dwattr $C$DW$65, DW_AT_type(*$C$DW$T$19)
+     866                      .dwattr $C$DW$65, DW_AT_name("PLLOUTCNTL")
+     867                      .dwattr $C$DW$65, DW_AT_TI_symbol_name("_PLLOUTCNTL")
+     868                      .dwattr $C$DW$65, DW_AT_data_member_location[DW_OP_plus_uconst 0x3]
+     869                      .dwattr $C$DW$65, DW_AT_accessibility(DW_ACCESS_public)
+     870                      .dwendtag $C$DW$T$20
+     871              
+     872              $C$DW$T$26      .dwtag  DW_TAG_typedef, DW_AT_name("PLL_Config")
+     873                      .dwattr $C$DW$T$26, DW_AT_type(*$C$DW$T$20)
+     874                      .dwattr $C$DW$T$26, DW_AT_language(DW_LANG_C)
+     875              $C$DW$T$27      .dwtag  DW_TAG_pointer_type
+     876                      .dwattr $C$DW$T$27, DW_AT_type(*$C$DW$T$26)
+     877                      .dwattr $C$DW$T$27, DW_AT_address_class(0x17)
+     878              
+     879              $C$DW$T$25      .dwtag  DW_TAG_structure_type
+     880                      .dwattr $C$DW$T$25, DW_AT_byte_size(0x48)
+     881              $C$DW$66        .dwtag  DW_TAG_member
+     882                      .dwattr $C$DW$66, DW_AT_type(*$C$DW$T$21)
+     883                      .dwattr $C$DW$66, DW_AT_name("EBSR")
+     884                      .dwattr $C$DW$66, DW_AT_TI_symbol_name("_EBSR")
+     885                      .dwattr $C$DW$66, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+     886                      .dwattr $C$DW$66, DW_AT_accessibility(DW_ACCESS_public)
+     887              $C$DW$67        .dwtag  DW_TAG_member
+     888                      .dwattr $C$DW$67, DW_AT_type(*$C$DW$T$21)
+     889                      .dwattr $C$DW$67, DW_AT_name("RSVD0")
+     890                      .dwattr $C$DW$67, DW_AT_TI_symbol_name("_RSVD0")
+     891                      .dwattr $C$DW$67, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+     892                      .dwattr $C$DW$67, DW_AT_accessibility(DW_ACCESS_public)
+     893              $C$DW$68        .dwtag  DW_TAG_member
+     894                      .dwattr $C$DW$68, DW_AT_type(*$C$DW$T$21)
+     895                      .dwattr $C$DW$68, DW_AT_name("PCGCR1")
+     896                      .dwattr $C$DW$68, DW_AT_TI_symbol_name("_PCGCR1")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   26
+
+     897                      .dwattr $C$DW$68, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+     898                      .dwattr $C$DW$68, DW_AT_accessibility(DW_ACCESS_public)
+     899              $C$DW$69        .dwtag  DW_TAG_member
+     900                      .dwattr $C$DW$69, DW_AT_type(*$C$DW$T$21)
+     901                      .dwattr $C$DW$69, DW_AT_name("PCGCR2")
+     902                      .dwattr $C$DW$69, DW_AT_TI_symbol_name("_PCGCR2")
+     903                      .dwattr $C$DW$69, DW_AT_data_member_location[DW_OP_plus_uconst 0x3]
+     904                      .dwattr $C$DW$69, DW_AT_accessibility(DW_ACCESS_public)
+     905              $C$DW$70        .dwtag  DW_TAG_member
+     906                      .dwattr $C$DW$70, DW_AT_type(*$C$DW$T$21)
+     907                      .dwattr $C$DW$70, DW_AT_name("PSRCR")
+     908                      .dwattr $C$DW$70, DW_AT_TI_symbol_name("_PSRCR")
+     909                      .dwattr $C$DW$70, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+     910                      .dwattr $C$DW$70, DW_AT_accessibility(DW_ACCESS_public)
+     911              $C$DW$71        .dwtag  DW_TAG_member
+     912                      .dwattr $C$DW$71, DW_AT_type(*$C$DW$T$21)
+     913                      .dwattr $C$DW$71, DW_AT_name("PRCR")
+     914                      .dwattr $C$DW$71, DW_AT_TI_symbol_name("_PRCR")
+     915                      .dwattr $C$DW$71, DW_AT_data_member_location[DW_OP_plus_uconst 0x5]
+     916                      .dwattr $C$DW$71, DW_AT_accessibility(DW_ACCESS_public)
+     917              $C$DW$72        .dwtag  DW_TAG_member
+     918                      .dwattr $C$DW$72, DW_AT_type(*$C$DW$T$22)
+     919                      .dwattr $C$DW$72, DW_AT_name("RSVD1")
+     920                      .dwattr $C$DW$72, DW_AT_TI_symbol_name("_RSVD1")
+     921                      .dwattr $C$DW$72, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+     922                      .dwattr $C$DW$72, DW_AT_accessibility(DW_ACCESS_public)
+     923              $C$DW$73        .dwtag  DW_TAG_member
+     924                      .dwattr $C$DW$73, DW_AT_type(*$C$DW$T$21)
+     925                      .dwattr $C$DW$73, DW_AT_name("TIAFR")
+     926                      .dwattr $C$DW$73, DW_AT_TI_symbol_name("_TIAFR")
+     927                      .dwattr $C$DW$73, DW_AT_data_member_location[DW_OP_plus_uconst 0x14]
+     928                      .dwattr $C$DW$73, DW_AT_accessibility(DW_ACCESS_public)
+     929              $C$DW$74        .dwtag  DW_TAG_member
+     930                      .dwattr $C$DW$74, DW_AT_type(*$C$DW$T$21)
+     931                      .dwattr $C$DW$74, DW_AT_name("RSVD2")
+     932                      .dwattr $C$DW$74, DW_AT_TI_symbol_name("_RSVD2")
+     933                      .dwattr $C$DW$74, DW_AT_data_member_location[DW_OP_plus_uconst 0x15]
+     934                      .dwattr $C$DW$74, DW_AT_accessibility(DW_ACCESS_public)
+     935              $C$DW$75        .dwtag  DW_TAG_member
+     936                      .dwattr $C$DW$75, DW_AT_type(*$C$DW$T$21)
+     937                      .dwattr $C$DW$75, DW_AT_name("ODSCR")
+     938                      .dwattr $C$DW$75, DW_AT_TI_symbol_name("_ODSCR")
+     939                      .dwattr $C$DW$75, DW_AT_data_member_location[DW_OP_plus_uconst 0x16]
+     940                      .dwattr $C$DW$75, DW_AT_accessibility(DW_ACCESS_public)
+     941              $C$DW$76        .dwtag  DW_TAG_member
+     942                      .dwattr $C$DW$76, DW_AT_type(*$C$DW$T$21)
+     943                      .dwattr $C$DW$76, DW_AT_name("PDINHIBR1")
+     944                      .dwattr $C$DW$76, DW_AT_TI_symbol_name("_PDINHIBR1")
+     945                      .dwattr $C$DW$76, DW_AT_data_member_location[DW_OP_plus_uconst 0x17]
+     946                      .dwattr $C$DW$76, DW_AT_accessibility(DW_ACCESS_public)
+     947              $C$DW$77        .dwtag  DW_TAG_member
+     948                      .dwattr $C$DW$77, DW_AT_type(*$C$DW$T$21)
+     949                      .dwattr $C$DW$77, DW_AT_name("PDINHIBR2")
+     950                      .dwattr $C$DW$77, DW_AT_TI_symbol_name("_PDINHIBR2")
+     951                      .dwattr $C$DW$77, DW_AT_data_member_location[DW_OP_plus_uconst 0x18]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   27
+
+     952                      .dwattr $C$DW$77, DW_AT_accessibility(DW_ACCESS_public)
+     953              $C$DW$78        .dwtag  DW_TAG_member
+     954                      .dwattr $C$DW$78, DW_AT_type(*$C$DW$T$21)
+     955                      .dwattr $C$DW$78, DW_AT_name("PDINHIBR3")
+     956                      .dwattr $C$DW$78, DW_AT_TI_symbol_name("_PDINHIBR3")
+     957                      .dwattr $C$DW$78, DW_AT_data_member_location[DW_OP_plus_uconst 0x19]
+     958                      .dwattr $C$DW$78, DW_AT_accessibility(DW_ACCESS_public)
+     959              $C$DW$79        .dwtag  DW_TAG_member
+     960                      .dwattr $C$DW$79, DW_AT_type(*$C$DW$T$21)
+     961                      .dwattr $C$DW$79, DW_AT_name("DMA0CESR1")
+     962                      .dwattr $C$DW$79, DW_AT_TI_symbol_name("_DMA0CESR1")
+     963                      .dwattr $C$DW$79, DW_AT_data_member_location[DW_OP_plus_uconst 0x1a]
+     964                      .dwattr $C$DW$79, DW_AT_accessibility(DW_ACCESS_public)
+     965              $C$DW$80        .dwtag  DW_TAG_member
+     966                      .dwattr $C$DW$80, DW_AT_type(*$C$DW$T$21)
+     967                      .dwattr $C$DW$80, DW_AT_name("DMA0CESR2")
+     968                      .dwattr $C$DW$80, DW_AT_TI_symbol_name("_DMA0CESR2")
+     969                      .dwattr $C$DW$80, DW_AT_data_member_location[DW_OP_plus_uconst 0x1b]
+     970                      .dwattr $C$DW$80, DW_AT_accessibility(DW_ACCESS_public)
+     971              $C$DW$81        .dwtag  DW_TAG_member
+     972                      .dwattr $C$DW$81, DW_AT_type(*$C$DW$T$21)
+     973                      .dwattr $C$DW$81, DW_AT_name("DMA1CESR1")
+     974                      .dwattr $C$DW$81, DW_AT_TI_symbol_name("_DMA1CESR1")
+     975                      .dwattr $C$DW$81, DW_AT_data_member_location[DW_OP_plus_uconst 0x1c]
+     976                      .dwattr $C$DW$81, DW_AT_accessibility(DW_ACCESS_public)
+     977              $C$DW$82        .dwtag  DW_TAG_member
+     978                      .dwattr $C$DW$82, DW_AT_type(*$C$DW$T$21)
+     979                      .dwattr $C$DW$82, DW_AT_name("DMA1CESR2")
+     980                      .dwattr $C$DW$82, DW_AT_TI_symbol_name("_DMA1CESR2")
+     981                      .dwattr $C$DW$82, DW_AT_data_member_location[DW_OP_plus_uconst 0x1d]
+     982                      .dwattr $C$DW$82, DW_AT_accessibility(DW_ACCESS_public)
+     983              $C$DW$83        .dwtag  DW_TAG_member
+     984                      .dwattr $C$DW$83, DW_AT_type(*$C$DW$T$21)
+     985                      .dwattr $C$DW$83, DW_AT_name("SDRAMCCR")
+     986                      .dwattr $C$DW$83, DW_AT_TI_symbol_name("_SDRAMCCR")
+     987                      .dwattr $C$DW$83, DW_AT_data_member_location[DW_OP_plus_uconst 0x1e]
+     988                      .dwattr $C$DW$83, DW_AT_accessibility(DW_ACCESS_public)
+     989              $C$DW$84        .dwtag  DW_TAG_member
+     990                      .dwattr $C$DW$84, DW_AT_type(*$C$DW$T$21)
+     991                      .dwattr $C$DW$84, DW_AT_name("CCR2")
+     992                      .dwattr $C$DW$84, DW_AT_TI_symbol_name("_CCR2")
+     993                      .dwattr $C$DW$84, DW_AT_data_member_location[DW_OP_plus_uconst 0x1f]
+     994                      .dwattr $C$DW$84, DW_AT_accessibility(DW_ACCESS_public)
+     995              $C$DW$85        .dwtag  DW_TAG_member
+     996                      .dwattr $C$DW$85, DW_AT_type(*$C$DW$T$21)
+     997                      .dwattr $C$DW$85, DW_AT_name("CGCR1")
+     998                      .dwattr $C$DW$85, DW_AT_TI_symbol_name("_CGCR1")
+     999                      .dwattr $C$DW$85, DW_AT_data_member_location[DW_OP_plus_uconst 0x20]
+    1000                      .dwattr $C$DW$85, DW_AT_accessibility(DW_ACCESS_public)
+    1001              $C$DW$86        .dwtag  DW_TAG_member
+    1002                      .dwattr $C$DW$86, DW_AT_type(*$C$DW$T$21)
+    1003                      .dwattr $C$DW$86, DW_AT_name("CGICR")
+    1004                      .dwattr $C$DW$86, DW_AT_TI_symbol_name("_CGICR")
+    1005                      .dwattr $C$DW$86, DW_AT_data_member_location[DW_OP_plus_uconst 0x21]
+    1006                      .dwattr $C$DW$86, DW_AT_accessibility(DW_ACCESS_public)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   28
+
+    1007              $C$DW$87        .dwtag  DW_TAG_member
+    1008                      .dwattr $C$DW$87, DW_AT_type(*$C$DW$T$21)
+    1009                      .dwattr $C$DW$87, DW_AT_name("CGCR2")
+    1010                      .dwattr $C$DW$87, DW_AT_TI_symbol_name("_CGCR2")
+    1011                      .dwattr $C$DW$87, DW_AT_data_member_location[DW_OP_plus_uconst 0x22]
+    1012                      .dwattr $C$DW$87, DW_AT_accessibility(DW_ACCESS_public)
+    1013              $C$DW$88        .dwtag  DW_TAG_member
+    1014                      .dwattr $C$DW$88, DW_AT_type(*$C$DW$T$21)
+    1015                      .dwattr $C$DW$88, DW_AT_name("CGOCR")
+    1016                      .dwattr $C$DW$88, DW_AT_TI_symbol_name("_CGOCR")
+    1017                      .dwattr $C$DW$88, DW_AT_data_member_location[DW_OP_plus_uconst 0x23]
+    1018                      .dwattr $C$DW$88, DW_AT_accessibility(DW_ACCESS_public)
+    1019              $C$DW$89        .dwtag  DW_TAG_member
+    1020                      .dwattr $C$DW$89, DW_AT_type(*$C$DW$T$21)
+    1021                      .dwattr $C$DW$89, DW_AT_name("CCSSR")
+    1022                      .dwattr $C$DW$89, DW_AT_TI_symbol_name("_CCSSR")
+    1023                      .dwattr $C$DW$89, DW_AT_data_member_location[DW_OP_plus_uconst 0x24]
+    1024                      .dwattr $C$DW$89, DW_AT_accessibility(DW_ACCESS_public)
+    1025              $C$DW$90        .dwtag  DW_TAG_member
+    1026                      .dwattr $C$DW$90, DW_AT_type(*$C$DW$T$21)
+    1027                      .dwattr $C$DW$90, DW_AT_name("RSVD3")
+    1028                      .dwattr $C$DW$90, DW_AT_TI_symbol_name("_RSVD3")
+    1029                      .dwattr $C$DW$90, DW_AT_data_member_location[DW_OP_plus_uconst 0x25]
+    1030                      .dwattr $C$DW$90, DW_AT_accessibility(DW_ACCESS_public)
+    1031              $C$DW$91        .dwtag  DW_TAG_member
+    1032                      .dwattr $C$DW$91, DW_AT_type(*$C$DW$T$21)
+    1033                      .dwattr $C$DW$91, DW_AT_name("ECDR")
+    1034                      .dwattr $C$DW$91, DW_AT_TI_symbol_name("_ECDR")
+    1035                      .dwattr $C$DW$91, DW_AT_data_member_location[DW_OP_plus_uconst 0x26]
+    1036                      .dwattr $C$DW$91, DW_AT_accessibility(DW_ACCESS_public)
+    1037              $C$DW$92        .dwtag  DW_TAG_member
+    1038                      .dwattr $C$DW$92, DW_AT_type(*$C$DW$T$21)
+    1039                      .dwattr $C$DW$92, DW_AT_name("RSVD4")
+    1040                      .dwattr $C$DW$92, DW_AT_TI_symbol_name("_RSVD4")
+    1041                      .dwattr $C$DW$92, DW_AT_data_member_location[DW_OP_plus_uconst 0x27]
+    1042                      .dwattr $C$DW$92, DW_AT_accessibility(DW_ACCESS_public)
+    1043              $C$DW$93        .dwtag  DW_TAG_member
+    1044                      .dwattr $C$DW$93, DW_AT_type(*$C$DW$T$21)
+    1045                      .dwattr $C$DW$93, DW_AT_name("RAMSLPMDCNTLR1")
+    1046                      .dwattr $C$DW$93, DW_AT_TI_symbol_name("_RAMSLPMDCNTLR1")
+    1047                      .dwattr $C$DW$93, DW_AT_data_member_location[DW_OP_plus_uconst 0x28]
+    1048                      .dwattr $C$DW$93, DW_AT_accessibility(DW_ACCESS_public)
+    1049              $C$DW$94        .dwtag  DW_TAG_member
+    1050                      .dwattr $C$DW$94, DW_AT_type(*$C$DW$T$21)
+    1051                      .dwattr $C$DW$94, DW_AT_name("RSVD5")
+    1052                      .dwattr $C$DW$94, DW_AT_TI_symbol_name("_RSVD5")
+    1053                      .dwattr $C$DW$94, DW_AT_data_member_location[DW_OP_plus_uconst 0x29]
+    1054                      .dwattr $C$DW$94, DW_AT_accessibility(DW_ACCESS_public)
+    1055              $C$DW$95        .dwtag  DW_TAG_member
+    1056                      .dwattr $C$DW$95, DW_AT_type(*$C$DW$T$21)
+    1057                      .dwattr $C$DW$95, DW_AT_name("RAMSLPMDCNTLR2")
+    1058                      .dwattr $C$DW$95, DW_AT_TI_symbol_name("_RAMSLPMDCNTLR2")
+    1059                      .dwattr $C$DW$95, DW_AT_data_member_location[DW_OP_plus_uconst 0x2a]
+    1060                      .dwattr $C$DW$95, DW_AT_accessibility(DW_ACCESS_public)
+    1061              $C$DW$96        .dwtag  DW_TAG_member
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   29
+
+    1062                      .dwattr $C$DW$96, DW_AT_type(*$C$DW$T$21)
+    1063                      .dwattr $C$DW$96, DW_AT_name("RAMSLPMDCNTLR3")
+    1064                      .dwattr $C$DW$96, DW_AT_TI_symbol_name("_RAMSLPMDCNTLR3")
+    1065                      .dwattr $C$DW$96, DW_AT_data_member_location[DW_OP_plus_uconst 0x2b]
+    1066                      .dwattr $C$DW$96, DW_AT_accessibility(DW_ACCESS_public)
+    1067              $C$DW$97        .dwtag  DW_TAG_member
+    1068                      .dwattr $C$DW$97, DW_AT_type(*$C$DW$T$21)
+    1069                      .dwattr $C$DW$97, DW_AT_name("RAMSLPMDCNTLR4")
+    1070                      .dwattr $C$DW$97, DW_AT_TI_symbol_name("_RAMSLPMDCNTLR4")
+    1071                      .dwattr $C$DW$97, DW_AT_data_member_location[DW_OP_plus_uconst 0x2c]
+    1072                      .dwattr $C$DW$97, DW_AT_accessibility(DW_ACCESS_public)
+    1073              $C$DW$98        .dwtag  DW_TAG_member
+    1074                      .dwattr $C$DW$98, DW_AT_type(*$C$DW$T$21)
+    1075                      .dwattr $C$DW$98, DW_AT_name("RAMSLPMDCNTLR5")
+    1076                      .dwattr $C$DW$98, DW_AT_TI_symbol_name("_RAMSLPMDCNTLR5")
+    1077                      .dwattr $C$DW$98, DW_AT_data_member_location[DW_OP_plus_uconst 0x2d]
+    1078                      .dwattr $C$DW$98, DW_AT_accessibility(DW_ACCESS_public)
+    1079              $C$DW$99        .dwtag  DW_TAG_member
+    1080                      .dwattr $C$DW$99, DW_AT_type(*$C$DW$T$23)
+    1081                      .dwattr $C$DW$99, DW_AT_name("RSVD6")
+    1082                      .dwattr $C$DW$99, DW_AT_TI_symbol_name("_RSVD6")
+    1083                      .dwattr $C$DW$99, DW_AT_data_member_location[DW_OP_plus_uconst 0x2e]
+    1084                      .dwattr $C$DW$99, DW_AT_accessibility(DW_ACCESS_public)
+    1085              $C$DW$100       .dwtag  DW_TAG_member
+    1086                      .dwattr $C$DW$100, DW_AT_type(*$C$DW$T$21)
+    1087                      .dwattr $C$DW$100, DW_AT_name("DMAIFR")
+    1088                      .dwattr $C$DW$100, DW_AT_TI_symbol_name("_DMAIFR")
+    1089                      .dwattr $C$DW$100, DW_AT_data_member_location[DW_OP_plus_uconst 0x30]
+    1090                      .dwattr $C$DW$100, DW_AT_accessibility(DW_ACCESS_public)
+    1091              $C$DW$101       .dwtag  DW_TAG_member
+    1092                      .dwattr $C$DW$101, DW_AT_type(*$C$DW$T$21)
+    1093                      .dwattr $C$DW$101, DW_AT_name("DMAIER")
+    1094                      .dwattr $C$DW$101, DW_AT_TI_symbol_name("_DMAIER")
+    1095                      .dwattr $C$DW$101, DW_AT_data_member_location[DW_OP_plus_uconst 0x31]
+    1096                      .dwattr $C$DW$101, DW_AT_accessibility(DW_ACCESS_public)
+    1097              $C$DW$102       .dwtag  DW_TAG_member
+    1098                      .dwattr $C$DW$102, DW_AT_type(*$C$DW$T$21)
+    1099                      .dwattr $C$DW$102, DW_AT_name("USBSCR")
+    1100                      .dwattr $C$DW$102, DW_AT_TI_symbol_name("_USBSCR")
+    1101                      .dwattr $C$DW$102, DW_AT_data_member_location[DW_OP_plus_uconst 0x32]
+    1102                      .dwattr $C$DW$102, DW_AT_accessibility(DW_ACCESS_public)
+    1103              $C$DW$103       .dwtag  DW_TAG_member
+    1104                      .dwattr $C$DW$103, DW_AT_type(*$C$DW$T$21)
+    1105                      .dwattr $C$DW$103, DW_AT_name("ESCR")
+    1106                      .dwattr $C$DW$103, DW_AT_TI_symbol_name("_ESCR")
+    1107                      .dwattr $C$DW$103, DW_AT_data_member_location[DW_OP_plus_uconst 0x33]
+    1108                      .dwattr $C$DW$103, DW_AT_accessibility(DW_ACCESS_public)
+    1109              $C$DW$104       .dwtag  DW_TAG_member
+    1110                      .dwattr $C$DW$104, DW_AT_type(*$C$DW$T$23)
+    1111                      .dwattr $C$DW$104, DW_AT_name("RSVD7")
+    1112                      .dwattr $C$DW$104, DW_AT_TI_symbol_name("_RSVD7")
+    1113                      .dwattr $C$DW$104, DW_AT_data_member_location[DW_OP_plus_uconst 0x34]
+    1114                      .dwattr $C$DW$104, DW_AT_accessibility(DW_ACCESS_public)
+    1115              $C$DW$105       .dwtag  DW_TAG_member
+    1116                      .dwattr $C$DW$105, DW_AT_type(*$C$DW$T$21)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   30
+
+    1117                      .dwattr $C$DW$105, DW_AT_name("DMA2CESR1")
+    1118                      .dwattr $C$DW$105, DW_AT_TI_symbol_name("_DMA2CESR1")
+    1119                      .dwattr $C$DW$105, DW_AT_data_member_location[DW_OP_plus_uconst 0x36]
+    1120                      .dwattr $C$DW$105, DW_AT_accessibility(DW_ACCESS_public)
+    1121              $C$DW$106       .dwtag  DW_TAG_member
+    1122                      .dwattr $C$DW$106, DW_AT_type(*$C$DW$T$21)
+    1123                      .dwattr $C$DW$106, DW_AT_name("DMA2CESR2")
+    1124                      .dwattr $C$DW$106, DW_AT_TI_symbol_name("_DMA2CESR2")
+    1125                      .dwattr $C$DW$106, DW_AT_data_member_location[DW_OP_plus_uconst 0x37]
+    1126                      .dwattr $C$DW$106, DW_AT_accessibility(DW_ACCESS_public)
+    1127              $C$DW$107       .dwtag  DW_TAG_member
+    1128                      .dwattr $C$DW$107, DW_AT_type(*$C$DW$T$21)
+    1129                      .dwattr $C$DW$107, DW_AT_name("DMA3CESR1")
+    1130                      .dwattr $C$DW$107, DW_AT_TI_symbol_name("_DMA3CESR1")
+    1131                      .dwattr $C$DW$107, DW_AT_data_member_location[DW_OP_plus_uconst 0x38]
+    1132                      .dwattr $C$DW$107, DW_AT_accessibility(DW_ACCESS_public)
+    1133              $C$DW$108       .dwtag  DW_TAG_member
+    1134                      .dwattr $C$DW$108, DW_AT_type(*$C$DW$T$21)
+    1135                      .dwattr $C$DW$108, DW_AT_name("DMA3CESR2")
+    1136                      .dwattr $C$DW$108, DW_AT_TI_symbol_name("_DMA3CESR2")
+    1137                      .dwattr $C$DW$108, DW_AT_data_member_location[DW_OP_plus_uconst 0x39]
+    1138                      .dwattr $C$DW$108, DW_AT_accessibility(DW_ACCESS_public)
+    1139              $C$DW$109       .dwtag  DW_TAG_member
+    1140                      .dwattr $C$DW$109, DW_AT_type(*$C$DW$T$21)
+    1141                      .dwattr $C$DW$109, DW_AT_name("CLKSTOP")
+    1142                      .dwattr $C$DW$109, DW_AT_TI_symbol_name("_CLKSTOP")
+    1143                      .dwattr $C$DW$109, DW_AT_data_member_location[DW_OP_plus_uconst 0x3a]
+    1144                      .dwattr $C$DW$109, DW_AT_accessibility(DW_ACCESS_public)
+    1145              $C$DW$110       .dwtag  DW_TAG_member
+    1146                      .dwattr $C$DW$110, DW_AT_type(*$C$DW$T$24)
+    1147                      .dwattr $C$DW$110, DW_AT_name("RSVD8")
+    1148                      .dwattr $C$DW$110, DW_AT_TI_symbol_name("_RSVD8")
+    1149                      .dwattr $C$DW$110, DW_AT_data_member_location[DW_OP_plus_uconst 0x3b]
+    1150                      .dwattr $C$DW$110, DW_AT_accessibility(DW_ACCESS_public)
+    1151              $C$DW$111       .dwtag  DW_TAG_member
+    1152                      .dwattr $C$DW$111, DW_AT_type(*$C$DW$T$21)
+    1153                      .dwattr $C$DW$111, DW_AT_name("DIEIDR0")
+    1154                      .dwattr $C$DW$111, DW_AT_TI_symbol_name("_DIEIDR0")
+    1155                      .dwattr $C$DW$111, DW_AT_data_member_location[DW_OP_plus_uconst 0x40]
+    1156                      .dwattr $C$DW$111, DW_AT_accessibility(DW_ACCESS_public)
+    1157              $C$DW$112       .dwtag  DW_TAG_member
+    1158                      .dwattr $C$DW$112, DW_AT_type(*$C$DW$T$21)
+    1159                      .dwattr $C$DW$112, DW_AT_name("DIEIDR1")
+    1160                      .dwattr $C$DW$112, DW_AT_TI_symbol_name("_DIEIDR1")
+    1161                      .dwattr $C$DW$112, DW_AT_data_member_location[DW_OP_plus_uconst 0x41]
+    1162                      .dwattr $C$DW$112, DW_AT_accessibility(DW_ACCESS_public)
+    1163              $C$DW$113       .dwtag  DW_TAG_member
+    1164                      .dwattr $C$DW$113, DW_AT_type(*$C$DW$T$21)
+    1165                      .dwattr $C$DW$113, DW_AT_name("DIEIDR2")
+    1166                      .dwattr $C$DW$113, DW_AT_TI_symbol_name("_DIEIDR2")
+    1167                      .dwattr $C$DW$113, DW_AT_data_member_location[DW_OP_plus_uconst 0x42]
+    1168                      .dwattr $C$DW$113, DW_AT_accessibility(DW_ACCESS_public)
+    1169              $C$DW$114       .dwtag  DW_TAG_member
+    1170                      .dwattr $C$DW$114, DW_AT_type(*$C$DW$T$21)
+    1171                      .dwattr $C$DW$114, DW_AT_name("DIEIDR3")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   31
+
+    1172                      .dwattr $C$DW$114, DW_AT_TI_symbol_name("_DIEIDR3")
+    1173                      .dwattr $C$DW$114, DW_AT_data_member_location[DW_OP_plus_uconst 0x43]
+    1174                      .dwattr $C$DW$114, DW_AT_accessibility(DW_ACCESS_public)
+    1175              $C$DW$115       .dwtag  DW_TAG_member
+    1176                      .dwattr $C$DW$115, DW_AT_type(*$C$DW$T$21)
+    1177                      .dwattr $C$DW$115, DW_AT_name("DIEIDR4")
+    1178                      .dwattr $C$DW$115, DW_AT_TI_symbol_name("_DIEIDR4")
+    1179                      .dwattr $C$DW$115, DW_AT_data_member_location[DW_OP_plus_uconst 0x44]
+    1180                      .dwattr $C$DW$115, DW_AT_accessibility(DW_ACCESS_public)
+    1181              $C$DW$116       .dwtag  DW_TAG_member
+    1182                      .dwattr $C$DW$116, DW_AT_type(*$C$DW$T$21)
+    1183                      .dwattr $C$DW$116, DW_AT_name("DIEIDR5")
+    1184                      .dwattr $C$DW$116, DW_AT_TI_symbol_name("_DIEIDR5")
+    1185                      .dwattr $C$DW$116, DW_AT_data_member_location[DW_OP_plus_uconst 0x45]
+    1186                      .dwattr $C$DW$116, DW_AT_accessibility(DW_ACCESS_public)
+    1187              $C$DW$117       .dwtag  DW_TAG_member
+    1188                      .dwattr $C$DW$117, DW_AT_type(*$C$DW$T$21)
+    1189                      .dwattr $C$DW$117, DW_AT_name("DIEIDR6")
+    1190                      .dwattr $C$DW$117, DW_AT_TI_symbol_name("_DIEIDR6")
+    1191                      .dwattr $C$DW$117, DW_AT_data_member_location[DW_OP_plus_uconst 0x46]
+    1192                      .dwattr $C$DW$117, DW_AT_accessibility(DW_ACCESS_public)
+    1193              $C$DW$118       .dwtag  DW_TAG_member
+    1194                      .dwattr $C$DW$118, DW_AT_type(*$C$DW$T$21)
+    1195                      .dwattr $C$DW$118, DW_AT_name("DIEIDR7")
+    1196                      .dwattr $C$DW$118, DW_AT_TI_symbol_name("_DIEIDR7")
+    1197                      .dwattr $C$DW$118, DW_AT_data_member_location[DW_OP_plus_uconst 0x47]
+    1198                      .dwattr $C$DW$118, DW_AT_accessibility(DW_ACCESS_public)
+    1199                      .dwendtag $C$DW$T$25
+    1200              
+    1201              $C$DW$T$29      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_SysRegs")
+    1202                      .dwattr $C$DW$T$29, DW_AT_type(*$C$DW$T$25)
+    1203                      .dwattr $C$DW$T$29, DW_AT_language(DW_LANG_C)
+    1204              $C$DW$119       .dwtag  DW_TAG_TI_far_type
+    1205                      .dwattr $C$DW$119, DW_AT_type(*$C$DW$T$29)
+    1206              $C$DW$120       .dwtag  DW_TAG_TI_ioport_type
+    1207                      .dwattr $C$DW$120, DW_AT_type(*$C$DW$119)
+    1208              $C$DW$T$30      .dwtag  DW_TAG_volatile_type
+    1209                      .dwattr $C$DW$T$30, DW_AT_type(*$C$DW$120)
+    1210              $C$DW$T$31      .dwtag  DW_TAG_pointer_type
+    1211                      .dwattr $C$DW$T$31, DW_AT_type(*$C$DW$T$30)
+    1212                      .dwattr $C$DW$T$31, DW_AT_address_class(0x10)
+    1213              $C$DW$T$32      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_SysRegsOvly")
+    1214                      .dwattr $C$DW$T$32, DW_AT_type(*$C$DW$T$31)
+    1215                      .dwattr $C$DW$T$32, DW_AT_language(DW_LANG_C)
+    1216              
+    1217              $C$DW$T$33      .dwtag  DW_TAG_structure_type
+    1218                      .dwattr $C$DW$T$33, DW_AT_name("PLL_Obj")
+    1219                      .dwattr $C$DW$T$33, DW_AT_byte_size(0x06)
+    1220              $C$DW$121       .dwtag  DW_TAG_member
+    1221                      .dwattr $C$DW$121, DW_AT_type(*$C$DW$T$27)
+    1222                      .dwattr $C$DW$121, DW_AT_name("pllConfig")
+    1223                      .dwattr $C$DW$121, DW_AT_TI_symbol_name("_pllConfig")
+    1224                      .dwattr $C$DW$121, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1225                      .dwattr $C$DW$121, DW_AT_accessibility(DW_ACCESS_public)
+    1226              $C$DW$122       .dwtag  DW_TAG_member
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   32
+
+    1227                      .dwattr $C$DW$122, DW_AT_type(*$C$DW$T$28)
+    1228                      .dwattr $C$DW$122, DW_AT_name("instId")
+    1229                      .dwattr $C$DW$122, DW_AT_TI_symbol_name("_instId")
+    1230                      .dwattr $C$DW$122, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    1231                      .dwattr $C$DW$122, DW_AT_accessibility(DW_ACCESS_public)
+    1232              $C$DW$123       .dwtag  DW_TAG_member
+    1233                      .dwattr $C$DW$123, DW_AT_type(*$C$DW$T$32)
+    1234                      .dwattr $C$DW$123, DW_AT_name("sysAddr")
+    1235                      .dwattr $C$DW$123, DW_AT_TI_symbol_name("_sysAddr")
+    1236                      .dwattr $C$DW$123, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+    1237                      .dwattr $C$DW$123, DW_AT_accessibility(DW_ACCESS_public)
+    1238                      .dwendtag $C$DW$T$33
+    1239              
+    1240              $C$DW$T$34      .dwtag  DW_TAG_typedef, DW_AT_name("PLL_Obj")
+    1241                      .dwattr $C$DW$T$34, DW_AT_type(*$C$DW$T$33)
+    1242                      .dwattr $C$DW$T$34, DW_AT_language(DW_LANG_C)
+    1243              $C$DW$T$35      .dwtag  DW_TAG_pointer_type
+    1244                      .dwattr $C$DW$T$35, DW_AT_type(*$C$DW$T$34)
+    1245                      .dwattr $C$DW$T$35, DW_AT_address_class(0x17)
+    1246              $C$DW$T$36      .dwtag  DW_TAG_pointer_type
+    1247                      .dwattr $C$DW$T$36, DW_AT_type(*$C$DW$T$33)
+    1248                      .dwattr $C$DW$T$36, DW_AT_address_class(0x17)
+    1249              $C$DW$T$37      .dwtag  DW_TAG_typedef, DW_AT_name("PLL_Handle")
+    1250                      .dwattr $C$DW$T$37, DW_AT_type(*$C$DW$T$36)
+    1251                      .dwattr $C$DW$T$37, DW_AT_language(DW_LANG_C)
+    1252              $C$DW$T$4       .dwtag  DW_TAG_base_type
+    1253                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+    1254                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+    1255                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+    1256              $C$DW$T$5       .dwtag  DW_TAG_base_type
+    1257                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+    1258                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+    1259                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+    1260              $C$DW$T$6       .dwtag  DW_TAG_base_type
+    1261                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+    1262                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+    1263                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+    1264              $C$DW$T$7       .dwtag  DW_TAG_base_type
+    1265                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+    1266                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+    1267                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+    1268              $C$DW$T$8       .dwtag  DW_TAG_base_type
+    1269                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+    1270                      .dwattr $C$DW$T$8, DW_AT_name("short")
+    1271                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+    1272              $C$DW$T$39      .dwtag  DW_TAG_typedef, DW_AT_name("Int16")
+    1273                      .dwattr $C$DW$T$39, DW_AT_type(*$C$DW$T$8)
+    1274                      .dwattr $C$DW$T$39, DW_AT_language(DW_LANG_C)
+    1275              $C$DW$T$40      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_Status")
+    1276                      .dwattr $C$DW$T$40, DW_AT_type(*$C$DW$T$39)
+    1277                      .dwattr $C$DW$T$40, DW_AT_language(DW_LANG_C)
+    1278              $C$DW$124       .dwtag  DW_TAG_TI_far_type
+    1279                      .dwattr $C$DW$124, DW_AT_type(*$C$DW$T$39)
+    1280              $C$DW$T$49      .dwtag  DW_TAG_volatile_type
+    1281                      .dwattr $C$DW$T$49, DW_AT_type(*$C$DW$124)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   33
+
+    1282              $C$DW$T$9       .dwtag  DW_TAG_base_type
+    1283                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+    1284                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+    1285                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+    1286              $C$DW$T$19      .dwtag  DW_TAG_typedef, DW_AT_name("Uint16")
+    1287                      .dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$9)
+    1288                      .dwattr $C$DW$T$19, DW_AT_language(DW_LANG_C)
+    1289              $C$DW$125       .dwtag  DW_TAG_TI_far_type
+    1290                      .dwattr $C$DW$125, DW_AT_type(*$C$DW$T$19)
+    1291              $C$DW$T$21      .dwtag  DW_TAG_volatile_type
+    1292                      .dwattr $C$DW$T$21, DW_AT_type(*$C$DW$125)
+    1293              
+    1294              $C$DW$T$22      .dwtag  DW_TAG_array_type
+    1295                      .dwattr $C$DW$T$22, DW_AT_type(*$C$DW$T$21)
+    1296                      .dwattr $C$DW$T$22, DW_AT_language(DW_LANG_C)
+    1297                      .dwattr $C$DW$T$22, DW_AT_byte_size(0x0e)
+    1298              $C$DW$126       .dwtag  DW_TAG_subrange_type
+    1299                      .dwattr $C$DW$126, DW_AT_upper_bound(0x0d)
+    1300                      .dwendtag $C$DW$T$22
+    1301              
+    1302              
+    1303              $C$DW$T$23      .dwtag  DW_TAG_array_type
+    1304                      .dwattr $C$DW$T$23, DW_AT_type(*$C$DW$T$21)
+    1305                      .dwattr $C$DW$T$23, DW_AT_language(DW_LANG_C)
+    1306                      .dwattr $C$DW$T$23, DW_AT_byte_size(0x02)
+    1307              $C$DW$127       .dwtag  DW_TAG_subrange_type
+    1308                      .dwattr $C$DW$127, DW_AT_upper_bound(0x01)
+    1309                      .dwendtag $C$DW$T$23
+    1310              
+    1311              
+    1312              $C$DW$T$24      .dwtag  DW_TAG_array_type
+    1313                      .dwattr $C$DW$T$24, DW_AT_type(*$C$DW$T$21)
+    1314                      .dwattr $C$DW$T$24, DW_AT_language(DW_LANG_C)
+    1315                      .dwattr $C$DW$T$24, DW_AT_byte_size(0x05)
+    1316              $C$DW$128       .dwtag  DW_TAG_subrange_type
+    1317                      .dwattr $C$DW$128, DW_AT_upper_bound(0x04)
+    1318                      .dwendtag $C$DW$T$24
+    1319              
+    1320              $C$DW$T$10      .dwtag  DW_TAG_base_type
+    1321                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+    1322                      .dwattr $C$DW$T$10, DW_AT_name("int")
+    1323                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+    1324              $C$DW$T$11      .dwtag  DW_TAG_base_type
+    1325                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+    1326                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+    1327                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+    1328              $C$DW$T$12      .dwtag  DW_TAG_base_type
+    1329                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+    1330                      .dwattr $C$DW$T$12, DW_AT_name("long")
+    1331                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+    1332              $C$DW$T$13      .dwtag  DW_TAG_base_type
+    1333                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+    1334                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+    1335                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+    1336              $C$DW$T$28      .dwtag  DW_TAG_typedef, DW_AT_name("Uint32")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   34
+
+    1337                      .dwattr $C$DW$T$28, DW_AT_type(*$C$DW$T$13)
+    1338                      .dwattr $C$DW$T$28, DW_AT_language(DW_LANG_C)
+    1339              $C$DW$T$14      .dwtag  DW_TAG_base_type
+    1340                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+    1341                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+    1342                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+    1343                      .dwattr $C$DW$T$14, DW_AT_bit_size(0x28)
+    1344                      .dwattr $C$DW$T$14, DW_AT_bit_offset(0x18)
+    1345              $C$DW$T$15      .dwtag  DW_TAG_base_type
+    1346                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+    1347                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+    1348                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+    1349                      .dwattr $C$DW$T$15, DW_AT_bit_size(0x28)
+    1350                      .dwattr $C$DW$T$15, DW_AT_bit_offset(0x18)
+    1351              $C$DW$T$16      .dwtag  DW_TAG_base_type
+    1352                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+    1353                      .dwattr $C$DW$T$16, DW_AT_name("float")
+    1354                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+    1355              $C$DW$T$17      .dwtag  DW_TAG_base_type
+    1356                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+    1357                      .dwattr $C$DW$T$17, DW_AT_name("double")
+    1358                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+    1359              $C$DW$T$18      .dwtag  DW_TAG_base_type
+    1360                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+    1361                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+    1362                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x02)
+    1363              $C$DW$T$51      .dwtag  DW_TAG_base_type
+    1364                      .dwattr $C$DW$T$51, DW_AT_encoding(DW_ATE_signed_char)
+    1365                      .dwattr $C$DW$T$51, DW_AT_name("signed char")
+    1366                      .dwattr $C$DW$T$51, DW_AT_byte_size(0x01)
+    1367              $C$DW$129       .dwtag  DW_TAG_TI_far_type
+    1368                      .dwattr $C$DW$129, DW_AT_type(*$C$DW$T$51)
+    1369              $C$DW$T$52      .dwtag  DW_TAG_const_type
+    1370                      .dwattr $C$DW$T$52, DW_AT_type(*$C$DW$129)
+    1371              $C$DW$T$53      .dwtag  DW_TAG_pointer_type
+    1372                      .dwattr $C$DW$T$53, DW_AT_type(*$C$DW$T$52)
+    1373                      .dwattr $C$DW$T$53, DW_AT_address_class(0x17)
+    1374                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+    1375              
+    1376              ;***************************************************************
+    1377              ;* DWARF CIE ENTRIES                                           *
+    1378              ;***************************************************************
+    1379              
+    1380              $C$DW$CIE       .dwcie 91
+    1381                      .dwcfi  cfa_register, 36
+    1382                      .dwcfi  cfa_offset, 0
+    1383                      .dwcfi  undefined, 0
+    1384                      .dwcfi  undefined, 1
+    1385                      .dwcfi  undefined, 2
+    1386                      .dwcfi  undefined, 3
+    1387                      .dwcfi  undefined, 4
+    1388                      .dwcfi  undefined, 5
+    1389                      .dwcfi  undefined, 6
+    1390                      .dwcfi  undefined, 7
+    1391                      .dwcfi  undefined, 8
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   35
+
+    1392                      .dwcfi  undefined, 9
+    1393                      .dwcfi  undefined, 10
+    1394                      .dwcfi  undefined, 11
+    1395                      .dwcfi  undefined, 12
+    1396                      .dwcfi  undefined, 13
+    1397                      .dwcfi  same_value, 14
+    1398                      .dwcfi  same_value, 15
+    1399                      .dwcfi  undefined, 16
+    1400                      .dwcfi  undefined, 17
+    1401                      .dwcfi  undefined, 18
+    1402                      .dwcfi  undefined, 19
+    1403                      .dwcfi  undefined, 20
+    1404                      .dwcfi  undefined, 21
+    1405                      .dwcfi  undefined, 22
+    1406                      .dwcfi  undefined, 23
+    1407                      .dwcfi  undefined, 24
+    1408                      .dwcfi  undefined, 25
+    1409                      .dwcfi  same_value, 26
+    1410                      .dwcfi  same_value, 27
+    1411                      .dwcfi  same_value, 28
+    1412                      .dwcfi  same_value, 29
+    1413                      .dwcfi  same_value, 30
+    1414                      .dwcfi  same_value, 31
+    1415                      .dwcfi  undefined, 32
+    1416                      .dwcfi  undefined, 33
+    1417                      .dwcfi  undefined, 34
+    1418                      .dwcfi  undefined, 35
+    1419                      .dwcfi  undefined, 36
+    1420                      .dwcfi  undefined, 37
+    1421                      .dwcfi  undefined, 38
+    1422                      .dwcfi  undefined, 39
+    1423                      .dwcfi  undefined, 40
+    1424                      .dwcfi  undefined, 41
+    1425                      .dwcfi  undefined, 42
+    1426                      .dwcfi  undefined, 43
+    1427                      .dwcfi  undefined, 44
+    1428                      .dwcfi  undefined, 45
+    1429                      .dwcfi  undefined, 46
+    1430                      .dwcfi  undefined, 47
+    1431                      .dwcfi  undefined, 48
+    1432                      .dwcfi  undefined, 49
+    1433                      .dwcfi  undefined, 50
+    1434                      .dwcfi  undefined, 51
+    1435                      .dwcfi  undefined, 52
+    1436                      .dwcfi  undefined, 53
+    1437                      .dwcfi  undefined, 54
+    1438                      .dwcfi  undefined, 55
+    1439                      .dwcfi  undefined, 56
+    1440                      .dwcfi  undefined, 57
+    1441                      .dwcfi  undefined, 58
+    1442                      .dwcfi  undefined, 59
+    1443                      .dwcfi  undefined, 60
+    1444                      .dwcfi  undefined, 61
+    1445                      .dwcfi  undefined, 62
+    1446                      .dwcfi  undefined, 63
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   36
+
+    1447                      .dwcfi  undefined, 64
+    1448                      .dwcfi  undefined, 65
+    1449                      .dwcfi  undefined, 66
+    1450                      .dwcfi  undefined, 67
+    1451                      .dwcfi  undefined, 68
+    1452                      .dwcfi  undefined, 69
+    1453                      .dwcfi  undefined, 70
+    1454                      .dwcfi  undefined, 71
+    1455                      .dwcfi  undefined, 72
+    1456                      .dwcfi  undefined, 73
+    1457                      .dwcfi  undefined, 74
+    1458                      .dwcfi  undefined, 75
+    1459                      .dwcfi  undefined, 76
+    1460                      .dwcfi  undefined, 77
+    1461                      .dwcfi  undefined, 78
+    1462                      .dwcfi  undefined, 79
+    1463                      .dwcfi  undefined, 80
+    1464                      .dwcfi  undefined, 81
+    1465                      .dwcfi  undefined, 82
+    1466                      .dwcfi  undefined, 83
+    1467                      .dwcfi  undefined, 84
+    1468                      .dwcfi  undefined, 85
+    1469                      .dwcfi  undefined, 86
+    1470                      .dwcfi  undefined, 87
+    1471                      .dwcfi  undefined, 88
+    1472                      .dwcfi  undefined, 89
+    1473                      .dwcfi  undefined, 90
+    1474                      .dwcfi  undefined, 91
+    1475                      .dwendentry
+    1476              
+    1477              ;***************************************************************
+    1478              ;* DWARF REGISTER MAP                                          *
+    1479              ;***************************************************************
+    1480              
+    1481              $C$DW$130       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1482                      .dwattr $C$DW$130, DW_AT_location[DW_OP_reg0]
+    1483              $C$DW$131       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1484                      .dwattr $C$DW$131, DW_AT_location[DW_OP_reg1]
+    1485              $C$DW$132       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0_G")
+    1486                      .dwattr $C$DW$132, DW_AT_location[DW_OP_reg2]
+    1487              $C$DW$133       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1488                      .dwattr $C$DW$133, DW_AT_location[DW_OP_reg3]
+    1489              $C$DW$134       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1490                      .dwattr $C$DW$134, DW_AT_location[DW_OP_reg4]
+    1491              $C$DW$135       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1_G")
+    1492                      .dwattr $C$DW$135, DW_AT_location[DW_OP_reg5]
+    1493              $C$DW$136       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1494                      .dwattr $C$DW$136, DW_AT_location[DW_OP_reg6]
+    1495              $C$DW$137       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1496                      .dwattr $C$DW$137, DW_AT_location[DW_OP_reg7]
+    1497              $C$DW$138       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2_G")
+    1498                      .dwattr $C$DW$138, DW_AT_location[DW_OP_reg8]
+    1499              $C$DW$139       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    1500                      .dwattr $C$DW$139, DW_AT_location[DW_OP_reg9]
+    1501              $C$DW$140       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   37
+
+    1502                      .dwattr $C$DW$140, DW_AT_location[DW_OP_reg10]
+    1503              $C$DW$141       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3_G")
+    1504                      .dwattr $C$DW$141, DW_AT_location[DW_OP_reg11]
+    1505              $C$DW$142       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T0")
+    1506                      .dwattr $C$DW$142, DW_AT_location[DW_OP_reg12]
+    1507              $C$DW$143       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T1")
+    1508                      .dwattr $C$DW$143, DW_AT_location[DW_OP_reg13]
+    1509              $C$DW$144       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T2")
+    1510                      .dwattr $C$DW$144, DW_AT_location[DW_OP_reg14]
+    1511              $C$DW$145       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T3")
+    1512                      .dwattr $C$DW$145, DW_AT_location[DW_OP_reg15]
+    1513              $C$DW$146       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+    1514                      .dwattr $C$DW$146, DW_AT_location[DW_OP_reg16]
+    1515              $C$DW$147       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+    1516                      .dwattr $C$DW$147, DW_AT_location[DW_OP_reg17]
+    1517              $C$DW$148       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+    1518                      .dwattr $C$DW$148, DW_AT_location[DW_OP_reg18]
+    1519              $C$DW$149       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+    1520                      .dwattr $C$DW$149, DW_AT_location[DW_OP_reg19]
+    1521              $C$DW$150       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+    1522                      .dwattr $C$DW$150, DW_AT_location[DW_OP_reg20]
+    1523              $C$DW$151       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+    1524                      .dwattr $C$DW$151, DW_AT_location[DW_OP_reg21]
+    1525              $C$DW$152       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+    1526                      .dwattr $C$DW$152, DW_AT_location[DW_OP_reg22]
+    1527              $C$DW$153       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+    1528                      .dwattr $C$DW$153, DW_AT_location[DW_OP_reg23]
+    1529              $C$DW$154       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+    1530                      .dwattr $C$DW$154, DW_AT_location[DW_OP_reg24]
+    1531              $C$DW$155       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+    1532                      .dwattr $C$DW$155, DW_AT_location[DW_OP_reg25]
+    1533              $C$DW$156       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+    1534                      .dwattr $C$DW$156, DW_AT_location[DW_OP_reg26]
+    1535              $C$DW$157       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+    1536                      .dwattr $C$DW$157, DW_AT_location[DW_OP_reg27]
+    1537              $C$DW$158       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+    1538                      .dwattr $C$DW$158, DW_AT_location[DW_OP_reg28]
+    1539              $C$DW$159       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+    1540                      .dwattr $C$DW$159, DW_AT_location[DW_OP_reg29]
+    1541              $C$DW$160       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+    1542                      .dwattr $C$DW$160, DW_AT_location[DW_OP_reg30]
+    1543              $C$DW$161       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+    1544                      .dwattr $C$DW$161, DW_AT_location[DW_OP_reg31]
+    1545              $C$DW$162       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+    1546                      .dwattr $C$DW$162, DW_AT_location[DW_OP_regx 0x20]
+    1547              $C$DW$163       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XFP")
+    1548                      .dwattr $C$DW$163, DW_AT_location[DW_OP_regx 0x21]
+    1549              $C$DW$164       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+    1550                      .dwattr $C$DW$164, DW_AT_location[DW_OP_regx 0x22]
+    1551              $C$DW$165       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+    1552                      .dwattr $C$DW$165, DW_AT_location[DW_OP_regx 0x23]
+    1553              $C$DW$166       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XSP")
+    1554                      .dwattr $C$DW$166, DW_AT_location[DW_OP_regx 0x24]
+    1555              $C$DW$167       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BKC")
+    1556                      .dwattr $C$DW$167, DW_AT_location[DW_OP_regx 0x25]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   38
+
+    1557              $C$DW$168       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK03")
+    1558                      .dwattr $C$DW$168, DW_AT_location[DW_OP_regx 0x26]
+    1559              $C$DW$169       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK47")
+    1560                      .dwattr $C$DW$169, DW_AT_location[DW_OP_regx 0x27]
+    1561              $C$DW$170       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+    1562                      .dwattr $C$DW$170, DW_AT_location[DW_OP_regx 0x28]
+    1563              $C$DW$171       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+    1564                      .dwattr $C$DW$171, DW_AT_location[DW_OP_regx 0x29]
+    1565              $C$DW$172       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST2")
+    1566                      .dwattr $C$DW$172, DW_AT_location[DW_OP_regx 0x2a]
+    1567              $C$DW$173       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST3")
+    1568                      .dwattr $C$DW$173, DW_AT_location[DW_OP_regx 0x2b]
+    1569              $C$DW$174       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP")
+    1570                      .dwattr $C$DW$174, DW_AT_location[DW_OP_regx 0x2c]
+    1571              $C$DW$175       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP05")
+    1572                      .dwattr $C$DW$175, DW_AT_location[DW_OP_regx 0x2d]
+    1573              $C$DW$176       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP67")
+    1574                      .dwattr $C$DW$176, DW_AT_location[DW_OP_regx 0x2e]
+    1575              $C$DW$177       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC0")
+    1576                      .dwattr $C$DW$177, DW_AT_location[DW_OP_regx 0x2f]
+    1577              $C$DW$178       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0")
+    1578                      .dwattr $C$DW$178, DW_AT_location[DW_OP_regx 0x30]
+    1579              $C$DW$179       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0_H")
+    1580                      .dwattr $C$DW$179, DW_AT_location[DW_OP_regx 0x31]
+    1581              $C$DW$180       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0")
+    1582                      .dwattr $C$DW$180, DW_AT_location[DW_OP_regx 0x32]
+    1583              $C$DW$181       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0_H")
+    1584                      .dwattr $C$DW$181, DW_AT_location[DW_OP_regx 0x33]
+    1585              $C$DW$182       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRS1")
+    1586                      .dwattr $C$DW$182, DW_AT_location[DW_OP_regx 0x34]
+    1587              $C$DW$183       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC1")
+    1588                      .dwattr $C$DW$183, DW_AT_location[DW_OP_regx 0x35]
+    1589              $C$DW$184       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1")
+    1590                      .dwattr $C$DW$184, DW_AT_location[DW_OP_regx 0x36]
+    1591              $C$DW$185       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1_H")
+    1592                      .dwattr $C$DW$185, DW_AT_location[DW_OP_regx 0x37]
+    1593              $C$DW$186       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1")
+    1594                      .dwattr $C$DW$186, DW_AT_location[DW_OP_regx 0x38]
+    1595              $C$DW$187       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1_H")
+    1596                      .dwattr $C$DW$187, DW_AT_location[DW_OP_regx 0x39]
+    1597              $C$DW$188       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CSR")
+    1598                      .dwattr $C$DW$188, DW_AT_location[DW_OP_regx 0x3a]
+    1599              $C$DW$189       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPTC")
+    1600                      .dwattr $C$DW$189, DW_AT_location[DW_OP_regx 0x3b]
+    1601              $C$DW$190       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDP")
+    1602                      .dwattr $C$DW$190, DW_AT_location[DW_OP_regx 0x3c]
+    1603              $C$DW$191       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XCDP")
+    1604                      .dwattr $C$DW$191, DW_AT_location[DW_OP_regx 0x3d]
+    1605              $C$DW$192       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN0")
+    1606                      .dwattr $C$DW$192, DW_AT_location[DW_OP_regx 0x3e]
+    1607              $C$DW$193       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN1")
+    1608                      .dwattr $C$DW$193, DW_AT_location[DW_OP_regx 0x3f]
+    1609              $C$DW$194       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA01")
+    1610                      .dwattr $C$DW$194, DW_AT_location[DW_OP_regx 0x40]
+    1611              $C$DW$195       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA23")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   39
+
+    1612                      .dwattr $C$DW$195, DW_AT_location[DW_OP_regx 0x41]
+    1613              $C$DW$196       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA45")
+    1614                      .dwattr $C$DW$196, DW_AT_location[DW_OP_regx 0x42]
+    1615              $C$DW$197       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA67")
+    1616                      .dwattr $C$DW$197, DW_AT_location[DW_OP_regx 0x43]
+    1617              $C$DW$198       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSAC")
+    1618                      .dwattr $C$DW$198, DW_AT_location[DW_OP_regx 0x44]
+    1619              $C$DW$199       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CARRY")
+    1620                      .dwattr $C$DW$199, DW_AT_location[DW_OP_regx 0x45]
+    1621              $C$DW$200       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC1")
+    1622                      .dwattr $C$DW$200, DW_AT_location[DW_OP_regx 0x46]
+    1623              $C$DW$201       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC2")
+    1624                      .dwattr $C$DW$201, DW_AT_location[DW_OP_regx 0x47]
+    1625              $C$DW$202       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("M40")
+    1626                      .dwattr $C$DW$202, DW_AT_location[DW_OP_regx 0x48]
+    1627              $C$DW$203       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXMD")
+    1628                      .dwattr $C$DW$203, DW_AT_location[DW_OP_regx 0x49]
+    1629              $C$DW$204       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ARMS")
+    1630                      .dwattr $C$DW$204, DW_AT_location[DW_OP_regx 0x4a]
+    1631              $C$DW$205       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("C54CM")
+    1632                      .dwattr $C$DW$205, DW_AT_location[DW_OP_regx 0x4b]
+    1633              $C$DW$206       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATA")
+    1634                      .dwattr $C$DW$206, DW_AT_location[DW_OP_regx 0x4c]
+    1635              $C$DW$207       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATD")
+    1636                      .dwattr $C$DW$207, DW_AT_location[DW_OP_regx 0x4d]
+    1637              $C$DW$208       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RDM")
+    1638                      .dwattr $C$DW$208, DW_AT_location[DW_OP_regx 0x4e]
+    1639              $C$DW$209       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FRCT")
+    1640                      .dwattr $C$DW$209, DW_AT_location[DW_OP_regx 0x4f]
+    1641              $C$DW$210       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SMUL")
+    1642                      .dwattr $C$DW$210, DW_AT_location[DW_OP_regx 0x50]
+    1643              $C$DW$211       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+    1644                      .dwattr $C$DW$211, DW_AT_location[DW_OP_regx 0x51]
+    1645              $C$DW$212       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0LC")
+    1646                      .dwattr $C$DW$212, DW_AT_location[DW_OP_regx 0x52]
+    1647              $C$DW$213       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1LC")
+    1648                      .dwattr $C$DW$213, DW_AT_location[DW_OP_regx 0x53]
+    1649              $C$DW$214       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2LC")
+    1650                      .dwattr $C$DW$214, DW_AT_location[DW_OP_regx 0x54]
+    1651              $C$DW$215       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3LC")
+    1652                      .dwattr $C$DW$215, DW_AT_location[DW_OP_regx 0x55]
+    1653              $C$DW$216       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4LC")
+    1654                      .dwattr $C$DW$216, DW_AT_location[DW_OP_regx 0x56]
+    1655              $C$DW$217       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5LC")
+    1656                      .dwattr $C$DW$217, DW_AT_location[DW_OP_regx 0x57]
+    1657              $C$DW$218       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6LC")
+    1658                      .dwattr $C$DW$218, DW_AT_location[DW_OP_regx 0x58]
+    1659              $C$DW$219       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7LC")
+    1660                      .dwattr $C$DW$219, DW_AT_location[DW_OP_regx 0x59]
+    1661              $C$DW$220       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDPLC")
+    1662                      .dwattr $C$DW$220, DW_AT_location[DW_OP_regx 0x5a]
+    1663              $C$DW$221       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+    1664                      .dwattr $C$DW$221, DW_AT_location[DW_OP_regx 0x5b]
+    1665                      .dwendtag $C$DW$CU
+    1666              
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:50 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_pll_example.asm                                                  PAGE   40
+
+    1666              
+    1666              
+
+No Assembly Errors, No Assembly Warnings

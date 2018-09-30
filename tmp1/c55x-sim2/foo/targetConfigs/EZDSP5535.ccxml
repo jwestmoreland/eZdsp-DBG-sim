@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configurations XML_version="1.2" id="configurations_0">
+    <configuration XML_version="1.2" id="configuration_0">
+        <instance XML_version="1.2" desc="Texas Instruments Simulator" href="connections/tisim_connection.xml" id="Texas Instruments Simulator" xml="tisim_connection.xml" xmlpath="connections"/>
+        <connection XML_version="1.2" id="Texas Instruments Simulator">
+            <instance XML_version="1.2" href="drivers/tisim_isa_c55x_ca_unsup.xml" id="drivers" xml="tisim_isa_c55x_ca_unsup.xml" xmlpath="drivers"/>
+            <platform XML_version="1.2" id="platform_0">
+                <instance XML_version="1.2" desc="EZDSP5535" href="boards/ezdsp5535.xml" id="EZDSP5535" xml="ezdsp5535.xml" xmlpath="boards"/>
+            <board XML_version="1.2" desc="EZDSP5535" description="Spectrum Digital C5535 EZDSP" id="EZDSP5535">
+                    <device HW_revision="1" XML_version="1.2" desc="TMS320VC5535_0" description="" id="TMS320VC5535_0" partnum="TMS320VC5535" simulation="no">
+                        <cpu HW_revision="1.0" XML_version="1.2" description="The C55xx CPU" deviceSim="false" id="C55xx" isa="TMS320C55XX">
+                            <property Type="stringfield" Value="No" id="Generate Address Trace"/>
+                            <property Type="choicelist" Value="0" id="Slave Processor"/>
+                        <property Type="filepathfield" Value="..\ezdsp5535.gel" id="GEL File"/>
+                        <property Type="stringfield" Value="No" id="Simulate Overlay"/>
+                            <property Type="stringfield" Value="No" id="Detect Page Wrap around"/>
+                        </cpu>
+                    </device>
+                </board>
+            </platform>
+        </connection>
+    </configuration>
+</configurations>

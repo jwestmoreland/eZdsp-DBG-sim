@@ -1,0 +1,2965 @@
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE    1
+
+    2079              ; Temporary Registers Used: None
+       1              ;*******************************************************************************
+       2              ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
+       3              ;* Date/Time created: Sat Sep 29 23:08:45 2018                                 *
+       4              ;*******************************************************************************
+       5                      .compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --si
+       6                      .mmregs
+       7                      .cpl_on
+       8                      .arms_on
+       9                      .c54cm_off
+      10                      .asg AR6, FP
+      11                      .asg XAR6, XFP
+      12                      .asg DPH, MDP
+      13                      .model call=c55_std
+      14                      .model mem=large
+      15                      .noremark 5002  ; code respects overwrite rules
+      16              ;*******************************************************************************
+      17              ;* GLOBAL FILE PARAMETERS                                                      *
+      18              ;*                                                                             *
+      19              ;*   Architecture       : TMS320C55x                                           *
+      20              ;*   Optimizing for     : Speed                                                *
+      21              ;*   Memory             : Large Model (23-Bit Data Pointers)                   *
+      22              ;*   Calls              : Normal Library ASM calls                             *
+      23              ;*   Debug Info         : Standard TI Debug Information                        *
+      24              ;*******************************************************************************
+      25              
+      26              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+      27                      .dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_
+      28                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas In
+      29                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      30                      .dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+      31              ;******************************************************************************
+      32              ;* CINIT RECORDS                                                              *
+      33              ;******************************************************************************
+      34 000000               .sect   ".cinit"
+      35                      .align  1
+      36 000000 0003          .field          $C$IR_1,16
+      37 000001 0000-         .field          _cmdBuffer+0,24
+         000002 8100 
+      38 000002 8100          .field          0,8
+      39 000003 0000          .field  0,16                    ; _cmdBuffer[0] @ 0
+      40 000004 0000          .field  0,16                    ; _cmdBuffer[1] @ 16
+      41 000005 0000          .field  0,16                    ; _cmdBuffer[2] @ 32
+      42              $C$IR_1:        .set    3
+      43              
+      44 000006               .sect   ".cinit"
+      45                      .align  1
+      46 000006 0001          .field          1,16
+      47 000007 0000-         .field          _PaSs_StAtE+0,24
+         000008 8400 
+      48 000008 8400          .field          0,8
+      49 000009 0001          .field  1,16                    ; _PaSs_StAtE @ 0
+      50              
+      51 00000a               .sect   ".cinit"
+      52                      .align  1
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE    2
+
+      53 00000a 0001          .field          1,16
+      54 00000b 0000-         .field          _PaSs+0,24
+         00000c 8500 
+      55 00000c 8500          .field          0,8
+      56 00000d 0000          .field  0,16                    ; _PaSs @ 0
+      57              
+      58              
+      59              $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("SPI_init")
+      60                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_SPI_init")
+      61                      .dwattr $C$DW$1, DW_AT_type(*$C$DW$T$57)
+      62                      .dwattr $C$DW$1, DW_AT_declaration
+      63                      .dwattr $C$DW$1, DW_AT_external
+      64              
+      65              $C$DW$2 .dwtag  DW_TAG_subprogram, DW_AT_name("SPI_deInit")
+      66                      .dwattr $C$DW$2, DW_AT_TI_symbol_name("_SPI_deInit")
+      67                      .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$57)
+      68                      .dwattr $C$DW$2, DW_AT_declaration
+      69                      .dwattr $C$DW$2, DW_AT_external
+      70              
+      71              $C$DW$3 .dwtag  DW_TAG_subprogram, DW_AT_name("SPI_open")
+      72                      .dwattr $C$DW$3, DW_AT_TI_symbol_name("_SPI_open")
+      73                      .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$44)
+      74                      .dwattr $C$DW$3, DW_AT_declaration
+      75                      .dwattr $C$DW$3, DW_AT_external
+      76              $C$DW$4 .dwtag  DW_TAG_formal_parameter
+      77                      .dwattr $C$DW$4, DW_AT_type(*$C$DW$T$21)
+      78              $C$DW$5 .dwtag  DW_TAG_formal_parameter
+      79                      .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$23)
+      80                      .dwendtag $C$DW$3
+      81              
+      82              
+      83              $C$DW$6 .dwtag  DW_TAG_subprogram, DW_AT_name("SPI_close")
+      84                      .dwattr $C$DW$6, DW_AT_TI_symbol_name("_SPI_close")
+      85                      .dwattr $C$DW$6, DW_AT_type(*$C$DW$T$57)
+      86                      .dwattr $C$DW$6, DW_AT_declaration
+      87                      .dwattr $C$DW$6, DW_AT_external
+      88              $C$DW$7 .dwtag  DW_TAG_formal_parameter
+      89                      .dwattr $C$DW$7, DW_AT_type(*$C$DW$T$44)
+      90                      .dwendtag $C$DW$6
+      91              
+      92              
+      93              $C$DW$8 .dwtag  DW_TAG_subprogram, DW_AT_name("SPI_config")
+      94                      .dwattr $C$DW$8, DW_AT_TI_symbol_name("_SPI_config")
+      95                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$57)
+      96                      .dwattr $C$DW$8, DW_AT_declaration
+      97                      .dwattr $C$DW$8, DW_AT_external
+      98              $C$DW$9 .dwtag  DW_TAG_formal_parameter
+      99                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$44)
+     100              $C$DW$10        .dwtag  DW_TAG_formal_parameter
+     101                      .dwattr $C$DW$10, DW_AT_type(*$C$DW$T$48)
+     102                      .dwendtag $C$DW$8
+     103              
+     104              
+     105              $C$DW$11        .dwtag  DW_TAG_subprogram, DW_AT_name("SPI_dataTransaction")
+     106                      .dwattr $C$DW$11, DW_AT_TI_symbol_name("_SPI_dataTransaction")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE    3
+
+     107                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$57)
+     108                      .dwattr $C$DW$11, DW_AT_declaration
+     109                      .dwattr $C$DW$11, DW_AT_external
+     110              $C$DW$12        .dwtag  DW_TAG_formal_parameter
+     111                      .dwattr $C$DW$12, DW_AT_type(*$C$DW$T$44)
+     112              $C$DW$13        .dwtag  DW_TAG_formal_parameter
+     113                      .dwattr $C$DW$13, DW_AT_type(*$C$DW$T$64)
+     114              $C$DW$14        .dwtag  DW_TAG_formal_parameter
+     115                      .dwattr $C$DW$14, DW_AT_type(*$C$DW$T$19)
+     116              $C$DW$15        .dwtag  DW_TAG_formal_parameter
+     117                      .dwattr $C$DW$15, DW_AT_type(*$C$DW$T$54)
+     118                      .dwendtag $C$DW$11
+     119              
+     120              
+     121              $C$DW$16        .dwtag  DW_TAG_subprogram, DW_AT_name("printf")
+     122                      .dwattr $C$DW$16, DW_AT_TI_symbol_name("_printf")
+     123                      .dwattr $C$DW$16, DW_AT_type(*$C$DW$T$10)
+     124                      .dwattr $C$DW$16, DW_AT_declaration
+     125                      .dwattr $C$DW$16, DW_AT_external
+     126              $C$DW$17        .dwtag  DW_TAG_formal_parameter
+     127                      .dwattr $C$DW$17, DW_AT_type(*$C$DW$T$76)
+     128              $C$DW$18        .dwtag  DW_TAG_unspecified_parameters
+     129                      .dwendtag $C$DW$16
+     130              
+     131                      .global _spiWriteBuff
+     132 000000               .bss    _spiWriteBuff,64,0,0
+     133              $C$DW$19        .dwtag  DW_TAG_variable, DW_AT_name("spiWriteBuff")
+     134                      .dwattr $C$DW$19, DW_AT_TI_symbol_name("_spiWriteBuff")
+     135                      .dwattr $C$DW$19, DW_AT_location[DW_OP_addr _spiWriteBuff]
+     136                      .dwattr $C$DW$19, DW_AT_type(*$C$DW$T$71)
+     137                      .dwattr $C$DW$19, DW_AT_external
+     138                      .global _spiReadBuff
+     139 000040               .bss    _spiReadBuff,64,0,0
+     140              $C$DW$20        .dwtag  DW_TAG_variable, DW_AT_name("spiReadBuff")
+     141                      .dwattr $C$DW$20, DW_AT_TI_symbol_name("_spiReadBuff")
+     142                      .dwattr $C$DW$20, DW_AT_location[DW_OP_addr _spiReadBuff]
+     143                      .dwattr $C$DW$20, DW_AT_type(*$C$DW$T$71)
+     144                      .dwattr $C$DW$20, DW_AT_external
+     145                      .global _byteBuf
+     146 000080               .bss    _byteBuf,1,0,0
+     147              $C$DW$21        .dwtag  DW_TAG_variable, DW_AT_name("byteBuf")
+     148                      .dwattr $C$DW$21, DW_AT_TI_symbol_name("_byteBuf")
+     149                      .dwattr $C$DW$21, DW_AT_location[DW_OP_addr _byteBuf]
+     150                      .dwattr $C$DW$21, DW_AT_type(*$C$DW$T$72)
+     151                      .dwattr $C$DW$21, DW_AT_external
+     152                      .global _cmdBuffer
+     153 000081               .bss    _cmdBuffer,3,0,0
+     154              $C$DW$22        .dwtag  DW_TAG_variable, DW_AT_name("cmdBuffer")
+     155                      .dwattr $C$DW$22, DW_AT_TI_symbol_name("_cmdBuffer")
+     156                      .dwattr $C$DW$22, DW_AT_location[DW_OP_addr _cmdBuffer]
+     157                      .dwattr $C$DW$22, DW_AT_type(*$C$DW$T$73)
+     158                      .dwattr $C$DW$22, DW_AT_external
+     159                      .global _PaSs_StAtE
+     160 000084               .bss    _PaSs_StAtE,1,0,0
+     161              $C$DW$23        .dwtag  DW_TAG_variable, DW_AT_name("PaSs_StAtE")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE    4
+
+     162                      .dwattr $C$DW$23, DW_AT_TI_symbol_name("_PaSs_StAtE")
+     163                      .dwattr $C$DW$23, DW_AT_location[DW_OP_addr _PaSs_StAtE]
+     164                      .dwattr $C$DW$23, DW_AT_type(*$C$DW$T$67)
+     165                      .dwattr $C$DW$23, DW_AT_external
+     166                      .global _PaSs
+     167 000085               .bss    _PaSs,1,0,0
+     168              $C$DW$24        .dwtag  DW_TAG_variable, DW_AT_name("PaSs")
+     169                      .dwattr $C$DW$24, DW_AT_TI_symbol_name("_PaSs")
+     170                      .dwattr $C$DW$24, DW_AT_location[DW_OP_addr _PaSs]
+     171                      .dwattr $C$DW$24, DW_AT_type(*$C$DW$T$67)
+     172                      .dwattr $C$DW$24, DW_AT_external
+     173              ;       F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1654812 
+     174 000000               .sect   ".text"
+     175                      .align 4
+     176                      .global _main
+     177              
+     178              $C$DW$25        .dwtag  DW_TAG_subprogram, DW_AT_name("main")
+     179                      .dwattr $C$DW$25, DW_AT_low_pc(_main)
+     180                      .dwattr $C$DW$25, DW_AT_high_pc(0x00)
+     181                      .dwattr $C$DW$25, DW_AT_TI_symbol_name("_main")
+     182                      .dwattr $C$DW$25, DW_AT_external
+     183                      .dwattr $C$DW$25, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+     184                      .dwattr $C$DW$25, DW_AT_TI_begin_line(0x55)
+     185                      .dwattr $C$DW$25, DW_AT_TI_begin_column(0x06)
+     186                      .dwattr $C$DW$25, DW_AT_TI_max_frame_size(0x04)
+     187                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     188              
+     189                      .dwfde $C$DW$CIE, _main
+     190              ;*******************************************************************************
+     191              ;* FUNCTION NAME: main                                                         *
+     192              ;*                                                                             *
+     193              ;*   Function Uses Regs : T0,AR1,AR3,XAR3,SP,M40,SATA,SATD,RDM,FRCT,SMUL       *
+     194              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     195              ;*   Total Frame Size   : 4 words                                              *
+     196              ;*                        (1 return address/alignment)                         *
+     197              ;*                        (2 function parameters)                              *
+     198              ;*                        (1 local values)                                     *
+     199              ;*   Min System Stack   : 1 word                                               *
+     200              ;*******************************************************************************
+     201 000000       _main:
+     202                      .dwcfi  cfa_offset, 1
+     203                      .dwcfi  save_reg_to_mem, 91, -1
+     204 000000 4EFD          AADD #-3, SP
+     205                      .dwcfi  cfa_offset, 4
+     206              $C$DW$26        .dwtag  DW_TAG_variable, DW_AT_name("status")
+     207                      .dwattr $C$DW$26, DW_AT_TI_symbol_name("_status")
+     208                      .dwattr $C$DW$26, DW_AT_type(*$C$DW$T$56)
+     209                      .dwattr $C$DW$26, DW_AT_location[DW_OP_bregx 0x24 2]
+     210                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     211 000002 EC31          AMOV #$C$FSL1, XAR3 ; |89| 
+         000004 BE00 
+         000006 0000+
+     212 000008 EB00          MOV XAR3, dbl(*SP(#0))
+         00000a B5   
+     213              $C$DW$27        .dwtag  DW_TAG_TI_branch
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE    5
+
+     214                      .dwattr $C$DW$27, DW_AT_low_pc(0x00)
+     215                      .dwattr $C$DW$27, DW_AT_name("_printf")
+     216                      .dwattr $C$DW$27, DW_AT_TI_call
+     217 00000b 6C00          CALL #_printf ; |89| 
+         00000d 0000!
+     218                                                      ; call occurs [#_printf] ; |89| 
+     219                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     220              $C$DW$28        .dwtag  DW_TAG_TI_branch
+     221                      .dwattr $C$DW$28, DW_AT_low_pc(0x00)
+     222                      .dwattr $C$DW$28, DW_AT_name("_spi_sample")
+     223                      .dwattr $C$DW$28, DW_AT_TI_call
+     224 00000f 0800          CALL #_spi_sample ; |91| 
+         000011 3A   
+     225                                                      ; call occurs [#_spi_sample] ; |91| 
+     226 000012 C404          MOV T0, *SP(#2) ; |91| 
+     227                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     228 000014 2249          MOV T0, AR1
+     229 000016 0409          BCC $C$L1,AR1 == #0 ; |92| 
+         000018 15   
+     230                                                      ; branchcc occurs ; |92| 
+     231                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     232 000019 EC31          AMOV #$C$FSL2, XAR3 ; |94| 
+         00001b BE00 
+         00001d 0010+
+     233 00001f EB00          MOV XAR3, dbl(*SP(#0))
+         000021 B5   
+     234              $C$DW$29        .dwtag  DW_TAG_TI_branch
+     235                      .dwattr $C$DW$29, DW_AT_low_pc(0x00)
+     236                      .dwattr $C$DW$29, DW_AT_name("_printf")
+     237                      .dwattr $C$DW$29, DW_AT_TI_call
+     238 000022 6C00          CALL #_printf ; |94| 
+         000024 0000!
+     239                                                      ; call occurs [#_printf] ; |94| 
+     240                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     241 000026 E631          MOV #0, *(#_PaSs_StAtE) ; |97| 
+         000028 0000 
+         00002a 0084-
+     242                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     243 00002c 4A0D          B $C$L2   ; |99| 
+     244                                                      ; branch occurs ; |99| 
+     245 00002e       $C$L1:    
+     246                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     247 00002e EC31          AMOV #$C$FSL3, XAR3 ; |102| 
+         000030 BE00 
+         000032 0028+
+     248 000034 EB00          MOV XAR3, dbl(*SP(#0))
+         000036 B5   
+     249              $C$DW$30        .dwtag  DW_TAG_TI_branch
+     250                      .dwattr $C$DW$30, DW_AT_low_pc(0x00)
+     251                      .dwattr $C$DW$30, DW_AT_name("_printf")
+     252                      .dwattr $C$DW$30, DW_AT_TI_call
+     253 000037 6C00          CALL #_printf ; |102| 
+         000039 0000!
+     254                                                      ; call occurs [#_printf] ; |102| 
+     255 00003b       $C$L2:    
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE    6
+
+     256                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     257 00003b A931          MOV *(#_PaSs_StAtE), AR1 ; |106| 
+         00003d 0000 
+         00003f 84-  
+     258 000040 C931          MOV AR1, *(#_PaSs) ; |106| 
+         000042 0000 
+         000044 85-  
+     259                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     260 000045 4E03          AADD #3, SP
+     261                      .dwcfi  cfa_offset, 1
+     262              $C$DW$31        .dwtag  DW_TAG_TI_branch
+     263                      .dwattr $C$DW$31, DW_AT_low_pc(0x00)
+     264                      .dwattr $C$DW$31, DW_AT_TI_return
+     265 000047 4804          RET
+     266                                                      ; return occurs
+     267                      .dwattr $C$DW$25, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/C
+     268                      .dwattr $C$DW$25, DW_AT_TI_end_line(0x6f)
+     269                      .dwattr $C$DW$25, DW_AT_TI_end_column(0x01)
+     270                      .dwendentry
+     271                      .dwendtag $C$DW$25
+     272              
+     273 000049               .sect   ".text"
+     274                      .align 4
+     275                      .global _spi_sample
+     276              
+     277              $C$DW$32        .dwtag  DW_TAG_subprogram, DW_AT_name("spi_sample")
+     278                      .dwattr $C$DW$32, DW_AT_low_pc(_spi_sample)
+     279                      .dwattr $C$DW$32, DW_AT_high_pc(0x00)
+     280                      .dwattr $C$DW$32, DW_AT_TI_symbol_name("_spi_sample")
+     281                      .dwattr $C$DW$32, DW_AT_external
+     282                      .dwattr $C$DW$32, DW_AT_type(*$C$DW$T$56)
+     283                      .dwattr $C$DW$32, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+     284                      .dwattr $C$DW$32, DW_AT_TI_begin_line(0x71)
+     285                      .dwattr $C$DW$32, DW_AT_TI_begin_column(0x07)
+     286                      .dwattr $C$DW$32, DW_AT_TI_max_frame_size(0x18)
+     287                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     288              
+     289                      .dwfde $C$DW$CIE, _spi_sample
+     290              ;*******************************************************************************
+     291              ;* FUNCTION NAME: spi_sample                                                   *
+     292              ;*                                                                             *
+     293              ;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,T1,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,*
+     294              ;*                        SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL             *
+     295              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     296              ;*   Total Frame Size   : 24 words                                             *
+     297              ;*                        (1 return address/alignment)                         *
+     298              ;*                        (2 function parameters)                              *
+     299              ;*                        (21 local values)                                    *
+     300              ;*   Min System Stack   : 1 word                                               *
+     301              ;*******************************************************************************
+     302 00004c       _spi_sample:
+     303                      .dwcfi  cfa_offset, 1
+     304                      .dwcfi  save_reg_to_mem, 91, -1
+     305 00004c 4EE9          AADD #-23, SP
+     306                      .dwcfi  cfa_offset, 24
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE    7
+
+     307              $C$DW$33        .dwtag  DW_TAG_variable, DW_AT_name("status")
+     308                      .dwattr $C$DW$33, DW_AT_TI_symbol_name("_status")
+     309                      .dwattr $C$DW$33, DW_AT_type(*$C$DW$T$56)
+     310                      .dwattr $C$DW$33, DW_AT_location[DW_OP_bregx 0x24 2]
+     311              $C$DW$34        .dwtag  DW_TAG_variable, DW_AT_name("result")
+     312                      .dwattr $C$DW$34, DW_AT_TI_symbol_name("_result")
+     313                      .dwattr $C$DW$34, DW_AT_type(*$C$DW$T$56)
+     314                      .dwattr $C$DW$34, DW_AT_location[DW_OP_bregx 0x24 3]
+     315              $C$DW$35        .dwtag  DW_TAG_variable, DW_AT_name("hSpi")
+     316                      .dwattr $C$DW$35, DW_AT_TI_symbol_name("_hSpi")
+     317                      .dwattr $C$DW$35, DW_AT_type(*$C$DW$T$44)
+     318                      .dwattr $C$DW$35, DW_AT_location[DW_OP_bregx 0x24 4]
+     319              $C$DW$36        .dwtag  DW_TAG_variable, DW_AT_name("hwConfig")
+     320                      .dwattr $C$DW$36, DW_AT_TI_symbol_name("_hwConfig")
+     321                      .dwattr $C$DW$36, DW_AT_type(*$C$DW$T$47)
+     322                      .dwattr $C$DW$36, DW_AT_location[DW_OP_bregx 0x24 6]
+     323              $C$DW$37        .dwtag  DW_TAG_variable, DW_AT_name("looper")
+     324                      .dwattr $C$DW$37, DW_AT_TI_symbol_name("_looper")
+     325                      .dwattr $C$DW$37, DW_AT_type(*$C$DW$T$80)
+     326                      .dwattr $C$DW$37, DW_AT_location[DW_OP_bregx 0x24 16]
+     327              $C$DW$38        .dwtag  DW_TAG_variable, DW_AT_name("value")
+     328                      .dwattr $C$DW$38, DW_AT_TI_symbol_name("_value")
+     329                      .dwattr $C$DW$38, DW_AT_type(*$C$DW$T$40)
+     330                      .dwattr $C$DW$38, DW_AT_location[DW_OP_bregx 0x24 18]
+     331              $C$DW$39        .dwtag  DW_TAG_variable, DW_AT_name("pageNo")
+     332                      .dwattr $C$DW$39, DW_AT_TI_symbol_name("_pageNo")
+     333                      .dwattr $C$DW$39, DW_AT_type(*$C$DW$T$19)
+     334                      .dwattr $C$DW$39, DW_AT_location[DW_OP_bregx 0x24 19]
+     335              $C$DW$40        .dwtag  DW_TAG_variable, DW_AT_name("pollStatus")
+     336                      .dwattr $C$DW$40, DW_AT_TI_symbol_name("_pollStatus")
+     337                      .dwattr $C$DW$40, DW_AT_type(*$C$DW$T$40)
+     338                      .dwattr $C$DW$40, DW_AT_location[DW_OP_bregx 0x24 20]
+     339              $C$DW$41        .dwtag  DW_TAG_variable, DW_AT_name("delay")
+     340                      .dwattr $C$DW$41, DW_AT_TI_symbol_name("_delay")
+     341                      .dwattr $C$DW$41, DW_AT_type(*$C$DW$T$40)
+     342                      .dwattr $C$DW$41, DW_AT_location[DW_OP_bregx 0x24 21]
+     343              $C$DW$42        .dwtag  DW_TAG_variable, DW_AT_name("fnCnt")
+     344                      .dwattr $C$DW$42, DW_AT_TI_symbol_name("_fnCnt")
+     345                      .dwattr $C$DW$42, DW_AT_type(*$C$DW$T$40)
+     346                      .dwattr $C$DW$42, DW_AT_location[DW_OP_bregx 0x24 22]
+     347                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     348 00004e E604          MOV #1, *SP(#2) ; |115| 
+         000050 01   
+     349                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     350 000051 E624          MOV #0, *SP(#18) ; |120| 
+         000053 00   
+     351                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     352 000054 E626          MOV #0, *SP(#19) ; |121| 
+         000056 00   
+     353                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     354              $C$DW$43        .dwtag  DW_TAG_TI_branch
+     355                      .dwattr $C$DW$43, DW_AT_low_pc(0x00)
+     356                      .dwattr $C$DW$43, DW_AT_name("_SPI_init")
+     357                      .dwattr $C$DW$43, DW_AT_TI_call
+     358 000057 6C00          CALL #_SPI_init ; |126| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE    8
+
+         000059 0000!
+     359                                                      ; call occurs [#_SPI_init] ; |126| 
+     360 00005b C406          MOV T0, *SP(#3) ; |126| 
+     361                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     362              
+     363 00005d 2249          MOV T0, AR1
+     364 00005f 3D0A  ||      MOV #0, AR2
+     365              
+     366 000061 12A0          CMP AR2 == AR1, TC1 ; |128| 
+         000063 90   
+     367 000064 6464          BCC $C$L3,TC1 ; |128| 
+     368                                                      ; branchcc occurs ; |128| 
+     369                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     370 000066 E604          MOV #1, *SP(#2) ; |130| 
+         000068 01   
+     371                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     372 000069 A404          MOV *SP(#2), T0 ; |131| 
+     373 00006b 0604          B $C$L33  ; |131| 
+         00006d 5E   
+     374                                                      ; branch occurs ; |131| 
+     375 00006e       $C$L3:    
+     376                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     377 00006e EC31          AMOV #$C$FSL4, XAR3 ; |135| 
+         000070 BE00 
+         000072 0040+
+     378 000074 EB00          MOV XAR3, dbl(*SP(#0))
+         000076 B5   
+     379              $C$DW$44        .dwtag  DW_TAG_TI_branch
+     380                      .dwattr $C$DW$44, DW_AT_low_pc(0x00)
+     381                      .dwattr $C$DW$44, DW_AT_name("_printf")
+     382                      .dwattr $C$DW$44, DW_AT_TI_call
+     383 000077 6C00          CALL #_printf ; |135| 
+         000079 0000!
+     384                                                      ; call occurs [#_printf] ; |135| 
+     385                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     386 00007b 3C04          MOV #0, T0
+     387              $C$DW$45        .dwtag  DW_TAG_TI_branch
+     388                      .dwattr $C$DW$45, DW_AT_low_pc(0x00)
+     389                      .dwattr $C$DW$45, DW_AT_name("_SPI_open")
+     390                      .dwattr $C$DW$45, DW_AT_TI_call
+     391              
+     392 00007d 6C00          CALL #_SPI_open ; |138| 
+         00007f 0000!
+     393 000081 3D05  ||      MOV #0, T1
+     394              
+     395                                                      ; call occurs [#_SPI_open] ; |138| 
+     396 000083 EB08          MOV XAR0, dbl(*SP(#4))
+         000085 85   
+     397                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     398 000086 ED08          MOV dbl(*SP(#4)), XAR3
+         000088 BF   
+     399              
+     400 000089 90B0          MOV XAR3, AC0
+     401 00008b 3D01  ||      MOV #0, AC1 ; |140| 
+     402              
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE    9
+
+     403 00008d 121C          CMPU AC1 != AC0, TC1 ; |140| 
+         00008f 04   
+     404 000090 62E4          BCC $C$L4,TC1 ; |140| 
+     405                                                      ; branchcc occurs ; |140| 
+     406                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     407 000092 3C14          MOV #1, T0
+     408 000094 0604          B $C$L33  ; |142| 
+         000096 35   
+     409                                                      ; branch occurs ; |142| 
+     410 000097       $C$L4:    
+     411                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     412 000097 EC31          AMOV #$C$FSL5, XAR3 ; |146| 
+         000099 BE00 
+         00009b 0066+
+     413 00009d EB00          MOV XAR3, dbl(*SP(#0))
+         00009f B5   
+     414              $C$DW$46        .dwtag  DW_TAG_TI_branch
+     415                      .dwattr $C$DW$46, DW_AT_low_pc(0x00)
+     416                      .dwattr $C$DW$46, DW_AT_name("_printf")
+     417                      .dwattr $C$DW$46, DW_AT_TI_call
+     418 0000a0 6C00          CALL #_printf ; |146| 
+         0000a2 0000!
+     419                                                      ; call occurs [#_printf] ; |146| 
+     420                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     421 0000a4 E60C          MOV #25, *SP(#6) ; |150| 
+         0000a6 19   
+     422                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     423 0000a7 E60E          MOV #7, *SP(#7) ; |151| 
+         0000a9 07   
+     424                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     425 0000aa E610          MOV #1, *SP(#8) ; |152| 
+         0000ac 01   
+     426                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     427 0000ad E612          MOV #1, *SP(#9) ; |153| 
+         0000af 01   
+     428                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     429 0000b0 E614          MOV #0, *SP(#10) ; |154| 
+         0000b2 00   
+     430                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     431 0000b3 E616          MOV #0, *SP(#11) ; |155| 
+         0000b5 00   
+     432                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     433 0000b6 E618          MOV #0, *SP(#12) ; |156| 
+         0000b8 00   
+     434                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     435 0000b9 E61C          MOV #0, *SP(#14) ; |157| 
+         0000bb 00   
+     436                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     437 0000bc E61A          MOV #0, *SP(#13) ; |158| 
+         0000be 00   
+     438                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     439 0000bf E61E          MOV #0, *SP(#15) ; |159| 
+         0000c1 00   
+     440                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     441 0000c2 EC0C          AMAR *SP(#6), XAR1
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   10
+
+         0000c4 9E   
+     442 0000c5 ED08          MOV dbl(*SP(#4)), XAR0
+         0000c7 8F   
+     443              $C$DW$47        .dwtag  DW_TAG_TI_branch
+     444                      .dwattr $C$DW$47, DW_AT_low_pc(0x00)
+     445                      .dwattr $C$DW$47, DW_AT_name("_SPI_config")
+     446                      .dwattr $C$DW$47, DW_AT_TI_call
+     447 0000c8 6C00          CALL #_SPI_config ; |161| 
+         0000ca 0000!
+     448                                                      ; call occurs [#_SPI_config] ; |161| 
+     449 0000cc C406          MOV T0, *SP(#3) ; |161| 
+     450                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     451              
+     452 0000ce 2249          MOV T0, AR1
+     453 0000d0 3D0A  ||      MOV #0, AR2
+     454              
+     455 0000d2 12A0          CMP AR2 == AR1, TC1 ; |163| 
+         0000d4 90   
+     456 0000d5 62E4          BCC $C$L5,TC1 ; |163| 
+     457                                                      ; branchcc occurs ; |163| 
+     458                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     459 0000d7 3C14          MOV #1, T0
+     460 0000d9 0603          B $C$L33  ; |165| 
+         0000db F0   
+     461                                                      ; branch occurs ; |165| 
+     462 0000dc       $C$L5:    
+     463                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     464 0000dc EC31          AMOV #$C$FSL6, XAR3 ; |169| 
+         0000de BE00 
+         0000e0 0088+
+     465 0000e2 EB00          MOV XAR3, dbl(*SP(#0))
+         0000e4 B5   
+     466              $C$DW$48        .dwtag  DW_TAG_TI_branch
+     467                      .dwattr $C$DW$48, DW_AT_low_pc(0x00)
+     468                      .dwattr $C$DW$48, DW_AT_name("_printf")
+     469                      .dwattr $C$DW$48, DW_AT_TI_call
+     470 0000e5 6C00          CALL #_printf ; |169| 
+         0000e7 0000!
+     471                                                      ; call occurs [#_printf] ; |169| 
+     472 0000e9 3C1A          MOV #1, AR2
+     473 0000eb       $C$L6:    
+     474 0000eb       $C$DW$L$_spi_sample$11$B:
+     475                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     476 0000eb A951          MOV *port(#12294), AR1 ; |174| 
+         0000ed 3006 
+     477 0000ef 1801          AND #0x0001, AR1, AC0 ; |174| 
+         0000f1 09   
+     478 0000f2 C024          MOV AC0, *SP(#18) ; |174| 
+     479 0000f4 20            NOP
+     480 0000f5 20            NOP
+     481 0000f6 20            NOP
+     482                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     483 0000f7 A924          MOV *SP(#18), AR1 ; |175| 
+     484 0000f9 1801          AND #0x0001, AR1, AR1 ; |175| 
+         0000fb 99   
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   11
+
+     485 0000fc 1290          CMPU AR1 == AR2, TC1 ; |175| 
+         0000fe A4   
+     486 0000ff 0464          BCC $C$L6,TC1 ; |175| 
+         000101 E9   
+     487                                                      ; branchcc occurs ; |175| 
+     488 000102       $C$DW$L$_spi_sample$11$E:
+     489                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     490 000102 A951          MOV *port(#12292), AR1 ; |178| 
+         000104 3004 
+     491 000106 7DF0          AND #0xf000, AR1, AC0 ; |178| 
+         000108 0009 
+     492 00010a EC00          BSET @#0, AC0 ; |178| 
+         00010c 00   
+     493 00010d C051          MOV AC0, *port(#12292) ; |178| 
+         00010f 3004 
+     494                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     495 000111 A951          MOV *port(#12297), AR1 ; |180| 
+         000113 3009 
+     496 000115 7605          MOV #1280, AR1 ; |180| 
+         000117 0098 
+     497 000119 1A00          OR #0x0000, AR1, AR1 ; |180| 
+         00011b 99   
+     498 00011c C951          MOV AR1, *port(#12297) ; |180| 
+         00011e 3009 
+     499                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     500 000120 A951          MOV *port(#12296), AR1 ; |181| 
+         000122 3008 
+     501 000124 E651          MOV #0, *port(#12296) ; |181| 
+         000126 0030 
+         000128 08   
+     502                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     503 000129 A951          MOV *port(#12293), AR1 ; |184| 
+         00012b 3005 
+     504 00012d 7DFF          AND #0xfffc, AR1, AC0 ; |184| 
+         00012f FC09 
+     505 000131 EC00          BSET @#0, AC0 ; |184| 
+         000133 00   
+     506 000134 C051          MOV AC0, *port(#12293) ; |184| 
+         000136 3005 
+     507 000138       $C$L7:    
+     508 000138       $C$DW$L$_spi_sample$13$B:
+     509                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     510 000138 A951          MOV *port(#12294), AR1 ; |187| 
+         00013a 3006 
+     511 00013c 1802          AND #0x0002, AR1, AR1 ; |187| 
+         00013e 99   
+     512 00013f 5091          SFTL AR1, #-1 ; |187| 
+     513 000141 C924          MOV AR1, *SP(#18) ; |187| 
+     514 000143 20            NOP
+     515 000144 20            NOP
+     516 000145 20            NOP
+     517                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     518 000146 DC24          BTST #0, *SP(#18), TC1 ; |188| 
+         000148 00   
+     519 000149 0474          BCC $C$L7,!TC1 ; |188| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   12
+
+         00014b EC   
+     520                                                      ; branchcc occurs ; |188| 
+     521 00014c       $C$DW$L$_spi_sample$13$E:
+     522 00014c       $C$L8:    
+     523 00014c       $C$DW$L$_spi_sample$14$B:
+     524                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     525 00014c A951          MOV *port(#12294), AR1 ; |191| 
+         00014e 3006 
+     526 000150 1801          AND #0x0001, AR1, AC0 ; |191| 
+         000152 09   
+     527 000153 C024          MOV AC0, *SP(#18) ; |191| 
+     528 000155 20            NOP
+     529 000156 20            NOP
+     530 000157 20            NOP
+     531                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     532 000158 A924          MOV *SP(#18), AR1 ; |192| 
+     533 00015a 1801          AND #0x0001, AR1, AR1 ; |192| 
+         00015c 99   
+     534 00015d 1290          CMPU AR1 == AR2, TC1 ; |192| 
+         00015f A4   
+     535 000160 0464          BCC $C$L8,TC1 ; |192| 
+         000162 E9   
+     536                                                      ; branchcc occurs ; |192| 
+     537 000163       $C$DW$L$_spi_sample$14$E:
+     538                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     539 000163 A951          MOV *port(#12297), AR1 ; |195| 
+         000165 3009 
+     540 000167 E651          MOV #0, *port(#12297) ; |195| 
+         000169 0030 
+         00016b 09   
+     541                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     542 00016c A951          MOV *port(#12293), AR1 ; |196| 
+         00016e 3005 
+     543 000170 7DFF          AND #0xfffc, AR1, AC0 ; |196| 
+         000172 FC09 
+     544 000174 EC00          BSET @#0, AC0 ; |196| 
+         000176 00   
+     545 000177 C051          MOV AC0, *port(#12293) ; |196| 
+         000179 3005 
+     546 00017b       $C$L9:    
+     547 00017b       $C$DW$L$_spi_sample$16$B:
+     548                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     549 00017b A951          MOV *port(#12294), AR1 ; |199| 
+         00017d 3006 
+     550 00017f 1802          AND #0x0002, AR1, AR1 ; |199| 
+         000181 99   
+     551 000182 5091          SFTL AR1, #-1 ; |199| 
+     552 000184 C924          MOV AR1, *SP(#18) ; |199| 
+     553 000186 20            NOP
+     554 000187 20            NOP
+     555 000188 20            NOP
+     556                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     557 000189 DC24          BTST #0, *SP(#18), TC1 ; |200| 
+         00018b 00   
+     558 00018c 0474          BCC $C$L9,!TC1 ; |200| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   13
+
+         00018e EC   
+     559                                                      ; branchcc occurs ; |200| 
+     560 00018f       $C$DW$L$_spi_sample$16$E:
+     561 00018f       $C$L10:    
+     562 00018f       $C$DW$L$_spi_sample$17$B:
+     563                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     564 00018f A951          MOV *port(#12294), AR1 ; |202| 
+         000191 3006 
+     565 000193 1801          AND #0x0001, AR1, AC0 ; |202| 
+         000195 09   
+     566 000196 C024          MOV AC0, *SP(#18) ; |202| 
+     567 000198 20            NOP
+     568 000199 20            NOP
+     569 00019a 20            NOP
+     570                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     571 00019b A924          MOV *SP(#18), AR1 ; |203| 
+     572 00019d 1801          AND #0x0001, AR1, AR1 ; |203| 
+         00019f 99   
+     573 0001a0 1290          CMPU AR1 == AR2, TC1 ; |203| 
+         0001a2 A4   
+     574 0001a3 0464          BCC $C$L10,TC1 ; |203| 
+         0001a5 E9   
+     575                                                      ; branchcc occurs ; |203| 
+     576 0001a6       $C$DW$L$_spi_sample$17$E:
+     577                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     578 0001a6 F451          AND #0xf000, *port(#12292) ; |206| 
+         0001a8 F000 
+         0001aa 3004 
+     579                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     580 0001ac A951          MOV *port(#12297), AR1 ; |209| 
+         0001ae 3009 
+     581 0001b0 7606          MOV #1536, AR1 ; |209| 
+         0001b2 0098 
+     582 0001b4 1A00          OR #0x0000, AR1, AR1 ; |209| 
+         0001b6 99   
+     583 0001b7 C951          MOV AR1, *port(#12297) ; |209| 
+         0001b9 3009 
+     584                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     585 0001bb A951          MOV *port(#12296), AR1 ; |210| 
+         0001bd 3008 
+     586 0001bf E651          MOV #0, *port(#12296) ; |210| 
+         0001c1 0030 
+         0001c3 08   
+     587                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     588 0001c4 A951          MOV *port(#12293), AR1 ; |213| 
+         0001c6 3005 
+     589 0001c8 7DFF          AND #0xfffc, AR1, AC0 ; |213| 
+         0001ca FC09 
+     590 0001cc EC02          BSET @#1, AC0 ; |213| 
+         0001ce 00   
+     591 0001cf C051          MOV AC0, *port(#12293) ; |213| 
+         0001d1 3005 
+     592 0001d3       $C$L11:    
+     593 0001d3       $C$DW$L$_spi_sample$19$B:
+     594                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   14
+
+     595 0001d3 A951          MOV *port(#12294), AR1 ; |216| 
+         0001d5 3006 
+     596 0001d7 1802          AND #0x0002, AR1, AR1 ; |216| 
+         0001d9 99   
+     597 0001da 5091          SFTL AR1, #-1 ; |216| 
+     598 0001dc C924          MOV AR1, *SP(#18) ; |216| 
+     599 0001de 20            NOP
+     600 0001df 20            NOP
+     601 0001e0 20            NOP
+     602                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     603 0001e1 DC24          BTST #0, *SP(#18), TC1 ; |217| 
+         0001e3 00   
+     604 0001e4 0474          BCC $C$L11,!TC1 ; |217| 
+         0001e6 EC   
+     605                                                      ; branchcc occurs ; |217| 
+     606 0001e7       $C$DW$L$_spi_sample$19$E:
+     607 0001e7       $C$L12:    
+     608 0001e7       $C$DW$L$_spi_sample$20$B:
+     609                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     610 0001e7 A951          MOV *port(#12294), AR1 ; |220| 
+         0001e9 3006 
+     611 0001eb 1801          AND #0x0001, AR1, AC0 ; |220| 
+         0001ed 09   
+     612 0001ee C024          MOV AC0, *SP(#18) ; |220| 
+     613 0001f0 20            NOP
+     614 0001f1 20            NOP
+     615 0001f2 20            NOP
+     616                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     617 0001f3 A924          MOV *SP(#18), AR1 ; |221| 
+     618 0001f5 1801          AND #0x0001, AR1, AR1 ; |221| 
+         0001f7 99   
+     619 0001f8 1290          CMPU AR1 == AR2, TC1 ; |221| 
+         0001fa A4   
+     620 0001fb 0464          BCC $C$L12,TC1 ; |221| 
+         0001fd E9   
+     621                                                      ; branchcc occurs ; |221| 
+     622 0001fe       $C$DW$L$_spi_sample$20$E:
+     623                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     624 0001fe E631          MOV #2, *(#_cmdBuffer) ; |223| 
+         000200 0200 
+         000202 0081-
+     625                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     626 000204 DF26          MOV uns(high_byte(*SP(#19))), AR1 ; |225| 
+         000206 91   
+     627 000207 C931          MOV AR1, *(#(_cmdBuffer+1)) ; |225| 
+         000209 0000 
+         00020b 82-  
+     628                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     629 00020c DF26          MOV uns(low_byte(*SP(#19))), AR1 ; |227| 
+         00020e 93   
+     630 00020f C931          MOV AR1, *(#(_cmdBuffer+2)) ; |227| 
+         000211 0000 
+         000213 83-  
+     631                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     632 000214 A951          MOV *port(#12292), AR1 ; |229| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   15
+
+         000216 3004 
+     633 000218 7DF0          AND #0xf000, AR1, AR1 ; |229| 
+         00021a 0099 
+     634 00021c 1A42          OR #0x0042, AR1, AR1 ; |229| 
+         00021e 99   
+     635 00021f C951          MOV AR1, *port(#12292) ; |229| 
+         000221 3004 
+     636                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     637 000223 E62C          MOV #0, *SP(#22) ; |232| 
+         000225 00   
+     638 000226 20            NOP
+     639 000227 20            NOP
+     640 000228 20            NOP
+     641                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     642              
+     643 000229 A92C          MOV *SP(#22), AR1 ; |232| 
+     644 00022b 3D3A  ||      MOV #3, AR2
+     645              
+     646 00022d 1298          CMPU AR1 >= AR2, TC1 ; |232| 
+         00022f A4   
+     647 000230 0464          BCC $C$L16,TC1 ; |232| 
+         000232 6B   
+     648                                                      ; branchcc occurs ; |232| 
+     649 000233       $C$L13:    
+     650 000233       $C$DW$L$_spi_sample$22$B:
+     651                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     652 000233 A42C          MOV *SP(#22), T0 ; |234| 
+     653 000235 EC31          AMOV #_cmdBuffer, XAR3 ; |234| 
+         000237 BE00 
+         000239 0081-
+     654 00023b A06B          MOV *AR3(T0), AC0 ; |234| 
+     655 00023d 1007          SFTL AC0, #8, AC0 ; |234| 
+         00023f 08   
+     656 000240 C051          MOV AC0, *port(#12297) ; |234| 
+         000242 3009 
+     657                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     658 000244 E651          MOV #0, *port(#12296) ; |235| 
+         000246 0030 
+         000248 08   
+     659                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     660 000249 A951          MOV *port(#12293), AR1 ; |238| 
+         00024b 3005 
+     661 00024d 7DFF          AND #0xfffc, AR1, AC0 ; |238| 
+         00024f FC09 
+     662 000251 EC02          BSET @#1, AC0 ; |238| 
+         000253 00   
+     663 000254 C051          MOV AC0, *port(#12293) ; |238| 
+         000256 3005 
+     664                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     665 000258 E62A          MOV #0, *SP(#21) ; |240| 
+         00025a 00   
+     666 00025b 20            NOP
+     667 00025c 20            NOP
+     668                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     669 00025d 7603          MOV #1000, AR2 ; |240| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   16
+
+         00025f E8A8 
+     670 000261 A92A          MOV *SP(#21), AR1 ; |240| 
+     671 000263 1298          CMPU AR1 >= AR2, TC1 ; |240| 
+         000265 A4   
+     672 000266 67E4          BCC $C$L15,TC1 ; |240| 
+     673                                                      ; branchcc occurs ; |240| 
+     674 000268       $C$DW$L$_spi_sample$22$E:
+     675 000268       $C$L14:    
+     676 000268       $C$DW$L$_spi_sample$23$B:
+     677                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     678 000268 F72A          ADD #1, *SP(#21) ; |240| 
+         00026a 0001 
+     679 00026c 20            NOP
+     680 00026d 20            NOP
+     681 00026e 20            NOP
+     682                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     683 00026f A92A          MOV *SP(#21), AR1 ; |240| 
+     684 000271 1294          CMPU AR1 < AR2, TC1 ; |240| 
+         000273 A4   
+     685 000274 0464          BCC $C$L14,TC1 ; |240| 
+         000276 F1   
+     686                                                      ; branchcc occurs ; |240| 
+     687 000277       $C$DW$L$_spi_sample$23$E:
+     688 000277       $C$L15:    
+     689 000277       $C$DW$L$_spi_sample$24$B:
+     690                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     691 000277 A951          MOV *port(#12294), AR1 ; |244| 
+         000279 3006 
+     692 00027b C928          MOV AR1, *SP(#20) ; |244| 
+     693 00027d 20            NOP
+     694 00027e 20            NOP
+     695 00027f 20            NOP
+     696                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     697 000280 A928          MOV *SP(#20), AR1 ; |245| 
+     698              
+     699 000282 1803          AND #0x0003, AR1, AR1 ; |245| 
+         000284 99   
+     700 000285 3D1A  ||      MOV #1, AR2
+     701              
+     702 000287 1290          CMPU AR1 == AR2, TC1 ; |245| 
+         000289 A4   
+     703 00028a 0464          BCC $C$L15,TC1 ; |245| 
+         00028c EA   
+     704                                                      ; branchcc occurs ; |245| 
+     705 00028d       $C$DW$L$_spi_sample$24$E:
+     706 00028d       $C$DW$L$_spi_sample$25$B:
+     707                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     708 00028d F72C          ADD #1, *SP(#22) ; |232| 
+         00028f 0001 
+     709 000291 20            NOP
+     710 000292 20            NOP
+     711 000293 20            NOP
+     712                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     713              
+     714 000294 A92C          MOV *SP(#22), AR1 ; |232| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   17
+
+     715 000296 3D3A  ||      MOV #3, AR2
+     716              
+     717 000298 1294          CMPU AR1 < AR2, TC1 ; |232| 
+         00029a A4   
+     718 00029b 0464          BCC $C$L13,TC1 ; |232| 
+         00029d 95   
+     719                                                      ; branchcc occurs ; |232| 
+     720 00029e       $C$DW$L$_spi_sample$25$E:
+     721 00029e       $C$L16:    
+     722                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     723 00029e FB31          MOV #43981, *(#_byteBuf) ; |249| 
+         0002a0 ABCD 
+         0002a2 0000 
+         0002a4 80-  
+     724                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     725 0002a5 3C00          MOV #0, AC0 ; |250| 
+     726 0002a7 EB20          MOV AC0, dbl(*SP(#16)) ; |250| 
+         0002a9 08   
+     727 0002aa 20            NOP
+     728 0002ab 20            NOP
+     729 0002ac 20            NOP
+     730                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     731 0002ad ED20          MOV dbl(*SP(#16)), AC1 ; |250| 
+         0002af 18   
+     732 0002b0 7600          MOV #64, AC0 ; |250| 
+         0002b2 4008 
+     733 0002b4 1218          CMPU AC1 >= AC0, TC1 ; |250| 
+         0002b6 04   
+     734 0002b7 0464          BCC $C$L18,TC1 ; |250| 
+         0002b9 49   
+     735                                                      ; branchcc occurs ; |250| 
+     736 0002ba       $C$L17:    
+     737 0002ba       $C$DW$L$_spi_sample$27$B:
+     738                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     739 0002ba ED20          MOV dbl(*SP(#16)), AC0 ; |252| 
+         0002bc 08   
+     740 0002bd 2204          MOV AC0, T0 ; |252| 
+     741 0002bf EC31          AMOV #_spiWriteBuff, XAR3 ; |252| 
+         0002c1 BE00 
+         0002c3 0000-
+     742 0002c5 E66B          MOV #17, *AR3(T0) ; |252| 
+         0002c7 11   
+     743                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     744 0002c8 ED20          MOV dbl(*SP(#16)), AC0 ; |253| 
+         0002ca 08   
+     745 0002cb 4010          ADD #1, AC0 ; |253| 
+     746 0002cd 2204          MOV AC0, T0 ; |253| 
+     747 0002cf FB6B          MOV #171, *AR3(T0) ; |253| 
+         0002d1 00AB 
+     748                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     749 0002d3 ED20          MOV dbl(*SP(#16)), AC0 ; |254| 
+         0002d5 08   
+     750 0002d6 2204          MOV AC0, T0 ; |254| 
+     751 0002d8 EC31          AMOV #_spiReadBuff, XAR3 ; |254| 
+         0002da BE00 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   18
+
+         0002dc 0040-
+     752 0002de E66B          MOV #0, *AR3(T0) ; |254| 
+         0002e0 00   
+     753                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     754 0002e1 ED20          MOV dbl(*SP(#16)), AC0 ; |255| 
+         0002e3 08   
+     755 0002e4 4010          ADD #1, AC0 ; |255| 
+     756 0002e6 2204          MOV AC0, T0 ; |255| 
+     757 0002e8 FB6B          MOV #205, *AR3(T0) ; |255| 
+         0002ea 00CD 
+     758                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     759 0002ec ED20          MOV dbl(*SP(#16)), AC0 ; |256| 
+         0002ee 08   
+     760 0002ef 4020          ADD #2, AC0 ; |256| 
+     761 0002f1 EB20          MOV AC0, dbl(*SP(#16)) ; |256| 
+         0002f3 08   
+     762 0002f4 20            NOP
+     763 0002f5 20            NOP
+     764                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     765 0002f6 7600          MOV #64, AC0 ; |250| 
+         0002f8 4008 
+     766 0002fa ED20          MOV dbl(*SP(#16)), AC1 ; |250| 
+         0002fc 18   
+     767 0002fd 1214          CMPU AC1 < AC0, TC1 ; |250| 
+         0002ff 04   
+     768 000300 0464          BCC $C$L17,TC1 ; |250| 
+         000302 B7   
+     769                                                      ; branchcc occurs ; |250| 
+     770 000303       $C$DW$L$_spi_sample$27$E:
+     771 000303       $C$L18:    
+     772                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     773 000303 ED08          MOV dbl(*SP(#4)), XAR0
+         000305 8F   
+     774 000306 EC31          AMOV #_spiWriteBuff, XAR1 ; |259| 
+         000308 9E00 
+         00030a 0000-
+     775 00030c 7600          MOV #64, T0 ; |259| 
+         00030e 4048 
+     776              $C$DW$49        .dwtag  DW_TAG_TI_branch
+     777                      .dwattr $C$DW$49, DW_AT_low_pc(0x00)
+     778                      .dwattr $C$DW$49, DW_AT_name("_SPI_dataTransaction")
+     779                      .dwattr $C$DW$49, DW_AT_TI_call
+     780              
+     781 000310 6C00          CALL #_SPI_dataTransaction ; |259| 
+         000312 0000!
+     782 000314 3D25  ||      MOV #2, T1
+     783              
+     784                                                      ; call occurs [#_SPI_dataTransaction] ; |259| 
+     785 000316 C406          MOV T0, *SP(#3) ; |259| 
+     786                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     787              
+     788 000318 2249          MOV T0, AR1
+     789 00031a 3D0A  ||      MOV #0, AR2
+     790              
+     791 00031c 12A0          CMP AR2 == AR1, TC1 ; |260| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   19
+
+         00031e 90   
+     792 00031f 62E4          BCC $C$L19,TC1 ; |260| 
+     793                                                      ; branchcc occurs ; |260| 
+     794                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     795 000321 3C14          MOV #1, T0
+     796 000323 0601          B $C$L33  ; |262| 
+         000325 A6   
+     797                                                      ; branch occurs ; |262| 
+     798 000326       $C$L19:    
+     799                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     800 000326 EC31          AMOV #$C$FSL7, XAR3 ; |266| 
+         000328 BE00 
+         00032a 00AE+
+     801 00032c EB00          MOV XAR3, dbl(*SP(#0))
+         00032e B5   
+     802              $C$DW$50        .dwtag  DW_TAG_TI_branch
+     803                      .dwattr $C$DW$50, DW_AT_low_pc(0x00)
+     804                      .dwattr $C$DW$50, DW_AT_name("_printf")
+     805                      .dwattr $C$DW$50, DW_AT_TI_call
+     806 00032f 6C00          CALL #_printf ; |266| 
+         000331 0000!
+     807                                                      ; call occurs [#_printf] ; |266| 
+     808                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     809 000333 E62A          MOV #0, *SP(#21) ; |270| 
+         000335 00   
+     810 000336 20            NOP
+     811 000337 20            NOP
+     812                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     813 000338 76AF          MOV #45000, AR2 ; |270| 
+         00033a C8A8 
+     814 00033c A92A          MOV *SP(#21), AR1 ; |270| 
+     815 00033e 1298          CMPU AR1 >= AR2, TC1 ; |270| 
+         000340 A4   
+     816 000341 67E4          BCC $C$L21,TC1 ; |270| 
+     817                                                      ; branchcc occurs ; |270| 
+     818 000343       $C$L20:    
+     819 000343       $C$DW$L$_spi_sample$32$B:
+     820                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     821 000343 F72A          ADD #1, *SP(#21) ; |270| 
+         000345 0001 
+     822 000347 20            NOP
+     823 000348 20            NOP
+     824 000349 20            NOP
+     825                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     826 00034a A92A          MOV *SP(#21), AR1 ; |270| 
+     827 00034c 1294          CMPU AR1 < AR2, TC1 ; |270| 
+         00034e A4   
+     828 00034f 0464          BCC $C$L20,TC1 ; |270| 
+         000351 F1   
+     829                                                      ; branchcc occurs ; |270| 
+     830 000352       $C$DW$L$_spi_sample$32$E:
+     831 000352       $C$L21:    
+     832                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     833 000352 E631          MOV #3, *(#_cmdBuffer) ; |276| 
+         000354 0300 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   20
+
+         000356 0081-
+     834                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     835 000358 DF26          MOV uns(high_byte(*SP(#19))), AR1 ; |278| 
+         00035a 91   
+     836 00035b C931          MOV AR1, *(#(_cmdBuffer+1)) ; |278| 
+         00035d 0000 
+         00035f 82-  
+     837                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     838 000360 DF26          MOV uns(low_byte(*SP(#19))), AR1 ; |280| 
+         000362 93   
+     839 000363 C931          MOV AR1, *(#(_cmdBuffer+2)) ; |280| 
+         000365 0000 
+         000367 83-  
+     840                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     841 000368 A951          MOV *port(#12292), AR1 ; |282| 
+         00036a 3004 
+     842 00036c 7DF0          AND #0xf000, AR1, AR1 ; |282| 
+         00036e 0099 
+     843 000370 1A42          OR #0x0042, AR1, AR1 ; |282| 
+         000372 99   
+     844 000373 C951          MOV AR1, *port(#12292) ; |282| 
+         000375 3004 
+     845                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     846 000377 E62C          MOV #0, *SP(#22) ; |285| 
+         000379 00   
+     847 00037a 20            NOP
+     848 00037b 20            NOP
+     849 00037c 20            NOP
+     850                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     851              
+     852 00037d A92C          MOV *SP(#22), AR1 ; |285| 
+     853 00037f 3D3A  ||      MOV #3, AR2
+     854              
+     855 000381 1298          CMPU AR1 >= AR2, TC1 ; |285| 
+         000383 A4   
+     856 000384 0464          BCC $C$L25,TC1 ; |285| 
+         000386 6B   
+     857                                                      ; branchcc occurs ; |285| 
+     858 000387       $C$L22:    
+     859 000387       $C$DW$L$_spi_sample$34$B:
+     860                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     861 000387 A42C          MOV *SP(#22), T0 ; |287| 
+     862 000389 EC31          AMOV #_cmdBuffer, XAR3 ; |287| 
+         00038b BE00 
+         00038d 0081-
+     863 00038f A06B          MOV *AR3(T0), AC0 ; |287| 
+     864 000391 1007          SFTL AC0, #8, AC0 ; |287| 
+         000393 08   
+     865 000394 C051          MOV AC0, *port(#12297) ; |287| 
+         000396 3009 
+     866                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     867 000398 E651          MOV #0, *port(#12296) ; |288| 
+         00039a 0030 
+         00039c 08   
+     868                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   21
+
+     869 00039d A951          MOV *port(#12293), AR1 ; |290| 
+         00039f 3005 
+     870 0003a1 7DFF          AND #0xfffc, AR1, AC0 ; |290| 
+         0003a3 FC09 
+     871 0003a5 EC02          BSET @#1, AC0 ; |290| 
+         0003a7 00   
+     872 0003a8 C051          MOV AC0, *port(#12293) ; |290| 
+         0003aa 3005 
+     873                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     874 0003ac E62A          MOV #0, *SP(#21) ; |293| 
+         0003ae 00   
+     875 0003af 20            NOP
+     876 0003b0 20            NOP
+     877                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     878 0003b1 7603          MOV #1000, AR2 ; |293| 
+         0003b3 E8A8 
+     879 0003b5 A92A          MOV *SP(#21), AR1 ; |293| 
+     880 0003b7 1298          CMPU AR1 >= AR2, TC1 ; |293| 
+         0003b9 A4   
+     881 0003ba 67E4          BCC $C$L24,TC1 ; |293| 
+     882                                                      ; branchcc occurs ; |293| 
+     883 0003bc       $C$DW$L$_spi_sample$34$E:
+     884 0003bc       $C$L23:    
+     885 0003bc       $C$DW$L$_spi_sample$35$B:
+     886                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     887 0003bc F72A          ADD #1, *SP(#21) ; |293| 
+         0003be 0001 
+     888 0003c0 20            NOP
+     889 0003c1 20            NOP
+     890 0003c2 20            NOP
+     891                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     892 0003c3 A92A          MOV *SP(#21), AR1 ; |293| 
+     893 0003c5 1294          CMPU AR1 < AR2, TC1 ; |293| 
+         0003c7 A4   
+     894 0003c8 0464          BCC $C$L23,TC1 ; |293| 
+         0003ca F1   
+     895                                                      ; branchcc occurs ; |293| 
+     896 0003cb       $C$DW$L$_spi_sample$35$E:
+     897 0003cb       $C$L24:    
+     898 0003cb       $C$DW$L$_spi_sample$36$B:
+     899                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     900 0003cb A951          MOV *port(#12294), AR1 ; |297| 
+         0003cd 3006 
+     901 0003cf C928          MOV AR1, *SP(#20) ; |297| 
+     902 0003d1 20            NOP
+     903 0003d2 20            NOP
+     904 0003d3 20            NOP
+     905                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     906 0003d4 A928          MOV *SP(#20), AR1 ; |298| 
+     907              
+     908 0003d6 1803          AND #0x0003, AR1, AR1 ; |298| 
+         0003d8 99   
+     909 0003d9 3D1A  ||      MOV #1, AR2
+     910              
+     911 0003db 1290          CMPU AR1 == AR2, TC1 ; |298| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   22
+
+         0003dd A4   
+     912 0003de 0464          BCC $C$L24,TC1 ; |298| 
+         0003e0 EA   
+     913                                                      ; branchcc occurs ; |298| 
+     914 0003e1       $C$DW$L$_spi_sample$36$E:
+     915 0003e1       $C$DW$L$_spi_sample$37$B:
+     916                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     917 0003e1 F72C          ADD #1, *SP(#22) ; |285| 
+         0003e3 0001 
+     918 0003e5 20            NOP
+     919 0003e6 20            NOP
+     920 0003e7 20            NOP
+     921                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     922              
+     923 0003e8 A92C          MOV *SP(#22), AR1 ; |285| 
+     924 0003ea 3D3A  ||      MOV #3, AR2
+     925              
+     926 0003ec 1294          CMPU AR1 < AR2, TC1 ; |285| 
+         0003ee A4   
+     927 0003ef 0464          BCC $C$L22,TC1 ; |285| 
+         0003f1 95   
+     928                                                      ; branchcc occurs ; |285| 
+     929 0003f2       $C$DW$L$_spi_sample$37$E:
+     930 0003f2       $C$L25:    
+     931                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     932 0003f2 ED08          MOV dbl(*SP(#4)), XAR0
+         0003f4 8F   
+     933 0003f5 EC31          AMOV #_spiReadBuff, XAR1 ; |302| 
+         0003f7 9E00 
+         0003f9 0040-
+     934 0003fb 7600          MOV #64, T0 ; |302| 
+         0003fd 4048 
+     935              $C$DW$51        .dwtag  DW_TAG_TI_branch
+     936                      .dwattr $C$DW$51, DW_AT_low_pc(0x00)
+     937                      .dwattr $C$DW$51, DW_AT_name("_SPI_dataTransaction")
+     938                      .dwattr $C$DW$51, DW_AT_TI_call
+     939              
+     940 0003ff 6C00          CALL #_SPI_dataTransaction ; |302| 
+         000401 0000!
+     941 000403 3D15  ||      MOV #1, T1
+     942              
+     943                                                      ; call occurs [#_SPI_dataTransaction] ; |302| 
+     944 000405 C406          MOV T0, *SP(#3) ; |302| 
+     945                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     946              
+     947 000407 2249          MOV T0, AR1
+     948 000409 3D0A  ||      MOV #0, AR2
+     949              
+     950 00040b 12A0          CMP AR2 == AR1, TC1 ; |303| 
+         00040d 90   
+     951 00040e 62E4          BCC $C$L26,TC1 ; |303| 
+     952                                                      ; branchcc occurs ; |303| 
+     953                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     954 000410 3C14          MOV #1, T0
+     955 000412 0600          B $C$L33  ; |305| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   23
+
+         000414 B7   
+     956                                                      ; branch occurs ; |305| 
+     957 000415       $C$L26:    
+     958                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     959 000415 EC31          AMOV #$C$FSL8, XAR3 ; |309| 
+         000417 BE00 
+         000419 00D0+
+     960 00041b EB00          MOV XAR3, dbl(*SP(#0))
+         00041d B5   
+     961              $C$DW$52        .dwtag  DW_TAG_TI_branch
+     962                      .dwattr $C$DW$52, DW_AT_low_pc(0x00)
+     963                      .dwattr $C$DW$52, DW_AT_name("_printf")
+     964                      .dwattr $C$DW$52, DW_AT_TI_call
+     965 00041e 6C00          CALL #_printf ; |309| 
+         000420 0000!
+     966                                                      ; call occurs [#_printf] ; |309| 
+     967                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     968              $C$DW$53        .dwtag  DW_TAG_TI_branch
+     969                      .dwattr $C$DW$53, DW_AT_low_pc(0x00)
+     970                      .dwattr $C$DW$53, DW_AT_name("_SPI_deInit")
+     971                      .dwattr $C$DW$53, DW_AT_TI_call
+     972 000422 6C00          CALL #_SPI_deInit ; |312| 
+         000424 0000!
+     973                                                      ; call occurs [#_SPI_deInit] ; |312| 
+     974 000426 C406          MOV T0, *SP(#3) ; |312| 
+     975                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     976              
+     977 000428 2249          MOV T0, AR1
+     978 00042a 3D0A  ||      MOV #0, AR2
+     979              
+     980 00042c 12A0          CMP AR2 == AR1, TC1 ; |314| 
+         00042e 90   
+     981 00042f 62E4          BCC $C$L27,TC1 ; |314| 
+     982                                                      ; branchcc occurs ; |314| 
+     983                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     984 000431 3C14          MOV #1, T0
+     985 000433 0600          B $C$L33  ; |316| 
+         000435 96   
+     986                                                      ; branch occurs ; |316| 
+     987 000436       $C$L27:    
+     988                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     989 000436 EC31          AMOV #$C$FSL9, XAR3 ; |320| 
+         000438 BE00 
+         00043a 00F0+
+     990 00043c EB00          MOV XAR3, dbl(*SP(#0))
+         00043e B5   
+     991              $C$DW$54        .dwtag  DW_TAG_TI_branch
+     992                      .dwattr $C$DW$54, DW_AT_low_pc(0x00)
+     993                      .dwattr $C$DW$54, DW_AT_name("_printf")
+     994                      .dwattr $C$DW$54, DW_AT_TI_call
+     995 00043f 6C00          CALL #_printf ; |320| 
+         000441 0000!
+     996                                                      ; call occurs [#_printf] ; |320| 
+     997                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+     998 000443 ED08          MOV dbl(*SP(#4)), XAR0
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   24
+
+         000445 8F   
+     999              $C$DW$55        .dwtag  DW_TAG_TI_branch
+    1000                      .dwattr $C$DW$55, DW_AT_low_pc(0x00)
+    1001                      .dwattr $C$DW$55, DW_AT_name("_SPI_close")
+    1002                      .dwattr $C$DW$55, DW_AT_TI_call
+    1003 000446 6C00          CALL #_SPI_close ; |323| 
+         000448 0000!
+    1004                                                      ; call occurs [#_SPI_close] ; |323| 
+    1005 00044a C406          MOV T0, *SP(#3) ; |323| 
+    1006                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+    1007              
+    1008 00044c 2249          MOV T0, AR1
+    1009 00044e 3D0A  ||      MOV #0, AR2
+    1010              
+    1011 000450 12A0          CMP AR2 == AR1, TC1 ; |325| 
+         000452 90   
+    1012 000453 62E4          BCC $C$L28,TC1 ; |325| 
+    1013                                                      ; branchcc occurs ; |325| 
+    1014                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+    1015 000455 3C14          MOV #1, T0
+    1016 000457 0600          B $C$L33  ; |327| 
+         000459 72   
+    1017                                                      ; branch occurs ; |327| 
+    1018 00045a       $C$L28:    
+    1019                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+    1020 00045a EC31          AMOV #$C$FSL10, XAR3 ; |331| 
+         00045c BE00 
+         00045e 0118+
+    1021 000460 EB00          MOV XAR3, dbl(*SP(#0))
+         000462 B5   
+    1022              $C$DW$56        .dwtag  DW_TAG_TI_branch
+    1023                      .dwattr $C$DW$56, DW_AT_low_pc(0x00)
+    1024                      .dwattr $C$DW$56, DW_AT_name("_printf")
+    1025                      .dwattr $C$DW$56, DW_AT_TI_call
+    1026 000463 6C00          CALL #_printf ; |331| 
+         000465 0000!
+    1027                                                      ; call occurs [#_printf] ; |331| 
+    1028                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+    1029 000467 3C00          MOV #0, AC0 ; |335| 
+    1030 000469 EB20          MOV AC0, dbl(*SP(#16)) ; |335| 
+         00046b 08   
+    1031 00046c 20            NOP
+    1032 00046d 20            NOP
+    1033                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+    1034 00046e 7600          MOV #64, AC0 ; |335| 
+         000470 4008 
+    1035 000472 ED20          MOV dbl(*SP(#16)), AC1 ; |335| 
+         000474 18   
+    1036 000475 1218          CMPU AC1 >= AC0, TC1 ; |335| 
+         000477 04   
+    1037 000478 0464          BCC $C$L31,TC1 ; |335| 
+         00047a 3E   
+    1038                                                      ; branchcc occurs ; |335| 
+    1039 00047b       $C$L29:    
+    1040 00047b       $C$DW$L$_spi_sample$48$B:
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   25
+
+    1041                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+    1042 00047b ED20          MOV dbl(*SP(#16)), AC0 ; |337| 
+         00047d 08   
+    1043 00047e 2204          MOV AC0, T0 ; |337| 
+    1044 000480 EC31          AMOV #_spiWriteBuff, XAR3 ; |337| 
+         000482 BE00 
+         000484 0000-
+    1045 000486 ED20          MOV dbl(*SP(#16)), AC0 ; |337| 
+         000488 08   
+    1046              
+    1047 00048b 2304          MOV AC0, T0 ; |337| 
+    1048 000489 A96B  ||      MOV *AR3(T0), AR1 ; |337| 
+    1049              
+    1050 00048d EC31          AMOV #_spiReadBuff, XAR3 ; |337| 
+         00048f BE00 
+         000491 0040-
+    1051 000493 AA6B          MOV *AR3(T0), AR2 ; |337| 
+    1052 000495 12A0          CMPU AR2 == AR1, TC1 ; |337| 
+         000497 94   
+    1053 000498 62E4          BCC $C$L30,TC1 ; |337| 
+    1054                                                      ; branchcc occurs ; |337| 
+    1055 00049a       $C$DW$L$_spi_sample$48$E:
+    1056                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+    1057 00049a E604          MOV #1, *SP(#2) ; |339| 
+         00049c 01   
+    1058                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+    1059 00049d 4A1A          B $C$L31  ; |340| 
+    1060                                                      ; branch occurs ; |340| 
+    1061 00049f       $C$L30:    
+    1062 00049f       $C$DW$L$_spi_sample$51$B:
+    1063                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+    1064 00049f E604          MOV #0, *SP(#2) ; |344| 
+         0004a1 00   
+    1065                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+    1066 0004a2 ED20          MOV dbl(*SP(#16)), AC0 ; |335| 
+         0004a4 08   
+    1067 0004a5 4010          ADD #1, AC0 ; |335| 
+    1068 0004a7 EB20          MOV AC0, dbl(*SP(#16)) ; |335| 
+         0004a9 08   
+    1069 0004aa 20            NOP
+    1070 0004ab 20            NOP
+    1071                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+    1072 0004ac 7600          MOV #64, AC0 ; |335| 
+         0004ae 4008 
+    1073 0004b0 ED20          MOV dbl(*SP(#16)), AC1 ; |335| 
+         0004b2 18   
+    1074 0004b3 1214          CMPU AC1 < AC0, TC1 ; |335| 
+         0004b5 04   
+    1075 0004b6 0464          BCC $C$L29,TC1 ; |335| 
+         0004b8 C2   
+    1076                                                      ; branchcc occurs ; |335| 
+    1077 0004b9       $C$DW$L$_spi_sample$51$E:
+    1078 0004b9       $C$L31:    
+    1079                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+    1080 0004b9 A904          MOV *SP(#2), AR1 ; |349| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   26
+
+    1081 0004bb 6699          BCC $C$L32,AR1 != #0 ; |349| 
+    1082                                                      ; branchcc occurs ; |349| 
+    1083                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+    1084 0004bd EC31          AMOV #$C$FSL11, XAR3 ; |351| 
+         0004bf BE00 
+         0004c1 013A+
+    1085 0004c3 EB00          MOV XAR3, dbl(*SP(#0))
+         0004c5 B5   
+    1086              $C$DW$57        .dwtag  DW_TAG_TI_branch
+    1087                      .dwattr $C$DW$57, DW_AT_low_pc(0x00)
+    1088                      .dwattr $C$DW$57, DW_AT_name("_printf")
+    1089                      .dwattr $C$DW$57, DW_AT_TI_call
+    1090 0004c6 6C00          CALL #_printf ; |351| 
+         0004c8 0000!
+    1091                                                      ; call occurs [#_printf] ; |351| 
+    1092 0004ca       $C$L32:    
+    1093                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+    1094 0004ca A404          MOV *SP(#2), T0 ; |353| 
+    1095 0004cc       $C$L33:    
+    1096                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/CSL_SPI_Example/csl_spi_
+    1097 0004cc 4E17          AADD #23, SP
+    1098                      .dwcfi  cfa_offset, 1
+    1099              $C$DW$58        .dwtag  DW_TAG_TI_branch
+    1100                      .dwattr $C$DW$58, DW_AT_low_pc(0x00)
+    1101                      .dwattr $C$DW$58, DW_AT_TI_return
+    1102 0004ce 4804          RET
+    1103                                                      ; return occurs
+    1104              
+    1105              $C$DW$59        .dwtag  DW_TAG_TI_loop
+    1106                      .dwattr $C$DW$59, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L29:1:1538
+    1107                      .dwattr $C$DW$59, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1108                      .dwattr $C$DW$59, DW_AT_TI_begin_line(0x14f)
+    1109                      .dwattr $C$DW$59, DW_AT_TI_end_line(0x15a)
+    1110              $C$DW$60        .dwtag  DW_TAG_TI_loop_range
+    1111                      .dwattr $C$DW$60, DW_AT_low_pc($C$DW$L$_spi_sample$48$B)
+    1112                      .dwattr $C$DW$60, DW_AT_high_pc($C$DW$L$_spi_sample$48$E)
+    1113              $C$DW$61        .dwtag  DW_TAG_TI_loop_range
+    1114                      .dwattr $C$DW$61, DW_AT_low_pc($C$DW$L$_spi_sample$51$B)
+    1115                      .dwattr $C$DW$61, DW_AT_high_pc($C$DW$L$_spi_sample$51$E)
+    1116                      .dwendtag $C$DW$59
+    1117              
+    1118              
+    1119              $C$DW$62        .dwtag  DW_TAG_TI_loop
+    1120                      .dwattr $C$DW$62, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L22:1:1538
+    1121                      .dwattr $C$DW$62, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1122                      .dwattr $C$DW$62, DW_AT_TI_begin_line(0x11d)
+    1123                      .dwattr $C$DW$62, DW_AT_TI_end_line(0x12b)
+    1124              $C$DW$63        .dwtag  DW_TAG_TI_loop_range
+    1125                      .dwattr $C$DW$63, DW_AT_low_pc($C$DW$L$_spi_sample$34$B)
+    1126                      .dwattr $C$DW$63, DW_AT_high_pc($C$DW$L$_spi_sample$34$E)
+    1127              $C$DW$64        .dwtag  DW_TAG_TI_loop_range
+    1128                      .dwattr $C$DW$64, DW_AT_low_pc($C$DW$L$_spi_sample$37$B)
+    1129                      .dwattr $C$DW$64, DW_AT_high_pc($C$DW$L$_spi_sample$37$E)
+    1130              
+    1131              $C$DW$65        .dwtag  DW_TAG_TI_loop
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   27
+
+    1132                      .dwattr $C$DW$65, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L23:2:1538
+    1133                      .dwattr $C$DW$65, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1134                      .dwattr $C$DW$65, DW_AT_TI_begin_line(0x125)
+    1135                      .dwattr $C$DW$65, DW_AT_TI_end_line(0x125)
+    1136              $C$DW$66        .dwtag  DW_TAG_TI_loop_range
+    1137                      .dwattr $C$DW$66, DW_AT_low_pc($C$DW$L$_spi_sample$35$B)
+    1138                      .dwattr $C$DW$66, DW_AT_high_pc($C$DW$L$_spi_sample$35$E)
+    1139                      .dwendtag $C$DW$65
+    1140              
+    1141              
+    1142              $C$DW$67        .dwtag  DW_TAG_TI_loop
+    1143                      .dwattr $C$DW$67, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L24:2:1538
+    1144                      .dwattr $C$DW$67, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1145                      .dwattr $C$DW$67, DW_AT_TI_begin_line(0x127)
+    1146                      .dwattr $C$DW$67, DW_AT_TI_end_line(0x12a)
+    1147              $C$DW$68        .dwtag  DW_TAG_TI_loop_range
+    1148                      .dwattr $C$DW$68, DW_AT_low_pc($C$DW$L$_spi_sample$36$B)
+    1149                      .dwattr $C$DW$68, DW_AT_high_pc($C$DW$L$_spi_sample$36$E)
+    1150                      .dwendtag $C$DW$67
+    1151              
+    1152                      .dwendtag $C$DW$62
+    1153              
+    1154              
+    1155              $C$DW$69        .dwtag  DW_TAG_TI_loop
+    1156                      .dwattr $C$DW$69, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L20:1:1538
+    1157                      .dwattr $C$DW$69, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1158                      .dwattr $C$DW$69, DW_AT_TI_begin_line(0x10e)
+    1159                      .dwattr $C$DW$69, DW_AT_TI_end_line(0x110)
+    1160              $C$DW$70        .dwtag  DW_TAG_TI_loop_range
+    1161                      .dwattr $C$DW$70, DW_AT_low_pc($C$DW$L$_spi_sample$32$B)
+    1162                      .dwattr $C$DW$70, DW_AT_high_pc($C$DW$L$_spi_sample$32$E)
+    1163                      .dwendtag $C$DW$69
+    1164              
+    1165              
+    1166              $C$DW$71        .dwtag  DW_TAG_TI_loop
+    1167                      .dwattr $C$DW$71, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L17:1:1538
+    1168                      .dwattr $C$DW$71, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1169                      .dwattr $C$DW$71, DW_AT_TI_begin_line(0xfa)
+    1170                      .dwattr $C$DW$71, DW_AT_TI_end_line(0x101)
+    1171              $C$DW$72        .dwtag  DW_TAG_TI_loop_range
+    1172                      .dwattr $C$DW$72, DW_AT_low_pc($C$DW$L$_spi_sample$27$B)
+    1173                      .dwattr $C$DW$72, DW_AT_high_pc($C$DW$L$_spi_sample$27$E)
+    1174                      .dwendtag $C$DW$71
+    1175              
+    1176              
+    1177              $C$DW$73        .dwtag  DW_TAG_TI_loop
+    1178                      .dwattr $C$DW$73, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L13:1:1538
+    1179                      .dwattr $C$DW$73, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1180                      .dwattr $C$DW$73, DW_AT_TI_begin_line(0xe8)
+    1181                      .dwattr $C$DW$73, DW_AT_TI_end_line(0xf6)
+    1182              $C$DW$74        .dwtag  DW_TAG_TI_loop_range
+    1183                      .dwattr $C$DW$74, DW_AT_low_pc($C$DW$L$_spi_sample$22$B)
+    1184                      .dwattr $C$DW$74, DW_AT_high_pc($C$DW$L$_spi_sample$22$E)
+    1185              $C$DW$75        .dwtag  DW_TAG_TI_loop_range
+    1186                      .dwattr $C$DW$75, DW_AT_low_pc($C$DW$L$_spi_sample$25$B)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   28
+
+    1187                      .dwattr $C$DW$75, DW_AT_high_pc($C$DW$L$_spi_sample$25$E)
+    1188              
+    1189              $C$DW$76        .dwtag  DW_TAG_TI_loop
+    1190                      .dwattr $C$DW$76, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L14:2:1538
+    1191                      .dwattr $C$DW$76, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1192                      .dwattr $C$DW$76, DW_AT_TI_begin_line(0xf0)
+    1193                      .dwattr $C$DW$76, DW_AT_TI_end_line(0xf0)
+    1194              $C$DW$77        .dwtag  DW_TAG_TI_loop_range
+    1195                      .dwattr $C$DW$77, DW_AT_low_pc($C$DW$L$_spi_sample$23$B)
+    1196                      .dwattr $C$DW$77, DW_AT_high_pc($C$DW$L$_spi_sample$23$E)
+    1197                      .dwendtag $C$DW$76
+    1198              
+    1199              
+    1200              $C$DW$78        .dwtag  DW_TAG_TI_loop
+    1201                      .dwattr $C$DW$78, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L15:2:1538
+    1202                      .dwattr $C$DW$78, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1203                      .dwattr $C$DW$78, DW_AT_TI_begin_line(0xf2)
+    1204                      .dwattr $C$DW$78, DW_AT_TI_end_line(0xf5)
+    1205              $C$DW$79        .dwtag  DW_TAG_TI_loop_range
+    1206                      .dwattr $C$DW$79, DW_AT_low_pc($C$DW$L$_spi_sample$24$B)
+    1207                      .dwattr $C$DW$79, DW_AT_high_pc($C$DW$L$_spi_sample$24$E)
+    1208                      .dwendtag $C$DW$78
+    1209              
+    1210                      .dwendtag $C$DW$73
+    1211              
+    1212              
+    1213              $C$DW$80        .dwtag  DW_TAG_TI_loop
+    1214                      .dwattr $C$DW$80, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L12:1:1538
+    1215                      .dwattr $C$DW$80, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1216                      .dwattr $C$DW$80, DW_AT_TI_begin_line(0xdb)
+    1217                      .dwattr $C$DW$80, DW_AT_TI_end_line(0xdd)
+    1218              $C$DW$81        .dwtag  DW_TAG_TI_loop_range
+    1219                      .dwattr $C$DW$81, DW_AT_low_pc($C$DW$L$_spi_sample$20$B)
+    1220                      .dwattr $C$DW$81, DW_AT_high_pc($C$DW$L$_spi_sample$20$E)
+    1221                      .dwendtag $C$DW$80
+    1222              
+    1223              
+    1224              $C$DW$82        .dwtag  DW_TAG_TI_loop
+    1225                      .dwattr $C$DW$82, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L11:1:1538
+    1226                      .dwattr $C$DW$82, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1227                      .dwattr $C$DW$82, DW_AT_TI_begin_line(0xd7)
+    1228                      .dwattr $C$DW$82, DW_AT_TI_end_line(0xd9)
+    1229              $C$DW$83        .dwtag  DW_TAG_TI_loop_range
+    1230                      .dwattr $C$DW$83, DW_AT_low_pc($C$DW$L$_spi_sample$19$B)
+    1231                      .dwattr $C$DW$83, DW_AT_high_pc($C$DW$L$_spi_sample$19$E)
+    1232                      .dwendtag $C$DW$82
+    1233              
+    1234              
+    1235              $C$DW$84        .dwtag  DW_TAG_TI_loop
+    1236                      .dwattr $C$DW$84, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L10:1:1538
+    1237                      .dwattr $C$DW$84, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1238                      .dwattr $C$DW$84, DW_AT_TI_begin_line(0xc9)
+    1239                      .dwattr $C$DW$84, DW_AT_TI_end_line(0xcb)
+    1240              $C$DW$85        .dwtag  DW_TAG_TI_loop_range
+    1241                      .dwattr $C$DW$85, DW_AT_low_pc($C$DW$L$_spi_sample$17$B)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   29
+
+    1242                      .dwattr $C$DW$85, DW_AT_high_pc($C$DW$L$_spi_sample$17$E)
+    1243                      .dwendtag $C$DW$84
+    1244              
+    1245              
+    1246              $C$DW$86        .dwtag  DW_TAG_TI_loop
+    1247                      .dwattr $C$DW$86, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L9:1:15382
+    1248                      .dwattr $C$DW$86, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1249                      .dwattr $C$DW$86, DW_AT_TI_begin_line(0xc6)
+    1250                      .dwattr $C$DW$86, DW_AT_TI_end_line(0xc8)
+    1251              $C$DW$87        .dwtag  DW_TAG_TI_loop_range
+    1252                      .dwattr $C$DW$87, DW_AT_low_pc($C$DW$L$_spi_sample$16$B)
+    1253                      .dwattr $C$DW$87, DW_AT_high_pc($C$DW$L$_spi_sample$16$E)
+    1254                      .dwendtag $C$DW$86
+    1255              
+    1256              
+    1257              $C$DW$88        .dwtag  DW_TAG_TI_loop
+    1258                      .dwattr $C$DW$88, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L8:1:15382
+    1259                      .dwattr $C$DW$88, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1260                      .dwattr $C$DW$88, DW_AT_TI_begin_line(0xbe)
+    1261                      .dwattr $C$DW$88, DW_AT_TI_end_line(0xc0)
+    1262              $C$DW$89        .dwtag  DW_TAG_TI_loop_range
+    1263                      .dwattr $C$DW$89, DW_AT_low_pc($C$DW$L$_spi_sample$14$B)
+    1264                      .dwattr $C$DW$89, DW_AT_high_pc($C$DW$L$_spi_sample$14$E)
+    1265                      .dwendtag $C$DW$88
+    1266              
+    1267              
+    1268              $C$DW$90        .dwtag  DW_TAG_TI_loop
+    1269                      .dwattr $C$DW$90, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L7:1:15382
+    1270                      .dwattr $C$DW$90, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1271                      .dwattr $C$DW$90, DW_AT_TI_begin_line(0xba)
+    1272                      .dwattr $C$DW$90, DW_AT_TI_end_line(0xbc)
+    1273              $C$DW$91        .dwtag  DW_TAG_TI_loop_range
+    1274                      .dwattr $C$DW$91, DW_AT_low_pc($C$DW$L$_spi_sample$13$B)
+    1275                      .dwattr $C$DW$91, DW_AT_high_pc($C$DW$L$_spi_sample$13$E)
+    1276                      .dwendtag $C$DW$90
+    1277              
+    1278              
+    1279              $C$DW$92        .dwtag  DW_TAG_TI_loop
+    1280                      .dwattr $C$DW$92, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi_example.asm:$C$L6:1:15382
+    1281                      .dwattr $C$DW$92, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi
+    1282                      .dwattr $C$DW$92, DW_AT_TI_begin_line(0xad)
+    1283                      .dwattr $C$DW$92, DW_AT_TI_end_line(0xaf)
+    1284              $C$DW$93        .dwtag  DW_TAG_TI_loop_range
+    1285                      .dwattr $C$DW$93, DW_AT_low_pc($C$DW$L$_spi_sample$11$B)
+    1286                      .dwattr $C$DW$93, DW_AT_high_pc($C$DW$L$_spi_sample$11$E)
+    1287                      .dwendtag $C$DW$92
+    1288              
+    1289                      .dwattr $C$DW$32, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/spi/C
+    1290                      .dwattr $C$DW$32, DW_AT_TI_end_line(0x162)
+    1291                      .dwattr $C$DW$32, DW_AT_TI_end_column(0x01)
+    1292                      .dwendentry
+    1293                      .dwendtag $C$DW$32
+    1294              
+    1295              ;*******************************************************************************
+    1296              ;* FAR STRINGS                                                                 *
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   30
+
+    1297              ;*******************************************************************************
+    1298 000000               .sect   ".const:.string"
+    1299                      .align  2
+    1300 000000 0043  $C$FSL1:        .string "CSL SPI Test",10,10,0
+         000001 0053 
+         000002 004C 
+         000003 0020 
+         000004 0053 
+         000005 0050 
+         000006 0049 
+         000007 0020 
+         000008 0054 
+         000009 0065 
+         00000a 0073 
+         00000b 0074 
+         00000c 000A 
+         00000d 000A 
+         00000e 0000 
+    1301                      .align  2
+    1302 000010 000A  $C$FSL2:        .string 10,"CSL SPI Test Failed!!",10,0
+         000011 0043 
+         000012 0053 
+         000013 004C 
+         000014 0020 
+         000015 0053 
+         000016 0050 
+         000017 0049 
+         000018 0020 
+         000019 0054 
+         00001a 0065 
+         00001b 0073 
+         00001c 0074 
+         00001d 0020 
+         00001e 0046 
+         00001f 0061 
+         000020 0069 
+         000021 006C 
+         000022 0065 
+         000023 0064 
+         000024 0021 
+         000025 0021 
+         000026 000A 
+         000027 0000 
+    1303                      .align  2
+    1304 000028 000A  $C$FSL3:        .string 10,"CSL SPI Test Passed!!",10,0
+         000029 0043 
+         00002a 0053 
+         00002b 004C 
+         00002c 0020 
+         00002d 0053 
+         00002e 0050 
+         00002f 0049 
+         000030 0020 
+         000031 0054 
+         000032 0065 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   31
+
+         000033 0073 
+         000034 0074 
+         000035 0020 
+         000036 0050 
+         000037 0061 
+         000038 0073 
+         000039 0073 
+         00003a 0065 
+         00003b 0064 
+         00003c 0021 
+         00003d 0021 
+         00003e 000A 
+         00003f 0000 
+    1305                      .align  2
+    1306 000040 0053  $C$FSL4:        .string "SPI Instance Initialize successfully",10,0
+         000041 0050 
+         000042 0049 
+         000043 0020 
+         000044 0049 
+         000045 006E 
+         000046 0073 
+         000047 0074 
+         000048 0061 
+         000049 006E 
+         00004a 0063 
+         00004b 0065 
+         00004c 0020 
+         00004d 0049 
+         00004e 006E 
+         00004f 0069 
+         000050 0074 
+         000051 0069 
+         000052 0061 
+         000053 006C 
+         000054 0069 
+         000055 007A 
+         000056 0065 
+         000057 0020 
+         000058 0073 
+         000059 0075 
+         00005a 0063 
+         00005b 0063 
+         00005c 0065 
+         00005d 0073 
+         00005e 0073 
+         00005f 0066 
+         000060 0075 
+         000061 006C 
+         000062 006C 
+         000063 0079 
+         000064 000A 
+         000065 0000 
+    1307                      .align  2
+    1308 000066 0053  $C$FSL5:        .string "SPI Instance Opened successfully",10,0
+         000067 0050 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   32
+
+         000068 0049 
+         000069 0020 
+         00006a 0049 
+         00006b 006E 
+         00006c 0073 
+         00006d 0074 
+         00006e 0061 
+         00006f 006E 
+         000070 0063 
+         000071 0065 
+         000072 0020 
+         000073 004F 
+         000074 0070 
+         000075 0065 
+         000076 006E 
+         000077 0065 
+         000078 0064 
+         000079 0020 
+         00007a 0073 
+         00007b 0075 
+         00007c 0063 
+         00007d 0063 
+         00007e 0065 
+         00007f 0073 
+         000080 0073 
+         000081 0066 
+         000082 0075 
+         000083 006C 
+         000084 006C 
+         000085 0079 
+         000086 000A 
+         000087 0000 
+    1309                      .align  2
+    1310 000088 0053  $C$FSL6:        .string "SPI Instance Configured successfully",10,0
+         000089 0050 
+         00008a 0049 
+         00008b 0020 
+         00008c 0049 
+         00008d 006E 
+         00008e 0073 
+         00008f 0074 
+         000090 0061 
+         000091 006E 
+         000092 0063 
+         000093 0065 
+         000094 0020 
+         000095 0043 
+         000096 006F 
+         000097 006E 
+         000098 0066 
+         000099 0069 
+         00009a 0067 
+         00009b 0075 
+         00009c 0072 
+         00009d 0065 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   33
+
+         00009e 0064 
+         00009f 0020 
+         0000a0 0073 
+         0000a1 0075 
+         0000a2 0063 
+         0000a3 0063 
+         0000a4 0065 
+         0000a5 0073 
+         0000a6 0073 
+         0000a7 0066 
+         0000a8 0075 
+         0000a9 006C 
+         0000aa 006C 
+         0000ab 0079 
+         0000ac 000A 
+         0000ad 0000 
+    1311                      .align  2
+    1312 0000ae 0053  $C$FSL7:        .string "SPI Instance Write successfully",10,0
+         0000af 0050 
+         0000b0 0049 
+         0000b1 0020 
+         0000b2 0049 
+         0000b3 006E 
+         0000b4 0073 
+         0000b5 0074 
+         0000b6 0061 
+         0000b7 006E 
+         0000b8 0063 
+         0000b9 0065 
+         0000ba 0020 
+         0000bb 0057 
+         0000bc 0072 
+         0000bd 0069 
+         0000be 0074 
+         0000bf 0065 
+         0000c0 0020 
+         0000c1 0073 
+         0000c2 0075 
+         0000c3 0063 
+         0000c4 0063 
+         0000c5 0065 
+         0000c6 0073 
+         0000c7 0073 
+         0000c8 0066 
+         0000c9 0075 
+         0000ca 006C 
+         0000cb 006C 
+         0000cc 0079 
+         0000cd 000A 
+         0000ce 0000 
+    1313                      .align  2
+    1314 0000d0 0053  $C$FSL8:        .string "SPI Instance Read successfully",10,0
+         0000d1 0050 
+         0000d2 0049 
+         0000d3 0020 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   34
+
+         0000d4 0049 
+         0000d5 006E 
+         0000d6 0073 
+         0000d7 0074 
+         0000d8 0061 
+         0000d9 006E 
+         0000da 0063 
+         0000db 0065 
+         0000dc 0020 
+         0000dd 0052 
+         0000de 0065 
+         0000df 0061 
+         0000e0 0064 
+         0000e1 0020 
+         0000e2 0073 
+         0000e3 0075 
+         0000e4 0063 
+         0000e5 0063 
+         0000e6 0065 
+         0000e7 0073 
+         0000e8 0073 
+         0000e9 0066 
+         0000ea 0075 
+         0000eb 006C 
+         0000ec 006C 
+         0000ed 0079 
+         0000ee 000A 
+         0000ef 0000 
+    1315                      .align  2
+    1316 0000f0 0053  $C$FSL9:        .string "SPI Instance deIntialize successfully",10,0
+         0000f1 0050 
+         0000f2 0049 
+         0000f3 0020 
+         0000f4 0049 
+         0000f5 006E 
+         0000f6 0073 
+         0000f7 0074 
+         0000f8 0061 
+         0000f9 006E 
+         0000fa 0063 
+         0000fb 0065 
+         0000fc 0020 
+         0000fd 0064 
+         0000fe 0065 
+         0000ff 0049 
+         000100 006E 
+         000101 0074 
+         000102 0069 
+         000103 0061 
+         000104 006C 
+         000105 0069 
+         000106 007A 
+         000107 0065 
+         000108 0020 
+         000109 0073 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   35
+
+         00010a 0075 
+         00010b 0063 
+         00010c 0063 
+         00010d 0065 
+         00010e 0073 
+         00010f 0073 
+         000110 0066 
+         000111 0075 
+         000112 006C 
+         000113 006C 
+         000114 0079 
+         000115 000A 
+         000116 0000 
+    1317                      .align  2
+    1318 000118 0053  $C$FSL10:       .string "SPI Instance Close successfully",10,0
+         000119 0050 
+         00011a 0049 
+         00011b 0020 
+         00011c 0049 
+         00011d 006E 
+         00011e 0073 
+         00011f 0074 
+         000120 0061 
+         000121 006E 
+         000122 0063 
+         000123 0065 
+         000124 0020 
+         000125 0043 
+         000126 006C 
+         000127 006F 
+         000128 0073 
+         000129 0065 
+         00012a 0020 
+         00012b 0073 
+         00012c 0075 
+         00012d 0063 
+         00012e 0063 
+         00012f 0065 
+         000130 0073 
+         000131 0073 
+         000132 0066 
+         000133 0075 
+         000134 006C 
+         000135 006C 
+         000136 0079 
+         000137 000A 
+         000138 0000 
+    1319                      .align  2
+    1320 00013a 0053  $C$FSL11:       .string "SPI Write & Read buffer matching",10,0
+         00013b 0050 
+         00013c 0049 
+         00013d 0020 
+         00013e 0057 
+         00013f 0072 
+         000140 0069 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   36
+
+         000141 0074 
+         000142 0065 
+         000143 0020 
+         000144 0026 
+         000145 0020 
+         000146 0052 
+         000147 0065 
+         000148 0061 
+         000149 0064 
+         00014a 0020 
+         00014b 0062 
+         00014c 0075 
+         00014d 0066 
+         00014e 0066 
+         00014f 0065 
+         000150 0072 
+         000151 0020 
+         000152 006D 
+         000153 0061 
+         000154 0074 
+         000155 0063 
+         000156 0068 
+         000157 0069 
+         000158 006E 
+         000159 0067 
+         00015a 000A 
+         00015b 0000 
+    1321              ;******************************************************************************
+    1322              ;* UNDEFINED EXTERNAL REFERENCES                                              *
+    1323              ;******************************************************************************
+    1324                      .global _SPI_init
+    1325                      .global _SPI_deInit
+    1326                      .global _SPI_open
+    1327                      .global _SPI_close
+    1328                      .global _SPI_config
+    1329                      .global _SPI_dataTransaction
+    1330                      .global _printf
+    1331              
+    1332              ;*******************************************************************************
+    1333              ;* TYPE INFORMATION                                                            *
+    1334              ;*******************************************************************************
+    1335              
+    1336              $C$DW$T$20      .dwtag  DW_TAG_enumeration_type
+    1337                      .dwattr $C$DW$T$20, DW_AT_byte_size(0x01)
+    1338              $C$DW$94        .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_CS_NUM_0"), DW_AT_const_value(0x00)
+    1339              $C$DW$95        .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_CS_NUM_1"), DW_AT_const_value(0x01)
+    1340              $C$DW$96        .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_CS_NUM_2"), DW_AT_const_value(0x02)
+    1341              $C$DW$97        .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_CS_NUM_3"), DW_AT_const_value(0x03)
+    1342              $C$DW$98        .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_CS_NUM_INVALID"), DW_AT_const_value(0x04)
+    1343                      .dwendtag $C$DW$T$20
+    1344              
+    1345              $C$DW$T$21      .dwtag  DW_TAG_typedef, DW_AT_name("SPI_HwMode")
+    1346                      .dwattr $C$DW$T$21, DW_AT_type(*$C$DW$T$20)
+    1347                      .dwattr $C$DW$T$21, DW_AT_language(DW_LANG_C)
+    1348              
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   37
+
+    1349              $C$DW$T$22      .dwtag  DW_TAG_enumeration_type
+    1350                      .dwattr $C$DW$T$22, DW_AT_byte_size(0x01)
+    1351              $C$DW$99        .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_POLLING_MODE"), DW_AT_const_value(0x00)
+    1352              $C$DW$100       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_INTERRUPT_MODE"), DW_AT_const_value(0x01)
+    1353                      .dwendtag $C$DW$T$22
+    1354              
+    1355              $C$DW$T$23      .dwtag  DW_TAG_typedef, DW_AT_name("SPI_OperMode")
+    1356                      .dwattr $C$DW$T$23, DW_AT_type(*$C$DW$T$22)
+    1357                      .dwattr $C$DW$T$23, DW_AT_language(DW_LANG_C)
+    1358              
+    1359              $C$DW$T$25      .dwtag  DW_TAG_enumeration_type
+    1360                      .dwattr $C$DW$T$25, DW_AT_byte_size(0x01)
+    1361              $C$DW$101       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_1"), DW_AT_const_value(0x00)
+    1362              $C$DW$102       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_2"), DW_AT_const_value(0x01)
+    1363              $C$DW$103       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_3"), DW_AT_const_value(0x02)
+    1364              $C$DW$104       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_4"), DW_AT_const_value(0x03)
+    1365              $C$DW$105       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_5"), DW_AT_const_value(0x04)
+    1366              $C$DW$106       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_6"), DW_AT_const_value(0x05)
+    1367              $C$DW$107       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_7"), DW_AT_const_value(0x06)
+    1368              $C$DW$108       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_8"), DW_AT_const_value(0x07)
+    1369              $C$DW$109       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_9"), DW_AT_const_value(0x08)
+    1370              $C$DW$110       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_10"), DW_AT_const_value(0x09)
+    1371              $C$DW$111       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_11"), DW_AT_const_value(0x0a)
+    1372              $C$DW$112       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_12"), DW_AT_const_value(0x0b)
+    1373              $C$DW$113       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_13"), DW_AT_const_value(0x0c)
+    1374              $C$DW$114       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_14"), DW_AT_const_value(0x0d)
+    1375              $C$DW$115       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_15"), DW_AT_const_value(0x0e)
+    1376              $C$DW$116       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_16"), DW_AT_const_value(0x0f)
+    1377              $C$DW$117       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_17"), DW_AT_const_value(0x10)
+    1378              $C$DW$118       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_18"), DW_AT_const_value(0x11)
+    1379              $C$DW$119       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_19"), DW_AT_const_value(0x12)
+    1380              $C$DW$120       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_20"), DW_AT_const_value(0x13)
+    1381              $C$DW$121       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_21"), DW_AT_const_value(0x14)
+    1382              $C$DW$122       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_22"), DW_AT_const_value(0x15)
+    1383              $C$DW$123       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_23"), DW_AT_const_value(0x16)
+    1384              $C$DW$124       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_24"), DW_AT_const_value(0x17)
+    1385              $C$DW$125       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_25"), DW_AT_const_value(0x18)
+    1386              $C$DW$126       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_26"), DW_AT_const_value(0x19)
+    1387              $C$DW$127       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_27"), DW_AT_const_value(0x1a)
+    1388              $C$DW$128       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_28"), DW_AT_const_value(0x1b)
+    1389              $C$DW$129       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_29"), DW_AT_const_value(0x1c)
+    1390              $C$DW$130       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_30"), DW_AT_const_value(0x1d)
+    1391              $C$DW$131       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_31"), DW_AT_const_value(0x1e)
+    1392              $C$DW$132       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_LENGTH_32"), DW_AT_const_value(0x1f)
+    1393              $C$DW$133       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_MAX_WORD_LEN"), DW_AT_const_value(0x20)
+    1394                      .dwendtag $C$DW$T$25
+    1395              
+    1396              $C$DW$T$26      .dwtag  DW_TAG_typedef, DW_AT_name("SPI_WordLen")
+    1397                      .dwattr $C$DW$T$26, DW_AT_type(*$C$DW$T$25)
+    1398                      .dwattr $C$DW$T$26, DW_AT_language(DW_LANG_C)
+    1399              
+    1400              $C$DW$T$27      .dwtag  DW_TAG_enumeration_type
+    1401                      .dwattr $C$DW$T$27, DW_AT_byte_size(0x01)
+    1402              $C$DW$134       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_IRQ_DISABLE"), DW_AT_const_value(0x00)
+    1403              $C$DW$135       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WORD_IRQ_ENABLE"), DW_AT_const_value(0x01)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   38
+
+    1404                      .dwendtag $C$DW$T$27
+    1405              
+    1406              $C$DW$T$28      .dwtag  DW_TAG_typedef, DW_AT_name("SPI_WordCntEnb")
+    1407                      .dwattr $C$DW$T$28, DW_AT_type(*$C$DW$T$27)
+    1408                      .dwattr $C$DW$T$28, DW_AT_language(DW_LANG_C)
+    1409              
+    1410              $C$DW$T$29      .dwtag  DW_TAG_enumeration_type
+    1411                      .dwattr $C$DW$T$29, DW_AT_byte_size(0x01)
+    1412              $C$DW$136       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_FRAME_IRQ_DISABLE"), DW_AT_const_value(0x00)
+    1413              $C$DW$137       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_FRAME_IRQ_ENABLE"), DW_AT_const_value(0x01)
+    1414                      .dwendtag $C$DW$T$29
+    1415              
+    1416              $C$DW$T$30      .dwtag  DW_TAG_typedef, DW_AT_name("SPI_FrameCntEnb")
+    1417                      .dwattr $C$DW$T$30, DW_AT_type(*$C$DW$T$29)
+    1418                      .dwattr $C$DW$T$30, DW_AT_language(DW_LANG_C)
+    1419              
+    1420              $C$DW$T$31      .dwtag  DW_TAG_enumeration_type
+    1421                      .dwattr $C$DW$T$31, DW_AT_byte_size(0x01)
+    1422              $C$DW$138       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_DATA_DLY_0"), DW_AT_const_value(0x00)
+    1423              $C$DW$139       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_DATA_DLY_1"), DW_AT_const_value(0x01)
+    1424              $C$DW$140       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_DATA_DLY_2"), DW_AT_const_value(0x02)
+    1425              $C$DW$141       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_DATA_DLY_3"), DW_AT_const_value(0x03)
+    1426              $C$DW$142       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_DATA_DLY_UNKNOWN"), DW_AT_const_value(0x04)
+    1427                      .dwendtag $C$DW$T$31
+    1428              
+    1429              $C$DW$T$32      .dwtag  DW_TAG_typedef, DW_AT_name("SPI_DataDly")
+    1430                      .dwattr $C$DW$T$32, DW_AT_type(*$C$DW$T$31)
+    1431                      .dwattr $C$DW$T$32, DW_AT_language(DW_LANG_C)
+    1432              
+    1433              $C$DW$T$33      .dwtag  DW_TAG_enumeration_type
+    1434                      .dwattr $C$DW$T$33, DW_AT_byte_size(0x01)
+    1435              $C$DW$143       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_CLKP_LOW_AT_IDLE"), DW_AT_const_value(0x00)
+    1436              $C$DW$144       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_CLKP_HIGH_AT_IDLE"), DW_AT_const_value(0x01)
+    1437                      .dwendtag $C$DW$T$33
+    1438              
+    1439              $C$DW$T$34      .dwtag  DW_TAG_typedef, DW_AT_name("SPI_ClkPolarity")
+    1440                      .dwattr $C$DW$T$34, DW_AT_type(*$C$DW$T$33)
+    1441                      .dwattr $C$DW$T$34, DW_AT_language(DW_LANG_C)
+    1442              
+    1443              $C$DW$T$35      .dwtag  DW_TAG_enumeration_type
+    1444                      .dwattr $C$DW$T$35, DW_AT_byte_size(0x01)
+    1445              $C$DW$145       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_CSP_ACTIVE_LOW"), DW_AT_const_value(0x00)
+    1446              $C$DW$146       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_CSP_ACTIVE_HIGH"), DW_AT_const_value(0x01)
+    1447                      .dwendtag $C$DW$T$35
+    1448              
+    1449              $C$DW$T$36      .dwtag  DW_TAG_typedef, DW_AT_name("SPI_ChipSelPol")
+    1450                      .dwattr $C$DW$T$36, DW_AT_type(*$C$DW$T$35)
+    1451                      .dwattr $C$DW$T$36, DW_AT_language(DW_LANG_C)
+    1452              
+    1453              $C$DW$T$37      .dwtag  DW_TAG_enumeration_type
+    1454                      .dwattr $C$DW$T$37, DW_AT_byte_size(0x01)
+    1455              $C$DW$147       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_CLK_PH_FALL_EDGE"), DW_AT_const_value(0x00)
+    1456              $C$DW$148       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_CLK_PH_RISE_EDGE"), DW_AT_const_value(0x01)
+    1457                      .dwendtag $C$DW$T$37
+    1458              
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   39
+
+    1459              $C$DW$T$38      .dwtag  DW_TAG_typedef, DW_AT_name("SPI_ClkPh")
+    1460                      .dwattr $C$DW$T$38, DW_AT_type(*$C$DW$T$37)
+    1461                      .dwattr $C$DW$T$38, DW_AT_language(DW_LANG_C)
+    1462              
+    1463              $C$DW$T$24      .dwtag  DW_TAG_structure_type
+    1464                      .dwattr $C$DW$T$24, DW_AT_byte_size(0x03)
+    1465              $C$DW$149       .dwtag  DW_TAG_member
+    1466                      .dwattr $C$DW$149, DW_AT_type(*$C$DW$T$19)
+    1467                      .dwattr $C$DW$149, DW_AT_name("configured")
+    1468                      .dwattr $C$DW$149, DW_AT_TI_symbol_name("_configured")
+    1469                      .dwattr $C$DW$149, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1470                      .dwattr $C$DW$149, DW_AT_accessibility(DW_ACCESS_public)
+    1471              $C$DW$150       .dwtag  DW_TAG_member
+    1472                      .dwattr $C$DW$150, DW_AT_type(*$C$DW$T$21)
+    1473                      .dwattr $C$DW$150, DW_AT_name("mode")
+    1474                      .dwattr $C$DW$150, DW_AT_TI_symbol_name("_mode")
+    1475                      .dwattr $C$DW$150, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+    1476                      .dwattr $C$DW$150, DW_AT_accessibility(DW_ACCESS_public)
+    1477              $C$DW$151       .dwtag  DW_TAG_member
+    1478                      .dwattr $C$DW$151, DW_AT_type(*$C$DW$T$23)
+    1479                      .dwattr $C$DW$151, DW_AT_name("opMode")
+    1480                      .dwattr $C$DW$151, DW_AT_TI_symbol_name("_opMode")
+    1481                      .dwattr $C$DW$151, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    1482                      .dwattr $C$DW$151, DW_AT_accessibility(DW_ACCESS_public)
+    1483                      .dwendtag $C$DW$T$24
+    1484              
+    1485              $C$DW$T$42      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_SpiObj")
+    1486                      .dwattr $C$DW$T$42, DW_AT_type(*$C$DW$T$24)
+    1487                      .dwattr $C$DW$T$42, DW_AT_language(DW_LANG_C)
+    1488              $C$DW$T$43      .dwtag  DW_TAG_pointer_type
+    1489                      .dwattr $C$DW$T$43, DW_AT_type(*$C$DW$T$42)
+    1490                      .dwattr $C$DW$T$43, DW_AT_address_class(0x17)
+    1491              $C$DW$T$44      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_SpiHandle")
+    1492                      .dwattr $C$DW$T$44, DW_AT_type(*$C$DW$T$43)
+    1493                      .dwattr $C$DW$T$44, DW_AT_language(DW_LANG_C)
+    1494              
+    1495              $C$DW$T$39      .dwtag  DW_TAG_structure_type
+    1496                      .dwattr $C$DW$T$39, DW_AT_byte_size(0x0a)
+    1497              $C$DW$152       .dwtag  DW_TAG_member
+    1498                      .dwattr $C$DW$152, DW_AT_type(*$C$DW$T$19)
+    1499                      .dwattr $C$DW$152, DW_AT_name("spiClkDiv")
+    1500                      .dwattr $C$DW$152, DW_AT_TI_symbol_name("_spiClkDiv")
+    1501                      .dwattr $C$DW$152, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1502                      .dwattr $C$DW$152, DW_AT_accessibility(DW_ACCESS_public)
+    1503              $C$DW$153       .dwtag  DW_TAG_member
+    1504                      .dwattr $C$DW$153, DW_AT_type(*$C$DW$T$26)
+    1505                      .dwattr $C$DW$153, DW_AT_name("wLen")
+    1506                      .dwattr $C$DW$153, DW_AT_TI_symbol_name("_wLen")
+    1507                      .dwattr $C$DW$153, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+    1508                      .dwattr $C$DW$153, DW_AT_accessibility(DW_ACCESS_public)
+    1509              $C$DW$154       .dwtag  DW_TAG_member
+    1510                      .dwattr $C$DW$154, DW_AT_type(*$C$DW$T$19)
+    1511                      .dwattr $C$DW$154, DW_AT_name("frLen")
+    1512                      .dwattr $C$DW$154, DW_AT_TI_symbol_name("_frLen")
+    1513                      .dwattr $C$DW$154, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   40
+
+    1514                      .dwattr $C$DW$154, DW_AT_accessibility(DW_ACCESS_public)
+    1515              $C$DW$155       .dwtag  DW_TAG_member
+    1516                      .dwattr $C$DW$155, DW_AT_type(*$C$DW$T$28)
+    1517                      .dwattr $C$DW$155, DW_AT_name("wcEnable")
+    1518                      .dwattr $C$DW$155, DW_AT_TI_symbol_name("_wcEnable")
+    1519                      .dwattr $C$DW$155, DW_AT_data_member_location[DW_OP_plus_uconst 0x3]
+    1520                      .dwattr $C$DW$155, DW_AT_accessibility(DW_ACCESS_public)
+    1521              $C$DW$156       .dwtag  DW_TAG_member
+    1522                      .dwattr $C$DW$156, DW_AT_type(*$C$DW$T$30)
+    1523                      .dwattr $C$DW$156, DW_AT_name("fcEnable")
+    1524                      .dwattr $C$DW$156, DW_AT_TI_symbol_name("_fcEnable")
+    1525                      .dwattr $C$DW$156, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+    1526                      .dwattr $C$DW$156, DW_AT_accessibility(DW_ACCESS_public)
+    1527              $C$DW$157       .dwtag  DW_TAG_member
+    1528                      .dwattr $C$DW$157, DW_AT_type(*$C$DW$T$21)
+    1529                      .dwattr $C$DW$157, DW_AT_name("csNum")
+    1530                      .dwattr $C$DW$157, DW_AT_TI_symbol_name("_csNum")
+    1531                      .dwattr $C$DW$157, DW_AT_data_member_location[DW_OP_plus_uconst 0x5]
+    1532                      .dwattr $C$DW$157, DW_AT_accessibility(DW_ACCESS_public)
+    1533              $C$DW$158       .dwtag  DW_TAG_member
+    1534                      .dwattr $C$DW$158, DW_AT_type(*$C$DW$T$32)
+    1535                      .dwattr $C$DW$158, DW_AT_name("dataDelay")
+    1536                      .dwattr $C$DW$158, DW_AT_TI_symbol_name("_dataDelay")
+    1537                      .dwattr $C$DW$158, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+    1538                      .dwattr $C$DW$158, DW_AT_accessibility(DW_ACCESS_public)
+    1539              $C$DW$159       .dwtag  DW_TAG_member
+    1540                      .dwattr $C$DW$159, DW_AT_type(*$C$DW$T$34)
+    1541                      .dwattr $C$DW$159, DW_AT_name("clkPol")
+    1542                      .dwattr $C$DW$159, DW_AT_TI_symbol_name("_clkPol")
+    1543                      .dwattr $C$DW$159, DW_AT_data_member_location[DW_OP_plus_uconst 0x7]
+    1544                      .dwattr $C$DW$159, DW_AT_accessibility(DW_ACCESS_public)
+    1545              $C$DW$160       .dwtag  DW_TAG_member
+    1546                      .dwattr $C$DW$160, DW_AT_type(*$C$DW$T$36)
+    1547                      .dwattr $C$DW$160, DW_AT_name("csPol")
+    1548                      .dwattr $C$DW$160, DW_AT_TI_symbol_name("_csPol")
+    1549                      .dwattr $C$DW$160, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
+    1550                      .dwattr $C$DW$160, DW_AT_accessibility(DW_ACCESS_public)
+    1551              $C$DW$161       .dwtag  DW_TAG_member
+    1552                      .dwattr $C$DW$161, DW_AT_type(*$C$DW$T$38)
+    1553                      .dwattr $C$DW$161, DW_AT_name("clkPh")
+    1554                      .dwattr $C$DW$161, DW_AT_TI_symbol_name("_clkPh")
+    1555                      .dwattr $C$DW$161, DW_AT_data_member_location[DW_OP_plus_uconst 0x9]
+    1556                      .dwattr $C$DW$161, DW_AT_accessibility(DW_ACCESS_public)
+    1557                      .dwendtag $C$DW$T$39
+    1558              
+    1559              $C$DW$T$47      .dwtag  DW_TAG_typedef, DW_AT_name("SPI_Config")
+    1560                      .dwattr $C$DW$T$47, DW_AT_type(*$C$DW$T$39)
+    1561                      .dwattr $C$DW$T$47, DW_AT_language(DW_LANG_C)
+    1562              $C$DW$T$48      .dwtag  DW_TAG_pointer_type
+    1563                      .dwattr $C$DW$T$48, DW_AT_type(*$C$DW$T$47)
+    1564                      .dwattr $C$DW$T$48, DW_AT_address_class(0x17)
+    1565              
+    1566              $C$DW$T$41      .dwtag  DW_TAG_structure_type
+    1567                      .dwattr $C$DW$T$41, DW_AT_byte_size(0x0a)
+    1568              $C$DW$162       .dwtag  DW_TAG_member
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   41
+
+    1569                      .dwattr $C$DW$162, DW_AT_type(*$C$DW$T$40)
+    1570                      .dwattr $C$DW$162, DW_AT_name("SPICDR")
+    1571                      .dwattr $C$DW$162, DW_AT_TI_symbol_name("_SPICDR")
+    1572                      .dwattr $C$DW$162, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1573                      .dwattr $C$DW$162, DW_AT_accessibility(DW_ACCESS_public)
+    1574              $C$DW$163       .dwtag  DW_TAG_member
+    1575                      .dwattr $C$DW$163, DW_AT_type(*$C$DW$T$40)
+    1576                      .dwattr $C$DW$163, DW_AT_name("SPICCR")
+    1577                      .dwattr $C$DW$163, DW_AT_TI_symbol_name("_SPICCR")
+    1578                      .dwattr $C$DW$163, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+    1579                      .dwattr $C$DW$163, DW_AT_accessibility(DW_ACCESS_public)
+    1580              $C$DW$164       .dwtag  DW_TAG_member
+    1581                      .dwattr $C$DW$164, DW_AT_type(*$C$DW$T$40)
+    1582                      .dwattr $C$DW$164, DW_AT_name("SPIDCR1")
+    1583                      .dwattr $C$DW$164, DW_AT_TI_symbol_name("_SPIDCR1")
+    1584                      .dwattr $C$DW$164, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    1585                      .dwattr $C$DW$164, DW_AT_accessibility(DW_ACCESS_public)
+    1586              $C$DW$165       .dwtag  DW_TAG_member
+    1587                      .dwattr $C$DW$165, DW_AT_type(*$C$DW$T$40)
+    1588                      .dwattr $C$DW$165, DW_AT_name("SPIDCR2")
+    1589                      .dwattr $C$DW$165, DW_AT_TI_symbol_name("_SPIDCR2")
+    1590                      .dwattr $C$DW$165, DW_AT_data_member_location[DW_OP_plus_uconst 0x3]
+    1591                      .dwattr $C$DW$165, DW_AT_accessibility(DW_ACCESS_public)
+    1592              $C$DW$166       .dwtag  DW_TAG_member
+    1593                      .dwattr $C$DW$166, DW_AT_type(*$C$DW$T$40)
+    1594                      .dwattr $C$DW$166, DW_AT_name("SPICMD1")
+    1595                      .dwattr $C$DW$166, DW_AT_TI_symbol_name("_SPICMD1")
+    1596                      .dwattr $C$DW$166, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+    1597                      .dwattr $C$DW$166, DW_AT_accessibility(DW_ACCESS_public)
+    1598              $C$DW$167       .dwtag  DW_TAG_member
+    1599                      .dwattr $C$DW$167, DW_AT_type(*$C$DW$T$40)
+    1600                      .dwattr $C$DW$167, DW_AT_name("SPICMD2")
+    1601                      .dwattr $C$DW$167, DW_AT_TI_symbol_name("_SPICMD2")
+    1602                      .dwattr $C$DW$167, DW_AT_data_member_location[DW_OP_plus_uconst 0x5]
+    1603                      .dwattr $C$DW$167, DW_AT_accessibility(DW_ACCESS_public)
+    1604              $C$DW$168       .dwtag  DW_TAG_member
+    1605                      .dwattr $C$DW$168, DW_AT_type(*$C$DW$T$40)
+    1606                      .dwattr $C$DW$168, DW_AT_name("SPISTAT1")
+    1607                      .dwattr $C$DW$168, DW_AT_TI_symbol_name("_SPISTAT1")
+    1608                      .dwattr $C$DW$168, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+    1609                      .dwattr $C$DW$168, DW_AT_accessibility(DW_ACCESS_public)
+    1610              $C$DW$169       .dwtag  DW_TAG_member
+    1611                      .dwattr $C$DW$169, DW_AT_type(*$C$DW$T$40)
+    1612                      .dwattr $C$DW$169, DW_AT_name("SPISTAT2")
+    1613                      .dwattr $C$DW$169, DW_AT_TI_symbol_name("_SPISTAT2")
+    1614                      .dwattr $C$DW$169, DW_AT_data_member_location[DW_OP_plus_uconst 0x7]
+    1615                      .dwattr $C$DW$169, DW_AT_accessibility(DW_ACCESS_public)
+    1616              $C$DW$170       .dwtag  DW_TAG_member
+    1617                      .dwattr $C$DW$170, DW_AT_type(*$C$DW$T$40)
+    1618                      .dwattr $C$DW$170, DW_AT_name("SPIDR1")
+    1619                      .dwattr $C$DW$170, DW_AT_TI_symbol_name("_SPIDR1")
+    1620                      .dwattr $C$DW$170, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
+    1621                      .dwattr $C$DW$170, DW_AT_accessibility(DW_ACCESS_public)
+    1622              $C$DW$171       .dwtag  DW_TAG_member
+    1623                      .dwattr $C$DW$171, DW_AT_type(*$C$DW$T$40)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   42
+
+    1624                      .dwattr $C$DW$171, DW_AT_name("SPIDR2")
+    1625                      .dwattr $C$DW$171, DW_AT_TI_symbol_name("_SPIDR2")
+    1626                      .dwattr $C$DW$171, DW_AT_data_member_location[DW_OP_plus_uconst 0x9]
+    1627                      .dwattr $C$DW$171, DW_AT_accessibility(DW_ACCESS_public)
+    1628                      .dwendtag $C$DW$T$41
+    1629              
+    1630              $C$DW$T$49      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_SpiRegs")
+    1631                      .dwattr $C$DW$T$49, DW_AT_type(*$C$DW$T$41)
+    1632                      .dwattr $C$DW$T$49, DW_AT_language(DW_LANG_C)
+    1633              $C$DW$172       .dwtag  DW_TAG_TI_far_type
+    1634                      .dwattr $C$DW$172, DW_AT_type(*$C$DW$T$49)
+    1635              $C$DW$173       .dwtag  DW_TAG_TI_ioport_type
+    1636                      .dwattr $C$DW$173, DW_AT_type(*$C$DW$172)
+    1637              $C$DW$T$50      .dwtag  DW_TAG_volatile_type
+    1638                      .dwattr $C$DW$T$50, DW_AT_type(*$C$DW$173)
+    1639              $C$DW$T$51      .dwtag  DW_TAG_pointer_type
+    1640                      .dwattr $C$DW$T$51, DW_AT_type(*$C$DW$T$50)
+    1641                      .dwattr $C$DW$T$51, DW_AT_address_class(0x10)
+    1642              $C$DW$T$52      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_SpiRegsOvly")
+    1643                      .dwattr $C$DW$T$52, DW_AT_type(*$C$DW$T$51)
+    1644                      .dwattr $C$DW$T$52, DW_AT_language(DW_LANG_C)
+    1645              
+    1646              $C$DW$T$53      .dwtag  DW_TAG_enumeration_type
+    1647                      .dwattr $C$DW$T$53, DW_AT_name("SPI_Command")
+    1648                      .dwattr $C$DW$T$53, DW_AT_byte_size(0x01)
+    1649              $C$DW$174       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_RSVD_CMD"), DW_AT_const_value(0x00)
+    1650              $C$DW$175       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_READ"), DW_AT_const_value(0x01)
+    1651              $C$DW$176       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_WRITE"), DW_AT_const_value(0x02)
+    1652              $C$DW$177       .dwtag  DW_TAG_enumerator, DW_AT_name("SPI_RSVD1_CMD"), DW_AT_const_value(0x03)
+    1653                      .dwendtag $C$DW$T$53
+    1654              
+    1655              $C$DW$T$54      .dwtag  DW_TAG_typedef, DW_AT_name("SPI_Command")
+    1656                      .dwattr $C$DW$T$54, DW_AT_type(*$C$DW$T$53)
+    1657                      .dwattr $C$DW$T$54, DW_AT_language(DW_LANG_C)
+    1658              $C$DW$T$4       .dwtag  DW_TAG_base_type
+    1659                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+    1660                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+    1661                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+    1662              $C$DW$T$5       .dwtag  DW_TAG_base_type
+    1663                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+    1664                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+    1665                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+    1666              $C$DW$T$6       .dwtag  DW_TAG_base_type
+    1667                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+    1668                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+    1669                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+    1670              $C$DW$T$7       .dwtag  DW_TAG_base_type
+    1671                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+    1672                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+    1673                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+    1674              $C$DW$T$8       .dwtag  DW_TAG_base_type
+    1675                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+    1676                      .dwattr $C$DW$T$8, DW_AT_name("short")
+    1677                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+    1678              $C$DW$T$56      .dwtag  DW_TAG_typedef, DW_AT_name("Int16")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   43
+
+    1679                      .dwattr $C$DW$T$56, DW_AT_type(*$C$DW$T$8)
+    1680                      .dwattr $C$DW$T$56, DW_AT_language(DW_LANG_C)
+    1681              $C$DW$T$57      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_Status")
+    1682                      .dwattr $C$DW$T$57, DW_AT_type(*$C$DW$T$56)
+    1683                      .dwattr $C$DW$T$57, DW_AT_language(DW_LANG_C)
+    1684              $C$DW$178       .dwtag  DW_TAG_TI_far_type
+    1685                      .dwattr $C$DW$178, DW_AT_type(*$C$DW$T$56)
+    1686              $C$DW$T$67      .dwtag  DW_TAG_volatile_type
+    1687                      .dwattr $C$DW$T$67, DW_AT_type(*$C$DW$178)
+    1688              $C$DW$T$9       .dwtag  DW_TAG_base_type
+    1689                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+    1690                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+    1691                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+    1692              $C$DW$T$19      .dwtag  DW_TAG_typedef, DW_AT_name("Uint16")
+    1693                      .dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$9)
+    1694                      .dwattr $C$DW$T$19, DW_AT_language(DW_LANG_C)
+    1695              $C$DW$179       .dwtag  DW_TAG_TI_far_type
+    1696                      .dwattr $C$DW$179, DW_AT_type(*$C$DW$T$19)
+    1697              $C$DW$T$40      .dwtag  DW_TAG_volatile_type
+    1698                      .dwattr $C$DW$T$40, DW_AT_type(*$C$DW$179)
+    1699              $C$DW$T$64      .dwtag  DW_TAG_pointer_type
+    1700                      .dwattr $C$DW$T$64, DW_AT_type(*$C$DW$T$19)
+    1701                      .dwattr $C$DW$T$64, DW_AT_address_class(0x17)
+    1702              
+    1703              $C$DW$T$71      .dwtag  DW_TAG_array_type
+    1704                      .dwattr $C$DW$T$71, DW_AT_type(*$C$DW$T$19)
+    1705                      .dwattr $C$DW$T$71, DW_AT_language(DW_LANG_C)
+    1706                      .dwattr $C$DW$T$71, DW_AT_byte_size(0x40)
+    1707              $C$DW$180       .dwtag  DW_TAG_subrange_type
+    1708                      .dwattr $C$DW$180, DW_AT_upper_bound(0x3f)
+    1709                      .dwendtag $C$DW$T$71
+    1710              
+    1711              
+    1712              $C$DW$T$72      .dwtag  DW_TAG_array_type
+    1713                      .dwattr $C$DW$T$72, DW_AT_type(*$C$DW$T$19)
+    1714                      .dwattr $C$DW$T$72, DW_AT_language(DW_LANG_C)
+    1715                      .dwattr $C$DW$T$72, DW_AT_byte_size(0x01)
+    1716              $C$DW$181       .dwtag  DW_TAG_subrange_type
+    1717                      .dwattr $C$DW$181, DW_AT_upper_bound(0x00)
+    1718                      .dwendtag $C$DW$T$72
+    1719              
+    1720              
+    1721              $C$DW$T$73      .dwtag  DW_TAG_array_type
+    1722                      .dwattr $C$DW$T$73, DW_AT_type(*$C$DW$T$19)
+    1723                      .dwattr $C$DW$T$73, DW_AT_language(DW_LANG_C)
+    1724                      .dwattr $C$DW$T$73, DW_AT_byte_size(0x03)
+    1725              $C$DW$182       .dwtag  DW_TAG_subrange_type
+    1726                      .dwattr $C$DW$182, DW_AT_upper_bound(0x02)
+    1727                      .dwendtag $C$DW$T$73
+    1728              
+    1729              $C$DW$T$10      .dwtag  DW_TAG_base_type
+    1730                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+    1731                      .dwattr $C$DW$T$10, DW_AT_name("int")
+    1732                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+    1733              $C$DW$T$11      .dwtag  DW_TAG_base_type
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   44
+
+    1734                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+    1735                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+    1736                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+    1737              $C$DW$T$12      .dwtag  DW_TAG_base_type
+    1738                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+    1739                      .dwattr $C$DW$T$12, DW_AT_name("long")
+    1740                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+    1741              $C$DW$T$13      .dwtag  DW_TAG_base_type
+    1742                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+    1743                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+    1744                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+    1745              $C$DW$T$79      .dwtag  DW_TAG_typedef, DW_AT_name("Uint32")
+    1746                      .dwattr $C$DW$T$79, DW_AT_type(*$C$DW$T$13)
+    1747                      .dwattr $C$DW$T$79, DW_AT_language(DW_LANG_C)
+    1748              $C$DW$183       .dwtag  DW_TAG_TI_far_type
+    1749                      .dwattr $C$DW$183, DW_AT_type(*$C$DW$T$79)
+    1750              $C$DW$T$80      .dwtag  DW_TAG_volatile_type
+    1751                      .dwattr $C$DW$T$80, DW_AT_type(*$C$DW$183)
+    1752              $C$DW$T$14      .dwtag  DW_TAG_base_type
+    1753                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+    1754                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+    1755                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+    1756                      .dwattr $C$DW$T$14, DW_AT_bit_size(0x28)
+    1757                      .dwattr $C$DW$T$14, DW_AT_bit_offset(0x18)
+    1758              $C$DW$T$15      .dwtag  DW_TAG_base_type
+    1759                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+    1760                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+    1761                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+    1762                      .dwattr $C$DW$T$15, DW_AT_bit_size(0x28)
+    1763                      .dwattr $C$DW$T$15, DW_AT_bit_offset(0x18)
+    1764              $C$DW$T$16      .dwtag  DW_TAG_base_type
+    1765                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+    1766                      .dwattr $C$DW$T$16, DW_AT_name("float")
+    1767                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+    1768              $C$DW$T$17      .dwtag  DW_TAG_base_type
+    1769                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+    1770                      .dwattr $C$DW$T$17, DW_AT_name("double")
+    1771                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+    1772              $C$DW$T$18      .dwtag  DW_TAG_base_type
+    1773                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+    1774                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+    1775                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x02)
+    1776              $C$DW$T$74      .dwtag  DW_TAG_base_type
+    1777                      .dwattr $C$DW$T$74, DW_AT_encoding(DW_ATE_signed_char)
+    1778                      .dwattr $C$DW$T$74, DW_AT_name("signed char")
+    1779                      .dwattr $C$DW$T$74, DW_AT_byte_size(0x01)
+    1780              $C$DW$184       .dwtag  DW_TAG_TI_far_type
+    1781                      .dwattr $C$DW$184, DW_AT_type(*$C$DW$T$74)
+    1782              $C$DW$T$75      .dwtag  DW_TAG_const_type
+    1783                      .dwattr $C$DW$T$75, DW_AT_type(*$C$DW$184)
+    1784              $C$DW$T$76      .dwtag  DW_TAG_pointer_type
+    1785                      .dwattr $C$DW$T$76, DW_AT_type(*$C$DW$T$75)
+    1786                      .dwattr $C$DW$T$76, DW_AT_address_class(0x17)
+    1787                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+    1788              
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   45
+
+    1789              ;***************************************************************
+    1790              ;* DWARF CIE ENTRIES                                           *
+    1791              ;***************************************************************
+    1792              
+    1793              $C$DW$CIE       .dwcie 91
+    1794                      .dwcfi  cfa_register, 36
+    1795                      .dwcfi  cfa_offset, 0
+    1796                      .dwcfi  undefined, 0
+    1797                      .dwcfi  undefined, 1
+    1798                      .dwcfi  undefined, 2
+    1799                      .dwcfi  undefined, 3
+    1800                      .dwcfi  undefined, 4
+    1801                      .dwcfi  undefined, 5
+    1802                      .dwcfi  undefined, 6
+    1803                      .dwcfi  undefined, 7
+    1804                      .dwcfi  undefined, 8
+    1805                      .dwcfi  undefined, 9
+    1806                      .dwcfi  undefined, 10
+    1807                      .dwcfi  undefined, 11
+    1808                      .dwcfi  undefined, 12
+    1809                      .dwcfi  undefined, 13
+    1810                      .dwcfi  same_value, 14
+    1811                      .dwcfi  same_value, 15
+    1812                      .dwcfi  undefined, 16
+    1813                      .dwcfi  undefined, 17
+    1814                      .dwcfi  undefined, 18
+    1815                      .dwcfi  undefined, 19
+    1816                      .dwcfi  undefined, 20
+    1817                      .dwcfi  undefined, 21
+    1818                      .dwcfi  undefined, 22
+    1819                      .dwcfi  undefined, 23
+    1820                      .dwcfi  undefined, 24
+    1821                      .dwcfi  undefined, 25
+    1822                      .dwcfi  same_value, 26
+    1823                      .dwcfi  same_value, 27
+    1824                      .dwcfi  same_value, 28
+    1825                      .dwcfi  same_value, 29
+    1826                      .dwcfi  same_value, 30
+    1827                      .dwcfi  same_value, 31
+    1828                      .dwcfi  undefined, 32
+    1829                      .dwcfi  undefined, 33
+    1830                      .dwcfi  undefined, 34
+    1831                      .dwcfi  undefined, 35
+    1832                      .dwcfi  undefined, 36
+    1833                      .dwcfi  undefined, 37
+    1834                      .dwcfi  undefined, 38
+    1835                      .dwcfi  undefined, 39
+    1836                      .dwcfi  undefined, 40
+    1837                      .dwcfi  undefined, 41
+    1838                      .dwcfi  undefined, 42
+    1839                      .dwcfi  undefined, 43
+    1840                      .dwcfi  undefined, 44
+    1841                      .dwcfi  undefined, 45
+    1842                      .dwcfi  undefined, 46
+    1843                      .dwcfi  undefined, 47
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   46
+
+    1844                      .dwcfi  undefined, 48
+    1845                      .dwcfi  undefined, 49
+    1846                      .dwcfi  undefined, 50
+    1847                      .dwcfi  undefined, 51
+    1848                      .dwcfi  undefined, 52
+    1849                      .dwcfi  undefined, 53
+    1850                      .dwcfi  undefined, 54
+    1851                      .dwcfi  undefined, 55
+    1852                      .dwcfi  undefined, 56
+    1853                      .dwcfi  undefined, 57
+    1854                      .dwcfi  undefined, 58
+    1855                      .dwcfi  undefined, 59
+    1856                      .dwcfi  undefined, 60
+    1857                      .dwcfi  undefined, 61
+    1858                      .dwcfi  undefined, 62
+    1859                      .dwcfi  undefined, 63
+    1860                      .dwcfi  undefined, 64
+    1861                      .dwcfi  undefined, 65
+    1862                      .dwcfi  undefined, 66
+    1863                      .dwcfi  undefined, 67
+    1864                      .dwcfi  undefined, 68
+    1865                      .dwcfi  undefined, 69
+    1866                      .dwcfi  undefined, 70
+    1867                      .dwcfi  undefined, 71
+    1868                      .dwcfi  undefined, 72
+    1869                      .dwcfi  undefined, 73
+    1870                      .dwcfi  undefined, 74
+    1871                      .dwcfi  undefined, 75
+    1872                      .dwcfi  undefined, 76
+    1873                      .dwcfi  undefined, 77
+    1874                      .dwcfi  undefined, 78
+    1875                      .dwcfi  undefined, 79
+    1876                      .dwcfi  undefined, 80
+    1877                      .dwcfi  undefined, 81
+    1878                      .dwcfi  undefined, 82
+    1879                      .dwcfi  undefined, 83
+    1880                      .dwcfi  undefined, 84
+    1881                      .dwcfi  undefined, 85
+    1882                      .dwcfi  undefined, 86
+    1883                      .dwcfi  undefined, 87
+    1884                      .dwcfi  undefined, 88
+    1885                      .dwcfi  undefined, 89
+    1886                      .dwcfi  undefined, 90
+    1887                      .dwcfi  undefined, 91
+    1888                      .dwendentry
+    1889              
+    1890              ;***************************************************************
+    1891              ;* DWARF REGISTER MAP                                          *
+    1892              ;***************************************************************
+    1893              
+    1894              $C$DW$185       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1895                      .dwattr $C$DW$185, DW_AT_location[DW_OP_reg0]
+    1896              $C$DW$186       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1897                      .dwattr $C$DW$186, DW_AT_location[DW_OP_reg1]
+    1898              $C$DW$187       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0_G")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   47
+
+    1899                      .dwattr $C$DW$187, DW_AT_location[DW_OP_reg2]
+    1900              $C$DW$188       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1901                      .dwattr $C$DW$188, DW_AT_location[DW_OP_reg3]
+    1902              $C$DW$189       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1903                      .dwattr $C$DW$189, DW_AT_location[DW_OP_reg4]
+    1904              $C$DW$190       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1_G")
+    1905                      .dwattr $C$DW$190, DW_AT_location[DW_OP_reg5]
+    1906              $C$DW$191       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1907                      .dwattr $C$DW$191, DW_AT_location[DW_OP_reg6]
+    1908              $C$DW$192       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1909                      .dwattr $C$DW$192, DW_AT_location[DW_OP_reg7]
+    1910              $C$DW$193       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2_G")
+    1911                      .dwattr $C$DW$193, DW_AT_location[DW_OP_reg8]
+    1912              $C$DW$194       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    1913                      .dwattr $C$DW$194, DW_AT_location[DW_OP_reg9]
+    1914              $C$DW$195       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    1915                      .dwattr $C$DW$195, DW_AT_location[DW_OP_reg10]
+    1916              $C$DW$196       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3_G")
+    1917                      .dwattr $C$DW$196, DW_AT_location[DW_OP_reg11]
+    1918              $C$DW$197       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T0")
+    1919                      .dwattr $C$DW$197, DW_AT_location[DW_OP_reg12]
+    1920              $C$DW$198       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T1")
+    1921                      .dwattr $C$DW$198, DW_AT_location[DW_OP_reg13]
+    1922              $C$DW$199       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T2")
+    1923                      .dwattr $C$DW$199, DW_AT_location[DW_OP_reg14]
+    1924              $C$DW$200       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T3")
+    1925                      .dwattr $C$DW$200, DW_AT_location[DW_OP_reg15]
+    1926              $C$DW$201       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+    1927                      .dwattr $C$DW$201, DW_AT_location[DW_OP_reg16]
+    1928              $C$DW$202       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+    1929                      .dwattr $C$DW$202, DW_AT_location[DW_OP_reg17]
+    1930              $C$DW$203       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+    1931                      .dwattr $C$DW$203, DW_AT_location[DW_OP_reg18]
+    1932              $C$DW$204       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+    1933                      .dwattr $C$DW$204, DW_AT_location[DW_OP_reg19]
+    1934              $C$DW$205       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+    1935                      .dwattr $C$DW$205, DW_AT_location[DW_OP_reg20]
+    1936              $C$DW$206       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+    1937                      .dwattr $C$DW$206, DW_AT_location[DW_OP_reg21]
+    1938              $C$DW$207       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+    1939                      .dwattr $C$DW$207, DW_AT_location[DW_OP_reg22]
+    1940              $C$DW$208       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+    1941                      .dwattr $C$DW$208, DW_AT_location[DW_OP_reg23]
+    1942              $C$DW$209       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+    1943                      .dwattr $C$DW$209, DW_AT_location[DW_OP_reg24]
+    1944              $C$DW$210       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+    1945                      .dwattr $C$DW$210, DW_AT_location[DW_OP_reg25]
+    1946              $C$DW$211       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+    1947                      .dwattr $C$DW$211, DW_AT_location[DW_OP_reg26]
+    1948              $C$DW$212       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+    1949                      .dwattr $C$DW$212, DW_AT_location[DW_OP_reg27]
+    1950              $C$DW$213       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+    1951                      .dwattr $C$DW$213, DW_AT_location[DW_OP_reg28]
+    1952              $C$DW$214       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+    1953                      .dwattr $C$DW$214, DW_AT_location[DW_OP_reg29]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   48
+
+    1954              $C$DW$215       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+    1955                      .dwattr $C$DW$215, DW_AT_location[DW_OP_reg30]
+    1956              $C$DW$216       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+    1957                      .dwattr $C$DW$216, DW_AT_location[DW_OP_reg31]
+    1958              $C$DW$217       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+    1959                      .dwattr $C$DW$217, DW_AT_location[DW_OP_regx 0x20]
+    1960              $C$DW$218       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XFP")
+    1961                      .dwattr $C$DW$218, DW_AT_location[DW_OP_regx 0x21]
+    1962              $C$DW$219       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+    1963                      .dwattr $C$DW$219, DW_AT_location[DW_OP_regx 0x22]
+    1964              $C$DW$220       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+    1965                      .dwattr $C$DW$220, DW_AT_location[DW_OP_regx 0x23]
+    1966              $C$DW$221       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XSP")
+    1967                      .dwattr $C$DW$221, DW_AT_location[DW_OP_regx 0x24]
+    1968              $C$DW$222       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BKC")
+    1969                      .dwattr $C$DW$222, DW_AT_location[DW_OP_regx 0x25]
+    1970              $C$DW$223       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK03")
+    1971                      .dwattr $C$DW$223, DW_AT_location[DW_OP_regx 0x26]
+    1972              $C$DW$224       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK47")
+    1973                      .dwattr $C$DW$224, DW_AT_location[DW_OP_regx 0x27]
+    1974              $C$DW$225       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+    1975                      .dwattr $C$DW$225, DW_AT_location[DW_OP_regx 0x28]
+    1976              $C$DW$226       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+    1977                      .dwattr $C$DW$226, DW_AT_location[DW_OP_regx 0x29]
+    1978              $C$DW$227       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST2")
+    1979                      .dwattr $C$DW$227, DW_AT_location[DW_OP_regx 0x2a]
+    1980              $C$DW$228       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST3")
+    1981                      .dwattr $C$DW$228, DW_AT_location[DW_OP_regx 0x2b]
+    1982              $C$DW$229       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP")
+    1983                      .dwattr $C$DW$229, DW_AT_location[DW_OP_regx 0x2c]
+    1984              $C$DW$230       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP05")
+    1985                      .dwattr $C$DW$230, DW_AT_location[DW_OP_regx 0x2d]
+    1986              $C$DW$231       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP67")
+    1987                      .dwattr $C$DW$231, DW_AT_location[DW_OP_regx 0x2e]
+    1988              $C$DW$232       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC0")
+    1989                      .dwattr $C$DW$232, DW_AT_location[DW_OP_regx 0x2f]
+    1990              $C$DW$233       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0")
+    1991                      .dwattr $C$DW$233, DW_AT_location[DW_OP_regx 0x30]
+    1992              $C$DW$234       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0_H")
+    1993                      .dwattr $C$DW$234, DW_AT_location[DW_OP_regx 0x31]
+    1994              $C$DW$235       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0")
+    1995                      .dwattr $C$DW$235, DW_AT_location[DW_OP_regx 0x32]
+    1996              $C$DW$236       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0_H")
+    1997                      .dwattr $C$DW$236, DW_AT_location[DW_OP_regx 0x33]
+    1998              $C$DW$237       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRS1")
+    1999                      .dwattr $C$DW$237, DW_AT_location[DW_OP_regx 0x34]
+    2000              $C$DW$238       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC1")
+    2001                      .dwattr $C$DW$238, DW_AT_location[DW_OP_regx 0x35]
+    2002              $C$DW$239       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1")
+    2003                      .dwattr $C$DW$239, DW_AT_location[DW_OP_regx 0x36]
+    2004              $C$DW$240       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1_H")
+    2005                      .dwattr $C$DW$240, DW_AT_location[DW_OP_regx 0x37]
+    2006              $C$DW$241       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1")
+    2007                      .dwattr $C$DW$241, DW_AT_location[DW_OP_regx 0x38]
+    2008              $C$DW$242       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1_H")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   49
+
+    2009                      .dwattr $C$DW$242, DW_AT_location[DW_OP_regx 0x39]
+    2010              $C$DW$243       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CSR")
+    2011                      .dwattr $C$DW$243, DW_AT_location[DW_OP_regx 0x3a]
+    2012              $C$DW$244       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPTC")
+    2013                      .dwattr $C$DW$244, DW_AT_location[DW_OP_regx 0x3b]
+    2014              $C$DW$245       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDP")
+    2015                      .dwattr $C$DW$245, DW_AT_location[DW_OP_regx 0x3c]
+    2016              $C$DW$246       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XCDP")
+    2017                      .dwattr $C$DW$246, DW_AT_location[DW_OP_regx 0x3d]
+    2018              $C$DW$247       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN0")
+    2019                      .dwattr $C$DW$247, DW_AT_location[DW_OP_regx 0x3e]
+    2020              $C$DW$248       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN1")
+    2021                      .dwattr $C$DW$248, DW_AT_location[DW_OP_regx 0x3f]
+    2022              $C$DW$249       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA01")
+    2023                      .dwattr $C$DW$249, DW_AT_location[DW_OP_regx 0x40]
+    2024              $C$DW$250       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA23")
+    2025                      .dwattr $C$DW$250, DW_AT_location[DW_OP_regx 0x41]
+    2026              $C$DW$251       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA45")
+    2027                      .dwattr $C$DW$251, DW_AT_location[DW_OP_regx 0x42]
+    2028              $C$DW$252       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA67")
+    2029                      .dwattr $C$DW$252, DW_AT_location[DW_OP_regx 0x43]
+    2030              $C$DW$253       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSAC")
+    2031                      .dwattr $C$DW$253, DW_AT_location[DW_OP_regx 0x44]
+    2032              $C$DW$254       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CARRY")
+    2033                      .dwattr $C$DW$254, DW_AT_location[DW_OP_regx 0x45]
+    2034              $C$DW$255       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC1")
+    2035                      .dwattr $C$DW$255, DW_AT_location[DW_OP_regx 0x46]
+    2036              $C$DW$256       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC2")
+    2037                      .dwattr $C$DW$256, DW_AT_location[DW_OP_regx 0x47]
+    2038              $C$DW$257       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("M40")
+    2039                      .dwattr $C$DW$257, DW_AT_location[DW_OP_regx 0x48]
+    2040              $C$DW$258       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXMD")
+    2041                      .dwattr $C$DW$258, DW_AT_location[DW_OP_regx 0x49]
+    2042              $C$DW$259       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ARMS")
+    2043                      .dwattr $C$DW$259, DW_AT_location[DW_OP_regx 0x4a]
+    2044              $C$DW$260       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("C54CM")
+    2045                      .dwattr $C$DW$260, DW_AT_location[DW_OP_regx 0x4b]
+    2046              $C$DW$261       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATA")
+    2047                      .dwattr $C$DW$261, DW_AT_location[DW_OP_regx 0x4c]
+    2048              $C$DW$262       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATD")
+    2049                      .dwattr $C$DW$262, DW_AT_location[DW_OP_regx 0x4d]
+    2050              $C$DW$263       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RDM")
+    2051                      .dwattr $C$DW$263, DW_AT_location[DW_OP_regx 0x4e]
+    2052              $C$DW$264       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FRCT")
+    2053                      .dwattr $C$DW$264, DW_AT_location[DW_OP_regx 0x4f]
+    2054              $C$DW$265       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SMUL")
+    2055                      .dwattr $C$DW$265, DW_AT_location[DW_OP_regx 0x50]
+    2056              $C$DW$266       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+    2057                      .dwattr $C$DW$266, DW_AT_location[DW_OP_regx 0x51]
+    2058              $C$DW$267       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0LC")
+    2059                      .dwattr $C$DW$267, DW_AT_location[DW_OP_regx 0x52]
+    2060              $C$DW$268       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1LC")
+    2061                      .dwattr $C$DW$268, DW_AT_location[DW_OP_regx 0x53]
+    2062              $C$DW$269       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2LC")
+    2063                      .dwattr $C$DW$269, DW_AT_location[DW_OP_regx 0x54]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:46 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_spi_example.asm                                                  PAGE   50
+
+    2064              $C$DW$270       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3LC")
+    2065                      .dwattr $C$DW$270, DW_AT_location[DW_OP_regx 0x55]
+    2066              $C$DW$271       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4LC")
+    2067                      .dwattr $C$DW$271, DW_AT_location[DW_OP_regx 0x56]
+    2068              $C$DW$272       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5LC")
+    2069                      .dwattr $C$DW$272, DW_AT_location[DW_OP_regx 0x57]
+    2070              $C$DW$273       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6LC")
+    2071                      .dwattr $C$DW$273, DW_AT_location[DW_OP_regx 0x58]
+    2072              $C$DW$274       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7LC")
+    2073                      .dwattr $C$DW$274, DW_AT_location[DW_OP_regx 0x59]
+    2074              $C$DW$275       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDPLC")
+    2075                      .dwattr $C$DW$275, DW_AT_location[DW_OP_regx 0x5a]
+    2076              $C$DW$276       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+    2077                      .dwattr $C$DW$276, DW_AT_location[DW_OP_regx 0x5b]
+    2078                      .dwendtag $C$DW$CU
+    2079              
+    2079              
+    2079              
+
+No Assembly Errors, No Assembly Warnings

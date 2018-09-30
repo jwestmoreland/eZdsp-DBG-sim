@@ -1,0 +1,2866 @@
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE    1
+
+    1667              ; Temporary Registers Used: None
+       1              ;*******************************************************************************
+       2              ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
+       3              ;* Date/Time created: Sat Sep 29 23:09:05 2018                                 *
+       4              ;*******************************************************************************
+       5                      .compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --si
+       6                      .mmregs
+       7                      .cpl_on
+       8                      .arms_on
+       9                      .c54cm_off
+      10                      .asg AR6, FP
+      11                      .asg XAR6, XFP
+      12                      .asg DPH, MDP
+      13                      .model call=c55_std
+      14                      .model mem=large
+      15                      .noremark 5002  ; code respects overwrite rules
+      16              ;*******************************************************************************
+      17              ;* GLOBAL FILE PARAMETERS                                                      *
+      18              ;*                                                                             *
+      19              ;*   Architecture       : TMS320C55x                                           *
+      20              ;*   Optimizing for     : Speed                                                *
+      21              ;*   Memory             : Large Model (23-Bit Data Pointers)                   *
+      22              ;*   Calls              : Normal Library ASM calls                             *
+      23              ;*   Debug Info         : Standard TI Debug Information                        *
+      24              ;*******************************************************************************
+      25              
+      26              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+      27                      .dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_M
+      28                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas In
+      29                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      30                      .dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+      31              ;******************************************************************************
+      32              ;* CINIT RECORDS                                                              *
+      33              ;******************************************************************************
+      34 000000               .sect   ".cinit"
+      35                      .align  1
+      36 000000 0001          .field          1,16
+      37 000001 0000-         .field          _PaSs_StAtE+0,24
+         000002 4000 
+      38 000002 4000          .field          0,8
+      39 000003 0001          .field  1,16                    ; _PaSs_StAtE @ 0
+      40              
+      41 000004               .sect   ".cinit"
+      42                      .align  1
+      43 000004 0001          .field          1,16
+      44 000005 0000-         .field          _PaSs+0,24
+         000006 4100 
+      45 000006 4100          .field          0,8
+      46 000007 0000          .field  0,16                    ; _PaSs @ 0
+      47              
+      48              
+      49              $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("MEM_init")
+      50                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_MEM_init")
+      51                      .dwattr $C$DW$1, DW_AT_type(*$C$DW$T$23)
+      52                      .dwattr $C$DW$1, DW_AT_declaration
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE    2
+
+      53                      .dwattr $C$DW$1, DW_AT_external
+      54              
+      55              $C$DW$2 .dwtag  DW_TAG_subprogram, DW_AT_name("MEM_enablePartialRetentionMode")
+      56                      .dwattr $C$DW$2, DW_AT_TI_symbol_name("_MEM_enablePartialRetentionMode")
+      57                      .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$23)
+      58                      .dwattr $C$DW$2, DW_AT_declaration
+      59                      .dwattr $C$DW$2, DW_AT_external
+      60              $C$DW$3 .dwtag  DW_TAG_formal_parameter
+      61                      .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$20)
+      62              $C$DW$4 .dwtag  DW_TAG_formal_parameter
+      63                      .dwattr $C$DW$4, DW_AT_type(*$C$DW$T$26)
+      64              $C$DW$5 .dwtag  DW_TAG_formal_parameter
+      65                      .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$27)
+      66                      .dwendtag $C$DW$2
+      67              
+      68              
+      69              $C$DW$6 .dwtag  DW_TAG_subprogram, DW_AT_name("MEM_disablePartialRetentionMode")
+      70                      .dwattr $C$DW$6, DW_AT_TI_symbol_name("_MEM_disablePartialRetentionMode")
+      71                      .dwattr $C$DW$6, DW_AT_type(*$C$DW$T$23)
+      72                      .dwattr $C$DW$6, DW_AT_declaration
+      73                      .dwattr $C$DW$6, DW_AT_external
+      74              $C$DW$7 .dwtag  DW_TAG_formal_parameter
+      75                      .dwattr $C$DW$7, DW_AT_type(*$C$DW$T$20)
+      76              $C$DW$8 .dwtag  DW_TAG_formal_parameter
+      77                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$26)
+      78              $C$DW$9 .dwtag  DW_TAG_formal_parameter
+      79                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$27)
+      80                      .dwendtag $C$DW$6
+      81              
+      82              
+      83              $C$DW$10        .dwtag  DW_TAG_subprogram, DW_AT_name("printf")
+      84                      .dwattr $C$DW$10, DW_AT_TI_symbol_name("_printf")
+      85                      .dwattr $C$DW$10, DW_AT_type(*$C$DW$T$10)
+      86                      .dwattr $C$DW$10, DW_AT_declaration
+      87                      .dwattr $C$DW$10, DW_AT_external
+      88              $C$DW$11        .dwtag  DW_TAG_formal_parameter
+      89                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$41)
+      90              $C$DW$12        .dwtag  DW_TAG_unspecified_parameters
+      91                      .dwendtag $C$DW$10
+      92              
+      93                      .global _saram0Buf
+      94 000000       _saram0Buf:     .usect  ".saram0_buf",100,0,0
+      95              $C$DW$13        .dwtag  DW_TAG_variable, DW_AT_name("saram0Buf")
+      96                      .dwattr $C$DW$13, DW_AT_TI_symbol_name("_saram0Buf")
+      97                      .dwattr $C$DW$13, DW_AT_location[DW_OP_addr _saram0Buf]
+      98                      .dwattr $C$DW$13, DW_AT_type(*$C$DW$T$34)
+      99                      .dwattr $C$DW$13, DW_AT_external
+     100                      .global _saram1Buf
+     101 000000       _saram1Buf:     .usect  ".saram1_buf",100,0,0
+     102              $C$DW$14        .dwtag  DW_TAG_variable, DW_AT_name("saram1Buf")
+     103                      .dwattr $C$DW$14, DW_AT_TI_symbol_name("_saram1Buf")
+     104                      .dwattr $C$DW$14, DW_AT_location[DW_OP_addr _saram1Buf]
+     105                      .dwattr $C$DW$14, DW_AT_type(*$C$DW$T$34)
+     106                      .dwattr $C$DW$14, DW_AT_external
+     107                      .global _saram2Buf
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE    3
+
+     108 000000       _saram2Buf:     .usect  ".saram2_buf",100,0,0
+     109              $C$DW$15        .dwtag  DW_TAG_variable, DW_AT_name("saram2Buf")
+     110                      .dwattr $C$DW$15, DW_AT_TI_symbol_name("_saram2Buf")
+     111                      .dwattr $C$DW$15, DW_AT_location[DW_OP_addr _saram2Buf]
+     112                      .dwattr $C$DW$15, DW_AT_type(*$C$DW$T$34)
+     113                      .dwattr $C$DW$15, DW_AT_external
+     114                      .global _saram3Buf
+     115 000000       _saram3Buf:     .usect  ".saram3_buf",100,0,0
+     116              $C$DW$16        .dwtag  DW_TAG_variable, DW_AT_name("saram3Buf")
+     117                      .dwattr $C$DW$16, DW_AT_TI_symbol_name("_saram3Buf")
+     118                      .dwattr $C$DW$16, DW_AT_location[DW_OP_addr _saram3Buf]
+     119                      .dwattr $C$DW$16, DW_AT_type(*$C$DW$T$34)
+     120                      .dwattr $C$DW$16, DW_AT_external
+     121                      .global _saram4Buf
+     122 000000       _saram4Buf:     .usect  ".saram4_buf",100,0,0
+     123              $C$DW$17        .dwtag  DW_TAG_variable, DW_AT_name("saram4Buf")
+     124                      .dwattr $C$DW$17, DW_AT_TI_symbol_name("_saram4Buf")
+     125                      .dwattr $C$DW$17, DW_AT_location[DW_OP_addr _saram4Buf]
+     126                      .dwattr $C$DW$17, DW_AT_type(*$C$DW$T$34)
+     127                      .dwattr $C$DW$17, DW_AT_external
+     128                      .global _saram5Buf
+     129 000000       _saram5Buf:     .usect  ".saram5_buf",100,0,0
+     130              $C$DW$18        .dwtag  DW_TAG_variable, DW_AT_name("saram5Buf")
+     131                      .dwattr $C$DW$18, DW_AT_TI_symbol_name("_saram5Buf")
+     132                      .dwattr $C$DW$18, DW_AT_location[DW_OP_addr _saram5Buf]
+     133                      .dwattr $C$DW$18, DW_AT_type(*$C$DW$T$34)
+     134                      .dwattr $C$DW$18, DW_AT_external
+     135                      .global _saram6Buf
+     136 000000       _saram6Buf:     .usect  ".saram6_buf",100,0,0
+     137              $C$DW$19        .dwtag  DW_TAG_variable, DW_AT_name("saram6Buf")
+     138                      .dwattr $C$DW$19, DW_AT_TI_symbol_name("_saram6Buf")
+     139                      .dwattr $C$DW$19, DW_AT_location[DW_OP_addr _saram6Buf]
+     140                      .dwattr $C$DW$19, DW_AT_type(*$C$DW$T$34)
+     141                      .dwattr $C$DW$19, DW_AT_external
+     142                      .global _saram7Buf
+     143 000000       _saram7Buf:     .usect  ".saram7_buf",100,0,0
+     144              $C$DW$20        .dwtag  DW_TAG_variable, DW_AT_name("saram7Buf")
+     145                      .dwattr $C$DW$20, DW_AT_TI_symbol_name("_saram7Buf")
+     146                      .dwattr $C$DW$20, DW_AT_location[DW_OP_addr _saram7Buf]
+     147                      .dwattr $C$DW$20, DW_AT_type(*$C$DW$T$34)
+     148                      .dwattr $C$DW$20, DW_AT_external
+     149                      .global _saram8Buf
+     150 000000       _saram8Buf:     .usect  ".saram8_buf",100,0,0
+     151              $C$DW$21        .dwtag  DW_TAG_variable, DW_AT_name("saram8Buf")
+     152                      .dwattr $C$DW$21, DW_AT_TI_symbol_name("_saram8Buf")
+     153                      .dwattr $C$DW$21, DW_AT_location[DW_OP_addr _saram8Buf]
+     154                      .dwattr $C$DW$21, DW_AT_type(*$C$DW$T$34)
+     155                      .dwattr $C$DW$21, DW_AT_external
+     156                      .global _saram9Buf
+     157 000000       _saram9Buf:     .usect  ".saram9_buf",100,0,0
+     158              $C$DW$22        .dwtag  DW_TAG_variable, DW_AT_name("saram9Buf")
+     159                      .dwattr $C$DW$22, DW_AT_TI_symbol_name("_saram9Buf")
+     160                      .dwattr $C$DW$22, DW_AT_location[DW_OP_addr _saram9Buf]
+     161                      .dwattr $C$DW$22, DW_AT_type(*$C$DW$T$34)
+     162                      .dwattr $C$DW$22, DW_AT_external
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE    4
+
+     163                      .global _saram10Buf
+     164 000000       _saram10Buf:    .usect  ".saram10_buf",100,0,0
+     165              $C$DW$23        .dwtag  DW_TAG_variable, DW_AT_name("saram10Buf")
+     166                      .dwattr $C$DW$23, DW_AT_TI_symbol_name("_saram10Buf")
+     167                      .dwattr $C$DW$23, DW_AT_location[DW_OP_addr _saram10Buf]
+     168                      .dwattr $C$DW$23, DW_AT_type(*$C$DW$T$34)
+     169                      .dwattr $C$DW$23, DW_AT_external
+     170                      .global _saram11Buf
+     171 000000       _saram11Buf:    .usect  ".saram11_buf",100,0,0
+     172              $C$DW$24        .dwtag  DW_TAG_variable, DW_AT_name("saram11Buf")
+     173                      .dwattr $C$DW$24, DW_AT_TI_symbol_name("_saram11Buf")
+     174                      .dwattr $C$DW$24, DW_AT_location[DW_OP_addr _saram11Buf]
+     175                      .dwattr $C$DW$24, DW_AT_type(*$C$DW$T$34)
+     176                      .dwattr $C$DW$24, DW_AT_external
+     177                      .global _saram12Buf
+     178 000000       _saram12Buf:    .usect  ".saram12_buf",100,0,0
+     179              $C$DW$25        .dwtag  DW_TAG_variable, DW_AT_name("saram12Buf")
+     180                      .dwattr $C$DW$25, DW_AT_TI_symbol_name("_saram12Buf")
+     181                      .dwattr $C$DW$25, DW_AT_location[DW_OP_addr _saram12Buf]
+     182                      .dwattr $C$DW$25, DW_AT_type(*$C$DW$T$34)
+     183                      .dwattr $C$DW$25, DW_AT_external
+     184                      .global _saram13Buf
+     185 000000       _saram13Buf:    .usect  ".saram13_buf",100,0,0
+     186              $C$DW$26        .dwtag  DW_TAG_variable, DW_AT_name("saram13Buf")
+     187                      .dwattr $C$DW$26, DW_AT_TI_symbol_name("_saram13Buf")
+     188                      .dwattr $C$DW$26, DW_AT_location[DW_OP_addr _saram13Buf]
+     189                      .dwattr $C$DW$26, DW_AT_type(*$C$DW$T$34)
+     190                      .dwattr $C$DW$26, DW_AT_external
+     191                      .global _saram14Buf
+     192 000000       _saram14Buf:    .usect  ".saram14_buf",100,0,0
+     193              $C$DW$27        .dwtag  DW_TAG_variable, DW_AT_name("saram14Buf")
+     194                      .dwattr $C$DW$27, DW_AT_TI_symbol_name("_saram14Buf")
+     195                      .dwattr $C$DW$27, DW_AT_location[DW_OP_addr _saram14Buf]
+     196                      .dwattr $C$DW$27, DW_AT_type(*$C$DW$T$34)
+     197                      .dwattr $C$DW$27, DW_AT_external
+     198                      .global _saram15Buf
+     199 000000       _saram15Buf:    .usect  ".saram15_buf",100,0,0
+     200              $C$DW$28        .dwtag  DW_TAG_variable, DW_AT_name("saram15Buf")
+     201                      .dwattr $C$DW$28, DW_AT_TI_symbol_name("_saram15Buf")
+     202                      .dwattr $C$DW$28, DW_AT_location[DW_OP_addr _saram15Buf]
+     203                      .dwattr $C$DW$28, DW_AT_type(*$C$DW$T$34)
+     204                      .dwattr $C$DW$28, DW_AT_external
+     205                      .global _saram16Buf
+     206 000000       _saram16Buf:    .usect  ".saram16_buf",100,0,0
+     207              $C$DW$29        .dwtag  DW_TAG_variable, DW_AT_name("saram16Buf")
+     208                      .dwattr $C$DW$29, DW_AT_TI_symbol_name("_saram16Buf")
+     209                      .dwattr $C$DW$29, DW_AT_location[DW_OP_addr _saram16Buf]
+     210                      .dwattr $C$DW$29, DW_AT_type(*$C$DW$T$34)
+     211                      .dwattr $C$DW$29, DW_AT_external
+     212                      .global _saram17Buf
+     213 000000       _saram17Buf:    .usect  ".saram17_buf",100,0,0
+     214              $C$DW$30        .dwtag  DW_TAG_variable, DW_AT_name("saram17Buf")
+     215                      .dwattr $C$DW$30, DW_AT_TI_symbol_name("_saram17Buf")
+     216                      .dwattr $C$DW$30, DW_AT_location[DW_OP_addr _saram17Buf]
+     217                      .dwattr $C$DW$30, DW_AT_type(*$C$DW$T$34)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE    5
+
+     218                      .dwattr $C$DW$30, DW_AT_external
+     219                      .global _saram18Buf
+     220 000000       _saram18Buf:    .usect  ".saram18_buf",100,0,0
+     221              $C$DW$31        .dwtag  DW_TAG_variable, DW_AT_name("saram18Buf")
+     222                      .dwattr $C$DW$31, DW_AT_TI_symbol_name("_saram18Buf")
+     223                      .dwattr $C$DW$31, DW_AT_location[DW_OP_addr _saram18Buf]
+     224                      .dwattr $C$DW$31, DW_AT_type(*$C$DW$T$34)
+     225                      .dwattr $C$DW$31, DW_AT_external
+     226                      .global _saram19Buf
+     227 000000       _saram19Buf:    .usect  ".saram19_buf",100,0,0
+     228              $C$DW$32        .dwtag  DW_TAG_variable, DW_AT_name("saram19Buf")
+     229                      .dwattr $C$DW$32, DW_AT_TI_symbol_name("_saram19Buf")
+     230                      .dwattr $C$DW$32, DW_AT_location[DW_OP_addr _saram19Buf]
+     231                      .dwattr $C$DW$32, DW_AT_type(*$C$DW$T$34)
+     232                      .dwattr $C$DW$32, DW_AT_external
+     233                      .global _saram20Buf
+     234 000000       _saram20Buf:    .usect  ".saram20_buf",100,0,0
+     235              $C$DW$33        .dwtag  DW_TAG_variable, DW_AT_name("saram20Buf")
+     236                      .dwattr $C$DW$33, DW_AT_TI_symbol_name("_saram20Buf")
+     237                      .dwattr $C$DW$33, DW_AT_location[DW_OP_addr _saram20Buf]
+     238                      .dwattr $C$DW$33, DW_AT_type(*$C$DW$T$34)
+     239                      .dwattr $C$DW$33, DW_AT_external
+     240                      .global _saram21Buf
+     241 000000       _saram21Buf:    .usect  ".saram21_buf",100,0,0
+     242              $C$DW$34        .dwtag  DW_TAG_variable, DW_AT_name("saram21Buf")
+     243                      .dwattr $C$DW$34, DW_AT_TI_symbol_name("_saram21Buf")
+     244                      .dwattr $C$DW$34, DW_AT_location[DW_OP_addr _saram21Buf]
+     245                      .dwattr $C$DW$34, DW_AT_type(*$C$DW$T$34)
+     246                      .dwattr $C$DW$34, DW_AT_external
+     247                      .global _saram22Buf
+     248 000000       _saram22Buf:    .usect  ".saram22_buf",100,0,0
+     249              $C$DW$35        .dwtag  DW_TAG_variable, DW_AT_name("saram22Buf")
+     250                      .dwattr $C$DW$35, DW_AT_TI_symbol_name("_saram22Buf")
+     251                      .dwattr $C$DW$35, DW_AT_location[DW_OP_addr _saram22Buf]
+     252                      .dwattr $C$DW$35, DW_AT_type(*$C$DW$T$34)
+     253                      .dwattr $C$DW$35, DW_AT_external
+     254                      .global _saram23Buf
+     255 000000       _saram23Buf:    .usect  ".saram23_buf",100,0,0
+     256              $C$DW$36        .dwtag  DW_TAG_variable, DW_AT_name("saram23Buf")
+     257                      .dwattr $C$DW$36, DW_AT_TI_symbol_name("_saram23Buf")
+     258                      .dwattr $C$DW$36, DW_AT_location[DW_OP_addr _saram23Buf]
+     259                      .dwattr $C$DW$36, DW_AT_type(*$C$DW$T$34)
+     260                      .dwattr $C$DW$36, DW_AT_external
+     261                      .global _saram24Buf
+     262 000000       _saram24Buf:    .usect  ".saram24_buf",100,0,0
+     263              $C$DW$37        .dwtag  DW_TAG_variable, DW_AT_name("saram24Buf")
+     264                      .dwattr $C$DW$37, DW_AT_TI_symbol_name("_saram24Buf")
+     265                      .dwattr $C$DW$37, DW_AT_location[DW_OP_addr _saram24Buf]
+     266                      .dwattr $C$DW$37, DW_AT_type(*$C$DW$T$34)
+     267                      .dwattr $C$DW$37, DW_AT_external
+     268                      .global _saram25Buf
+     269 000000       _saram25Buf:    .usect  ".saram25_buf",100,0,0
+     270              $C$DW$38        .dwtag  DW_TAG_variable, DW_AT_name("saram25Buf")
+     271                      .dwattr $C$DW$38, DW_AT_TI_symbol_name("_saram25Buf")
+     272                      .dwattr $C$DW$38, DW_AT_location[DW_OP_addr _saram25Buf]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE    6
+
+     273                      .dwattr $C$DW$38, DW_AT_type(*$C$DW$T$34)
+     274                      .dwattr $C$DW$38, DW_AT_external
+     275                      .global _saram26Buf
+     276 000000       _saram26Buf:    .usect  ".saram26_buf",100,0,0
+     277              $C$DW$39        .dwtag  DW_TAG_variable, DW_AT_name("saram26Buf")
+     278                      .dwattr $C$DW$39, DW_AT_TI_symbol_name("_saram26Buf")
+     279                      .dwattr $C$DW$39, DW_AT_location[DW_OP_addr _saram26Buf]
+     280                      .dwattr $C$DW$39, DW_AT_type(*$C$DW$T$34)
+     281                      .dwattr $C$DW$39, DW_AT_external
+     282                      .global _saram27Buf
+     283 000000       _saram27Buf:    .usect  ".saram27_buf",100,0,0
+     284              $C$DW$40        .dwtag  DW_TAG_variable, DW_AT_name("saram27Buf")
+     285                      .dwattr $C$DW$40, DW_AT_TI_symbol_name("_saram27Buf")
+     286                      .dwattr $C$DW$40, DW_AT_location[DW_OP_addr _saram27Buf]
+     287                      .dwattr $C$DW$40, DW_AT_type(*$C$DW$T$34)
+     288                      .dwattr $C$DW$40, DW_AT_external
+     289                      .global _saram28Buf
+     290 000000       _saram28Buf:    .usect  ".saram28_buf",100,0,0
+     291              $C$DW$41        .dwtag  DW_TAG_variable, DW_AT_name("saram28Buf")
+     292                      .dwattr $C$DW$41, DW_AT_TI_symbol_name("_saram28Buf")
+     293                      .dwattr $C$DW$41, DW_AT_location[DW_OP_addr _saram28Buf]
+     294                      .dwattr $C$DW$41, DW_AT_type(*$C$DW$T$34)
+     295                      .dwattr $C$DW$41, DW_AT_external
+     296                      .global _saram29Buf
+     297 000000       _saram29Buf:    .usect  ".saram29_buf",100,0,0
+     298              $C$DW$42        .dwtag  DW_TAG_variable, DW_AT_name("saram29Buf")
+     299                      .dwattr $C$DW$42, DW_AT_TI_symbol_name("_saram29Buf")
+     300                      .dwattr $C$DW$42, DW_AT_location[DW_OP_addr _saram29Buf]
+     301                      .dwattr $C$DW$42, DW_AT_type(*$C$DW$T$34)
+     302                      .dwattr $C$DW$42, DW_AT_external
+     303                      .global _saram30Buf
+     304 000000       _saram30Buf:    .usect  ".saram30_buf",100,0,0
+     305              $C$DW$43        .dwtag  DW_TAG_variable, DW_AT_name("saram30Buf")
+     306                      .dwattr $C$DW$43, DW_AT_TI_symbol_name("_saram30Buf")
+     307                      .dwattr $C$DW$43, DW_AT_location[DW_OP_addr _saram30Buf]
+     308                      .dwattr $C$DW$43, DW_AT_type(*$C$DW$T$34)
+     309                      .dwattr $C$DW$43, DW_AT_external
+     310                      .global _saram31Buf
+     311 000000       _saram31Buf:    .usect  ".saram31_buf",100,0,0
+     312              $C$DW$44        .dwtag  DW_TAG_variable, DW_AT_name("saram31Buf")
+     313                      .dwattr $C$DW$44, DW_AT_TI_symbol_name("_saram31Buf")
+     314                      .dwattr $C$DW$44, DW_AT_location[DW_OP_addr _saram31Buf]
+     315                      .dwattr $C$DW$44, DW_AT_type(*$C$DW$T$34)
+     316                      .dwattr $C$DW$44, DW_AT_external
+     317                      .global _psaramBuf
+     318 000000               .bss    _psaramBuf,64,0,2
+     319              $C$DW$45        .dwtag  DW_TAG_variable, DW_AT_name("psaramBuf")
+     320                      .dwattr $C$DW$45, DW_AT_TI_symbol_name("_psaramBuf")
+     321                      .dwattr $C$DW$45, DW_AT_location[DW_OP_addr _psaramBuf]
+     322                      .dwattr $C$DW$45, DW_AT_type(*$C$DW$T$36)
+     323                      .dwattr $C$DW$45, DW_AT_external
+     324                      .global _PaSs_StAtE
+     325 000040               .bss    _PaSs_StAtE,1,0,0
+     326              $C$DW$46        .dwtag  DW_TAG_variable, DW_AT_name("PaSs_StAtE")
+     327                      .dwattr $C$DW$46, DW_AT_TI_symbol_name("_PaSs_StAtE")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE    7
+
+     328                      .dwattr $C$DW$46, DW_AT_location[DW_OP_addr _PaSs_StAtE]
+     329                      .dwattr $C$DW$46, DW_AT_type(*$C$DW$T$32)
+     330                      .dwattr $C$DW$46, DW_AT_external
+     331                      .global _PaSs
+     332 000041               .bss    _PaSs,1,0,0
+     333              $C$DW$47        .dwtag  DW_TAG_variable, DW_AT_name("PaSs")
+     334                      .dwattr $C$DW$47, DW_AT_TI_symbol_name("_PaSs")
+     335                      .dwattr $C$DW$47, DW_AT_location[DW_OP_addr _PaSs]
+     336                      .dwattr $C$DW$47, DW_AT_type(*$C$DW$T$32)
+     337                      .dwattr $C$DW$47, DW_AT_external
+     338              ;       F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2779212 
+     339 000000               .sect   ".text"
+     340                      .align 4
+     341                      .global _main
+     342              
+     343              $C$DW$48        .dwtag  DW_TAG_subprogram, DW_AT_name("main")
+     344                      .dwattr $C$DW$48, DW_AT_low_pc(_main)
+     345                      .dwattr $C$DW$48, DW_AT_high_pc(0x00)
+     346                      .dwattr $C$DW$48, DW_AT_TI_symbol_name("_main")
+     347                      .dwattr $C$DW$48, DW_AT_external
+     348                      .dwattr $C$DW$48, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/mem
+     349                      .dwattr $C$DW$48, DW_AT_TI_begin_line(0xd4)
+     350                      .dwattr $C$DW$48, DW_AT_TI_begin_column(0x06)
+     351                      .dwattr $C$DW$48, DW_AT_TI_max_frame_size(0x08)
+     352                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     353              
+     354                      .dwfde $C$DW$CIE, _main
+     355              ;*******************************************************************************
+     356              ;* FUNCTION NAME: main                                                         *
+     357              ;*                                                                             *
+     358              ;*   Function Uses Regs : T0,AR1,AR2,AR3,XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,  *
+     359              ;*                        FRCT,SMUL                                            *
+     360              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     361              ;*   Total Frame Size   : 8 words                                              *
+     362              ;*                        (2 return address/alignment)                         *
+     363              ;*                        (3 function parameters)                              *
+     364              ;*                        (3 local values)                                     *
+     365              ;*   Min System Stack   : 1 word                                               *
+     366              ;*******************************************************************************
+     367 000000       _main:
+     368                      .dwcfi  cfa_offset, 1
+     369                      .dwcfi  save_reg_to_mem, 91, -1
+     370 000000 4EF9          AADD #-7, SP
+     371                      .dwcfi  cfa_offset, 8
+     372              $C$DW$49        .dwtag  DW_TAG_variable, DW_AT_name("status")
+     373                      .dwattr $C$DW$49, DW_AT_TI_symbol_name("_status")
+     374                      .dwattr $C$DW$49, DW_AT_type(*$C$DW$T$23)
+     375                      .dwattr $C$DW$49, DW_AT_location[DW_OP_bregx 0x24 3]
+     376              $C$DW$50        .dwtag  DW_TAG_variable, DW_AT_name("bankCount")
+     377                      .dwattr $C$DW$50, DW_AT_TI_symbol_name("_bankCount")
+     378                      .dwattr $C$DW$50, DW_AT_type(*$C$DW$T$26)
+     379                      .dwattr $C$DW$50, DW_AT_location[DW_OP_bregx 0x24 4]
+     380              $C$DW$51        .dwtag  DW_TAG_variable, DW_AT_name("testFailed")
+     381                      .dwattr $C$DW$51, DW_AT_TI_symbol_name("_testFailed")
+     382                      .dwattr $C$DW$51, DW_AT_type(*$C$DW$T$38)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE    8
+
+     383                      .dwattr $C$DW$51, DW_AT_location[DW_OP_bregx 0x24 5]
+     384                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     385 000002 E60A          MOV #0, *SP(#5) ; |221| 
+         000004 00   
+     386                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     387 000005 EC31          AMOV #$C$FSL1, XAR3 ; |223| 
+         000007 BE00 
+         000009 0000+
+     388 00000b EB00          MOV XAR3, dbl(*SP(#0))
+         00000d B5   
+     389              $C$DW$52        .dwtag  DW_TAG_TI_branch
+     390                      .dwattr $C$DW$52, DW_AT_low_pc(0x00)
+     391                      .dwattr $C$DW$52, DW_AT_name("_printf")
+     392                      .dwattr $C$DW$52, DW_AT_TI_call
+     393 00000e 6C00          CALL #_printf ; |223| 
+         000010 0000!
+     394                                                      ; call occurs [#_printf] ; |223| 
+     395                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     396 000012 EC31          AMOV #_saram0Buf, XAR3 ; |225| 
+         000014 BE00 
+         000016 0000-
+     397 000018 EB31          MOV XAR3, dbl(*(#_psaramBuf))
+         00001a B500 
+         00001c 0000-
+     398                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     399 00001e EC31          AMOV #_saram1Buf, XAR3 ; |226| 
+         000020 BE00 
+         000022 0000-
+     400 000024 EB31          MOV XAR3, dbl(*(#(_psaramBuf+2)))
+         000026 B500 
+         000028 0002-
+     401                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     402 00002a EC31          AMOV #_saram2Buf, XAR3 ; |227| 
+         00002c BE00 
+         00002e 0000-
+     403 000030 EB31          MOV XAR3, dbl(*(#(_psaramBuf+4)))
+         000032 B500 
+         000034 0004-
+     404                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     405 000036 EC31          AMOV #_saram3Buf, XAR3 ; |228| 
+         000038 BE00 
+         00003a 0000-
+     406 00003c EB31          MOV XAR3, dbl(*(#(_psaramBuf+6)))
+         00003e B500 
+         000040 0006-
+     407                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     408 000042 EC31          AMOV #_saram4Buf, XAR3 ; |229| 
+         000044 BE00 
+         000046 0000-
+     409 000048 EB31          MOV XAR3, dbl(*(#(_psaramBuf+8)))
+         00004a B500 
+         00004c 0008-
+     410                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     411 00004e EC31          AMOV #_saram5Buf, XAR3 ; |230| 
+         000050 BE00 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE    9
+
+         000052 0000-
+     412 000054 EB31          MOV XAR3, dbl(*(#(_psaramBuf+10)))
+         000056 B500 
+         000058 000A-
+     413                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     414 00005a EC31          AMOV #_saram6Buf, XAR3 ; |231| 
+         00005c BE00 
+         00005e 0000-
+     415 000060 EB31          MOV XAR3, dbl(*(#(_psaramBuf+12)))
+         000062 B500 
+         000064 000C-
+     416                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     417 000066 EC31          AMOV #_saram7Buf, XAR3 ; |232| 
+         000068 BE00 
+         00006a 0000-
+     418 00006c EB31          MOV XAR3, dbl(*(#(_psaramBuf+14)))
+         00006e B500 
+         000070 000E-
+     419                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     420 000072 EC31          AMOV #_saram8Buf, XAR3 ; |233| 
+         000074 BE00 
+         000076 0000-
+     421 000078 EB31          MOV XAR3, dbl(*(#(_psaramBuf+16)))
+         00007a B500 
+         00007c 0010-
+     422                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     423 00007e EC31          AMOV #_saram9Buf, XAR3 ; |234| 
+         000080 BE00 
+         000082 0000-
+     424 000084 EB31          MOV XAR3, dbl(*(#(_psaramBuf+18)))
+         000086 B500 
+         000088 0012-
+     425                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     426 00008a EC31          AMOV #_saram10Buf, XAR3 ; |235| 
+         00008c BE00 
+         00008e 0000-
+     427 000090 EB31          MOV XAR3, dbl(*(#(_psaramBuf+20)))
+         000092 B500 
+         000094 0014-
+     428                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     429 000096 EC31          AMOV #_saram11Buf, XAR3 ; |236| 
+         000098 BE00 
+         00009a 0000-
+     430 00009c EB31          MOV XAR3, dbl(*(#(_psaramBuf+22)))
+         00009e B500 
+         0000a0 0016-
+     431                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     432 0000a2 EC31          AMOV #_saram12Buf, XAR3 ; |237| 
+         0000a4 BE00 
+         0000a6 0000-
+     433 0000a8 EB31          MOV XAR3, dbl(*(#(_psaramBuf+24)))
+         0000aa B500 
+         0000ac 0018-
+     434                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     435 0000ae EC31          AMOV #_saram13Buf, XAR3 ; |238| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   10
+
+         0000b0 BE00 
+         0000b2 0000-
+     436 0000b4 EB31          MOV XAR3, dbl(*(#(_psaramBuf+26)))
+         0000b6 B500 
+         0000b8 001A-
+     437                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     438 0000ba EC31          AMOV #_saram14Buf, XAR3 ; |239| 
+         0000bc BE00 
+         0000be 0000-
+     439 0000c0 EB31          MOV XAR3, dbl(*(#(_psaramBuf+28)))
+         0000c2 B500 
+         0000c4 001C-
+     440                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     441 0000c6 EC31          AMOV #_saram15Buf, XAR3 ; |240| 
+         0000c8 BE00 
+         0000ca 0000-
+     442 0000cc EB31          MOV XAR3, dbl(*(#(_psaramBuf+30)))
+         0000ce B500 
+         0000d0 001E-
+     443                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     444 0000d2 EC31          AMOV #_saram16Buf, XAR3 ; |241| 
+         0000d4 BE00 
+         0000d6 0000-
+     445 0000d8 EB31          MOV XAR3, dbl(*(#(_psaramBuf+32)))
+         0000da B500 
+         0000dc 0020-
+     446                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     447 0000de EC31          AMOV #_saram17Buf, XAR3 ; |242| 
+         0000e0 BE00 
+         0000e2 0000-
+     448 0000e4 EB31          MOV XAR3, dbl(*(#(_psaramBuf+34)))
+         0000e6 B500 
+         0000e8 0022-
+     449                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     450 0000ea EC31          AMOV #_saram18Buf, XAR3 ; |243| 
+         0000ec BE00 
+         0000ee 0000-
+     451 0000f0 EB31          MOV XAR3, dbl(*(#(_psaramBuf+36)))
+         0000f2 B500 
+         0000f4 0024-
+     452                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     453 0000f6 EC31          AMOV #_saram19Buf, XAR3 ; |244| 
+         0000f8 BE00 
+         0000fa 0000-
+     454 0000fc EB31          MOV XAR3, dbl(*(#(_psaramBuf+38)))
+         0000fe B500 
+         000100 0026-
+     455                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     456 000102 EC31          AMOV #_saram20Buf, XAR3 ; |245| 
+         000104 BE00 
+         000106 0000-
+     457 000108 EB31          MOV XAR3, dbl(*(#(_psaramBuf+40)))
+         00010a B500 
+         00010c 0028-
+     458                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   11
+
+     459 00010e EC31          AMOV #_saram21Buf, XAR3 ; |246| 
+         000110 BE00 
+         000112 0000-
+     460 000114 EB31          MOV XAR3, dbl(*(#(_psaramBuf+42)))
+         000116 B500 
+         000118 002A-
+     461                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     462 00011a EC31          AMOV #_saram22Buf, XAR3 ; |247| 
+         00011c BE00 
+         00011e 0000-
+     463 000120 EB31          MOV XAR3, dbl(*(#(_psaramBuf+44)))
+         000122 B500 
+         000124 002C-
+     464                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     465 000126 EC31          AMOV #_saram23Buf, XAR3 ; |248| 
+         000128 BE00 
+         00012a 0000-
+     466 00012c EB31          MOV XAR3, dbl(*(#(_psaramBuf+46)))
+         00012e B500 
+         000130 002E-
+     467                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     468 000132 EC31          AMOV #_saram24Buf, XAR3 ; |249| 
+         000134 BE00 
+         000136 0000-
+     469 000138 EB31          MOV XAR3, dbl(*(#(_psaramBuf+48)))
+         00013a B500 
+         00013c 0030-
+     470                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     471 00013e EC31          AMOV #_saram25Buf, XAR3 ; |250| 
+         000140 BE00 
+         000142 0000-
+     472 000144 EB31          MOV XAR3, dbl(*(#(_psaramBuf+50)))
+         000146 B500 
+         000148 0032-
+     473                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     474 00014a EC31          AMOV #_saram26Buf, XAR3 ; |251| 
+         00014c BE00 
+         00014e 0000-
+     475 000150 EB31          MOV XAR3, dbl(*(#(_psaramBuf+52)))
+         000152 B500 
+         000154 0034-
+     476                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     477 000156 EC31          AMOV #_saram27Buf, XAR3 ; |252| 
+         000158 BE00 
+         00015a 0000-
+     478 00015c EB31          MOV XAR3, dbl(*(#(_psaramBuf+54)))
+         00015e B500 
+         000160 0036-
+     479                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     480 000162 EC31          AMOV #_saram28Buf, XAR3 ; |253| 
+         000164 BE00 
+         000166 0000-
+     481 000168 EB31          MOV XAR3, dbl(*(#(_psaramBuf+56)))
+         00016a B500 
+         00016c 0038-
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   12
+
+     482                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     483 00016e EC31          AMOV #_saram29Buf, XAR3 ; |254| 
+         000170 BE00 
+         000172 0000-
+     484 000174 EB31          MOV XAR3, dbl(*(#(_psaramBuf+58)))
+         000176 B500 
+         000178 003A-
+     485                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     486 00017a EC31          AMOV #_saram30Buf, XAR3 ; |255| 
+         00017c BE00 
+         00017e 0000-
+     487 000180 EB31          MOV XAR3, dbl(*(#(_psaramBuf+60)))
+         000182 B500 
+         000184 003C-
+     488                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     489 000186 EC31          AMOV #_saram31Buf, XAR3 ; |256| 
+         000188 BE00 
+         00018a 0000-
+     490 00018c EB31          MOV XAR3, dbl(*(#(_psaramBuf+62)))
+         00018e B500 
+         000190 003E-
+     491                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     492 000192 E608          MOV #0, *SP(#4) ; |258| 
+         000194 00   
+     493                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     494 000195 7600          MOV #32, AR2 ; |258| 
+         000197 20A8 
+     495 000199 A908          MOV *SP(#4), AR1 ; |258| 
+     496 00019b 1298          CMPU AR1 >= AR2, TC1 ; |258| 
+         00019d A4   
+     497 00019e 0464          BCC $C$L4,TC1 ; |258| 
+         0001a0 59   
+     498                                                      ; branchcc occurs ; |258| 
+     499 0001a1       $C$L1:    
+     500 0001a1       $C$DW$L$_main$2$B:
+     501                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     502 0001a1 EC31          AMOV #$C$FSL2, XAR3 ; |260| 
+         0001a3 BE00 
+         0001a5 002C+
+     503 0001a7 EB00          MOV XAR3, dbl(*SP(#0))
+         0001a9 B5   
+     504 0001aa A908          MOV *SP(#4), AR1 ; |260| 
+     505 0001ac C904          MOV AR1, *SP(#2) ; |260| 
+     506              $C$DW$53        .dwtag  DW_TAG_TI_branch
+     507                      .dwattr $C$DW$53, DW_AT_low_pc(0x00)
+     508                      .dwattr $C$DW$53, DW_AT_name("_printf")
+     509                      .dwattr $C$DW$53, DW_AT_TI_call
+     510 0001ae 6C00          CALL #_printf ; |260| 
+         0001b0 0000!
+     511                                                      ; call occurs [#_printf] ; |260| 
+     512                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     513 0001b2 A408          MOV *SP(#4), T0 ; |263| 
+     514              $C$DW$54        .dwtag  DW_TAG_TI_branch
+     515                      .dwattr $C$DW$54, DW_AT_low_pc(0x00)
+     516                      .dwattr $C$DW$54, DW_AT_name("_CSL_SARAM_PartialRetentionTest")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   13
+
+     517                      .dwattr $C$DW$54, DW_AT_TI_call
+     518 0001b4 0800          CALL #_CSL_SARAM_PartialRetentionTest ; |263| 
+         0001b6 7D   
+     519                                                      ; call occurs [#_CSL_SARAM_PartialRetentionTest] ; |263| 
+     520 0001b7 C406          MOV T0, *SP(#3) ; |263| 
+     521                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     522              
+     523 0001b9 A906          MOV *SP(#3), AR1 ; |264| 
+     524 0001bb 3D1A  ||      MOV #1, AR2
+     525              
+     526 0001bd 12AC          CMPU AR2 != AR1, TC1 ; |264| 
+         0001bf 94   
+     527 0001c0 0464          BCC $C$L2,TC1 ; |264| 
+         0001c2 13   
+     528                                                      ; branchcc occurs ; |264| 
+     529 0001c3       $C$DW$L$_main$2$E:
+     530 0001c3       $C$DW$L$_main$3$B:
+     531                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     532 0001c3 EC31          AMOV #$C$FSL3, XAR3 ; |266| 
+         0001c5 BE00 
+         0001c7 0060+
+     533 0001c9 EB00          MOV XAR3, dbl(*SP(#0))
+         0001cb B5   
+     534 0001cc A908          MOV *SP(#4), AR1 ; |266| 
+     535 0001ce C904          MOV AR1, *SP(#2) ; |266| 
+     536              $C$DW$55        .dwtag  DW_TAG_TI_branch
+     537                      .dwattr $C$DW$55, DW_AT_low_pc(0x00)
+     538                      .dwattr $C$DW$55, DW_AT_name("_printf")
+     539                      .dwattr $C$DW$55, DW_AT_TI_call
+     540 0001d0 6C00          CALL #_printf ; |266| 
+         0001d2 0000!
+     541                                                      ; call occurs [#_printf] ; |266| 
+     542                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     543 0001d4 4A14          B $C$L3   ; |268| 
+     544                                                      ; branch occurs ; |268| 
+     545 0001d6       $C$DW$L$_main$3$E:
+     546 0001d6       $C$L2:    
+     547 0001d6       $C$DW$L$_main$4$B:
+     548                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     549 0001d6 EC31          AMOV #$C$FSL4, XAR3 ; |271| 
+         0001d8 BE00 
+         0001da 009C+
+     550 0001dc EB00          MOV XAR3, dbl(*SP(#0))
+         0001de B5   
+     551 0001df A908          MOV *SP(#4), AR1 ; |271| 
+     552 0001e1 C904          MOV AR1, *SP(#2) ; |271| 
+     553              $C$DW$56        .dwtag  DW_TAG_TI_branch
+     554                      .dwattr $C$DW$56, DW_AT_low_pc(0x00)
+     555                      .dwattr $C$DW$56, DW_AT_name("_printf")
+     556                      .dwattr $C$DW$56, DW_AT_TI_call
+     557 0001e3 6C00          CALL #_printf ; |271| 
+         0001e5 0000!
+     558                                                      ; call occurs [#_printf] ; |271| 
+     559                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     560 0001e7 E60A          MOV #1, *SP(#5) ; |273| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   14
+
+         0001e9 01   
+     561 0001ea       $C$DW$L$_main$4$E:
+     562 0001ea       $C$L3:    
+     563 0001ea       $C$DW$L$_main$5$B:
+     564                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     565 0001ea F708          ADD #1, *SP(#4) ; |258| 
+         0001ec 0001 
+     566                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     567 0001ee 7600          MOV #32, AR2 ; |258| 
+         0001f0 20A8 
+     568 0001f2 A908          MOV *SP(#4), AR1 ; |258| 
+     569 0001f4 1294          CMPU AR1 < AR2, TC1 ; |258| 
+         0001f6 A4   
+     570 0001f7 0464          BCC $C$L1,TC1 ; |258| 
+         0001f9 A7   
+     571                                                      ; branchcc occurs ; |258| 
+     572 0001fa       $C$DW$L$_main$5$E:
+     573 0001fa       $C$L4:    
+     574                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     575              
+     576 0001fc 3D1A          MOV #1, AR2
+     577 0001fa A90A  ||      MOV *SP(#5), AR1 ; |277| 
+     578              
+     579 0001fe 12AC          CMP AR2 != AR1, TC1 ; |277| 
+         000200 90   
+     580 000201 0464          BCC $C$L5,TC1 ; |277| 
+         000203 15   
+     581                                                      ; branchcc occurs ; |277| 
+     582                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     583 000204 EC31          AMOV #$C$FSL5, XAR3 ; |279| 
+         000206 BE00 
+         000208 00D8+
+     584 00020a EB00          MOV XAR3, dbl(*SP(#0))
+         00020c B5   
+     585              $C$DW$57        .dwtag  DW_TAG_TI_branch
+     586                      .dwattr $C$DW$57, DW_AT_low_pc(0x00)
+     587                      .dwattr $C$DW$57, DW_AT_name("_printf")
+     588                      .dwattr $C$DW$57, DW_AT_TI_call
+     589 00020d 6C00          CALL #_printf ; |279| 
+         00020f 0000!
+     590                                                      ; call occurs [#_printf] ; |279| 
+     591                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     592 000211 E631          MOV #0, *(#_PaSs_StAtE) ; |282| 
+         000213 0000 
+         000215 0040-
+     593                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     594 000217 4A0D          B $C$L6   ; |284| 
+     595                                                      ; branch occurs ; |284| 
+     596 000219       $C$L5:    
+     597                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     598 000219 EC31          AMOV #$C$FSL6, XAR3 ; |287| 
+         00021b BE00 
+         00021d 010C+
+     599 00021f EB00          MOV XAR3, dbl(*SP(#0))
+         000221 B5   
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   15
+
+     600              $C$DW$58        .dwtag  DW_TAG_TI_branch
+     601                      .dwattr $C$DW$58, DW_AT_low_pc(0x00)
+     602                      .dwattr $C$DW$58, DW_AT_name("_printf")
+     603                      .dwattr $C$DW$58, DW_AT_TI_call
+     604 000222 6C00          CALL #_printf ; |287| 
+         000224 0000!
+     605                                                      ; call occurs [#_printf] ; |287| 
+     606 000226       $C$L6:    
+     607                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     608 000226 A931          MOV *(#_PaSs_StAtE), AR1 ; |301| 
+         000228 0000 
+         00022a 40-  
+     609 00022b C931          MOV AR1, *(#_PaSs) ; |301| 
+         00022d 0000 
+         00022f 41-  
+     610                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     611 000230 4E07          AADD #7, SP
+     612                      .dwcfi  cfa_offset, 1
+     613              $C$DW$59        .dwtag  DW_TAG_TI_branch
+     614                      .dwattr $C$DW$59, DW_AT_low_pc(0x00)
+     615                      .dwattr $C$DW$59, DW_AT_TI_return
+     616 000232 4804          RET
+     617                                                      ; return occurs
+     618              
+     619              $C$DW$60        .dwtag  DW_TAG_TI_loop
+     620                      .dwattr $C$DW$60, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_saram_partial_retention_examp
+     621                      .dwattr $C$DW$60, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/mem
+     622                      .dwattr $C$DW$60, DW_AT_TI_begin_line(0x102)
+     623                      .dwattr $C$DW$60, DW_AT_TI_end_line(0x113)
+     624              $C$DW$61        .dwtag  DW_TAG_TI_loop_range
+     625                      .dwattr $C$DW$61, DW_AT_low_pc($C$DW$L$_main$2$B)
+     626                      .dwattr $C$DW$61, DW_AT_high_pc($C$DW$L$_main$2$E)
+     627              $C$DW$62        .dwtag  DW_TAG_TI_loop_range
+     628                      .dwattr $C$DW$62, DW_AT_low_pc($C$DW$L$_main$3$B)
+     629                      .dwattr $C$DW$62, DW_AT_high_pc($C$DW$L$_main$3$E)
+     630              $C$DW$63        .dwtag  DW_TAG_TI_loop_range
+     631                      .dwattr $C$DW$63, DW_AT_low_pc($C$DW$L$_main$4$B)
+     632                      .dwattr $C$DW$63, DW_AT_high_pc($C$DW$L$_main$4$E)
+     633              $C$DW$64        .dwtag  DW_TAG_TI_loop_range
+     634                      .dwattr $C$DW$64, DW_AT_low_pc($C$DW$L$_main$5$B)
+     635                      .dwattr $C$DW$64, DW_AT_high_pc($C$DW$L$_main$5$E)
+     636                      .dwendtag $C$DW$60
+     637              
+     638                      .dwattr $C$DW$48, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memor
+     639                      .dwattr $C$DW$48, DW_AT_TI_end_line(0x132)
+     640                      .dwattr $C$DW$48, DW_AT_TI_end_column(0x01)
+     641                      .dwendentry
+     642                      .dwendtag $C$DW$48
+     643              
+     644 000234               .sect   ".text"
+     645                      .align 4
+     646                      .global _CSL_SARAM_PartialRetentionTest
+     647              
+     648              $C$DW$65        .dwtag  DW_TAG_subprogram, DW_AT_name("CSL_SARAM_PartialRetentionTest")
+     649                      .dwattr $C$DW$65, DW_AT_low_pc(_CSL_SARAM_PartialRetentionTest)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   16
+
+     650                      .dwattr $C$DW$65, DW_AT_high_pc(0x00)
+     651                      .dwattr $C$DW$65, DW_AT_TI_symbol_name("_CSL_SARAM_PartialRetentionTest")
+     652                      .dwattr $C$DW$65, DW_AT_external
+     653                      .dwattr $C$DW$65, DW_AT_type(*$C$DW$T$23)
+     654                      .dwattr $C$DW$65, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/mem
+     655                      .dwattr $C$DW$65, DW_AT_TI_begin_line(0x13b)
+     656                      .dwattr $C$DW$65, DW_AT_TI_begin_column(0x0c)
+     657                      .dwattr $C$DW$65, DW_AT_TI_max_frame_size(0x0e)
+     658                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     659              
+     660                      .dwfde $C$DW$CIE, _CSL_SARAM_PartialRetentionTest
+     661              $C$DW$66        .dwtag  DW_TAG_formal_parameter, DW_AT_name("bankNum")
+     662                      .dwattr $C$DW$66, DW_AT_TI_symbol_name("_bankNum")
+     663                      .dwattr $C$DW$66, DW_AT_type(*$C$DW$T$26)
+     664                      .dwattr $C$DW$66, DW_AT_location[DW_OP_reg12]
+     665              ;*******************************************************************************
+     666              ;* FUNCTION NAME: CSL_SARAM_PartialRetentionTest                               *
+     667              ;*                                                                             *
+     668              ;*   Function Uses Regs : AC0,AC0,T0,T1,AR1,AR2,AR3,XAR3,SP,CARRY,TC1,M40,SATA,*
+     669              ;*                        SATD,RDM,FRCT,SMUL                                   *
+     670              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     671              ;*   Total Frame Size   : 14 words                                             *
+     672              ;*                        (2 return address/alignment)                         *
+     673              ;*                        (3 function parameters)                              *
+     674              ;*                        (9 local values)                                     *
+     675              ;*   Min System Stack   : 1 word                                               *
+     676              ;*******************************************************************************
+     677 000234       _CSL_SARAM_PartialRetentionTest:
+     678                      .dwcfi  cfa_offset, 1
+     679                      .dwcfi  save_reg_to_mem, 91, -1
+     680 000234 4EF3          AADD #-13, SP
+     681                      .dwcfi  cfa_offset, 14
+     682              $C$DW$67        .dwtag  DW_TAG_variable, DW_AT_name("bankNum")
+     683                      .dwattr $C$DW$67, DW_AT_TI_symbol_name("_bankNum")
+     684                      .dwattr $C$DW$67, DW_AT_type(*$C$DW$T$26)
+     685                      .dwattr $C$DW$67, DW_AT_location[DW_OP_bregx 0x24 3]
+     686              $C$DW$68        .dwtag  DW_TAG_variable, DW_AT_name("status")
+     687                      .dwattr $C$DW$68, DW_AT_TI_symbol_name("_status")
+     688                      .dwattr $C$DW$68, DW_AT_type(*$C$DW$T$23)
+     689                      .dwattr $C$DW$68, DW_AT_location[DW_OP_bregx 0x24 4]
+     690              $C$DW$69        .dwtag  DW_TAG_variable, DW_AT_name("result")
+     691                      .dwattr $C$DW$69, DW_AT_TI_symbol_name("_result")
+     692                      .dwattr $C$DW$69, DW_AT_type(*$C$DW$T$23)
+     693                      .dwattr $C$DW$69, DW_AT_location[DW_OP_bregx 0x24 5]
+     694              $C$DW$70        .dwtag  DW_TAG_variable, DW_AT_name("pSaramDataBuf")
+     695                      .dwattr $C$DW$70, DW_AT_TI_symbol_name("_pSaramDataBuf")
+     696                      .dwattr $C$DW$70, DW_AT_type(*$C$DW$T$35)
+     697                      .dwattr $C$DW$70, DW_AT_location[DW_OP_bregx 0x24 6]
+     698              $C$DW$71        .dwtag  DW_TAG_variable, DW_AT_name("pTestDataBuf")
+     699                      .dwattr $C$DW$71, DW_AT_TI_symbol_name("_pTestDataBuf")
+     700                      .dwattr $C$DW$71, DW_AT_type(*$C$DW$T$35)
+     701                      .dwattr $C$DW$71, DW_AT_location[DW_OP_bregx 0x24 8]
+     702              $C$DW$72        .dwtag  DW_TAG_variable, DW_AT_name("bankCount")
+     703                      .dwattr $C$DW$72, DW_AT_TI_symbol_name("_bankCount")
+     704                      .dwattr $C$DW$72, DW_AT_type(*$C$DW$T$26)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   17
+
+     705                      .dwattr $C$DW$72, DW_AT_location[DW_OP_bregx 0x24 10]
+     706              $C$DW$73        .dwtag  DW_TAG_variable, DW_AT_name("looper")
+     707                      .dwattr $C$DW$73, DW_AT_TI_symbol_name("_looper")
+     708                      .dwattr $C$DW$73, DW_AT_type(*$C$DW$T$33)
+     709                      .dwattr $C$DW$73, DW_AT_location[DW_OP_bregx 0x24 11]
+     710 000236 C406          MOV T0, *SP(#3) ; |316| 
+     711                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     712 000238 E60A          MOV #0, *SP(#5) ; |326| 
+         00023a 00   
+     713                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     714              $C$DW$74        .dwtag  DW_TAG_TI_branch
+     715                      .dwattr $C$DW$74, DW_AT_low_pc(0x00)
+     716                      .dwattr $C$DW$74, DW_AT_name("_MEM_init")
+     717                      .dwattr $C$DW$74, DW_AT_TI_call
+     718 00023b 6C00          CALL #_MEM_init ; |329| 
+         00023d 0000!
+     719                                                      ; call occurs [#_MEM_init] ; |329| 
+     720 00023f C408          MOV T0, *SP(#4) ; |329| 
+     721                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     722 000241 2249          MOV T0, AR1
+     723 000243 0409          BCC $C$L7,AR1 == #0 ; |330| 
+         000245 12   
+     724                                                      ; branchcc occurs ; |330| 
+     725                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     726 000246 EC31          AMOV #$C$FSL7, XAR3 ; |332| 
+         000248 BE00 
+         00024a 0140+
+     727 00024c EB00          MOV XAR3, dbl(*SP(#0))
+         00024e B5   
+     728              $C$DW$75        .dwtag  DW_TAG_TI_branch
+     729                      .dwattr $C$DW$75, DW_AT_low_pc(0x00)
+     730                      .dwattr $C$DW$75, DW_AT_name("_printf")
+     731                      .dwattr $C$DW$75, DW_AT_TI_call
+     732 00024f 6C00          CALL #_printf ; |332| 
+         000251 0000!
+     733                                                      ; call occurs [#_printf] ; |332| 
+     734                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     735 000253 A40A          MOV *SP(#5), T0 ; |333| 
+     736 000255 0601          B $C$L25  ; |333| 
+         000257 D8   
+     737                                                      ; branch occurs ; |333| 
+     738 000258       $C$L7:    
+     739                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     740 000258 A406          MOV *SP(#3), T0 ; |336| 
+     741 00025a 5040          SFTL T0, #1 ; |336| 
+     742 00025c EC31          AMOV #_psaramBuf, XAR3 ; |336| 
+         00025e BE00 
+         000260 0000-
+     743 000262 ED6B          MOV dbl(*AR3(T0)), XAR3
+         000264 BF   
+     744 000265 EB0C          MOV XAR3, dbl(*SP(#6))
+         000267 B5   
+     745                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     746 000268 E616          MOV #0, *SP(#11) ; |339| 
+         00026a 00   
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   18
+
+     747 00026b 20            NOP
+     748 00026c 20            NOP
+     749                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     750 00026d 7600          MOV #100, AR2 ; |339| 
+         00026f 64A8 
+     751 000271 A916          MOV *SP(#11), AR1 ; |339| 
+     752 000273 1298          CMPU AR1 >= AR2, TC1 ; |339| 
+         000275 A4   
+     753 000276 0464          BCC $C$L9,TC1 ; |339| 
+         000278 18   
+     754                                                      ; branchcc occurs ; |339| 
+     755 000279       $C$L8:    
+     756 000279       $C$DW$L$_CSL_SARAM_PartialRetentionTest$4$B:
+     757                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     758 000279 ED0C          MOV dbl(*SP(#6)), XAR3
+         00027b BF   
+     759 00027c A416          MOV *SP(#11), T0 ; |341| 
+     760 00027e FB6B          MOV #4660, *AR3(T0) ; |341| 
+         000280 1234 
+     761                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     762 000282 F716          ADD #1, *SP(#11) ; |339| 
+         000284 0001 
+     763 000286 20            NOP
+     764 000287 20            NOP
+     765 000288 20            NOP
+     766                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     767 000289 A916          MOV *SP(#11), AR1 ; |339| 
+     768 00028b 1294          CMPU AR1 < AR2, TC1 ; |339| 
+         00028d A4   
+     769 00028e 0464          BCC $C$L8,TC1 ; |339| 
+         000290 E8   
+     770                                                      ; branchcc occurs ; |339| 
+     771 000291       $C$DW$L$_CSL_SARAM_PartialRetentionTest$4$E:
+     772 000291       $C$L9:    
+     773                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     774 000291 EC31          AMOV #$C$FSL8, XAR3 ; |344| 
+         000293 BE00 
+         000295 0150+
+     775 000297 EB00          MOV XAR3, dbl(*SP(#0))
+         000299 B5   
+     776              $C$DW$76        .dwtag  DW_TAG_TI_branch
+     777                      .dwattr $C$DW$76, DW_AT_low_pc(0x00)
+     778                      .dwattr $C$DW$76, DW_AT_name("_printf")
+     779                      .dwattr $C$DW$76, DW_AT_TI_call
+     780 00029a 6C00          CALL #_printf ; |344| 
+         00029c 0000!
+     781                                                      ; call occurs [#_printf] ; |344| 
+     782                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     783              
+     784 00029e A506          MOV *SP(#3), T1 ; |347| 
+     785 0002a0 3D14  ||      MOV #1, T0
+     786              
+     787              $C$DW$77        .dwtag  DW_TAG_TI_branch
+     788                      .dwattr $C$DW$77, DW_AT_low_pc(0x00)
+     789                      .dwattr $C$DW$77, DW_AT_name("_MEM_enablePartialRetentionMode")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   19
+
+     790                      .dwattr $C$DW$77, DW_AT_TI_call
+     791              
+     792 0002a2 6C00          CALL #_MEM_enablePartialRetentionMode ; |347| 
+         0002a4 0000!
+     793 0002a6 3D00  ||      MOV #0, AC0 ; |347| 
+     794              
+     795                                                      ; call occurs [#_MEM_enablePartialRetentionMode] ; |347| 
+     796 0002a8 C408          MOV T0, *SP(#4) ; |347| 
+     797                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     798 0002aa 2249          MOV T0, AR1
+     799 0002ac 0409          BCC $C$L10,AR1 == #0 ; |348| 
+         0002ae 12   
+     800                                                      ; branchcc occurs ; |348| 
+     801                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     802 0002af EC31          AMOV #$C$FSL9, XAR3 ; |350| 
+         0002b1 BE00 
+         0002b3 0174+
+     803 0002b5 EB00          MOV XAR3, dbl(*SP(#0))
+         0002b7 B5   
+     804              $C$DW$78        .dwtag  DW_TAG_TI_branch
+     805                      .dwattr $C$DW$78, DW_AT_low_pc(0x00)
+     806                      .dwattr $C$DW$78, DW_AT_name("_printf")
+     807                      .dwattr $C$DW$78, DW_AT_TI_call
+     808 0002b8 6C00          CALL #_printf ; |350| 
+         0002ba 0000!
+     809                                                      ; call occurs [#_printf] ; |350| 
+     810                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     811 0002bc A40A          MOV *SP(#5), T0 ; |351| 
+     812 0002be 0601          B $C$L25  ; |351| 
+         0002c0 6F   
+     813                                                      ; branch occurs ; |351| 
+     814 0002c1       $C$L10:    
+     815                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     816 0002c1 EC31          AMOV #$C$FSL10, XAR3 ; |354| 
+         0002c3 BE00 
+         0002c5 01A2+
+     817 0002c7 EB00          MOV XAR3, dbl(*SP(#0))
+         0002c9 B5   
+     818              $C$DW$79        .dwtag  DW_TAG_TI_branch
+     819                      .dwattr $C$DW$79, DW_AT_low_pc(0x00)
+     820                      .dwattr $C$DW$79, DW_AT_name("_printf")
+     821                      .dwattr $C$DW$79, DW_AT_TI_call
+     822 0002ca 6C00          CALL #_printf ; |354| 
+         0002cc 0000!
+     823                                                      ; call occurs [#_printf] ; |354| 
+     824                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     825 0002ce E616          MOV #0, *SP(#11) ; |356| 
+         0002d0 00   
+     826 0002d1 20            NOP
+     827 0002d2 20            NOP
+     828                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     829 0002d3 7600          MOV #100, AR2 ; |356| 
+         0002d5 64A8 
+     830 0002d7 A916          MOV *SP(#11), AR1 ; |356| 
+     831 0002d9 1298          CMPU AR1 >= AR2, TC1 ; |356| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   20
+
+         0002db A4   
+     832 0002dc 0464          BCC $C$L12,TC1 ; |356| 
+         0002de 10   
+     833                                                      ; branchcc occurs ; |356| 
+     834 0002df       $C$L11:    
+     835 0002df       $C$DW$L$_CSL_SARAM_PartialRetentionTest$8$B:
+     836                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     837 0002df 20            NOP
+     838                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     839 0002e0 F716          ADD #1, *SP(#11) ; |356| 
+         0002e2 0001 
+     840 0002e4 20            NOP
+     841 0002e5 20            NOP
+     842 0002e6 20            NOP
+     843                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     844 0002e7 A916          MOV *SP(#11), AR1 ; |356| 
+     845 0002e9 1294          CMPU AR1 < AR2, TC1 ; |356| 
+         0002eb A4   
+     846 0002ec 0464          BCC $C$L11,TC1 ; |356| 
+         0002ee F0   
+     847                                                      ; branchcc occurs ; |356| 
+     848 0002ef       $C$DW$L$_CSL_SARAM_PartialRetentionTest$8$E:
+     849 0002ef       $C$L12:    
+     850                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     851 0002ef EC31          AMOV #$C$FSL11, XAR3 ; |361| 
+         0002f1 BE00 
+         0002f3 01C0+
+     852 0002f5 EB00          MOV XAR3, dbl(*SP(#0))
+         0002f7 B5   
+     853              $C$DW$80        .dwtag  DW_TAG_TI_branch
+     854                      .dwattr $C$DW$80, DW_AT_low_pc(0x00)
+     855                      .dwattr $C$DW$80, DW_AT_name("_printf")
+     856                      .dwattr $C$DW$80, DW_AT_TI_call
+     857 0002f8 6C00          CALL #_printf ; |361| 
+         0002fa 0000!
+     858                                                      ; call occurs [#_printf] ; |361| 
+     859                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     860 0002fc E614          MOV #0, *SP(#10) ; |363| 
+         0002fe 00   
+     861                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     862 0002ff 7600          MOV #32, AR2 ; |363| 
+         000301 20A8 
+     863 000303 A914          MOV *SP(#10), AR1 ; |363| 
+     864 000305 1298          CMPU AR1 >= AR2, TC1 ; |363| 
+         000307 A4   
+     865 000308 0464          BCC $C$L18,TC1 ; |363| 
+         00030a 7B   
+     866                                                      ; branchcc occurs ; |363| 
+     867 00030b       $C$L13:    
+     868 00030b       $C$DW$L$_CSL_SARAM_PartialRetentionTest$10$B:
+     869                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     870 00030b A906          MOV *SP(#3), AR1 ; |365| 
+     871 00030d AA14          MOV *SP(#10), AR2 ; |365| 
+     872 00030f 12A0          CMPU AR2 == AR1, TC1 ; |365| 
+         000311 94   
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   21
+
+     873 000312 0464          BCC $C$L16,TC1 ; |365| 
+         000314 49   
+     874                                                      ; branchcc occurs ; |365| 
+     875 000315       $C$DW$L$_CSL_SARAM_PartialRetentionTest$10$E:
+     876 000315       $C$DW$L$_CSL_SARAM_PartialRetentionTest$11$B:
+     877                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     878 000315 A414          MOV *SP(#10), T0 ; |367| 
+     879 000317 5040          SFTL T0, #1 ; |367| 
+     880 000319 EC31          AMOV #_psaramBuf, XAR3 ; |367| 
+         00031b BE00 
+         00031d 0000-
+     881 00031f ED6B          MOV dbl(*AR3(T0)), XAR3
+         000321 BF   
+     882 000322 EB10          MOV XAR3, dbl(*SP(#8))
+         000324 B5   
+     883                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     884 000325 E616          MOV #0, *SP(#11) ; |369| 
+         000327 00   
+     885 000328 20            NOP
+     886 000329 20            NOP
+     887                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     888 00032a 7600          MOV #100, AR2 ; |369| 
+         00032c 64A8 
+     889 00032e A916          MOV *SP(#11), AR1 ; |369| 
+     890 000330 1298          CMPU AR1 >= AR2, TC1 ; |369| 
+         000332 A4   
+     891 000333 0464          BCC $C$L15,TC1 ; |369| 
+         000335 17   
+     892                                                      ; branchcc occurs ; |369| 
+     893 000336       $C$DW$L$_CSL_SARAM_PartialRetentionTest$11$E:
+     894 000336       $C$L14:    
+     895 000336       $C$DW$L$_CSL_SARAM_PartialRetentionTest$12$B:
+     896                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     897 000336 ED10          MOV dbl(*SP(#8)), XAR3
+         000338 BF   
+     898 000339 A416          MOV *SP(#11), T0 ; |371| 
+     899 00033b E66B          MOV #0, *AR3(T0) ; |371| 
+         00033d 00   
+     900                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     901 00033e F716          ADD #1, *SP(#11) ; |369| 
+         000340 0001 
+     902 000342 20            NOP
+     903 000343 20            NOP
+     904 000344 20            NOP
+     905                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     906 000345 A916          MOV *SP(#11), AR1 ; |369| 
+     907 000347 1294          CMPU AR1 < AR2, TC1 ; |369| 
+         000349 A4   
+     908 00034a 0464          BCC $C$L14,TC1 ; |369| 
+         00034c E9   
+     909                                                      ; branchcc occurs ; |369| 
+     910 00034d       $C$DW$L$_CSL_SARAM_PartialRetentionTest$12$E:
+     911 00034d       $C$L15:    
+     912 00034d       $C$DW$L$_CSL_SARAM_PartialRetentionTest$13$B:
+     913                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   22
+
+     914 00034d EC31          AMOV #$C$FSL12, XAR3 ; |374| 
+         00034f BE00 
+         000351 01EE+
+     915 000353 EB00          MOV XAR3, dbl(*SP(#0))
+         000355 B5   
+     916 000356 A914          MOV *SP(#10), AR1 ; |374| 
+     917 000358 C904          MOV AR1, *SP(#2) ; |374| 
+     918              $C$DW$81        .dwtag  DW_TAG_TI_branch
+     919                      .dwattr $C$DW$81, DW_AT_low_pc(0x00)
+     920                      .dwattr $C$DW$81, DW_AT_name("_printf")
+     921                      .dwattr $C$DW$81, DW_AT_TI_call
+     922 00035a 6C00          CALL #_printf ; |374| 
+         00035c 0000!
+     923                                                      ; call occurs [#_printf] ; |374| 
+     924 00035e       $C$DW$L$_CSL_SARAM_PartialRetentionTest$13$E:
+     925 00035e       $C$L16:    
+     926 00035e       $C$DW$L$_CSL_SARAM_PartialRetentionTest$14$B:
+     927                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     928 00035e A914          MOV *SP(#10), AR1 ; |377| 
+     929 000360 7600          MOV #16, AR2 ; |377| 
+         000362 10A8 
+     930 000364 12AC          CMPU AR2 != AR1, TC1 ; |377| 
+         000366 94   
+     931 000367 66E4          BCC $C$L17,TC1 ; |377| 
+     932                                                      ; branchcc occurs ; |377| 
+     933 000369       $C$DW$L$_CSL_SARAM_PartialRetentionTest$14$E:
+     934 000369       $C$DW$L$_CSL_SARAM_PartialRetentionTest$15$B:
+     935                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     936 000369 EC31          AMOV #$C$FSL13, XAR3 ; |379| 
+         00036b BE00 
+         00036d 01F4+
+     937 00036f EB00          MOV XAR3, dbl(*SP(#0))
+         000371 B5   
+     938              $C$DW$82        .dwtag  DW_TAG_TI_branch
+     939                      .dwattr $C$DW$82, DW_AT_low_pc(0x00)
+     940                      .dwattr $C$DW$82, DW_AT_name("_printf")
+     941                      .dwattr $C$DW$82, DW_AT_TI_call
+     942 000372 6C00          CALL #_printf ; |379| 
+         000374 0000!
+     943                                                      ; call occurs [#_printf] ; |379| 
+     944 000376       $C$DW$L$_CSL_SARAM_PartialRetentionTest$15$E:
+     945 000376       $C$L17:    
+     946 000376       $C$DW$L$_CSL_SARAM_PartialRetentionTest$16$B:
+     947                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     948 000376 F714          ADD #1, *SP(#10) ; |363| 
+         000378 0001 
+     949                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     950 00037a 7600          MOV #32, AR2 ; |363| 
+         00037c 20A8 
+     951 00037e A914          MOV *SP(#10), AR1 ; |363| 
+     952 000380 1294          CMPU AR1 < AR2, TC1 ; |363| 
+         000382 A4   
+     953 000383 0464          BCC $C$L13,TC1 ; |363| 
+         000385 85   
+     954                                                      ; branchcc occurs ; |363| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   23
+
+     955 000386       $C$DW$L$_CSL_SARAM_PartialRetentionTest$16$E:
+     956 000386       $C$L18:    
+     957                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     958 000386 EC31          AMOV #$C$FSL14, XAR3 ; |383| 
+         000388 BE00 
+         00038a 01F6+
+     959 00038c EB00          MOV XAR3, dbl(*SP(#0))
+         00038e B5   
+     960              $C$DW$83        .dwtag  DW_TAG_TI_branch
+     961                      .dwattr $C$DW$83, DW_AT_low_pc(0x00)
+     962                      .dwattr $C$DW$83, DW_AT_name("_printf")
+     963                      .dwattr $C$DW$83, DW_AT_TI_call
+     964 00038f 6C00          CALL #_printf ; |383| 
+         000391 0000!
+     965                                                      ; call occurs [#_printf] ; |383| 
+     966                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     967              
+     968 000393 A506          MOV *SP(#3), T1 ; |386| 
+     969 000395 3D14  ||      MOV #1, T0
+     970              
+     971              $C$DW$84        .dwtag  DW_TAG_TI_branch
+     972                      .dwattr $C$DW$84, DW_AT_low_pc(0x00)
+     973                      .dwattr $C$DW$84, DW_AT_name("_MEM_disablePartialRetentionMode")
+     974                      .dwattr $C$DW$84, DW_AT_TI_call
+     975              
+     976 000397 6C00          CALL #_MEM_disablePartialRetentionMode ; |386| 
+         000399 0000!
+     977 00039b 3D00  ||      MOV #0, AC0 ; |386| 
+     978              
+     979                                                      ; call occurs [#_MEM_disablePartialRetentionMode] ; |386| 
+     980 00039d C408          MOV T0, *SP(#4) ; |386| 
+     981                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     982 00039f 2249          MOV T0, AR1
+     983 0003a1 0409          BCC $C$L19,AR1 == #0 ; |387| 
+         0003a3 12   
+     984                                                      ; branchcc occurs ; |387| 
+     985                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     986 0003a4 EC31          AMOV #$C$FSL15, XAR3 ; |389| 
+         0003a6 BE00 
+         0003a8 021E+
+     987 0003aa EB00          MOV XAR3, dbl(*SP(#0))
+         0003ac B5   
+     988              $C$DW$85        .dwtag  DW_TAG_TI_branch
+     989                      .dwattr $C$DW$85, DW_AT_low_pc(0x00)
+     990                      .dwattr $C$DW$85, DW_AT_name("_printf")
+     991                      .dwattr $C$DW$85, DW_AT_TI_call
+     992 0003ad 6C00          CALL #_printf ; |389| 
+         0003af 0000!
+     993                                                      ; call occurs [#_printf] ; |389| 
+     994                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+     995 0003b1 A40A          MOV *SP(#5), T0 ; |390| 
+     996 0003b3 0600          B $C$L25  ; |390| 
+         0003b5 7A   
+     997                                                      ; branch occurs ; |390| 
+     998 0003b6       $C$L19:    
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   24
+
+     999                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1000 0003b6 E616          MOV #0, *SP(#11) ; |394| 
+         0003b8 00   
+    1001 0003b9 20            NOP
+    1002 0003ba 20            NOP
+    1003                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1004 0003bb 7600          MOV #100, AR2 ; |394| 
+         0003bd 64A8 
+    1005 0003bf A916          MOV *SP(#11), AR1 ; |394| 
+    1006 0003c1 1298          CMPU AR1 >= AR2, TC1 ; |394| 
+         0003c3 A4   
+    1007 0003c4 0464          BCC $C$L21,TC1 ; |394| 
+         0003c6 10   
+    1008                                                      ; branchcc occurs ; |394| 
+    1009 0003c7       $C$L20:    
+    1010 0003c7       $C$DW$L$_CSL_SARAM_PartialRetentionTest$20$B:
+    1011                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1012 0003c7 20            NOP
+    1013                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1014 0003c8 F716          ADD #1, *SP(#11) ; |394| 
+         0003ca 0001 
+    1015 0003cc 20            NOP
+    1016 0003cd 20            NOP
+    1017 0003ce 20            NOP
+    1018                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1019 0003cf A916          MOV *SP(#11), AR1 ; |394| 
+    1020 0003d1 1294          CMPU AR1 < AR2, TC1 ; |394| 
+         0003d3 A4   
+    1021 0003d4 0464          BCC $C$L20,TC1 ; |394| 
+         0003d6 F0   
+    1022                                                      ; branchcc occurs ; |394| 
+    1023 0003d7       $C$DW$L$_CSL_SARAM_PartialRetentionTest$20$E:
+    1024 0003d7       $C$L21:    
+    1025                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1026 0003d7 E616          MOV #0, *SP(#11) ; |400| 
+         0003d9 00   
+    1027 0003da 20            NOP
+    1028 0003db 20            NOP
+    1029 0003dc 20            NOP
+    1030                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1031 0003dd A916          MOV *SP(#11), AR1 ; |400| 
+    1032 0003df 1298          CMPU AR1 >= AR2, TC1 ; |400| 
+         0003e1 A4   
+    1033 0003e2 0464          BCC $C$L24,TC1 ; |400| 
+         0003e4 2C   
+    1034                                                      ; branchcc occurs ; |400| 
+    1035 0003e5       $C$L22:    
+    1036 0003e5       $C$DW$L$_CSL_SARAM_PartialRetentionTest$22$B:
+    1037                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1038 0003e5 A416          MOV *SP(#11), T0 ; |402| 
+    1039 0003e7 ED0C          MOV dbl(*SP(#6)), XAR3
+         0003e9 BF   
+    1040 0003ea F06B          CMP *AR3(T0) == #4660, TC1 ; |402| 
+         0003ec 1234 
+    1041 0003ee 0464          BCC $C$L23,TC1 ; |402| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   25
+
+         0003f0 11   
+    1042                                                      ; branchcc occurs ; |402| 
+    1043 0003f1       $C$DW$L$_CSL_SARAM_PartialRetentionTest$22$E:
+    1044                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1045 0003f1 EC31          AMOV #$C$FSL16, XAR3 ; |404| 
+         0003f3 BE00 
+         0003f5 024E+
+    1046 0003f7 EB00          MOV XAR3, dbl(*SP(#0))
+         0003f9 B5   
+    1047              $C$DW$86        .dwtag  DW_TAG_TI_branch
+    1048                      .dwattr $C$DW$86, DW_AT_low_pc(0x00)
+    1049                      .dwattr $C$DW$86, DW_AT_name("_printf")
+    1050                      .dwattr $C$DW$86, DW_AT_TI_call
+    1051 0003fa 6C00          CALL #_printf ; |404| 
+         0003fc 0000!
+    1052                                                      ; call occurs [#_printf] ; |404| 
+    1053                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1054 0003fe A40A          MOV *SP(#5), T0 ; |405| 
+    1055 000400 4A2E          B $C$L25  ; |405| 
+    1056                                                      ; branch occurs ; |405| 
+    1057 000402       $C$L23:    
+    1058 000402       $C$DW$L$_CSL_SARAM_PartialRetentionTest$24$B:
+    1059                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1060 000402 F716          ADD #1, *SP(#11) ; |400| 
+         000404 0001 
+    1061 000406 20            NOP
+    1062 000407 20            NOP
+    1063 000408 20            NOP
+    1064                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1065 000409 A916          MOV *SP(#11), AR1 ; |400| 
+    1066 00040b 1294          CMPU AR1 < AR2, TC1 ; |400| 
+         00040d A4   
+    1067 00040e 0464          BCC $C$L22,TC1 ; |400| 
+         000410 D4   
+    1068                                                      ; branchcc occurs ; |400| 
+    1069 000411       $C$DW$L$_CSL_SARAM_PartialRetentionTest$24$E:
+    1070 000411       $C$L24:    
+    1071                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1072 000411 EC31          AMOV #$C$FSL17, XAR3 ; |409| 
+         000413 BE00 
+         000415 026C+
+    1073 000417 EB00          MOV XAR3, dbl(*SP(#0))
+         000419 B5   
+    1074              $C$DW$87        .dwtag  DW_TAG_TI_branch
+    1075                      .dwattr $C$DW$87, DW_AT_low_pc(0x00)
+    1076                      .dwattr $C$DW$87, DW_AT_name("_printf")
+    1077                      .dwattr $C$DW$87, DW_AT_TI_call
+    1078 00041a 6C00          CALL #_printf ; |409| 
+         00041c 0000!
+    1079                                                      ; call occurs [#_printf] ; |409| 
+    1080                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1081 00041e EC31          AMOV #$C$FSL18, XAR3 ; |410| 
+         000420 BE00 
+         000422 0298+
+    1082 000424 EB00          MOV XAR3, dbl(*SP(#0))
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   26
+
+         000426 B5   
+    1083              $C$DW$88        .dwtag  DW_TAG_TI_branch
+    1084                      .dwattr $C$DW$88, DW_AT_low_pc(0x00)
+    1085                      .dwattr $C$DW$88, DW_AT_name("_printf")
+    1086                      .dwattr $C$DW$88, DW_AT_TI_call
+    1087 000427 6C00          CALL #_printf ; |410| 
+         000429 0000!
+    1088                                                      ; call occurs [#_printf] ; |410| 
+    1089                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1090 00042b E60A          MOV #1, *SP(#5) ; |412| 
+         00042d 01   
+    1091                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1092 00042e A40A          MOV *SP(#5), T0 ; |414| 
+    1093 000430       $C$L25:    
+    1094                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memory/CSL_MEMORY_SARAM_Part
+    1095 000430 4E0D          AADD #13, SP
+    1096                      .dwcfi  cfa_offset, 1
+    1097              $C$DW$89        .dwtag  DW_TAG_TI_branch
+    1098                      .dwattr $C$DW$89, DW_AT_low_pc(0x00)
+    1099                      .dwattr $C$DW$89, DW_AT_TI_return
+    1100 000432 4804          RET
+    1101                                                      ; return occurs
+    1102              
+    1103              $C$DW$90        .dwtag  DW_TAG_TI_loop
+    1104                      .dwattr $C$DW$90, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_saram_partial_retention_examp
+    1105                      .dwattr $C$DW$90, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/mem
+    1106                      .dwattr $C$DW$90, DW_AT_TI_begin_line(0x190)
+    1107                      .dwattr $C$DW$90, DW_AT_TI_end_line(0x197)
+    1108              $C$DW$91        .dwtag  DW_TAG_TI_loop_range
+    1109                      .dwattr $C$DW$91, DW_AT_low_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$22$B)
+    1110                      .dwattr $C$DW$91, DW_AT_high_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$22$E)
+    1111              $C$DW$92        .dwtag  DW_TAG_TI_loop_range
+    1112                      .dwattr $C$DW$92, DW_AT_low_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$24$B)
+    1113                      .dwattr $C$DW$92, DW_AT_high_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$24$E)
+    1114                      .dwendtag $C$DW$90
+    1115              
+    1116              
+    1117              $C$DW$93        .dwtag  DW_TAG_TI_loop
+    1118                      .dwattr $C$DW$93, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_saram_partial_retention_examp
+    1119                      .dwattr $C$DW$93, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/mem
+    1120                      .dwattr $C$DW$93, DW_AT_TI_begin_line(0x18a)
+    1121                      .dwattr $C$DW$93, DW_AT_TI_end_line(0x18d)
+    1122              $C$DW$94        .dwtag  DW_TAG_TI_loop_range
+    1123                      .dwattr $C$DW$94, DW_AT_low_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$20$B)
+    1124                      .dwattr $C$DW$94, DW_AT_high_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$20$E)
+    1125                      .dwendtag $C$DW$93
+    1126              
+    1127              
+    1128              $C$DW$95        .dwtag  DW_TAG_TI_loop
+    1129                      .dwattr $C$DW$95, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_saram_partial_retention_examp
+    1130                      .dwattr $C$DW$95, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/mem
+    1131                      .dwattr $C$DW$95, DW_AT_TI_begin_line(0x16b)
+    1132                      .dwattr $C$DW$95, DW_AT_TI_end_line(0x17d)
+    1133              $C$DW$96        .dwtag  DW_TAG_TI_loop_range
+    1134                      .dwattr $C$DW$96, DW_AT_low_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$10$B)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   27
+
+    1135                      .dwattr $C$DW$96, DW_AT_high_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$10$E)
+    1136              $C$DW$97        .dwtag  DW_TAG_TI_loop_range
+    1137                      .dwattr $C$DW$97, DW_AT_low_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$11$B)
+    1138                      .dwattr $C$DW$97, DW_AT_high_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$11$E)
+    1139              $C$DW$98        .dwtag  DW_TAG_TI_loop_range
+    1140                      .dwattr $C$DW$98, DW_AT_low_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$13$B)
+    1141                      .dwattr $C$DW$98, DW_AT_high_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$13$E)
+    1142              $C$DW$99        .dwtag  DW_TAG_TI_loop_range
+    1143                      .dwattr $C$DW$99, DW_AT_low_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$14$B)
+    1144                      .dwattr $C$DW$99, DW_AT_high_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$14$E)
+    1145              $C$DW$100       .dwtag  DW_TAG_TI_loop_range
+    1146                      .dwattr $C$DW$100, DW_AT_low_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$15$B)
+    1147                      .dwattr $C$DW$100, DW_AT_high_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$15$E)
+    1148              $C$DW$101       .dwtag  DW_TAG_TI_loop_range
+    1149                      .dwattr $C$DW$101, DW_AT_low_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$16$B)
+    1150                      .dwattr $C$DW$101, DW_AT_high_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$16$E)
+    1151              
+    1152              $C$DW$102       .dwtag  DW_TAG_TI_loop
+    1153                      .dwattr $C$DW$102, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_saram_partial_retention_exam
+    1154                      .dwattr $C$DW$102, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/me
+    1155                      .dwattr $C$DW$102, DW_AT_TI_begin_line(0x171)
+    1156                      .dwattr $C$DW$102, DW_AT_TI_end_line(0x174)
+    1157              $C$DW$103       .dwtag  DW_TAG_TI_loop_range
+    1158                      .dwattr $C$DW$103, DW_AT_low_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$12$B)
+    1159                      .dwattr $C$DW$103, DW_AT_high_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$12$E)
+    1160                      .dwendtag $C$DW$102
+    1161              
+    1162                      .dwendtag $C$DW$95
+    1163              
+    1164              
+    1165              $C$DW$104       .dwtag  DW_TAG_TI_loop
+    1166                      .dwattr $C$DW$104, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_saram_partial_retention_exam
+    1167                      .dwattr $C$DW$104, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/me
+    1168                      .dwattr $C$DW$104, DW_AT_TI_begin_line(0x164)
+    1169                      .dwattr $C$DW$104, DW_AT_TI_end_line(0x167)
+    1170              $C$DW$105       .dwtag  DW_TAG_TI_loop_range
+    1171                      .dwattr $C$DW$105, DW_AT_low_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$8$B)
+    1172                      .dwattr $C$DW$105, DW_AT_high_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$8$E)
+    1173                      .dwendtag $C$DW$104
+    1174              
+    1175              
+    1176              $C$DW$106       .dwtag  DW_TAG_TI_loop
+    1177                      .dwattr $C$DW$106, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_saram_partial_retention_exam
+    1178                      .dwattr $C$DW$106, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/me
+    1179                      .dwattr $C$DW$106, DW_AT_TI_begin_line(0x153)
+    1180                      .dwattr $C$DW$106, DW_AT_TI_end_line(0x156)
+    1181              $C$DW$107       .dwtag  DW_TAG_TI_loop_range
+    1182                      .dwattr $C$DW$107, DW_AT_low_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$4$B)
+    1183                      .dwattr $C$DW$107, DW_AT_high_pc($C$DW$L$_CSL_SARAM_PartialRetentionTest$4$E)
+    1184                      .dwendtag $C$DW$106
+    1185              
+    1186                      .dwattr $C$DW$65, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/memor
+    1187                      .dwattr $C$DW$65, DW_AT_TI_end_line(0x1a5)
+    1188                      .dwattr $C$DW$65, DW_AT_TI_end_column(0x01)
+    1189                      .dwendentry
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   28
+
+    1190                      .dwendtag $C$DW$65
+    1191              
+    1192              ;*******************************************************************************
+    1193              ;* FAR STRINGS                                                                 *
+    1194              ;*******************************************************************************
+    1195 000000               .sect   ".const:.string"
+    1196                      .align  2
+    1197 000000 0053  $C$FSL1:        .string "SARAM PARTIAL MEMORY RETENTION MODE TEST!",10,10,0
+         000001 0041 
+         000002 0052 
+         000003 0041 
+         000004 004D 
+         000005 0020 
+         000006 0050 
+         000007 0041 
+         000008 0052 
+         000009 0054 
+         00000a 0049 
+         00000b 0041 
+         00000c 004C 
+         00000d 0020 
+         00000e 004D 
+         00000f 0045 
+         000010 004D 
+         000011 004F 
+         000012 0052 
+         000013 0059 
+         000014 0020 
+         000015 0052 
+         000016 0045 
+         000017 0054 
+         000018 0045 
+         000019 004E 
+         00001a 0054 
+         00001b 0049 
+         00001c 004F 
+         00001d 004E 
+         00001e 0020 
+         00001f 004D 
+         000020 004F 
+         000021 0044 
+         000022 0045 
+         000023 0020 
+         000024 0054 
+         000025 0045 
+         000026 0053 
+         000027 0054 
+         000028 0021 
+         000029 000A 
+         00002a 000A 
+         00002b 0000 
+    1198                      .align  2
+    1199 00002c 000A  $C$FSL2:        .string 10,"SARAM Partial Retention Mode Test for Bank - %d",10,10,0
+         00002d 0053 
+         00002e 0041 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   29
+
+         00002f 0052 
+         000030 0041 
+         000031 004D 
+         000032 0020 
+         000033 0050 
+         000034 0061 
+         000035 0072 
+         000036 0074 
+         000037 0069 
+         000038 0061 
+         000039 006C 
+         00003a 0020 
+         00003b 0052 
+         00003c 0065 
+         00003d 0074 
+         00003e 0065 
+         00003f 006E 
+         000040 0074 
+         000041 0069 
+         000042 006F 
+         000043 006E 
+         000044 0020 
+         000045 004D 
+         000046 006F 
+         000047 0064 
+         000048 0065 
+         000049 0020 
+         00004a 0054 
+         00004b 0065 
+         00004c 0073 
+         00004d 0074 
+         00004e 0020 
+         00004f 0066 
+         000050 006F 
+         000051 0072 
+         000052 0020 
+         000053 0042 
+         000054 0061 
+         000055 006E 
+         000056 006B 
+         000057 0020 
+         000058 002D 
+         000059 0020 
+         00005a 0025 
+         00005b 0064 
+         00005c 000A 
+         00005d 000A 
+         00005e 0000 
+    1200                      .align  2
+    1201 000060 000A  $C$FSL3:        .string 10,"SARAM Partial Retention Mode Test for Bank%d Passed!!",10
+         000061 0053 
+         000062 0041 
+         000063 0052 
+         000064 0041 
+         000065 004D 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   30
+
+         000066 0020 
+         000067 0050 
+         000068 0061 
+         000069 0072 
+         00006a 0074 
+         00006b 0069 
+         00006c 0061 
+         00006d 006C 
+         00006e 0020 
+         00006f 0052 
+         000070 0065 
+         000071 0074 
+         000072 0065 
+         000073 006E 
+         000074 0074 
+         000075 0069 
+         000076 006F 
+         000077 006E 
+         000078 0020 
+         000079 004D 
+         00007a 006F 
+         00007b 0064 
+         00007c 0065 
+         00007d 0020 
+         00007e 0054 
+         00007f 0065 
+         000080 0073 
+         000081 0074 
+         000082 0020 
+         000083 0066 
+         000084 006F 
+         000085 0072 
+         000086 0020 
+         000087 0042 
+         000088 0061 
+         000089 006E 
+         00008a 006B 
+         00008b 0025 
+         00008c 0064 
+         00008d 0020 
+         00008e 0050 
+         00008f 0061 
+         000090 0073 
+         000091 0073 
+         000092 0065 
+         000093 0064 
+         000094 0021 
+         000095 0021 
+         000096 000A 
+    1202 000097 000A          .string 10,10,10,0
+         000098 000A 
+         000099 000A 
+         00009a 0000 
+    1203                      .align  2
+    1204 00009c 000A  $C$FSL4:        .string 10,"SARAM Partial Retention Mode Test for Bank%d Failed!!",10
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   31
+
+         00009d 0053 
+         00009e 0041 
+         00009f 0052 
+         0000a0 0041 
+         0000a1 004D 
+         0000a2 0020 
+         0000a3 0050 
+         0000a4 0061 
+         0000a5 0072 
+         0000a6 0074 
+         0000a7 0069 
+         0000a8 0061 
+         0000a9 006C 
+         0000aa 0020 
+         0000ab 0052 
+         0000ac 0065 
+         0000ad 0074 
+         0000ae 0065 
+         0000af 006E 
+         0000b0 0074 
+         0000b1 0069 
+         0000b2 006F 
+         0000b3 006E 
+         0000b4 0020 
+         0000b5 004D 
+         0000b6 006F 
+         0000b7 0064 
+         0000b8 0065 
+         0000b9 0020 
+         0000ba 0054 
+         0000bb 0065 
+         0000bc 0073 
+         0000bd 0074 
+         0000be 0020 
+         0000bf 0066 
+         0000c0 006F 
+         0000c1 0072 
+         0000c2 0020 
+         0000c3 0042 
+         0000c4 0061 
+         0000c5 006E 
+         0000c6 006B 
+         0000c7 0025 
+         0000c8 0064 
+         0000c9 0020 
+         0000ca 0046 
+         0000cb 0061 
+         0000cc 0069 
+         0000cd 006C 
+         0000ce 0065 
+         0000cf 0064 
+         0000d0 0021 
+         0000d1 0021 
+         0000d2 000A 
+    1205 0000d3 000A          .string 10,10,10,0
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   32
+
+         0000d4 000A 
+         0000d5 000A 
+         0000d6 0000 
+    1206                      .align  2
+    1207 0000d8 0053  $C$FSL5:        .string "SARAM PARTIAL MEMORY RETENTION MODE TEST FAILED!!",10,10,0
+         0000d9 0041 
+         0000da 0052 
+         0000db 0041 
+         0000dc 004D 
+         0000dd 0020 
+         0000de 0050 
+         0000df 0041 
+         0000e0 0052 
+         0000e1 0054 
+         0000e2 0049 
+         0000e3 0041 
+         0000e4 004C 
+         0000e5 0020 
+         0000e6 004D 
+         0000e7 0045 
+         0000e8 004D 
+         0000e9 004F 
+         0000ea 0052 
+         0000eb 0059 
+         0000ec 0020 
+         0000ed 0052 
+         0000ee 0045 
+         0000ef 0054 
+         0000f0 0045 
+         0000f1 004E 
+         0000f2 0054 
+         0000f3 0049 
+         0000f4 004F 
+         0000f5 004E 
+         0000f6 0020 
+         0000f7 004D 
+         0000f8 004F 
+         0000f9 0044 
+         0000fa 0045 
+         0000fb 0020 
+         0000fc 0054 
+         0000fd 0045 
+         0000fe 0053 
+         0000ff 0054 
+         000100 0020 
+         000101 0046 
+         000102 0041 
+         000103 0049 
+         000104 004C 
+         000105 0045 
+         000106 0044 
+         000107 0021 
+         000108 0021 
+         000109 000A 
+         00010a 000A 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   33
+
+         00010b 0000 
+    1208                      .align  2
+    1209 00010c 0053  $C$FSL6:        .string "SARAM PARTIAL MEMORY RETENTION MODE TEST PASSED!!",10,10,0
+         00010d 0041 
+         00010e 0052 
+         00010f 0041 
+         000110 004D 
+         000111 0020 
+         000112 0050 
+         000113 0041 
+         000114 0052 
+         000115 0054 
+         000116 0049 
+         000117 0041 
+         000118 004C 
+         000119 0020 
+         00011a 004D 
+         00011b 0045 
+         00011c 004D 
+         00011d 004F 
+         00011e 0052 
+         00011f 0059 
+         000120 0020 
+         000121 0052 
+         000122 0045 
+         000123 0054 
+         000124 0045 
+         000125 004E 
+         000126 0054 
+         000127 0049 
+         000128 004F 
+         000129 004E 
+         00012a 0020 
+         00012b 004D 
+         00012c 004F 
+         00012d 0044 
+         00012e 0045 
+         00012f 0020 
+         000130 0054 
+         000131 0045 
+         000132 0053 
+         000133 0054 
+         000134 0020 
+         000135 0050 
+         000136 0041 
+         000137 0053 
+         000138 0053 
+         000139 0045 
+         00013a 0044 
+         00013b 0021 
+         00013c 0021 
+         00013d 000A 
+         00013e 000A 
+         00013f 0000 
+    1210                      .align  2
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   34
+
+    1211 000140 004D  $C$FSL7:        .string "MEM_init failed",0
+         000141 0045 
+         000142 004D 
+         000143 005F 
+         000144 0069 
+         000145 006E 
+         000146 0069 
+         000147 0074 
+         000148 0020 
+         000149 0066 
+         00014a 0061 
+         00014b 0069 
+         00014c 006C 
+         00014d 0065 
+         00014e 0064 
+         00014f 0000 
+    1212                      .align  2
+    1213 000150 0045  $C$FSL8:        .string "Enabling the Memory Retention Mode",10,0
+         000151 006E 
+         000152 0061 
+         000153 0062 
+         000154 006C 
+         000155 0069 
+         000156 006E 
+         000157 0067 
+         000158 0020 
+         000159 0074 
+         00015a 0068 
+         00015b 0065 
+         00015c 0020 
+         00015d 004D 
+         00015e 0065 
+         00015f 006D 
+         000160 006F 
+         000161 0072 
+         000162 0079 
+         000163 0020 
+         000164 0052 
+         000165 0065 
+         000166 0074 
+         000167 0065 
+         000168 006E 
+         000169 0074 
+         00016a 0069 
+         00016b 006F 
+         00016c 006E 
+         00016d 0020 
+         00016e 004D 
+         00016f 006F 
+         000170 0064 
+         000171 0065 
+         000172 000A 
+         000173 0000 
+    1214                      .align  2
+    1215 000174 0045  $C$FSL9:        .string "Enabling SARAM Memory Retention Mode Failed!",10,0
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   35
+
+         000175 006E 
+         000176 0061 
+         000177 0062 
+         000178 006C 
+         000179 0069 
+         00017a 006E 
+         00017b 0067 
+         00017c 0020 
+         00017d 0053 
+         00017e 0041 
+         00017f 0052 
+         000180 0041 
+         000181 004D 
+         000182 0020 
+         000183 004D 
+         000184 0065 
+         000185 006D 
+         000186 006F 
+         000187 0072 
+         000188 0079 
+         000189 0020 
+         00018a 0052 
+         00018b 0065 
+         00018c 0074 
+         00018d 0065 
+         00018e 006E 
+         00018f 0074 
+         000190 0069 
+         000191 006F 
+         000192 006E 
+         000193 0020 
+         000194 004D 
+         000195 006F 
+         000196 0064 
+         000197 0065 
+         000198 0020 
+         000199 0046 
+         00019a 0061 
+         00019b 0069 
+         00019c 006C 
+         00019d 0065 
+         00019e 0064 
+         00019f 0021 
+         0001a0 000A 
+         0001a1 0000 
+    1216                      .align  2
+    1217 0001a2 0057  $C$FSL10:       .string "Wait for few CPU Cycles....",10,0
+         0001a3 0061 
+         0001a4 0069 
+         0001a5 0074 
+         0001a6 0020 
+         0001a7 0066 
+         0001a8 006F 
+         0001a9 0072 
+         0001aa 0020 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   36
+
+         0001ab 0066 
+         0001ac 0065 
+         0001ad 0077 
+         0001ae 0020 
+         0001af 0043 
+         0001b0 0050 
+         0001b1 0055 
+         0001b2 0020 
+         0001b3 0043 
+         0001b4 0079 
+         0001b5 0063 
+         0001b6 006C 
+         0001b7 0065 
+         0001b8 0073 
+         0001b9 002E 
+         0001ba 002E 
+         0001bb 002E 
+         0001bc 002E 
+         0001bd 000A 
+         0001be 0000 
+    1218                      .align  2
+    1219 0001c0 000A  $C$FSL11:       .string 10,"Accessing the Data in other SARAM Banks...",10,0
+         0001c1 0041 
+         0001c2 0063 
+         0001c3 0063 
+         0001c4 0065 
+         0001c5 0073 
+         0001c6 0073 
+         0001c7 0069 
+         0001c8 006E 
+         0001c9 0067 
+         0001ca 0020 
+         0001cb 0074 
+         0001cc 0068 
+         0001cd 0065 
+         0001ce 0020 
+         0001cf 0044 
+         0001d0 0061 
+         0001d1 0074 
+         0001d2 0061 
+         0001d3 0020 
+         0001d4 0069 
+         0001d5 006E 
+         0001d6 0020 
+         0001d7 006F 
+         0001d8 0074 
+         0001d9 0068 
+         0001da 0065 
+         0001db 0072 
+         0001dc 0020 
+         0001dd 0053 
+         0001de 0041 
+         0001df 0052 
+         0001e0 0041 
+         0001e1 004D 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   37
+
+         0001e2 0020 
+         0001e3 0042 
+         0001e4 0061 
+         0001e5 006E 
+         0001e6 006B 
+         0001e7 0073 
+         0001e8 002E 
+         0001e9 002E 
+         0001ea 002E 
+         0001eb 000A 
+         0001ec 0000 
+    1220                      .align  2
+    1221 0001ee 0025  $C$FSL12:       .string "%d  ",0
+         0001ef 0064 
+         0001f0 0020 
+         0001f1 0020 
+         0001f2 0000 
+    1222                      .align  2
+    1223 0001f4 000A  $C$FSL13:       .string 10,0
+         0001f5 0000 
+    1224                      .align  2
+    1225 0001f6 000A  $C$FSL14:       .string 10,10,"Disabling the Memory Retention Mode",10,0
+         0001f7 000A 
+         0001f8 0044 
+         0001f9 0069 
+         0001fa 0073 
+         0001fb 0061 
+         0001fc 0062 
+         0001fd 006C 
+         0001fe 0069 
+         0001ff 006E 
+         000200 0067 
+         000201 0020 
+         000202 0074 
+         000203 0068 
+         000204 0065 
+         000205 0020 
+         000206 004D 
+         000207 0065 
+         000208 006D 
+         000209 006F 
+         00020a 0072 
+         00020b 0079 
+         00020c 0020 
+         00020d 0052 
+         00020e 0065 
+         00020f 0074 
+         000210 0065 
+         000211 006E 
+         000212 0074 
+         000213 0069 
+         000214 006F 
+         000215 006E 
+         000216 0020 
+         000217 004D 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   38
+
+         000218 006F 
+         000219 0064 
+         00021a 0065 
+         00021b 000A 
+         00021c 0000 
+    1226                      .align  2
+    1227 00021e 0044  $C$FSL15:       .string "Disabling SARAM Memory Retention Mode Failed!",10,0
+         00021f 0069 
+         000220 0073 
+         000221 0061 
+         000222 0062 
+         000223 006C 
+         000224 0069 
+         000225 006E 
+         000226 0067 
+         000227 0020 
+         000228 0053 
+         000229 0041 
+         00022a 0052 
+         00022b 0041 
+         00022c 004D 
+         00022d 0020 
+         00022e 004D 
+         00022f 0065 
+         000230 006D 
+         000231 006F 
+         000232 0072 
+         000233 0079 
+         000234 0020 
+         000235 0052 
+         000236 0065 
+         000237 0074 
+         000238 0065 
+         000239 006E 
+         00023a 0074 
+         00023b 0069 
+         00023c 006F 
+         00023d 006E 
+         00023e 0020 
+         00023f 004D 
+         000240 006F 
+         000241 0064 
+         000242 0065 
+         000243 0020 
+         000244 0046 
+         000245 0061 
+         000246 0069 
+         000247 006C 
+         000248 0065 
+         000249 0064 
+         00024a 0021 
+         00024b 000A 
+         00024c 0000 
+    1228                      .align  2
+    1229 00024e 0053  $C$FSL16:       .string "SARAM data is not Retained!",10,0
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   39
+
+         00024f 0041 
+         000250 0052 
+         000251 0041 
+         000252 004D 
+         000253 0020 
+         000254 0064 
+         000255 0061 
+         000256 0074 
+         000257 0061 
+         000258 0020 
+         000259 0069 
+         00025a 0073 
+         00025b 0020 
+         00025c 006E 
+         00025d 006F 
+         00025e 0074 
+         00025f 0020 
+         000260 0052 
+         000261 0065 
+         000262 0074 
+         000263 0061 
+         000264 0069 
+         000265 006E 
+         000266 0065 
+         000267 0064 
+         000268 0021 
+         000269 000A 
+         00026a 0000 
+    1230                      .align  2
+    1231 00026c 0053  $C$FSL17:       .string "SARAM Data Buffer verification successful",10,0
+         00026d 0041 
+         00026e 0052 
+         00026f 0041 
+         000270 004D 
+         000271 0020 
+         000272 0044 
+         000273 0061 
+         000274 0074 
+         000275 0061 
+         000276 0020 
+         000277 0042 
+         000278 0075 
+         000279 0066 
+         00027a 0066 
+         00027b 0065 
+         00027c 0072 
+         00027d 0020 
+         00027e 0076 
+         00027f 0065 
+         000280 0072 
+         000281 0069 
+         000282 0066 
+         000283 0069 
+         000284 0063 
+         000285 0061 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   40
+
+         000286 0074 
+         000287 0069 
+         000288 006F 
+         000289 006E 
+         00028a 0020 
+         00028b 0073 
+         00028c 0075 
+         00028d 0063 
+         00028e 0063 
+         00028f 0065 
+         000290 0073 
+         000291 0073 
+         000292 0066 
+         000293 0075 
+         000294 006C 
+         000295 000A 
+         000296 0000 
+    1232                      .align  2
+    1233 000298 0053  $C$FSL18:       .string "SARAM data is Retained!",10,0
+         000299 0041 
+         00029a 0052 
+         00029b 0041 
+         00029c 004D 
+         00029d 0020 
+         00029e 0064 
+         00029f 0061 
+         0002a0 0074 
+         0002a1 0061 
+         0002a2 0020 
+         0002a3 0069 
+         0002a4 0073 
+         0002a5 0020 
+         0002a6 0052 
+         0002a7 0065 
+         0002a8 0074 
+         0002a9 0061 
+         0002aa 0069 
+         0002ab 006E 
+         0002ac 0065 
+         0002ad 0064 
+         0002ae 0021 
+         0002af 000A 
+         0002b0 0000 
+    1234              ;******************************************************************************
+    1235              ;* UNDEFINED EXTERNAL REFERENCES                                              *
+    1236              ;******************************************************************************
+    1237                      .global _MEM_init
+    1238                      .global _MEM_enablePartialRetentionMode
+    1239                      .global _MEM_disablePartialRetentionMode
+    1240                      .global _printf
+    1241              
+    1242              ;*******************************************************************************
+    1243              ;* TYPE INFORMATION                                                            *
+    1244              ;*******************************************************************************
+    1245              
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   41
+
+    1246              $C$DW$T$19      .dwtag  DW_TAG_enumeration_type
+    1247                      .dwattr $C$DW$T$19, DW_AT_byte_size(0x01)
+    1248              $C$DW$108       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_MEM_DARAM"), DW_AT_const_value(0x00)
+    1249              $C$DW$109       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_MEM_SARAM"), DW_AT_const_value(0x01)
+    1250              $C$DW$110       .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_MEM_INVALID"), DW_AT_const_value(0x02)
+    1251                      .dwendtag $C$DW$T$19
+    1252              
+    1253              $C$DW$T$20      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_MemType")
+    1254                      .dwattr $C$DW$T$20, DW_AT_type(*$C$DW$T$19)
+    1255                      .dwattr $C$DW$T$20, DW_AT_language(DW_LANG_C)
+    1256              $C$DW$T$4       .dwtag  DW_TAG_base_type
+    1257                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+    1258                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+    1259                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+    1260              $C$DW$T$5       .dwtag  DW_TAG_base_type
+    1261                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+    1262                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+    1263                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+    1264              $C$DW$T$6       .dwtag  DW_TAG_base_type
+    1265                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+    1266                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+    1267                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+    1268              $C$DW$T$7       .dwtag  DW_TAG_base_type
+    1269                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+    1270                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+    1271                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+    1272              $C$DW$T$8       .dwtag  DW_TAG_base_type
+    1273                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+    1274                      .dwattr $C$DW$T$8, DW_AT_name("short")
+    1275                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+    1276              $C$DW$T$22      .dwtag  DW_TAG_typedef, DW_AT_name("Int16")
+    1277                      .dwattr $C$DW$T$22, DW_AT_type(*$C$DW$T$8)
+    1278                      .dwattr $C$DW$T$22, DW_AT_language(DW_LANG_C)
+    1279              $C$DW$T$23      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_Status")
+    1280                      .dwattr $C$DW$T$23, DW_AT_type(*$C$DW$T$22)
+    1281                      .dwattr $C$DW$T$23, DW_AT_language(DW_LANG_C)
+    1282              $C$DW$111       .dwtag  DW_TAG_TI_far_type
+    1283                      .dwattr $C$DW$111, DW_AT_type(*$C$DW$T$22)
+    1284              $C$DW$T$32      .dwtag  DW_TAG_volatile_type
+    1285                      .dwattr $C$DW$T$32, DW_AT_type(*$C$DW$111)
+    1286              $C$DW$T$9       .dwtag  DW_TAG_base_type
+    1287                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+    1288                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+    1289                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+    1290              $C$DW$T$26      .dwtag  DW_TAG_typedef, DW_AT_name("Uint16")
+    1291                      .dwattr $C$DW$T$26, DW_AT_type(*$C$DW$T$9)
+    1292                      .dwattr $C$DW$T$26, DW_AT_language(DW_LANG_C)
+    1293              $C$DW$112       .dwtag  DW_TAG_TI_far_type
+    1294                      .dwattr $C$DW$112, DW_AT_type(*$C$DW$T$26)
+    1295              $C$DW$T$33      .dwtag  DW_TAG_volatile_type
+    1296                      .dwattr $C$DW$T$33, DW_AT_type(*$C$DW$112)
+    1297              
+    1298              $C$DW$T$34      .dwtag  DW_TAG_array_type
+    1299                      .dwattr $C$DW$T$34, DW_AT_type(*$C$DW$T$26)
+    1300                      .dwattr $C$DW$T$34, DW_AT_language(DW_LANG_C)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   42
+
+    1301                      .dwattr $C$DW$T$34, DW_AT_byte_size(0x64)
+    1302              $C$DW$113       .dwtag  DW_TAG_subrange_type
+    1303                      .dwattr $C$DW$113, DW_AT_upper_bound(0x63)
+    1304                      .dwendtag $C$DW$T$34
+    1305              
+    1306              $C$DW$T$35      .dwtag  DW_TAG_pointer_type
+    1307                      .dwattr $C$DW$T$35, DW_AT_type(*$C$DW$T$26)
+    1308                      .dwattr $C$DW$T$35, DW_AT_address_class(0x17)
+    1309              
+    1310              $C$DW$T$36      .dwtag  DW_TAG_array_type
+    1311                      .dwattr $C$DW$T$36, DW_AT_type(*$C$DW$T$35)
+    1312                      .dwattr $C$DW$T$36, DW_AT_language(DW_LANG_C)
+    1313                      .dwattr $C$DW$T$36, DW_AT_byte_size(0x40)
+    1314              $C$DW$114       .dwtag  DW_TAG_subrange_type
+    1315                      .dwattr $C$DW$114, DW_AT_upper_bound(0x1f)
+    1316                      .dwendtag $C$DW$T$36
+    1317              
+    1318              $C$DW$T$10      .dwtag  DW_TAG_base_type
+    1319                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+    1320                      .dwattr $C$DW$T$10, DW_AT_name("int")
+    1321                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+    1322              $C$DW$T$38      .dwtag  DW_TAG_typedef, DW_AT_name("Bool")
+    1323                      .dwattr $C$DW$T$38, DW_AT_type(*$C$DW$T$10)
+    1324                      .dwattr $C$DW$T$38, DW_AT_language(DW_LANG_C)
+    1325              $C$DW$T$11      .dwtag  DW_TAG_base_type
+    1326                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+    1327                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+    1328                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+    1329              $C$DW$T$12      .dwtag  DW_TAG_base_type
+    1330                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+    1331                      .dwattr $C$DW$T$12, DW_AT_name("long")
+    1332                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+    1333              $C$DW$T$13      .dwtag  DW_TAG_base_type
+    1334                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+    1335                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+    1336                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+    1337              $C$DW$T$27      .dwtag  DW_TAG_typedef, DW_AT_name("Uint32")
+    1338                      .dwattr $C$DW$T$27, DW_AT_type(*$C$DW$T$13)
+    1339                      .dwattr $C$DW$T$27, DW_AT_language(DW_LANG_C)
+    1340              $C$DW$T$14      .dwtag  DW_TAG_base_type
+    1341                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+    1342                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+    1343                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+    1344                      .dwattr $C$DW$T$14, DW_AT_bit_size(0x28)
+    1345                      .dwattr $C$DW$T$14, DW_AT_bit_offset(0x18)
+    1346              $C$DW$T$15      .dwtag  DW_TAG_base_type
+    1347                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+    1348                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+    1349                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+    1350                      .dwattr $C$DW$T$15, DW_AT_bit_size(0x28)
+    1351                      .dwattr $C$DW$T$15, DW_AT_bit_offset(0x18)
+    1352              $C$DW$T$16      .dwtag  DW_TAG_base_type
+    1353                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+    1354                      .dwattr $C$DW$T$16, DW_AT_name("float")
+    1355                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   43
+
+    1356              $C$DW$T$17      .dwtag  DW_TAG_base_type
+    1357                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+    1358                      .dwattr $C$DW$T$17, DW_AT_name("double")
+    1359                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+    1360              $C$DW$T$18      .dwtag  DW_TAG_base_type
+    1361                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+    1362                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+    1363                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x02)
+    1364              $C$DW$T$39      .dwtag  DW_TAG_base_type
+    1365                      .dwattr $C$DW$T$39, DW_AT_encoding(DW_ATE_signed_char)
+    1366                      .dwattr $C$DW$T$39, DW_AT_name("signed char")
+    1367                      .dwattr $C$DW$T$39, DW_AT_byte_size(0x01)
+    1368              $C$DW$115       .dwtag  DW_TAG_TI_far_type
+    1369                      .dwattr $C$DW$115, DW_AT_type(*$C$DW$T$39)
+    1370              $C$DW$T$40      .dwtag  DW_TAG_const_type
+    1371                      .dwattr $C$DW$T$40, DW_AT_type(*$C$DW$115)
+    1372              $C$DW$T$41      .dwtag  DW_TAG_pointer_type
+    1373                      .dwattr $C$DW$T$41, DW_AT_type(*$C$DW$T$40)
+    1374                      .dwattr $C$DW$T$41, DW_AT_address_class(0x17)
+    1375                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+    1376              
+    1377              ;***************************************************************
+    1378              ;* DWARF CIE ENTRIES                                           *
+    1379              ;***************************************************************
+    1380              
+    1381              $C$DW$CIE       .dwcie 91
+    1382                      .dwcfi  cfa_register, 36
+    1383                      .dwcfi  cfa_offset, 0
+    1384                      .dwcfi  undefined, 0
+    1385                      .dwcfi  undefined, 1
+    1386                      .dwcfi  undefined, 2
+    1387                      .dwcfi  undefined, 3
+    1388                      .dwcfi  undefined, 4
+    1389                      .dwcfi  undefined, 5
+    1390                      .dwcfi  undefined, 6
+    1391                      .dwcfi  undefined, 7
+    1392                      .dwcfi  undefined, 8
+    1393                      .dwcfi  undefined, 9
+    1394                      .dwcfi  undefined, 10
+    1395                      .dwcfi  undefined, 11
+    1396                      .dwcfi  undefined, 12
+    1397                      .dwcfi  undefined, 13
+    1398                      .dwcfi  same_value, 14
+    1399                      .dwcfi  same_value, 15
+    1400                      .dwcfi  undefined, 16
+    1401                      .dwcfi  undefined, 17
+    1402                      .dwcfi  undefined, 18
+    1403                      .dwcfi  undefined, 19
+    1404                      .dwcfi  undefined, 20
+    1405                      .dwcfi  undefined, 21
+    1406                      .dwcfi  undefined, 22
+    1407                      .dwcfi  undefined, 23
+    1408                      .dwcfi  undefined, 24
+    1409                      .dwcfi  undefined, 25
+    1410                      .dwcfi  same_value, 26
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   44
+
+    1411                      .dwcfi  same_value, 27
+    1412                      .dwcfi  same_value, 28
+    1413                      .dwcfi  same_value, 29
+    1414                      .dwcfi  same_value, 30
+    1415                      .dwcfi  same_value, 31
+    1416                      .dwcfi  undefined, 32
+    1417                      .dwcfi  undefined, 33
+    1418                      .dwcfi  undefined, 34
+    1419                      .dwcfi  undefined, 35
+    1420                      .dwcfi  undefined, 36
+    1421                      .dwcfi  undefined, 37
+    1422                      .dwcfi  undefined, 38
+    1423                      .dwcfi  undefined, 39
+    1424                      .dwcfi  undefined, 40
+    1425                      .dwcfi  undefined, 41
+    1426                      .dwcfi  undefined, 42
+    1427                      .dwcfi  undefined, 43
+    1428                      .dwcfi  undefined, 44
+    1429                      .dwcfi  undefined, 45
+    1430                      .dwcfi  undefined, 46
+    1431                      .dwcfi  undefined, 47
+    1432                      .dwcfi  undefined, 48
+    1433                      .dwcfi  undefined, 49
+    1434                      .dwcfi  undefined, 50
+    1435                      .dwcfi  undefined, 51
+    1436                      .dwcfi  undefined, 52
+    1437                      .dwcfi  undefined, 53
+    1438                      .dwcfi  undefined, 54
+    1439                      .dwcfi  undefined, 55
+    1440                      .dwcfi  undefined, 56
+    1441                      .dwcfi  undefined, 57
+    1442                      .dwcfi  undefined, 58
+    1443                      .dwcfi  undefined, 59
+    1444                      .dwcfi  undefined, 60
+    1445                      .dwcfi  undefined, 61
+    1446                      .dwcfi  undefined, 62
+    1447                      .dwcfi  undefined, 63
+    1448                      .dwcfi  undefined, 64
+    1449                      .dwcfi  undefined, 65
+    1450                      .dwcfi  undefined, 66
+    1451                      .dwcfi  undefined, 67
+    1452                      .dwcfi  undefined, 68
+    1453                      .dwcfi  undefined, 69
+    1454                      .dwcfi  undefined, 70
+    1455                      .dwcfi  undefined, 71
+    1456                      .dwcfi  undefined, 72
+    1457                      .dwcfi  undefined, 73
+    1458                      .dwcfi  undefined, 74
+    1459                      .dwcfi  undefined, 75
+    1460                      .dwcfi  undefined, 76
+    1461                      .dwcfi  undefined, 77
+    1462                      .dwcfi  undefined, 78
+    1463                      .dwcfi  undefined, 79
+    1464                      .dwcfi  undefined, 80
+    1465                      .dwcfi  undefined, 81
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   45
+
+    1466                      .dwcfi  undefined, 82
+    1467                      .dwcfi  undefined, 83
+    1468                      .dwcfi  undefined, 84
+    1469                      .dwcfi  undefined, 85
+    1470                      .dwcfi  undefined, 86
+    1471                      .dwcfi  undefined, 87
+    1472                      .dwcfi  undefined, 88
+    1473                      .dwcfi  undefined, 89
+    1474                      .dwcfi  undefined, 90
+    1475                      .dwcfi  undefined, 91
+    1476                      .dwendentry
+    1477              
+    1478              ;***************************************************************
+    1479              ;* DWARF REGISTER MAP                                          *
+    1480              ;***************************************************************
+    1481              
+    1482              $C$DW$116       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1483                      .dwattr $C$DW$116, DW_AT_location[DW_OP_reg0]
+    1484              $C$DW$117       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1485                      .dwattr $C$DW$117, DW_AT_location[DW_OP_reg1]
+    1486              $C$DW$118       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0_G")
+    1487                      .dwattr $C$DW$118, DW_AT_location[DW_OP_reg2]
+    1488              $C$DW$119       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1489                      .dwattr $C$DW$119, DW_AT_location[DW_OP_reg3]
+    1490              $C$DW$120       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1491                      .dwattr $C$DW$120, DW_AT_location[DW_OP_reg4]
+    1492              $C$DW$121       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1_G")
+    1493                      .dwattr $C$DW$121, DW_AT_location[DW_OP_reg5]
+    1494              $C$DW$122       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1495                      .dwattr $C$DW$122, DW_AT_location[DW_OP_reg6]
+    1496              $C$DW$123       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1497                      .dwattr $C$DW$123, DW_AT_location[DW_OP_reg7]
+    1498              $C$DW$124       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2_G")
+    1499                      .dwattr $C$DW$124, DW_AT_location[DW_OP_reg8]
+    1500              $C$DW$125       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    1501                      .dwattr $C$DW$125, DW_AT_location[DW_OP_reg9]
+    1502              $C$DW$126       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    1503                      .dwattr $C$DW$126, DW_AT_location[DW_OP_reg10]
+    1504              $C$DW$127       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3_G")
+    1505                      .dwattr $C$DW$127, DW_AT_location[DW_OP_reg11]
+    1506              $C$DW$128       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T0")
+    1507                      .dwattr $C$DW$128, DW_AT_location[DW_OP_reg12]
+    1508              $C$DW$129       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T1")
+    1509                      .dwattr $C$DW$129, DW_AT_location[DW_OP_reg13]
+    1510              $C$DW$130       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T2")
+    1511                      .dwattr $C$DW$130, DW_AT_location[DW_OP_reg14]
+    1512              $C$DW$131       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T3")
+    1513                      .dwattr $C$DW$131, DW_AT_location[DW_OP_reg15]
+    1514              $C$DW$132       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+    1515                      .dwattr $C$DW$132, DW_AT_location[DW_OP_reg16]
+    1516              $C$DW$133       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+    1517                      .dwattr $C$DW$133, DW_AT_location[DW_OP_reg17]
+    1518              $C$DW$134       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+    1519                      .dwattr $C$DW$134, DW_AT_location[DW_OP_reg18]
+    1520              $C$DW$135       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   46
+
+    1521                      .dwattr $C$DW$135, DW_AT_location[DW_OP_reg19]
+    1522              $C$DW$136       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+    1523                      .dwattr $C$DW$136, DW_AT_location[DW_OP_reg20]
+    1524              $C$DW$137       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+    1525                      .dwattr $C$DW$137, DW_AT_location[DW_OP_reg21]
+    1526              $C$DW$138       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+    1527                      .dwattr $C$DW$138, DW_AT_location[DW_OP_reg22]
+    1528              $C$DW$139       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+    1529                      .dwattr $C$DW$139, DW_AT_location[DW_OP_reg23]
+    1530              $C$DW$140       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+    1531                      .dwattr $C$DW$140, DW_AT_location[DW_OP_reg24]
+    1532              $C$DW$141       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+    1533                      .dwattr $C$DW$141, DW_AT_location[DW_OP_reg25]
+    1534              $C$DW$142       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+    1535                      .dwattr $C$DW$142, DW_AT_location[DW_OP_reg26]
+    1536              $C$DW$143       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+    1537                      .dwattr $C$DW$143, DW_AT_location[DW_OP_reg27]
+    1538              $C$DW$144       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+    1539                      .dwattr $C$DW$144, DW_AT_location[DW_OP_reg28]
+    1540              $C$DW$145       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+    1541                      .dwattr $C$DW$145, DW_AT_location[DW_OP_reg29]
+    1542              $C$DW$146       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+    1543                      .dwattr $C$DW$146, DW_AT_location[DW_OP_reg30]
+    1544              $C$DW$147       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+    1545                      .dwattr $C$DW$147, DW_AT_location[DW_OP_reg31]
+    1546              $C$DW$148       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+    1547                      .dwattr $C$DW$148, DW_AT_location[DW_OP_regx 0x20]
+    1548              $C$DW$149       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XFP")
+    1549                      .dwattr $C$DW$149, DW_AT_location[DW_OP_regx 0x21]
+    1550              $C$DW$150       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+    1551                      .dwattr $C$DW$150, DW_AT_location[DW_OP_regx 0x22]
+    1552              $C$DW$151       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+    1553                      .dwattr $C$DW$151, DW_AT_location[DW_OP_regx 0x23]
+    1554              $C$DW$152       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XSP")
+    1555                      .dwattr $C$DW$152, DW_AT_location[DW_OP_regx 0x24]
+    1556              $C$DW$153       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BKC")
+    1557                      .dwattr $C$DW$153, DW_AT_location[DW_OP_regx 0x25]
+    1558              $C$DW$154       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK03")
+    1559                      .dwattr $C$DW$154, DW_AT_location[DW_OP_regx 0x26]
+    1560              $C$DW$155       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK47")
+    1561                      .dwattr $C$DW$155, DW_AT_location[DW_OP_regx 0x27]
+    1562              $C$DW$156       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+    1563                      .dwattr $C$DW$156, DW_AT_location[DW_OP_regx 0x28]
+    1564              $C$DW$157       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+    1565                      .dwattr $C$DW$157, DW_AT_location[DW_OP_regx 0x29]
+    1566              $C$DW$158       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST2")
+    1567                      .dwattr $C$DW$158, DW_AT_location[DW_OP_regx 0x2a]
+    1568              $C$DW$159       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST3")
+    1569                      .dwattr $C$DW$159, DW_AT_location[DW_OP_regx 0x2b]
+    1570              $C$DW$160       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP")
+    1571                      .dwattr $C$DW$160, DW_AT_location[DW_OP_regx 0x2c]
+    1572              $C$DW$161       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP05")
+    1573                      .dwattr $C$DW$161, DW_AT_location[DW_OP_regx 0x2d]
+    1574              $C$DW$162       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP67")
+    1575                      .dwattr $C$DW$162, DW_AT_location[DW_OP_regx 0x2e]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   47
+
+    1576              $C$DW$163       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC0")
+    1577                      .dwattr $C$DW$163, DW_AT_location[DW_OP_regx 0x2f]
+    1578              $C$DW$164       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0")
+    1579                      .dwattr $C$DW$164, DW_AT_location[DW_OP_regx 0x30]
+    1580              $C$DW$165       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0_H")
+    1581                      .dwattr $C$DW$165, DW_AT_location[DW_OP_regx 0x31]
+    1582              $C$DW$166       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0")
+    1583                      .dwattr $C$DW$166, DW_AT_location[DW_OP_regx 0x32]
+    1584              $C$DW$167       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0_H")
+    1585                      .dwattr $C$DW$167, DW_AT_location[DW_OP_regx 0x33]
+    1586              $C$DW$168       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRS1")
+    1587                      .dwattr $C$DW$168, DW_AT_location[DW_OP_regx 0x34]
+    1588              $C$DW$169       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC1")
+    1589                      .dwattr $C$DW$169, DW_AT_location[DW_OP_regx 0x35]
+    1590              $C$DW$170       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1")
+    1591                      .dwattr $C$DW$170, DW_AT_location[DW_OP_regx 0x36]
+    1592              $C$DW$171       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1_H")
+    1593                      .dwattr $C$DW$171, DW_AT_location[DW_OP_regx 0x37]
+    1594              $C$DW$172       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1")
+    1595                      .dwattr $C$DW$172, DW_AT_location[DW_OP_regx 0x38]
+    1596              $C$DW$173       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1_H")
+    1597                      .dwattr $C$DW$173, DW_AT_location[DW_OP_regx 0x39]
+    1598              $C$DW$174       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CSR")
+    1599                      .dwattr $C$DW$174, DW_AT_location[DW_OP_regx 0x3a]
+    1600              $C$DW$175       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPTC")
+    1601                      .dwattr $C$DW$175, DW_AT_location[DW_OP_regx 0x3b]
+    1602              $C$DW$176       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDP")
+    1603                      .dwattr $C$DW$176, DW_AT_location[DW_OP_regx 0x3c]
+    1604              $C$DW$177       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XCDP")
+    1605                      .dwattr $C$DW$177, DW_AT_location[DW_OP_regx 0x3d]
+    1606              $C$DW$178       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN0")
+    1607                      .dwattr $C$DW$178, DW_AT_location[DW_OP_regx 0x3e]
+    1608              $C$DW$179       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN1")
+    1609                      .dwattr $C$DW$179, DW_AT_location[DW_OP_regx 0x3f]
+    1610              $C$DW$180       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA01")
+    1611                      .dwattr $C$DW$180, DW_AT_location[DW_OP_regx 0x40]
+    1612              $C$DW$181       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA23")
+    1613                      .dwattr $C$DW$181, DW_AT_location[DW_OP_regx 0x41]
+    1614              $C$DW$182       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA45")
+    1615                      .dwattr $C$DW$182, DW_AT_location[DW_OP_regx 0x42]
+    1616              $C$DW$183       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA67")
+    1617                      .dwattr $C$DW$183, DW_AT_location[DW_OP_regx 0x43]
+    1618              $C$DW$184       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSAC")
+    1619                      .dwattr $C$DW$184, DW_AT_location[DW_OP_regx 0x44]
+    1620              $C$DW$185       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CARRY")
+    1621                      .dwattr $C$DW$185, DW_AT_location[DW_OP_regx 0x45]
+    1622              $C$DW$186       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC1")
+    1623                      .dwattr $C$DW$186, DW_AT_location[DW_OP_regx 0x46]
+    1624              $C$DW$187       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC2")
+    1625                      .dwattr $C$DW$187, DW_AT_location[DW_OP_regx 0x47]
+    1626              $C$DW$188       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("M40")
+    1627                      .dwattr $C$DW$188, DW_AT_location[DW_OP_regx 0x48]
+    1628              $C$DW$189       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXMD")
+    1629                      .dwattr $C$DW$189, DW_AT_location[DW_OP_regx 0x49]
+    1630              $C$DW$190       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ARMS")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:05 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_saram_partial_retention_example.asm                              PAGE   48
+
+    1631                      .dwattr $C$DW$190, DW_AT_location[DW_OP_regx 0x4a]
+    1632              $C$DW$191       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("C54CM")
+    1633                      .dwattr $C$DW$191, DW_AT_location[DW_OP_regx 0x4b]
+    1634              $C$DW$192       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATA")
+    1635                      .dwattr $C$DW$192, DW_AT_location[DW_OP_regx 0x4c]
+    1636              $C$DW$193       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATD")
+    1637                      .dwattr $C$DW$193, DW_AT_location[DW_OP_regx 0x4d]
+    1638              $C$DW$194       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RDM")
+    1639                      .dwattr $C$DW$194, DW_AT_location[DW_OP_regx 0x4e]
+    1640              $C$DW$195       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FRCT")
+    1641                      .dwattr $C$DW$195, DW_AT_location[DW_OP_regx 0x4f]
+    1642              $C$DW$196       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SMUL")
+    1643                      .dwattr $C$DW$196, DW_AT_location[DW_OP_regx 0x50]
+    1644              $C$DW$197       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+    1645                      .dwattr $C$DW$197, DW_AT_location[DW_OP_regx 0x51]
+    1646              $C$DW$198       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0LC")
+    1647                      .dwattr $C$DW$198, DW_AT_location[DW_OP_regx 0x52]
+    1648              $C$DW$199       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1LC")
+    1649                      .dwattr $C$DW$199, DW_AT_location[DW_OP_regx 0x53]
+    1650              $C$DW$200       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2LC")
+    1651                      .dwattr $C$DW$200, DW_AT_location[DW_OP_regx 0x54]
+    1652              $C$DW$201       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3LC")
+    1653                      .dwattr $C$DW$201, DW_AT_location[DW_OP_regx 0x55]
+    1654              $C$DW$202       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4LC")
+    1655                      .dwattr $C$DW$202, DW_AT_location[DW_OP_regx 0x56]
+    1656              $C$DW$203       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5LC")
+    1657                      .dwattr $C$DW$203, DW_AT_location[DW_OP_regx 0x57]
+    1658              $C$DW$204       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6LC")
+    1659                      .dwattr $C$DW$204, DW_AT_location[DW_OP_regx 0x58]
+    1660              $C$DW$205       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7LC")
+    1661                      .dwattr $C$DW$205, DW_AT_location[DW_OP_regx 0x59]
+    1662              $C$DW$206       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDPLC")
+    1663                      .dwattr $C$DW$206, DW_AT_location[DW_OP_regx 0x5a]
+    1664              $C$DW$207       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+    1665                      .dwattr $C$DW$207, DW_AT_location[DW_OP_regx 0x5b]
+    1666                      .dwendtag $C$DW$CU
+    1667              
+    1667              
+    1667              
+
+No Assembly Errors, No Assembly Warnings

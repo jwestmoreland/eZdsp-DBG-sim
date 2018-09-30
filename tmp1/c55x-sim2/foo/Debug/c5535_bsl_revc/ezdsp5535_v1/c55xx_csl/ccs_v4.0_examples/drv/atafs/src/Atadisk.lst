@@ -1,0 +1,1812 @@
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE    1
+
+    1496              ; Temporary Registers Used: None
+       1              ;*******************************************************************************
+       2              ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
+       3              ;* Date/Time created: Sat Sep 29 23:09:40 2018                                 *
+       4              ;*******************************************************************************
+       5                      .compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --si
+       6                      .mmregs
+       7                      .cpl_on
+       8                      .arms_on
+       9                      .c54cm_off
+      10                      .asg AR6, FP
+      11                      .asg XAR6, XFP
+      12                      .asg DPH, MDP
+      13                      .model call=c55_std
+      14                      .model mem=large
+      15                      .noremark 5002  ; code respects overwrite rules
+      16              ;*******************************************************************************
+      17              ;* GLOBAL FILE PARAMETERS                                                      *
+      18              ;*                                                                             *
+      19              ;*   Architecture       : TMS320C55x                                           *
+      20              ;*   Optimizing for     : Speed                                                *
+      21              ;*   Memory             : Large Model (23-Bit Data Pointers)                   *
+      22              ;*   Calls              : Normal Library ASM calls                             *
+      23              ;*   Debug Info         : Standard TI Debug Information                        *
+      24              ;*******************************************************************************
+      25              
+      26              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+      27                      .dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/sr
+      28                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas In
+      29                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      30                      .dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+      31              
+      32              $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("_AtaReadSector")
+      33                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("__AtaReadSector")
+      34                      .dwattr $C$DW$1, DW_AT_type(*$C$DW$T$24)
+      35                      .dwattr $C$DW$1, DW_AT_declaration
+      36                      .dwattr $C$DW$1, DW_AT_external
+      37              $C$DW$2 .dwtag  DW_TAG_formal_parameter
+      38                      .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$20)
+      39              $C$DW$3 .dwtag  DW_TAG_formal_parameter
+      40                      .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$51)
+      41              $C$DW$4 .dwtag  DW_TAG_formal_parameter
+      42                      .dwattr $C$DW$4, DW_AT_type(*$C$DW$T$36)
+      43              $C$DW$5 .dwtag  DW_TAG_formal_parameter
+      44                      .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$10)
+      45                      .dwendtag $C$DW$1
+      46              
+      47              
+      48              $C$DW$6 .dwtag  DW_TAG_subprogram, DW_AT_name("_AtaCalculatePhySectorAndOffsetOfFatEntry")
+      49                      .dwattr $C$DW$6, DW_AT_TI_symbol_name("__AtaCalculatePhySectorAndOffsetOfFatEntry")
+      50                      .dwattr $C$DW$6, DW_AT_type(*$C$DW$T$23)
+      51                      .dwattr $C$DW$6, DW_AT_declaration
+      52                      .dwattr $C$DW$6, DW_AT_external
+      53              $C$DW$7 .dwtag  DW_TAG_formal_parameter
+      54                      .dwattr $C$DW$7, DW_AT_type(*$C$DW$T$54)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE    2
+
+      55              $C$DW$8 .dwtag  DW_TAG_formal_parameter
+      56                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$51)
+      57              $C$DW$9 .dwtag  DW_TAG_formal_parameter
+      58                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$36)
+      59              $C$DW$10        .dwtag  DW_TAG_formal_parameter
+      60                      .dwattr $C$DW$10, DW_AT_type(*$C$DW$T$36)
+      61                      .dwendtag $C$DW$6
+      62              
+      63              
+      64              $C$DW$11        .dwtag  DW_TAG_subprogram, DW_AT_name("_AtaReadFatEntryAtPhySector")
+      65                      .dwattr $C$DW$11, DW_AT_TI_symbol_name("__AtaReadFatEntryAtPhySector")
+      66                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$24)
+      67                      .dwattr $C$DW$11, DW_AT_declaration
+      68                      .dwattr $C$DW$11, DW_AT_external
+      69              $C$DW$12        .dwtag  DW_TAG_formal_parameter
+      70                      .dwattr $C$DW$12, DW_AT_type(*$C$DW$T$20)
+      71              $C$DW$13        .dwtag  DW_TAG_formal_parameter
+      72                      .dwattr $C$DW$13, DW_AT_type(*$C$DW$T$51)
+      73              $C$DW$14        .dwtag  DW_TAG_formal_parameter
+      74                      .dwattr $C$DW$14, DW_AT_type(*$C$DW$T$54)
+      75              $C$DW$15        .dwtag  DW_TAG_formal_parameter
+      76                      .dwattr $C$DW$15, DW_AT_type(*$C$DW$T$22)
+      77              $C$DW$16        .dwtag  DW_TAG_formal_parameter
+      78                      .dwattr $C$DW$16, DW_AT_type(*$C$DW$T$55)
+      79              $C$DW$17        .dwtag  DW_TAG_formal_parameter
+      80                      .dwattr $C$DW$17, DW_AT_type(*$C$DW$T$56)
+      81                      .dwendtag $C$DW$11
+      82              
+      83              ;       F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2632412 
+      84 000000               .sect   ".text"
+      85                      .align 4
+      86                      .global _ATA_diskSize
+      87              
+      88              $C$DW$18        .dwtag  DW_TAG_subprogram, DW_AT_name("ATA_diskSize")
+      89                      .dwattr $C$DW$18, DW_AT_low_pc(_ATA_diskSize)
+      90                      .dwattr $C$DW$18, DW_AT_high_pc(0x00)
+      91                      .dwattr $C$DW$18, DW_AT_TI_symbol_name("_ATA_diskSize")
+      92                      .dwattr $C$DW$18, DW_AT_external
+      93                      .dwattr $C$DW$18, DW_AT_type(*$C$DW$T$23)
+      94                      .dwattr $C$DW$18, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv
+      95                      .dwattr $C$DW$18, DW_AT_TI_begin_line(0x18)
+      96                      .dwattr $C$DW$18, DW_AT_TI_begin_column(0x0b)
+      97                      .dwattr $C$DW$18, DW_AT_TI_max_frame_size(0x06)
+      98                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+      99              
+     100                      .dwfde $C$DW$CIE, _ATA_diskSize
+     101              $C$DW$19        .dwtag  DW_TAG_formal_parameter, DW_AT_name("pAtaState")
+     102                      .dwattr $C$DW$19, DW_AT_TI_symbol_name("_pAtaState")
+     103                      .dwattr $C$DW$19, DW_AT_type(*$C$DW$T$51)
+     104                      .dwattr $C$DW$19, DW_AT_location[DW_OP_reg17]
+     105              $C$DW$20        .dwtag  DW_TAG_formal_parameter, DW_AT_name("ret_stat")
+     106                      .dwattr $C$DW$20, DW_AT_TI_symbol_name("_ret_stat")
+     107                      .dwattr $C$DW$20, DW_AT_type(*$C$DW$T$59)
+     108                      .dwattr $C$DW$20, DW_AT_location[DW_OP_reg19]
+     109              ;*******************************************************************************
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE    3
+
+     110              ;* FUNCTION NAME: ATA_diskSize                                                 *
+     111              ;*                                                                             *
+     112              ;*   Function Uses Regs : AC0,AC0,AC1,AC1,AR0,XAR0,AR1,XAR1,AR3,XAR3,SP,CARRY, *
+     113              ;*                        M40,SATA,SATD,RDM,FRCT,SMUL                          *
+     114              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     115              ;*   Total Frame Size   : 6 words                                              *
+     116              ;*                        (2 return address/alignment)                         *
+     117              ;*                        (4 local values)                                     *
+     118              ;*   Min System Stack   : 1 word                                               *
+     119              ;*******************************************************************************
+     120 000000       _ATA_diskSize:
+     121                      .dwcfi  cfa_offset, 1
+     122                      .dwcfi  save_reg_to_mem, 91, -1
+     123 000000 4EFB          AADD #-5, SP
+     124                      .dwcfi  cfa_offset, 6
+     125              $C$DW$21        .dwtag  DW_TAG_variable, DW_AT_name("pAtaState")
+     126                      .dwattr $C$DW$21, DW_AT_TI_symbol_name("_pAtaState")
+     127                      .dwattr $C$DW$21, DW_AT_type(*$C$DW$T$51)
+     128                      .dwattr $C$DW$21, DW_AT_location[DW_OP_bregx 0x24 0]
+     129              $C$DW$22        .dwtag  DW_TAG_variable, DW_AT_name("ret_stat")
+     130                      .dwattr $C$DW$22, DW_AT_TI_symbol_name("_ret_stat")
+     131                      .dwattr $C$DW$22, DW_AT_type(*$C$DW$T$59)
+     132                      .dwattr $C$DW$22, DW_AT_location[DW_OP_bregx 0x24 2]
+     133 000002 EB04          MOV XAR1, dbl(*SP(#2))
+         000004 95   
+     134 000005 EB00          MOV XAR0, dbl(*SP(#0))
+         000007 85   
+     135                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     136 000008 ED00          MOV dbl(*SP(#0)), XAR3
+         00000a BF   
+     137 00000b 90B0          MOV XAR3, AC0
+     138 00000d 6490          BCC $C$L1,AC0 != #0 ; |28| 
+     139                                                      ; branchcc occurs ; |28| 
+     140                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     141 00000f ED04          MOV dbl(*SP(#2)), XAR3
+         000011 BF   
+     142 000012 FB61          MOV #768, *AR3 ; |28| 
+         000014 0300 
+     143 000016 4A06          B $C$L2   ; |28| 
+     144                                                      ; branch occurs ; |28| 
+     145 000018       $C$L1:    
+     146                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     147 000018 ED04          MOV dbl(*SP(#2)), XAR3
+         00001a BF   
+     148 00001b E661          MOV #0, *AR3 ; |29| 
+         00001d 00   
+     149 00001e       $C$L2:    
+     150                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     151 00001e ED00          MOV dbl(*SP(#0)), XAR3
+         000020 BF   
+     152 000021 A177          MOV *AR3(short(#3)), AC1 ; |30| 
+     153 000023 ED6D          MOV dbl(*AR3(#14)), AC0 ; |30| 
+         000025 0800 
+         000027 0E   
+     154 000028 5010          SFTL AC1, #1 ; |30| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE    4
+
+     155 00002a 76FE          BFXTR #0xfe00, AC1, AR1 ; |30| 
+         00002c 0091 
+     156 00002e 7DFF          AND #0xffff, AR1, AC1 ; |30| 
+         000030 FF19 
+     157              $C$DW$23        .dwtag  DW_TAG_TI_branch
+     158                      .dwattr $C$DW$23, DW_AT_low_pc(0x00)
+     159                      .dwattr $C$DW$23, DW_AT_name("__mpyli")
+     160                      .dwattr $C$DW$23, DW_AT_TI_call
+     161 000032 6C00          CALL #__mpyli ; |30| 
+         000034 0000!
+     162                                                      ; call occurs [#__mpyli] ; |30| 
+     163 000036 5001          SFTL AC0, #-1, AC0 ; |30| 
+     164                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     165 000038 4E05          AADD #5, SP
+     166                      .dwcfi  cfa_offset, 1
+     167              $C$DW$24        .dwtag  DW_TAG_TI_branch
+     168                      .dwattr $C$DW$24, DW_AT_low_pc(0x00)
+     169                      .dwattr $C$DW$24, DW_AT_TI_return
+     170 00003a 4804          RET
+     171                                                      ; return occurs
+     172                      .dwattr $C$DW$18, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/a
+     173                      .dwattr $C$DW$18, DW_AT_TI_end_line(0x1f)
+     174                      .dwattr $C$DW$18, DW_AT_TI_end_column(0x01)
+     175                      .dwendentry
+     176                      .dwendtag $C$DW$18
+     177              
+     178 00003c               .sect   ".text"
+     179                      .align 4
+     180                      .global _ATA_diskUsed
+     181              
+     182              $C$DW$25        .dwtag  DW_TAG_subprogram, DW_AT_name("ATA_diskUsed")
+     183                      .dwattr $C$DW$25, DW_AT_low_pc(_ATA_diskUsed)
+     184                      .dwattr $C$DW$25, DW_AT_high_pc(0x00)
+     185                      .dwattr $C$DW$25, DW_AT_TI_symbol_name("_ATA_diskUsed")
+     186                      .dwattr $C$DW$25, DW_AT_external
+     187                      .dwattr $C$DW$25, DW_AT_type(*$C$DW$T$23)
+     188                      .dwattr $C$DW$25, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv
+     189                      .dwattr $C$DW$25, DW_AT_TI_begin_line(0x38)
+     190                      .dwattr $C$DW$25, DW_AT_TI_begin_column(0x0b)
+     191                      .dwattr $C$DW$25, DW_AT_TI_max_frame_size(0x1c)
+     192                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     193              
+     194                      .dwfde $C$DW$CIE, _ATA_diskUsed
+     195              $C$DW$26        .dwtag  DW_TAG_formal_parameter, DW_AT_name("pAtaState")
+     196                      .dwattr $C$DW$26, DW_AT_TI_symbol_name("_pAtaState")
+     197                      .dwattr $C$DW$26, DW_AT_type(*$C$DW$T$51)
+     198                      .dwattr $C$DW$26, DW_AT_location[DW_OP_reg17]
+     199              $C$DW$27        .dwtag  DW_TAG_formal_parameter, DW_AT_name("ret_stat")
+     200                      .dwattr $C$DW$27, DW_AT_TI_symbol_name("_ret_stat")
+     201                      .dwattr $C$DW$27, DW_AT_type(*$C$DW$T$59)
+     202                      .dwattr $C$DW$27, DW_AT_location[DW_OP_reg19]
+     203              ;*******************************************************************************
+     204              ;* FUNCTION NAME: ATA_diskUsed                                                 *
+     205              ;*                                                                             *
+     206              ;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,   *
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE    5
+
+     207              ;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
+     208              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     209              ;*   Total Frame Size   : 28 words                                             *
+     210              ;*                        (2 return address/alignment)                         *
+     211              ;*                        (26 local values)                                    *
+     212              ;*   Min System Stack   : 1 word                                               *
+     213              ;*******************************************************************************
+     214 00003c       _ATA_diskUsed:
+     215                      .dwcfi  cfa_offset, 1
+     216                      .dwcfi  save_reg_to_mem, 91, -1
+     217 00003c 4EE5          AADD #-27, SP
+     218                      .dwcfi  cfa_offset, 28
+     219              $C$DW$28        .dwtag  DW_TAG_variable, DW_AT_name("pAtaState")
+     220                      .dwattr $C$DW$28, DW_AT_TI_symbol_name("_pAtaState")
+     221                      .dwattr $C$DW$28, DW_AT_type(*$C$DW$T$51)
+     222                      .dwattr $C$DW$28, DW_AT_location[DW_OP_bregx 0x24 0]
+     223              $C$DW$29        .dwtag  DW_TAG_variable, DW_AT_name("ret_stat")
+     224                      .dwattr $C$DW$29, DW_AT_TI_symbol_name("_ret_stat")
+     225                      .dwattr $C$DW$29, DW_AT_type(*$C$DW$T$59)
+     226                      .dwattr $C$DW$29, DW_AT_location[DW_OP_bregx 0x24 2]
+     227              $C$DW$30        .dwtag  DW_TAG_variable, DW_AT_name("i")
+     228                      .dwattr $C$DW$30, DW_AT_TI_symbol_name("_i")
+     229                      .dwattr $C$DW$30, DW_AT_type(*$C$DW$T$10)
+     230                      .dwattr $C$DW$30, DW_AT_location[DW_OP_bregx 0x24 4]
+     231              $C$DW$31        .dwtag  DW_TAG_variable, DW_AT_name("j")
+     232                      .dwattr $C$DW$31, DW_AT_TI_symbol_name("_j")
+     233                      .dwattr $C$DW$31, DW_AT_type(*$C$DW$T$10)
+     234                      .dwattr $C$DW$31, DW_AT_location[DW_OP_bregx 0x24 5]
+     235              $C$DW$32        .dwtag  DW_TAG_variable, DW_AT_name("LastCluster")
+     236                      .dwattr $C$DW$32, DW_AT_TI_symbol_name("_LastCluster")
+     237                      .dwattr $C$DW$32, DW_AT_type(*$C$DW$T$10)
+     238                      .dwattr $C$DW$32, DW_AT_location[DW_OP_bregx 0x24 6]
+     239              $C$DW$33        .dwtag  DW_TAG_variable, DW_AT_name("size")
+     240                      .dwattr $C$DW$33, DW_AT_TI_symbol_name("_size")
+     241                      .dwattr $C$DW$33, DW_AT_type(*$C$DW$T$23)
+     242                      .dwattr $C$DW$33, DW_AT_location[DW_OP_bregx 0x24 8]
+     243              $C$DW$34        .dwtag  DW_TAG_variable, DW_AT_name("tempsize")
+     244                      .dwattr $C$DW$34, DW_AT_TI_symbol_name("_tempsize")
+     245                      .dwattr $C$DW$34, DW_AT_type(*$C$DW$T$23)
+     246                      .dwattr $C$DW$34, DW_AT_location[DW_OP_bregx 0x24 10]
+     247              $C$DW$35        .dwtag  DW_TAG_variable, DW_AT_name("fatmarker")
+     248                      .dwattr $C$DW$35, DW_AT_TI_symbol_name("_fatmarker")
+     249                      .dwattr $C$DW$35, DW_AT_type(*$C$DW$T$23)
+     250                      .dwattr $C$DW$35, DW_AT_location[DW_OP_bregx 0x24 12]
+     251              $C$DW$36        .dwtag  DW_TAG_variable, DW_AT_name("NumClusters")
+     252                      .dwattr $C$DW$36, DW_AT_TI_symbol_name("_NumClusters")
+     253                      .dwattr $C$DW$36, DW_AT_type(*$C$DW$T$54)
+     254                      .dwattr $C$DW$36, DW_AT_location[DW_OP_bregx 0x24 14]
+     255              $C$DW$37        .dwtag  DW_TAG_variable, DW_AT_name("tempCluster")
+     256                      .dwattr $C$DW$37, DW_AT_TI_symbol_name("_tempCluster")
+     257                      .dwattr $C$DW$37, DW_AT_type(*$C$DW$T$54)
+     258                      .dwattr $C$DW$37, DW_AT_location[DW_OP_bregx 0x24 16]
+     259              $C$DW$38        .dwtag  DW_TAG_variable, DW_AT_name("PhySector")
+     260                      .dwattr $C$DW$38, DW_AT_TI_symbol_name("_PhySector")
+     261                      .dwattr $C$DW$38, DW_AT_type(*$C$DW$T$20)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE    6
+
+     262                      .dwattr $C$DW$38, DW_AT_location[DW_OP_bregx 0x24 18]
+     263              $C$DW$39        .dwtag  DW_TAG_variable, DW_AT_name("FatEntryOffset")
+     264                      .dwattr $C$DW$39, DW_AT_TI_symbol_name("_FatEntryOffset")
+     265                      .dwattr $C$DW$39, DW_AT_type(*$C$DW$T$22)
+     266                      .dwattr $C$DW$39, DW_AT_location[DW_OP_bregx 0x24 20]
+     267              $C$DW$40        .dwtag  DW_TAG_variable, DW_AT_name("FatEntryAlignment")
+     268                      .dwattr $C$DW$40, DW_AT_TI_symbol_name("_FatEntryAlignment")
+     269                      .dwattr $C$DW$40, DW_AT_type(*$C$DW$T$22)
+     270                      .dwattr $C$DW$40, DW_AT_location[DW_OP_bregx 0x24 21]
+     271              $C$DW$41        .dwtag  DW_TAG_variable, DW_AT_name("firstFat")
+     272                      .dwattr $C$DW$41, DW_AT_TI_symbol_name("_firstFat")
+     273                      .dwattr $C$DW$41, DW_AT_type(*$C$DW$T$20)
+     274                      .dwattr $C$DW$41, DW_AT_location[DW_OP_bregx 0x24 22]
+     275              $C$DW$42        .dwtag  DW_TAG_variable, DW_AT_name("_AtaWriteBuffer")
+     276                      .dwattr $C$DW$42, DW_AT_TI_symbol_name("__AtaWriteBuffer")
+     277                      .dwattr $C$DW$42, DW_AT_type(*$C$DW$T$36)
+     278                      .dwattr $C$DW$42, DW_AT_location[DW_OP_bregx 0x24 24]
+     279 00003e EB04          MOV XAR1, dbl(*SP(#2))
+         000040 95   
+     280 000041 EB00          MOV XAR0, dbl(*SP(#0))
+         000043 85   
+     281                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     282 000044 E60C          MOV #0, *SP(#6) ; |58| 
+         000046 00   
+     283                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     284 000047 3C00          MOV #0, AC0 ; |59| 
+     285 000049 EB10          MOV AC0, dbl(*SP(#8)) ; |59| 
+         00004b 08   
+     286                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     287 00004c EB18          MOV AC0, dbl(*SP(#12)) ; |60| 
+         00004e 08   
+     288                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     289 00004f EB1C          MOV AC0, dbl(*SP(#14)) ; |61| 
+         000051 08   
+     290                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     291 000052 EB20          MOV AC0, dbl(*SP(#16)) ; |61| 
+         000054 08   
+     292                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     293 000055 EB24          MOV AC0, dbl(*SP(#18)) ; |61| 
+         000057 08   
+     294                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     295 000058 E628          MOV #0, *SP(#20) ; |62| 
+         00005a 00   
+     296                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     297 00005b E62A          MOV #0, *SP(#21) ; |62| 
+         00005d 00   
+     298                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     299 00005e ED00          MOV dbl(*SP(#0)), XAR3
+         000060 BF   
+     300 000061 ED6D          MOV dbl(*AR3(#8)), AC0 ; |63| 
+         000063 0800 
+         000065 08   
+     301 000066 EB2C          MOV AC0, dbl(*SP(#22)) ; |63| 
+         000068 08   
+     302                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE    7
+
+     303 000069 ED00          MOV dbl(*SP(#0)), XAR3
+         00006b BF   
+     304 00006c ED6D          MOV dbl(*AR3(#64)), XAR3
+         00006e BF00 
+         000070 40   
+     305 000071 EB30          MOV XAR3, dbl(*SP(#24))
+         000073 B5   
+     306                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     307 000074 ED00          MOV dbl(*SP(#0)), XAR3
+         000076 BF   
+     308 000077 90B0          MOV XAR3, AC0
+     309 000079 6490          BCC $C$L3,AC0 != #0 ; |65| 
+     310                                                      ; branchcc occurs ; |65| 
+     311                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     312 00007b ED04          MOV dbl(*SP(#2)), XAR3
+         00007d BF   
+     313 00007e FB61          MOV #768, *AR3 ; |65| 
+         000080 0300 
+     314 000082 4A06          B $C$L4   ; |65| 
+     315                                                      ; branch occurs ; |65| 
+     316 000084       $C$L3:    
+     317                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     318 000084 ED04          MOV dbl(*SP(#2)), XAR3
+         000086 BF   
+     319 000087 E661          MOV #0, *AR3 ; |66| 
+         000089 00   
+     320 00008a       $C$L4:    
+     321                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     322 00008a ED04          MOV dbl(*SP(#2)), XAR3
+         00008c BF   
+     323 00008d E661          MOV #0, *AR3 ; |68| 
+         00008f 00   
+     324                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     325 000090 0601          B $C$L18  ; |69| 
+         000092 86   
+     326                                                      ; branch occurs ; |69| 
+     327 000093       $C$L5:    
+     328                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     329 000093 ED6D          MOV dbl(*AR3(#10)), AC0 ; |71| 
+         000095 0800 
+         000097 0A   
+     330 000098 DF79          MOV uns(*AR3(short(#4))), AC1 ; |71| 
+         00009a 15   
+     331 00009b ED6D          SUB AC0, dbl(*AR3(#14)), AC0 ; |71| 
+         00009d 0400 
+         00009f 0E   
+     332              $C$DW$43        .dwtag  DW_TAG_TI_branch
+     333                      .dwattr $C$DW$43, DW_AT_low_pc(0x00)
+     334                      .dwattr $C$DW$43, DW_AT_name("__divul")
+     335                      .dwattr $C$DW$43, DW_AT_TI_call
+     336 0000a0 6C00          CALL #__divul ; |71| 
+         0000a2 0000!
+     337                                                      ; call occurs [#__divul] ; |71| 
+     338 0000a4 EB1C          MOV AC0, dbl(*SP(#14)) ; |71| 
+         0000a6 08   
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE    8
+
+     339                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     340 0000a7 E608          MOV #0, *SP(#4) ; |72| 
+         0000a9 00   
+     341                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     342 0000aa ED1C          MOV dbl(*SP(#14)), AC0 ; |72| 
+         0000ac 08   
+     343 0000ad A108          MOV *SP(#4), AC1 ; |72| 
+     344 0000af 1218          CMPU AC1 >= AC0, TC1 ; |72| 
+         0000b1 04   
+     345 0000b2 6D64          BCC $C$L19,TC1 ; |72| 
+         0000b4 0183 
+     346                                                      ; branchcc occurs ; |72| 
+     347 0000b6       $C$L6:    
+     348 0000b6       $C$DW$L$_ATA_diskUsed$7$B:
+     349                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     350 0000b6 A008          MOV *SP(#4), AC0 ; |73| 
+     351 0000b8 ED00          MOV dbl(*SP(#0)), XAR0
+         0000ba 8F   
+     352 0000bb EC28          AMAR *SP(#20), XAR1
+         0000bd 9E   
+     353 0000be EC2A          AMAR *SP(#21), XAR2
+         0000c0 AE   
+     354              $C$DW$44        .dwtag  DW_TAG_TI_branch
+     355                      .dwattr $C$DW$44, DW_AT_low_pc(0x00)
+     356                      .dwattr $C$DW$44, DW_AT_name("__AtaCalculatePhySectorAndOffsetOfFatEntry")
+     357                      .dwattr $C$DW$44, DW_AT_TI_call
+     358 0000c1 6C00          CALL #__AtaCalculatePhySectorAndOffsetOfFatEntry ; |73| 
+         0000c3 0000!
+     359                                                      ; call occurs [#__AtaCalculatePhySectorAndOffsetOfFatEntry] ; |73| 
+     360 0000c5 EB24          MOV AC0, dbl(*SP(#18)) ; |73| 
+         0000c7 08   
+     361                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     362 0000c8 A42A          MOV *SP(#21), T0 ; |74| 
+     363 0000ca EC0C          AMAR *SP(#6), XAR1
+         0000cc 9E   
+     364 0000cd EC20          AMAR *SP(#16), XAR2
+         0000cf AE   
+     365 0000d0 DF28          MOV uns(*SP(#20)), AC1 ; |74| 
+         0000d2 15   
+     366 0000d3 ED24          MOV dbl(*SP(#18)), AC0 ; |74| 
+         0000d5 08   
+     367 0000d6 ED00          MOV dbl(*SP(#0)), XAR0
+         0000d8 8F   
+     368              $C$DW$45        .dwtag  DW_TAG_TI_branch
+     369                      .dwattr $C$DW$45, DW_AT_low_pc(0x00)
+     370                      .dwattr $C$DW$45, DW_AT_name("__AtaReadFatEntryAtPhySector")
+     371                      .dwattr $C$DW$45, DW_AT_TI_call
+     372 0000d9 6C00          CALL #__AtaReadFatEntryAtPhySector ; |74| 
+         0000db 0000!
+     373                                                      ; call occurs [#__AtaReadFatEntryAtPhySector] ; |74| 
+     374 0000dd ED04          MOV dbl(*SP(#2)), XAR3
+         0000df BF   
+     375 0000e0 C461          MOV T0, *AR3 ; |74| 
+     376                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     377 0000e2 ED20          MOV dbl(*SP(#16)), AC0 ; |75| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE    9
+
+         0000e4 08   
+     378 0000e5 6400          BCC $C$L7,AC0 == #0 ; |75| 
+     379                                                      ; branchcc occurs ; |75| 
+     380 0000e7       $C$DW$L$_ATA_diskUsed$7$E:
+     381 0000e7       $C$DW$L$_ATA_diskUsed$8$B:
+     382                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     383 0000e7 ED10          MOV dbl(*SP(#8)), AC0 ; |75| 
+         0000e9 08   
+     384 0000ea 4010          ADD #1, AC0 ; |75| 
+     385 0000ec EB10          MOV AC0, dbl(*SP(#8)) ; |75| 
+         0000ee 08   
+     386 0000ef       $C$DW$L$_ATA_diskUsed$8$E:
+     387 0000ef       $C$L7:    
+     388 0000ef       $C$DW$L$_ATA_diskUsed$9$B:
+     389                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     390 0000ef F708          ADD #1, *SP(#4) ; |72| 
+         0000f1 0001 
+     391                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     392 0000f3 ED1C          MOV dbl(*SP(#14)), AC0 ; |72| 
+         0000f5 08   
+     393 0000f6 A108          MOV *SP(#4), AC1 ; |72| 
+     394 0000f8 1214          CMPU AC1 < AC0, TC1 ; |72| 
+         0000fa 04   
+     395 0000fb 0464          BCC $C$L6,TC1 ; |72| 
+         0000fd B8   
+     396                                                      ; branchcc occurs ; |72| 
+     397 0000fe       $C$DW$L$_ATA_diskUsed$9$E:
+     398                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     399 0000fe 0601          B $C$L19  ; |76| 
+         000100 38   
+     400                                                      ; branch occurs ; |76| 
+     401 000101       $C$L8:    
+     402                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     403 000101 E608          MOV #0, *SP(#4) ; |78| 
+         000103 00   
+     404                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     405 000104 ED00          MOV dbl(*SP(#0)), XAR3
+         000106 BF   
+     406 000107 A108          MOV *SP(#4), AC1 ; |78| 
+     407 000109 ED7D          MOV dbl(*AR3(short(#6))), AC0 ; |78| 
+         00010b 08   
+     408 00010c 1218          CMPU AC1 >= AC0, TC1 ; |78| 
+         00010e 04   
+     409 00010f 6D64          BCC $C$L19,TC1 ; |78| 
+         000111 0126 
+     410                                                      ; branchcc occurs ; |78| 
+     411 000113       $C$L9:    
+     412 000113       $C$DW$L$_ATA_diskUsed$12$B:
+     413                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     414 000113 ED2C          MOV dbl(*SP(#22)), AC0 ; |79| 
+         000115 08   
+     415 000116 7B00          ADD #1, AC0, AC1 ; |79| 
+         000118 0110 
+     416 00011a EB2C          MOV AC1, dbl(*SP(#22)) ; |79| 
+         00011c 18   
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   10
+
+     417 00011d ED30          MOV dbl(*SP(#24)), XAR1
+         00011f 9F   
+     418 000120 ED00          MOV dbl(*SP(#0)), XAR0
+         000122 8F   
+     419              $C$DW$46        .dwtag  DW_TAG_TI_branch
+     420                      .dwattr $C$DW$46, DW_AT_low_pc(0x00)
+     421                      .dwattr $C$DW$46, DW_AT_name("__AtaReadSector")
+     422                      .dwattr $C$DW$46, DW_AT_TI_call
+     423              
+     424 000123 6C00          CALL #__AtaReadSector ; |79| 
+         000125 0000!
+     425 000127 3D04  ||      MOV #0, T0
+     426              
+     427                                                      ; call occurs [#__AtaReadSector] ; |79| 
+     428 000129 ED04          MOV dbl(*SP(#2)), XAR3
+         00012b BF   
+     429 00012c C461          MOV T0, *AR3 ; |79| 
+     430                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     431 00012e 3C00          MOV #0, AC0 ; |80| 
+     432 000130 EB14          MOV AC0, dbl(*SP(#10)) ; |80| 
+         000132 08   
+     433                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     434 000133 E60A          MOV #0, *SP(#5) ; |81| 
+         000135 00   
+     435                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     436 000136 7601          MOV #256, AR2 ; |81| 
+         000138 00A8 
+     437 00013a A90A          MOV *SP(#5), AR1 ; |81| 
+     438 00013c 1298          CMP AR1 >= AR2, TC1 ; |81| 
+         00013e A0   
+     439 00013f 0464          BCC $C$L12,TC1 ; |81| 
+         000141 1D   
+     440                                                      ; branchcc occurs ; |81| 
+     441 000142       $C$DW$L$_ATA_diskUsed$12$E:
+     442 000142       $C$L10:    
+     443 000142       $C$DW$L$_ATA_diskUsed$13$B:
+     444                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     445 000142 2294          MOV AR1, T0
+     446 000144 ED30          MOV dbl(*SP(#24)), XAR3
+         000146 BF   
+     447 000147 A96B          MOV *AR3(T0), AR1 ; |82| 
+     448 000149 6409          BCC $C$L11,AR1 == #0 ; |82| 
+     449                                                      ; branchcc occurs ; |82| 
+     450 00014b       $C$DW$L$_ATA_diskUsed$13$E:
+     451 00014b       $C$DW$L$_ATA_diskUsed$14$B:
+     452                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     453 00014b ED14          MOV dbl(*SP(#10)), AC0 ; |82| 
+         00014d 08   
+     454 00014e 4010          ADD #1, AC0 ; |82| 
+     455 000150 EB14          MOV AC0, dbl(*SP(#10)) ; |82| 
+         000152 08   
+     456 000153       $C$DW$L$_ATA_diskUsed$14$E:
+     457 000153       $C$L11:    
+     458 000153       $C$DW$L$_ATA_diskUsed$15$B:
+     459                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   11
+
+     460 000153 F70A          ADD #1, *SP(#5) ; |81| 
+         000155 0001 
+     461                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     462 000157 A90A          MOV *SP(#5), AR1 ; |81| 
+     463 000159 1294          CMP AR1 < AR2, TC1 ; |81| 
+         00015b A0   
+     464 00015c 0464          BCC $C$L10,TC1 ; |81| 
+         00015e E3   
+     465                                                      ; branchcc occurs ; |81| 
+     466 00015f       $C$DW$L$_ATA_diskUsed$15$E:
+     467 00015f       $C$L12:    
+     468 00015f       $C$DW$L$_ATA_diskUsed$16$B:
+     469                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     470 00015f ED14          MOV dbl(*SP(#10)), AC0 ; |83| 
+         000161 08   
+     471 000162 ED10          ADD dbl(*SP(#8)), AC0, AC0 ; |83| 
+         000164 00   
+     472 000165 EB10          MOV AC0, dbl(*SP(#8)) ; |83| 
+         000167 08   
+     473                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     474 000168 F708          ADD #1, *SP(#4) ; |78| 
+         00016a 0001 
+     475                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     476 00016c ED00          MOV dbl(*SP(#0)), XAR3
+         00016e BF   
+     477 00016f A108          MOV *SP(#4), AC1 ; |78| 
+     478 000171 ED7D          MOV dbl(*AR3(short(#6))), AC0 ; |78| 
+         000173 08   
+     479 000174 1214          CMPU AC1 < AC0, TC1 ; |78| 
+         000176 04   
+     480 000177 0464          BCC $C$L9,TC1 ; |78| 
+         000179 99   
+     481                                                      ; branchcc occurs ; |78| 
+     482 00017a       $C$DW$L$_ATA_diskUsed$16$E:
+     483                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     484 00017a 0600          B $C$L19  ; |84| 
+         00017c BC   
+     485                                                      ; branch occurs ; |84| 
+     486 00017d       $C$L13:    
+     487                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     488 00017d E608          MOV #0, *SP(#4) ; |86| 
+         00017f 00   
+     489                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     490 000180 ED00          MOV dbl(*SP(#0)), XAR3
+         000182 BF   
+     491 000183 A108          MOV *SP(#4), AC1 ; |86| 
+     492 000185 ED7D          MOV dbl(*AR3(short(#6))), AC0 ; |86| 
+         000187 08   
+     493 000188 1218          CMPU AC1 >= AC0, TC1 ; |86| 
+         00018a 04   
+     494 00018b 6D64          BCC $C$L19,TC1 ; |86| 
+         00018d 00AA 
+     495                                                      ; branchcc occurs ; |86| 
+     496 00018f       $C$L14:    
+     497 00018f       $C$DW$L$_ATA_diskUsed$19$B:
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   12
+
+     498                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     499 00018f ED2C          MOV dbl(*SP(#22)), AC0 ; |87| 
+         000191 08   
+     500 000192 7B00          ADD #1, AC0, AC1 ; |87| 
+         000194 0110 
+     501 000196 EB2C          MOV AC1, dbl(*SP(#22)) ; |87| 
+         000198 18   
+     502 000199 ED30          MOV dbl(*SP(#24)), XAR1
+         00019b 9F   
+     503 00019c ED00          MOV dbl(*SP(#0)), XAR0
+         00019e 8F   
+     504              $C$DW$47        .dwtag  DW_TAG_TI_branch
+     505                      .dwattr $C$DW$47, DW_AT_low_pc(0x00)
+     506                      .dwattr $C$DW$47, DW_AT_name("__AtaReadSector")
+     507                      .dwattr $C$DW$47, DW_AT_TI_call
+     508              
+     509 00019f 6C00          CALL #__AtaReadSector ; |87| 
+         0001a1 0000!
+     510 0001a3 3D04  ||      MOV #0, T0
+     511              
+     512                                                      ; call occurs [#__AtaReadSector] ; |87| 
+     513 0001a5 ED04          MOV dbl(*SP(#2)), XAR3
+         0001a7 BF   
+     514 0001a8 C461          MOV T0, *AR3 ; |87| 
+     515                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     516 0001aa 3C00          MOV #0, AC0 ; |88| 
+     517 0001ac EB14          MOV AC0, dbl(*SP(#10)) ; |88| 
+         0001ae 08   
+     518                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     519 0001af E60A          MOV #0, *SP(#5) ; |89| 
+         0001b1 00   
+     520                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     521 0001b2 7601          MOV #256, AR2 ; |89| 
+         0001b4 00A8 
+     522 0001b6 A90A          MOV *SP(#5), AR1 ; |89| 
+     523 0001b8 1298          CMP AR1 >= AR2, TC1 ; |89| 
+         0001ba A0   
+     524 0001bb 0464          BCC $C$L17,TC1 ; |89| 
+         0001bd 3D   
+     525                                                      ; branchcc occurs ; |89| 
+     526 0001be       $C$DW$L$_ATA_diskUsed$19$E:
+     527 0001be       $C$L15:    
+     528 0001be       $C$DW$L$_ATA_diskUsed$20$B:
+     529                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     530 0001be 2294          MOV AR1, T0
+     531 0001c0 ED30          MOV dbl(*SP(#24)), XAR3
+         0001c2 BF   
+     532 0001c3 DF6B          MOV uns(*AR3(T0)), AC0 ; |90| 
+         0001c5 05   
+     533 0001c6 EB18          MOV AC0, dbl(*SP(#12)) ; |90| 
+         0001c8 08   
+     534                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     535 0001c9 ED18          MOV dbl(*SP(#12)), AC0 ; |91| 
+         0001cb 08   
+     536 0001cc 1007          SFTL AC0, #16, AC0 ; |91| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   13
+
+         0001ce 10   
+     537 0001cf EB18          MOV AC0, dbl(*SP(#12)) ; |91| 
+         0001d1 08   
+     538                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     539 0001d2 ED30          MOV dbl(*SP(#24)), XAR3
+         0001d4 BF   
+     540 0001d5 A40A          MOV *SP(#5), T0 ; |92| 
+     541 0001d7 4014          ADD #1, T0 ; |92| 
+     542 0001d9 ED18          MOV dbl(*SP(#12)), AC0 ; |92| 
+         0001db 08   
+     543 0001dc DA6B          OR *AR3(T0), AC0, AC0 ; |92| 
+         0001de 00   
+     544 0001df EB18          MOV AC0, dbl(*SP(#12)) ; |92| 
+         0001e1 08   
+     545                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     546 0001e2 ED18          MOV dbl(*SP(#12)), AC0 ; |93| 
+         0001e4 08   
+     547 0001e5 6400          BCC $C$L16,AC0 == #0 ; |93| 
+     548                                                      ; branchcc occurs ; |93| 
+     549 0001e7       $C$DW$L$_ATA_diskUsed$20$E:
+     550 0001e7       $C$DW$L$_ATA_diskUsed$21$B:
+     551                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     552 0001e7 ED14          MOV dbl(*SP(#10)), AC0 ; |93| 
+         0001e9 08   
+     553 0001ea 4010          ADD #1, AC0 ; |93| 
+     554 0001ec EB14          MOV AC0, dbl(*SP(#10)) ; |93| 
+         0001ee 08   
+     555 0001ef       $C$DW$L$_ATA_diskUsed$21$E:
+     556 0001ef       $C$L16:    
+     557 0001ef       $C$DW$L$_ATA_diskUsed$22$B:
+     558                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     559 0001ef F70A          ADD #2, *SP(#5) ; |89| 
+         0001f1 0002 
+     560                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     561 0001f3 A90A          MOV *SP(#5), AR1 ; |89| 
+     562 0001f5 1294          CMP AR1 < AR2, TC1 ; |89| 
+         0001f7 A0   
+     563 0001f8 0464          BCC $C$L15,TC1 ; |89| 
+         0001fa C3   
+     564                                                      ; branchcc occurs ; |89| 
+     565 0001fb       $C$DW$L$_ATA_diskUsed$22$E:
+     566 0001fb       $C$L17:    
+     567 0001fb       $C$DW$L$_ATA_diskUsed$23$B:
+     568                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     569 0001fb ED14          MOV dbl(*SP(#10)), AC0 ; |94| 
+         0001fd 08   
+     570 0001fe ED10          ADD dbl(*SP(#8)), AC0, AC0 ; |94| 
+         000200 00   
+     571 000201 EB10          MOV AC0, dbl(*SP(#8)) ; |94| 
+         000203 08   
+     572                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     573 000204 F708          ADD #1, *SP(#4) ; |86| 
+         000206 0001 
+     574                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     575 000208 ED00          MOV dbl(*SP(#0)), XAR3
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   14
+
+         00020a BF   
+     576 00020b A108          MOV *SP(#4), AC1 ; |86| 
+     577 00020d ED7D          MOV dbl(*AR3(short(#6))), AC0 ; |86| 
+         00020f 08   
+     578 000210 1214          CMPU AC1 < AC0, TC1 ; |86| 
+         000212 04   
+     579 000213 6D64          BCC $C$L14,TC1 ; |86| 
+         000215 FF78 
+     580                                                      ; branchcc occurs ; |86| 
+     581 000217       $C$DW$L$_ATA_diskUsed$23$E:
+     582                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     583 000217 4A20          B $C$L19  ; |95| 
+     584                                                      ; branch occurs ; |95| 
+     585 000219       $C$L18:    
+     586                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     587 000219 ED00          MOV dbl(*SP(#0)), XAR3
+         00021b BF   
+     588              
+     589 00021c A975          MOV *AR3(short(#2)), AR1 ; |69| 
+     590 00021e 3D1A  ||      MOV #1, AR2
+     591              
+     592 000220 1290          CMPU AR1 == AR2, TC1 ; |69| 
+         000222 A4   
+     593 000223 6D64          BCC $C$L5,TC1 ; |69| 
+         000225 FE6C 
+     594                                                      ; branchcc occurs ; |69| 
+     595 000227 3C4A          MOV #4, AR2
+     596 000229 1290          CMPU AR1 == AR2, TC1 ; |69| 
+         00022b A4   
+     597 00022c 6D64          BCC $C$L8,TC1 ; |69| 
+         00022e FED1 
+     598                                                      ; branchcc occurs ; |69| 
+     599 000230 3CBA          MOV #11, AR2
+     600 000232 1290          CMPU AR1 == AR2, TC1 ; |69| 
+         000234 A4   
+     601 000235 6D64          BCC $C$L13,TC1 ; |69| 
+         000237 FF44 
+     602                                                      ; branchcc occurs ; |69| 
+     603 000239       $C$L19:    
+     604                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     605 000239 ED00          MOV dbl(*SP(#0)), XAR3
+         00023b BF   
+     606 00023c ED10          MOV dbl(*SP(#8)), AC0 ; |101| 
+         00023e 08   
+     607 00023f DF6D          MOV uns(high_byte(*AR3(#20))), AR1 ; |101| 
+         000241 9100 
+         000243 14   
+     608 000244 7DFF          AND #0xffff, AR1, AC1 ; |101| 
+         000246 FF19 
+     609              $C$DW$48        .dwtag  DW_TAG_TI_branch
+     610                      .dwattr $C$DW$48, DW_AT_low_pc(0x00)
+     611                      .dwattr $C$DW$48, DW_AT_name("__mpyli")
+     612                      .dwattr $C$DW$48, DW_AT_TI_call
+     613 000248 6C00          CALL #__mpyli ; |101| 
+         00024a 0000!
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   15
+
+     614                                                      ; call occurs [#__mpyli] ; |101| 
+     615 00024c 5001          SFTL AC0, #-1, AC0 ; |101| 
+     616                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/atafs/src/Atadisk.c",lin
+     617 00024e 4E1B          AADD #27, SP
+     618                      .dwcfi  cfa_offset, 1
+     619              $C$DW$49        .dwtag  DW_TAG_TI_branch
+     620                      .dwattr $C$DW$49, DW_AT_low_pc(0x00)
+     621                      .dwattr $C$DW$49, DW_AT_TI_return
+     622 000250 4804          RET
+     623                                                      ; return occurs
+     624              
+     625              $C$DW$50        .dwtag  DW_TAG_TI_loop
+     626                      .dwattr $C$DW$50, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\Atadisk.asm:$C$L14:1:1538287780")
+     627                      .dwattr $C$DW$50, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv
+     628                      .dwattr $C$DW$50, DW_AT_TI_begin_line(0x56)
+     629                      .dwattr $C$DW$50, DW_AT_TI_end_line(0x5e)
+     630              $C$DW$51        .dwtag  DW_TAG_TI_loop_range
+     631                      .dwattr $C$DW$51, DW_AT_low_pc($C$DW$L$_ATA_diskUsed$19$B)
+     632                      .dwattr $C$DW$51, DW_AT_high_pc($C$DW$L$_ATA_diskUsed$19$E)
+     633              $C$DW$52        .dwtag  DW_TAG_TI_loop_range
+     634                      .dwattr $C$DW$52, DW_AT_low_pc($C$DW$L$_ATA_diskUsed$23$B)
+     635                      .dwattr $C$DW$52, DW_AT_high_pc($C$DW$L$_ATA_diskUsed$23$E)
+     636              
+     637              $C$DW$53        .dwtag  DW_TAG_TI_loop
+     638                      .dwattr $C$DW$53, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\Atadisk.asm:$C$L15:2:1538287780")
+     639                      .dwattr $C$DW$53, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv
+     640                      .dwattr $C$DW$53, DW_AT_TI_begin_line(0x59)
+     641                      .dwattr $C$DW$53, DW_AT_TI_end_line(0x5d)
+     642              $C$DW$54        .dwtag  DW_TAG_TI_loop_range
+     643                      .dwattr $C$DW$54, DW_AT_low_pc($C$DW$L$_ATA_diskUsed$20$B)
+     644                      .dwattr $C$DW$54, DW_AT_high_pc($C$DW$L$_ATA_diskUsed$20$E)
+     645              $C$DW$55        .dwtag  DW_TAG_TI_loop_range
+     646                      .dwattr $C$DW$55, DW_AT_low_pc($C$DW$L$_ATA_diskUsed$21$B)
+     647                      .dwattr $C$DW$55, DW_AT_high_pc($C$DW$L$_ATA_diskUsed$21$E)
+     648              $C$DW$56        .dwtag  DW_TAG_TI_loop_range
+     649                      .dwattr $C$DW$56, DW_AT_low_pc($C$DW$L$_ATA_diskUsed$22$B)
+     650                      .dwattr $C$DW$56, DW_AT_high_pc($C$DW$L$_ATA_diskUsed$22$E)
+     651                      .dwendtag $C$DW$53
+     652              
+     653                      .dwendtag $C$DW$50
+     654              
+     655              
+     656              $C$DW$57        .dwtag  DW_TAG_TI_loop
+     657                      .dwattr $C$DW$57, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\Atadisk.asm:$C$L9:1:1538287780")
+     658                      .dwattr $C$DW$57, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv
+     659                      .dwattr $C$DW$57, DW_AT_TI_begin_line(0x4e)
+     660                      .dwattr $C$DW$57, DW_AT_TI_end_line(0x53)
+     661              $C$DW$58        .dwtag  DW_TAG_TI_loop_range
+     662                      .dwattr $C$DW$58, DW_AT_low_pc($C$DW$L$_ATA_diskUsed$12$B)
+     663                      .dwattr $C$DW$58, DW_AT_high_pc($C$DW$L$_ATA_diskUsed$12$E)
+     664              $C$DW$59        .dwtag  DW_TAG_TI_loop_range
+     665                      .dwattr $C$DW$59, DW_AT_low_pc($C$DW$L$_ATA_diskUsed$16$B)
+     666                      .dwattr $C$DW$59, DW_AT_high_pc($C$DW$L$_ATA_diskUsed$16$E)
+     667              
+     668              $C$DW$60        .dwtag  DW_TAG_TI_loop
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   16
+
+     669                      .dwattr $C$DW$60, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\Atadisk.asm:$C$L10:2:1538287780")
+     670                      .dwattr $C$DW$60, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv
+     671                      .dwattr $C$DW$60, DW_AT_TI_begin_line(0x51)
+     672                      .dwattr $C$DW$60, DW_AT_TI_end_line(0x52)
+     673              $C$DW$61        .dwtag  DW_TAG_TI_loop_range
+     674                      .dwattr $C$DW$61, DW_AT_low_pc($C$DW$L$_ATA_diskUsed$13$B)
+     675                      .dwattr $C$DW$61, DW_AT_high_pc($C$DW$L$_ATA_diskUsed$13$E)
+     676              $C$DW$62        .dwtag  DW_TAG_TI_loop_range
+     677                      .dwattr $C$DW$62, DW_AT_low_pc($C$DW$L$_ATA_diskUsed$14$B)
+     678                      .dwattr $C$DW$62, DW_AT_high_pc($C$DW$L$_ATA_diskUsed$14$E)
+     679              $C$DW$63        .dwtag  DW_TAG_TI_loop_range
+     680                      .dwattr $C$DW$63, DW_AT_low_pc($C$DW$L$_ATA_diskUsed$15$B)
+     681                      .dwattr $C$DW$63, DW_AT_high_pc($C$DW$L$_ATA_diskUsed$15$E)
+     682                      .dwendtag $C$DW$60
+     683              
+     684                      .dwendtag $C$DW$57
+     685              
+     686              
+     687              $C$DW$64        .dwtag  DW_TAG_TI_loop
+     688                      .dwattr $C$DW$64, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\Atadisk.asm:$C$L6:1:1538287780")
+     689                      .dwattr $C$DW$64, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv
+     690                      .dwattr $C$DW$64, DW_AT_TI_begin_line(0x48)
+     691                      .dwattr $C$DW$64, DW_AT_TI_end_line(0x4b)
+     692              $C$DW$65        .dwtag  DW_TAG_TI_loop_range
+     693                      .dwattr $C$DW$65, DW_AT_low_pc($C$DW$L$_ATA_diskUsed$7$B)
+     694                      .dwattr $C$DW$65, DW_AT_high_pc($C$DW$L$_ATA_diskUsed$7$E)
+     695              $C$DW$66        .dwtag  DW_TAG_TI_loop_range
+     696                      .dwattr $C$DW$66, DW_AT_low_pc($C$DW$L$_ATA_diskUsed$8$B)
+     697                      .dwattr $C$DW$66, DW_AT_high_pc($C$DW$L$_ATA_diskUsed$8$E)
+     698              $C$DW$67        .dwtag  DW_TAG_TI_loop_range
+     699                      .dwattr $C$DW$67, DW_AT_low_pc($C$DW$L$_ATA_diskUsed$9$B)
+     700                      .dwattr $C$DW$67, DW_AT_high_pc($C$DW$L$_ATA_diskUsed$9$E)
+     701                      .dwendtag $C$DW$64
+     702              
+     703                      .dwattr $C$DW$25, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/drv/a
+     704                      .dwattr $C$DW$25, DW_AT_TI_end_line(0x66)
+     705                      .dwattr $C$DW$25, DW_AT_TI_end_column(0x01)
+     706                      .dwendentry
+     707                      .dwendtag $C$DW$25
+     708              
+     709              ;******************************************************************************
+     710              ;* UNDEFINED EXTERNAL REFERENCES                                              *
+     711              ;******************************************************************************
+     712                      .global __AtaReadSector
+     713                      .global __AtaCalculatePhySectorAndOffsetOfFatEntry
+     714                      .global __AtaReadFatEntryAtPhySector
+     715                      .global __mpyli
+     716                      .global __divul
+     717              
+     718              ;*******************************************************************************
+     719              ;* TYPE INFORMATION                                                            *
+     720              ;*******************************************************************************
+     721              
+     722              $C$DW$T$49      .dwtag  DW_TAG_structure_type
+     723                      .dwattr $C$DW$T$49, DW_AT_name("AtaStateStruct")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   17
+
+     724                      .dwattr $C$DW$T$49, DW_AT_byte_size(0x44)
+     725              $C$DW$68        .dwtag  DW_TAG_member
+     726                      .dwattr $C$DW$68, DW_AT_type(*$C$DW$T$20)
+     727                      .dwattr $C$DW$68, DW_AT_name("BootPhySector")
+     728                      .dwattr $C$DW$68, DW_AT_TI_symbol_name("_BootPhySector")
+     729                      .dwattr $C$DW$68, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+     730                      .dwattr $C$DW$68, DW_AT_accessibility(DW_ACCESS_public)
+     731              $C$DW$69        .dwtag  DW_TAG_member
+     732                      .dwattr $C$DW$69, DW_AT_type(*$C$DW$T$22)
+     733                      .dwattr $C$DW$69, DW_AT_name("FatType")
+     734                      .dwattr $C$DW$69, DW_AT_TI_symbol_name("_FatType")
+     735                      .dwattr $C$DW$69, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+     736                      .dwattr $C$DW$69, DW_AT_accessibility(DW_ACCESS_public)
+     737              $C$DW$70        .dwtag  DW_TAG_member
+     738                      .dwattr $C$DW$70, DW_AT_type(*$C$DW$T$22)
+     739                      .dwattr $C$DW$70, DW_AT_name("WordsPerLogSector")
+     740                      .dwattr $C$DW$70, DW_AT_TI_symbol_name("_WordsPerLogSector")
+     741                      .dwattr $C$DW$70, DW_AT_data_member_location[DW_OP_plus_uconst 0x3]
+     742                      .dwattr $C$DW$70, DW_AT_accessibility(DW_ACCESS_public)
+     743              $C$DW$71        .dwtag  DW_TAG_member
+     744                      .dwattr $C$DW$71, DW_AT_type(*$C$DW$T$22)
+     745                      .dwattr $C$DW$71, DW_AT_name("LogSectorsPerCluster")
+     746                      .dwattr $C$DW$71, DW_AT_TI_symbol_name("_LogSectorsPerCluster")
+     747                      .dwattr $C$DW$71, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+     748                      .dwattr $C$DW$71, DW_AT_accessibility(DW_ACCESS_public)
+     749              $C$DW$72        .dwtag  DW_TAG_member
+     750                      .dwattr $C$DW$72, DW_AT_type(*$C$DW$T$22)
+     751                      .dwattr $C$DW$72, DW_AT_name("RootDirEntries")
+     752                      .dwattr $C$DW$72, DW_AT_TI_symbol_name("_RootDirEntries")
+     753                      .dwattr $C$DW$72, DW_AT_data_member_location[DW_OP_plus_uconst 0x5]
+     754                      .dwattr $C$DW$72, DW_AT_accessibility(DW_ACCESS_public)
+     755              $C$DW$73        .dwtag  DW_TAG_member
+     756                      .dwattr $C$DW$73, DW_AT_type(*$C$DW$T$23)
+     757                      .dwattr $C$DW$73, DW_AT_name("LogSectorsPerFat")
+     758                      .dwattr $C$DW$73, DW_AT_TI_symbol_name("_LogSectorsPerFat")
+     759                      .dwattr $C$DW$73, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+     760                      .dwattr $C$DW$73, DW_AT_accessibility(DW_ACCESS_public)
+     761              $C$DW$74        .dwtag  DW_TAG_member
+     762                      .dwattr $C$DW$74, DW_AT_type(*$C$DW$T$20)
+     763                      .dwattr $C$DW$74, DW_AT_name("FirstFatSector")
+     764                      .dwattr $C$DW$74, DW_AT_TI_symbol_name("_FirstFatSector")
+     765                      .dwattr $C$DW$74, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
+     766                      .dwattr $C$DW$74, DW_AT_accessibility(DW_ACCESS_public)
+     767              $C$DW$75        .dwtag  DW_TAG_member
+     768                      .dwattr $C$DW$75, DW_AT_type(*$C$DW$T$20)
+     769                      .dwattr $C$DW$75, DW_AT_name("RootDirSector")
+     770                      .dwattr $C$DW$75, DW_AT_TI_symbol_name("_RootDirSector")
+     771                      .dwattr $C$DW$75, DW_AT_data_member_location[DW_OP_plus_uconst 0xa]
+     772                      .dwattr $C$DW$75, DW_AT_accessibility(DW_ACCESS_public)
+     773              $C$DW$76        .dwtag  DW_TAG_member
+     774                      .dwattr $C$DW$76, DW_AT_type(*$C$DW$T$20)
+     775                      .dwattr $C$DW$76, DW_AT_name("FirstDataSector")
+     776                      .dwattr $C$DW$76, DW_AT_TI_symbol_name("_FirstDataSector")
+     777                      .dwattr $C$DW$76, DW_AT_data_member_location[DW_OP_plus_uconst 0xc]
+     778                      .dwattr $C$DW$76, DW_AT_accessibility(DW_ACCESS_public)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   18
+
+     779              $C$DW$77        .dwtag  DW_TAG_member
+     780                      .dwattr $C$DW$77, DW_AT_type(*$C$DW$T$20)
+     781                      .dwattr $C$DW$77, DW_AT_name("TotalSectors")
+     782                      .dwattr $C$DW$77, DW_AT_TI_symbol_name("_TotalSectors")
+     783                      .dwattr $C$DW$77, DW_AT_data_member_location[DW_OP_plus_uconst 0xe]
+     784                      .dwattr $C$DW$77, DW_AT_accessibility(DW_ACCESS_public)
+     785              $C$DW$78        .dwtag  DW_TAG_member
+     786                      .dwattr $C$DW$78, DW_AT_type(*$C$DW$T$22)
+     787                      .dwattr $C$DW$78, DW_AT_name("Data")
+     788                      .dwattr $C$DW$78, DW_AT_TI_symbol_name("_Data")
+     789                      .dwattr $C$DW$78, DW_AT_data_member_location[DW_OP_plus_uconst 0x10]
+     790                      .dwattr $C$DW$78, DW_AT_accessibility(DW_ACCESS_public)
+     791              $C$DW$79        .dwtag  DW_TAG_member
+     792                      .dwattr $C$DW$79, DW_AT_type(*$C$DW$T$22)
+     793                      .dwattr $C$DW$79, DW_AT_name("CurrentWord")
+     794                      .dwattr $C$DW$79, DW_AT_TI_symbol_name("_CurrentWord")
+     795                      .dwattr $C$DW$79, DW_AT_data_member_location[DW_OP_plus_uconst 0x11]
+     796                      .dwattr $C$DW$79, DW_AT_accessibility(DW_ACCESS_public)
+     797              $C$DW$80        .dwtag  DW_TAG_member
+     798                      .dwattr $C$DW$80, DW_AT_type(*$C$DW$T$20)
+     799                      .dwattr $C$DW$80, DW_AT_name("CurrentPhySector")
+     800                      .dwattr $C$DW$80, DW_AT_TI_symbol_name("_CurrentPhySector")
+     801                      .dwattr $C$DW$80, DW_AT_data_member_location[DW_OP_plus_uconst 0x12]
+     802                      .dwattr $C$DW$80, DW_AT_accessibility(DW_ACCESS_public)
+     803              $C$DW$81        .dwtag  DW_TAG_member
+     804                      .dwattr $C$DW$81, DW_AT_type(*$C$DW$T$22)
+     805                      .dwattr $C$DW$81, DW_AT_name("WordsPerCluster")
+     806                      .dwattr $C$DW$81, DW_AT_TI_symbol_name("_WordsPerCluster")
+     807                      .dwattr $C$DW$81, DW_AT_data_member_location[DW_OP_plus_uconst 0x14]
+     808                      .dwattr $C$DW$81, DW_AT_accessibility(DW_ACCESS_public)
+     809              $C$DW$82        .dwtag  DW_TAG_member
+     810                      .dwattr $C$DW$82, DW_AT_type(*$C$DW$T$22)
+     811                      .dwattr $C$DW$82, DW_AT_name("NumberOfFats")
+     812                      .dwattr $C$DW$82, DW_AT_TI_symbol_name("_NumberOfFats")
+     813                      .dwattr $C$DW$82, DW_AT_data_member_location[DW_OP_plus_uconst 0x15]
+     814                      .dwattr $C$DW$82, DW_AT_accessibility(DW_ACCESS_public)
+     815              $C$DW$83        .dwtag  DW_TAG_member
+     816                      .dwattr $C$DW$83, DW_AT_type(*$C$DW$T$22)
+     817                      .dwattr $C$DW$83, DW_AT_name("MFWFlag")
+     818                      .dwattr $C$DW$83, DW_AT_TI_symbol_name("_MFWFlag")
+     819                      .dwattr $C$DW$83, DW_AT_data_member_location[DW_OP_plus_uconst 0x16]
+     820                      .dwattr $C$DW$83, DW_AT_accessibility(DW_ACCESS_public)
+     821              $C$DW$84        .dwtag  DW_TAG_member
+     822                      .dwattr $C$DW$84, DW_AT_type(*$C$DW$T$24)
+     823                      .dwattr $C$DW$84, DW_AT_name("Err_Status")
+     824                      .dwattr $C$DW$84, DW_AT_TI_symbol_name("_Err_Status")
+     825                      .dwattr $C$DW$84, DW_AT_data_member_location[DW_OP_plus_uconst 0x17]
+     826                      .dwattr $C$DW$84, DW_AT_accessibility(DW_ACCESS_public)
+     827              $C$DW$85        .dwtag  DW_TAG_member
+     828                      .dwattr $C$DW$85, DW_AT_type(*$C$DW$T$3)
+     829                      .dwattr $C$DW$85, DW_AT_name("pAtaMediaState")
+     830                      .dwattr $C$DW$85, DW_AT_TI_symbol_name("_pAtaMediaState")
+     831                      .dwattr $C$DW$85, DW_AT_data_member_location[DW_OP_plus_uconst 0x18]
+     832                      .dwattr $C$DW$85, DW_AT_accessibility(DW_ACCESS_public)
+     833              $C$DW$86        .dwtag  DW_TAG_member
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   19
+
+     834                      .dwattr $C$DW$86, DW_AT_type(*$C$DW$T$26)
+     835                      .dwattr $C$DW$86, DW_AT_name("AtaReset")
+     836                      .dwattr $C$DW$86, DW_AT_TI_symbol_name("_AtaReset")
+     837                      .dwattr $C$DW$86, DW_AT_data_member_location[DW_OP_plus_uconst 0x1a]
+     838                      .dwattr $C$DW$86, DW_AT_accessibility(DW_ACCESS_public)
+     839              $C$DW$87        .dwtag  DW_TAG_member
+     840                      .dwattr $C$DW$87, DW_AT_type(*$C$DW$T$28)
+     841                      .dwattr $C$DW$87, DW_AT_name("AtaCommandReadyStatusCheck")
+     842                      .dwattr $C$DW$87, DW_AT_TI_symbol_name("_AtaCommandReadyStatusCheck")
+     843                      .dwattr $C$DW$87, DW_AT_data_member_location[DW_OP_plus_uconst 0x1c]
+     844                      .dwattr $C$DW$87, DW_AT_accessibility(DW_ACCESS_public)
+     845              $C$DW$88        .dwtag  DW_TAG_member
+     846                      .dwattr $C$DW$88, DW_AT_type(*$C$DW$T$26)
+     847                      .dwattr $C$DW$88, DW_AT_name("AtaBusyStatusCheck")
+     848                      .dwattr $C$DW$88, DW_AT_TI_symbol_name("_AtaBusyStatusCheck")
+     849                      .dwattr $C$DW$88, DW_AT_data_member_location[DW_OP_plus_uconst 0x1e]
+     850                      .dwattr $C$DW$88, DW_AT_accessibility(DW_ACCESS_public)
+     851              $C$DW$89        .dwtag  DW_TAG_member
+     852                      .dwattr $C$DW$89, DW_AT_type(*$C$DW$T$33)
+     853                      .dwattr $C$DW$89, DW_AT_name("AtaGetSerialID")
+     854                      .dwattr $C$DW$89, DW_AT_TI_symbol_name("_AtaGetSerialID")
+     855                      .dwattr $C$DW$89, DW_AT_data_member_location[DW_OP_plus_uconst 0x20]
+     856                      .dwattr $C$DW$89, DW_AT_accessibility(DW_ACCESS_public)
+     857              $C$DW$90        .dwtag  DW_TAG_member
+     858                      .dwattr $C$DW$90, DW_AT_type(*$C$DW$T$35)
+     859                      .dwattr $C$DW$90, DW_AT_name("AtaIssueReadCommand")
+     860                      .dwattr $C$DW$90, DW_AT_TI_symbol_name("_AtaIssueReadCommand")
+     861                      .dwattr $C$DW$90, DW_AT_data_member_location[DW_OP_plus_uconst 0x22]
+     862                      .dwattr $C$DW$90, DW_AT_accessibility(DW_ACCESS_public)
+     863              $C$DW$91        .dwtag  DW_TAG_member
+     864                      .dwattr $C$DW$91, DW_AT_type(*$C$DW$T$26)
+     865                      .dwattr $C$DW$91, DW_AT_name("AtaDataReadyStatusCheck")
+     866                      .dwattr $C$DW$91, DW_AT_TI_symbol_name("_AtaDataReadyStatusCheck")
+     867                      .dwattr $C$DW$91, DW_AT_data_member_location[DW_OP_plus_uconst 0x24]
+     868                      .dwattr $C$DW$91, DW_AT_accessibility(DW_ACCESS_public)
+     869              $C$DW$92        .dwtag  DW_TAG_member
+     870                      .dwattr $C$DW$92, DW_AT_type(*$C$DW$T$38)
+     871                      .dwattr $C$DW$92, DW_AT_name("AtaReadNextWord")
+     872                      .dwattr $C$DW$92, DW_AT_TI_symbol_name("_AtaReadNextWord")
+     873                      .dwattr $C$DW$92, DW_AT_data_member_location[DW_OP_plus_uconst 0x26]
+     874                      .dwattr $C$DW$92, DW_AT_accessibility(DW_ACCESS_public)
+     875              $C$DW$93        .dwtag  DW_TAG_member
+     876                      .dwattr $C$DW$93, DW_AT_type(*$C$DW$T$40)
+     877                      .dwattr $C$DW$93, DW_AT_name("AtaReadNextWord1")
+     878                      .dwattr $C$DW$93, DW_AT_TI_symbol_name("_AtaReadNextWord1")
+     879                      .dwattr $C$DW$93, DW_AT_data_member_location[DW_OP_plus_uconst 0x28]
+     880                      .dwattr $C$DW$93, DW_AT_accessibility(DW_ACCESS_public)
+     881              $C$DW$94        .dwtag  DW_TAG_member
+     882                      .dwattr $C$DW$94, DW_AT_type(*$C$DW$T$40)
+     883                      .dwattr $C$DW$94, DW_AT_name("AtaReadNextNWords")
+     884                      .dwattr $C$DW$94, DW_AT_TI_symbol_name("_AtaReadNextNWords")
+     885                      .dwattr $C$DW$94, DW_AT_data_member_location[DW_OP_plus_uconst 0x2a]
+     886                      .dwattr $C$DW$94, DW_AT_accessibility(DW_ACCESS_public)
+     887              $C$DW$95        .dwtag  DW_TAG_member
+     888                      .dwattr $C$DW$95, DW_AT_type(*$C$DW$T$42)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   20
+
+     889                      .dwattr $C$DW$95, DW_AT_name("AtaWriteSector")
+     890                      .dwattr $C$DW$95, DW_AT_TI_symbol_name("_AtaWriteSector")
+     891                      .dwattr $C$DW$95, DW_AT_data_member_location[DW_OP_plus_uconst 0x2c]
+     892                      .dwattr $C$DW$95, DW_AT_accessibility(DW_ACCESS_public)
+     893              $C$DW$96        .dwtag  DW_TAG_member
+     894                      .dwattr $C$DW$96, DW_AT_type(*$C$DW$T$26)
+     895                      .dwattr $C$DW$96, DW_AT_name("AtaWriteSectorFlush")
+     896                      .dwattr $C$DW$96, DW_AT_TI_symbol_name("_AtaWriteSectorFlush")
+     897                      .dwattr $C$DW$96, DW_AT_data_member_location[DW_OP_plus_uconst 0x2e]
+     898                      .dwattr $C$DW$96, DW_AT_accessibility(DW_ACCESS_public)
+     899              $C$DW$97        .dwtag  DW_TAG_member
+     900                      .dwattr $C$DW$97, DW_AT_type(*$C$DW$T$26)
+     901                      .dwattr $C$DW$97, DW_AT_name("AtaInitAtaMediaState")
+     902                      .dwattr $C$DW$97, DW_AT_TI_symbol_name("_AtaInitAtaMediaState")
+     903                      .dwattr $C$DW$97, DW_AT_data_member_location[DW_OP_plus_uconst 0x30]
+     904                      .dwattr $C$DW$97, DW_AT_accessibility(DW_ACCESS_public)
+     905              $C$DW$98        .dwtag  DW_TAG_member
+     906                      .dwattr $C$DW$98, DW_AT_type(*$C$DW$T$26)
+     907                      .dwattr $C$DW$98, DW_AT_name("AtaFlushFat")
+     908                      .dwattr $C$DW$98, DW_AT_TI_symbol_name("_AtaFlushFat")
+     909                      .dwattr $C$DW$98, DW_AT_data_member_location[DW_OP_plus_uconst 0x32]
+     910                      .dwattr $C$DW$98, DW_AT_accessibility(DW_ACCESS_public)
+     911              $C$DW$99        .dwtag  DW_TAG_member
+     912                      .dwattr $C$DW$99, DW_AT_type(*$C$DW$T$44)
+     913                      .dwattr $C$DW$99, DW_AT_name("AtaErrorCallback")
+     914                      .dwattr $C$DW$99, DW_AT_TI_symbol_name("_AtaErrorCallback")
+     915                      .dwattr $C$DW$99, DW_AT_data_member_location[DW_OP_plus_uconst 0x34]
+     916                      .dwattr $C$DW$99, DW_AT_accessibility(DW_ACCESS_public)
+     917              $C$DW$100       .dwtag  DW_TAG_member
+     918                      .dwattr $C$DW$100, DW_AT_type(*$C$DW$T$46)
+     919                      .dwattr $C$DW$100, DW_AT_name("AtaFileSystemType")
+     920                      .dwattr $C$DW$100, DW_AT_TI_symbol_name("_AtaFileSystemType")
+     921                      .dwattr $C$DW$100, DW_AT_data_member_location[DW_OP_plus_uconst 0x36]
+     922                      .dwattr $C$DW$100, DW_AT_accessibility(DW_ACCESS_public)
+     923              $C$DW$101       .dwtag  DW_TAG_member
+     924                      .dwattr $C$DW$101, DW_AT_type(*$C$DW$T$48)
+     925                      .dwattr $C$DW$101, DW_AT_name("get_mod_time")
+     926                      .dwattr $C$DW$101, DW_AT_TI_symbol_name("_get_mod_time")
+     927                      .dwattr $C$DW$101, DW_AT_data_member_location[DW_OP_plus_uconst 0x38]
+     928                      .dwattr $C$DW$101, DW_AT_accessibility(DW_ACCESS_public)
+     929              $C$DW$102       .dwtag  DW_TAG_member
+     930                      .dwattr $C$DW$102, DW_AT_type(*$C$DW$T$48)
+     931                      .dwattr $C$DW$102, DW_AT_name("get_mod_date")
+     932                      .dwattr $C$DW$102, DW_AT_TI_symbol_name("_get_mod_date")
+     933                      .dwattr $C$DW$102, DW_AT_data_member_location[DW_OP_plus_uconst 0x3a]
+     934                      .dwattr $C$DW$102, DW_AT_accessibility(DW_ACCESS_public)
+     935              $C$DW$103       .dwtag  DW_TAG_member
+     936                      .dwattr $C$DW$103, DW_AT_type(*$C$DW$T$48)
+     937                      .dwattr $C$DW$103, DW_AT_name("get_time")
+     938                      .dwattr $C$DW$103, DW_AT_TI_symbol_name("_get_time")
+     939                      .dwattr $C$DW$103, DW_AT_data_member_location[DW_OP_plus_uconst 0x3c]
+     940                      .dwattr $C$DW$103, DW_AT_accessibility(DW_ACCESS_public)
+     941              $C$DW$104       .dwtag  DW_TAG_member
+     942                      .dwattr $C$DW$104, DW_AT_type(*$C$DW$T$48)
+     943                      .dwattr $C$DW$104, DW_AT_name("get_date")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   21
+
+     944                      .dwattr $C$DW$104, DW_AT_TI_symbol_name("_get_date")
+     945                      .dwattr $C$DW$104, DW_AT_data_member_location[DW_OP_plus_uconst 0x3e]
+     946                      .dwattr $C$DW$104, DW_AT_accessibility(DW_ACCESS_public)
+     947              $C$DW$105       .dwtag  DW_TAG_member
+     948                      .dwattr $C$DW$105, DW_AT_type(*$C$DW$T$36)
+     949                      .dwattr $C$DW$105, DW_AT_name("_AtaWriteBuffer")
+     950                      .dwattr $C$DW$105, DW_AT_TI_symbol_name("__AtaWriteBuffer")
+     951                      .dwattr $C$DW$105, DW_AT_data_member_location[DW_OP_plus_uconst 0x40]
+     952                      .dwattr $C$DW$105, DW_AT_accessibility(DW_ACCESS_public)
+     953              $C$DW$106       .dwtag  DW_TAG_member
+     954                      .dwattr $C$DW$106, DW_AT_type(*$C$DW$T$20)
+     955                      .dwattr $C$DW$106, DW_AT_name("_AtaWriteCurrentPhySector")
+     956                      .dwattr $C$DW$106, DW_AT_TI_symbol_name("__AtaWriteCurrentPhySector")
+     957                      .dwattr $C$DW$106, DW_AT_data_member_location[DW_OP_plus_uconst 0x42]
+     958                      .dwattr $C$DW$106, DW_AT_accessibility(DW_ACCESS_public)
+     959                      .dwendtag $C$DW$T$49
+     960              
+     961              $C$DW$T$50      .dwtag  DW_TAG_typedef, DW_AT_name("AtaState")
+     962                      .dwattr $C$DW$T$50, DW_AT_type(*$C$DW$T$49)
+     963                      .dwattr $C$DW$T$50, DW_AT_language(DW_LANG_C)
+     964              $C$DW$T$51      .dwtag  DW_TAG_pointer_type
+     965                      .dwattr $C$DW$T$51, DW_AT_type(*$C$DW$T$50)
+     966                      .dwattr $C$DW$T$51, DW_AT_address_class(0x17)
+     967              $C$DW$T$3       .dwtag  DW_TAG_pointer_type
+     968                      .dwattr $C$DW$T$3, DW_AT_address_class(0x17)
+     969              
+     970              $C$DW$T$43      .dwtag  DW_TAG_subroutine_type
+     971                      .dwattr $C$DW$T$43, DW_AT_language(DW_LANG_C)
+     972              $C$DW$107       .dwtag  DW_TAG_formal_parameter
+     973                      .dwattr $C$DW$107, DW_AT_type(*$C$DW$T$9)
+     974                      .dwendtag $C$DW$T$43
+     975              
+     976              $C$DW$T$44      .dwtag  DW_TAG_pointer_type
+     977                      .dwattr $C$DW$T$44, DW_AT_type(*$C$DW$T$43)
+     978                      .dwattr $C$DW$T$44, DW_AT_address_class(0x20)
+     979              $C$DW$T$4       .dwtag  DW_TAG_base_type
+     980                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+     981                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+     982                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+     983              $C$DW$T$5       .dwtag  DW_TAG_base_type
+     984                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+     985                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+     986                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+     987              $C$DW$T$6       .dwtag  DW_TAG_base_type
+     988                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+     989                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+     990                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+     991              $C$DW$T$7       .dwtag  DW_TAG_base_type
+     992                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+     993                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+     994                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+     995              $C$DW$T$8       .dwtag  DW_TAG_base_type
+     996                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+     997                      .dwattr $C$DW$T$8, DW_AT_name("short")
+     998                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   22
+
+     999              $C$DW$T$9       .dwtag  DW_TAG_base_type
+    1000                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+    1001                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+    1002                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+    1003              $C$DW$T$21      .dwtag  DW_TAG_typedef, DW_AT_name("Uint16")
+    1004                      .dwattr $C$DW$T$21, DW_AT_type(*$C$DW$T$9)
+    1005                      .dwattr $C$DW$T$21, DW_AT_language(DW_LANG_C)
+    1006              $C$DW$T$22      .dwtag  DW_TAG_typedef, DW_AT_name("AtaUint16")
+    1007                      .dwattr $C$DW$T$22, DW_AT_type(*$C$DW$T$21)
+    1008                      .dwattr $C$DW$T$22, DW_AT_language(DW_LANG_C)
+    1009              $C$DW$T$24      .dwtag  DW_TAG_typedef, DW_AT_name("AtaError")
+    1010                      .dwattr $C$DW$T$24, DW_AT_type(*$C$DW$T$22)
+    1011                      .dwattr $C$DW$T$24, DW_AT_language(DW_LANG_C)
+    1012              
+    1013              $C$DW$T$25      .dwtag  DW_TAG_subroutine_type
+    1014                      .dwattr $C$DW$T$25, DW_AT_type(*$C$DW$T$24)
+    1015                      .dwattr $C$DW$T$25, DW_AT_language(DW_LANG_C)
+    1016              $C$DW$108       .dwtag  DW_TAG_formal_parameter
+    1017                      .dwattr $C$DW$108, DW_AT_type(*$C$DW$T$3)
+    1018                      .dwendtag $C$DW$T$25
+    1019              
+    1020              $C$DW$T$26      .dwtag  DW_TAG_pointer_type
+    1021                      .dwattr $C$DW$T$26, DW_AT_type(*$C$DW$T$25)
+    1022                      .dwattr $C$DW$T$26, DW_AT_address_class(0x20)
+    1023              
+    1024              $C$DW$T$34      .dwtag  DW_TAG_subroutine_type
+    1025                      .dwattr $C$DW$T$34, DW_AT_type(*$C$DW$T$24)
+    1026                      .dwattr $C$DW$T$34, DW_AT_language(DW_LANG_C)
+    1027              $C$DW$109       .dwtag  DW_TAG_formal_parameter
+    1028                      .dwattr $C$DW$109, DW_AT_type(*$C$DW$T$20)
+    1029              $C$DW$110       .dwtag  DW_TAG_formal_parameter
+    1030                      .dwattr $C$DW$110, DW_AT_type(*$C$DW$T$3)
+    1031              $C$DW$111       .dwtag  DW_TAG_formal_parameter
+    1032                      .dwattr $C$DW$111, DW_AT_type(*$C$DW$T$22)
+    1033                      .dwendtag $C$DW$T$34
+    1034              
+    1035              $C$DW$T$35      .dwtag  DW_TAG_pointer_type
+    1036                      .dwattr $C$DW$T$35, DW_AT_type(*$C$DW$T$34)
+    1037                      .dwattr $C$DW$T$35, DW_AT_address_class(0x20)
+    1038              
+    1039              $C$DW$T$37      .dwtag  DW_TAG_subroutine_type
+    1040                      .dwattr $C$DW$T$37, DW_AT_type(*$C$DW$T$24)
+    1041                      .dwattr $C$DW$T$37, DW_AT_language(DW_LANG_C)
+    1042              $C$DW$112       .dwtag  DW_TAG_formal_parameter
+    1043                      .dwattr $C$DW$112, DW_AT_type(*$C$DW$T$3)
+    1044              $C$DW$113       .dwtag  DW_TAG_formal_parameter
+    1045                      .dwattr $C$DW$113, DW_AT_type(*$C$DW$T$36)
+    1046                      .dwendtag $C$DW$T$37
+    1047              
+    1048              $C$DW$T$38      .dwtag  DW_TAG_pointer_type
+    1049                      .dwattr $C$DW$T$38, DW_AT_type(*$C$DW$T$37)
+    1050                      .dwattr $C$DW$T$38, DW_AT_address_class(0x20)
+    1051              
+    1052              $C$DW$T$39      .dwtag  DW_TAG_subroutine_type
+    1053                      .dwattr $C$DW$T$39, DW_AT_type(*$C$DW$T$24)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   23
+
+    1054                      .dwattr $C$DW$T$39, DW_AT_language(DW_LANG_C)
+    1055              $C$DW$114       .dwtag  DW_TAG_formal_parameter
+    1056                      .dwattr $C$DW$114, DW_AT_type(*$C$DW$T$3)
+    1057              $C$DW$115       .dwtag  DW_TAG_formal_parameter
+    1058                      .dwattr $C$DW$115, DW_AT_type(*$C$DW$T$36)
+    1059              $C$DW$116       .dwtag  DW_TAG_formal_parameter
+    1060                      .dwattr $C$DW$116, DW_AT_type(*$C$DW$T$22)
+    1061                      .dwendtag $C$DW$T$39
+    1062              
+    1063              $C$DW$T$40      .dwtag  DW_TAG_pointer_type
+    1064                      .dwattr $C$DW$T$40, DW_AT_type(*$C$DW$T$39)
+    1065                      .dwattr $C$DW$T$40, DW_AT_address_class(0x20)
+    1066              
+    1067              $C$DW$T$41      .dwtag  DW_TAG_subroutine_type
+    1068                      .dwattr $C$DW$T$41, DW_AT_type(*$C$DW$T$24)
+    1069                      .dwattr $C$DW$T$41, DW_AT_language(DW_LANG_C)
+    1070              $C$DW$117       .dwtag  DW_TAG_formal_parameter
+    1071                      .dwattr $C$DW$117, DW_AT_type(*$C$DW$T$20)
+    1072              $C$DW$118       .dwtag  DW_TAG_formal_parameter
+    1073                      .dwattr $C$DW$118, DW_AT_type(*$C$DW$T$3)
+    1074              $C$DW$119       .dwtag  DW_TAG_formal_parameter
+    1075                      .dwattr $C$DW$119, DW_AT_type(*$C$DW$T$36)
+    1076              $C$DW$120       .dwtag  DW_TAG_formal_parameter
+    1077                      .dwattr $C$DW$120, DW_AT_type(*$C$DW$T$10)
+    1078                      .dwendtag $C$DW$T$41
+    1079              
+    1080              $C$DW$T$42      .dwtag  DW_TAG_pointer_type
+    1081                      .dwattr $C$DW$T$42, DW_AT_type(*$C$DW$T$41)
+    1082                      .dwattr $C$DW$T$42, DW_AT_address_class(0x20)
+    1083              $C$DW$T$59      .dwtag  DW_TAG_pointer_type
+    1084                      .dwattr $C$DW$T$59, DW_AT_type(*$C$DW$T$24)
+    1085                      .dwattr $C$DW$T$59, DW_AT_address_class(0x17)
+    1086              
+    1087              $C$DW$T$29      .dwtag  DW_TAG_array_type
+    1088                      .dwattr $C$DW$T$29, DW_AT_type(*$C$DW$T$22)
+    1089                      .dwattr $C$DW$T$29, DW_AT_language(DW_LANG_C)
+    1090                      .dwattr $C$DW$T$29, DW_AT_byte_size(0x10)
+    1091              $C$DW$121       .dwtag  DW_TAG_subrange_type
+    1092                      .dwattr $C$DW$121, DW_AT_upper_bound(0x0f)
+    1093                      .dwendtag $C$DW$T$29
+    1094              
+    1095              $C$DW$T$30      .dwtag  DW_TAG_typedef, DW_AT_name("AtaSerialID")
+    1096                      .dwattr $C$DW$T$30, DW_AT_type(*$C$DW$T$29)
+    1097                      .dwattr $C$DW$T$30, DW_AT_language(DW_LANG_C)
+    1098              $C$DW$T$31      .dwtag  DW_TAG_pointer_type
+    1099                      .dwattr $C$DW$T$31, DW_AT_type(*$C$DW$T$30)
+    1100                      .dwattr $C$DW$T$31, DW_AT_address_class(0x17)
+    1101              
+    1102              $C$DW$T$32      .dwtag  DW_TAG_subroutine_type
+    1103                      .dwattr $C$DW$T$32, DW_AT_type(*$C$DW$T$22)
+    1104                      .dwattr $C$DW$T$32, DW_AT_language(DW_LANG_C)
+    1105              $C$DW$122       .dwtag  DW_TAG_formal_parameter
+    1106                      .dwattr $C$DW$122, DW_AT_type(*$C$DW$T$3)
+    1107              $C$DW$123       .dwtag  DW_TAG_formal_parameter
+    1108                      .dwattr $C$DW$123, DW_AT_type(*$C$DW$T$31)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   24
+
+    1109                      .dwendtag $C$DW$T$32
+    1110              
+    1111              $C$DW$T$33      .dwtag  DW_TAG_pointer_type
+    1112                      .dwattr $C$DW$T$33, DW_AT_type(*$C$DW$T$32)
+    1113                      .dwattr $C$DW$T$33, DW_AT_address_class(0x20)
+    1114              $C$DW$T$36      .dwtag  DW_TAG_pointer_type
+    1115                      .dwattr $C$DW$T$36, DW_AT_type(*$C$DW$T$22)
+    1116                      .dwattr $C$DW$T$36, DW_AT_address_class(0x17)
+    1117              
+    1118              $C$DW$T$45      .dwtag  DW_TAG_subroutine_type
+    1119                      .dwattr $C$DW$T$45, DW_AT_type(*$C$DW$T$22)
+    1120                      .dwattr $C$DW$T$45, DW_AT_language(DW_LANG_C)
+    1121              $C$DW$124       .dwtag  DW_TAG_formal_parameter
+    1122                      .dwattr $C$DW$124, DW_AT_type(*$C$DW$T$3)
+    1123                      .dwendtag $C$DW$T$45
+    1124              
+    1125              $C$DW$T$46      .dwtag  DW_TAG_pointer_type
+    1126                      .dwattr $C$DW$T$46, DW_AT_type(*$C$DW$T$45)
+    1127                      .dwattr $C$DW$T$46, DW_AT_address_class(0x20)
+    1128              
+    1129              $C$DW$T$47      .dwtag  DW_TAG_subroutine_type
+    1130                      .dwattr $C$DW$T$47, DW_AT_type(*$C$DW$T$22)
+    1131                      .dwattr $C$DW$T$47, DW_AT_language(DW_LANG_C)
+    1132              $C$DW$T$48      .dwtag  DW_TAG_pointer_type
+    1133                      .dwattr $C$DW$T$48, DW_AT_type(*$C$DW$T$47)
+    1134                      .dwattr $C$DW$T$48, DW_AT_address_class(0x20)
+    1135              $C$DW$T$10      .dwtag  DW_TAG_base_type
+    1136                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+    1137                      .dwattr $C$DW$T$10, DW_AT_name("int")
+    1138                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+    1139              
+    1140              $C$DW$T$27      .dwtag  DW_TAG_subroutine_type
+    1141                      .dwattr $C$DW$T$27, DW_AT_type(*$C$DW$T$10)
+    1142                      .dwattr $C$DW$T$27, DW_AT_language(DW_LANG_C)
+    1143              $C$DW$125       .dwtag  DW_TAG_formal_parameter
+    1144                      .dwattr $C$DW$125, DW_AT_type(*$C$DW$T$3)
+    1145                      .dwendtag $C$DW$T$27
+    1146              
+    1147              $C$DW$T$28      .dwtag  DW_TAG_pointer_type
+    1148                      .dwattr $C$DW$T$28, DW_AT_type(*$C$DW$T$27)
+    1149                      .dwattr $C$DW$T$28, DW_AT_address_class(0x20)
+    1150              $C$DW$T$55      .dwtag  DW_TAG_pointer_type
+    1151                      .dwattr $C$DW$T$55, DW_AT_type(*$C$DW$T$10)
+    1152                      .dwattr $C$DW$T$55, DW_AT_address_class(0x17)
+    1153              $C$DW$T$11      .dwtag  DW_TAG_base_type
+    1154                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+    1155                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+    1156                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+    1157              $C$DW$T$12      .dwtag  DW_TAG_base_type
+    1158                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+    1159                      .dwattr $C$DW$T$12, DW_AT_name("long")
+    1160                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+    1161              $C$DW$T$13      .dwtag  DW_TAG_base_type
+    1162                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+    1163                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   25
+
+    1164                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+    1165              $C$DW$T$19      .dwtag  DW_TAG_typedef, DW_AT_name("Uint32")
+    1166                      .dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$13)
+    1167                      .dwattr $C$DW$T$19, DW_AT_language(DW_LANG_C)
+    1168              $C$DW$T$20      .dwtag  DW_TAG_typedef, DW_AT_name("AtaSector")
+    1169                      .dwattr $C$DW$T$20, DW_AT_type(*$C$DW$T$19)
+    1170                      .dwattr $C$DW$T$20, DW_AT_language(DW_LANG_C)
+    1171              $C$DW$T$23      .dwtag  DW_TAG_typedef, DW_AT_name("AtaUint32")
+    1172                      .dwattr $C$DW$T$23, DW_AT_type(*$C$DW$T$19)
+    1173                      .dwattr $C$DW$T$23, DW_AT_language(DW_LANG_C)
+    1174              $C$DW$T$54      .dwtag  DW_TAG_typedef, DW_AT_name("AtaCluster")
+    1175                      .dwattr $C$DW$T$54, DW_AT_type(*$C$DW$T$23)
+    1176                      .dwattr $C$DW$T$54, DW_AT_language(DW_LANG_C)
+    1177              $C$DW$T$56      .dwtag  DW_TAG_pointer_type
+    1178                      .dwattr $C$DW$T$56, DW_AT_type(*$C$DW$T$54)
+    1179                      .dwattr $C$DW$T$56, DW_AT_address_class(0x17)
+    1180              $C$DW$T$14      .dwtag  DW_TAG_base_type
+    1181                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+    1182                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+    1183                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+    1184                      .dwattr $C$DW$T$14, DW_AT_bit_size(0x28)
+    1185                      .dwattr $C$DW$T$14, DW_AT_bit_offset(0x18)
+    1186              $C$DW$T$15      .dwtag  DW_TAG_base_type
+    1187                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+    1188                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+    1189                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+    1190                      .dwattr $C$DW$T$15, DW_AT_bit_size(0x28)
+    1191                      .dwattr $C$DW$T$15, DW_AT_bit_offset(0x18)
+    1192              $C$DW$T$16      .dwtag  DW_TAG_base_type
+    1193                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+    1194                      .dwattr $C$DW$T$16, DW_AT_name("float")
+    1195                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+    1196              $C$DW$T$17      .dwtag  DW_TAG_base_type
+    1197                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+    1198                      .dwattr $C$DW$T$17, DW_AT_name("double")
+    1199                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+    1200              $C$DW$T$18      .dwtag  DW_TAG_base_type
+    1201                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+    1202                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+    1203                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x02)
+    1204                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+    1205              
+    1206              ;***************************************************************
+    1207              ;* DWARF CIE ENTRIES                                           *
+    1208              ;***************************************************************
+    1209              
+    1210              $C$DW$CIE       .dwcie 91
+    1211                      .dwcfi  cfa_register, 36
+    1212                      .dwcfi  cfa_offset, 0
+    1213                      .dwcfi  undefined, 0
+    1214                      .dwcfi  undefined, 1
+    1215                      .dwcfi  undefined, 2
+    1216                      .dwcfi  undefined, 3
+    1217                      .dwcfi  undefined, 4
+    1218                      .dwcfi  undefined, 5
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   26
+
+    1219                      .dwcfi  undefined, 6
+    1220                      .dwcfi  undefined, 7
+    1221                      .dwcfi  undefined, 8
+    1222                      .dwcfi  undefined, 9
+    1223                      .dwcfi  undefined, 10
+    1224                      .dwcfi  undefined, 11
+    1225                      .dwcfi  undefined, 12
+    1226                      .dwcfi  undefined, 13
+    1227                      .dwcfi  same_value, 14
+    1228                      .dwcfi  same_value, 15
+    1229                      .dwcfi  undefined, 16
+    1230                      .dwcfi  undefined, 17
+    1231                      .dwcfi  undefined, 18
+    1232                      .dwcfi  undefined, 19
+    1233                      .dwcfi  undefined, 20
+    1234                      .dwcfi  undefined, 21
+    1235                      .dwcfi  undefined, 22
+    1236                      .dwcfi  undefined, 23
+    1237                      .dwcfi  undefined, 24
+    1238                      .dwcfi  undefined, 25
+    1239                      .dwcfi  same_value, 26
+    1240                      .dwcfi  same_value, 27
+    1241                      .dwcfi  same_value, 28
+    1242                      .dwcfi  same_value, 29
+    1243                      .dwcfi  same_value, 30
+    1244                      .dwcfi  same_value, 31
+    1245                      .dwcfi  undefined, 32
+    1246                      .dwcfi  undefined, 33
+    1247                      .dwcfi  undefined, 34
+    1248                      .dwcfi  undefined, 35
+    1249                      .dwcfi  undefined, 36
+    1250                      .dwcfi  undefined, 37
+    1251                      .dwcfi  undefined, 38
+    1252                      .dwcfi  undefined, 39
+    1253                      .dwcfi  undefined, 40
+    1254                      .dwcfi  undefined, 41
+    1255                      .dwcfi  undefined, 42
+    1256                      .dwcfi  undefined, 43
+    1257                      .dwcfi  undefined, 44
+    1258                      .dwcfi  undefined, 45
+    1259                      .dwcfi  undefined, 46
+    1260                      .dwcfi  undefined, 47
+    1261                      .dwcfi  undefined, 48
+    1262                      .dwcfi  undefined, 49
+    1263                      .dwcfi  undefined, 50
+    1264                      .dwcfi  undefined, 51
+    1265                      .dwcfi  undefined, 52
+    1266                      .dwcfi  undefined, 53
+    1267                      .dwcfi  undefined, 54
+    1268                      .dwcfi  undefined, 55
+    1269                      .dwcfi  undefined, 56
+    1270                      .dwcfi  undefined, 57
+    1271                      .dwcfi  undefined, 58
+    1272                      .dwcfi  undefined, 59
+    1273                      .dwcfi  undefined, 60
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   27
+
+    1274                      .dwcfi  undefined, 61
+    1275                      .dwcfi  undefined, 62
+    1276                      .dwcfi  undefined, 63
+    1277                      .dwcfi  undefined, 64
+    1278                      .dwcfi  undefined, 65
+    1279                      .dwcfi  undefined, 66
+    1280                      .dwcfi  undefined, 67
+    1281                      .dwcfi  undefined, 68
+    1282                      .dwcfi  undefined, 69
+    1283                      .dwcfi  undefined, 70
+    1284                      .dwcfi  undefined, 71
+    1285                      .dwcfi  undefined, 72
+    1286                      .dwcfi  undefined, 73
+    1287                      .dwcfi  undefined, 74
+    1288                      .dwcfi  undefined, 75
+    1289                      .dwcfi  undefined, 76
+    1290                      .dwcfi  undefined, 77
+    1291                      .dwcfi  undefined, 78
+    1292                      .dwcfi  undefined, 79
+    1293                      .dwcfi  undefined, 80
+    1294                      .dwcfi  undefined, 81
+    1295                      .dwcfi  undefined, 82
+    1296                      .dwcfi  undefined, 83
+    1297                      .dwcfi  undefined, 84
+    1298                      .dwcfi  undefined, 85
+    1299                      .dwcfi  undefined, 86
+    1300                      .dwcfi  undefined, 87
+    1301                      .dwcfi  undefined, 88
+    1302                      .dwcfi  undefined, 89
+    1303                      .dwcfi  undefined, 90
+    1304                      .dwcfi  undefined, 91
+    1305                      .dwendentry
+    1306              
+    1307              ;***************************************************************
+    1308              ;* DWARF REGISTER MAP                                          *
+    1309              ;***************************************************************
+    1310              
+    1311              $C$DW$126       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1312                      .dwattr $C$DW$126, DW_AT_location[DW_OP_reg0]
+    1313              $C$DW$127       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1314                      .dwattr $C$DW$127, DW_AT_location[DW_OP_reg1]
+    1315              $C$DW$128       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0_G")
+    1316                      .dwattr $C$DW$128, DW_AT_location[DW_OP_reg2]
+    1317              $C$DW$129       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1318                      .dwattr $C$DW$129, DW_AT_location[DW_OP_reg3]
+    1319              $C$DW$130       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1320                      .dwattr $C$DW$130, DW_AT_location[DW_OP_reg4]
+    1321              $C$DW$131       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1_G")
+    1322                      .dwattr $C$DW$131, DW_AT_location[DW_OP_reg5]
+    1323              $C$DW$132       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1324                      .dwattr $C$DW$132, DW_AT_location[DW_OP_reg6]
+    1325              $C$DW$133       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1326                      .dwattr $C$DW$133, DW_AT_location[DW_OP_reg7]
+    1327              $C$DW$134       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2_G")
+    1328                      .dwattr $C$DW$134, DW_AT_location[DW_OP_reg8]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   28
+
+    1329              $C$DW$135       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    1330                      .dwattr $C$DW$135, DW_AT_location[DW_OP_reg9]
+    1331              $C$DW$136       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    1332                      .dwattr $C$DW$136, DW_AT_location[DW_OP_reg10]
+    1333              $C$DW$137       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3_G")
+    1334                      .dwattr $C$DW$137, DW_AT_location[DW_OP_reg11]
+    1335              $C$DW$138       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T0")
+    1336                      .dwattr $C$DW$138, DW_AT_location[DW_OP_reg12]
+    1337              $C$DW$139       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T1")
+    1338                      .dwattr $C$DW$139, DW_AT_location[DW_OP_reg13]
+    1339              $C$DW$140       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T2")
+    1340                      .dwattr $C$DW$140, DW_AT_location[DW_OP_reg14]
+    1341              $C$DW$141       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T3")
+    1342                      .dwattr $C$DW$141, DW_AT_location[DW_OP_reg15]
+    1343              $C$DW$142       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+    1344                      .dwattr $C$DW$142, DW_AT_location[DW_OP_reg16]
+    1345              $C$DW$143       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+    1346                      .dwattr $C$DW$143, DW_AT_location[DW_OP_reg17]
+    1347              $C$DW$144       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+    1348                      .dwattr $C$DW$144, DW_AT_location[DW_OP_reg18]
+    1349              $C$DW$145       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+    1350                      .dwattr $C$DW$145, DW_AT_location[DW_OP_reg19]
+    1351              $C$DW$146       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+    1352                      .dwattr $C$DW$146, DW_AT_location[DW_OP_reg20]
+    1353              $C$DW$147       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+    1354                      .dwattr $C$DW$147, DW_AT_location[DW_OP_reg21]
+    1355              $C$DW$148       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+    1356                      .dwattr $C$DW$148, DW_AT_location[DW_OP_reg22]
+    1357              $C$DW$149       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+    1358                      .dwattr $C$DW$149, DW_AT_location[DW_OP_reg23]
+    1359              $C$DW$150       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+    1360                      .dwattr $C$DW$150, DW_AT_location[DW_OP_reg24]
+    1361              $C$DW$151       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+    1362                      .dwattr $C$DW$151, DW_AT_location[DW_OP_reg25]
+    1363              $C$DW$152       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+    1364                      .dwattr $C$DW$152, DW_AT_location[DW_OP_reg26]
+    1365              $C$DW$153       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+    1366                      .dwattr $C$DW$153, DW_AT_location[DW_OP_reg27]
+    1367              $C$DW$154       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+    1368                      .dwattr $C$DW$154, DW_AT_location[DW_OP_reg28]
+    1369              $C$DW$155       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+    1370                      .dwattr $C$DW$155, DW_AT_location[DW_OP_reg29]
+    1371              $C$DW$156       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+    1372                      .dwattr $C$DW$156, DW_AT_location[DW_OP_reg30]
+    1373              $C$DW$157       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+    1374                      .dwattr $C$DW$157, DW_AT_location[DW_OP_reg31]
+    1375              $C$DW$158       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+    1376                      .dwattr $C$DW$158, DW_AT_location[DW_OP_regx 0x20]
+    1377              $C$DW$159       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XFP")
+    1378                      .dwattr $C$DW$159, DW_AT_location[DW_OP_regx 0x21]
+    1379              $C$DW$160       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+    1380                      .dwattr $C$DW$160, DW_AT_location[DW_OP_regx 0x22]
+    1381              $C$DW$161       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+    1382                      .dwattr $C$DW$161, DW_AT_location[DW_OP_regx 0x23]
+    1383              $C$DW$162       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XSP")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   29
+
+    1384                      .dwattr $C$DW$162, DW_AT_location[DW_OP_regx 0x24]
+    1385              $C$DW$163       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BKC")
+    1386                      .dwattr $C$DW$163, DW_AT_location[DW_OP_regx 0x25]
+    1387              $C$DW$164       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK03")
+    1388                      .dwattr $C$DW$164, DW_AT_location[DW_OP_regx 0x26]
+    1389              $C$DW$165       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK47")
+    1390                      .dwattr $C$DW$165, DW_AT_location[DW_OP_regx 0x27]
+    1391              $C$DW$166       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+    1392                      .dwattr $C$DW$166, DW_AT_location[DW_OP_regx 0x28]
+    1393              $C$DW$167       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+    1394                      .dwattr $C$DW$167, DW_AT_location[DW_OP_regx 0x29]
+    1395              $C$DW$168       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST2")
+    1396                      .dwattr $C$DW$168, DW_AT_location[DW_OP_regx 0x2a]
+    1397              $C$DW$169       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST3")
+    1398                      .dwattr $C$DW$169, DW_AT_location[DW_OP_regx 0x2b]
+    1399              $C$DW$170       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP")
+    1400                      .dwattr $C$DW$170, DW_AT_location[DW_OP_regx 0x2c]
+    1401              $C$DW$171       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP05")
+    1402                      .dwattr $C$DW$171, DW_AT_location[DW_OP_regx 0x2d]
+    1403              $C$DW$172       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP67")
+    1404                      .dwattr $C$DW$172, DW_AT_location[DW_OP_regx 0x2e]
+    1405              $C$DW$173       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC0")
+    1406                      .dwattr $C$DW$173, DW_AT_location[DW_OP_regx 0x2f]
+    1407              $C$DW$174       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0")
+    1408                      .dwattr $C$DW$174, DW_AT_location[DW_OP_regx 0x30]
+    1409              $C$DW$175       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0_H")
+    1410                      .dwattr $C$DW$175, DW_AT_location[DW_OP_regx 0x31]
+    1411              $C$DW$176       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0")
+    1412                      .dwattr $C$DW$176, DW_AT_location[DW_OP_regx 0x32]
+    1413              $C$DW$177       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0_H")
+    1414                      .dwattr $C$DW$177, DW_AT_location[DW_OP_regx 0x33]
+    1415              $C$DW$178       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRS1")
+    1416                      .dwattr $C$DW$178, DW_AT_location[DW_OP_regx 0x34]
+    1417              $C$DW$179       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC1")
+    1418                      .dwattr $C$DW$179, DW_AT_location[DW_OP_regx 0x35]
+    1419              $C$DW$180       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1")
+    1420                      .dwattr $C$DW$180, DW_AT_location[DW_OP_regx 0x36]
+    1421              $C$DW$181       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1_H")
+    1422                      .dwattr $C$DW$181, DW_AT_location[DW_OP_regx 0x37]
+    1423              $C$DW$182       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1")
+    1424                      .dwattr $C$DW$182, DW_AT_location[DW_OP_regx 0x38]
+    1425              $C$DW$183       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1_H")
+    1426                      .dwattr $C$DW$183, DW_AT_location[DW_OP_regx 0x39]
+    1427              $C$DW$184       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CSR")
+    1428                      .dwattr $C$DW$184, DW_AT_location[DW_OP_regx 0x3a]
+    1429              $C$DW$185       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPTC")
+    1430                      .dwattr $C$DW$185, DW_AT_location[DW_OP_regx 0x3b]
+    1431              $C$DW$186       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDP")
+    1432                      .dwattr $C$DW$186, DW_AT_location[DW_OP_regx 0x3c]
+    1433              $C$DW$187       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XCDP")
+    1434                      .dwattr $C$DW$187, DW_AT_location[DW_OP_regx 0x3d]
+    1435              $C$DW$188       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN0")
+    1436                      .dwattr $C$DW$188, DW_AT_location[DW_OP_regx 0x3e]
+    1437              $C$DW$189       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN1")
+    1438                      .dwattr $C$DW$189, DW_AT_location[DW_OP_regx 0x3f]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   30
+
+    1439              $C$DW$190       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA01")
+    1440                      .dwattr $C$DW$190, DW_AT_location[DW_OP_regx 0x40]
+    1441              $C$DW$191       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA23")
+    1442                      .dwattr $C$DW$191, DW_AT_location[DW_OP_regx 0x41]
+    1443              $C$DW$192       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA45")
+    1444                      .dwattr $C$DW$192, DW_AT_location[DW_OP_regx 0x42]
+    1445              $C$DW$193       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA67")
+    1446                      .dwattr $C$DW$193, DW_AT_location[DW_OP_regx 0x43]
+    1447              $C$DW$194       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSAC")
+    1448                      .dwattr $C$DW$194, DW_AT_location[DW_OP_regx 0x44]
+    1449              $C$DW$195       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CARRY")
+    1450                      .dwattr $C$DW$195, DW_AT_location[DW_OP_regx 0x45]
+    1451              $C$DW$196       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC1")
+    1452                      .dwattr $C$DW$196, DW_AT_location[DW_OP_regx 0x46]
+    1453              $C$DW$197       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC2")
+    1454                      .dwattr $C$DW$197, DW_AT_location[DW_OP_regx 0x47]
+    1455              $C$DW$198       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("M40")
+    1456                      .dwattr $C$DW$198, DW_AT_location[DW_OP_regx 0x48]
+    1457              $C$DW$199       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXMD")
+    1458                      .dwattr $C$DW$199, DW_AT_location[DW_OP_regx 0x49]
+    1459              $C$DW$200       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ARMS")
+    1460                      .dwattr $C$DW$200, DW_AT_location[DW_OP_regx 0x4a]
+    1461              $C$DW$201       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("C54CM")
+    1462                      .dwattr $C$DW$201, DW_AT_location[DW_OP_regx 0x4b]
+    1463              $C$DW$202       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATA")
+    1464                      .dwattr $C$DW$202, DW_AT_location[DW_OP_regx 0x4c]
+    1465              $C$DW$203       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATD")
+    1466                      .dwattr $C$DW$203, DW_AT_location[DW_OP_regx 0x4d]
+    1467              $C$DW$204       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RDM")
+    1468                      .dwattr $C$DW$204, DW_AT_location[DW_OP_regx 0x4e]
+    1469              $C$DW$205       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FRCT")
+    1470                      .dwattr $C$DW$205, DW_AT_location[DW_OP_regx 0x4f]
+    1471              $C$DW$206       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SMUL")
+    1472                      .dwattr $C$DW$206, DW_AT_location[DW_OP_regx 0x50]
+    1473              $C$DW$207       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+    1474                      .dwattr $C$DW$207, DW_AT_location[DW_OP_regx 0x51]
+    1475              $C$DW$208       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0LC")
+    1476                      .dwattr $C$DW$208, DW_AT_location[DW_OP_regx 0x52]
+    1477              $C$DW$209       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1LC")
+    1478                      .dwattr $C$DW$209, DW_AT_location[DW_OP_regx 0x53]
+    1479              $C$DW$210       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2LC")
+    1480                      .dwattr $C$DW$210, DW_AT_location[DW_OP_regx 0x54]
+    1481              $C$DW$211       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3LC")
+    1482                      .dwattr $C$DW$211, DW_AT_location[DW_OP_regx 0x55]
+    1483              $C$DW$212       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4LC")
+    1484                      .dwattr $C$DW$212, DW_AT_location[DW_OP_regx 0x56]
+    1485              $C$DW$213       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5LC")
+    1486                      .dwattr $C$DW$213, DW_AT_location[DW_OP_regx 0x57]
+    1487              $C$DW$214       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6LC")
+    1488                      .dwattr $C$DW$214, DW_AT_location[DW_OP_regx 0x58]
+    1489              $C$DW$215       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7LC")
+    1490                      .dwattr $C$DW$215, DW_AT_location[DW_OP_regx 0x59]
+    1491              $C$DW$216       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDPLC")
+    1492                      .dwattr $C$DW$216, DW_AT_location[DW_OP_regx 0x5a]
+    1493              $C$DW$217       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:09:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+Atadisk.asm                                                          PAGE   31
+
+    1494                      .dwattr $C$DW$217, DW_AT_location[DW_OP_regx 0x5b]
+    1495                      .dwendtag $C$DW$CU
+    1496              
+    1496              
+    1496              
+
+No Assembly Errors, No Assembly Warnings

@@ -1,0 +1,3265 @@
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE    1
+
+    1709              ; Temporary Registers Used: None
+       1              ;*******************************************************************************
+       2              ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
+       3              ;* Date/Time created: Sat Sep 29 23:08:49 2018                                 *
+       4              ;*******************************************************************************
+       5                      .compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --si
+       6                      .mmregs
+       7                      .cpl_on
+       8                      .arms_on
+       9                      .c54cm_off
+      10                      .asg AR6, FP
+      11                      .asg XAR6, XFP
+      12                      .asg DPH, MDP
+      13                      .model call=c55_std
+      14                      .model mem=large
+      15                      .noremark 5002  ; code respects overwrite rules
+      16              ;*******************************************************************************
+      17              ;* GLOBAL FILE PARAMETERS                                                      *
+      18              ;*                                                                             *
+      19              ;*   Architecture       : TMS320C55x                                           *
+      20              ;*   Optimizing for     : Speed                                                *
+      21              ;*   Memory             : Large Model (23-Bit Data Pointers)                   *
+      22              ;*   Calls              : Normal Library ASM calls                             *
+      23              ;*   Debug Info         : Standard TI Debug Information                        *
+      24              ;*******************************************************************************
+      25              
+      26              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+      27                      .dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_
+      28                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas In
+      29                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      30                      .dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+      31              ;******************************************************************************
+      32              ;* CINIT RECORDS                                                              *
+      33              ;******************************************************************************
+      34 000000               .sect   ".cinit"
+      35                      .align  1
+      36 000000 0001          .field          1,16
+      37 000001 0000-         .field          _PaSs_StAtE+0,24
+         000002 2C00 
+      38 000002 2C00          .field          0,8
+      39 000003 0001          .field  1,16                    ; _PaSs_StAtE @ 0
+      40              
+      41 000004               .sect   ".cinit"
+      42                      .align  1
+      43 000004 0001          .field          1,16
+      44 000005 0000-         .field          _PaSs+0,24
+         000006 2D00 
+      45 000006 2D00          .field          0,8
+      46 000007 0000          .field  0,16                    ; _PaSs @ 0
+      47              
+      48              
+      49              $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("printf")
+      50                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_printf")
+      51                      .dwattr $C$DW$1, DW_AT_type(*$C$DW$T$10)
+      52                      .dwattr $C$DW$1, DW_AT_declaration
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE    2
+
+      53                      .dwattr $C$DW$1, DW_AT_external
+      54              $C$DW$2 .dwtag  DW_TAG_formal_parameter
+      55                      .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$48)
+      56              $C$DW$3 .dwtag  DW_TAG_unspecified_parameters
+      57                      .dwendtag $C$DW$1
+      58              
+      59              
+      60              $C$DW$4 .dwtag  DW_TAG_subprogram, DW_AT_name("RTC_reset")
+      61                      .dwattr $C$DW$4, DW_AT_TI_symbol_name("_RTC_reset")
+      62                      .dwattr $C$DW$4, DW_AT_declaration
+      63                      .dwattr $C$DW$4, DW_AT_external
+      64              
+      65              $C$DW$5 .dwtag  DW_TAG_subprogram, DW_AT_name("RTC_start")
+      66                      .dwattr $C$DW$5, DW_AT_TI_symbol_name("_RTC_start")
+      67                      .dwattr $C$DW$5, DW_AT_declaration
+      68                      .dwattr $C$DW$5, DW_AT_external
+      69              
+      70              $C$DW$6 .dwtag  DW_TAG_subprogram, DW_AT_name("RTC_stop")
+      71                      .dwattr $C$DW$6, DW_AT_TI_symbol_name("_RTC_stop")
+      72                      .dwattr $C$DW$6, DW_AT_declaration
+      73                      .dwattr $C$DW$6, DW_AT_external
+      74              
+      75              $C$DW$7 .dwtag  DW_TAG_subprogram, DW_AT_name("RTC_config")
+      76                      .dwattr $C$DW$7, DW_AT_TI_symbol_name("_RTC_config")
+      77                      .dwattr $C$DW$7, DW_AT_type(*$C$DW$T$35)
+      78                      .dwattr $C$DW$7, DW_AT_declaration
+      79                      .dwattr $C$DW$7, DW_AT_external
+      80              $C$DW$8 .dwtag  DW_TAG_formal_parameter
+      81                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$26)
+      82                      .dwendtag $C$DW$7
+      83              
+      84              
+      85              $C$DW$9 .dwtag  DW_TAG_subprogram, DW_AT_name("RTC_getConfig")
+      86                      .dwattr $C$DW$9, DW_AT_TI_symbol_name("_RTC_getConfig")
+      87                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$35)
+      88                      .dwattr $C$DW$9, DW_AT_declaration
+      89                      .dwattr $C$DW$9, DW_AT_external
+      90              $C$DW$10        .dwtag  DW_TAG_formal_parameter
+      91                      .dwattr $C$DW$10, DW_AT_type(*$C$DW$T$26)
+      92                      .dwendtag $C$DW$9
+      93              
+      94              
+      95              $C$DW$11        .dwtag  DW_TAG_subprogram, DW_AT_name("RTC_setTime")
+      96                      .dwattr $C$DW$11, DW_AT_TI_symbol_name("_RTC_setTime")
+      97                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$35)
+      98                      .dwattr $C$DW$11, DW_AT_declaration
+      99                      .dwattr $C$DW$11, DW_AT_external
+     100              $C$DW$12        .dwtag  DW_TAG_formal_parameter
+     101                      .dwattr $C$DW$12, DW_AT_type(*$C$DW$T$28)
+     102                      .dwendtag $C$DW$11
+     103              
+     104              
+     105              $C$DW$13        .dwtag  DW_TAG_subprogram, DW_AT_name("RTC_getTime")
+     106                      .dwattr $C$DW$13, DW_AT_TI_symbol_name("_RTC_getTime")
+     107                      .dwattr $C$DW$13, DW_AT_type(*$C$DW$T$35)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE    3
+
+     108                      .dwattr $C$DW$13, DW_AT_declaration
+     109                      .dwattr $C$DW$13, DW_AT_external
+     110              $C$DW$14        .dwtag  DW_TAG_formal_parameter
+     111                      .dwattr $C$DW$14, DW_AT_type(*$C$DW$T$28)
+     112                      .dwendtag $C$DW$13
+     113              
+     114              
+     115              $C$DW$15        .dwtag  DW_TAG_subprogram, DW_AT_name("RTC_setDate")
+     116                      .dwattr $C$DW$15, DW_AT_TI_symbol_name("_RTC_setDate")
+     117                      .dwattr $C$DW$15, DW_AT_type(*$C$DW$T$35)
+     118                      .dwattr $C$DW$15, DW_AT_declaration
+     119                      .dwattr $C$DW$15, DW_AT_external
+     120              $C$DW$16        .dwtag  DW_TAG_formal_parameter
+     121                      .dwattr $C$DW$16, DW_AT_type(*$C$DW$T$30)
+     122                      .dwendtag $C$DW$15
+     123              
+     124              
+     125              $C$DW$17        .dwtag  DW_TAG_subprogram, DW_AT_name("RTC_getDate")
+     126                      .dwattr $C$DW$17, DW_AT_TI_symbol_name("_RTC_getDate")
+     127                      .dwattr $C$DW$17, DW_AT_type(*$C$DW$T$35)
+     128                      .dwattr $C$DW$17, DW_AT_declaration
+     129                      .dwattr $C$DW$17, DW_AT_external
+     130              $C$DW$18        .dwtag  DW_TAG_formal_parameter
+     131                      .dwattr $C$DW$18, DW_AT_type(*$C$DW$T$30)
+     132                      .dwendtag $C$DW$17
+     133              
+     134              
+     135              $C$DW$19        .dwtag  DW_TAG_subprogram, DW_AT_name("RTC_setCompensation")
+     136                      .dwattr $C$DW$19, DW_AT_TI_symbol_name("_RTC_setCompensation")
+     137                      .dwattr $C$DW$19, DW_AT_type(*$C$DW$T$35)
+     138                      .dwattr $C$DW$19, DW_AT_declaration
+     139                      .dwattr $C$DW$19, DW_AT_external
+     140              $C$DW$20        .dwtag  DW_TAG_formal_parameter
+     141                      .dwattr $C$DW$20, DW_AT_type(*$C$DW$T$24)
+     142              $C$DW$21        .dwtag  DW_TAG_formal_parameter
+     143                      .dwattr $C$DW$21, DW_AT_type(*$C$DW$T$19)
+     144                      .dwendtag $C$DW$19
+     145              
+     146                      .global _initTime
+     147 000000               .bss    _initTime,4,0,0
+     148              $C$DW$22        .dwtag  DW_TAG_variable, DW_AT_name("initTime")
+     149                      .dwattr $C$DW$22, DW_AT_TI_symbol_name("_initTime")
+     150                      .dwattr $C$DW$22, DW_AT_location[DW_OP_addr _initTime]
+     151                      .dwattr $C$DW$22, DW_AT_type(*$C$DW$T$27)
+     152                      .dwattr $C$DW$22, DW_AT_external
+     153                      .global _initDate
+     154 000004               .bss    _initDate,3,0,0
+     155              $C$DW$23        .dwtag  DW_TAG_variable, DW_AT_name("initDate")
+     156                      .dwattr $C$DW$23, DW_AT_TI_symbol_name("_initDate")
+     157                      .dwattr $C$DW$23, DW_AT_location[DW_OP_addr _initDate]
+     158                      .dwattr $C$DW$23, DW_AT_type(*$C$DW$T$29)
+     159                      .dwattr $C$DW$23, DW_AT_external
+     160                      .global _getTime
+     161 000007               .bss    _getTime,4,0,0
+     162              $C$DW$24        .dwtag  DW_TAG_variable, DW_AT_name("getTime")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE    4
+
+     163                      .dwattr $C$DW$24, DW_AT_TI_symbol_name("_getTime")
+     164                      .dwattr $C$DW$24, DW_AT_location[DW_OP_addr _getTime]
+     165                      .dwattr $C$DW$24, DW_AT_type(*$C$DW$T$27)
+     166                      .dwattr $C$DW$24, DW_AT_external
+     167                      .global _GetDate
+     168 00000b               .bss    _GetDate,3,0,0
+     169              $C$DW$25        .dwtag  DW_TAG_variable, DW_AT_name("GetDate")
+     170                      .dwattr $C$DW$25, DW_AT_TI_symbol_name("_GetDate")
+     171                      .dwattr $C$DW$25, DW_AT_location[DW_OP_addr _GetDate]
+     172                      .dwattr $C$DW$25, DW_AT_type(*$C$DW$T$29)
+     173                      .dwattr $C$DW$25, DW_AT_external
+     174                      .global _rtcConfig
+     175 00000e               .bss    _rtcConfig,15,0,0
+     176              $C$DW$26        .dwtag  DW_TAG_variable, DW_AT_name("rtcConfig")
+     177                      .dwattr $C$DW$26, DW_AT_TI_symbol_name("_rtcConfig")
+     178                      .dwattr $C$DW$26, DW_AT_location[DW_OP_addr _rtcConfig]
+     179                      .dwattr $C$DW$26, DW_AT_type(*$C$DW$T$25)
+     180                      .dwattr $C$DW$26, DW_AT_external
+     181                      .global _rtcGetConfig
+     182 00001d               .bss    _rtcGetConfig,15,0,0
+     183              $C$DW$27        .dwtag  DW_TAG_variable, DW_AT_name("rtcGetConfig")
+     184                      .dwattr $C$DW$27, DW_AT_TI_symbol_name("_rtcGetConfig")
+     185                      .dwattr $C$DW$27, DW_AT_location[DW_OP_addr _rtcGetConfig]
+     186                      .dwattr $C$DW$27, DW_AT_type(*$C$DW$T$25)
+     187                      .dwattr $C$DW$27, DW_AT_external
+     188                      .global _PaSs_StAtE
+     189 00002c               .bss    _PaSs_StAtE,1,0,0
+     190              $C$DW$28        .dwtag  DW_TAG_variable, DW_AT_name("PaSs_StAtE")
+     191                      .dwattr $C$DW$28, DW_AT_TI_symbol_name("_PaSs_StAtE")
+     192                      .dwattr $C$DW$28, DW_AT_location[DW_OP_addr _PaSs_StAtE]
+     193                      .dwattr $C$DW$28, DW_AT_type(*$C$DW$T$44)
+     194                      .dwattr $C$DW$28, DW_AT_external
+     195                      .global _PaSs
+     196 00002d               .bss    _PaSs,1,0,0
+     197              $C$DW$29        .dwtag  DW_TAG_variable, DW_AT_name("PaSs")
+     198                      .dwattr $C$DW$29, DW_AT_TI_symbol_name("_PaSs")
+     199                      .dwattr $C$DW$29, DW_AT_location[DW_OP_addr _PaSs]
+     200                      .dwattr $C$DW$29, DW_AT_type(*$C$DW$T$44)
+     201                      .dwattr $C$DW$29, DW_AT_external
+     202              ;       F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1784812 
+     203 000000               .sect   ".text"
+     204                      .align 4
+     205                      .global _main
+     206              
+     207              $C$DW$30        .dwtag  DW_TAG_subprogram, DW_AT_name("main")
+     208                      .dwattr $C$DW$30, DW_AT_low_pc(_main)
+     209                      .dwattr $C$DW$30, DW_AT_high_pc(0x00)
+     210                      .dwattr $C$DW$30, DW_AT_TI_symbol_name("_main")
+     211                      .dwattr $C$DW$30, DW_AT_external
+     212                      .dwattr $C$DW$30, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc
+     213                      .dwattr $C$DW$30, DW_AT_TI_begin_line(0xa1)
+     214                      .dwattr $C$DW$30, DW_AT_TI_begin_column(0x06)
+     215                      .dwattr $C$DW$30, DW_AT_TI_max_frame_size(0x06)
+     216                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     217              
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE    5
+
+     218                      .dwfde $C$DW$CIE, _main
+     219              ;*******************************************************************************
+     220              ;* FUNCTION NAME: main                                                         *
+     221              ;*                                                                             *
+     222              ;*   Function Uses Regs : T0,T1,AR1,AR2,AR3,XAR3,SP,TC1,M40,SATA,SATD,RDM,FRCT,*
+     223              ;*                        SMUL                                                 *
+     224              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     225              ;*   Total Frame Size   : 6 words                                              *
+     226              ;*                        (1 return address/alignment)                         *
+     227              ;*                        (3 function parameters)                              *
+     228              ;*                        (2 local values)                                     *
+     229              ;*   Min System Stack   : 1 word                                               *
+     230              ;*******************************************************************************
+     231 000000       _main:
+     232                      .dwcfi  cfa_offset, 1
+     233                      .dwcfi  save_reg_to_mem, 91, -1
+     234 000000 4EFB          AADD #-5, SP
+     235                      .dwcfi  cfa_offset, 6
+     236              $C$DW$31        .dwtag  DW_TAG_variable, DW_AT_name("status")
+     237                      .dwattr $C$DW$31, DW_AT_TI_symbol_name("_status")
+     238                      .dwattr $C$DW$31, DW_AT_type(*$C$DW$T$35)
+     239                      .dwattr $C$DW$31, DW_AT_location[DW_OP_bregx 0x24 3]
+     240              $C$DW$32        .dwtag  DW_TAG_variable, DW_AT_name("compensation")
+     241                      .dwattr $C$DW$32, DW_AT_TI_symbol_name("_compensation")
+     242                      .dwattr $C$DW$32, DW_AT_type(*$C$DW$T$19)
+     243                      .dwattr $C$DW$32, DW_AT_location[DW_OP_bregx 0x24 4]
+     244                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     245 000002 FB08          MOV #256, *SP(#4) ; |166| 
+         000004 0100 
+     246                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     247 000006 EC31          AMOV #$C$FSL1, XAR3 ; |168| 
+         000008 BE00 
+         00000a 0000+
+     248 00000c EB00          MOV XAR3, dbl(*SP(#0))
+         00000e B5   
+     249              $C$DW$33        .dwtag  DW_TAG_TI_branch
+     250                      .dwattr $C$DW$33, DW_AT_low_pc(0x00)
+     251                      .dwattr $C$DW$33, DW_AT_name("_printf")
+     252                      .dwattr $C$DW$33, DW_AT_TI_call
+     253 00000f 6C00          CALL #_printf ; |168| 
+         000011 0000!
+     254                                                      ; call occurs [#_printf] ; |168| 
+     255                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     256 000013 EC31          AMOV #$C$FSL2, XAR3 ; |178| 
+         000015 BE00 
+         000017 0018+
+     257 000019 EB00          MOV XAR3, dbl(*SP(#0))
+         00001b B5   
+     258 00001c A908          MOV *SP(#4), AR1 ; |178| 
+     259 00001e C904          MOV AR1, *SP(#2) ; |178| 
+     260              $C$DW$34        .dwtag  DW_TAG_TI_branch
+     261                      .dwattr $C$DW$34, DW_AT_low_pc(0x00)
+     262                      .dwattr $C$DW$34, DW_AT_name("_printf")
+     263                      .dwattr $C$DW$34, DW_AT_TI_call
+     264 000020 6C00          CALL #_printf ; |178| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE    6
+
+         000022 0000!
+     265                                                      ; call occurs [#_printf] ; |178| 
+     266                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     267 000024 A508          MOV *SP(#4), T1 ; |179| 
+     268              $C$DW$35        .dwtag  DW_TAG_TI_branch
+     269                      .dwattr $C$DW$35, DW_AT_low_pc(0x00)
+     270                      .dwattr $C$DW$35, DW_AT_name("_rtc_compensation_test")
+     271                      .dwattr $C$DW$35, DW_AT_TI_call
+     272              
+     273 000026 0800          CALL #_rtc_compensation_test ; |179| 
+         000028 DD   
+     274 000029 3D14  ||      MOV #1, T0
+     275              
+     276                                                      ; call occurs [#_rtc_compensation_test] ; |179| 
+     277 00002b C406          MOV T0, *SP(#3) ; |179| 
+     278                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     279              
+     280 00002d A906          MOV *SP(#3), AR1 ; |180| 
+     281 00002f 3D1A  ||      MOV #1, AR2
+     282              
+     283 000031 12AC          CMPU AR2 != AR1, TC1 ; |180| 
+         000033 94   
+     284 000034 67E4          BCC $C$L1,TC1 ; |180| 
+     285                                                      ; branchcc occurs ; |180| 
+     286                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     287 000036 EC31          AMOV #$C$FSL3, XAR3 ; |182| 
+         000038 BE00 
+         00003a 0056+
+     288 00003c EB00          MOV XAR3, dbl(*SP(#0))
+         00003e B5   
+     289              $C$DW$36        .dwtag  DW_TAG_TI_branch
+     290                      .dwattr $C$DW$36, DW_AT_low_pc(0x00)
+     291                      .dwattr $C$DW$36, DW_AT_name("_printf")
+     292                      .dwattr $C$DW$36, DW_AT_TI_call
+     293 00003f 6C00          CALL #_printf ; |182| 
+         000041 0000!
+     294                                                      ; call occurs [#_printf] ; |182| 
+     295                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     296 000043 4A13          B $C$L2   ; |183| 
+     297                                                      ; branch occurs ; |183| 
+     298 000045       $C$L1:    
+     299                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     300 000045 EC31          AMOV #$C$FSL4, XAR3 ; |186| 
+         000047 BE00 
+         000049 0082+
+     301 00004b EB00          MOV XAR3, dbl(*SP(#0))
+         00004d B5   
+     302              $C$DW$37        .dwtag  DW_TAG_TI_branch
+     303                      .dwattr $C$DW$37, DW_AT_low_pc(0x00)
+     304                      .dwattr $C$DW$37, DW_AT_name("_printf")
+     305                      .dwattr $C$DW$37, DW_AT_TI_call
+     306 00004e 6C00          CALL #_printf ; |186| 
+         000050 0000!
+     307                                                      ; call occurs [#_printf] ; |186| 
+     308                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE    7
+
+     309 000052 E631          MOV #0, *(#_PaSs_StAtE) ; |189| 
+         000054 0000 
+         000056 002C-
+     310 000058       $C$L2:    
+     311                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     312 000058 FB08          MOV #500, *SP(#4) ; |199| 
+         00005a 01F4 
+     313                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     314 00005c EC31          AMOV #$C$FSL5, XAR3 ; |200| 
+         00005e BE00 
+         000060 00AC+
+     315 000062 EB00          MOV XAR3, dbl(*SP(#0))
+         000064 B5   
+     316 000065 A908          MOV *SP(#4), AR1 ; |200| 
+     317 000067 C904          MOV AR1, *SP(#2) ; |200| 
+     318              $C$DW$38        .dwtag  DW_TAG_TI_branch
+     319                      .dwattr $C$DW$38, DW_AT_low_pc(0x00)
+     320                      .dwattr $C$DW$38, DW_AT_name("_printf")
+     321                      .dwattr $C$DW$38, DW_AT_TI_call
+     322 000069 6C00          CALL #_printf ; |200| 
+         00006b 0000!
+     323                                                      ; call occurs [#_printf] ; |200| 
+     324                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     325 00006d A508          MOV *SP(#4), T1 ; |201| 
+     326              $C$DW$39        .dwtag  DW_TAG_TI_branch
+     327                      .dwattr $C$DW$39, DW_AT_low_pc(0x00)
+     328                      .dwattr $C$DW$39, DW_AT_name("_rtc_compensation_test")
+     329                      .dwattr $C$DW$39, DW_AT_TI_call
+     330              
+     331 00006f 0800          CALL #_rtc_compensation_test ; |201| 
+         000071 94   
+     332 000072 3D04  ||      MOV #0, T0
+     333              
+     334                                                      ; call occurs [#_rtc_compensation_test] ; |201| 
+     335 000074 C406          MOV T0, *SP(#3) ; |201| 
+     336                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     337              
+     338 000076 A906          MOV *SP(#3), AR1 ; |202| 
+     339 000078 3D1A  ||      MOV #1, AR2
+     340              
+     341 00007a 12AC          CMPU AR2 != AR1, TC1 ; |202| 
+         00007c 94   
+     342 00007d 67E4          BCC $C$L3,TC1 ; |202| 
+     343                                                      ; branchcc occurs ; |202| 
+     344                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     345 00007f EC31          AMOV #$C$FSL6, XAR3 ; |204| 
+         000081 BE00 
+         000083 00EE+
+     346 000085 EB00          MOV XAR3, dbl(*SP(#0))
+         000087 B5   
+     347              $C$DW$40        .dwtag  DW_TAG_TI_branch
+     348                      .dwattr $C$DW$40, DW_AT_low_pc(0x00)
+     349                      .dwattr $C$DW$40, DW_AT_name("_printf")
+     350                      .dwattr $C$DW$40, DW_AT_TI_call
+     351 000088 6C00          CALL #_printf ; |204| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE    8
+
+         00008a 0000!
+     352                                                      ; call occurs [#_printf] ; |204| 
+     353                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     354 00008c 4A13          B $C$L4   ; |205| 
+     355                                                      ; branch occurs ; |205| 
+     356 00008e       $C$L3:    
+     357                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     358 00008e EC31          AMOV #$C$FSL7, XAR3 ; |208| 
+         000090 BE00 
+         000092 011A+
+     359 000094 EB00          MOV XAR3, dbl(*SP(#0))
+         000096 B5   
+     360              $C$DW$41        .dwtag  DW_TAG_TI_branch
+     361                      .dwattr $C$DW$41, DW_AT_low_pc(0x00)
+     362                      .dwattr $C$DW$41, DW_AT_name("_printf")
+     363                      .dwattr $C$DW$41, DW_AT_TI_call
+     364 000097 6C00          CALL #_printf ; |208| 
+         000099 0000!
+     365                                                      ; call occurs [#_printf] ; |208| 
+     366                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     367 00009b E631          MOV #0, *(#_PaSs_StAtE) ; |211| 
+         00009d 0000 
+         00009f 002C-
+     368 0000a1       $C$L4:    
+     369                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     370 0000a1 FB08          MOV #200, *SP(#4) ; |219| 
+         0000a3 00C8 
+     371                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     372 0000a5 EC31          AMOV #$C$FSL8, XAR3 ; |220| 
+         0000a7 BE00 
+         0000a9 0144+
+     373 0000ab EB00          MOV XAR3, dbl(*SP(#0))
+         0000ad B5   
+     374 0000ae A908          MOV *SP(#4), AR1 ; |220| 
+     375 0000b0 C904          MOV AR1, *SP(#2) ; |220| 
+     376              $C$DW$42        .dwtag  DW_TAG_TI_branch
+     377                      .dwattr $C$DW$42, DW_AT_low_pc(0x00)
+     378                      .dwattr $C$DW$42, DW_AT_name("_printf")
+     379                      .dwattr $C$DW$42, DW_AT_TI_call
+     380 0000b2 6C00          CALL #_printf ; |220| 
+         0000b4 0000!
+     381                                                      ; call occurs [#_printf] ; |220| 
+     382                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     383 0000b6 A508          MOV *SP(#4), T1 ; |224| 
+     384              $C$DW$43        .dwtag  DW_TAG_TI_branch
+     385                      .dwattr $C$DW$43, DW_AT_low_pc(0x00)
+     386                      .dwattr $C$DW$43, DW_AT_name("_rtc_compensation_test")
+     387                      .dwattr $C$DW$43, DW_AT_TI_call
+     388              
+     389 0000b8 0800          CALL #_rtc_compensation_test ; |224| 
+         0000ba 4B   
+     390 0000bb 3D14  ||      MOV #1, T0
+     391              
+     392                                                      ; call occurs [#_rtc_compensation_test] ; |224| 
+     393 0000bd C406          MOV T0, *SP(#3) ; |224| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE    9
+
+     394                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     395              
+     396 0000bf A906          MOV *SP(#3), AR1 ; |225| 
+     397 0000c1 3D1A  ||      MOV #1, AR2
+     398              
+     399 0000c3 12AC          CMPU AR2 != AR1, TC1 ; |225| 
+         0000c5 94   
+     400 0000c6 67E4          BCC $C$L5,TC1 ; |225| 
+     401                                                      ; branchcc occurs ; |225| 
+     402                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     403 0000c8 EC31          AMOV #$C$FSL9, XAR3 ; |227| 
+         0000ca BE00 
+         0000cc 0190+
+     404 0000ce EB00          MOV XAR3, dbl(*SP(#0))
+         0000d0 B5   
+     405              $C$DW$44        .dwtag  DW_TAG_TI_branch
+     406                      .dwattr $C$DW$44, DW_AT_low_pc(0x00)
+     407                      .dwattr $C$DW$44, DW_AT_name("_printf")
+     408                      .dwattr $C$DW$44, DW_AT_TI_call
+     409 0000d1 6C00          CALL #_printf ; |227| 
+         0000d3 0000!
+     410                                                      ; call occurs [#_printf] ; |227| 
+     411                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     412 0000d5 4A13          B $C$L6   ; |228| 
+     413                                                      ; branch occurs ; |228| 
+     414 0000d7       $C$L5:    
+     415                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     416 0000d7 EC31          AMOV #$C$FSL10, XAR3 ; |231| 
+         0000d9 BE00 
+         0000db 01E0+
+     417 0000dd EB00          MOV XAR3, dbl(*SP(#0))
+         0000df B5   
+     418              $C$DW$45        .dwtag  DW_TAG_TI_branch
+     419                      .dwattr $C$DW$45, DW_AT_low_pc(0x00)
+     420                      .dwattr $C$DW$45, DW_AT_name("_printf")
+     421                      .dwattr $C$DW$45, DW_AT_TI_call
+     422 0000e0 6C00          CALL #_printf ; |231| 
+         0000e2 0000!
+     423                                                      ; call occurs [#_printf] ; |231| 
+     424                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     425 0000e4 E631          MOV #0, *(#_PaSs_StAtE) ; |234| 
+         0000e6 0000 
+         0000e8 002C-
+     426 0000ea       $C$L6:    
+     427                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     428 0000ea EC31          AMOV #$C$FSL11, XAR3 ; |257| 
+         0000ec BE00 
+         0000ee 0230+
+     429 0000f0 EB00          MOV XAR3, dbl(*SP(#0))
+         0000f2 B5   
+     430              $C$DW$46        .dwtag  DW_TAG_TI_branch
+     431                      .dwattr $C$DW$46, DW_AT_low_pc(0x00)
+     432                      .dwattr $C$DW$46, DW_AT_name("_printf")
+     433                      .dwattr $C$DW$46, DW_AT_TI_call
+     434 0000f3 6C00          CALL #_printf ; |257| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   10
+
+         0000f5 0000!
+     435                                                      ; call occurs [#_printf] ; |257| 
+     436                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     437 0000f7 A931          MOV *(#_PaSs_StAtE), AR1 ; |260| 
+         0000f9 0000 
+         0000fb 2C-  
+     438 0000fc C931          MOV AR1, *(#_PaSs) ; |260| 
+         0000fe 0000 
+         000100 2D-  
+     439                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     440 000101 4E05          AADD #5, SP
+     441                      .dwcfi  cfa_offset, 1
+     442              $C$DW$47        .dwtag  DW_TAG_TI_branch
+     443                      .dwattr $C$DW$47, DW_AT_low_pc(0x00)
+     444                      .dwattr $C$DW$47, DW_AT_TI_return
+     445 000103 4804          RET
+     446                                                      ; return occurs
+     447                      .dwattr $C$DW$30, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/C
+     448                      .dwattr $C$DW$30, DW_AT_TI_end_line(0x109)
+     449                      .dwattr $C$DW$30, DW_AT_TI_end_column(0x01)
+     450                      .dwendentry
+     451                      .dwendtag $C$DW$30
+     452              
+     453 000105               .sect   ".text"
+     454                      .align 4
+     455                      .global _rtc_compensation_test
+     456              
+     457              $C$DW$48        .dwtag  DW_TAG_subprogram, DW_AT_name("rtc_compensation_test")
+     458                      .dwattr $C$DW$48, DW_AT_low_pc(_rtc_compensation_test)
+     459                      .dwattr $C$DW$48, DW_AT_high_pc(0x00)
+     460                      .dwattr $C$DW$48, DW_AT_TI_symbol_name("_rtc_compensation_test")
+     461                      .dwattr $C$DW$48, DW_AT_external
+     462                      .dwattr $C$DW$48, DW_AT_type(*$C$DW$T$35)
+     463                      .dwattr $C$DW$48, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc
+     464                      .dwattr $C$DW$48, DW_AT_TI_begin_line(0x113)
+     465                      .dwattr $C$DW$48, DW_AT_TI_begin_column(0x0c)
+     466                      .dwattr $C$DW$48, DW_AT_TI_max_frame_size(0x10)
+     467                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     468              
+     469                      .dwfde $C$DW$CIE, _rtc_compensation_test
+     470              $C$DW$49        .dwtag  DW_TAG_formal_parameter, DW_AT_name("compType")
+     471                      .dwattr $C$DW$49, DW_AT_TI_symbol_name("_compType")
+     472                      .dwattr $C$DW$49, DW_AT_type(*$C$DW$T$24)
+     473                      .dwattr $C$DW$49, DW_AT_location[DW_OP_reg12]
+     474              $C$DW$50        .dwtag  DW_TAG_formal_parameter, DW_AT_name("compVal")
+     475                      .dwattr $C$DW$50, DW_AT_TI_symbol_name("_compVal")
+     476                      .dwattr $C$DW$50, DW_AT_type(*$C$DW$T$19)
+     477                      .dwattr $C$DW$50, DW_AT_location[DW_OP_reg13]
+     478              ;*******************************************************************************
+     479              ;* FUNCTION NAME: rtc_compensation_test                                        *
+     480              ;*                                                                             *
+     481              ;*   Function Uses Regs : T0,T1,AR0,XAR0,AR1,AR2,AR3,XAR3,SP,CARRY,TC1,M40,    *
+     482              ;*                        SATA,SATD,RDM,FRCT,SMUL                              *
+     483              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     484              ;*   Total Frame Size   : 16 words                                             *
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   11
+
+     485              ;*                        (2 return address/alignment)                         *
+     486              ;*                        (9 function parameters)                              *
+     487              ;*                        (5 local values)                                     *
+     488              ;*   Min System Stack   : 1 word                                               *
+     489              ;*******************************************************************************
+     490 000108       _rtc_compensation_test:
+     491                      .dwcfi  cfa_offset, 1
+     492                      .dwcfi  save_reg_to_mem, 91, -1
+     493 000108 4EF1          AADD #-15, SP
+     494                      .dwcfi  cfa_offset, 16
+     495              $C$DW$51        .dwtag  DW_TAG_variable, DW_AT_name("compType")
+     496                      .dwattr $C$DW$51, DW_AT_TI_symbol_name("_compType")
+     497                      .dwattr $C$DW$51, DW_AT_type(*$C$DW$T$24)
+     498                      .dwattr $C$DW$51, DW_AT_location[DW_OP_bregx 0x24 9]
+     499              $C$DW$52        .dwtag  DW_TAG_variable, DW_AT_name("compVal")
+     500                      .dwattr $C$DW$52, DW_AT_TI_symbol_name("_compVal")
+     501                      .dwattr $C$DW$52, DW_AT_type(*$C$DW$T$19)
+     502                      .dwattr $C$DW$52, DW_AT_location[DW_OP_bregx 0x24 10]
+     503              $C$DW$53        .dwtag  DW_TAG_variable, DW_AT_name("status")
+     504                      .dwattr $C$DW$53, DW_AT_TI_symbol_name("_status")
+     505                      .dwattr $C$DW$53, DW_AT_type(*$C$DW$T$35)
+     506                      .dwattr $C$DW$53, DW_AT_location[DW_OP_bregx 0x24 11]
+     507              $C$DW$54        .dwtag  DW_TAG_variable, DW_AT_name("breakLoop")
+     508                      .dwattr $C$DW$54, DW_AT_TI_symbol_name("_breakLoop")
+     509                      .dwattr $C$DW$54, DW_AT_type(*$C$DW$T$19)
+     510                      .dwattr $C$DW$54, DW_AT_location[DW_OP_bregx 0x24 12]
+     511              $C$DW$55        .dwtag  DW_TAG_variable, DW_AT_name("looper")
+     512                      .dwattr $C$DW$55, DW_AT_TI_symbol_name("_looper")
+     513                      .dwattr $C$DW$55, DW_AT_type(*$C$DW$T$45)
+     514                      .dwattr $C$DW$55, DW_AT_location[DW_OP_bregx 0x24 13]
+     515 00010a C514          MOV T1, *SP(#10) ; |277| 
+     516 00010c C412          MOV T0, *SP(#9) ; |277| 
+     517                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     518 00010e E616          MOV #0, *SP(#11) ; |282| 
+         000110 00   
+     519                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     520 000111 E631          MOV #8, *(#(_rtcConfig+6)) ; |285| 
+         000113 0800 
+         000115 0014-
+     521                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     522 000117 E631          MOV #8, *(#(_rtcConfig+5)) ; |286| 
+         000119 0800 
+         00011b 0013-
+     523                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     524 00011d E631          MOV #8, *(#(_rtcConfig+4)) ; |287| 
+         00011f 0800 
+         000121 0012-
+     525                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     526 000123 E631          MOV #8, *(#(_rtcConfig+3)) ; |288| 
+         000125 0800 
+         000127 0011-
+     527                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     528 000129 E631          MOV #8, *(#(_rtcConfig+2)) ; |289| 
+         00012b 0800 
+         00012d 0010-
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   12
+
+     529                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     530 00012f E631          MOV #8, *(#(_rtcConfig+1)) ; |290| 
+         000131 0800 
+         000133 000F-
+     531                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     532 000135 E631          MOV #8, *(#_rtcConfig) ; |291| 
+         000137 0800 
+         000139 000E-
+     533                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     534 00013b E631          MOV #8, *(#(_rtcConfig+13)) ; |293| 
+         00013d 0800 
+         00013f 001B-
+     535                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     536 000141 E631          MOV #8, *(#(_rtcConfig+12)) ; |294| 
+         000143 0800 
+         000145 001A-
+     537                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     538 000147 E631          MOV #8, *(#(_rtcConfig+11)) ; |295| 
+         000149 0800 
+         00014b 0019-
+     539                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     540 00014d E631          MOV #8, *(#(_rtcConfig+10)) ; |296| 
+         00014f 0800 
+         000151 0018-
+     541                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     542 000153 E631          MOV #8, *(#(_rtcConfig+9)) ; |297| 
+         000155 0800 
+         000157 0017-
+     543                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     544 000159 E631          MOV #8, *(#(_rtcConfig+8)) ; |298| 
+         00015b 0800 
+         00015d 0016-
+     545                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     546 00015f E631          MOV #10, *(#(_rtcConfig+7)) ; |299| 
+         000161 0A00 
+         000163 0015-
+     547                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     548 000165 E631          MOV #0, *(#(_rtcConfig+14)) ; |300| 
+         000167 0000 
+         000169 001C-
+     549                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     550 00016b E631          MOV #8, *(#_initDate) ; |303| 
+         00016d 0800 
+         00016f 0004-
+     551                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     552 000171 E631          MOV #10, *(#(_initDate+1)) ; |304| 
+         000173 0A00 
+         000175 0005-
+     553                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     554 000177 E631          MOV #16, *(#(_initDate+2)) ; |305| 
+         000179 1000 
+         00017b 0006-
+     555                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     556 00017d E631          MOV #12, *(#_initTime) ; |306| 
+         00017f 0C00 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   13
+
+         000181 0000-
+     557                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     558 000183 E631          MOV #59, *(#(_initTime+1)) ; |307| 
+         000185 3B00 
+         000187 0001-
+     559                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     560 000189 E631          MOV #59, *(#(_initTime+2)) ; |308| 
+         00018b 3B00 
+         00018d 0002-
+     561                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     562 00018f E631          MOV #0, *(#(_initTime+3)) ; |309| 
+         000191 0000 
+         000193 0003-
+     563                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     564              $C$DW$56        .dwtag  DW_TAG_TI_branch
+     565                      .dwattr $C$DW$56, DW_AT_low_pc(0x00)
+     566                      .dwattr $C$DW$56, DW_AT_name("_RTC_reset")
+     567                      .dwattr $C$DW$56, DW_AT_TI_call
+     568 000195 6C00          CALL #_RTC_reset ; |312| 
+         000197 0000!
+     569                                                      ; call occurs [#_RTC_reset] ; |312| 
+     570                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     571 000199 E61A          MOV #0, *SP(#13) ; |315| 
+         00019b 00   
+     572 00019c 20            NOP
+     573 00019d 20            NOP
+     574                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     575 00019e 7603          MOV #1000, AR2 ; |315| 
+         0001a0 E8A8 
+     576 0001a2 A91A          MOV *SP(#13), AR1 ; |315| 
+     577 0001a4 1298          CMPU AR1 >= AR2, TC1 ; |315| 
+         0001a6 A4   
+     578 0001a7 67E4          BCC $C$L8,TC1 ; |315| 
+     579                                                      ; branchcc occurs ; |315| 
+     580 0001a9       $C$L7:    
+     581 0001a9       $C$DW$L$_rtc_compensation_test$2$B:
+     582                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     583 0001a9 F71A          ADD #1, *SP(#13) ; |315| 
+         0001ab 0001 
+     584 0001ad 20            NOP
+     585 0001ae 20            NOP
+     586 0001af 20            NOP
+     587                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     588 0001b0 A91A          MOV *SP(#13), AR1 ; |315| 
+     589 0001b2 1294          CMPU AR1 < AR2, TC1 ; |315| 
+         0001b4 A4   
+     590 0001b5 0464          BCC $C$L7,TC1 ; |315| 
+         0001b7 F1   
+     591                                                      ; branchcc occurs ; |315| 
+     592 0001b8       $C$DW$L$_rtc_compensation_test$2$E:
+     593 0001b8       $C$L8:    
+     594                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     595 0001b8 EC31          AMOV #_rtcConfig, XAR0 ; |321| 
+         0001ba 8E00 
+         0001bc 000E-
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   14
+
+     596              $C$DW$57        .dwtag  DW_TAG_TI_branch
+     597                      .dwattr $C$DW$57, DW_AT_low_pc(0x00)
+     598                      .dwattr $C$DW$57, DW_AT_name("_RTC_config")
+     599                      .dwattr $C$DW$57, DW_AT_TI_call
+     600 0001be 6C00          CALL #_RTC_config ; |321| 
+         0001c0 0000!
+     601                                                      ; call occurs [#_RTC_config] ; |321| 
+     602 0001c2 C416          MOV T0, *SP(#11) ; |321| 
+     603                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     604 0001c4 2249          MOV T0, AR1
+     605 0001c6 0409          BCC $C$L9,AR1 == #0 ; |322| 
+         0001c8 12   
+     606                                                      ; branchcc occurs ; |322| 
+     607                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     608 0001c9 EC31          AMOV #$C$FSL12, XAR3 ; |324| 
+         0001cb BE00 
+         0001cd 0254+
+     609 0001cf EB00          MOV XAR3, dbl(*SP(#0))
+         0001d1 B5   
+     610              $C$DW$58        .dwtag  DW_TAG_TI_branch
+     611                      .dwattr $C$DW$58, DW_AT_low_pc(0x00)
+     612                      .dwattr $C$DW$58, DW_AT_name("_printf")
+     613                      .dwattr $C$DW$58, DW_AT_TI_call
+     614 0001d2 6C00          CALL #_printf ; |324| 
+         0001d4 0000!
+     615                                                      ; call occurs [#_printf] ; |324| 
+     616                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     617 0001d6 A416          MOV *SP(#11), T0 ; |325| 
+     618 0001d8 0602          B $C$L21  ; |325| 
+         0001da 2D   
+     619                                                      ; branch occurs ; |325| 
+     620 0001db       $C$L9:    
+     621                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     622 0001db EC31          AMOV #$C$FSL13, XAR3 ; |329| 
+         0001dd BE00 
+         0001df 0268+
+     623 0001e1 EB00          MOV XAR3, dbl(*SP(#0))
+         0001e3 B5   
+     624              $C$DW$59        .dwtag  DW_TAG_TI_branch
+     625                      .dwattr $C$DW$59, DW_AT_low_pc(0x00)
+     626                      .dwattr $C$DW$59, DW_AT_name("_printf")
+     627                      .dwattr $C$DW$59, DW_AT_TI_call
+     628 0001e4 6C00          CALL #_printf ; |329| 
+         0001e6 0000!
+     629                                                      ; call occurs [#_printf] ; |329| 
+     630                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     631 0001e8 EC31          AMOV #_rtcGetConfig, XAR0 ; |333| 
+         0001ea 8E00 
+         0001ec 001D-
+     632              $C$DW$60        .dwtag  DW_TAG_TI_branch
+     633                      .dwattr $C$DW$60, DW_AT_low_pc(0x00)
+     634                      .dwattr $C$DW$60, DW_AT_name("_RTC_getConfig")
+     635                      .dwattr $C$DW$60, DW_AT_TI_call
+     636 0001ee 6C00          CALL #_RTC_getConfig ; |333| 
+         0001f0 0000!
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   15
+
+     637                                                      ; call occurs [#_RTC_getConfig] ; |333| 
+     638 0001f2 C416          MOV T0, *SP(#11) ; |333| 
+     639                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     640 0001f4 2249          MOV T0, AR1
+     641 0001f6 0409          BCC $C$L10,AR1 == #0 ; |334| 
+         0001f8 12   
+     642                                                      ; branchcc occurs ; |334| 
+     643                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     644 0001f9 EC31          AMOV #$C$FSL14, XAR3 ; |336| 
+         0001fb BE00 
+         0001fd 0280+
+     645 0001ff EB00          MOV XAR3, dbl(*SP(#0))
+         000201 B5   
+     646              $C$DW$61        .dwtag  DW_TAG_TI_branch
+     647                      .dwattr $C$DW$61, DW_AT_low_pc(0x00)
+     648                      .dwattr $C$DW$61, DW_AT_name("_printf")
+     649                      .dwattr $C$DW$61, DW_AT_TI_call
+     650 000202 6C00          CALL #_printf ; |336| 
+         000204 0000!
+     651                                                      ; call occurs [#_printf] ; |336| 
+     652                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     653 000206 A416          MOV *SP(#11), T0 ; |337| 
+     654 000208 0601          B $C$L21  ; |337| 
+         00020a FD   
+     655                                                      ; branch occurs ; |337| 
+     656 00020b       $C$L10:    
+     657                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     658 00020b EC31          AMOV #$C$FSL15, XAR3 ; |341| 
+         00020d BE00 
+         00020f 0296+
+     659 000211 EB00          MOV XAR3, dbl(*SP(#0))
+         000213 B5   
+     660              $C$DW$62        .dwtag  DW_TAG_TI_branch
+     661                      .dwattr $C$DW$62, DW_AT_low_pc(0x00)
+     662                      .dwattr $C$DW$62, DW_AT_name("_printf")
+     663                      .dwattr $C$DW$62, DW_AT_TI_call
+     664 000214 6C00          CALL #_printf ; |341| 
+         000216 0000!
+     665                                                      ; call occurs [#_printf] ; |341| 
+     666                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     667 000218 EC31          AMOV #_initTime, XAR0 ; |345| 
+         00021a 8E00 
+         00021c 0000-
+     668              $C$DW$63        .dwtag  DW_TAG_TI_branch
+     669                      .dwattr $C$DW$63, DW_AT_low_pc(0x00)
+     670                      .dwattr $C$DW$63, DW_AT_name("_RTC_setTime")
+     671                      .dwattr $C$DW$63, DW_AT_TI_call
+     672 00021e 6C00          CALL #_RTC_setTime ; |345| 
+         000220 0000!
+     673                                                      ; call occurs [#_RTC_setTime] ; |345| 
+     674 000222 C416          MOV T0, *SP(#11) ; |345| 
+     675                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     676 000224 2249          MOV T0, AR1
+     677 000226 0409          BCC $C$L11,AR1 == #0 ; |346| 
+         000228 12   
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   16
+
+     678                                                      ; branchcc occurs ; |346| 
+     679                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     680 000229 EC31          AMOV #$C$FSL16, XAR3 ; |348| 
+         00022b BE00 
+         00022d 02B0+
+     681 00022f EB00          MOV XAR3, dbl(*SP(#0))
+         000231 B5   
+     682              $C$DW$64        .dwtag  DW_TAG_TI_branch
+     683                      .dwattr $C$DW$64, DW_AT_low_pc(0x00)
+     684                      .dwattr $C$DW$64, DW_AT_name("_printf")
+     685                      .dwattr $C$DW$64, DW_AT_TI_call
+     686 000232 6C00          CALL #_printf ; |348| 
+         000234 0000!
+     687                                                      ; call occurs [#_printf] ; |348| 
+     688                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     689 000236 A416          MOV *SP(#11), T0 ; |349| 
+     690 000238 0601          B $C$L21  ; |349| 
+         00023a CD   
+     691                                                      ; branch occurs ; |349| 
+     692 00023b       $C$L11:    
+     693                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     694 00023b EC31          AMOV #$C$FSL17, XAR3 ; |353| 
+         00023d BE00 
+         00023f 02C4+
+     695 000241 EB00          MOV XAR3, dbl(*SP(#0))
+         000243 B5   
+     696              $C$DW$65        .dwtag  DW_TAG_TI_branch
+     697                      .dwattr $C$DW$65, DW_AT_low_pc(0x00)
+     698                      .dwattr $C$DW$65, DW_AT_name("_printf")
+     699                      .dwattr $C$DW$65, DW_AT_TI_call
+     700 000244 6C00          CALL #_printf ; |353| 
+         000246 0000!
+     701                                                      ; call occurs [#_printf] ; |353| 
+     702                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     703 000248 EC31          AMOV #_initDate, XAR0 ; |357| 
+         00024a 8E00 
+         00024c 0004-
+     704              $C$DW$66        .dwtag  DW_TAG_TI_branch
+     705                      .dwattr $C$DW$66, DW_AT_low_pc(0x00)
+     706                      .dwattr $C$DW$66, DW_AT_name("_RTC_setDate")
+     707                      .dwattr $C$DW$66, DW_AT_TI_call
+     708 00024e 6C00          CALL #_RTC_setDate ; |357| 
+         000250 0000!
+     709                                                      ; call occurs [#_RTC_setDate] ; |357| 
+     710 000252 C416          MOV T0, *SP(#11) ; |357| 
+     711                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     712 000254 2249          MOV T0, AR1
+     713 000256 0409          BCC $C$L12,AR1 == #0 ; |358| 
+         000258 12   
+     714                                                      ; branchcc occurs ; |358| 
+     715                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     716 000259 EC31          AMOV #$C$FSL18, XAR3 ; |360| 
+         00025b BE00 
+         00025d 02DC+
+     717 00025f EB00          MOV XAR3, dbl(*SP(#0))
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   17
+
+         000261 B5   
+     718              $C$DW$67        .dwtag  DW_TAG_TI_branch
+     719                      .dwattr $C$DW$67, DW_AT_low_pc(0x00)
+     720                      .dwattr $C$DW$67, DW_AT_name("_printf")
+     721                      .dwattr $C$DW$67, DW_AT_TI_call
+     722 000262 6C00          CALL #_printf ; |360| 
+         000264 0000!
+     723                                                      ; call occurs [#_printf] ; |360| 
+     724                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     725 000266 A416          MOV *SP(#11), T0 ; |361| 
+     726 000268 0601          B $C$L21  ; |361| 
+         00026a 9D   
+     727                                                      ; branch occurs ; |361| 
+     728 00026b       $C$L12:    
+     729                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     730 00026b EC31          AMOV #$C$FSL19, XAR3 ; |365| 
+         00026d BE00 
+         00026f 02F0+
+     731 000271 EB00          MOV XAR3, dbl(*SP(#0))
+         000273 B5   
+     732              $C$DW$68        .dwtag  DW_TAG_TI_branch
+     733                      .dwattr $C$DW$68, DW_AT_low_pc(0x00)
+     734                      .dwattr $C$DW$68, DW_AT_name("_printf")
+     735                      .dwattr $C$DW$68, DW_AT_TI_call
+     736 000274 6C00          CALL #_printf ; |365| 
+         000276 0000!
+     737                                                      ; call occurs [#_printf] ; |365| 
+     738                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     739              $C$DW$69        .dwtag  DW_TAG_TI_branch
+     740                      .dwattr $C$DW$69, DW_AT_low_pc(0x00)
+     741                      .dwattr $C$DW$69, DW_AT_name("_RTC_start")
+     742                      .dwattr $C$DW$69, DW_AT_TI_call
+     743 000278 6C00          CALL #_RTC_start ; |369| 
+         00027a 0000!
+     744                                                      ; call occurs [#_RTC_start] ; |369| 
+     745                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     746 00027c EC31          AMOV #_getTime, XAR0 ; |372| 
+         00027e 8E00 
+         000280 0007-
+     747              $C$DW$70        .dwtag  DW_TAG_TI_branch
+     748                      .dwattr $C$DW$70, DW_AT_low_pc(0x00)
+     749                      .dwattr $C$DW$70, DW_AT_name("_RTC_getTime")
+     750                      .dwattr $C$DW$70, DW_AT_TI_call
+     751 000282 6C00          CALL #_RTC_getTime ; |372| 
+         000284 0000!
+     752                                                      ; call occurs [#_RTC_getTime] ; |372| 
+     753 000286 C416          MOV T0, *SP(#11) ; |372| 
+     754                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     755 000288 2249          MOV T0, AR1
+     756 00028a 0409          BCC $C$L13,AR1 == #0 ; |373| 
+         00028c 12   
+     757                                                      ; branchcc occurs ; |373| 
+     758                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     759 00028d EC31          AMOV #$C$FSL20, XAR3 ; |375| 
+         00028f BE00 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   18
+
+         000291 0308+
+     760 000293 EB00          MOV XAR3, dbl(*SP(#0))
+         000295 B5   
+     761              $C$DW$71        .dwtag  DW_TAG_TI_branch
+     762                      .dwattr $C$DW$71, DW_AT_low_pc(0x00)
+     763                      .dwattr $C$DW$71, DW_AT_name("_printf")
+     764                      .dwattr $C$DW$71, DW_AT_TI_call
+     765 000296 6C00          CALL #_printf ; |375| 
+         000298 0000!
+     766                                                      ; call occurs [#_printf] ; |375| 
+     767                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     768 00029a A416          MOV *SP(#11), T0 ; |376| 
+     769 00029c 0601          B $C$L21  ; |376| 
+         00029e 69   
+     770                                                      ; branch occurs ; |376| 
+     771 00029f       $C$L13:    
+     772                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     773 00029f EC31          AMOV #$C$FSL21, XAR3 ; |380| 
+         0002a1 BE00 
+         0002a3 031C+
+     774 0002a5 EB00          MOV XAR3, dbl(*SP(#0))
+         0002a7 B5   
+     775              $C$DW$72        .dwtag  DW_TAG_TI_branch
+     776                      .dwattr $C$DW$72, DW_AT_low_pc(0x00)
+     777                      .dwattr $C$DW$72, DW_AT_name("_printf")
+     778                      .dwattr $C$DW$72, DW_AT_TI_call
+     779 0002a8 6C00          CALL #_printf ; |380| 
+         0002aa 0000!
+     780                                                      ; call occurs [#_printf] ; |380| 
+     781                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     782 0002ac EC31          AMOV #_GetDate, XAR0 ; |384| 
+         0002ae 8E00 
+         0002b0 000B-
+     783              $C$DW$73        .dwtag  DW_TAG_TI_branch
+     784                      .dwattr $C$DW$73, DW_AT_low_pc(0x00)
+     785                      .dwattr $C$DW$73, DW_AT_name("_RTC_getDate")
+     786                      .dwattr $C$DW$73, DW_AT_TI_call
+     787 0002b2 6C00          CALL #_RTC_getDate ; |384| 
+         0002b4 0000!
+     788                                                      ; call occurs [#_RTC_getDate] ; |384| 
+     789 0002b6 C416          MOV T0, *SP(#11) ; |384| 
+     790                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     791 0002b8 2249          MOV T0, AR1
+     792 0002ba 0409          BCC $C$L14,AR1 == #0 ; |385| 
+         0002bc 12   
+     793                                                      ; branchcc occurs ; |385| 
+     794                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     795 0002bd EC31          AMOV #$C$FSL22, XAR3 ; |387| 
+         0002bf BE00 
+         0002c1 0334+
+     796 0002c3 EB00          MOV XAR3, dbl(*SP(#0))
+         0002c5 B5   
+     797              $C$DW$74        .dwtag  DW_TAG_TI_branch
+     798                      .dwattr $C$DW$74, DW_AT_low_pc(0x00)
+     799                      .dwattr $C$DW$74, DW_AT_name("_printf")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   19
+
+     800                      .dwattr $C$DW$74, DW_AT_TI_call
+     801 0002c6 6C00          CALL #_printf ; |387| 
+         0002c8 0000!
+     802                                                      ; call occurs [#_printf] ; |387| 
+     803                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     804 0002ca A416          MOV *SP(#11), T0 ; |388| 
+     805 0002cc 0601          B $C$L21  ; |388| 
+         0002ce 39   
+     806                                                      ; branch occurs ; |388| 
+     807 0002cf       $C$L14:    
+     808                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     809 0002cf EC31          AMOV #$C$FSL23, XAR3 ; |392| 
+         0002d1 BE00 
+         0002d3 0348+
+     810 0002d5 EB00          MOV XAR3, dbl(*SP(#0))
+         0002d7 B5   
+     811              $C$DW$75        .dwtag  DW_TAG_TI_branch
+     812                      .dwattr $C$DW$75, DW_AT_low_pc(0x00)
+     813                      .dwattr $C$DW$75, DW_AT_name("_printf")
+     814                      .dwattr $C$DW$75, DW_AT_TI_call
+     815 0002d8 6C00          CALL #_printf ; |392| 
+         0002da 0000!
+     816                                                      ; call occurs [#_printf] ; |392| 
+     817                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     818 0002dc A931          MOV *(#_getTime), AR1 ; |396| 
+         0002de 0000 
+         0002e0 07-  
+     819 0002e1 EC31          AMOV #$C$FSL24, XAR3 ; |396| 
+         0002e3 BE00 
+         0002e5 0360+
+     820 0002e7 EB00          MOV XAR3, dbl(*SP(#0))
+         0002e9 B5   
+     821 0002ea C904          MOV AR1, *SP(#2) ; |396| 
+     822 0002ec A931          MOV *(#(_getTime+1)), AR1 ; |396| 
+         0002ee 0000 
+         0002f0 08-  
+     823 0002f1 C906          MOV AR1, *SP(#3) ; |396| 
+     824 0002f3 A931          MOV *(#(_getTime+2)), AR1 ; |396| 
+         0002f5 0000 
+         0002f7 09-  
+     825 0002f8 C908          MOV AR1, *SP(#4) ; |396| 
+     826 0002fa A931          MOV *(#(_getTime+3)), AR1 ; |396| 
+         0002fc 0000 
+         0002fe 0A-  
+     827 0002ff C90A          MOV AR1, *SP(#5) ; |396| 
+     828 000301 A931          MOV *(#(_GetDate+2)), AR1 ; |396| 
+         000303 0000 
+         000305 0D-  
+     829 000306 C90C          MOV AR1, *SP(#6) ; |396| 
+     830 000308 A931          MOV *(#(_GetDate+1)), AR1 ; |396| 
+         00030a 0000 
+         00030c 0C-  
+     831 00030d C90E          MOV AR1, *SP(#7) ; |396| 
+     832 00030f A931          MOV *(#_GetDate), AR1 ; |396| 
+         000311 0000 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   20
+
+         000313 0B-  
+     833 000314 C910          MOV AR1, *SP(#8) ; |396| 
+     834              $C$DW$76        .dwtag  DW_TAG_TI_branch
+     835                      .dwattr $C$DW$76, DW_AT_low_pc(0x00)
+     836                      .dwattr $C$DW$76, DW_AT_name("_printf")
+     837                      .dwattr $C$DW$76, DW_AT_TI_call
+     838 000316 6C00          CALL #_printf ; |396| 
+         000318 0000!
+     839                                                      ; call occurs [#_printf] ; |396| 
+     840                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     841 00031a A412          MOV *SP(#9), T0 ; |402| 
+     842 00031c A514          MOV *SP(#10), T1 ; |402| 
+     843              $C$DW$77        .dwtag  DW_TAG_TI_branch
+     844                      .dwattr $C$DW$77, DW_AT_low_pc(0x00)
+     845                      .dwattr $C$DW$77, DW_AT_name("_RTC_setCompensation")
+     846                      .dwattr $C$DW$77, DW_AT_TI_call
+     847 00031e 6C00          CALL #_RTC_setCompensation ; |402| 
+         000320 0000!
+     848                                                      ; call occurs [#_RTC_setCompensation] ; |402| 
+     849 000322 C416          MOV T0, *SP(#11) ; |402| 
+     850                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     851              
+     852 000324 2249          MOV T0, AR1
+     853 000326 3D0A  ||      MOV #0, AR2
+     854              
+     855 000328 12AC          CMP AR2 != AR1, TC1 ; |403| 
+         00032a 90   
+     856 00032b 6D64          BCC $C$L19,TC1 ; |403| 
+         00032d 00BB 
+     857                                                      ; branchcc occurs ; |403| 
+     858                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     859 00032f EC31          AMOV #$C$FSL25, XAR3 ; |405| 
+         000331 BE00 
+         000333 039A+
+     860 000335 EB00          MOV XAR3, dbl(*SP(#0))
+         000337 B5   
+     861              $C$DW$78        .dwtag  DW_TAG_TI_branch
+     862                      .dwattr $C$DW$78, DW_AT_low_pc(0x00)
+     863                      .dwattr $C$DW$78, DW_AT_name("_printf")
+     864                      .dwattr $C$DW$78, DW_AT_TI_call
+     865 000338 6C00          CALL #_printf ; |405| 
+         00033a 0000!
+     866                                                      ; call occurs [#_printf] ; |405| 
+     867                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     868 00033c E618          MOV #0, *SP(#12) ; |407| 
+         00033e 00   
+     869                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     870 00033f A918          MOV *SP(#12), AR1 ; |409| 
+     871 000341 6D19          BCC $C$L20,AR1 != #0 ; |409| 
+         000343 00BA 
+     872                                                      ; branchcc occurs ; |409| 
+     873 000345       $C$L15:    
+     874 000345       $C$DW$L$_rtc_compensation_test$23$B:
+     875                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     876 000345 EC31          AMOV #_getTime, XAR0 ; |412| 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   21
+
+         000347 8E00 
+         000349 0007-
+     877              $C$DW$79        .dwtag  DW_TAG_TI_branch
+     878                      .dwattr $C$DW$79, DW_AT_low_pc(0x00)
+     879                      .dwattr $C$DW$79, DW_AT_name("_RTC_getTime")
+     880                      .dwattr $C$DW$79, DW_AT_TI_call
+     881 00034b 6C00          CALL #_RTC_getTime ; |412| 
+         00034d 0000!
+     882                                                      ; call occurs [#_RTC_getTime] ; |412| 
+     883 00034f C416          MOV T0, *SP(#11) ; |412| 
+     884                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     885 000351 2249          MOV T0, AR1
+     886 000353 0409          BCC $C$L16,AR1 == #0 ; |413| 
+         000355 12   
+     887                                                      ; branchcc occurs ; |413| 
+     888 000356       $C$DW$L$_rtc_compensation_test$23$E:
+     889                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     890 000356 EC31          AMOV #$C$FSL20, XAR3 ; |415| 
+         000358 BE00 
+         00035a 0308+
+     891 00035c EB00          MOV XAR3, dbl(*SP(#0))
+         00035e B5   
+     892              $C$DW$80        .dwtag  DW_TAG_TI_branch
+     893                      .dwattr $C$DW$80, DW_AT_low_pc(0x00)
+     894                      .dwattr $C$DW$80, DW_AT_name("_printf")
+     895                      .dwattr $C$DW$80, DW_AT_TI_call
+     896 00035f 6C00          CALL #_printf ; |415| 
+         000361 0000!
+     897                                                      ; call occurs [#_printf] ; |415| 
+     898                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     899 000363 A416          MOV *SP(#11), T0 ; |416| 
+     900 000365 0600          B $C$L21  ; |416| 
+         000367 A0   
+     901                                                      ; branch occurs ; |416| 
+     902 000368       $C$L16:    
+     903 000368       $C$DW$L$_rtc_compensation_test$25$B:
+     904                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     905 000368 EC31          AMOV #_GetDate, XAR0 ; |420| 
+         00036a 8E00 
+         00036c 000B-
+     906              $C$DW$81        .dwtag  DW_TAG_TI_branch
+     907                      .dwattr $C$DW$81, DW_AT_low_pc(0x00)
+     908                      .dwattr $C$DW$81, DW_AT_name("_RTC_getDate")
+     909                      .dwattr $C$DW$81, DW_AT_TI_call
+     910 00036e 6C00          CALL #_RTC_getDate ; |420| 
+         000370 0000!
+     911                                                      ; call occurs [#_RTC_getDate] ; |420| 
+     912 000372 C416          MOV T0, *SP(#11) ; |420| 
+     913                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     914 000374 2249          MOV T0, AR1
+     915 000376 0409          BCC $C$L17,AR1 == #0 ; |421| 
+         000378 12   
+     916                                                      ; branchcc occurs ; |421| 
+     917 000379       $C$DW$L$_rtc_compensation_test$25$E:
+     918                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   22
+
+     919 000379 EC31          AMOV #$C$FSL22, XAR3 ; |423| 
+         00037b BE00 
+         00037d 0334+
+     920 00037f EB00          MOV XAR3, dbl(*SP(#0))
+         000381 B5   
+     921              $C$DW$82        .dwtag  DW_TAG_TI_branch
+     922                      .dwattr $C$DW$82, DW_AT_low_pc(0x00)
+     923                      .dwattr $C$DW$82, DW_AT_name("_printf")
+     924                      .dwattr $C$DW$82, DW_AT_TI_call
+     925 000382 6C00          CALL #_printf ; |423| 
+         000384 0000!
+     926                                                      ; call occurs [#_printf] ; |423| 
+     927                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     928 000386 A416          MOV *SP(#11), T0 ; |424| 
+     929 000388 0600          B $C$L21  ; |424| 
+         00038a 7D   
+     930                                                      ; branch occurs ; |424| 
+     931 00038b       $C$L17:    
+     932 00038b       $C$DW$L$_rtc_compensation_test$27$B:
+     933                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     934 00038b EC31          AMOV #$C$FSL26, XAR3 ; |427| 
+         00038d BE00 
+         00038f 03BC+
+     935 000391 A931          MOV *(#_getTime), AR1 ; |427| 
+         000393 0000 
+         000395 07-  
+     936 000396 EB00          MOV XAR3, dbl(*SP(#0))
+         000398 B5   
+     937 000399 C904          MOV AR1, *SP(#2) ; |427| 
+     938 00039b A931          MOV *(#(_getTime+1)), AR1 ; |427| 
+         00039d 0000 
+         00039f 08-  
+     939 0003a0 C906          MOV AR1, *SP(#3) ; |427| 
+     940 0003a2 A931          MOV *(#(_getTime+2)), AR1 ; |427| 
+         0003a4 0000 
+         0003a6 09-  
+     941 0003a7 C908          MOV AR1, *SP(#4) ; |427| 
+     942 0003a9 A931          MOV *(#(_getTime+3)), AR1 ; |427| 
+         0003ab 0000 
+         0003ad 0A-  
+     943 0003ae C90A          MOV AR1, *SP(#5) ; |427| 
+     944 0003b0 A931          MOV *(#(_GetDate+2)), AR1 ; |427| 
+         0003b2 0000 
+         0003b4 0D-  
+     945 0003b5 C90C          MOV AR1, *SP(#6) ; |427| 
+     946 0003b7 A931          MOV *(#(_GetDate+1)), AR1 ; |427| 
+         0003b9 0000 
+         0003bb 0C-  
+     947 0003bc C90E          MOV AR1, *SP(#7) ; |427| 
+     948 0003be A931          MOV *(#_GetDate), AR1 ; |427| 
+         0003c0 0000 
+         0003c2 0B-  
+     949 0003c3 C910          MOV AR1, *SP(#8) ; |427| 
+     950              $C$DW$83        .dwtag  DW_TAG_TI_branch
+     951                      .dwattr $C$DW$83, DW_AT_low_pc(0x00)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   23
+
+     952                      .dwattr $C$DW$83, DW_AT_name("_printf")
+     953                      .dwattr $C$DW$83, DW_AT_TI_call
+     954 0003c5 6C00          CALL #_printf ; |427| 
+         0003c7 0000!
+     955                                                      ; call occurs [#_printf] ; |427| 
+     956                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     957 0003c9 AA31          MOV *(#_getTime), AR2 ; |434| 
+         0003cb 0000 
+         0003cd 07-  
+     958 0003ce A931          MOV *(#_initTime), AR1 ; |434| 
+         0003d0 0000 
+         0003d2 00-  
+     959 0003d3 1298          CMPU AR2 <= AR1, TC1 ; |434| 
+         0003d5 A4   
+     960 0003d6 6564          BCC $C$L18,TC1 ; |434| 
+     961                                                      ; branchcc occurs ; |434| 
+     962 0003d8       $C$DW$L$_rtc_compensation_test$27$E:
+     963 0003d8       $C$DW$L$_rtc_compensation_test$28$B:
+     964 0003d8 A931          MOV *(#(_getTime+2)), AR1 ; |434| 
+         0003da 0000 
+         0003dc 09-  
+     965 0003dd 6189          BCC $C$L18,AR1 == #0 ; |434| 
+     966                                                      ; branchcc occurs ; |434| 
+     967 0003df       $C$DW$L$_rtc_compensation_test$28$E:
+     968 0003df       $C$DW$L$_rtc_compensation_test$29$B:
+     969                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     970 0003df E618          MOV #1, *SP(#12) ; |436| 
+         0003e1 01   
+     971 0003e2       $C$DW$L$_rtc_compensation_test$29$E:
+     972 0003e2       $C$L18:    
+     973 0003e2       $C$DW$L$_rtc_compensation_test$30$B:
+     974                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     975 0003e2 A918          MOV *SP(#12), AR1 ; |409| 
+     976 0003e4 6D09          BCC $C$L15,AR1 == #0 ; |409| 
+         0003e6 FF5D 
+     977                                                      ; branchcc occurs ; |409| 
+     978 0003e8       $C$DW$L$_rtc_compensation_test$30$E:
+     979                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     980 0003e8 4A15          B $C$L20  ; |439| 
+     981                                                      ; branch occurs ; |439| 
+     982 0003ea       $C$L19:    
+     983                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+     984 0003ea EC31          AMOV #$C$FSL27, XAR3 ; |442| 
+         0003ec BE00 
+         0003ee 03F4+
+     985 0003f0 EB00          MOV XAR3, dbl(*SP(#0))
+         0003f2 B5   
+     986              $C$DW$84        .dwtag  DW_TAG_TI_branch
+     987                      .dwattr $C$DW$84, DW_AT_low_pc(0x00)
+     988                      .dwattr $C$DW$84, DW_AT_name("_printf")
+     989                      .dwattr $C$DW$84, DW_AT_TI_call
+     990 0003f3 6C00          CALL #_printf ; |442| 
+         0003f5 0000!
+     991                                                      ; call occurs [#_printf] ; |442| 
+     992                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   24
+
+     993              $C$DW$85        .dwtag  DW_TAG_TI_branch
+     994                      .dwattr $C$DW$85, DW_AT_low_pc(0x00)
+     995                      .dwattr $C$DW$85, DW_AT_name("_RTC_stop")
+     996                      .dwattr $C$DW$85, DW_AT_TI_call
+     997 0003f7 6C00          CALL #_RTC_stop ; |445| 
+         0003f9 0000!
+     998                                                      ; call occurs [#_RTC_stop] ; |445| 
+     999                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+    1000 0003fb A416          MOV *SP(#11), T0 ; |446| 
+    1001 0003fd 4A09          B $C$L21  ; |446| 
+    1002                                                      ; branch occurs ; |446| 
+    1003 0003ff       $C$L20:    
+    1004                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+    1005              $C$DW$86        .dwtag  DW_TAG_TI_branch
+    1006                      .dwattr $C$DW$86, DW_AT_low_pc(0x00)
+    1007                      .dwattr $C$DW$86, DW_AT_name("_RTC_stop")
+    1008                      .dwattr $C$DW$86, DW_AT_TI_call
+    1009 0003ff 6C00          CALL #_RTC_stop ; |450| 
+         000401 0000!
+    1010                                                      ; call occurs [#_RTC_stop] ; |450| 
+    1011                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+    1012 000403 E616          MOV #1, *SP(#11) ; |452| 
+         000405 01   
+    1013                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+    1014 000406 A416          MOV *SP(#11), T0 ; |454| 
+    1015 000408       $C$L21:    
+    1016                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/CSL_RTC_Compensation_Exa
+    1017 000408 4E0F          AADD #15, SP
+    1018                      .dwcfi  cfa_offset, 1
+    1019              $C$DW$87        .dwtag  DW_TAG_TI_branch
+    1020                      .dwattr $C$DW$87, DW_AT_low_pc(0x00)
+    1021                      .dwattr $C$DW$87, DW_AT_TI_return
+    1022 00040a 4804          RET
+    1023                                                      ; return occurs
+    1024              
+    1025              $C$DW$88        .dwtag  DW_TAG_TI_loop
+    1026                      .dwattr $C$DW$88, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_rtc_compensation_example.asm:
+    1027                      .dwattr $C$DW$88, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc
+    1028                      .dwattr $C$DW$88, DW_AT_TI_begin_line(0x199)
+    1029                      .dwattr $C$DW$88, DW_AT_TI_end_line(0x1b6)
+    1030              $C$DW$89        .dwtag  DW_TAG_TI_loop_range
+    1031                      .dwattr $C$DW$89, DW_AT_low_pc($C$DW$L$_rtc_compensation_test$23$B)
+    1032                      .dwattr $C$DW$89, DW_AT_high_pc($C$DW$L$_rtc_compensation_test$23$E)
+    1033              $C$DW$90        .dwtag  DW_TAG_TI_loop_range
+    1034                      .dwattr $C$DW$90, DW_AT_low_pc($C$DW$L$_rtc_compensation_test$25$B)
+    1035                      .dwattr $C$DW$90, DW_AT_high_pc($C$DW$L$_rtc_compensation_test$25$E)
+    1036              $C$DW$91        .dwtag  DW_TAG_TI_loop_range
+    1037                      .dwattr $C$DW$91, DW_AT_low_pc($C$DW$L$_rtc_compensation_test$27$B)
+    1038                      .dwattr $C$DW$91, DW_AT_high_pc($C$DW$L$_rtc_compensation_test$27$E)
+    1039              $C$DW$92        .dwtag  DW_TAG_TI_loop_range
+    1040                      .dwattr $C$DW$92, DW_AT_low_pc($C$DW$L$_rtc_compensation_test$28$B)
+    1041                      .dwattr $C$DW$92, DW_AT_high_pc($C$DW$L$_rtc_compensation_test$28$E)
+    1042              $C$DW$93        .dwtag  DW_TAG_TI_loop_range
+    1043                      .dwattr $C$DW$93, DW_AT_low_pc($C$DW$L$_rtc_compensation_test$29$B)
+    1044                      .dwattr $C$DW$93, DW_AT_high_pc($C$DW$L$_rtc_compensation_test$29$E)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   25
+
+    1045              $C$DW$94        .dwtag  DW_TAG_TI_loop_range
+    1046                      .dwattr $C$DW$94, DW_AT_low_pc($C$DW$L$_rtc_compensation_test$30$B)
+    1047                      .dwattr $C$DW$94, DW_AT_high_pc($C$DW$L$_rtc_compensation_test$30$E)
+    1048                      .dwendtag $C$DW$88
+    1049              
+    1050              
+    1051              $C$DW$95        .dwtag  DW_TAG_TI_loop
+    1052                      .dwattr $C$DW$95, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_rtc_compensation_example.asm:
+    1053                      .dwattr $C$DW$95, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc
+    1054                      .dwattr $C$DW$95, DW_AT_TI_begin_line(0x13b)
+    1055                      .dwattr $C$DW$95, DW_AT_TI_end_line(0x13e)
+    1056              $C$DW$96        .dwtag  DW_TAG_TI_loop_range
+    1057                      .dwattr $C$DW$96, DW_AT_low_pc($C$DW$L$_rtc_compensation_test$2$B)
+    1058                      .dwattr $C$DW$96, DW_AT_high_pc($C$DW$L$_rtc_compensation_test$2$E)
+    1059                      .dwendtag $C$DW$95
+    1060              
+    1061                      .dwattr $C$DW$48, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/ccs_v4.0_examples/rtc/C
+    1062                      .dwattr $C$DW$48, DW_AT_TI_end_line(0x1c7)
+    1063                      .dwattr $C$DW$48, DW_AT_TI_end_column(0x01)
+    1064                      .dwendentry
+    1065                      .dwendtag $C$DW$48
+    1066              
+    1067              ;*******************************************************************************
+    1068              ;* FAR STRINGS                                                                 *
+    1069              ;*******************************************************************************
+    1070 000000               .sect   ".const:.string"
+    1071                      .align  2
+    1072 000000 0052  $C$FSL1:        .string "RTC Compensation Tests",10,0
+         000001 0054 
+         000002 0043 
+         000003 0020 
+         000004 0043 
+         000005 006F 
+         000006 006D 
+         000007 0070 
+         000008 0065 
+         000009 006E 
+         00000a 0073 
+         00000b 0061 
+         00000c 0074 
+         00000d 0069 
+         00000e 006F 
+         00000f 006E 
+         000010 0020 
+         000011 0054 
+         000012 0065 
+         000013 0073 
+         000014 0074 
+         000015 0073 
+         000016 000A 
+         000017 0000 
+    1073                      .align  2
+    1074 000018 000A  $C$FSL2:        .string 10,"RTC Positive Compensation Test with Compensation Value %"
+         000019 0052 
+         00001a 0054 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   26
+
+         00001b 0043 
+         00001c 0020 
+         00001d 0050 
+         00001e 006F 
+         00001f 0073 
+         000020 0069 
+         000021 0074 
+         000022 0069 
+         000023 0076 
+         000024 0065 
+         000025 0020 
+         000026 0043 
+         000027 006F 
+         000028 006D 
+         000029 0070 
+         00002a 0065 
+         00002b 006E 
+         00002c 0073 
+         00002d 0061 
+         00002e 0074 
+         00002f 0069 
+         000030 006F 
+         000031 006E 
+         000032 0020 
+         000033 0054 
+         000034 0065 
+         000035 0073 
+         000036 0074 
+         000037 0020 
+         000038 0077 
+         000039 0069 
+         00003a 0074 
+         00003b 0068 
+         00003c 0020 
+         00003d 0043 
+         00003e 006F 
+         00003f 006D 
+         000040 0070 
+         000041 0065 
+         000042 006E 
+         000043 0073 
+         000044 0061 
+         000045 0074 
+         000046 0069 
+         000047 006F 
+         000048 006E 
+         000049 0020 
+         00004a 0056 
+         00004b 0061 
+         00004c 006C 
+         00004d 0075 
+         00004e 0065 
+         00004f 0020 
+         000050 0025 
+    1075 000051 0064          .string "d",10,10,0
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   27
+
+         000052 000A 
+         000053 000A 
+         000054 0000 
+    1076                      .align  2
+    1077 000056 000A  $C$FSL3:        .string 10,"RTC Positive compensation test Completed!",10,0
+         000057 0052 
+         000058 0054 
+         000059 0043 
+         00005a 0020 
+         00005b 0050 
+         00005c 006F 
+         00005d 0073 
+         00005e 0069 
+         00005f 0074 
+         000060 0069 
+         000061 0076 
+         000062 0065 
+         000063 0020 
+         000064 0063 
+         000065 006F 
+         000066 006D 
+         000067 0070 
+         000068 0065 
+         000069 006E 
+         00006a 0073 
+         00006b 0061 
+         00006c 0074 
+         00006d 0069 
+         00006e 006F 
+         00006f 006E 
+         000070 0020 
+         000071 0074 
+         000072 0065 
+         000073 0073 
+         000074 0074 
+         000075 0020 
+         000076 0043 
+         000077 006F 
+         000078 006D 
+         000079 0070 
+         00007a 006C 
+         00007b 0065 
+         00007c 0074 
+         00007d 0065 
+         00007e 0064 
+         00007f 0021 
+         000080 000A 
+         000081 0000 
+    1078                      .align  2
+    1079 000082 000A  $C$FSL4:        .string 10,"RTC Positive compensation test Failed!",10,0
+         000083 0052 
+         000084 0054 
+         000085 0043 
+         000086 0020 
+         000087 0050 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   28
+
+         000088 006F 
+         000089 0073 
+         00008a 0069 
+         00008b 0074 
+         00008c 0069 
+         00008d 0076 
+         00008e 0065 
+         00008f 0020 
+         000090 0063 
+         000091 006F 
+         000092 006D 
+         000093 0070 
+         000094 0065 
+         000095 006E 
+         000096 0073 
+         000097 0061 
+         000098 0074 
+         000099 0069 
+         00009a 006F 
+         00009b 006E 
+         00009c 0020 
+         00009d 0074 
+         00009e 0065 
+         00009f 0073 
+         0000a0 0074 
+         0000a1 0020 
+         0000a2 0046 
+         0000a3 0061 
+         0000a4 0069 
+         0000a5 006C 
+         0000a6 0065 
+         0000a7 0064 
+         0000a8 0021 
+         0000a9 000A 
+         0000aa 0000 
+    1080                      .align  2
+    1081 0000ac 000A  $C$FSL5:        .string 10,10,10,10,10,"RTC Negative Compensation Test with Compensa"
+         0000ad 000A 
+         0000ae 000A 
+         0000af 000A 
+         0000b0 000A 
+         0000b1 0052 
+         0000b2 0054 
+         0000b3 0043 
+         0000b4 0020 
+         0000b5 004E 
+         0000b6 0065 
+         0000b7 0067 
+         0000b8 0061 
+         0000b9 0074 
+         0000ba 0069 
+         0000bb 0076 
+         0000bc 0065 
+         0000bd 0020 
+         0000be 0043 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   29
+
+         0000bf 006F 
+         0000c0 006D 
+         0000c1 0070 
+         0000c2 0065 
+         0000c3 006E 
+         0000c4 0073 
+         0000c5 0061 
+         0000c6 0074 
+         0000c7 0069 
+         0000c8 006F 
+         0000c9 006E 
+         0000ca 0020 
+         0000cb 0054 
+         0000cc 0065 
+         0000cd 0073 
+         0000ce 0074 
+         0000cf 0020 
+         0000d0 0077 
+         0000d1 0069 
+         0000d2 0074 
+         0000d3 0068 
+         0000d4 0020 
+         0000d5 0043 
+         0000d6 006F 
+         0000d7 006D 
+         0000d8 0070 
+         0000d9 0065 
+         0000da 006E 
+         0000db 0073 
+         0000dc 0061 
+    1082 0000dd 0074          .string "tion Value %d",10,10,0
+         0000de 0069 
+         0000df 006F 
+         0000e0 006E 
+         0000e1 0020 
+         0000e2 0056 
+         0000e3 0061 
+         0000e4 006C 
+         0000e5 0075 
+         0000e6 0065 
+         0000e7 0020 
+         0000e8 0025 
+         0000e9 0064 
+         0000ea 000A 
+         0000eb 000A 
+         0000ec 0000 
+    1083                      .align  2
+    1084 0000ee 000A  $C$FSL6:        .string 10,"RTC Negative compensation test Completed!",10,0
+         0000ef 0052 
+         0000f0 0054 
+         0000f1 0043 
+         0000f2 0020 
+         0000f3 004E 
+         0000f4 0065 
+         0000f5 0067 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   30
+
+         0000f6 0061 
+         0000f7 0074 
+         0000f8 0069 
+         0000f9 0076 
+         0000fa 0065 
+         0000fb 0020 
+         0000fc 0063 
+         0000fd 006F 
+         0000fe 006D 
+         0000ff 0070 
+         000100 0065 
+         000101 006E 
+         000102 0073 
+         000103 0061 
+         000104 0074 
+         000105 0069 
+         000106 006F 
+         000107 006E 
+         000108 0020 
+         000109 0074 
+         00010a 0065 
+         00010b 0073 
+         00010c 0074 
+         00010d 0020 
+         00010e 0043 
+         00010f 006F 
+         000110 006D 
+         000111 0070 
+         000112 006C 
+         000113 0065 
+         000114 0074 
+         000115 0065 
+         000116 0064 
+         000117 0021 
+         000118 000A 
+         000119 0000 
+    1085                      .align  2
+    1086 00011a 000A  $C$FSL7:        .string 10,"RTC Negative compensation test Failed!",10,0
+         00011b 0052 
+         00011c 0054 
+         00011d 0043 
+         00011e 0020 
+         00011f 004E 
+         000120 0065 
+         000121 0067 
+         000122 0061 
+         000123 0074 
+         000124 0069 
+         000125 0076 
+         000126 0065 
+         000127 0020 
+         000128 0063 
+         000129 006F 
+         00012a 006D 
+         00012b 0070 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   31
+
+         00012c 0065 
+         00012d 006E 
+         00012e 0073 
+         00012f 0061 
+         000130 0074 
+         000131 0069 
+         000132 006F 
+         000133 006E 
+         000134 0020 
+         000135 0074 
+         000136 0065 
+         000137 0073 
+         000138 0074 
+         000139 0020 
+         00013a 0046 
+         00013b 0061 
+         00013c 0069 
+         00013d 006C 
+         00013e 0065 
+         00013f 0064 
+         000140 0021 
+         000141 000A 
+         000142 0000 
+    1087                      .align  2
+    1088 000144 000A  $C$FSL8:        .string 10,"RTC Positive Compensation Test with compensation value(%"
+         000145 0052 
+         000146 0054 
+         000147 0043 
+         000148 0020 
+         000149 0050 
+         00014a 006F 
+         00014b 0073 
+         00014c 0069 
+         00014d 0074 
+         00014e 0069 
+         00014f 0076 
+         000150 0065 
+         000151 0020 
+         000152 0043 
+         000153 006F 
+         000154 006D 
+         000155 0070 
+         000156 0065 
+         000157 006E 
+         000158 0073 
+         000159 0061 
+         00015a 0074 
+         00015b 0069 
+         00015c 006F 
+         00015d 006E 
+         00015e 0020 
+         00015f 0054 
+         000160 0065 
+         000161 0073 
+         000162 0074 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   32
+
+         000163 0020 
+         000164 0077 
+         000165 0069 
+         000166 0074 
+         000167 0068 
+         000168 0020 
+         000169 0063 
+         00016a 006F 
+         00016b 006D 
+         00016c 0070 
+         00016d 0065 
+         00016e 006E 
+         00016f 0073 
+         000170 0061 
+         000171 0074 
+         000172 0069 
+         000173 006F 
+         000174 006E 
+         000175 0020 
+         000176 0076 
+         000177 0061 
+         000178 006C 
+         000179 0075 
+         00017a 0065 
+         00017b 0028 
+         00017c 0025 
+    1089 00017d 0064          .string "d) multiple of 10",10,0
+         00017e 0029 
+         00017f 0020 
+         000180 006D 
+         000181 0075 
+         000182 006C 
+         000183 0074 
+         000184 0069 
+         000185 0070 
+         000186 006C 
+         000187 0065 
+         000188 0020 
+         000189 006F 
+         00018a 0066 
+         00018b 0020 
+         00018c 0031 
+         00018d 0030 
+         00018e 000A 
+         00018f 0000 
+    1090                      .align  2
+    1091 000190 000A  $C$FSL9:        .string 10,"RTC Positive compensation test with compensation value m"
+         000191 0052 
+         000192 0054 
+         000193 0043 
+         000194 0020 
+         000195 0050 
+         000196 006F 
+         000197 0073 
+         000198 0069 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   33
+
+         000199 0074 
+         00019a 0069 
+         00019b 0076 
+         00019c 0065 
+         00019d 0020 
+         00019e 0063 
+         00019f 006F 
+         0001a0 006D 
+         0001a1 0070 
+         0001a2 0065 
+         0001a3 006E 
+         0001a4 0073 
+         0001a5 0061 
+         0001a6 0074 
+         0001a7 0069 
+         0001a8 006F 
+         0001a9 006E 
+         0001aa 0020 
+         0001ab 0074 
+         0001ac 0065 
+         0001ad 0073 
+         0001ae 0074 
+         0001af 0020 
+         0001b0 0077 
+         0001b1 0069 
+         0001b2 0074 
+         0001b3 0068 
+         0001b4 0020 
+         0001b5 0063 
+         0001b6 006F 
+         0001b7 006D 
+         0001b8 0070 
+         0001b9 0065 
+         0001ba 006E 
+         0001bb 0073 
+         0001bc 0061 
+         0001bd 0074 
+         0001be 0069 
+         0001bf 006F 
+         0001c0 006E 
+         0001c1 0020 
+         0001c2 0076 
+         0001c3 0061 
+         0001c4 006C 
+         0001c5 0075 
+         0001c6 0065 
+         0001c7 0020 
+         0001c8 006D 
+    1092 0001c9 0075          .string "ultiple of 10 Passed!",10,0
+         0001ca 006C 
+         0001cb 0074 
+         0001cc 0069 
+         0001cd 0070 
+         0001ce 006C 
+         0001cf 0065 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   34
+
+         0001d0 0020 
+         0001d1 006F 
+         0001d2 0066 
+         0001d3 0020 
+         0001d4 0031 
+         0001d5 0030 
+         0001d6 0020 
+         0001d7 0050 
+         0001d8 0061 
+         0001d9 0073 
+         0001da 0073 
+         0001db 0065 
+         0001dc 0064 
+         0001dd 0021 
+         0001de 000A 
+         0001df 0000 
+    1093                      .align  2
+    1094 0001e0 000A  $C$FSL10:       .string 10,"RTC Positive compensation test with compensation value m"
+         0001e1 0052 
+         0001e2 0054 
+         0001e3 0043 
+         0001e4 0020 
+         0001e5 0050 
+         0001e6 006F 
+         0001e7 0073 
+         0001e8 0069 
+         0001e9 0074 
+         0001ea 0069 
+         0001eb 0076 
+         0001ec 0065 
+         0001ed 0020 
+         0001ee 0063 
+         0001ef 006F 
+         0001f0 006D 
+         0001f1 0070 
+         0001f2 0065 
+         0001f3 006E 
+         0001f4 0073 
+         0001f5 0061 
+         0001f6 0074 
+         0001f7 0069 
+         0001f8 006F 
+         0001f9 006E 
+         0001fa 0020 
+         0001fb 0074 
+         0001fc 0065 
+         0001fd 0073 
+         0001fe 0074 
+         0001ff 0020 
+         000200 0077 
+         000201 0069 
+         000202 0074 
+         000203 0068 
+         000204 0020 
+         000205 0063 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   35
+
+         000206 006F 
+         000207 006D 
+         000208 0070 
+         000209 0065 
+         00020a 006E 
+         00020b 0073 
+         00020c 0061 
+         00020d 0074 
+         00020e 0069 
+         00020f 006F 
+         000210 006E 
+         000211 0020 
+         000212 0076 
+         000213 0061 
+         000214 006C 
+         000215 0075 
+         000216 0065 
+         000217 0020 
+         000218 006D 
+    1095 000219 0075          .string "ultiple of 10 Failed!",10,0
+         00021a 006C 
+         00021b 0074 
+         00021c 0069 
+         00021d 0070 
+         00021e 006C 
+         00021f 0065 
+         000220 0020 
+         000221 006F 
+         000222 0066 
+         000223 0020 
+         000224 0031 
+         000225 0030 
+         000226 0020 
+         000227 0046 
+         000228 0061 
+         000229 0069 
+         00022a 006C 
+         00022b 0065 
+         00022c 0064 
+         00022d 0021 
+         00022e 000A 
+         00022f 0000 
+    1096                      .align  2
+    1097 000230 0052  $C$FSL11:       .string "RTC Compensation Tests Complete!!",10,0
+         000231 0054 
+         000232 0043 
+         000233 0020 
+         000234 0043 
+         000235 006F 
+         000236 006D 
+         000237 0070 
+         000238 0065 
+         000239 006E 
+         00023a 0073 
+         00023b 0061 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   36
+
+         00023c 0074 
+         00023d 0069 
+         00023e 006F 
+         00023f 006E 
+         000240 0020 
+         000241 0054 
+         000242 0065 
+         000243 0073 
+         000244 0074 
+         000245 0073 
+         000246 0020 
+         000247 0043 
+         000248 006F 
+         000249 006D 
+         00024a 0070 
+         00024b 006C 
+         00024c 0065 
+         00024d 0074 
+         00024e 0065 
+         00024f 0021 
+         000250 0021 
+         000251 000A 
+         000252 0000 
+    1098                      .align  2
+    1099 000254 0052  $C$FSL12:       .string "RTC_config Failed",10,0
+         000255 0054 
+         000256 0043 
+         000257 005F 
+         000258 0063 
+         000259 006F 
+         00025a 006E 
+         00025b 0066 
+         00025c 0069 
+         00025d 0067 
+         00025e 0020 
+         00025f 0046 
+         000260 0061 
+         000261 0069 
+         000262 006C 
+         000263 0065 
+         000264 0064 
+         000265 000A 
+         000266 0000 
+    1100                      .align  2
+    1101 000268 0052  $C$FSL13:       .string "RTC_config Successful",10,0
+         000269 0054 
+         00026a 0043 
+         00026b 005F 
+         00026c 0063 
+         00026d 006F 
+         00026e 006E 
+         00026f 0066 
+         000270 0069 
+         000271 0067 
+         000272 0020 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   37
+
+         000273 0053 
+         000274 0075 
+         000275 0063 
+         000276 0063 
+         000277 0065 
+         000278 0073 
+         000279 0073 
+         00027a 0066 
+         00027b 0075 
+         00027c 006C 
+         00027d 000A 
+         00027e 0000 
+    1102                      .align  2
+    1103 000280 0052  $C$FSL14:       .string "RTC_getConfig Failed",10,0
+         000281 0054 
+         000282 0043 
+         000283 005F 
+         000284 0067 
+         000285 0065 
+         000286 0074 
+         000287 0043 
+         000288 006F 
+         000289 006E 
+         00028a 0066 
+         00028b 0069 
+         00028c 0067 
+         00028d 0020 
+         00028e 0046 
+         00028f 0061 
+         000290 0069 
+         000291 006C 
+         000292 0065 
+         000293 0064 
+         000294 000A 
+         000295 0000 
+    1104                      .align  2
+    1105 000296 0052  $C$FSL15:       .string "RTC_getConfig Successful",10,0
+         000297 0054 
+         000298 0043 
+         000299 005F 
+         00029a 0067 
+         00029b 0065 
+         00029c 0074 
+         00029d 0043 
+         00029e 006F 
+         00029f 006E 
+         0002a0 0066 
+         0002a1 0069 
+         0002a2 0067 
+         0002a3 0020 
+         0002a4 0053 
+         0002a5 0075 
+         0002a6 0063 
+         0002a7 0063 
+         0002a8 0065 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   38
+
+         0002a9 0073 
+         0002aa 0073 
+         0002ab 0066 
+         0002ac 0075 
+         0002ad 006C 
+         0002ae 000A 
+         0002af 0000 
+    1106                      .align  2
+    1107 0002b0 0052  $C$FSL16:       .string "RTC_setTime Failed",10,0
+         0002b1 0054 
+         0002b2 0043 
+         0002b3 005F 
+         0002b4 0073 
+         0002b5 0065 
+         0002b6 0074 
+         0002b7 0054 
+         0002b8 0069 
+         0002b9 006D 
+         0002ba 0065 
+         0002bb 0020 
+         0002bc 0046 
+         0002bd 0061 
+         0002be 0069 
+         0002bf 006C 
+         0002c0 0065 
+         0002c1 0064 
+         0002c2 000A 
+         0002c3 0000 
+    1108                      .align  2
+    1109 0002c4 0052  $C$FSL17:       .string "RTC_setTime Successful",10,0
+         0002c5 0054 
+         0002c6 0043 
+         0002c7 005F 
+         0002c8 0073 
+         0002c9 0065 
+         0002ca 0074 
+         0002cb 0054 
+         0002cc 0069 
+         0002cd 006D 
+         0002ce 0065 
+         0002cf 0020 
+         0002d0 0053 
+         0002d1 0075 
+         0002d2 0063 
+         0002d3 0063 
+         0002d4 0065 
+         0002d5 0073 
+         0002d6 0073 
+         0002d7 0066 
+         0002d8 0075 
+         0002d9 006C 
+         0002da 000A 
+         0002db 0000 
+    1110                      .align  2
+    1111 0002dc 0052  $C$FSL18:       .string "RTC_setDate Failed",10,0
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   39
+
+         0002dd 0054 
+         0002de 0043 
+         0002df 005F 
+         0002e0 0073 
+         0002e1 0065 
+         0002e2 0074 
+         0002e3 0044 
+         0002e4 0061 
+         0002e5 0074 
+         0002e6 0065 
+         0002e7 0020 
+         0002e8 0046 
+         0002e9 0061 
+         0002ea 0069 
+         0002eb 006C 
+         0002ec 0065 
+         0002ed 0064 
+         0002ee 000A 
+         0002ef 0000 
+    1112                      .align  2
+    1113 0002f0 0052  $C$FSL19:       .string "RTC_setDate Successful",10,0
+         0002f1 0054 
+         0002f2 0043 
+         0002f3 005F 
+         0002f4 0073 
+         0002f5 0065 
+         0002f6 0074 
+         0002f7 0044 
+         0002f8 0061 
+         0002f9 0074 
+         0002fa 0065 
+         0002fb 0020 
+         0002fc 0053 
+         0002fd 0075 
+         0002fe 0063 
+         0002ff 0063 
+         000300 0065 
+         000301 0073 
+         000302 0073 
+         000303 0066 
+         000304 0075 
+         000305 006C 
+         000306 000A 
+         000307 0000 
+    1114                      .align  2
+    1115 000308 0052  $C$FSL20:       .string "RTC_getTime Failed",10,0
+         000309 0054 
+         00030a 0043 
+         00030b 005F 
+         00030c 0067 
+         00030d 0065 
+         00030e 0074 
+         00030f 0054 
+         000310 0069 
+         000311 006D 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   40
+
+         000312 0065 
+         000313 0020 
+         000314 0046 
+         000315 0061 
+         000316 0069 
+         000317 006C 
+         000318 0065 
+         000319 0064 
+         00031a 000A 
+         00031b 0000 
+    1116                      .align  2
+    1117 00031c 0052  $C$FSL21:       .string "RTC_getTime Successful",10,0
+         00031d 0054 
+         00031e 0043 
+         00031f 005F 
+         000320 0067 
+         000321 0065 
+         000322 0074 
+         000323 0054 
+         000324 0069 
+         000325 006D 
+         000326 0065 
+         000327 0020 
+         000328 0053 
+         000329 0075 
+         00032a 0063 
+         00032b 0063 
+         00032c 0065 
+         00032d 0073 
+         00032e 0073 
+         00032f 0066 
+         000330 0075 
+         000331 006C 
+         000332 000A 
+         000333 0000 
+    1118                      .align  2
+    1119 000334 0052  $C$FSL22:       .string "RTC_getDate Failed",10,0
+         000335 0054 
+         000336 0043 
+         000337 005F 
+         000338 0067 
+         000339 0065 
+         00033a 0074 
+         00033b 0044 
+         00033c 0061 
+         00033d 0074 
+         00033e 0065 
+         00033f 0020 
+         000340 0046 
+         000341 0061 
+         000342 0069 
+         000343 006C 
+         000344 0065 
+         000345 0064 
+         000346 000A 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   41
+
+         000347 0000 
+    1120                      .align  2
+    1121 000348 0052  $C$FSL23:       .string "RTC_getDate Successful",10,0
+         000349 0054 
+         00034a 0043 
+         00034b 005F 
+         00034c 0067 
+         00034d 0065 
+         00034e 0074 
+         00034f 0044 
+         000350 0061 
+         000351 0074 
+         000352 0065 
+         000353 0020 
+         000354 0053 
+         000355 0075 
+         000356 0063 
+         000357 0063 
+         000358 0065 
+         000359 0073 
+         00035a 0073 
+         00035b 0066 
+         00035c 0075 
+         00035d 006C 
+         00035e 000A 
+         00035f 0000 
+    1122                      .align  2
+    1123 000360 000A  $C$FSL24:       .string 10,"Time and Date is : %02d:%02d:%02d:%04d, %02d-%02d-%02d",10
+         000361 0054 
+         000362 0069 
+         000363 006D 
+         000364 0065 
+         000365 0020 
+         000366 0061 
+         000367 006E 
+         000368 0064 
+         000369 0020 
+         00036a 0044 
+         00036b 0061 
+         00036c 0074 
+         00036d 0065 
+         00036e 0020 
+         00036f 0069 
+         000370 0073 
+         000371 0020 
+         000372 003A 
+         000373 0020 
+         000374 0025 
+         000375 0030 
+         000376 0032 
+         000377 0064 
+         000378 003A 
+         000379 0025 
+         00037a 0030 
+         00037b 0032 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   42
+
+         00037c 0064 
+         00037d 003A 
+         00037e 0025 
+         00037f 0030 
+         000380 0032 
+         000381 0064 
+         000382 003A 
+         000383 0025 
+         000384 0030 
+         000385 0034 
+         000386 0064 
+         000387 002C 
+         000388 0020 
+         000389 0025 
+         00038a 0030 
+         00038b 0032 
+         00038c 0064 
+         00038d 002D 
+         00038e 0025 
+         00038f 0030 
+         000390 0032 
+         000391 0064 
+         000392 002D 
+         000393 0025 
+         000394 0030 
+         000395 0032 
+         000396 0064 
+         000397 000A 
+    1124 000398 0000          .string 0
+    1125                      .align  2
+    1126 00039a 0052  $C$FSL25:       .string "RTC compensation set successful!",10,0
+         00039b 0054 
+         00039c 0043 
+         00039d 0020 
+         00039e 0063 
+         00039f 006F 
+         0003a0 006D 
+         0003a1 0070 
+         0003a2 0065 
+         0003a3 006E 
+         0003a4 0073 
+         0003a5 0061 
+         0003a6 0074 
+         0003a7 0069 
+         0003a8 006F 
+         0003a9 006E 
+         0003aa 0020 
+         0003ab 0073 
+         0003ac 0065 
+         0003ad 0074 
+         0003ae 0020 
+         0003af 0073 
+         0003b0 0075 
+         0003b1 0063 
+         0003b2 0063 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   43
+
+         0003b3 0065 
+         0003b4 0073 
+         0003b5 0073 
+         0003b6 0066 
+         0003b7 0075 
+         0003b8 006C 
+         0003b9 0021 
+         0003ba 000A 
+         0003bb 0000 
+    1127                      .align  2
+    1128 0003bc 0054  $C$FSL26:       .string "Time and Date is : %02d:%02d:%02d:%04d, %02d-%02d-%02d",10,0
+         0003bd 0069 
+         0003be 006D 
+         0003bf 0065 
+         0003c0 0020 
+         0003c1 0061 
+         0003c2 006E 
+         0003c3 0064 
+         0003c4 0020 
+         0003c5 0044 
+         0003c6 0061 
+         0003c7 0074 
+         0003c8 0065 
+         0003c9 0020 
+         0003ca 0069 
+         0003cb 0073 
+         0003cc 0020 
+         0003cd 003A 
+         0003ce 0020 
+         0003cf 0025 
+         0003d0 0030 
+         0003d1 0032 
+         0003d2 0064 
+         0003d3 003A 
+         0003d4 0025 
+         0003d5 0030 
+         0003d6 0032 
+         0003d7 0064 
+         0003d8 003A 
+         0003d9 0025 
+         0003da 0030 
+         0003db 0032 
+         0003dc 0064 
+         0003dd 003A 
+         0003de 0025 
+         0003df 0030 
+         0003e0 0034 
+         0003e1 0064 
+         0003e2 002C 
+         0003e3 0020 
+         0003e4 0025 
+         0003e5 0030 
+         0003e6 0032 
+         0003e7 0064 
+         0003e8 002D 
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   44
+
+         0003e9 0025 
+         0003ea 0030 
+         0003eb 0032 
+         0003ec 0064 
+         0003ed 002D 
+         0003ee 0025 
+         0003ef 0030 
+         0003f0 0032 
+         0003f1 0064 
+         0003f2 000A 
+         0003f3 0000 
+    1129                      .align  2
+    1130 0003f4 0052  $C$FSL27:       .string "RTC compensation set failed!",10,0
+         0003f5 0054 
+         0003f6 0043 
+         0003f7 0020 
+         0003f8 0063 
+         0003f9 006F 
+         0003fa 006D 
+         0003fb 0070 
+         0003fc 0065 
+         0003fd 006E 
+         0003fe 0073 
+         0003ff 0061 
+         000400 0074 
+         000401 0069 
+         000402 006F 
+         000403 006E 
+         000404 0020 
+         000405 0073 
+         000406 0065 
+         000407 0074 
+         000408 0020 
+         000409 0066 
+         00040a 0061 
+         00040b 0069 
+         00040c 006C 
+         00040d 0065 
+         00040e 0064 
+         00040f 0021 
+         000410 000A 
+         000411 0000 
+    1131              ;******************************************************************************
+    1132              ;* UNDEFINED EXTERNAL REFERENCES                                              *
+    1133              ;******************************************************************************
+    1134                      .global _printf
+    1135                      .global _RTC_reset
+    1136                      .global _RTC_start
+    1137                      .global _RTC_stop
+    1138                      .global _RTC_config
+    1139                      .global _RTC_getConfig
+    1140                      .global _RTC_setTime
+    1141                      .global _RTC_getTime
+    1142                      .global _RTC_setDate
+    1143                      .global _RTC_getDate
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   45
+
+    1144                      .global _RTC_setCompensation
+    1145              
+    1146              ;*******************************************************************************
+    1147              ;* TYPE INFORMATION                                                            *
+    1148              ;*******************************************************************************
+    1149              
+    1150              $C$DW$T$23      .dwtag  DW_TAG_enumeration_type
+    1151                      .dwattr $C$DW$T$23, DW_AT_byte_size(0x01)
+    1152              $C$DW$97        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_RTC_COMPENSATION_NEGATIVE"), DW_AT_const_value(0x0
+    1153              $C$DW$98        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_RTC_COMPENSATION_POSITIVE"), DW_AT_const_value(0x0
+    1154              $C$DW$99        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_RTC_COMPENSATION_INVALID"), DW_AT_const_value(0x02
+    1155                      .dwendtag $C$DW$T$23
+    1156              
+    1157              $C$DW$T$24      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_RTCCompType")
+    1158                      .dwattr $C$DW$T$24, DW_AT_type(*$C$DW$T$23)
+    1159                      .dwattr $C$DW$T$24, DW_AT_language(DW_LANG_C)
+    1160              
+    1161              $C$DW$T$20      .dwtag  DW_TAG_structure_type
+    1162                      .dwattr $C$DW$T$20, DW_AT_byte_size(0x0f)
+    1163              $C$DW$100       .dwtag  DW_TAG_member
+    1164                      .dwattr $C$DW$100, DW_AT_type(*$C$DW$T$19)
+    1165                      .dwattr $C$DW$100, DW_AT_name("rtcmSec")
+    1166                      .dwattr $C$DW$100, DW_AT_TI_symbol_name("_rtcmSec")
+    1167                      .dwattr $C$DW$100, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1168                      .dwattr $C$DW$100, DW_AT_accessibility(DW_ACCESS_public)
+    1169              $C$DW$101       .dwtag  DW_TAG_member
+    1170                      .dwattr $C$DW$101, DW_AT_type(*$C$DW$T$19)
+    1171                      .dwattr $C$DW$101, DW_AT_name("rtcsec")
+    1172                      .dwattr $C$DW$101, DW_AT_TI_symbol_name("_rtcsec")
+    1173                      .dwattr $C$DW$101, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+    1174                      .dwattr $C$DW$101, DW_AT_accessibility(DW_ACCESS_public)
+    1175              $C$DW$102       .dwtag  DW_TAG_member
+    1176                      .dwattr $C$DW$102, DW_AT_type(*$C$DW$T$19)
+    1177                      .dwattr $C$DW$102, DW_AT_name("rtcmin")
+    1178                      .dwattr $C$DW$102, DW_AT_TI_symbol_name("_rtcmin")
+    1179                      .dwattr $C$DW$102, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    1180                      .dwattr $C$DW$102, DW_AT_accessibility(DW_ACCESS_public)
+    1181              $C$DW$103       .dwtag  DW_TAG_member
+    1182                      .dwattr $C$DW$103, DW_AT_type(*$C$DW$T$19)
+    1183                      .dwattr $C$DW$103, DW_AT_name("rtchour")
+    1184                      .dwattr $C$DW$103, DW_AT_TI_symbol_name("_rtchour")
+    1185                      .dwattr $C$DW$103, DW_AT_data_member_location[DW_OP_plus_uconst 0x3]
+    1186                      .dwattr $C$DW$103, DW_AT_accessibility(DW_ACCESS_public)
+    1187              $C$DW$104       .dwtag  DW_TAG_member
+    1188                      .dwattr $C$DW$104, DW_AT_type(*$C$DW$T$19)
+    1189                      .dwattr $C$DW$104, DW_AT_name("rtcday")
+    1190                      .dwattr $C$DW$104, DW_AT_TI_symbol_name("_rtcday")
+    1191                      .dwattr $C$DW$104, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+    1192                      .dwattr $C$DW$104, DW_AT_accessibility(DW_ACCESS_public)
+    1193              $C$DW$105       .dwtag  DW_TAG_member
+    1194                      .dwattr $C$DW$105, DW_AT_type(*$C$DW$T$19)
+    1195                      .dwattr $C$DW$105, DW_AT_name("rtcmonth")
+    1196                      .dwattr $C$DW$105, DW_AT_TI_symbol_name("_rtcmonth")
+    1197                      .dwattr $C$DW$105, DW_AT_data_member_location[DW_OP_plus_uconst 0x5]
+    1198                      .dwattr $C$DW$105, DW_AT_accessibility(DW_ACCESS_public)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   46
+
+    1199              $C$DW$106       .dwtag  DW_TAG_member
+    1200                      .dwattr $C$DW$106, DW_AT_type(*$C$DW$T$19)
+    1201                      .dwattr $C$DW$106, DW_AT_name("rtcyear")
+    1202                      .dwattr $C$DW$106, DW_AT_TI_symbol_name("_rtcyear")
+    1203                      .dwattr $C$DW$106, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+    1204                      .dwattr $C$DW$106, DW_AT_accessibility(DW_ACCESS_public)
+    1205              $C$DW$107       .dwtag  DW_TAG_member
+    1206                      .dwattr $C$DW$107, DW_AT_type(*$C$DW$T$19)
+    1207                      .dwattr $C$DW$107, DW_AT_name("rtcmSeca")
+    1208                      .dwattr $C$DW$107, DW_AT_TI_symbol_name("_rtcmSeca")
+    1209                      .dwattr $C$DW$107, DW_AT_data_member_location[DW_OP_plus_uconst 0x7]
+    1210                      .dwattr $C$DW$107, DW_AT_accessibility(DW_ACCESS_public)
+    1211              $C$DW$108       .dwtag  DW_TAG_member
+    1212                      .dwattr $C$DW$108, DW_AT_type(*$C$DW$T$19)
+    1213                      .dwattr $C$DW$108, DW_AT_name("rtcseca")
+    1214                      .dwattr $C$DW$108, DW_AT_TI_symbol_name("_rtcseca")
+    1215                      .dwattr $C$DW$108, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
+    1216                      .dwattr $C$DW$108, DW_AT_accessibility(DW_ACCESS_public)
+    1217              $C$DW$109       .dwtag  DW_TAG_member
+    1218                      .dwattr $C$DW$109, DW_AT_type(*$C$DW$T$19)
+    1219                      .dwattr $C$DW$109, DW_AT_name("rtcmina")
+    1220                      .dwattr $C$DW$109, DW_AT_TI_symbol_name("_rtcmina")
+    1221                      .dwattr $C$DW$109, DW_AT_data_member_location[DW_OP_plus_uconst 0x9]
+    1222                      .dwattr $C$DW$109, DW_AT_accessibility(DW_ACCESS_public)
+    1223              $C$DW$110       .dwtag  DW_TAG_member
+    1224                      .dwattr $C$DW$110, DW_AT_type(*$C$DW$T$19)
+    1225                      .dwattr $C$DW$110, DW_AT_name("rtchoura")
+    1226                      .dwattr $C$DW$110, DW_AT_TI_symbol_name("_rtchoura")
+    1227                      .dwattr $C$DW$110, DW_AT_data_member_location[DW_OP_plus_uconst 0xa]
+    1228                      .dwattr $C$DW$110, DW_AT_accessibility(DW_ACCESS_public)
+    1229              $C$DW$111       .dwtag  DW_TAG_member
+    1230                      .dwattr $C$DW$111, DW_AT_type(*$C$DW$T$19)
+    1231                      .dwattr $C$DW$111, DW_AT_name("rtcdaya")
+    1232                      .dwattr $C$DW$111, DW_AT_TI_symbol_name("_rtcdaya")
+    1233                      .dwattr $C$DW$111, DW_AT_data_member_location[DW_OP_plus_uconst 0xb]
+    1234                      .dwattr $C$DW$111, DW_AT_accessibility(DW_ACCESS_public)
+    1235              $C$DW$112       .dwtag  DW_TAG_member
+    1236                      .dwattr $C$DW$112, DW_AT_type(*$C$DW$T$19)
+    1237                      .dwattr $C$DW$112, DW_AT_name("rtcmontha")
+    1238                      .dwattr $C$DW$112, DW_AT_TI_symbol_name("_rtcmontha")
+    1239                      .dwattr $C$DW$112, DW_AT_data_member_location[DW_OP_plus_uconst 0xc]
+    1240                      .dwattr $C$DW$112, DW_AT_accessibility(DW_ACCESS_public)
+    1241              $C$DW$113       .dwtag  DW_TAG_member
+    1242                      .dwattr $C$DW$113, DW_AT_type(*$C$DW$T$19)
+    1243                      .dwattr $C$DW$113, DW_AT_name("rtcyeara")
+    1244                      .dwattr $C$DW$113, DW_AT_TI_symbol_name("_rtcyeara")
+    1245                      .dwattr $C$DW$113, DW_AT_data_member_location[DW_OP_plus_uconst 0xd]
+    1246                      .dwattr $C$DW$113, DW_AT_accessibility(DW_ACCESS_public)
+    1247              $C$DW$114       .dwtag  DW_TAG_member
+    1248                      .dwattr $C$DW$114, DW_AT_type(*$C$DW$T$19)
+    1249                      .dwattr $C$DW$114, DW_AT_name("rtcintcr")
+    1250                      .dwattr $C$DW$114, DW_AT_TI_symbol_name("_rtcintcr")
+    1251                      .dwattr $C$DW$114, DW_AT_data_member_location[DW_OP_plus_uconst 0xe]
+    1252                      .dwattr $C$DW$114, DW_AT_accessibility(DW_ACCESS_public)
+    1253                      .dwendtag $C$DW$T$20
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   47
+
+    1254              
+    1255              $C$DW$T$25      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_RtcConfig")
+    1256                      .dwattr $C$DW$T$25, DW_AT_type(*$C$DW$T$20)
+    1257                      .dwattr $C$DW$T$25, DW_AT_language(DW_LANG_C)
+    1258              $C$DW$T$26      .dwtag  DW_TAG_pointer_type
+    1259                      .dwattr $C$DW$T$26, DW_AT_type(*$C$DW$T$25)
+    1260                      .dwattr $C$DW$T$26, DW_AT_address_class(0x17)
+    1261              
+    1262              $C$DW$T$21      .dwtag  DW_TAG_structure_type
+    1263                      .dwattr $C$DW$T$21, DW_AT_byte_size(0x04)
+    1264              $C$DW$115       .dwtag  DW_TAG_member
+    1265                      .dwattr $C$DW$115, DW_AT_type(*$C$DW$T$19)
+    1266                      .dwattr $C$DW$115, DW_AT_name("hours")
+    1267                      .dwattr $C$DW$115, DW_AT_TI_symbol_name("_hours")
+    1268                      .dwattr $C$DW$115, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1269                      .dwattr $C$DW$115, DW_AT_accessibility(DW_ACCESS_public)
+    1270              $C$DW$116       .dwtag  DW_TAG_member
+    1271                      .dwattr $C$DW$116, DW_AT_type(*$C$DW$T$19)
+    1272                      .dwattr $C$DW$116, DW_AT_name("mins")
+    1273                      .dwattr $C$DW$116, DW_AT_TI_symbol_name("_mins")
+    1274                      .dwattr $C$DW$116, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+    1275                      .dwattr $C$DW$116, DW_AT_accessibility(DW_ACCESS_public)
+    1276              $C$DW$117       .dwtag  DW_TAG_member
+    1277                      .dwattr $C$DW$117, DW_AT_type(*$C$DW$T$19)
+    1278                      .dwattr $C$DW$117, DW_AT_name("secs")
+    1279                      .dwattr $C$DW$117, DW_AT_TI_symbol_name("_secs")
+    1280                      .dwattr $C$DW$117, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    1281                      .dwattr $C$DW$117, DW_AT_accessibility(DW_ACCESS_public)
+    1282              $C$DW$118       .dwtag  DW_TAG_member
+    1283                      .dwattr $C$DW$118, DW_AT_type(*$C$DW$T$19)
+    1284                      .dwattr $C$DW$118, DW_AT_name("mSecs")
+    1285                      .dwattr $C$DW$118, DW_AT_TI_symbol_name("_mSecs")
+    1286                      .dwattr $C$DW$118, DW_AT_data_member_location[DW_OP_plus_uconst 0x3]
+    1287                      .dwattr $C$DW$118, DW_AT_accessibility(DW_ACCESS_public)
+    1288                      .dwendtag $C$DW$T$21
+    1289              
+    1290              $C$DW$T$27      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_RtcTime")
+    1291                      .dwattr $C$DW$T$27, DW_AT_type(*$C$DW$T$21)
+    1292                      .dwattr $C$DW$T$27, DW_AT_language(DW_LANG_C)
+    1293              $C$DW$T$28      .dwtag  DW_TAG_pointer_type
+    1294                      .dwattr $C$DW$T$28, DW_AT_type(*$C$DW$T$27)
+    1295                      .dwattr $C$DW$T$28, DW_AT_address_class(0x17)
+    1296              
+    1297              $C$DW$T$22      .dwtag  DW_TAG_structure_type
+    1298                      .dwattr $C$DW$T$22, DW_AT_byte_size(0x03)
+    1299              $C$DW$119       .dwtag  DW_TAG_member
+    1300                      .dwattr $C$DW$119, DW_AT_type(*$C$DW$T$19)
+    1301                      .dwattr $C$DW$119, DW_AT_name("year")
+    1302                      .dwattr $C$DW$119, DW_AT_TI_symbol_name("_year")
+    1303                      .dwattr $C$DW$119, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1304                      .dwattr $C$DW$119, DW_AT_accessibility(DW_ACCESS_public)
+    1305              $C$DW$120       .dwtag  DW_TAG_member
+    1306                      .dwattr $C$DW$120, DW_AT_type(*$C$DW$T$19)
+    1307                      .dwattr $C$DW$120, DW_AT_name("month")
+    1308                      .dwattr $C$DW$120, DW_AT_TI_symbol_name("_month")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   48
+
+    1309                      .dwattr $C$DW$120, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+    1310                      .dwattr $C$DW$120, DW_AT_accessibility(DW_ACCESS_public)
+    1311              $C$DW$121       .dwtag  DW_TAG_member
+    1312                      .dwattr $C$DW$121, DW_AT_type(*$C$DW$T$19)
+    1313                      .dwattr $C$DW$121, DW_AT_name("day")
+    1314                      .dwattr $C$DW$121, DW_AT_TI_symbol_name("_day")
+    1315                      .dwattr $C$DW$121, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    1316                      .dwattr $C$DW$121, DW_AT_accessibility(DW_ACCESS_public)
+    1317                      .dwendtag $C$DW$T$22
+    1318              
+    1319              $C$DW$T$29      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_RtcDate")
+    1320                      .dwattr $C$DW$T$29, DW_AT_type(*$C$DW$T$22)
+    1321                      .dwattr $C$DW$T$29, DW_AT_language(DW_LANG_C)
+    1322              $C$DW$T$30      .dwtag  DW_TAG_pointer_type
+    1323                      .dwattr $C$DW$T$30, DW_AT_type(*$C$DW$T$29)
+    1324                      .dwattr $C$DW$T$30, DW_AT_address_class(0x17)
+    1325              $C$DW$T$4       .dwtag  DW_TAG_base_type
+    1326                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+    1327                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+    1328                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+    1329              $C$DW$T$5       .dwtag  DW_TAG_base_type
+    1330                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+    1331                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+    1332                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+    1333              $C$DW$T$6       .dwtag  DW_TAG_base_type
+    1334                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+    1335                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+    1336                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+    1337              $C$DW$T$7       .dwtag  DW_TAG_base_type
+    1338                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+    1339                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+    1340                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+    1341              $C$DW$T$8       .dwtag  DW_TAG_base_type
+    1342                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+    1343                      .dwattr $C$DW$T$8, DW_AT_name("short")
+    1344                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+    1345              $C$DW$T$34      .dwtag  DW_TAG_typedef, DW_AT_name("Int16")
+    1346                      .dwattr $C$DW$T$34, DW_AT_type(*$C$DW$T$8)
+    1347                      .dwattr $C$DW$T$34, DW_AT_language(DW_LANG_C)
+    1348              $C$DW$T$35      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_Status")
+    1349                      .dwattr $C$DW$T$35, DW_AT_type(*$C$DW$T$34)
+    1350                      .dwattr $C$DW$T$35, DW_AT_language(DW_LANG_C)
+    1351              $C$DW$122       .dwtag  DW_TAG_TI_far_type
+    1352                      .dwattr $C$DW$122, DW_AT_type(*$C$DW$T$34)
+    1353              $C$DW$T$44      .dwtag  DW_TAG_volatile_type
+    1354                      .dwattr $C$DW$T$44, DW_AT_type(*$C$DW$122)
+    1355              $C$DW$T$9       .dwtag  DW_TAG_base_type
+    1356                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+    1357                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+    1358                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+    1359              $C$DW$T$19      .dwtag  DW_TAG_typedef, DW_AT_name("Uint16")
+    1360                      .dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$9)
+    1361                      .dwattr $C$DW$T$19, DW_AT_language(DW_LANG_C)
+    1362              $C$DW$123       .dwtag  DW_TAG_TI_far_type
+    1363                      .dwattr $C$DW$123, DW_AT_type(*$C$DW$T$19)
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   49
+
+    1364              $C$DW$T$45      .dwtag  DW_TAG_volatile_type
+    1365                      .dwattr $C$DW$T$45, DW_AT_type(*$C$DW$123)
+    1366              $C$DW$T$10      .dwtag  DW_TAG_base_type
+    1367                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+    1368                      .dwattr $C$DW$T$10, DW_AT_name("int")
+    1369                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+    1370              $C$DW$T$11      .dwtag  DW_TAG_base_type
+    1371                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+    1372                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+    1373                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+    1374              $C$DW$T$12      .dwtag  DW_TAG_base_type
+    1375                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+    1376                      .dwattr $C$DW$T$12, DW_AT_name("long")
+    1377                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+    1378              $C$DW$T$13      .dwtag  DW_TAG_base_type
+    1379                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+    1380                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+    1381                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+    1382              $C$DW$T$14      .dwtag  DW_TAG_base_type
+    1383                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+    1384                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+    1385                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+    1386                      .dwattr $C$DW$T$14, DW_AT_bit_size(0x28)
+    1387                      .dwattr $C$DW$T$14, DW_AT_bit_offset(0x18)
+    1388              $C$DW$T$15      .dwtag  DW_TAG_base_type
+    1389                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+    1390                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+    1391                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+    1392                      .dwattr $C$DW$T$15, DW_AT_bit_size(0x28)
+    1393                      .dwattr $C$DW$T$15, DW_AT_bit_offset(0x18)
+    1394              $C$DW$T$16      .dwtag  DW_TAG_base_type
+    1395                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+    1396                      .dwattr $C$DW$T$16, DW_AT_name("float")
+    1397                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+    1398              $C$DW$T$17      .dwtag  DW_TAG_base_type
+    1399                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+    1400                      .dwattr $C$DW$T$17, DW_AT_name("double")
+    1401                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+    1402              $C$DW$T$18      .dwtag  DW_TAG_base_type
+    1403                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+    1404                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+    1405                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x02)
+    1406              $C$DW$T$46      .dwtag  DW_TAG_base_type
+    1407                      .dwattr $C$DW$T$46, DW_AT_encoding(DW_ATE_signed_char)
+    1408                      .dwattr $C$DW$T$46, DW_AT_name("signed char")
+    1409                      .dwattr $C$DW$T$46, DW_AT_byte_size(0x01)
+    1410              $C$DW$124       .dwtag  DW_TAG_TI_far_type
+    1411                      .dwattr $C$DW$124, DW_AT_type(*$C$DW$T$46)
+    1412              $C$DW$T$47      .dwtag  DW_TAG_const_type
+    1413                      .dwattr $C$DW$T$47, DW_AT_type(*$C$DW$124)
+    1414              $C$DW$T$48      .dwtag  DW_TAG_pointer_type
+    1415                      .dwattr $C$DW$T$48, DW_AT_type(*$C$DW$T$47)
+    1416                      .dwattr $C$DW$T$48, DW_AT_address_class(0x17)
+    1417                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+    1418              
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   50
+
+    1419              ;***************************************************************
+    1420              ;* DWARF CIE ENTRIES                                           *
+    1421              ;***************************************************************
+    1422              
+    1423              $C$DW$CIE       .dwcie 91
+    1424                      .dwcfi  cfa_register, 36
+    1425                      .dwcfi  cfa_offset, 0
+    1426                      .dwcfi  undefined, 0
+    1427                      .dwcfi  undefined, 1
+    1428                      .dwcfi  undefined, 2
+    1429                      .dwcfi  undefined, 3
+    1430                      .dwcfi  undefined, 4
+    1431                      .dwcfi  undefined, 5
+    1432                      .dwcfi  undefined, 6
+    1433                      .dwcfi  undefined, 7
+    1434                      .dwcfi  undefined, 8
+    1435                      .dwcfi  undefined, 9
+    1436                      .dwcfi  undefined, 10
+    1437                      .dwcfi  undefined, 11
+    1438                      .dwcfi  undefined, 12
+    1439                      .dwcfi  undefined, 13
+    1440                      .dwcfi  same_value, 14
+    1441                      .dwcfi  same_value, 15
+    1442                      .dwcfi  undefined, 16
+    1443                      .dwcfi  undefined, 17
+    1444                      .dwcfi  undefined, 18
+    1445                      .dwcfi  undefined, 19
+    1446                      .dwcfi  undefined, 20
+    1447                      .dwcfi  undefined, 21
+    1448                      .dwcfi  undefined, 22
+    1449                      .dwcfi  undefined, 23
+    1450                      .dwcfi  undefined, 24
+    1451                      .dwcfi  undefined, 25
+    1452                      .dwcfi  same_value, 26
+    1453                      .dwcfi  same_value, 27
+    1454                      .dwcfi  same_value, 28
+    1455                      .dwcfi  same_value, 29
+    1456                      .dwcfi  same_value, 30
+    1457                      .dwcfi  same_value, 31
+    1458                      .dwcfi  undefined, 32
+    1459                      .dwcfi  undefined, 33
+    1460                      .dwcfi  undefined, 34
+    1461                      .dwcfi  undefined, 35
+    1462                      .dwcfi  undefined, 36
+    1463                      .dwcfi  undefined, 37
+    1464                      .dwcfi  undefined, 38
+    1465                      .dwcfi  undefined, 39
+    1466                      .dwcfi  undefined, 40
+    1467                      .dwcfi  undefined, 41
+    1468                      .dwcfi  undefined, 42
+    1469                      .dwcfi  undefined, 43
+    1470                      .dwcfi  undefined, 44
+    1471                      .dwcfi  undefined, 45
+    1472                      .dwcfi  undefined, 46
+    1473                      .dwcfi  undefined, 47
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   51
+
+    1474                      .dwcfi  undefined, 48
+    1475                      .dwcfi  undefined, 49
+    1476                      .dwcfi  undefined, 50
+    1477                      .dwcfi  undefined, 51
+    1478                      .dwcfi  undefined, 52
+    1479                      .dwcfi  undefined, 53
+    1480                      .dwcfi  undefined, 54
+    1481                      .dwcfi  undefined, 55
+    1482                      .dwcfi  undefined, 56
+    1483                      .dwcfi  undefined, 57
+    1484                      .dwcfi  undefined, 58
+    1485                      .dwcfi  undefined, 59
+    1486                      .dwcfi  undefined, 60
+    1487                      .dwcfi  undefined, 61
+    1488                      .dwcfi  undefined, 62
+    1489                      .dwcfi  undefined, 63
+    1490                      .dwcfi  undefined, 64
+    1491                      .dwcfi  undefined, 65
+    1492                      .dwcfi  undefined, 66
+    1493                      .dwcfi  undefined, 67
+    1494                      .dwcfi  undefined, 68
+    1495                      .dwcfi  undefined, 69
+    1496                      .dwcfi  undefined, 70
+    1497                      .dwcfi  undefined, 71
+    1498                      .dwcfi  undefined, 72
+    1499                      .dwcfi  undefined, 73
+    1500                      .dwcfi  undefined, 74
+    1501                      .dwcfi  undefined, 75
+    1502                      .dwcfi  undefined, 76
+    1503                      .dwcfi  undefined, 77
+    1504                      .dwcfi  undefined, 78
+    1505                      .dwcfi  undefined, 79
+    1506                      .dwcfi  undefined, 80
+    1507                      .dwcfi  undefined, 81
+    1508                      .dwcfi  undefined, 82
+    1509                      .dwcfi  undefined, 83
+    1510                      .dwcfi  undefined, 84
+    1511                      .dwcfi  undefined, 85
+    1512                      .dwcfi  undefined, 86
+    1513                      .dwcfi  undefined, 87
+    1514                      .dwcfi  undefined, 88
+    1515                      .dwcfi  undefined, 89
+    1516                      .dwcfi  undefined, 90
+    1517                      .dwcfi  undefined, 91
+    1518                      .dwendentry
+    1519              
+    1520              ;***************************************************************
+    1521              ;* DWARF REGISTER MAP                                          *
+    1522              ;***************************************************************
+    1523              
+    1524              $C$DW$125       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1525                      .dwattr $C$DW$125, DW_AT_location[DW_OP_reg0]
+    1526              $C$DW$126       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1527                      .dwattr $C$DW$126, DW_AT_location[DW_OP_reg1]
+    1528              $C$DW$127       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0_G")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   52
+
+    1529                      .dwattr $C$DW$127, DW_AT_location[DW_OP_reg2]
+    1530              $C$DW$128       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1531                      .dwattr $C$DW$128, DW_AT_location[DW_OP_reg3]
+    1532              $C$DW$129       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1533                      .dwattr $C$DW$129, DW_AT_location[DW_OP_reg4]
+    1534              $C$DW$130       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1_G")
+    1535                      .dwattr $C$DW$130, DW_AT_location[DW_OP_reg5]
+    1536              $C$DW$131       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1537                      .dwattr $C$DW$131, DW_AT_location[DW_OP_reg6]
+    1538              $C$DW$132       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1539                      .dwattr $C$DW$132, DW_AT_location[DW_OP_reg7]
+    1540              $C$DW$133       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2_G")
+    1541                      .dwattr $C$DW$133, DW_AT_location[DW_OP_reg8]
+    1542              $C$DW$134       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    1543                      .dwattr $C$DW$134, DW_AT_location[DW_OP_reg9]
+    1544              $C$DW$135       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    1545                      .dwattr $C$DW$135, DW_AT_location[DW_OP_reg10]
+    1546              $C$DW$136       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3_G")
+    1547                      .dwattr $C$DW$136, DW_AT_location[DW_OP_reg11]
+    1548              $C$DW$137       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T0")
+    1549                      .dwattr $C$DW$137, DW_AT_location[DW_OP_reg12]
+    1550              $C$DW$138       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T1")
+    1551                      .dwattr $C$DW$138, DW_AT_location[DW_OP_reg13]
+    1552              $C$DW$139       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T2")
+    1553                      .dwattr $C$DW$139, DW_AT_location[DW_OP_reg14]
+    1554              $C$DW$140       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T3")
+    1555                      .dwattr $C$DW$140, DW_AT_location[DW_OP_reg15]
+    1556              $C$DW$141       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+    1557                      .dwattr $C$DW$141, DW_AT_location[DW_OP_reg16]
+    1558              $C$DW$142       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+    1559                      .dwattr $C$DW$142, DW_AT_location[DW_OP_reg17]
+    1560              $C$DW$143       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+    1561                      .dwattr $C$DW$143, DW_AT_location[DW_OP_reg18]
+    1562              $C$DW$144       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+    1563                      .dwattr $C$DW$144, DW_AT_location[DW_OP_reg19]
+    1564              $C$DW$145       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+    1565                      .dwattr $C$DW$145, DW_AT_location[DW_OP_reg20]
+    1566              $C$DW$146       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+    1567                      .dwattr $C$DW$146, DW_AT_location[DW_OP_reg21]
+    1568              $C$DW$147       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+    1569                      .dwattr $C$DW$147, DW_AT_location[DW_OP_reg22]
+    1570              $C$DW$148       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+    1571                      .dwattr $C$DW$148, DW_AT_location[DW_OP_reg23]
+    1572              $C$DW$149       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+    1573                      .dwattr $C$DW$149, DW_AT_location[DW_OP_reg24]
+    1574              $C$DW$150       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+    1575                      .dwattr $C$DW$150, DW_AT_location[DW_OP_reg25]
+    1576              $C$DW$151       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+    1577                      .dwattr $C$DW$151, DW_AT_location[DW_OP_reg26]
+    1578              $C$DW$152       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+    1579                      .dwattr $C$DW$152, DW_AT_location[DW_OP_reg27]
+    1580              $C$DW$153       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+    1581                      .dwattr $C$DW$153, DW_AT_location[DW_OP_reg28]
+    1582              $C$DW$154       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+    1583                      .dwattr $C$DW$154, DW_AT_location[DW_OP_reg29]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   53
+
+    1584              $C$DW$155       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+    1585                      .dwattr $C$DW$155, DW_AT_location[DW_OP_reg30]
+    1586              $C$DW$156       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+    1587                      .dwattr $C$DW$156, DW_AT_location[DW_OP_reg31]
+    1588              $C$DW$157       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+    1589                      .dwattr $C$DW$157, DW_AT_location[DW_OP_regx 0x20]
+    1590              $C$DW$158       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XFP")
+    1591                      .dwattr $C$DW$158, DW_AT_location[DW_OP_regx 0x21]
+    1592              $C$DW$159       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+    1593                      .dwattr $C$DW$159, DW_AT_location[DW_OP_regx 0x22]
+    1594              $C$DW$160       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+    1595                      .dwattr $C$DW$160, DW_AT_location[DW_OP_regx 0x23]
+    1596              $C$DW$161       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XSP")
+    1597                      .dwattr $C$DW$161, DW_AT_location[DW_OP_regx 0x24]
+    1598              $C$DW$162       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BKC")
+    1599                      .dwattr $C$DW$162, DW_AT_location[DW_OP_regx 0x25]
+    1600              $C$DW$163       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK03")
+    1601                      .dwattr $C$DW$163, DW_AT_location[DW_OP_regx 0x26]
+    1602              $C$DW$164       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK47")
+    1603                      .dwattr $C$DW$164, DW_AT_location[DW_OP_regx 0x27]
+    1604              $C$DW$165       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+    1605                      .dwattr $C$DW$165, DW_AT_location[DW_OP_regx 0x28]
+    1606              $C$DW$166       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+    1607                      .dwattr $C$DW$166, DW_AT_location[DW_OP_regx 0x29]
+    1608              $C$DW$167       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST2")
+    1609                      .dwattr $C$DW$167, DW_AT_location[DW_OP_regx 0x2a]
+    1610              $C$DW$168       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST3")
+    1611                      .dwattr $C$DW$168, DW_AT_location[DW_OP_regx 0x2b]
+    1612              $C$DW$169       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP")
+    1613                      .dwattr $C$DW$169, DW_AT_location[DW_OP_regx 0x2c]
+    1614              $C$DW$170       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP05")
+    1615                      .dwattr $C$DW$170, DW_AT_location[DW_OP_regx 0x2d]
+    1616              $C$DW$171       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP67")
+    1617                      .dwattr $C$DW$171, DW_AT_location[DW_OP_regx 0x2e]
+    1618              $C$DW$172       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC0")
+    1619                      .dwattr $C$DW$172, DW_AT_location[DW_OP_regx 0x2f]
+    1620              $C$DW$173       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0")
+    1621                      .dwattr $C$DW$173, DW_AT_location[DW_OP_regx 0x30]
+    1622              $C$DW$174       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0_H")
+    1623                      .dwattr $C$DW$174, DW_AT_location[DW_OP_regx 0x31]
+    1624              $C$DW$175       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0")
+    1625                      .dwattr $C$DW$175, DW_AT_location[DW_OP_regx 0x32]
+    1626              $C$DW$176       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0_H")
+    1627                      .dwattr $C$DW$176, DW_AT_location[DW_OP_regx 0x33]
+    1628              $C$DW$177       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRS1")
+    1629                      .dwattr $C$DW$177, DW_AT_location[DW_OP_regx 0x34]
+    1630              $C$DW$178       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC1")
+    1631                      .dwattr $C$DW$178, DW_AT_location[DW_OP_regx 0x35]
+    1632              $C$DW$179       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1")
+    1633                      .dwattr $C$DW$179, DW_AT_location[DW_OP_regx 0x36]
+    1634              $C$DW$180       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1_H")
+    1635                      .dwattr $C$DW$180, DW_AT_location[DW_OP_regx 0x37]
+    1636              $C$DW$181       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1")
+    1637                      .dwattr $C$DW$181, DW_AT_location[DW_OP_regx 0x38]
+    1638              $C$DW$182       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1_H")
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   54
+
+    1639                      .dwattr $C$DW$182, DW_AT_location[DW_OP_regx 0x39]
+    1640              $C$DW$183       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CSR")
+    1641                      .dwattr $C$DW$183, DW_AT_location[DW_OP_regx 0x3a]
+    1642              $C$DW$184       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPTC")
+    1643                      .dwattr $C$DW$184, DW_AT_location[DW_OP_regx 0x3b]
+    1644              $C$DW$185       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDP")
+    1645                      .dwattr $C$DW$185, DW_AT_location[DW_OP_regx 0x3c]
+    1646              $C$DW$186       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XCDP")
+    1647                      .dwattr $C$DW$186, DW_AT_location[DW_OP_regx 0x3d]
+    1648              $C$DW$187       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN0")
+    1649                      .dwattr $C$DW$187, DW_AT_location[DW_OP_regx 0x3e]
+    1650              $C$DW$188       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN1")
+    1651                      .dwattr $C$DW$188, DW_AT_location[DW_OP_regx 0x3f]
+    1652              $C$DW$189       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA01")
+    1653                      .dwattr $C$DW$189, DW_AT_location[DW_OP_regx 0x40]
+    1654              $C$DW$190       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA23")
+    1655                      .dwattr $C$DW$190, DW_AT_location[DW_OP_regx 0x41]
+    1656              $C$DW$191       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA45")
+    1657                      .dwattr $C$DW$191, DW_AT_location[DW_OP_regx 0x42]
+    1658              $C$DW$192       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA67")
+    1659                      .dwattr $C$DW$192, DW_AT_location[DW_OP_regx 0x43]
+    1660              $C$DW$193       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSAC")
+    1661                      .dwattr $C$DW$193, DW_AT_location[DW_OP_regx 0x44]
+    1662              $C$DW$194       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CARRY")
+    1663                      .dwattr $C$DW$194, DW_AT_location[DW_OP_regx 0x45]
+    1664              $C$DW$195       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC1")
+    1665                      .dwattr $C$DW$195, DW_AT_location[DW_OP_regx 0x46]
+    1666              $C$DW$196       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC2")
+    1667                      .dwattr $C$DW$196, DW_AT_location[DW_OP_regx 0x47]
+    1668              $C$DW$197       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("M40")
+    1669                      .dwattr $C$DW$197, DW_AT_location[DW_OP_regx 0x48]
+    1670              $C$DW$198       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXMD")
+    1671                      .dwattr $C$DW$198, DW_AT_location[DW_OP_regx 0x49]
+    1672              $C$DW$199       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ARMS")
+    1673                      .dwattr $C$DW$199, DW_AT_location[DW_OP_regx 0x4a]
+    1674              $C$DW$200       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("C54CM")
+    1675                      .dwattr $C$DW$200, DW_AT_location[DW_OP_regx 0x4b]
+    1676              $C$DW$201       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATA")
+    1677                      .dwattr $C$DW$201, DW_AT_location[DW_OP_regx 0x4c]
+    1678              $C$DW$202       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATD")
+    1679                      .dwattr $C$DW$202, DW_AT_location[DW_OP_regx 0x4d]
+    1680              $C$DW$203       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RDM")
+    1681                      .dwattr $C$DW$203, DW_AT_location[DW_OP_regx 0x4e]
+    1682              $C$DW$204       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FRCT")
+    1683                      .dwattr $C$DW$204, DW_AT_location[DW_OP_regx 0x4f]
+    1684              $C$DW$205       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SMUL")
+    1685                      .dwattr $C$DW$205, DW_AT_location[DW_OP_regx 0x50]
+    1686              $C$DW$206       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+    1687                      .dwattr $C$DW$206, DW_AT_location[DW_OP_regx 0x51]
+    1688              $C$DW$207       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0LC")
+    1689                      .dwattr $C$DW$207, DW_AT_location[DW_OP_regx 0x52]
+    1690              $C$DW$208       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1LC")
+    1691                      .dwattr $C$DW$208, DW_AT_location[DW_OP_regx 0x53]
+    1692              $C$DW$209       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2LC")
+    1693                      .dwattr $C$DW$209, DW_AT_location[DW_OP_regx 0x54]
+TMS320C55x Assembler PC v4.4.1 Sat Sep 29 23:08:49 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_rtc_compensation_example.asm                                     PAGE   55
+
+    1694              $C$DW$210       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3LC")
+    1695                      .dwattr $C$DW$210, DW_AT_location[DW_OP_regx 0x55]
+    1696              $C$DW$211       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4LC")
+    1697                      .dwattr $C$DW$211, DW_AT_location[DW_OP_regx 0x56]
+    1698              $C$DW$212       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5LC")
+    1699                      .dwattr $C$DW$212, DW_AT_location[DW_OP_regx 0x57]
+    1700              $C$DW$213       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6LC")
+    1701                      .dwattr $C$DW$213, DW_AT_location[DW_OP_regx 0x58]
+    1702              $C$DW$214       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7LC")
+    1703                      .dwattr $C$DW$214, DW_AT_location[DW_OP_regx 0x59]
+    1704              $C$DW$215       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDPLC")
+    1705                      .dwattr $C$DW$215, DW_AT_location[DW_OP_regx 0x5a]
+    1706              $C$DW$216       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+    1707                      .dwattr $C$DW$216, DW_AT_location[DW_OP_regx 0x5b]
+    1708                      .dwendtag $C$DW$CU
+    1709              
+    1709              
+    1709              
+
+No Assembly Errors, No Assembly Warnings

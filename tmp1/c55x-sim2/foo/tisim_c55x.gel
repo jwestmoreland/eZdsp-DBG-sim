@@ -1,0 +1,7 @@
+
+/* The Startup() function is executed when the GEL file is loaded. */
+
+StartUp()
+{
+	GEL_MapOff();
+}
