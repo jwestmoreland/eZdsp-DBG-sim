@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Sun Sep 30 06:35:15 2018                                 *
+;* Date/Time created: Tue Oct 02 02:33:58 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,7 +27,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../FreeRTOS/Source/portable/CCS/c55x/port.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
 ;******************************************************************************
 ;* CINIT RECORDS                                                              *
 ;******************************************************************************
@@ -642,7 +642,7 @@ $C$DW$46	.dwtag  DW_TAG_variable, DW_AT_name("usCriticalNesting")
 	.dwattr $C$DW$46, DW_AT_location[DW_OP_addr _usCriticalNesting]
 	.dwattr $C$DW$46, DW_AT_type(*$C$DW$T$32)
 	.dwattr $C$DW$46, DW_AT_external
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1582012 
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1532812 
 	.sect	".text"
  .align 4
 	.sect	".text"
@@ -989,7 +989,7 @@ $C$DW$L$_vPortEndScheduler$2$B:
 $C$DW$L$_vPortEndScheduler$2$E:
 
 $C$DW$58	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$58, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\port.asm:$C$L1:1:1538314515")
+	.dwattr $C$DW$58, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\port.asm:$C$L1:1:1538472839")
 	.dwattr $C$DW$58, DW_AT_TI_begin_file("../FreeRTOS/Source/portable/CCS/c55x/port.c")
 	.dwattr $C$DW$58, DW_AT_TI_begin_line(0x1d8)
 	.dwattr $C$DW$58, DW_AT_TI_end_line(0x1d8)

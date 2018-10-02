@@ -11,16 +11,23 @@
 <setEntry value="SUBPATH"/>
 <setEntry value="SYSTEM"/>
 </setAttribute>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_LAUNCH_SCRIPT" value="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\ezdsp5535.gel"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_LAUNCH_SCRIPT" value="F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\ezdsp5535.gel"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x" value="F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\foo.out"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.Texas Instruments Simulator/C55xx" value="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\foo.out"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\targetConfigs\EZDSP5535.ccxml"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x" value="F:/eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\foo.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\EZDSP5535.ccxml"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.C55xx Rev3.0 CPU Cycle Accurate Simulator_0/TMS320C55x" value="F:/eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\foo.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x" value="F:/eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\foo.out"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Texas Instruments Simulator/C55xx" value="F:/eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\foo.out"/>
 <mapAttribute key="com.ti.ccstudio.debug.ui.displayFormats">
+<mapEntry key="C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x@##separator##@1" value="16-Bit Hex - TI Style"/>
 <mapEntry key="Texas Instruments Simulator/C55xx@##separator##@0" value="8-Bit Hex - TI Style"/>
 <mapEntry key="Texas Instruments Simulator/C55xx@##separator##@1" value="16-Bit Hex - TI Style"/>
 </mapAttribute>
 <stringAttribute key="org.eclipse.dsf.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;memoryBlockExpressionList context=&quot;reserved-for-future-use&quot;/&gt;&#13;&#10;"/>
+<listAttribute key="pinConnections">
+<listEntry value="SINT4@@F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\DAT.txt"/>
+</listAttribute>
+<stringAttribute key="saved_expressions&lt;seperator&gt;C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x&lt;seperator&gt;DATA" value="0x1e26,0x0"/>
 <stringAttribute key="saved_expressions&lt;seperator&gt;Texas Instruments Simulator/C55xx&lt;seperator&gt;DATA" value="0x4cf00,0x00"/>
 <stringAttribute key="saved_expressions&lt;seperator&gt;Texas Instruments Simulator/C55xx&lt;seperator&gt;PROGRAM" value="0x4cf00"/>
 </launchConfiguration>

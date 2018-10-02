@@ -1,10 +1,10 @@
 ******************************************************************************
               TMS320C55x Linker PC v4.4.1                      
 ******************************************************************************
->> Linked Sun Sep 30 06:35:16 2018
+>> Linked Tue Oct 02 02:34:08 2018
 
 OUTPUT FILE NAME:   <foo.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 00034e50
+ENTRY POINT SYMBOL: "_c_int00"  address: 000355b0
 
 
 MEMORY CONFIGURATION
@@ -15,8 +15,8 @@ MEMORY CONFIGURATION
 PAGE 0:
   MMR                   00000000   000000c0  00000000  000000c0  RWIX
   DARAM0                000000c0   0000ff40  0000b75e  000047e2  RWIX
-  SARAM0                00010000   00010000  0000fffc  00000004  RWIX
-  SARAM1                00020000   00020000  00014f92  0000b06e  RWIX
+  SARAM0                00010000   00010000  0000fffe  00000002  RWIX
+  SARAM1                00020000   00020000  000156ea  0000a916  RWIX
   SARAM2                00040000   0000cdda  00000ac8  0000c312  RWIX
   VECS                  0004ce00   00000200  00000200  00000000  RWIX
   PDROM                 00ff8000   00008000  00000000  00008000  R IX
@@ -138,227 +138,227 @@ section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
                  [ 0000b830 ]  00005c18          *   00000002              : fltlid.obj (.const)
                  [ 0000b834 ]  00005c1a          *   00000002              : fltuld.obj (.const)
 
-.text.1      0     00010000  [ 00008000 ] 0000da46          *   
+.text.1      0     00010000  [ 00008000 ] 0000dd3a          *   
                    00010000  [ 00008000 ] 0000444f          *   csl_mmcsd.obj (.text)
                    0001444f  [ 0000a227 ] 00000001          *   --HOLE-- [fill = 20]
-                   00014450  [ 0000a228 ] 00002b4f          *   csl_msc.obj (.text)
-                   00016f9f  [ 0000b7cf ] 00000001          *   --HOLE-- [fill = 20]
-                   00016fa0  [ 0000b7d0 ] 00002a24          *   csl_sdio.obj (.text)
-                   000199c4  [ 0000cce2 ] 000021d5          *   csl_usb.obj (.text)
-                   0001bb99  [ 0000ddcc+] 00000002          *   rts55x.lib : vectors.obj (.text)
-                   0001bb9b  [ 0000ddcd ] 00000001          *   --HOLE-- [fill = 20]
-                   0001bb9c  [ 0000ddce ] 00001ea9          *   tasks_sysStk.obj (.text)
-                   0001da45  [ 0000ed22 ] 00000001          *   --HOLE-- [fill = 20]
+                   00014450  [ 0000a228 ] 00002d9b          *   csl_msc.obj (.text)
+                   000171eb  [ 0000b8f5 ] 00000001          *   --HOLE-- [fill = 20]
+                   000171ec  [ 0000b8f6 ] 00002a24          *   csl_sdio.obj (.text)
+                   00019c10  [ 0000ce08 ] 00002201          *   csl_usb.obj (.text)
+                   0001be11  [ 0000df08+] 00000002          *   rts55x.lib : vectors.obj (.text)
+                   0001be13  [ 0000df09 ] 00000001          *   --HOLE-- [fill = 20]
+                   0001be14  [ 0000df0a ] 00001f25          *   tasks_sysStk.obj (.text)
+                   0001dd39  [ 0000ee9c ] 00000001          *   --HOLE-- [fill = 20]
 
-.text.2      0     0001da48  [ 0000ed24 ] 00002512          *   
-                   0001da48  [ 0000ed24 ] 000018ac          *   csl_dma.obj (.text)
-                   0001f2f4  [ 0000f97a ] 00000c65          *   csl_cdc.obj (.text)
-                   0001ff59  [ 0000ffac ] 00000001          *   --HOLE-- [fill = 20]
-
-.text.3      0     0001ff5c  [ 0000ffae ] 000000a4          *   
-                   0001ff5c  [ 0000ffae ] 000000a2          *   ezdsp5535_uart.obj (.text)
+.text.2      0     0001dd3c  [ 0000ee9e ] 000022c4          *   
+                   0001dd3c  [ 0000ee9e ] 000018bc          *   csl_dma.obj (.text)
+                   0001f5f8  [ 0000fafc ] 000009ff          *   csl_i2s.obj (.text)
+                   0001fff7  [ 0000fffb+] 00000007          *   rts55x.lib : exit.obj (.text:CIO_breakpoint)
                    0001fffe  [ 0000ffff ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.4      0     00020000  [ 00010000 ] 00004ac8          *   
+.text.3      0     00020000  [ 00010000 ] 00004b84          *   
                    00020000  [ 00010000 ] 000015a4          *   rts55x.lib : _printfi.obj (.text)
-                   000215a4  [ 00010ad2 ] 00001230          *   queue.obj (.text)
-                   000227d4  [ 000113ea ] 000011eb          *   csl_nand.obj (.text)
-                   000239bf  [ 00011cdf ] 00000001          *   --HOLE-- [fill = 20]
-                   000239c0  [ 00011ce0 ] 00001106          *   csl_uart.obj (.text)
-                   00024ac6  [ 00012563 ] 00000002          *   --HOLE-- [fill = 20]
+                   000215a4  [ 00010ad2 ] 00001277          *   queue.obj (.text)
+                   0002281b  [ 0001140d ] 00000001          *   --HOLE-- [fill = 20]
+                   0002281c  [ 0001140e ] 0000125f          *   csl_nand.obj (.text)
+                   00023a7b  [ 00011d3d ] 00000001          *   --HOLE-- [fill = 20]
+                   00023a7c  [ 00011d3e ] 00001106          *   csl_uart.obj (.text)
+                   00024b82  [ 000125c1 ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.5      0     00024ac8  [ 00012564 ] 00000dc2          *   
-                   00024ac8  [ 00012564 ] 00000dc1          *   csl_dat.obj (.text)
-                   00025889  [ 00012c44 ] 00000001          *   --HOLE-- [fill = 20]
+.text.4      0     00024b84  [ 000125c2 ] 00001ba2          *   
+                   00024b84  [ 000125c2 ] 00000de0          *   csl_audioClass.obj (.text)
+                   00025964  [ 00012cb2 ] 00000dc1          *   csl_dat.obj (.text)
+                   00026725  [ 00013392 ] 00000001          *   --HOLE-- [fill = 20]
 
-.text.6      0     0002588c  [ 00012c46 ] 00002500          *   
-                   0002588c  [ 00012c46 ] 00000d74          *   csl_audioClass.obj (.text)
-                   00026600  [ 00013300 ] 00000c4c          *   csl_i2c.obj (.text)
-                   0002724c  [ 00013926 ] 00000b3e          *   csl_mmcsd_ataIf.obj (.text)
-                   00027d8a  [ 00013ec5 ] 00000002          *   --HOLE-- [fill = 20]
+.text.5      0     00026728  [ 00013394 ] 0000251c          *   
+                   00026728  [ 00013394 ] 00000d2f          *   csl_cdc.obj (.text)
+                   00027457  [ 00013a2b ] 00000001          *   --HOLE-- [fill = 20]
+                   00027458  [ 00013a2c ] 00000c4c          *   csl_i2c.obj (.text)
+                   000280a4  [ 00014052 ] 00000b9e          *   csl_mmcsd_ataIf.obj (.text)
+                   00028c42  [ 00014621 ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.7      0     00027d8c  [ 00013ec6 ] 0000409e          *   
-                   00027d8c  [ 00013ec6 ] 00000b2b          *   csl_sar.obj (.text)
-                   000288b7  [ 0001445b ] 00000001          *   --HOLE-- [fill = 20]
-                   000288b8  [ 0001445c ] 00000a58          *   stream_buffer.obj (.text)
-                   00029310  [ 00014988 ] 000009e3          *   csl_i2s.obj (.text)
-                   00029cf3  [ 00014e79 ] 00000001          *   --HOLE-- [fill = 20]
-                   00029cf4  [ 00014e7a ] 000008b4          *   csl_rtc.obj (.text)
-                   0002a5a8  [ 000152d4 ] 00000838          *   csl_lcdc.obj (.text)
-                   0002ade0  [ 000156f0 ] 0000082b          *   main.obj (.text)
-                   0002b60b  [ 00015b05 ] 00000001          *   --HOLE-- [fill = 20]
-                   0002b60c  [ 00015b06 ] 0000081d          *   oled_test.obj (.text)
-                   0002be29  [ 00015f14 ] 00000001          *   --HOLE-- [fill = 20]
+.text.6      0     00028c44  [ 00014622 ] 000036da          *   
+                   00028c44  [ 00014622 ] 00000b2b          *   csl_sar.obj (.text)
+                   0002976f  [ 00014bb7 ] 00000001          *   --HOLE-- [fill = 20]
+                   00029770  [ 00014bb8 ] 00000a68          *   stream_buffer.obj (.text)
+                   0002a1d8  [ 000150ec ] 000008b4          *   csl_rtc.obj (.text)
+                   0002aa8c  [ 00015546 ] 00000848          *   csl_lcdc.obj (.text)
+                   0002b2d4  [ 0001596a ] 0000082b          *   main.obj (.text)
+                   0002baff  [ 00015d7f ] 00000001          *   --HOLE-- [fill = 20]
+                   0002bb00  [ 00015d80 ] 0000081d          *   oled_test.obj (.text)
+                   0002c31d  [ 0001618e ] 00000001          *   --HOLE-- [fill = 20]
 
-.text.8      0     0002be2c  [ 00015f16 ] 00002430          *   
-                   0002be2c  [ 00015f16 ] 0000076f          *   portASM.obj (.text)
-                   0002c59b  [ 000162cd ] 00000001          *   --HOLE-- [fill = 20]
-                   0002c59c  [ 000162ce ] 00000697          *   csl_gpio.obj (.text)
-                   0002cc33  [ 00016619 ] 00000001          *   --HOLE-- [fill = 20]
-                   0002cc34  [ 0001661a ] 000005bb          *   csl_spi.obj (.text)
-                   0002d1ef  [ 000168f7 ] 00000001          *   --HOLE-- [fill = 20]
-                   0002d1f0  [ 000168f8 ] 000005b3          *   blocktim.obj (.text)
-                   0002d7a3  [ 00016bd1 ] 00000001          *   --HOLE-- [fill = 20]
-                   0002d7a4  [ 00016bd2 ] 00000573          *   event_groups.obj (.text)
-                   0002dd17  [ 00016e8b+] 00000543          *   rts55x.lib : lowlev.obj (.text)
-                   0002e25a  [ 0001712d ] 00000002          *   --HOLE-- [fill = 20]
+.text.7      0     0002c320  [ 00016190 ] 0000386c          *   
+                   0002c320  [ 00016190 ] 0000076f          *   portASM.obj (.text)
+                   0002ca8f  [ 00016547 ] 00000001          *   --HOLE-- [fill = 20]
+                   0002ca90  [ 00016548 ] 00000697          *   csl_gpio.obj (.text)
+                   0002d127  [ 00016893 ] 00000001          *   --HOLE-- [fill = 20]
+                   0002d128  [ 00016894 ] 000005d3          *   csl_spi.obj (.text)
+                   0002d6fb  [ 00016b7d ] 00000001          *   --HOLE-- [fill = 20]
+                   0002d6fc  [ 00016b7e ] 000005b3          *   blocktim.obj (.text)
+                   0002dcaf  [ 00016e57 ] 00000001          *   --HOLE-- [fill = 20]
+                   0002dcb0  [ 00016e58 ] 00000573          *   event_groups.obj (.text)
+                   0002e223  [ 00017111 ] 00000001          *   --HOLE-- [fill = 20]
+                   0002e224  [ 00017112 ] 00000570          *   csl_intc.obj (.text)
+                   0002e794  [ 000173ca ] 00000543          *   rts55x.lib : lowlev.obj (.text)
+                   0002ecd7  [ 0001766b+] 00000528          *              : trgdrv.obj (.text)
+                   0002f1ff  [ 000178ff ] 00000001          *   --HOLE-- [fill = 20]
+                   0002f200  [ 00017900 ] 000004d5          *   ezdsp5535_sdcard.obj (.text)
+                   0002f6d5  [ 00017b6a+] 000004b5          *   rts55x.lib : memory.obj (.text)
+                   0002fb8a  [ 00017dc5 ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.9      0     0002e25c  [ 0001712e ] 000013ec          *   
-                   0002e25c  [ 0001712e ] 00000538          *   csl_intc.obj (.text)
-                   0002e794  [ 000173ca ] 00000528          *   rts55x.lib : trgdrv.obj (.text)
-                   0002ecbc  [ 0001765e ] 000004d5          *   ezdsp5535_sdcard.obj (.text)
-                   0002f191  [ 000178c8+] 000004b5          *   rts55x.lib : memory.obj (.text)
-                   0002f646  [ 00017b23 ] 00000002          *   --HOLE-- [fill = 20]
+.text.8      0     0002fb8c  [ 00017dc6 ] 00000430          *   
+                   0002fb8c  [ 00017dc6 ] 0000042e          *   QPeek.obj (.text)
+                   0002ffba  [ 00017fdd ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.10     0     0002f648  [ 00017b24 ] 00000430          *   
-                   0002f648  [ 00017b24 ] 0000042e          *   QPeek.obj (.text)
-                   0002fa76  [ 00017d3b ] 00000002          *   --HOLE-- [fill = 20]
+.text.9      0     0002ffbc  [ 00017fde ] 00000bb4          *   
+                   0002ffbc  [ 00017fde ] 000003fb          *   dynamic.obj (.text)
+                   000303b7  [ 000181db ] 00000001          *   --HOLE-- [fill = 20]
+                   000303b8  [ 000181dc ] 000003ea          *   flop.obj (.text)
+                   000307a2  [ 000183d1 ] 000003cc          *   rts55x.lib : divd.obj (.text)
+                   00030b6e  [ 000185b7 ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.11     0     0002fa78  [ 00017d3c ] 00000b9c          *   
-                   0002fa78  [ 00017d3c ] 000003fb          *   dynamic.obj (.text)
-                   0002fe73  [ 00017f39 ] 00000001          *   --HOLE-- [fill = 20]
-                   0002fe74  [ 00017f3a ] 000003d2          *   flop.obj (.text)
-                   00030246  [ 00018123 ] 000003cc          *   rts55x.lib : divd.obj (.text)
-                   00030612  [ 00018309 ] 00000002          *   --HOLE-- [fill = 20]
+.text.10     0     00030b70  [ 000185b8 ] 000003c4          *   
+                   00030b70  [ 000185b8 ] 000003c2          *   ezdsp5535_spiflash.obj (.text)
+                   00030f32  [ 00018799 ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.12     0     00030614  [ 0001830a ] 000003c4          *   
-                   00030614  [ 0001830a ] 000003c2          *   ezdsp5535_spiflash.obj (.text)
-                   000309d6  [ 000184eb ] 00000002          *   --HOLE-- [fill = 20]
+.text.11     0     00030f34  [ 0001879a ] 0000034a          *   
+                   00030f34  [ 0001879a ] 00000349          *   csl_mem.obj (.text)
+                   0003127d  [ 0001893e ] 00000001          *   --HOLE-- [fill = 20]
 
-.text.13     0     000309d8  [ 000184ec ] 00000346          *   
-                   000309d8  [ 000184ec ] 00000345          *   csl_mem.obj (.text)
-                   00030d1d  [ 0001868e ] 00000001          *   --HOLE-- [fill = 20]
+.text.12     0     00031280  [ 00018940 ] 000017c8          *   
+                   00031280  [ 00018940 ] 000002f7          *   csl_gpt.obj (.text)
+                   00031577  [ 00018abb ] 00000001          *   --HOLE-- [fill = 20]
+                   00031578  [ 00018abc ] 000002f4          *   semtest.obj (.text)
+                   0003186c  [ 00018c36 ] 000002ef          *   aic_test_i2c.obj (.text)
+                   00031b5b  [ 00018dad ] 00000001          *   --HOLE-- [fill = 20]
+                   00031b5c  [ 00018dae ] 000002b4          *   csl_pll.obj (.text)
+                   00031e10  [ 00018f08 ] 00000298          *   i2s_register.obj (.text)
+                   000320a8  [ 00019054 ] 0000027f          *   rts55x.lib : fopen.obj (.text)
+                   00032327  [ 00019193 ] 00000001          *   --HOLE-- [fill = 20]
+                   00032328  [ 00019194 ] 00000266          *   csl_wdt.obj (.text)
+                   0003258e  [ 000192c7 ] 0000025e          *   rts55x.lib : llmpy.obj (.text)
+                   000327ec  [ 000193f6 ] 0000025a          *              : addd.obj (.text)
+                   00032a46  [ 00019523 ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.14     0     00030d20  [ 00018690 ] 000017c0          *   
-                   00030d20  [ 00018690 ] 000002f7          *   csl_gpt.obj (.text)
-                   00031017  [ 0001880b ] 00000001          *   --HOLE-- [fill = 20]
-                   00031018  [ 0001880c ] 000002f4          *   semtest.obj (.text)
-                   0003130c  [ 00018986 ] 000002ef          *   aic_test_i2c.obj (.text)
-                   000315fb  [ 00018afd ] 00000001          *   --HOLE-- [fill = 20]
-                   000315fc  [ 00018afe ] 000002ac          *   csl_pll.obj (.text)
-                   000318a8  [ 00018c54 ] 00000298          *   i2s_register.obj (.text)
-                   00031b40  [ 00018da0 ] 0000027f          *   rts55x.lib : fopen.obj (.text)
-                   00031dbf  [ 00018edf ] 00000001          *   --HOLE-- [fill = 20]
-                   00031dc0  [ 00018ee0 ] 00000266          *   csl_wdt.obj (.text)
-                   00032026  [ 00019013 ] 0000025e          *   rts55x.lib : llmpy.obj (.text)
-                   00032284  [ 00019142 ] 0000025a          *              : addd.obj (.text)
-                   000324de  [ 0001926f ] 00000002          *   --HOLE-- [fill = 20]
+.text.13     0     00032a48  [ 00019524 ] 00000238          *   
+                   00032a48  [ 00019524 ] 00000236          *   QueueOverwrite.obj (.text)
+                   00032c7e  [ 0001963f ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.15     0     000324e0  [ 00019270 ] 00000238          *   
-                   000324e0  [ 00019270 ] 00000236          *   QueueOverwrite.obj (.text)
-                   00032716  [ 0001938b ] 00000002          *   --HOLE-- [fill = 20]
+.text.14     0     00032c80  [ 00019640 ] 00000220          *   
+                   00032c80  [ 00019640 ] 0000021e          *   dma.obj (.text)
+                   00032e9e  [ 0001974f ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.16     0     00032718  [ 0001938c ] 00000220          *   
-                   00032718  [ 0001938c ] 0000021e          *   dma.obj (.text)
-                   00032936  [ 0001949b ] 00000002          *   --HOLE-- [fill = 20]
+.text.15     0     00032ea0  [ 00019750 ] 000001fc          *   
+                   00032ea0  [ 00019750 ] 000001fa          *   port.obj (.text)
+                   0003309a  [ 0001984d ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.17     0     00032938  [ 0001949c ] 000001fc          *   
-                   00032938  [ 0001949c ] 000001fa          *   port.obj (.text)
-                   00032b32  [ 00019599 ] 00000002          *   --HOLE-- [fill = 20]
+.text.16     0     0003309c  [ 0001984e ] 000003e2          *   
+                   0003309c  [ 0001984e ] 000001f7          *   ezdsp5535_led.obj (.text)
+                   00033293  [ 00019949+] 000001ea          *   rts55x.lib : cmpd.obj (.text)
+                   0003347d  [ 00019a3e ] 00000001          *   --HOLE-- [fill = 20]
 
-.text.18     0     00032b34  [ 0001959a ] 000003e2          *   
-                   00032b34  [ 0001959a ] 000001f7          *   ezdsp5535_led.obj (.text)
-                   00032d2b  [ 00019695+] 000001ea          *   rts55x.lib : cmpd.obj (.text)
-                   00032f15  [ 0001978a ] 00000001          *   --HOLE-- [fill = 20]
+.text.17     0     00033480  [ 00019a40 ] 000001c4          *   
+                   00033480  [ 00019a40 ] 000001c2          *   PollQ.obj (.text)
+                   00033642  [ 00019b21 ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.19     0     00032f18  [ 0001978c ] 000001c4          *   
-                   00032f18  [ 0001978c ] 000001c2          *   PollQ.obj (.text)
-                   000330da  [ 0001986d ] 00000002          *   --HOLE-- [fill = 20]
+.text.18     0     00033644  [ 00019b22 ] 000001b0          *   
+                   00033644  [ 00019b22 ] 000001ae          *   list.obj (.text)
+                   000337f2  [ 00019bf9 ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.20     0     000330dc  [ 0001986e ] 000001b0          *   
-                   000330dc  [ 0001986e ] 000001ae          *   list.obj (.text)
-                   0003328a  [ 00019945 ] 00000002          *   --HOLE-- [fill = 20]
+.text.19     0     000337f4  [ 00019bfa ] 0000019e          *   
+                   000337f4  [ 00019bfa ] 0000019d          *   ezdsp5535_lcd.obj (.text)
+                   00033991  [ 00019cc8 ] 00000001          *   --HOLE-- [fill = 20]
 
-.text.21     0     0003328c  [ 00019946 ] 00000196          *   
-                   0003328c  [ 00019946 ] 00000195          *   ezdsp5535_lcd.obj (.text)
-                   00033421  [ 00019a10 ] 00000001          *   --HOLE-- [fill = 20]
+.text.20     0     00033994  [ 00019cca ] 000007f8          *   
+                   00033994  [ 00019cca ] 0000018b          *   spiflash_test.obj (.text)
+                   00033b1f  [ 00019d8f ] 00000001          *   --HOLE-- [fill = 20]
+                   00033b20  [ 00019d90 ] 0000017c          *   ezdsp5535_sar.obj (.text)
+                   00033c9c  [ 00019e4e ] 00000163          *   rts55x.lib : fputs.obj (.text)
+                   00033dff  [ 00019eff+] 0000014c          *              : mpyd.obj (.text)
+                   00033f4b  [ 00019fa5 ] 00000001          *   --HOLE-- [fill = 20]
+                   00033f4c  [ 00019fa6 ] 0000012b          *   timer.obj (.text:retain)
+                   00034077  [ 0001a03b ] 00000001          *   --HOLE-- [fill = 20]
+                   00034078  [ 0001a03c ] 00000112          *   ezdsp5535_i2s.obj (.text)
+                   0003418a  [ 0001a0c5 ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.22     0     00033424  [ 00019a12 ] 000006cc          *   
-                   00033424  [ 00019a12 ] 0000018b          *   spiflash_test.obj (.text)
-                   000335af  [ 00019ad7 ] 00000001          *   --HOLE-- [fill = 20]
-                   000335b0  [ 00019ad8 ] 0000017c          *   ezdsp5535_sar.obj (.text)
-                   0003372c  [ 00019b96 ] 00000163          *   rts55x.lib : fputs.obj (.text)
-                   0003388f  [ 00019c47+] 0000014c          *              : mpyd.obj (.text)
-                   000339db  [ 00019ced ] 00000001          *   --HOLE-- [fill = 20]
-                   000339dc  [ 00019cee ] 00000112          *   ezdsp5535_i2s.obj (.text)
-                   00033aee  [ 00019d77 ] 00000002          *   --HOLE-- [fill = 20]
+.text.21     0     0003418c  [ 0001a0c6 ] 000002e8          *   
+                   0003418c  [ 0001a0c6 ] 00000104          *   integer.obj (.text)
+                   00034290  [ 0001a148 ] 000000fc          *   rtc.obj (.text)
+                   0003438c  [ 0001a1c6 ] 000000e6          *   rts55x.lib : setvbuf.obj (.text)
+                   00034472  [ 0001a239 ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.23     0     00033af0  [ 00019d78 ] 000002e8          *   
-                   00033af0  [ 00019d78 ] 00000104          *   integer.obj (.text)
-                   00033bf4  [ 00019dfa ] 000000fc          *   rtc.obj (.text)
-                   00033cf0  [ 00019e78 ] 000000e6          *   rts55x.lib : setvbuf.obj (.text)
-                   00033dd6  [ 00019eeb ] 00000002          *   --HOLE-- [fill = 20]
+.text.22     0     00034474  [ 0001a23a ] 000004ae          *   
+                   00034474  [ 0001a23a ] 000000de          *   flash.obj (.text)
+                   00034552  [ 0001a2a9 ] 000000dd          *   rts55x.lib : _io_perm.obj (.text)
+                   0003462f  [ 0001a317 ] 00000001          *   --HOLE-- [fill = 20]
+                   00034630  [ 0001a318 ] 000000cf          *   mem_test.obj (.text)
+                   000346ff  [ 0001a37f+] 000000c2          *   rts55x.lib : fflush.obj (.text)
+                   000347c1  [ 0001a3e0+] 000000ba          *              : trgmsg.obj (.text:CIO_breakpoint)
+                   0003487b  [ 0001a43d+] 000000a6          *              : fputc.obj (.text)
+                   00034921  [ 0001a490 ] 00000001          *   --HOLE-- [fill = 20]
 
-.text.24     0     00033dd8  [ 00019eec ] 00000530          *   
-                   00033dd8  [ 00019eec ] 000000de          *   flash.obj (.text)
-                   00033eb6  [ 00019f5b ] 000000dd          *   rts55x.lib : _io_perm.obj (.text)
-                   00033f93  [ 00019fc9+] 000000c2          *              : fflush.obj (.text)
-                   00034055  [ 0001a02a+] 000000ba          *              : trgmsg.obj (.text:CIO_breakpoint)
-                   0003410f  [ 0001a087 ] 00000001          *   --HOLE-- [fill = 20]
-                   00034110  [ 0001a088 ] 000000af          *   mem_test.obj (.text)
-                   000341bf  [ 0001a0df+] 000000a6          *   rts55x.lib : fputc.obj (.text)
-                   00034265  [ 0001a132+] 000000a1          *              : divul.obj (.text)
-                   00034306  [ 0001a183 ] 00000002          *   --HOLE-- [fill = 20]
+.text.23     0     00034924  [ 0001a492 ] 000001e0          *   
+                   00034924  [ 0001a492 ] 000000a2          *   ezdsp5535_uart.obj (.text)
+                   000349c6  [ 0001a4e3 ] 000000a1          *   rts55x.lib : divul.obj (.text)
+                   00034a67  [ 0001a533 ] 00000001          *   --HOLE-- [fill = 20]
+                   00034a68  [ 0001a534 ] 0000009a          *   ParTest.obj (.text)
+                   00034b02  [ 0001a581 ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.25     0     00034308  [ 0001a184 ] 0000009c          *   
-                   00034308  [ 0001a184 ] 0000009a          *   ParTest.obj (.text)
-                   000343a2  [ 0001a1d1 ] 00000002          *   --HOLE-- [fill = 20]
+.text.24     0     00034b04  [ 0001a582 ] 0000076e          *   
+                   00034b04  [ 0001a582 ] 00000094          *   ezdsp5535_i2c.obj (.text)
+                   00034b98  [ 0001a5cc ] 0000008c          *   csl_irqplug.obj (.text)
+                   00034c24  [ 0001a612 ] 0000008c          *   i2s.obj (.text)
+                   00034cb0  [ 0001a658 ] 0000008a          *   ezdsp5535_gpio.obj (.text)
+                   00034d3a  [ 0001a69d ] 0000007f          *   vectors.obj (.text)
+                   00034db9  [ 0001a6dc+] 0000007d          *   rts55x.lib : ltoa.obj (.text)
+                   00034e36  [ 0001a71b ] 0000007b          *              : fclose.obj (.text)
+                   00034eb1  [ 0001a758+] 00000076          *              : frcmpyd.obj (.text)
+                   00034f27  [ 0001a793+] 00000073          *              : frcmpyd_div.obj (.text)
+                   00034f9a  [ 0001a7cd ] 00000072          *              : remul.obj (.text)
+                   0003500c  [ 0001a806 ] 0000006f          *              : fixdli.obj (.text)
+                   0003507b  [ 0001a83d+] 0000006d          *              : trgmsg.obj (.text)
+                   000350e8  [ 0001a874 ] 0000006b          *              : fseek.obj (.text)
+                   00035153  [ 0001a8a9+] 00000067          *              : fltlid.obj (.text)
+                   000351ba  [ 0001a8dd ] 0000005c          *              : atoi.obj (.text)
+                   00035216  [ 0001a90b ] 0000005b          *              : fltuld.obj (.text)
+                   00035271  [ 0001a938 ] 00000001          *   --HOLE-- [fill = 20]
 
-.text.26     0     000343a4  [ 0001a1d2 ] 0000076e          *   
-                   000343a4  [ 0001a1d2 ] 00000094          *   ezdsp5535_i2c.obj (.text)
-                   00034438  [ 0001a21c ] 0000008c          *   csl_irqplug.obj (.text)
-                   000344c4  [ 0001a262 ] 0000008c          *   i2s.obj (.text)
-                   00034550  [ 0001a2a8 ] 0000008a          *   ezdsp5535_gpio.obj (.text)
-                   000345da  [ 0001a2ed ] 0000007f          *   vectors.obj (.text)
-                   00034659  [ 0001a32c+] 0000007d          *   rts55x.lib : ltoa.obj (.text)
-                   000346d6  [ 0001a36b ] 0000007b          *              : fclose.obj (.text)
-                   00034751  [ 0001a3a8+] 00000076          *              : frcmpyd.obj (.text)
-                   000347c7  [ 0001a3e3+] 00000073          *              : frcmpyd_div.obj (.text)
-                   0003483a  [ 0001a41d ] 00000072          *              : remul.obj (.text)
-                   000348ac  [ 0001a456 ] 0000006f          *              : fixdli.obj (.text)
-                   0003491b  [ 0001a48d+] 0000006d          *              : trgmsg.obj (.text)
-                   00034988  [ 0001a4c4 ] 0000006b          *              : fseek.obj (.text)
-                   000349f3  [ 0001a4f9+] 00000067          *              : fltlid.obj (.text)
-                   00034a5a  [ 0001a52d ] 0000005c          *              : atoi.obj (.text)
-                   00034ab6  [ 0001a55b ] 0000005b          *              : fltuld.obj (.text)
-                   00034b11  [ 0001a588 ] 00000001          *   --HOLE-- [fill = 20]
+.text.25     0     00035274  [ 0001a93a ] 00000058          *   
+                   00035274  [ 0001a93a ] 00000056          *   ezdsp5535.obj (.text)
+                   000352ca  [ 0001a965 ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.27     0     00034b14  [ 0001a58a ] 00000058          *   
-                   00034b14  [ 0001a58a ] 00000056          *   ezdsp5535.obj (.text)
-                   00034b6a  [ 0001a5b5 ] 00000002          *   --HOLE-- [fill = 20]
+.text.26     0     000352cc  [ 0001a966 ] 000000a4          *   
+                   000352cc  [ 0001a966 ] 00000052          *   timer.obj (.text)
+                   0003531e  [ 0001a98f ] 00000050          *   rts55x.lib : printf.obj (.text)
+                   0003536e  [ 0001a9b7 ] 00000002          *   --HOLE-- [fill = 20]
 
-.text.28     0     00034b6c  [ 0001a5b6 ] 000000a4          *   
-                   00034b6c  [ 0001a5b6 ] 00000052          *   timer.obj (.text)
-                   00034bbe  [ 0001a5df ] 00000050          *   rts55x.lib : printf.obj (.text)
-                   00034c0e  [ 0001a607 ] 00000002          *   --HOLE-- [fill = 20]
+.text.27     0     00035370  [ 0001a9b8 ] 0000017a          *   
+                   00035370  [ 0001a9b8 ] 0000004e          *   rtc.obj (.text:retain)
+                   000353be  [ 0001a9df ] 0000004d          *   rts55x.lib : autoinit.obj (.text)
+                   0003540b  [ 0001aa05+] 0000004b          *              : args_main.obj (.text)
+                   00035456  [ 0001aa2b ] 0000004b          *              : remli.obj (.text)
+                   000354a1  [ 0001aa50+] 00000048          *              : divli.obj (.text)
+                   000354e9  [ 0001aa74 ] 00000001          *   --HOLE-- [fill = 20]
 
-.text.29     0     00034c10  [ 0001a608 ] 0000017a          *   
-                   00034c10  [ 0001a608 ] 0000004e          *   rtc.obj (.text:retain)
-                   00034c5e  [ 0001a62f ] 0000004d          *   rts55x.lib : autoinit.obj (.text)
-                   00034cab  [ 0001a655+] 0000004b          *              : args_main.obj (.text)
-                   00034cf6  [ 0001a67b ] 0000004b          *              : remli.obj (.text)
-                   00034d41  [ 0001a6a0+] 00000048          *              : divli.obj (.text)
-                   00034d89  [ 0001a6c4 ] 00000001          *   --HOLE-- [fill = 20]
-
-.text.30     0     00034d8c  [ 0001a6c6 ] 00000214          *   
-                   00034d8c  [ 0001a6c6 ] 00000047          *   heap_3.obj (.text)
-                   00034dd3  [ 0001a6e9+] 0000003f          *   rts55x.lib : memcpy.obj (.text)
-                   00034e12  [ 0001a709 ] 0000003e          *              : exit.obj (.text)
-                   00034e50  [ 0001a728 ] 00000034          *              : boot.obj (.text)
-                   00034e84  [ 0001a742 ] 0000002a          *              : fixdi.obj (.text)
-                   00034eae  [ 0001a757 ] 0000002a          *              : udiv.obj (.text)
-                   00034ed8  [ 0001a76c ] 00000023          *              : memccpy.obj (.text)
-                   00034efb  [ 0001a77d+] 0000001a          *              : isinf.obj (.text)
-                   00034f15  [ 0001a78a+] 00000014          *              : subd.obj (.text)
-                   00034f29  [ 0001a794+] 00000013          *              : lmpy.obj (.text)
-                   00034f3c  [ 0001a79e ] 00000012          *              : _lock.obj (.text)
-                   00034f4e  [ 0001a7a7 ] 00000011          *              : memset.obj (.text)
-                   00034f5f  [ 0001a7af+] 00000011          *              : strlen.obj (.text)
-                   00034f70  [ 0001a7b8 ] 00000010          *              : negd.obj (.text)
-                   00034f80  [ 0001a7c0 ] 0000000e          *              : fltud.obj (.text)
-                   00034f8e  [ 0001a7c7 ] 0000000a          *              : remove.obj (.text)
-                   00034f98  [ 0001a7cc ] 00000007          *              : exit.obj (.text:CIO_breakpoint)
-                   00034f9f  [ 0001a7cf ] 00000001          *   --HOLE-- [fill = 20]
+.text.28     0     000354ec  [ 0001aa76 ] 0000020e          *   
+                   000354ec  [ 0001aa76 ] 00000047          *   heap_3.obj (.text)
+                   00035533  [ 0001aa99+] 0000003f          *   rts55x.lib : memcpy.obj (.text)
+                   00035572  [ 0001aab9 ] 0000003e          *              : exit.obj (.text)
+                   000355b0  [ 0001aad8 ] 00000034          *              : boot.obj (.text)
+                   000355e4  [ 0001aaf2 ] 0000002a          *              : fixdi.obj (.text)
+                   0003560e  [ 0001ab07 ] 0000002a          *              : udiv.obj (.text)
+                   00035638  [ 0001ab1c ] 00000023          *              : memccpy.obj (.text)
+                   0003565b  [ 0001ab2d+] 0000001a          *              : isinf.obj (.text)
+                   00035675  [ 0001ab3a+] 00000014          *              : subd.obj (.text)
+                   00035689  [ 0001ab44+] 00000013          *              : lmpy.obj (.text)
+                   0003569c  [ 0001ab4e ] 00000012          *              : _lock.obj (.text)
+                   000356ae  [ 0001ab57 ] 00000011          *              : memset.obj (.text)
+                   000356bf  [ 0001ab5f+] 00000011          *              : strlen.obj (.text)
+                   000356d0  [ 0001ab68 ] 00000010          *              : negd.obj (.text)
+                   000356e0  [ 0001ab70 ] 0000000e          *              : fltud.obj (.text)
+                   000356ee  [ 0001ab77 ] 0000000a          *              : remove.obj (.text)
+                   000356f8  [ 0001ab7c ] 00000002          *   --HOLE-- [fill = 20]
 
 .cinit       0   [ 00040000 ]  00020000          *   00000364   
                  [ 00040000 ]  00020000          *   000000dc   dma.obj (.cinit)
@@ -418,28 +418,28 @@ byte addr   word addr   name
 ffffffff                .bss
 ffffffff                .data
 ffffffff                .text
-00034f99                C$$EXIT
-0003410a                C$$IO$$
-00034f29                I$$LMPY
-00034eae                I$$UDIV
-00034ec3                I$$UMOD
-00025b50                _AC_Close
-00025b8c                _AC_Ctrl
-00025e20                _AC_GetactivityFlagStatus
-00025e3c                _AC_GetsuspendFlagStatus
-00025d84                _AC_Iso
-00025908                _AC_Open
-00025e54                _AC_initDescriptors
-000263b8                _AC_reqGetCurrent
-00026104                _AC_reqGetDescriptor
-000264c0                _AC_reqGetMaximum
-0002647c                _AC_reqGetMinimum
-00026504                _AC_reqGetResolution
-000262dc                _AC_reqSetCurrent
-00026548                _AC_reqSetInterface
-0003130c                _AIC3254_init
+0001fff8                C$$EXIT
+00034876                C$$IO$$
+00035689                I$$LMPY
+0003560e                I$$UDIV
+00035623                I$$UMOD
+00024e58                _AC_Close
+00024e94                _AC_Ctrl
+00025128                _AC_GetactivityFlagStatus
+00025144                _AC_GetsuspendFlagStatus
+0002508c                _AC_Iso
+00024c10                _AC_Open
+0002515c                _AC_initDescriptors
+0002571c                _AC_reqGetCurrent
+00025448                _AC_reqGetDescriptor
+00025824                _AC_reqGetMaximum
+000257e0                _AC_reqGetMinimum
+00025868                _AC_reqGetResolution
+00025640                _AC_reqSetCurrent
+000258ac                _AC_reqSetInterface
+0003186c                _AIC3254_init
             0000456c    _ATA_No_Swap
-0002b1c4                _BlinkLED
+0002b6b8                _BlinkLED
             000053b5    _Buf_Address
             00005491    _Buf_day
             0000548e    _Buf_hour
@@ -447,213 +447,213 @@ ffffffff                .text
             00005494    _Buf_month
             00005488    _Buf_sec
             00005497    _Buf_year
-0001f580                _CDC_Close
-0001f5bc                _CDC_GetactivityFlagStatus
-0001f5d4                _CDC_GetsuspendFlagStatus
-0001f388                _CDC_Open
-0001f3ac                _CDC_OpenFullspeed
-0001f9e8                _CDC_bulkInHandler
-0001f8e8                _CDC_bulkOutHandler
-0001f5ec                _CDC_eventHandler
-0001fcd8                _CDC_getData
-0001fd68                _CDC_putData
-0002b1a8                _ConfigPort
+000269c0                _CDC_Close
+000269fc                _CDC_GetactivityFlagStatus
+00026a14                _CDC_GetsuspendFlagStatus
+000267c8                _CDC_Open
+000267ec                _CDC_OpenFullspeed
+00026e30                _CDC_bulkInHandler
+00026d28                _CDC_bulkOutHandler
+00026a2c                _CDC_eventHandler
+0002718c                _CDC_getData
+00027228                _CDC_putData
+0002b69c                _ConfigPort
             0000549b    _Conunt_RTC
-00024ba0                _DAT_close
-00024d34                _DAT_copy
-00025230                _DAT_fill
-00024ac8                _DAT_open
-00025740                _DAT_wait
+00025a3c                _DAT_close
+00025bd0                _DAT_copy
+000260cc                _DAT_fill
+00025964                _DAT_open
+000265dc                _DAT_wait
             000053e1    _DBSTAT_RESTORE
             000053e0    _DBSTAT_SAVE
             00004e4c    _DMA_Count
             00004e4f    _DMA_Done
-0001db6c                _DMA_close
-0001db8c                _DMA_config
-0001e760                _DMA_getConfig
-0001f248                _DMA_getLastTransferType
-0001da48                _DMA_init
-0001da80                _DMA_open
-0001eee4                _DMA_reset
-0001ecd0                _DMA_start
-0001ede0                _DMA_stop
-0001f1d0                _DMA_swapWords
-0001ffe4                _EVM5515_UART_getChar
-0001ffcc                _EVM5515_UART_putChar
-000345bc                _EZDSP5535_GPIO_getInput
-00034550                _EZDSP5535_GPIO_init
-0003457c                _EZDSP5535_GPIO_setDirection
-000345a0                _EZDSP5535_GPIO_setOutput
-000343a4                _EZDSP5535_I2C_init
-00034410                _EZDSP5535_I2C_read
-000343dc                _EZDSP5535_I2C_reset
-000343e8                _EZDSP5535_I2C_write
-00033adc                _EZDSP5535_I2S_close
-000339dc                _EZDSP5535_I2S_init
-00033a38                _EZDSP5535_I2S_readLeft
-00033a9c                _EZDSP5535_I2S_readRight
-00033a6c                _EZDSP5535_I2S_writeLeft
-00033ac0                _EZDSP5535_I2S_writeRight
-00032b6c                _EZDSP5535_LED_getall
-00032b34                _EZDSP5535_LED_init
-00032c68                _EZDSP5535_LED_off
-00032c30                _EZDSP5535_LED_on
-00032bc0                _EZDSP5535_LED_setall
-00032c9c                _EZDSP5535_LED_toggle
-00033300                _EZDSP5535_OSD9616_init
-000332b4                _EZDSP5535_OSD9616_multiSend
-000333e4                _EZDSP5535_OSD9616_printLetter
-0003328c                _EZDSP5535_OSD9616_send
-00033678                _EZDSP5535_SAR_getKey
-000335b0                _EZDSP5535_SAR_init
-0002f0cc                _EZDSP5535_SDCARD_close
-0002ecbc                _EZDSP5535_SDCARD_init
-0002f064                _EZDSP5535_SDCARD_read
-0002f098                _EZDSP5535_SDCARD_write
-000306bc                _EZDSP5535_SPIFLASH_erase
-00030614                _EZDSP5535_SPIFLASH_init
-000307c0                _EZDSP5535_SPIFLASH_read
-00030678                _EZDSP5535_SPIFLASH_status
-00030870                _EZDSP5535_SPIFLASH_write
-0001ff5c                _EZDSP5535_UART_open
-00032cfc                _EZDSP5535_XF_get
-00032cf0                _EZDSP5535_XF_off
-00032ce4                _EZDSP5535_XF_on
-00032d0c                _EZDSP5535_XF_toggle
-00034b5c                _EZDSP5535_init
-00034b14                _EZDSP5535_wait
-00034b48                _EZDSP5535_waitusec
+0001de60                _DMA_close
+0001de80                _DMA_config
+0001ea58                _DMA_getConfig
+0001f54c                _DMA_getLastTransferType
+0001dd3c                _DMA_init
+0001dd74                _DMA_open
+0001f1dc                _DMA_reset
+0001efc8                _DMA_start
+0001f0d8                _DMA_stop
+0001f4c8                _DMA_swapWords
+000349ac                _EVM5515_UART_getChar
+00034994                _EVM5515_UART_putChar
+00034d1c                _EZDSP5535_GPIO_getInput
+00034cb0                _EZDSP5535_GPIO_init
+00034cdc                _EZDSP5535_GPIO_setDirection
+00034d00                _EZDSP5535_GPIO_setOutput
+00034b04                _EZDSP5535_I2C_init
+00034b70                _EZDSP5535_I2C_read
+00034b3c                _EZDSP5535_I2C_reset
+00034b48                _EZDSP5535_I2C_write
+00034178                _EZDSP5535_I2S_close
+00034078                _EZDSP5535_I2S_init
+000340d4                _EZDSP5535_I2S_readLeft
+00034138                _EZDSP5535_I2S_readRight
+00034108                _EZDSP5535_I2S_writeLeft
+0003415c                _EZDSP5535_I2S_writeRight
+000330d4                _EZDSP5535_LED_getall
+0003309c                _EZDSP5535_LED_init
+000331d0                _EZDSP5535_LED_off
+00033198                _EZDSP5535_LED_on
+00033128                _EZDSP5535_LED_setall
+00033204                _EZDSP5535_LED_toggle
+00033870                _EZDSP5535_OSD9616_init
+0003381c                _EZDSP5535_OSD9616_multiSend
+00033954                _EZDSP5535_OSD9616_printLetter
+000337f4                _EZDSP5535_OSD9616_send
+00033be8                _EZDSP5535_SAR_getKey
+00033b20                _EZDSP5535_SAR_init
+0002f610                _EZDSP5535_SDCARD_close
+0002f200                _EZDSP5535_SDCARD_init
+0002f5a8                _EZDSP5535_SDCARD_read
+0002f5dc                _EZDSP5535_SDCARD_write
+00030c18                _EZDSP5535_SPIFLASH_erase
+00030b70                _EZDSP5535_SPIFLASH_init
+00030d1c                _EZDSP5535_SPIFLASH_read
+00030bd4                _EZDSP5535_SPIFLASH_status
+00030dcc                _EZDSP5535_SPIFLASH_write
+00034924                _EZDSP5535_UART_open
+00033264                _EZDSP5535_XF_get
+00033258                _EZDSP5535_XF_off
+0003324c                _EZDSP5535_XF_on
+00033274                _EZDSP5535_XF_toggle
+000352bc                _EZDSP5535_init
+00035274                _EZDSP5535_wait
+000352a8                _EZDSP5535_waitusec
             00004e4d    _Error_Count_L
             00004e4e    _Error_Count_R
             0000549a    _Flag_RTC
-0002ca90                _GPIO_clearInt
-0002c5e0                _GPIO_close
-0002c604                _GPIO_config
-0002c83c                _GPIO_configBit
-0002c984                _GPIO_disableInt
-0002ca04                _GPIO_enableInt
-0002c68c                _GPIO_getConfig
-0002c59c                _GPIO_open
-0002c714                _GPIO_read
-0002cba4                _GPIO_reset
-0002cb1c                _GPIO_statusBit
-0002c798                _GPIO_write
-00030e60                _GPT_close
-00030f70                _GPT_config
-00030f34                _GPT_getCnt
-00030d20                _GPT_open
-00030de4                _GPT_reset
-00030ed8                _GPT_start
-00030f08                _GPT_stop
-0002b1fc                _GenerateAudioTone
+0002cf84                _GPIO_clearInt
+0002cad4                _GPIO_close
+0002caf8                _GPIO_config
+0002cd30                _GPIO_configBit
+0002ce78                _GPIO_disableInt
+0002cef8                _GPIO_enableInt
+0002cb80                _GPIO_getConfig
+0002ca90                _GPIO_open
+0002cc08                _GPIO_read
+0002d098                _GPIO_reset
+0002d010                _GPIO_statusBit
+0002cc8c                _GPIO_write
+000313c0                _GPT_close
+000314d0                _GPT_config
+00031494                _GPT_getCnt
+00031280                _GPT_open
+00031344                _GPT_reset
+00031438                _GPT_start
+00031468                _GPT_stop
+0002b6f0                _GenerateAudioTone
             000054fe    _GpioObj
-0002ec5e                _HOSTclock
-0002ebf3                _HOSTclose
-0002eb3e                _HOSTlseek
-0002ea9f                _HOSTopen
-0002ea12                _HOSTread
-0002e964                _HOSTrename
-0002e906                _HOSTtime
-0002e89c                _HOSTunlink
-0002e80f                _HOSTwrite
-000266ac                _I2C_config
-00027080                _I2C_eventDisable
-00026f4c                _I2C_eventEnable
-00026814                _I2C_getConfig
-00027230                _I2C_getEventId
-00026600                _I2C_init
-00026d2c                _I2C_read
-000271a0                _I2C_setCallback
-000268ec                _I2C_setup
-00026ae8                _I2C_write
+0002f1a1                _HOSTclock
+0002f136                _HOSTclose
+0002f081                _HOSTlseek
+0002efe2                _HOSTopen
+0002ef55                _HOSTread
+0002eea7                _HOSTrename
+0002ee49                _HOSTtime
+0002eddf                _HOSTunlink
+0002ed52                _HOSTwrite
+00027504                _I2C_config
+00027ed8                _I2C_eventDisable
+00027da4                _I2C_eventEnable
+0002766c                _I2C_getConfig
+00028088                _I2C_getEventId
+00027458                _I2C_init
+00027b84                _I2C_read
+00027ff8                _I2C_setCallback
+00027744                _I2C_setup
+00027940                _I2C_write
             00005355    _I2S_RCV_L
             00005385    _I2S_RCV_R
-0002973c                _I2S_close
-00029310                _I2S_open
-000297e8                _I2S_read
-00029bfc                _I2S_reset
-00029454                _I2S_setup
-00029ca8                _I2S_transEnable
-00029aa4                _I2S_write
-0002e2e4                _IRQ_clear
-0002e350                _IRQ_clearAll
-0002e360                _IRQ_config
-0002e470                _IRQ_disable
-0002e4f0                _IRQ_disableAll
-0002e500                _IRQ_enable
-0002e5fc                _IRQ_getArg
-0002e3e8                _IRQ_getConfig
+0001fa30                _I2S_close
+0001f5f8                _I2S_open
+0001fae4                _I2S_read
+0001fef8                _I2S_reset
+0001f740                _I2S_setup
+0001ffac                _I2S_transEnable
+0001fda0                _I2S_write
+0002e2c0                _IRQ_clear
+0002e32c                _IRQ_clearAll
+0002e33c                _IRQ_config
+0002e464                _IRQ_disable
+0002e4e4                _IRQ_disableAll
+0002e4f4                _IRQ_enable
+0002e5f0                _IRQ_getArg
+0002e3d0                _IRQ_getConfig
 0002e748                _IRQ_globalDisable
 0002e764                _IRQ_globalEnable
 0002e780                _IRQ_globalRestore
-0002e25c                _IRQ_init
-0002e674                _IRQ_map
-00034438                _IRQ_plug
-0002e58c                _IRQ_restore
-0002e640                _IRQ_setArg
+0002e224                _IRQ_init
+0002e66c                _IRQ_map
+00034b98                _IRQ_plug
+0002e580                _IRQ_restore
+0002e638                _IRQ_setArg
 0002e6a0                _IRQ_setVecs
 0002e6d4                _IRQ_test
-0002b140                _InitSystem
-0002adc0                _LCD_close
-0002aa70                _LCD_configDMA
-0002a5a8                _LCD_init
-0002a5d0                _LCD_open
-0002a614                _LCD_setup
+0002b634                _InitSystem
+0002b2b4                _LCD_close
+0002af64                _LCD_configDMA
+0002aa8c                _LCD_init
+0002aab4                _LCD_open
+0002aaf8                _LCD_setup
             00005504    _LED_Blink_ctr
-0002b488                _LED_Control
-0002b32c                _LED_TaskBlue
-0002b438                _LED_TaskGreen
-0002b364                _LED_TaskRed
-0002b3f0                _LED_TaskXF
-0002b4bc                _LED_TaskXF2
+0002b97c                _LED_Control
+0002b820                _LED_TaskBlue
+0002b92c                _LED_TaskGreen
+0002b858                _LED_TaskRed
+0002b8e4                _LED_TaskXF
+0002b9b0                _LED_TaskXF2
             000053e2    _LOOP_BITS
-00030bac                _MEM_disablePartialRetentionMode
-00030a20                _MEM_disableRetentionMode
-00030a64                _MEM_enablePartialRetentionMode
-000309dc                _MEM_enableRetentionMode
-00030d0c                _MEM_getmSDRAMClock
-000309d8                _MEM_init
-00030cd0                _MEM_setmSDRAMClock
-00027d14                _MMC_busyStatusCheck
+0003110c                _MEM_disablePartialRetentionMode
+00030f7c                _MEM_disableRetentionMode
+00030fc0                _MEM_enablePartialRetentionMode
+00030f38                _MEM_enableRetentionMode
+0003126c                _MEM_getmSDRAMClock
+00030f34                _MEM_init
+00031230                _MEM_setmSDRAMClock
+00028bcc                _MMC_busyStatusCheck
 0001438c                _MMC_checkReadDmaDone
 00010368                _MMC_clearResponse
 00010248                _MMC_close
-00027cfc                _MMC_commandReadyStatusCheck
+00028bb4                _MMC_commandReadyStatusCheck
 00010aa0                _MMC_config
-00027d08                _MMC_dataReadyStatusCheck
+00028bc0                _MMC_dataReadyStatusCheck
 00010df0                _MMC_deselectCard
 000108b8                _MMC_drrdy
 00010900                _MMC_dxrdy
 000106e0                _MMC_eventDisable
 000104e4                _MMC_eventEnable
-00027d30                _MMC_file_system_format
-00027d58                _MMC_flushFat
+00028be8                _MMC_file_system_format
+00028c10                _MMC_flushFat
 00011a8c                _MMC_getCardCsd
 00014164                _MMC_getCardStatus
 00010b3c                _MMC_getConfig
 00010330                _MMC_getNumberOfCards
-00027d20                _MMC_getSerialID
+00028bd8                _MMC_getSerialID
 00010988                _MMC_getStatus
-00027d50                _MMC_get_date
-00027d54                _MMC_get_mod_date
-00027d4c                _MMC_get_mod_time
-00027d48                _MMC_get_time
+00028c08                _MMC_get_date
+00028c0c                _MMC_get_mod_date
+00028c04                _MMC_get_mod_time
+00028c00                _MMC_get_time
 00010488                _MMC_ierDisable
 00010444                _MMC_ierEnable
 00010000                _MMC_init
-0002724c                _MMC_initState
+000280a4                _MMC_initState
 000104bc                _MMC_intEnable
-00027670                _MMC_issueReadCommand
+000284fc                _MMC_issueReadCommand
 00010038                _MMC_open
 000125bc                _MMC_read
-00027a68                _MMC_readNSectors
-00027910                _MMC_readNextNWords
-0002782c                _MMC_readNextWord
-0002789c                _MMC_readNextWord1
-00027390                _MMC_readWriteControl
-00027c18                _MMC_read_CID
-00027c84                _MMC_read_CSD
-00027d3c                _MMC_reset
+00028908                _MMC_readNSectors
+000287ac                _MMC_readNextNWords
+000286b8                _MMC_readNextWord
+00028730                _MMC_readNextWord1
+000281e8                _MMC_readWriteControl
+00028ab8                _MMC_read_CID
+00028b30                _MMC_read_CSD
+00028bf4                _MMC_reset
 00010948                _MMC_saveStatus
 00010ec0                _MMC_selectCard
 000116c8                _MMC_sendAllCID
@@ -673,221 +673,222 @@ ffffffff                .text
 000109ec                _MMC_setupNative
 00010d18                _MMC_stop
 00012fd8                _MMC_write
-00027b40                _MMC_writeNSectors
-00027980                _MMC_writeSector
-00027cf0                _MMC_writeSectorFlush
-000153c4                _MSC_Bulk
-00014fa0                _MSC_Close
-000151cc                _MSC_Ctrl
-00015c58                _MSC_ExecuteRead
-0001604c                _MSC_ExecuteWrite
-000154c0                _MSC_GetLunLockedStatus
-000154f0                _MSC_GetactivityFlagStatus
-0001550c                _MSC_GetsuspendFlagStatus
-00016824                _MSC_HandlePreventAllowMediaRemoval
-000169c8                _MSC_HandleReadCapacity
-000159b4                _MSC_HandleStateWaitForCBW
-00016600                _MSC_HandleTestUnitReady
-00014c30                _MSC_Open
-00014c54                _MSC_OpenFullspeed
-00014fdc                _MSC_SetLunAttr
-00016f24                _MSC_handleDataDirMisMatch
-00016e50                _MSC_reqBotMscReset
-00016c18                _MSC_reqGetDescriptor
-00016ebc                _MSC_sendCswWithPhaseError
-00022f98                _NAND_checkCommandStatus
-0002316c                _NAND_disableHwECC
-00023044                _NAND_enableHwECC
-00022d84                _NAND_getBankInfo
-00023878                _NAND_getIntrNum
-00023758                _NAND_hasCacheProg
-00023788                _NAND_hasCopyBack
-000236f8                _NAND_hasRandomRead
-00023728                _NAND_hasRandomWrite
-000227d4                _NAND_init
-00023960                _NAND_intrClear
-00023818                _NAND_intrDisable
-000237b8                _NAND_intrEnable
-00023898                _NAND_intrReadAT
-000238d8                _NAND_intrReadLT
-0002391c                _NAND_intrReadWR
-00022e84                _NAND_isStatusWriteProtected
-00023254                _NAND_readECC
-00023408                _NAND_readNBytes
-00022f6c                _NAND_sendCommand
-00023000                _NAND_setAddress
-00022e48                _NAND_setLatchEnableOffset
-00022868                _NAND_setup
-0002351c                _NAND_writeNBytes
+000289e0                _MMC_writeNSectors
+00028820                _MMC_writeSector
+00028ba8                _MMC_writeSectorFlush
+00015478                _MSC_Bulk
+00014fe8                _MSC_Close
+00015280                _MSC_Ctrl
+00015d1c                _MSC_ExecuteRead
+00016164                _MSC_ExecuteWrite
+00015574                _MSC_GetLunLockedStatus
+000155a8                _MSC_GetactivityFlagStatus
+000155c4                _MSC_GetsuspendFlagStatus
+00016a0c                _MSC_HandlePreventAllowMediaRemoval
+00016bc4                _MSC_HandleReadCapacity
+00015a78                _MSC_HandleStateWaitForCBW
+000167b4                _MSC_HandleTestUnitReady
+00014c60                _MSC_Open
+00014c84                _MSC_OpenFullspeed
+00015024                _MSC_SetLunAttr
+00017170                _MSC_handleDataDirMisMatch
+0001709c                _MSC_reqBotMscReset
+00016e44                _MSC_reqGetDescriptor
+00017108                _MSC_sendCswWithPhaseError
+00022fe0                _NAND_checkCommandStatus
+000231b4                _NAND_disableHwECC
+0002308c                _NAND_enableHwECC
+00022dcc                _NAND_getBankInfo
+00023934                _NAND_getIntrNum
+00023814                _NAND_hasCacheProg
+00023844                _NAND_hasCopyBack
+000237b4                _NAND_hasRandomRead
+000237e4                _NAND_hasRandomWrite
+0002281c                _NAND_init
+00023a1c                _NAND_intrClear
+000238d4                _NAND_intrDisable
+00023874                _NAND_intrEnable
+00023954                _NAND_intrReadAT
+00023994                _NAND_intrReadLT
+000239d8                _NAND_intrReadWR
+00022ecc                _NAND_isStatusWriteProtected
+0002329c                _NAND_readECC
+00023450                _NAND_readNBytes
+00022fb4                _NAND_sendCommand
+00023048                _NAND_setAddress
+00022e90                _NAND_setLatchEnableOffset
+000228b0                _NAND_setup
+000235a4                _NAND_writeNBytes
             000053e9    _PC_REG_HIGH_RESTORE
             000053eb    _PC_REG_HIGH_SAVE
             000053ea    _PC_REG_LOW_RESTORE
             000053ec    _PC_REG_LOW_SAVE
-000317ec                _PLL_bypass
-00031660                _PLL_config
-00031784                _PLL_enable
-00031628                _PLL_init
-0003183c                _PLL_reset
+00031d54                _PLL_bypass
+00031bc0                _PLL_config
+00031cec                _PLL_enable
+00031b88                _PLL_init
+00031da4                _PLL_reset
 0004cf00                _RST
-00034c10                _RTC_Isr
-0002a48c                _RTC_bcdToDec
-00029dbc                _RTC_config
-0002a44c                _RTC_decToBcd
-0002a344                _RTC_eventDisable
-0002a258                _RTC_eventEnable
-00029ea8                _RTC_getConfig
-0002a090                _RTC_getDate
-0002a3f8                _RTC_getEventId
-00029fd4                _RTC_getTime
-00029d80                _RTC_reset
-0002a0d0                _RTC_setAlarm
-0002a4cc                _RTC_setCallback
-0002a55c                _RTC_setCompensation
-0002a020                _RTC_setDate
-0002a1a4                _RTC_setPeriodicInterval
-00029f58                _RTC_setTime
-00029d90                _RTC_start
-00029db4                _RTC_stop
+00035370                _RTC_Isr
+0002a970                _RTC_bcdToDec
+0002a2a0                _RTC_config
+0002a930                _RTC_decToBcd
+0002a828                _RTC_eventDisable
+0002a73c                _RTC_eventEnable
+0002a38c                _RTC_getConfig
+0002a574                _RTC_getDate
+0002a8dc                _RTC_getEventId
+0002a4b8                _RTC_getTime
+0002a264                _RTC_reset
+0002a5b4                _RTC_setAlarm
+0002a9b0                _RTC_setCallback
+0002aa40                _RTC_setCompensation
+0002a504                _RTC_setDate
+0002a688                _RTC_setPeriodicInterval
+0002a43c                _RTC_setTime
+0002a274                _RTC_start
+0002a298                _RTC_stop
             00004dec    _RcvL_Sine
             00004e1c    _RcvR_Sine
 0004ce00                _Reset
-00028320                _SAR_A2DMeasParamSet
-0002879c                _SAR_GPODirSet
-00027e8c                _SAR_chanClose
-00027f10                _SAR_chanConfig
-00028210                _SAR_chanCycSet
-00027e0c                _SAR_chanInit
-00027e28                _SAR_chanOpen
-00027ffc                _SAR_chanSetup
-00027dec                _SAR_deInit
-00027f88                _SAR_getConfig
-00028878                _SAR_getStatus
-00027d8c                _SAR_init
-000282dc                _SAR_readData
-00028260                _SAR_startConversion
-00028294                _SAR_stopConversion
-00017f38                _SDIO_clearResponse
-000170ac                _SDIO_close
-000170d4                _SDIO_config
-00017b4c                _SDIO_deselectCard
-000171ac                _SDIO_detectCard
-00018310                _SDIO_eventDisable
-000180e8                _SDIO_eventEnable
-00017a84                _SDIO_getRca
-00017da4                _SDIO_getResponse
-0001807c                _SDIO_getSdioStatus
-00018014                _SDIO_getStatus
-00016fa0                _SDIO_init
-00017518                _SDIO_initCard
-00016fe0                _SDIO_open
-00019028                _SDIO_readBlocks
-000187a4                _SDIO_readBytes
-00018578                _SDIO_readSingleByte
-00018540                _SDIO_readWaitDisable
-00018508                _SDIO_readWaitEnable
-0001799c                _SDIO_resetCard
-00017c0c                _SDIO_selectCard
-00017cd0                _SDIO_sendCommand
-0001993c                _SDIO_setClock
-000198bc                _SDIO_setEndianMode
-00019468                _SDIO_writeBlocks
-00018be8                _SDIO_writeBytes
-000186a4                _SDIO_writeSingleByte
+000291d8                _SAR_A2DMeasParamSet
+00029654                _SAR_GPODirSet
+00028d44                _SAR_chanClose
+00028dc8                _SAR_chanConfig
+000290c8                _SAR_chanCycSet
+00028cc4                _SAR_chanInit
+00028ce0                _SAR_chanOpen
+00028eb4                _SAR_chanSetup
+00028ca4                _SAR_deInit
+00028e40                _SAR_getConfig
+00029730                _SAR_getStatus
+00028c44                _SAR_init
+00029194                _SAR_readData
+00029118                _SAR_startConversion
+0002914c                _SAR_stopConversion
+00018184                _SDIO_clearResponse
+000172f8                _SDIO_close
+00017320                _SDIO_config
+00017d98                _SDIO_deselectCard
+000173f8                _SDIO_detectCard
+0001855c                _SDIO_eventDisable
+00018334                _SDIO_eventEnable
+00017cd0                _SDIO_getRca
+00017ff0                _SDIO_getResponse
+000182c8                _SDIO_getSdioStatus
+00018260                _SDIO_getStatus
+000171ec                _SDIO_init
+00017764                _SDIO_initCard
+0001722c                _SDIO_open
+00019274                _SDIO_readBlocks
+000189f0                _SDIO_readBytes
+000187c4                _SDIO_readSingleByte
+0001878c                _SDIO_readWaitDisable
+00018754                _SDIO_readWaitEnable
+00017be8                _SDIO_resetCard
+00017e58                _SDIO_selectCard
+00017f1c                _SDIO_sendCommand
+00019b88                _SDIO_setClock
+00019b08                _SDIO_setEndianMode
+000196b4                _SDIO_writeBlocks
+00018e34                _SDIO_writeBytes
+000188f0                _SDIO_writeSingleByte
 00014260                _SD_configurePullup
 00011ee0                _SD_getCardCsd
 000118a0                _SD_sendAllCID
 000115cc                _SD_sendRca
 00013ff4                _SD_setBusWidth
-0002cccc                _SPI_close
-0002ccf8                _SPI_config
-0002d17c                _SPI_dataTransaction
-0002cf80                _SPI_deInit
-0002cc34                _SPI_init
-0002cc98                _SPI_open
-0002cfac                _SPI_read
-0002d090                _SPI_write
+0002d1c0                _SPI_close
+0002d1ec                _SPI_config
+0002d688                _SPI_dataTransaction
+0002d474                _SPI_deInit
+0002d128                _SPI_init
+0002d18c                _SPI_open
+0002d4a0                _SPI_read
+0002d590                _SPI_write
             000053e4    _STATUS0_HIGH
             000053e3    _STATUS0_LOW
             000053e6    _STATUS1_HIGH
             000053e5    _STATUS1_LOW
             000053e8    _STATUS2_HIGH
             000053e7    _STATUS2_LOW
-0002b1b8                _SYS_GlobalIntDisable
-0002b1b0                _SYS_GlobalIntEnable
+0002b6ac                _SYS_GlobalIntDisable
+0002b6a4                _SYS_GlobalIntEnable
             000054ec    _SarHandle
             000054e8    _SarObj
             000053c6    _Ssave_xsp
             000053c8    _Ssave_xssp
-00034bb0                _StartTimer0
-0002b4e8                _StartUpTask
-0002b53c                _TestTask1
+00035310                _StartTimer0
+0002b9dc                _StartUpTask
+0002ba30                _TestTask1
             00005406    _TestTask1Handle
-0002b570                _TestTask2
+0002ba64                _TestTask2
             00005408    _TestTask2Handle
-0002b5a4                _TestTask3
+0002ba98                _TestTask3
             0000540a    _TestTask3Handle
-0002b5d8                _TestTask4
+0002bacc                _TestTask4
             0000540c    _TestTask4Handle
-00034b6c                _Timer0Init
+000352cc                _Timer0Init
             00005514    _Timer0_Int_CTR
             00005515    _Timer2_Int_CTR
-00023fb0                _UART_config
-000242f0                _UART_eventDisable
-00024258                _UART_eventEnable
-00024630                _UART_fgetc
-00024758                _UART_fgets
-000246d0                _UART_fputc
-00024888                _UART_fputs
-000249a0                _UART_getConfig
-00024978                _UART_getEventId
-00023a4c                _UART_init
-00024380                _UART_read
-000241c4                _UART_reset
-0002420c                _UART_resetOff
-00024a60                _UART_setCallback
-00023b08                _UART_setup
-000240b8                _UART_setupBaudRate
-000244ac                _UART_write
-0001b16c                _USB_abortAllTransaction
-0001b00c                _USB_abortTransaction
-0001aa68                _USB_bytesRemaining
-0001ac70                _USB_clearEndptStall
-0001b1c0                _USB_connectDev
-0001b6e0                _USB_coreEventProcessEp0
-0001b1f4                _USB_disconnectDev
-0001aedc                _USB_epNumToHandle
-0001b55c                _USB_findFifoSize
-0001b504                _USB_getDataCountReadFromFifo
-0001ae58                _USB_getEndptStall
-0001a694                _USB_getEvents
-0001b304                _USB_getFrameNo
-0001b4b0                _USB_getMaxPower
-0001b254                _USB_getRemoteWakeupStat
-0001a77c                _USB_getSetupPacket
-00019c58                _USB_init
-0001a2ac                _USB_initEndptObj
-0001b3d0                _USB_initPLL
-0001a9e0                _USB_isTransactionDone
-0001b26c                _USB_issueRemoteWakeup
-0001a70c                _USB_peekEvents
-0001a824                _USB_postTransaction
-0001a07c                _USB_resetDev
-0001b364                _USB_selfwakeup
-0001b2bc                _USB_setDevAddr
-0001b4d0                _USB_setFullSpeedMode
-0001b454                _USB_setParams
-0001b224                _USB_setRemoteWakeup
-0001aafc                _USB_stallEndpt
-0001b320                _USB_suspendDevice
+00033f4c                _Timer_isr
+0002406c                _UART_config
+000243ac                _UART_eventDisable
+00024314                _UART_eventEnable
+000246ec                _UART_fgetc
+00024814                _UART_fgets
+0002478c                _UART_fputc
+00024944                _UART_fputs
+00024a5c                _UART_getConfig
+00024a34                _UART_getEventId
+00023b08                _UART_init
+0002443c                _UART_read
+00024280                _UART_reset
+000242c8                _UART_resetOff
+00024b1c                _UART_setCallback
+00023bc4                _UART_setup
+00024174                _UART_setupBaudRate
+00024568                _UART_write
+0001b3cc                _USB_abortAllTransaction
+0001b270                _USB_abortTransaction
+0001accc                _USB_bytesRemaining
+0001aed0                _USB_clearEndptStall
+0001b424                _USB_connectDev
+0001b958                _USB_coreEventProcessEp0
+0001b458                _USB_disconnectDev
+0001b134                _USB_epNumToHandle
+0001b7d4                _USB_findFifoSize
+0001b77c                _USB_getDataCountReadFromFifo
+0001b0b4                _USB_getEndptStall
+0001a908                _USB_getEvents
+0001b568                _USB_getFrameNo
+0001b728                _USB_getMaxPower
+0001b4b8                _USB_getRemoteWakeupStat
+0001a9e8                _USB_getSetupPacket
+00019ec8                _USB_init
+0001a524                _USB_initEndptObj
+0001b634                _USB_initPLL
+0001ac48                _USB_isTransactionDone
+0001b4d0                _USB_issueRemoteWakeup
+0001a97c                _USB_peekEvents
+0001aa90                _USB_postTransaction
+0001a2f4                _USB_resetDev
+0001b5c8                _USB_selfwakeup
+0001b520                _USB_setDevAddr
+0001b748                _USB_setFullSpeedMode
+0001b6b8                _USB_setParams
+0001b488                _USB_setRemoteWakeup
+0001ad60                _USB_stallEndpt
+0001b584                _USB_suspendDevice
 0004cf00                _VECSTART
-00031ef8                _WDTIM_close
-00031f70                _WDTIM_config
-00031ec8                _WDTIM_getCnt
-00031fdc                _WDTIM_getConfig
-00031dc0                _WDTIM_open
-00031f3c                _WDTIM_service
-00031e38                _WDTIM_start
-00031e80                _WDTIM_stop
+00032460                _WDTIM_close
+000324d8                _WDTIM_config
+00032430                _WDTIM_getCnt
+00032544                _WDTIM_getConfig
+00032328                _WDTIM_open
+000324a4                _WDTIM_service
+000323a0                _WDTIM_start
+000323e8                _WDTIM_stop
             00004d2c    _XmitL_Sine_1K
             00004d5c    _XmitL_Sine_2K
             00004d8c    _XmitR_Sine_1K
@@ -906,109 +907,109 @@ ffffffff                ___data__
 ffffffff                ___edata__
 ffffffff                ___end__
 ffffffff                ___etext__
-00034efb                ___isinf
+0003565b                ___isinf
 ffffffff                ___pinit__
 ffffffff                ___text__
-00032284                __addd
-00034cab                __args_main
-00031c61                __cleanup
+000327ec                __addd
+0003540b                __args_main
+000321c9                __cleanup
             0000550e    __cleanup_ptr
-00032ebd                __cmpd
+00033425                __cmpd
             00005862    __ctypes_
-00030246                __divd
-00034d41                __divli
-0003224f                __divlli
-00034eae                __divu
-00034265                __divul
-0003215b                __divull
-00033f93                __doflush
+000307a2                __divd
+000354a1                __divli
+000327b7                __divlli
+0003560e                __divu
+000349c6                __divul
+000326c3                __divull
+000346ff                __doflush
             00005510    __dtors_ptr
-00032e89                __eqld
-00034e84                __fixdi
-000348ac                __fixdli
-000349f3                __fltlid
-00034f80                __fltud
-00034ab6                __fltuld
-00034751                __frcmpyd
-000347c7                __frcmpyd_div
+000333f1                __eqld
+000355e4                __fixdi
+0003500c                __fixdli
+00035153                __fltlid
+000356e0                __fltud
+00035216                __fltuld
+00034eb1                __frcmpyd
+00034f27                __frcmpyd_div
             00004f68    __ft_end
             00004e50    __ftable
-00032e3f                __geqd
-00032df4                __gtrd
-00032da7                __leqd
+000333a7                __geqd
+0003335c                __gtrd
+0003330f                __leqd
             0000550a    __lock
-00032d5f                __lssd
-0003388f                __mpyd
-00034f29                __mpyli
-000320a3                __mpylli
-00034f70                __negd
-00032d2b                __neqd
-00034f4c                __nop
+000332c7                __lssd
+00033dff                __mpyd
+00035689                __mpyli
+0003260b                __mpylli
+000356d0                __negd
+00033293                __neqd
+000356ac                __nop
 00021362                __printfi
-00033f36                __rd_ok
-00034f44                __register_lock
-00034f3c                __register_unlock
-00034cf6                __remli
-00032074                __remlli
-00034ec3                __remu
-0003483a                __remul
-00032026                __remull
+000345d2                __rd_ok
+000356a4                __register_lock
+0003569c                __register_unlock
+00035456                __remli
+000325dc                __remlli
+00035623                __remu
+00034f9a                __remul
+0003258e                __remull
             00000060    __stack
-00034f15                __subd
+00035675                __subd
             00001860    __sys_memory
             00001060    __sysstack
             00004ec8    __tmpnams
             0000550c    __unlock
-00033eb6                __wrt_ok
-00034f98                _abort
-0002e16a                _add_device
-00034a5a                _atoi
-00034c5e                _auto_init
-0002b39c                _blueLedToggle
+00034552                __wrt_ok
+0001fff7                _abort
+0002ebe7                _add_device
+000351ba                _atoi
+000353be                _auto_init
+0002b890                _blueLedToggle
             000053f8    _blueTaskHandle
-00034e50                _c_int00
+000355b0                _c_int00
             00004564    _cached_phySector0
             00004566    _cached_phySector1
             00004568    _cached_phySector2
             0000456a    _cached_phySector3
-0002f620                _calloc
+0002fb64                _calloc
             000051de    _cardAddr
-0002f618                _chkheap
-0002e0f7                _close
+0002fb5c                _chkheap
+0002eb74                _close
             000053c4    _context_switch_counter
             00005402    _controlTaskHandle
-00033cbc                _convert_number_to_string
-00031b08                _disable_i2s0
-00031b16                _disable_i2s1
-00031b24                _disable_i2s2
-00031b32                _disable_i2s3
-0001c0f4                _eTaskGetState
-00032928                _enable_dma_int
-00031ad0                _enable_i2s0
-00031ade                _enable_i2s1
-00031aec                _enable_i2s2
-00031afa                _enable_i2s3
-00033bf4                _enable_rtc_second_int
-00034e12                _exit
+00034358                _convert_number_to_string
+00032070                _disable_i2s0
+0003207e                _disable_i2s1
+0003208c                _disable_i2s2
+0003209a                _disable_i2s3
+0001c384                _eTaskGetState
+00032e90                _enable_dma_int
+00032038                _enable_i2s0
+00032046                _enable_i2s1
+00032054                _enable_i2s2
+00032062                _enable_i2s3
+00034290                _enable_rtc_second_int
+00035572                _exit
             000053f3    _f1KToneOn
             000053f4    _f2KToneOn
             000053f2    _fSineWave
             00005512    _fTimer
             00005513    _fTimer02
-000346d6                _fclose
-00033ffc                _fflush
-0002e0ee                _find_registered_device
+00034e36                _fclose
+00034768                _fflush
+0002eb6b                _find_registered_device
             000053c5    _first_flag
             000053ca    _first_save_xsp
             000053cc    _first_save_xssp
-00031d84                _fopen
-000341bf                _fputc
-0003372c                _fputs
-0002f191                _free
-0002f5c2                _free_memory
-00031cbb                _freopen
+000322ec                _fopen
+0003487b                _fputc
+00033c9c                _fputs
+0002f6d5                _free
+0002fb06                _free_memory
+00032223                _freopen
             00005450    _fsError
-00034988                _fseek
+000350e8                _fseek
             00004c46    _gBulkInTransfer
             00004c54    _gBulkOutTransfer
             00004c38    _gCtrlTransfer
@@ -1023,151 +1024,151 @@ ffffffff                ___text__
             00004d1c    _gUsbEpHandle
             00004160    _gWordCount
             00004164    _gWriteBuf
-0002e794                _getenv
+0002ecd7                _getenv
             000053fc    _greenTaskHandle
             00005500    _hGpio
             0000551a    _hI2s
             0000507a    _hSpi
             00005486    _hUart
             000054ac    _i2cHandle
-000318a8                _i2s0_read_CR
-000318f0                _i2s0_read_INTR
-000318f6                _i2s0_read_INT_MASK
-00031902                _i2s0_read_RXL_LSW
-0003190e                _i2s0_read_RXL_MSW
-0003191a                _i2s0_read_RXR_LSW
-00031926                _i2s0_read_RXR_MSW
-000318b4                _i2s0_read_SRGR
-000318c0                _i2s0_read_TXL_LSW
-000318cc                _i2s0_read_TXL_MSW
-000318d8                _i2s0_read_TXR_LSW
-000318e4                _i2s0_read_TXR_MSW
-000318ae                _i2s0_write_CR
-000318fc                _i2s0_write_INT_MASK
-00031908                _i2s0_write_RXL_LSW
-00031914                _i2s0_write_RXL_MSW
-00031920                _i2s0_write_RXR_LSW
-0003192c                _i2s0_write_RXR_MSW
-000318ba                _i2s0_write_SRGR
-000318c6                _i2s0_write_TXL_LSW
-000318d2                _i2s0_write_TXL_MSW
-000318de                _i2s0_write_TXR_LSW
-000318ea                _i2s0_write_TXR_MSW
-00031932                _i2s1_read_CR
-0003197a                _i2s1_read_INTR
-00031980                _i2s1_read_INT_MASK
-0003198c                _i2s1_read_RXL_LSW
-00031998                _i2s1_read_RXL_MSW
-000319a4                _i2s1_read_RXR_LSW
-000319b0                _i2s1_read_RXR_MSW
-0003193e                _i2s1_read_SRGR
-0003194a                _i2s1_read_TXL_LSW
-00031956                _i2s1_read_TXL_MSW
-00031962                _i2s1_read_TXR_LSW
-0003196e                _i2s1_read_TXR_MSW
-00031938                _i2s1_write_CR
-00031986                _i2s1_write_INT_MASK
-00031992                _i2s1_write_RXL_LSW
-0003199e                _i2s1_write_RXL_MSW
-000319aa                _i2s1_write_RXR_LSW
-000319b6                _i2s1_write_RXR_MSW
-00031944                _i2s1_write_SRGR
-00031950                _i2s1_write_TXL_LSW
-0003195c                _i2s1_write_TXL_MSW
-00031968                _i2s1_write_TXR_LSW
-00031974                _i2s1_write_TXR_MSW
-000319bc                _i2s2_read_CR
-00031a04                _i2s2_read_INTR
-00031a0a                _i2s2_read_INT_MASK
-00031a16                _i2s2_read_RXL_LSW
-00031a22                _i2s2_read_RXL_MSW
-00031a2e                _i2s2_read_RXR_LSW
-00031a3a                _i2s2_read_RXR_MSW
-000319c8                _i2s2_read_SRGR
-000319d4                _i2s2_read_TXL_LSW
-000319e0                _i2s2_read_TXL_MSW
-000319ec                _i2s2_read_TXR_LSW
-000319f8                _i2s2_read_TXR_MSW
-000319c2                _i2s2_write_CR
-00031a10                _i2s2_write_INT_MASK
-00031a1c                _i2s2_write_RXL_LSW
-00031a28                _i2s2_write_RXL_MSW
-00031a34                _i2s2_write_RXR_LSW
-00031a40                _i2s2_write_RXR_MSW
-000319ce                _i2s2_write_SRGR
-000319da                _i2s2_write_TXL_LSW
-000319e6                _i2s2_write_TXL_MSW
-000319f2                _i2s2_write_TXR_LSW
-000319fe                _i2s2_write_TXR_MSW
-00031a46                _i2s3_read_CR
-00031a8e                _i2s3_read_INTR
-00031a94                _i2s3_read_INT_MASK
-00031aa0                _i2s3_read_RXL_LSW
-00031aac                _i2s3_read_RXL_MSW
-00031ab8                _i2s3_read_RXR_LSW
-00031ac4                _i2s3_read_RXR_MSW
-00031a52                _i2s3_read_SRGR
-00031a5e                _i2s3_read_TXL_LSW
-00031a6a                _i2s3_read_TXL_MSW
-00031a76                _i2s3_read_TXR_LSW
-00031a82                _i2s3_read_TXR_MSW
-00031a4c                _i2s3_write_CR
-00031a9a                _i2s3_write_INT_MASK
-00031aa6                _i2s3_write_RXL_LSW
-00031ab2                _i2s3_write_RXL_MSW
-00031abe                _i2s3_write_RXR_LSW
-00031aca                _i2s3_write_RXR_MSW
-00031a58                _i2s3_write_SRGR
-00031a64                _i2s3_write_TXL_LSW
-00031a70                _i2s3_write_TXL_MSW
-00031a7c                _i2s3_write_TXR_LSW
-00031a88                _i2s3_write_TXR_MSW
+00031e10                _i2s0_read_CR
+00031e58                _i2s0_read_INTR
+00031e5e                _i2s0_read_INT_MASK
+00031e6a                _i2s0_read_RXL_LSW
+00031e76                _i2s0_read_RXL_MSW
+00031e82                _i2s0_read_RXR_LSW
+00031e8e                _i2s0_read_RXR_MSW
+00031e1c                _i2s0_read_SRGR
+00031e28                _i2s0_read_TXL_LSW
+00031e34                _i2s0_read_TXL_MSW
+00031e40                _i2s0_read_TXR_LSW
+00031e4c                _i2s0_read_TXR_MSW
+00031e16                _i2s0_write_CR
+00031e64                _i2s0_write_INT_MASK
+00031e70                _i2s0_write_RXL_LSW
+00031e7c                _i2s0_write_RXL_MSW
+00031e88                _i2s0_write_RXR_LSW
+00031e94                _i2s0_write_RXR_MSW
+00031e22                _i2s0_write_SRGR
+00031e2e                _i2s0_write_TXL_LSW
+00031e3a                _i2s0_write_TXL_MSW
+00031e46                _i2s0_write_TXR_LSW
+00031e52                _i2s0_write_TXR_MSW
+00031e9a                _i2s1_read_CR
+00031ee2                _i2s1_read_INTR
+00031ee8                _i2s1_read_INT_MASK
+00031ef4                _i2s1_read_RXL_LSW
+00031f00                _i2s1_read_RXL_MSW
+00031f0c                _i2s1_read_RXR_LSW
+00031f18                _i2s1_read_RXR_MSW
+00031ea6                _i2s1_read_SRGR
+00031eb2                _i2s1_read_TXL_LSW
+00031ebe                _i2s1_read_TXL_MSW
+00031eca                _i2s1_read_TXR_LSW
+00031ed6                _i2s1_read_TXR_MSW
+00031ea0                _i2s1_write_CR
+00031eee                _i2s1_write_INT_MASK
+00031efa                _i2s1_write_RXL_LSW
+00031f06                _i2s1_write_RXL_MSW
+00031f12                _i2s1_write_RXR_LSW
+00031f1e                _i2s1_write_RXR_MSW
+00031eac                _i2s1_write_SRGR
+00031eb8                _i2s1_write_TXL_LSW
+00031ec4                _i2s1_write_TXL_MSW
+00031ed0                _i2s1_write_TXR_LSW
+00031edc                _i2s1_write_TXR_MSW
+00031f24                _i2s2_read_CR
+00031f6c                _i2s2_read_INTR
+00031f72                _i2s2_read_INT_MASK
+00031f7e                _i2s2_read_RXL_LSW
+00031f8a                _i2s2_read_RXL_MSW
+00031f96                _i2s2_read_RXR_LSW
+00031fa2                _i2s2_read_RXR_MSW
+00031f30                _i2s2_read_SRGR
+00031f3c                _i2s2_read_TXL_LSW
+00031f48                _i2s2_read_TXL_MSW
+00031f54                _i2s2_read_TXR_LSW
+00031f60                _i2s2_read_TXR_MSW
+00031f2a                _i2s2_write_CR
+00031f78                _i2s2_write_INT_MASK
+00031f84                _i2s2_write_RXL_LSW
+00031f90                _i2s2_write_RXL_MSW
+00031f9c                _i2s2_write_RXR_LSW
+00031fa8                _i2s2_write_RXR_MSW
+00031f36                _i2s2_write_SRGR
+00031f42                _i2s2_write_TXL_LSW
+00031f4e                _i2s2_write_TXL_MSW
+00031f5a                _i2s2_write_TXR_LSW
+00031f66                _i2s2_write_TXR_MSW
+00031fae                _i2s3_read_CR
+00031ff6                _i2s3_read_INTR
+00031ffc                _i2s3_read_INT_MASK
+00032008                _i2s3_read_RXL_LSW
+00032014                _i2s3_read_RXL_MSW
+00032020                _i2s3_read_RXR_LSW
+0003202c                _i2s3_read_RXR_MSW
+00031fba                _i2s3_read_SRGR
+00031fc6                _i2s3_read_TXL_LSW
+00031fd2                _i2s3_read_TXL_MSW
+00031fde                _i2s3_read_TXR_LSW
+00031fea                _i2s3_read_TXR_MSW
+00031fb4                _i2s3_write_CR
+00032002                _i2s3_write_INT_MASK
+0003200e                _i2s3_write_RXL_LSW
+0003201a                _i2s3_write_RXL_MSW
+00032026                _i2s3_write_RXR_LSW
+00032032                _i2s3_write_RXR_MSW
+00031fc0                _i2s3_write_SRGR
+00031fcc                _i2s3_write_TXL_LSW
+00031fd8                _i2s3_write_TXL_MSW
+00031fe4                _i2s3_write_TXR_LSW
+00031ff0                _i2s3_write_TXR_MSW
             000054ee    _keyCnt1
             000054ef    _keyCnt2
             000054f6    _led_tsk_ctr
             000053f6    _led_tsks_running
-0002e088                _lseek
-00034659                _ltoa
-0002ade0                _main
-0002f2c2                _malloc
-0002f568                _max_free
+0002eb05                _lseek
+00034db9                _ltoa
+0002b2d4                _main
+0002f806                _malloc
+0002faac                _max_free
             0000456d    _mem
-00034110                _mem_test
-00034ed8                _memccpy
-00034dd3                _memcpy
-00034f4e                _memset
-0002f25d                _minit
+00034630                _mem_test
+00035638                _memccpy
+00035533                _memcpy
+000356ae                _memset
+0002f7a1                _minit
             0000518e    _mmcCardObj
             000051e0    _mmcStatus
             0000518c    _mmcsdHandle
             00004161    _nbuf_cached
-0002b60c                _oled_test
-0002dfc9                _open
+0002bb00                _oled_test
+0002ea46                _open
             00005451    _ouError
             0000514c    _pMmcsdContObj
-00022718                _pcQueueGetName
-0001c8a0                _pcTaskGetName
+00022740                _pcQueueGetName
+0001cb48                _pcTaskGetName
             000053b6    _portFLAGS_INT_ENABLED
             000053b7    _portFLAGS_INT_ENABLED_POPPED
             000054eb    _preKey
-00034bbe                _printf
-00032b18                _prvSetupTimerInterrupt
-000341bf                _putc
-00034256                _putchar
-00033861                _puts
-00034d8c                _pvPortMalloc
-0001d344                _pvTaskIncrementMutexHeldCount
+0003531e                _printf
+00033080                _prvSetupTimerInterrupt
+0003487b                _putc
+00034912                _putchar
+00033dd1                _puts
+000354ec                _pvPortMalloc
+0001d628                _pvTaskIncrementMutexHeldCount
             0000526a    _pxCurrentTCB
-00032938                _pxPortInitialiseStack
-0002df1b                _read
-0003491b                _readmsg
-0002f3b7                _realloc
-0002b3c4                _redLedToggle
+00032ea0                _pxPortInitialiseStack
+0002e998                _read
+0003507b                _readmsg
+0002f8fb                _realloc
+0002b8b8                _redLedToggle
             000053fa    _redTaskHandle
-00034f8e                _remove
-0002dee5                _remove_device
-0002de8c                _rename
-00033c00                _reset_RTC
+000356ee                _remove
+0002e962                _remove_device
+0002e909                _rename
+0003429c                _reset_RTC
             000053bc    _restore_xsp
             000053be    _restore_xssp
             000053c0    _save_ac0
@@ -1184,25 +1185,25 @@ ffffffff                ___text__
             000053ba    _save_xssp
             000051bc    _sdCardCsdObj
             000051ac    _sdCardIdObj
-000327e4                _set_dma0_ch0_i2s0_Lout
-00032730                _set_dma0_ch0_stop
-000328bc                _set_dma0_ch1_i2s0_Rout
-00032760                _set_dma0_ch1_stop
-00032778                _set_dma1_ch0_i2s2_Lout
-00032718                _set_dma1_ch0_stop
-00032850                _set_dma1_ch1_i2s2_Rout
-00032748                _set_dma1_ch1_stop
-000344f8                _set_i2s0_master
-0003452c                _set_i2s0_slave
-000344c4                _set_i2s2_master
-00033cf0                _setvbuf
-00033424                _spiflash_test
+00032d4c                _set_dma0_ch0_i2s0_Lout
+00032c98                _set_dma0_ch0_stop
+00032e24                _set_dma0_ch1_i2s0_Rout
+00032cc8                _set_dma0_ch1_stop
+00032ce0                _set_dma1_ch0_i2s2_Lout
+00032c80                _set_dma1_ch0_stop
+00032db8                _set_dma1_ch1_i2s2_Rout
+00032cb0                _set_dma1_ch1_stop
+00034c58                _set_i2s0_master
+00034c8c                _set_i2s0_slave
+00034c24                _set_i2s2_master
+0003438c                _setvbuf
+00033994                _spiflash_test
             00005268    _stackStruct
             000053dd    _stack_check_word
             00005404    _startUpTaskHandle
-00034f5f                _strlen
+000356bf                _strlen
             00004b6f    _sysCtrlRegs
-0002b288                _systemInit
+0002b77c                _systemInit
             000053ee    _tOne
             000053f0    _tThree
             000053ef    _tTwo
@@ -1210,145 +1211,145 @@ ffffffff                ___text__
             000053dc    _tickIRQctr
             00005472    _uartObj
             0000541a    _ulIdleLoops
-0001d364                _ulTaskNotifyTake
-0002de59                _unlink
+0001d648                _ulTaskNotifyTake
+0002e8d6                _unlink
             000053f1    _usCriticalNesting
             00004b6e    _usbRegisters
-00033228                _uxListRemove
-0002229c                _uxQueueMessagesWaiting
-00022334                _uxQueueMessagesWaitingFromISR
-000222e4                _uxQueueSpacesAvailable
-0001c898                _uxTaskGetNumberOfTasks
-0001cf28                _uxTaskGetStackHighWaterMark
-0001c1d8                _uxTaskPriorityGet
-0001c220                _uxTaskPriorityGetFromISR
-0001d314                _uxTaskResetEventItemValue
-0002b10c                _vApplicationIdleHook
-0002b314                _vApplicationMallocFailedHook
-0002b31c                _vApplicationStackOverflowHook
-0002d1f0                _vCreateBlockTimeTasks
-0002dcc8                _vEventGroupClearBitsCallback
-0002dc54                _vEventGroupDelete
-0002dcb4                _vEventGroupSetBitsCallback
-000330dc                _vListInitialise
-00033120                _vListInitialiseItem
-00033188                _vListInsert
-00033134                _vListInsertEnd
-00034308                _vParTestInitialise
-0003430c                _vParTestSetLED
-00034324                _vParTestToggleLED
-00032b14                _vPortEndScheduler
-00034db4                _vPortFree
-0002c29b                _vPortYield
-000226b8                _vQueueAddToRegistry
-00022354                _vQueueDelete
-0003263c                _vQueueOverwritePeriodicISRDemo
-00022774                _vQueueUnregisterQueue
-0002fa78                _vStartDynamicPriorityTasks
-00033af0                _vStartIntegerMathTasks
-00033dd8                _vStartLEDFlashTasks
-0002fe74                _vStartMathTasks
-00032f18                _vStartPolledQueueTasks
-000324e0                _vStartQueueOverwriteTask
-0002f648                _vStartQueuePeekTasks
-00031018                _vStartSemaphoreTasks
-00028938                _vStreamBufferDelete
-0001c0b4                _vTaskDelay
-0001bff0                _vTaskDelayUntil
-0001bf18                _vTaskDelete
-0001c700                _vTaskEndScheduler
-0001d2b4                _vTaskEnterCritical
-0001d2dc                _vTaskExitCritical
-0001ccec                _vTaskInternalSetTimeOutState
-0001cdd4                _vTaskMissedYield
-0001d854                _vTaskNotifyGiveFromISR
-0001cac8                _vTaskPlaceOnEventList
-0001caf8                _vTaskPlaceOnUnorderedEventList
-0001d1a4                _vTaskPriorityDisinheritAfterTimeout
-0001c244                _vTaskPrioritySet
-0001cbf8                _vTaskRemoveFromUnorderedEventList
-0001c534                _vTaskResume
-0001cc98                _vTaskSetTimeOutState
-0001c694                _vTaskStartScheduler
-0001c3b4                _vTaskSuspend
-0001c714                _vTaskSuspendAll
-0001ca28                _vTaskSwitchContext
-0002bf78                _vTickISR
+00033790                _uxListRemove
+000222ac                _uxQueueMessagesWaiting
+00022344                _uxQueueMessagesWaitingFromISR
+000222f4                _uxQueueSpacesAvailable
+0001cb40                _uxTaskGetNumberOfTasks
+0001d1f4                _uxTaskGetStackHighWaterMark
+0001c468                _uxTaskPriorityGet
+0001c4b0                _uxTaskPriorityGetFromISR
+0001d5f8                _uxTaskResetEventItemValue
+0002b600                _vApplicationIdleHook
+0002b808                _vApplicationMallocFailedHook
+0002b810                _vApplicationStackOverflowHook
+0002d6fc                _vCreateBlockTimeTasks
+0002e1d4                _vEventGroupClearBitsCallback
+0002e160                _vEventGroupDelete
+0002e1c0                _vEventGroupSetBitsCallback
+00033644                _vListInitialise
+00033688                _vListInitialiseItem
+000336f0                _vListInsert
+0003369c                _vListInsertEnd
+00034a68                _vParTestInitialise
+00034a6c                _vParTestSetLED
+00034a84                _vParTestToggleLED
+0003307c                _vPortEndScheduler
+00035514                _vPortFree
+0002c78f                _vPortYield
+000226d0                _vQueueAddToRegistry
+00022364                _vQueueDelete
+00032ba4                _vQueueOverwritePeriodicISRDemo
+000227a8                _vQueueUnregisterQueue
+0002ffbc                _vStartDynamicPriorityTasks
+0003418c                _vStartIntegerMathTasks
+00034474                _vStartLEDFlashTasks
+000303b8                _vStartMathTasks
+00033480                _vStartPolledQueueTasks
+00032a48                _vStartQueueOverwriteTask
+0002fb8c                _vStartQueuePeekTasks
+00031578                _vStartSemaphoreTasks
+000297f0                _vStreamBufferDelete
+0001c344                _vTaskDelay
+0001c280                _vTaskDelayUntil
+0001c1a8                _vTaskDelete
+0001c9a4                _vTaskEndScheduler
+0001d598                _vTaskEnterCritical
+0001d5c0                _vTaskExitCritical
+0001cfb4                _vTaskInternalSetTimeOutState
+0001d09c                _vTaskMissedYield
+0001db44                _vTaskNotifyGiveFromISR
+0001cd88                _vTaskPlaceOnEventList
+0001cdb8                _vTaskPlaceOnUnorderedEventList
+0001d480                _vTaskPriorityDisinheritAfterTimeout
+0001c4d4                _vTaskPrioritySet
+0001cebc                _vTaskRemoveFromUnorderedEventList
+0001c7d0                _vTaskResume
+0001cf60                _vTaskSetTimeOutState
+0001c938                _vTaskStartScheduler
+0001c650                _vTaskSuspend
+0001c9b8                _vTaskSuspendAll
+0001ccd4                _vTaskSwitchContext
+0002c46c                _vTickISR
             00005266    _wall_clk_ctr
-0002dd17                _write
-00034055                _writemsg
-0002d754                _xAreBlockTimeTestTasksStillRunning
-0002fe14                _xAreDynamicPriorityTasksStillRunning
-00033bc4                _xAreIntegerMathsTaskStillRunning
-0003020c                _xAreMathsTaskStillRunning
-000330b0                _xArePollingQueuesStillRunning
-0002fa40                _xAreQueuePeekTasksStillRunning
-000312bc                _xAreSemaphoreTasksStillRunning
+0002e794                _write
+000347c1                _writemsg
+0002dc60                _xAreBlockTimeTestTasksStillRunning
+00030358                _xAreDynamicPriorityTasksStillRunning
+00034260                _xAreIntegerMathsTaskStillRunning
+00030768                _xAreMathsTaskStillRunning
+00033618                _xArePollingQueuesStillRunning
+0002ff84                _xAreQueuePeekTasksStillRunning
+0003181c                _xAreSemaphoreTasksStillRunning
             000053de    _xCompareTCB
-0002da84                _xEventGroupClearBits
-0002d7a4                _xEventGroupCreate
-0002dafc                _xEventGroupGetBitsFromISR
-0002db1c                _xEventGroupSetBits
-0002d7cc                _xEventGroupSync
-0002d918                _xEventGroupWaitBits
+0002df90                _xEventGroupClearBits
+0002dcb0                _xEventGroupCreate
+0002e008                _xEventGroupGetBitsFromISR
+0002e028                _xEventGroupSetBits
+0002dcd8                _xEventGroupSync
+0002de24                _xEventGroupWaitBits
             000054c6    _xHighPriorityTask
             000054c8    _xHighestPriorityTask
-0003260c                _xIsQueueOverwriteTaskStillRunning
+00032b74                _xIsQueueOverwriteTaskStillRunning
             000054c4    _xMediumPriorityTask
-0002be2c                _xPortStartScheduler
-00021818                _xQueueCreateCountingSemaphore
-0002174c                _xQueueCreateMutex
-00021678                _xQueueGenericCreate
+0002c320                _xPortStartScheduler
+00021828                _xQueueCreateCountingSemaphore
+0002175c                _xQueueCreateMutex
+00021688                _xQueueGenericCreate
 000215a4                _xQueueGenericReset
-00021860                _xQueueGenericSend
-00021a34                _xQueueGenericSendFromISR
-00021b0c                _xQueueGiveFromISR
-0002176c                _xQueueGiveMutexRecursive
-00022614                _xQueueIsQueueEmptyFromISR
-00022688                _xQueueIsQueueFullFromISR
-00021fb4                _xQueuePeek
-0002221c                _xQueuePeekFromISR
-00021bd0                _xQueueReceive
-00022168                _xQueueReceiveFromISR
+00021870                _xQueueGenericSend
+00021a44                _xQueueGenericSendFromISR
+00021b1c                _xQueueGiveFromISR
+0002177c                _xQueueGiveMutexRecursive
+0002262c                _xQueueIsQueueEmptyFromISR
+000226a0                _xQueueIsQueueFullFromISR
+00021fc4                _xQueuePeek
+0002222c                _xQueuePeekFromISR
+00021be0                _xQueueReceive
+00022178                _xQueueReceiveFromISR
             00005452    _xQueueRegistry
-00021d80                _xQueueSemaphoreTake
-000217c4                _xQueueTakeMutexRecursive
+00021d90                _xQueueSemaphoreTake
+000217d4                _xQueueTakeMutexRecursive
             00005410    _xSemaphoreB
             00005418    _xSemaphoreBaton
             00005414    _xSemaphoreO
             0000540e    _xSemaphoreR
             00005416    _xSemaphoreXF
             00005412    _xSemaphoreY
-00028a64                _xStreamBufferBytesAvailable
-000288b8                _xStreamBufferGenericCreate
-00028fa4                _xStreamBufferIsEmpty
-00028fd4                _xStreamBufferIsFull
-00028e3c                _xStreamBufferNextMessageLengthBytes
-00028d08                _xStreamBufferReceive
-00029068                _xStreamBufferReceiveCompletedFromISR
-00028ea8                _xStreamBufferReceiveFromISR
-00028968                _xStreamBufferReset
-00028a84                _xStreamBufferSend
-00029014                _xStreamBufferSendCompletedFromISR
-00028bf8                _xStreamBufferSendFromISR
-000289e0                _xStreamBufferSetTriggerLevel
-00028a1c                _xStreamBufferSpacesAvailable
+0002991c                _xStreamBufferBytesAvailable
+00029770                _xStreamBufferGenericCreate
+00029e5c                _xStreamBufferIsEmpty
+00029e8c                _xStreamBufferIsFull
+00029cf4                _xStreamBufferNextMessageLengthBytes
+00029bc0                _xStreamBufferReceive
+00029f20                _xStreamBufferReceiveCompletedFromISR
+00029d60                _xStreamBufferReceiveFromISR
+00029820                _xStreamBufferReset
+0002993c                _xStreamBufferSend
+00029ecc                _xStreamBufferSendCompletedFromISR
+00029ab0                _xStreamBufferSendFromISR
+00029898                _xStreamBufferSetTriggerLevel
+000298d4                _xStreamBufferSpacesAvailable
             000054b8    _xSuspendedTestQueue
-0001cd0c                _xTaskCheckForTimeOut
-0001bb9c                _xTaskCreate
-0001d534                _xTaskGenericNotify
-0001d6c0                _xTaskGenericNotifyFromISR
-0001cfc0                _xTaskGetCurrentTaskHandle
-0001c844                _xTaskGetTickCount
-0001c880                _xTaskGetTickCountFromISR
-0001c8c8                _xTaskIncrementTick
-0001d938                _xTaskNotifyStateClear
-0001d438                _xTaskNotifyWait
-0001d0e0                _xTaskPriorityDisinherit
-0001cfd4                _xTaskPriorityInherit
-0001cb50                _xTaskRemoveFromEventList
-0001c720                _xTaskResumeAll
-0001c5f4                _xTaskResumeFromISR
+0001cfd4                _xTaskCheckForTimeOut
+0001be14                _xTaskCreate
+0001d818                _xTaskGenericNotify
+0001d9ac                _xTaskGenericNotifyFromISR
+0001d28c                _xTaskGetCurrentTaskHandle
+0001caec                _xTaskGetTickCount
+0001cb28                _xTaskGetTickCountFromISR
+0001cb70                _xTaskIncrementTick
+0001dc2c                _xTaskNotifyStateClear
+0001d71c                _xTaskNotifyWait
+0001d3b8                _xTaskPriorityDisinherit
+0001d2a0                _xTaskPriorityInherit
+0001ce10                _xTaskRemoveFromEventList
+0001c9c4                _xTaskResumeAll
+0001c894                _xTaskResumeFromISR
             00005400    _xf2TaskHandle
             000053fe    _xfTaskHandle
 ffffffff                binit
@@ -1357,7 +1358,7 @@ ffffffff                edata
 ffffffff                end
 ffffffff                etext
 ffffffff                pinit
-000345da                reset_isr
+00034d3a                reset_isr
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -1572,722 +1573,723 @@ byte addr   word addr   name
 00014164                _MMC_getCardStatus
 00014260                _SD_configurePullup
 0001438c                _MMC_checkReadDmaDone
-00014c30                _MSC_Open
-00014c54                _MSC_OpenFullspeed
-00014fa0                _MSC_Close
-00014fdc                _MSC_SetLunAttr
-000151cc                _MSC_Ctrl
-000153c4                _MSC_Bulk
-000154c0                _MSC_GetLunLockedStatus
-000154f0                _MSC_GetactivityFlagStatus
-0001550c                _MSC_GetsuspendFlagStatus
-000159b4                _MSC_HandleStateWaitForCBW
-00015c58                _MSC_ExecuteRead
-0001604c                _MSC_ExecuteWrite
-00016600                _MSC_HandleTestUnitReady
-00016824                _MSC_HandlePreventAllowMediaRemoval
-000169c8                _MSC_HandleReadCapacity
-00016c18                _MSC_reqGetDescriptor
-00016e50                _MSC_reqBotMscReset
-00016ebc                _MSC_sendCswWithPhaseError
-00016f24                _MSC_handleDataDirMisMatch
-00016fa0                _SDIO_init
-00016fe0                _SDIO_open
-000170ac                _SDIO_close
-000170d4                _SDIO_config
-000171ac                _SDIO_detectCard
-00017518                _SDIO_initCard
-0001799c                _SDIO_resetCard
-00017a84                _SDIO_getRca
-00017b4c                _SDIO_deselectCard
-00017c0c                _SDIO_selectCard
-00017cd0                _SDIO_sendCommand
-00017da4                _SDIO_getResponse
-00017f38                _SDIO_clearResponse
-00018014                _SDIO_getStatus
-0001807c                _SDIO_getSdioStatus
-000180e8                _SDIO_eventEnable
-00018310                _SDIO_eventDisable
-00018508                _SDIO_readWaitEnable
-00018540                _SDIO_readWaitDisable
-00018578                _SDIO_readSingleByte
-000186a4                _SDIO_writeSingleByte
-000187a4                _SDIO_readBytes
-00018be8                _SDIO_writeBytes
-00019028                _SDIO_readBlocks
-00019468                _SDIO_writeBlocks
-000198bc                _SDIO_setEndianMode
-0001993c                _SDIO_setClock
-00019c58                _USB_init
-0001a07c                _USB_resetDev
-0001a2ac                _USB_initEndptObj
-0001a694                _USB_getEvents
-0001a70c                _USB_peekEvents
-0001a77c                _USB_getSetupPacket
-0001a824                _USB_postTransaction
-0001a9e0                _USB_isTransactionDone
-0001aa68                _USB_bytesRemaining
-0001aafc                _USB_stallEndpt
-0001ac70                _USB_clearEndptStall
-0001ae58                _USB_getEndptStall
-0001aedc                _USB_epNumToHandle
-0001b00c                _USB_abortTransaction
-0001b16c                _USB_abortAllTransaction
-0001b1c0                _USB_connectDev
-0001b1f4                _USB_disconnectDev
-0001b224                _USB_setRemoteWakeup
-0001b254                _USB_getRemoteWakeupStat
-0001b26c                _USB_issueRemoteWakeup
-0001b2bc                _USB_setDevAddr
-0001b304                _USB_getFrameNo
-0001b320                _USB_suspendDevice
-0001b364                _USB_selfwakeup
-0001b3d0                _USB_initPLL
-0001b454                _USB_setParams
-0001b4b0                _USB_getMaxPower
-0001b4d0                _USB_setFullSpeedMode
-0001b504                _USB_getDataCountReadFromFifo
-0001b55c                _USB_findFifoSize
-0001b6e0                _USB_coreEventProcessEp0
-0001bb9c                _xTaskCreate
-0001bf18                _vTaskDelete
-0001bff0                _vTaskDelayUntil
-0001c0b4                _vTaskDelay
-0001c0f4                _eTaskGetState
-0001c1d8                _uxTaskPriorityGet
-0001c220                _uxTaskPriorityGetFromISR
-0001c244                _vTaskPrioritySet
-0001c3b4                _vTaskSuspend
-0001c534                _vTaskResume
-0001c5f4                _xTaskResumeFromISR
-0001c694                _vTaskStartScheduler
-0001c700                _vTaskEndScheduler
-0001c714                _vTaskSuspendAll
-0001c720                _xTaskResumeAll
-0001c844                _xTaskGetTickCount
-0001c880                _xTaskGetTickCountFromISR
-0001c898                _uxTaskGetNumberOfTasks
-0001c8a0                _pcTaskGetName
-0001c8c8                _xTaskIncrementTick
-0001ca28                _vTaskSwitchContext
-0001cac8                _vTaskPlaceOnEventList
-0001caf8                _vTaskPlaceOnUnorderedEventList
-0001cb50                _xTaskRemoveFromEventList
-0001cbf8                _vTaskRemoveFromUnorderedEventList
-0001cc98                _vTaskSetTimeOutState
-0001ccec                _vTaskInternalSetTimeOutState
-0001cd0c                _xTaskCheckForTimeOut
-0001cdd4                _vTaskMissedYield
-0001cf28                _uxTaskGetStackHighWaterMark
-0001cfc0                _xTaskGetCurrentTaskHandle
-0001cfd4                _xTaskPriorityInherit
-0001d0e0                _xTaskPriorityDisinherit
-0001d1a4                _vTaskPriorityDisinheritAfterTimeout
-0001d2b4                _vTaskEnterCritical
-0001d2dc                _vTaskExitCritical
-0001d314                _uxTaskResetEventItemValue
-0001d344                _pvTaskIncrementMutexHeldCount
-0001d364                _ulTaskNotifyTake
-0001d438                _xTaskNotifyWait
-0001d534                _xTaskGenericNotify
-0001d6c0                _xTaskGenericNotifyFromISR
-0001d854                _vTaskNotifyGiveFromISR
-0001d938                _xTaskNotifyStateClear
-0001da48                _DMA_init
-0001da80                _DMA_open
-0001db6c                _DMA_close
-0001db8c                _DMA_config
-0001e760                _DMA_getConfig
-0001ecd0                _DMA_start
-0001ede0                _DMA_stop
-0001eee4                _DMA_reset
-0001f1d0                _DMA_swapWords
-0001f248                _DMA_getLastTransferType
-0001f388                _CDC_Open
-0001f3ac                _CDC_OpenFullspeed
-0001f580                _CDC_Close
-0001f5bc                _CDC_GetactivityFlagStatus
-0001f5d4                _CDC_GetsuspendFlagStatus
-0001f5ec                _CDC_eventHandler
-0001f8e8                _CDC_bulkOutHandler
-0001f9e8                _CDC_bulkInHandler
-0001fcd8                _CDC_getData
-0001fd68                _CDC_putData
-0001ff5c                _EZDSP5535_UART_open
-0001ffcc                _EVM5515_UART_putChar
-0001ffe4                _EVM5515_UART_getChar
+00014c60                _MSC_Open
+00014c84                _MSC_OpenFullspeed
+00014fe8                _MSC_Close
+00015024                _MSC_SetLunAttr
+00015280                _MSC_Ctrl
+00015478                _MSC_Bulk
+00015574                _MSC_GetLunLockedStatus
+000155a8                _MSC_GetactivityFlagStatus
+000155c4                _MSC_GetsuspendFlagStatus
+00015a78                _MSC_HandleStateWaitForCBW
+00015d1c                _MSC_ExecuteRead
+00016164                _MSC_ExecuteWrite
+000167b4                _MSC_HandleTestUnitReady
+00016a0c                _MSC_HandlePreventAllowMediaRemoval
+00016bc4                _MSC_HandleReadCapacity
+00016e44                _MSC_reqGetDescriptor
+0001709c                _MSC_reqBotMscReset
+00017108                _MSC_sendCswWithPhaseError
+00017170                _MSC_handleDataDirMisMatch
+000171ec                _SDIO_init
+0001722c                _SDIO_open
+000172f8                _SDIO_close
+00017320                _SDIO_config
+000173f8                _SDIO_detectCard
+00017764                _SDIO_initCard
+00017be8                _SDIO_resetCard
+00017cd0                _SDIO_getRca
+00017d98                _SDIO_deselectCard
+00017e58                _SDIO_selectCard
+00017f1c                _SDIO_sendCommand
+00017ff0                _SDIO_getResponse
+00018184                _SDIO_clearResponse
+00018260                _SDIO_getStatus
+000182c8                _SDIO_getSdioStatus
+00018334                _SDIO_eventEnable
+0001855c                _SDIO_eventDisable
+00018754                _SDIO_readWaitEnable
+0001878c                _SDIO_readWaitDisable
+000187c4                _SDIO_readSingleByte
+000188f0                _SDIO_writeSingleByte
+000189f0                _SDIO_readBytes
+00018e34                _SDIO_writeBytes
+00019274                _SDIO_readBlocks
+000196b4                _SDIO_writeBlocks
+00019b08                _SDIO_setEndianMode
+00019b88                _SDIO_setClock
+00019ec8                _USB_init
+0001a2f4                _USB_resetDev
+0001a524                _USB_initEndptObj
+0001a908                _USB_getEvents
+0001a97c                _USB_peekEvents
+0001a9e8                _USB_getSetupPacket
+0001aa90                _USB_postTransaction
+0001ac48                _USB_isTransactionDone
+0001accc                _USB_bytesRemaining
+0001ad60                _USB_stallEndpt
+0001aed0                _USB_clearEndptStall
+0001b0b4                _USB_getEndptStall
+0001b134                _USB_epNumToHandle
+0001b270                _USB_abortTransaction
+0001b3cc                _USB_abortAllTransaction
+0001b424                _USB_connectDev
+0001b458                _USB_disconnectDev
+0001b488                _USB_setRemoteWakeup
+0001b4b8                _USB_getRemoteWakeupStat
+0001b4d0                _USB_issueRemoteWakeup
+0001b520                _USB_setDevAddr
+0001b568                _USB_getFrameNo
+0001b584                _USB_suspendDevice
+0001b5c8                _USB_selfwakeup
+0001b634                _USB_initPLL
+0001b6b8                _USB_setParams
+0001b728                _USB_getMaxPower
+0001b748                _USB_setFullSpeedMode
+0001b77c                _USB_getDataCountReadFromFifo
+0001b7d4                _USB_findFifoSize
+0001b958                _USB_coreEventProcessEp0
+0001be14                _xTaskCreate
+0001c1a8                _vTaskDelete
+0001c280                _vTaskDelayUntil
+0001c344                _vTaskDelay
+0001c384                _eTaskGetState
+0001c468                _uxTaskPriorityGet
+0001c4b0                _uxTaskPriorityGetFromISR
+0001c4d4                _vTaskPrioritySet
+0001c650                _vTaskSuspend
+0001c7d0                _vTaskResume
+0001c894                _xTaskResumeFromISR
+0001c938                _vTaskStartScheduler
+0001c9a4                _vTaskEndScheduler
+0001c9b8                _vTaskSuspendAll
+0001c9c4                _xTaskResumeAll
+0001caec                _xTaskGetTickCount
+0001cb28                _xTaskGetTickCountFromISR
+0001cb40                _uxTaskGetNumberOfTasks
+0001cb48                _pcTaskGetName
+0001cb70                _xTaskIncrementTick
+0001ccd4                _vTaskSwitchContext
+0001cd88                _vTaskPlaceOnEventList
+0001cdb8                _vTaskPlaceOnUnorderedEventList
+0001ce10                _xTaskRemoveFromEventList
+0001cebc                _vTaskRemoveFromUnorderedEventList
+0001cf60                _vTaskSetTimeOutState
+0001cfb4                _vTaskInternalSetTimeOutState
+0001cfd4                _xTaskCheckForTimeOut
+0001d09c                _vTaskMissedYield
+0001d1f4                _uxTaskGetStackHighWaterMark
+0001d28c                _xTaskGetCurrentTaskHandle
+0001d2a0                _xTaskPriorityInherit
+0001d3b8                _xTaskPriorityDisinherit
+0001d480                _vTaskPriorityDisinheritAfterTimeout
+0001d598                _vTaskEnterCritical
+0001d5c0                _vTaskExitCritical
+0001d5f8                _uxTaskResetEventItemValue
+0001d628                _pvTaskIncrementMutexHeldCount
+0001d648                _ulTaskNotifyTake
+0001d71c                _xTaskNotifyWait
+0001d818                _xTaskGenericNotify
+0001d9ac                _xTaskGenericNotifyFromISR
+0001db44                _vTaskNotifyGiveFromISR
+0001dc2c                _xTaskNotifyStateClear
+0001dd3c                _DMA_init
+0001dd74                _DMA_open
+0001de60                _DMA_close
+0001de80                _DMA_config
+0001ea58                _DMA_getConfig
+0001efc8                _DMA_start
+0001f0d8                _DMA_stop
+0001f1dc                _DMA_reset
+0001f4c8                _DMA_swapWords
+0001f54c                _DMA_getLastTransferType
+0001f5f8                _I2S_open
+0001f740                _I2S_setup
+0001fa30                _I2S_close
+0001fae4                _I2S_read
+0001fda0                _I2S_write
+0001fef8                _I2S_reset
+0001ffac                _I2S_transEnable
+0001fff7                _abort
+0001fff8                C$$EXIT
 00021362                __printfi
 000215a4                _xQueueGenericReset
-00021678                _xQueueGenericCreate
-0002174c                _xQueueCreateMutex
-0002176c                _xQueueGiveMutexRecursive
-000217c4                _xQueueTakeMutexRecursive
-00021818                _xQueueCreateCountingSemaphore
-00021860                _xQueueGenericSend
-00021a34                _xQueueGenericSendFromISR
-00021b0c                _xQueueGiveFromISR
-00021bd0                _xQueueReceive
-00021d80                _xQueueSemaphoreTake
-00021fb4                _xQueuePeek
-00022168                _xQueueReceiveFromISR
-0002221c                _xQueuePeekFromISR
-0002229c                _uxQueueMessagesWaiting
-000222e4                _uxQueueSpacesAvailable
-00022334                _uxQueueMessagesWaitingFromISR
-00022354                _vQueueDelete
-00022614                _xQueueIsQueueEmptyFromISR
-00022688                _xQueueIsQueueFullFromISR
-000226b8                _vQueueAddToRegistry
-00022718                _pcQueueGetName
-00022774                _vQueueUnregisterQueue
-000227d4                _NAND_init
-00022868                _NAND_setup
-00022d84                _NAND_getBankInfo
-00022e48                _NAND_setLatchEnableOffset
-00022e84                _NAND_isStatusWriteProtected
-00022f6c                _NAND_sendCommand
-00022f98                _NAND_checkCommandStatus
-00023000                _NAND_setAddress
-00023044                _NAND_enableHwECC
-0002316c                _NAND_disableHwECC
-00023254                _NAND_readECC
-00023408                _NAND_readNBytes
-0002351c                _NAND_writeNBytes
-000236f8                _NAND_hasRandomRead
-00023728                _NAND_hasRandomWrite
-00023758                _NAND_hasCacheProg
-00023788                _NAND_hasCopyBack
-000237b8                _NAND_intrEnable
-00023818                _NAND_intrDisable
-00023878                _NAND_getIntrNum
-00023898                _NAND_intrReadAT
-000238d8                _NAND_intrReadLT
-0002391c                _NAND_intrReadWR
-00023960                _NAND_intrClear
-00023a4c                _UART_init
-00023b08                _UART_setup
-00023fb0                _UART_config
-000240b8                _UART_setupBaudRate
-000241c4                _UART_reset
-0002420c                _UART_resetOff
-00024258                _UART_eventEnable
-000242f0                _UART_eventDisable
-00024380                _UART_read
-000244ac                _UART_write
-00024630                _UART_fgetc
-000246d0                _UART_fputc
-00024758                _UART_fgets
-00024888                _UART_fputs
-00024978                _UART_getEventId
-000249a0                _UART_getConfig
-00024a60                _UART_setCallback
-00024ac8                _DAT_open
-00024ba0                _DAT_close
-00024d34                _DAT_copy
-00025230                _DAT_fill
-00025740                _DAT_wait
-00025908                _AC_Open
-00025b50                _AC_Close
-00025b8c                _AC_Ctrl
-00025d84                _AC_Iso
-00025e20                _AC_GetactivityFlagStatus
-00025e3c                _AC_GetsuspendFlagStatus
-00025e54                _AC_initDescriptors
-00026104                _AC_reqGetDescriptor
-000262dc                _AC_reqSetCurrent
-000263b8                _AC_reqGetCurrent
-0002647c                _AC_reqGetMinimum
-000264c0                _AC_reqGetMaximum
-00026504                _AC_reqGetResolution
-00026548                _AC_reqSetInterface
-00026600                _I2C_init
-000266ac                _I2C_config
-00026814                _I2C_getConfig
-000268ec                _I2C_setup
-00026ae8                _I2C_write
-00026d2c                _I2C_read
-00026f4c                _I2C_eventEnable
-00027080                _I2C_eventDisable
-000271a0                _I2C_setCallback
-00027230                _I2C_getEventId
-0002724c                _MMC_initState
-00027390                _MMC_readWriteControl
-00027670                _MMC_issueReadCommand
-0002782c                _MMC_readNextWord
-0002789c                _MMC_readNextWord1
-00027910                _MMC_readNextNWords
-00027980                _MMC_writeSector
-00027a68                _MMC_readNSectors
-00027b40                _MMC_writeNSectors
-00027c18                _MMC_read_CID
-00027c84                _MMC_read_CSD
-00027cf0                _MMC_writeSectorFlush
-00027cfc                _MMC_commandReadyStatusCheck
-00027d08                _MMC_dataReadyStatusCheck
-00027d14                _MMC_busyStatusCheck
-00027d20                _MMC_getSerialID
-00027d30                _MMC_file_system_format
-00027d3c                _MMC_reset
-00027d48                _MMC_get_time
-00027d4c                _MMC_get_mod_time
-00027d50                _MMC_get_date
-00027d54                _MMC_get_mod_date
-00027d58                _MMC_flushFat
-00027d8c                _SAR_init
-00027dec                _SAR_deInit
-00027e0c                _SAR_chanInit
-00027e28                _SAR_chanOpen
-00027e8c                _SAR_chanClose
-00027f10                _SAR_chanConfig
-00027f88                _SAR_getConfig
-00027ffc                _SAR_chanSetup
-00028210                _SAR_chanCycSet
-00028260                _SAR_startConversion
-00028294                _SAR_stopConversion
-000282dc                _SAR_readData
-00028320                _SAR_A2DMeasParamSet
-0002879c                _SAR_GPODirSet
-00028878                _SAR_getStatus
-000288b8                _xStreamBufferGenericCreate
-00028938                _vStreamBufferDelete
-00028968                _xStreamBufferReset
-000289e0                _xStreamBufferSetTriggerLevel
-00028a1c                _xStreamBufferSpacesAvailable
-00028a64                _xStreamBufferBytesAvailable
-00028a84                _xStreamBufferSend
-00028bf8                _xStreamBufferSendFromISR
-00028d08                _xStreamBufferReceive
-00028e3c                _xStreamBufferNextMessageLengthBytes
-00028ea8                _xStreamBufferReceiveFromISR
-00028fa4                _xStreamBufferIsEmpty
-00028fd4                _xStreamBufferIsFull
-00029014                _xStreamBufferSendCompletedFromISR
-00029068                _xStreamBufferReceiveCompletedFromISR
-00029310                _I2S_open
-00029454                _I2S_setup
-0002973c                _I2S_close
-000297e8                _I2S_read
-00029aa4                _I2S_write
-00029bfc                _I2S_reset
-00029ca8                _I2S_transEnable
-00029d80                _RTC_reset
-00029d90                _RTC_start
-00029db4                _RTC_stop
-00029dbc                _RTC_config
-00029ea8                _RTC_getConfig
-00029f58                _RTC_setTime
-00029fd4                _RTC_getTime
-0002a020                _RTC_setDate
-0002a090                _RTC_getDate
-0002a0d0                _RTC_setAlarm
-0002a1a4                _RTC_setPeriodicInterval
-0002a258                _RTC_eventEnable
-0002a344                _RTC_eventDisable
-0002a3f8                _RTC_getEventId
-0002a44c                _RTC_decToBcd
-0002a48c                _RTC_bcdToDec
-0002a4cc                _RTC_setCallback
-0002a55c                _RTC_setCompensation
-0002a5a8                _LCD_init
-0002a5d0                _LCD_open
-0002a614                _LCD_setup
-0002aa70                _LCD_configDMA
-0002adc0                _LCD_close
-0002ade0                _main
-0002b10c                _vApplicationIdleHook
-0002b140                _InitSystem
-0002b1a8                _ConfigPort
-0002b1b0                _SYS_GlobalIntEnable
-0002b1b8                _SYS_GlobalIntDisable
-0002b1c4                _BlinkLED
-0002b1fc                _GenerateAudioTone
-0002b288                _systemInit
-0002b314                _vApplicationMallocFailedHook
-0002b31c                _vApplicationStackOverflowHook
-0002b32c                _LED_TaskBlue
-0002b364                _LED_TaskRed
-0002b39c                _blueLedToggle
-0002b3c4                _redLedToggle
-0002b3f0                _LED_TaskXF
-0002b438                _LED_TaskGreen
-0002b488                _LED_Control
-0002b4bc                _LED_TaskXF2
-0002b4e8                _StartUpTask
-0002b53c                _TestTask1
-0002b570                _TestTask2
-0002b5a4                _TestTask3
-0002b5d8                _TestTask4
-0002b60c                _oled_test
-0002be2c                _xPortStartScheduler
-0002bf78                _vTickISR
-0002c29b                _vPortYield
-0002c59c                _GPIO_open
-0002c5e0                _GPIO_close
-0002c604                _GPIO_config
-0002c68c                _GPIO_getConfig
-0002c714                _GPIO_read
-0002c798                _GPIO_write
-0002c83c                _GPIO_configBit
-0002c984                _GPIO_disableInt
-0002ca04                _GPIO_enableInt
-0002ca90                _GPIO_clearInt
-0002cb1c                _GPIO_statusBit
-0002cba4                _GPIO_reset
-0002cc34                _SPI_init
-0002cc98                _SPI_open
-0002cccc                _SPI_close
-0002ccf8                _SPI_config
-0002cf80                _SPI_deInit
-0002cfac                _SPI_read
-0002d090                _SPI_write
-0002d17c                _SPI_dataTransaction
-0002d1f0                _vCreateBlockTimeTasks
-0002d754                _xAreBlockTimeTestTasksStillRunning
-0002d7a4                _xEventGroupCreate
-0002d7cc                _xEventGroupSync
-0002d918                _xEventGroupWaitBits
-0002da84                _xEventGroupClearBits
-0002dafc                _xEventGroupGetBitsFromISR
-0002db1c                _xEventGroupSetBits
-0002dc54                _vEventGroupDelete
-0002dcb4                _vEventGroupSetBitsCallback
-0002dcc8                _vEventGroupClearBitsCallback
-0002dd17                _write
-0002de59                _unlink
-0002de8c                _rename
-0002dee5                _remove_device
-0002df1b                _read
-0002dfc9                _open
-0002e088                _lseek
-0002e0ee                _find_registered_device
-0002e0f7                _close
-0002e16a                _add_device
-0002e25c                _IRQ_init
-0002e2e4                _IRQ_clear
-0002e350                _IRQ_clearAll
-0002e360                _IRQ_config
-0002e3e8                _IRQ_getConfig
-0002e470                _IRQ_disable
-0002e4f0                _IRQ_disableAll
-0002e500                _IRQ_enable
-0002e58c                _IRQ_restore
-0002e5fc                _IRQ_getArg
-0002e640                _IRQ_setArg
-0002e674                _IRQ_map
+00021688                _xQueueGenericCreate
+0002175c                _xQueueCreateMutex
+0002177c                _xQueueGiveMutexRecursive
+000217d4                _xQueueTakeMutexRecursive
+00021828                _xQueueCreateCountingSemaphore
+00021870                _xQueueGenericSend
+00021a44                _xQueueGenericSendFromISR
+00021b1c                _xQueueGiveFromISR
+00021be0                _xQueueReceive
+00021d90                _xQueueSemaphoreTake
+00021fc4                _xQueuePeek
+00022178                _xQueueReceiveFromISR
+0002222c                _xQueuePeekFromISR
+000222ac                _uxQueueMessagesWaiting
+000222f4                _uxQueueSpacesAvailable
+00022344                _uxQueueMessagesWaitingFromISR
+00022364                _vQueueDelete
+0002262c                _xQueueIsQueueEmptyFromISR
+000226a0                _xQueueIsQueueFullFromISR
+000226d0                _vQueueAddToRegistry
+00022740                _pcQueueGetName
+000227a8                _vQueueUnregisterQueue
+0002281c                _NAND_init
+000228b0                _NAND_setup
+00022dcc                _NAND_getBankInfo
+00022e90                _NAND_setLatchEnableOffset
+00022ecc                _NAND_isStatusWriteProtected
+00022fb4                _NAND_sendCommand
+00022fe0                _NAND_checkCommandStatus
+00023048                _NAND_setAddress
+0002308c                _NAND_enableHwECC
+000231b4                _NAND_disableHwECC
+0002329c                _NAND_readECC
+00023450                _NAND_readNBytes
+000235a4                _NAND_writeNBytes
+000237b4                _NAND_hasRandomRead
+000237e4                _NAND_hasRandomWrite
+00023814                _NAND_hasCacheProg
+00023844                _NAND_hasCopyBack
+00023874                _NAND_intrEnable
+000238d4                _NAND_intrDisable
+00023934                _NAND_getIntrNum
+00023954                _NAND_intrReadAT
+00023994                _NAND_intrReadLT
+000239d8                _NAND_intrReadWR
+00023a1c                _NAND_intrClear
+00023b08                _UART_init
+00023bc4                _UART_setup
+0002406c                _UART_config
+00024174                _UART_setupBaudRate
+00024280                _UART_reset
+000242c8                _UART_resetOff
+00024314                _UART_eventEnable
+000243ac                _UART_eventDisable
+0002443c                _UART_read
+00024568                _UART_write
+000246ec                _UART_fgetc
+0002478c                _UART_fputc
+00024814                _UART_fgets
+00024944                _UART_fputs
+00024a34                _UART_getEventId
+00024a5c                _UART_getConfig
+00024b1c                _UART_setCallback
+00024c10                _AC_Open
+00024e58                _AC_Close
+00024e94                _AC_Ctrl
+0002508c                _AC_Iso
+00025128                _AC_GetactivityFlagStatus
+00025144                _AC_GetsuspendFlagStatus
+0002515c                _AC_initDescriptors
+00025448                _AC_reqGetDescriptor
+00025640                _AC_reqSetCurrent
+0002571c                _AC_reqGetCurrent
+000257e0                _AC_reqGetMinimum
+00025824                _AC_reqGetMaximum
+00025868                _AC_reqGetResolution
+000258ac                _AC_reqSetInterface
+00025964                _DAT_open
+00025a3c                _DAT_close
+00025bd0                _DAT_copy
+000260cc                _DAT_fill
+000265dc                _DAT_wait
+000267c8                _CDC_Open
+000267ec                _CDC_OpenFullspeed
+000269c0                _CDC_Close
+000269fc                _CDC_GetactivityFlagStatus
+00026a14                _CDC_GetsuspendFlagStatus
+00026a2c                _CDC_eventHandler
+00026d28                _CDC_bulkOutHandler
+00026e30                _CDC_bulkInHandler
+0002718c                _CDC_getData
+00027228                _CDC_putData
+00027458                _I2C_init
+00027504                _I2C_config
+0002766c                _I2C_getConfig
+00027744                _I2C_setup
+00027940                _I2C_write
+00027b84                _I2C_read
+00027da4                _I2C_eventEnable
+00027ed8                _I2C_eventDisable
+00027ff8                _I2C_setCallback
+00028088                _I2C_getEventId
+000280a4                _MMC_initState
+000281e8                _MMC_readWriteControl
+000284fc                _MMC_issueReadCommand
+000286b8                _MMC_readNextWord
+00028730                _MMC_readNextWord1
+000287ac                _MMC_readNextNWords
+00028820                _MMC_writeSector
+00028908                _MMC_readNSectors
+000289e0                _MMC_writeNSectors
+00028ab8                _MMC_read_CID
+00028b30                _MMC_read_CSD
+00028ba8                _MMC_writeSectorFlush
+00028bb4                _MMC_commandReadyStatusCheck
+00028bc0                _MMC_dataReadyStatusCheck
+00028bcc                _MMC_busyStatusCheck
+00028bd8                _MMC_getSerialID
+00028be8                _MMC_file_system_format
+00028bf4                _MMC_reset
+00028c00                _MMC_get_time
+00028c04                _MMC_get_mod_time
+00028c08                _MMC_get_date
+00028c0c                _MMC_get_mod_date
+00028c10                _MMC_flushFat
+00028c44                _SAR_init
+00028ca4                _SAR_deInit
+00028cc4                _SAR_chanInit
+00028ce0                _SAR_chanOpen
+00028d44                _SAR_chanClose
+00028dc8                _SAR_chanConfig
+00028e40                _SAR_getConfig
+00028eb4                _SAR_chanSetup
+000290c8                _SAR_chanCycSet
+00029118                _SAR_startConversion
+0002914c                _SAR_stopConversion
+00029194                _SAR_readData
+000291d8                _SAR_A2DMeasParamSet
+00029654                _SAR_GPODirSet
+00029730                _SAR_getStatus
+00029770                _xStreamBufferGenericCreate
+000297f0                _vStreamBufferDelete
+00029820                _xStreamBufferReset
+00029898                _xStreamBufferSetTriggerLevel
+000298d4                _xStreamBufferSpacesAvailable
+0002991c                _xStreamBufferBytesAvailable
+0002993c                _xStreamBufferSend
+00029ab0                _xStreamBufferSendFromISR
+00029bc0                _xStreamBufferReceive
+00029cf4                _xStreamBufferNextMessageLengthBytes
+00029d60                _xStreamBufferReceiveFromISR
+00029e5c                _xStreamBufferIsEmpty
+00029e8c                _xStreamBufferIsFull
+00029ecc                _xStreamBufferSendCompletedFromISR
+00029f20                _xStreamBufferReceiveCompletedFromISR
+0002a264                _RTC_reset
+0002a274                _RTC_start
+0002a298                _RTC_stop
+0002a2a0                _RTC_config
+0002a38c                _RTC_getConfig
+0002a43c                _RTC_setTime
+0002a4b8                _RTC_getTime
+0002a504                _RTC_setDate
+0002a574                _RTC_getDate
+0002a5b4                _RTC_setAlarm
+0002a688                _RTC_setPeriodicInterval
+0002a73c                _RTC_eventEnable
+0002a828                _RTC_eventDisable
+0002a8dc                _RTC_getEventId
+0002a930                _RTC_decToBcd
+0002a970                _RTC_bcdToDec
+0002a9b0                _RTC_setCallback
+0002aa40                _RTC_setCompensation
+0002aa8c                _LCD_init
+0002aab4                _LCD_open
+0002aaf8                _LCD_setup
+0002af64                _LCD_configDMA
+0002b2b4                _LCD_close
+0002b2d4                _main
+0002b600                _vApplicationIdleHook
+0002b634                _InitSystem
+0002b69c                _ConfigPort
+0002b6a4                _SYS_GlobalIntEnable
+0002b6ac                _SYS_GlobalIntDisable
+0002b6b8                _BlinkLED
+0002b6f0                _GenerateAudioTone
+0002b77c                _systemInit
+0002b808                _vApplicationMallocFailedHook
+0002b810                _vApplicationStackOverflowHook
+0002b820                _LED_TaskBlue
+0002b858                _LED_TaskRed
+0002b890                _blueLedToggle
+0002b8b8                _redLedToggle
+0002b8e4                _LED_TaskXF
+0002b92c                _LED_TaskGreen
+0002b97c                _LED_Control
+0002b9b0                _LED_TaskXF2
+0002b9dc                _StartUpTask
+0002ba30                _TestTask1
+0002ba64                _TestTask2
+0002ba98                _TestTask3
+0002bacc                _TestTask4
+0002bb00                _oled_test
+0002c320                _xPortStartScheduler
+0002c46c                _vTickISR
+0002c78f                _vPortYield
+0002ca90                _GPIO_open
+0002cad4                _GPIO_close
+0002caf8                _GPIO_config
+0002cb80                _GPIO_getConfig
+0002cc08                _GPIO_read
+0002cc8c                _GPIO_write
+0002cd30                _GPIO_configBit
+0002ce78                _GPIO_disableInt
+0002cef8                _GPIO_enableInt
+0002cf84                _GPIO_clearInt
+0002d010                _GPIO_statusBit
+0002d098                _GPIO_reset
+0002d128                _SPI_init
+0002d18c                _SPI_open
+0002d1c0                _SPI_close
+0002d1ec                _SPI_config
+0002d474                _SPI_deInit
+0002d4a0                _SPI_read
+0002d590                _SPI_write
+0002d688                _SPI_dataTransaction
+0002d6fc                _vCreateBlockTimeTasks
+0002dc60                _xAreBlockTimeTestTasksStillRunning
+0002dcb0                _xEventGroupCreate
+0002dcd8                _xEventGroupSync
+0002de24                _xEventGroupWaitBits
+0002df90                _xEventGroupClearBits
+0002e008                _xEventGroupGetBitsFromISR
+0002e028                _xEventGroupSetBits
+0002e160                _vEventGroupDelete
+0002e1c0                _vEventGroupSetBitsCallback
+0002e1d4                _vEventGroupClearBitsCallback
+0002e224                _IRQ_init
+0002e2c0                _IRQ_clear
+0002e32c                _IRQ_clearAll
+0002e33c                _IRQ_config
+0002e3d0                _IRQ_getConfig
+0002e464                _IRQ_disable
+0002e4e4                _IRQ_disableAll
+0002e4f4                _IRQ_enable
+0002e580                _IRQ_restore
+0002e5f0                _IRQ_getArg
+0002e638                _IRQ_setArg
+0002e66c                _IRQ_map
 0002e6a0                _IRQ_setVecs
 0002e6d4                _IRQ_test
 0002e748                _IRQ_globalDisable
 0002e764                _IRQ_globalEnable
 0002e780                _IRQ_globalRestore
-0002e794                _getenv
-0002e80f                _HOSTwrite
-0002e89c                _HOSTunlink
-0002e906                _HOSTtime
-0002e964                _HOSTrename
-0002ea12                _HOSTread
-0002ea9f                _HOSTopen
-0002eb3e                _HOSTlseek
-0002ebf3                _HOSTclose
-0002ec5e                _HOSTclock
-0002ecbc                _EZDSP5535_SDCARD_init
-0002f064                _EZDSP5535_SDCARD_read
-0002f098                _EZDSP5535_SDCARD_write
-0002f0cc                _EZDSP5535_SDCARD_close
-0002f191                _free
-0002f25d                _minit
-0002f2c2                _malloc
-0002f3b7                _realloc
-0002f568                _max_free
-0002f5c2                _free_memory
-0002f618                _chkheap
-0002f620                _calloc
-0002f648                _vStartQueuePeekTasks
-0002fa40                _xAreQueuePeekTasksStillRunning
-0002fa78                _vStartDynamicPriorityTasks
-0002fe14                _xAreDynamicPriorityTasksStillRunning
-0002fe74                _vStartMathTasks
-0003020c                _xAreMathsTaskStillRunning
-00030246                __divd
-00030614                _EZDSP5535_SPIFLASH_init
-00030678                _EZDSP5535_SPIFLASH_status
-000306bc                _EZDSP5535_SPIFLASH_erase
-000307c0                _EZDSP5535_SPIFLASH_read
-00030870                _EZDSP5535_SPIFLASH_write
-000309d8                _MEM_init
-000309dc                _MEM_enableRetentionMode
-00030a20                _MEM_disableRetentionMode
-00030a64                _MEM_enablePartialRetentionMode
-00030bac                _MEM_disablePartialRetentionMode
-00030cd0                _MEM_setmSDRAMClock
-00030d0c                _MEM_getmSDRAMClock
-00030d20                _GPT_open
-00030de4                _GPT_reset
-00030e60                _GPT_close
-00030ed8                _GPT_start
-00030f08                _GPT_stop
-00030f34                _GPT_getCnt
-00030f70                _GPT_config
-00031018                _vStartSemaphoreTasks
-000312bc                _xAreSemaphoreTasksStillRunning
-0003130c                _AIC3254_init
-00031628                _PLL_init
-00031660                _PLL_config
-00031784                _PLL_enable
-000317ec                _PLL_bypass
-0003183c                _PLL_reset
-000318a8                _i2s0_read_CR
-000318ae                _i2s0_write_CR
-000318b4                _i2s0_read_SRGR
-000318ba                _i2s0_write_SRGR
-000318c0                _i2s0_read_TXL_LSW
-000318c6                _i2s0_write_TXL_LSW
-000318cc                _i2s0_read_TXL_MSW
-000318d2                _i2s0_write_TXL_MSW
-000318d8                _i2s0_read_TXR_LSW
-000318de                _i2s0_write_TXR_LSW
-000318e4                _i2s0_read_TXR_MSW
-000318ea                _i2s0_write_TXR_MSW
-000318f0                _i2s0_read_INTR
-000318f6                _i2s0_read_INT_MASK
-000318fc                _i2s0_write_INT_MASK
-00031902                _i2s0_read_RXL_LSW
-00031908                _i2s0_write_RXL_LSW
-0003190e                _i2s0_read_RXL_MSW
-00031914                _i2s0_write_RXL_MSW
-0003191a                _i2s0_read_RXR_LSW
-00031920                _i2s0_write_RXR_LSW
-00031926                _i2s0_read_RXR_MSW
-0003192c                _i2s0_write_RXR_MSW
-00031932                _i2s1_read_CR
-00031938                _i2s1_write_CR
-0003193e                _i2s1_read_SRGR
-00031944                _i2s1_write_SRGR
-0003194a                _i2s1_read_TXL_LSW
-00031950                _i2s1_write_TXL_LSW
-00031956                _i2s1_read_TXL_MSW
-0003195c                _i2s1_write_TXL_MSW
-00031962                _i2s1_read_TXR_LSW
-00031968                _i2s1_write_TXR_LSW
-0003196e                _i2s1_read_TXR_MSW
-00031974                _i2s1_write_TXR_MSW
-0003197a                _i2s1_read_INTR
-00031980                _i2s1_read_INT_MASK
-00031986                _i2s1_write_INT_MASK
-0003198c                _i2s1_read_RXL_LSW
-00031992                _i2s1_write_RXL_LSW
-00031998                _i2s1_read_RXL_MSW
-0003199e                _i2s1_write_RXL_MSW
-000319a4                _i2s1_read_RXR_LSW
-000319aa                _i2s1_write_RXR_LSW
-000319b0                _i2s1_read_RXR_MSW
-000319b6                _i2s1_write_RXR_MSW
-000319bc                _i2s2_read_CR
-000319c2                _i2s2_write_CR
-000319c8                _i2s2_read_SRGR
-000319ce                _i2s2_write_SRGR
-000319d4                _i2s2_read_TXL_LSW
-000319da                _i2s2_write_TXL_LSW
-000319e0                _i2s2_read_TXL_MSW
-000319e6                _i2s2_write_TXL_MSW
-000319ec                _i2s2_read_TXR_LSW
-000319f2                _i2s2_write_TXR_LSW
-000319f8                _i2s2_read_TXR_MSW
-000319fe                _i2s2_write_TXR_MSW
-00031a04                _i2s2_read_INTR
-00031a0a                _i2s2_read_INT_MASK
-00031a10                _i2s2_write_INT_MASK
-00031a16                _i2s2_read_RXL_LSW
-00031a1c                _i2s2_write_RXL_LSW
-00031a22                _i2s2_read_RXL_MSW
-00031a28                _i2s2_write_RXL_MSW
-00031a2e                _i2s2_read_RXR_LSW
-00031a34                _i2s2_write_RXR_LSW
-00031a3a                _i2s2_read_RXR_MSW
-00031a40                _i2s2_write_RXR_MSW
-00031a46                _i2s3_read_CR
-00031a4c                _i2s3_write_CR
-00031a52                _i2s3_read_SRGR
-00031a58                _i2s3_write_SRGR
-00031a5e                _i2s3_read_TXL_LSW
-00031a64                _i2s3_write_TXL_LSW
-00031a6a                _i2s3_read_TXL_MSW
-00031a70                _i2s3_write_TXL_MSW
-00031a76                _i2s3_read_TXR_LSW
-00031a7c                _i2s3_write_TXR_LSW
-00031a82                _i2s3_read_TXR_MSW
-00031a88                _i2s3_write_TXR_MSW
-00031a8e                _i2s3_read_INTR
-00031a94                _i2s3_read_INT_MASK
-00031a9a                _i2s3_write_INT_MASK
-00031aa0                _i2s3_read_RXL_LSW
-00031aa6                _i2s3_write_RXL_LSW
-00031aac                _i2s3_read_RXL_MSW
-00031ab2                _i2s3_write_RXL_MSW
-00031ab8                _i2s3_read_RXR_LSW
-00031abe                _i2s3_write_RXR_LSW
-00031ac4                _i2s3_read_RXR_MSW
-00031aca                _i2s3_write_RXR_MSW
-00031ad0                _enable_i2s0
-00031ade                _enable_i2s1
-00031aec                _enable_i2s2
-00031afa                _enable_i2s3
-00031b08                _disable_i2s0
-00031b16                _disable_i2s1
-00031b24                _disable_i2s2
-00031b32                _disable_i2s3
-00031c61                __cleanup
-00031cbb                _freopen
-00031d84                _fopen
-00031dc0                _WDTIM_open
-00031e38                _WDTIM_start
-00031e80                _WDTIM_stop
-00031ec8                _WDTIM_getCnt
-00031ef8                _WDTIM_close
-00031f3c                _WDTIM_service
-00031f70                _WDTIM_config
-00031fdc                _WDTIM_getConfig
-00032026                __remull
-00032074                __remlli
-000320a3                __mpylli
-0003215b                __divull
-0003224f                __divlli
-00032284                __addd
-000324e0                _vStartQueueOverwriteTask
-0003260c                _xIsQueueOverwriteTaskStillRunning
-0003263c                _vQueueOverwritePeriodicISRDemo
-00032718                _set_dma1_ch0_stop
-00032730                _set_dma0_ch0_stop
-00032748                _set_dma1_ch1_stop
-00032760                _set_dma0_ch1_stop
-00032778                _set_dma1_ch0_i2s2_Lout
-000327e4                _set_dma0_ch0_i2s0_Lout
-00032850                _set_dma1_ch1_i2s2_Rout
-000328bc                _set_dma0_ch1_i2s0_Rout
-00032928                _enable_dma_int
-00032938                _pxPortInitialiseStack
-00032b14                _vPortEndScheduler
-00032b18                _prvSetupTimerInterrupt
-00032b34                _EZDSP5535_LED_init
-00032b6c                _EZDSP5535_LED_getall
-00032bc0                _EZDSP5535_LED_setall
-00032c30                _EZDSP5535_LED_on
-00032c68                _EZDSP5535_LED_off
-00032c9c                _EZDSP5535_LED_toggle
-00032ce4                _EZDSP5535_XF_on
-00032cf0                _EZDSP5535_XF_off
-00032cfc                _EZDSP5535_XF_get
-00032d0c                _EZDSP5535_XF_toggle
-00032d2b                __neqd
-00032d5f                __lssd
-00032da7                __leqd
-00032df4                __gtrd
-00032e3f                __geqd
-00032e89                __eqld
-00032ebd                __cmpd
-00032f18                _vStartPolledQueueTasks
-000330b0                _xArePollingQueuesStillRunning
-000330dc                _vListInitialise
-00033120                _vListInitialiseItem
-00033134                _vListInsertEnd
-00033188                _vListInsert
-00033228                _uxListRemove
-0003328c                _EZDSP5535_OSD9616_send
-000332b4                _EZDSP5535_OSD9616_multiSend
-00033300                _EZDSP5535_OSD9616_init
-000333e4                _EZDSP5535_OSD9616_printLetter
-00033424                _spiflash_test
-000335b0                _EZDSP5535_SAR_init
-00033678                _EZDSP5535_SAR_getKey
-0003372c                _fputs
-00033861                _puts
-0003388f                __mpyd
-000339dc                _EZDSP5535_I2S_init
-00033a38                _EZDSP5535_I2S_readLeft
-00033a6c                _EZDSP5535_I2S_writeLeft
-00033a9c                _EZDSP5535_I2S_readRight
-00033ac0                _EZDSP5535_I2S_writeRight
-00033adc                _EZDSP5535_I2S_close
-00033af0                _vStartIntegerMathTasks
-00033bc4                _xAreIntegerMathsTaskStillRunning
-00033bf4                _enable_rtc_second_int
-00033c00                _reset_RTC
-00033cbc                _convert_number_to_string
-00033cf0                _setvbuf
-00033dd8                _vStartLEDFlashTasks
-00033eb6                __wrt_ok
-00033f36                __rd_ok
-00033f93                __doflush
-00033ffc                _fflush
-00034055                _writemsg
-0003410a                C$$IO$$
-00034110                _mem_test
-000341bf                _fputc
-000341bf                _putc
-00034256                _putchar
-00034265                __divul
-00034308                _vParTestInitialise
-0003430c                _vParTestSetLED
-00034324                _vParTestToggleLED
-000343a4                _EZDSP5535_I2C_init
-000343dc                _EZDSP5535_I2C_reset
-000343e8                _EZDSP5535_I2C_write
-00034410                _EZDSP5535_I2C_read
-00034438                _IRQ_plug
-000344c4                _set_i2s2_master
-000344f8                _set_i2s0_master
-0003452c                _set_i2s0_slave
-00034550                _EZDSP5535_GPIO_init
-0003457c                _EZDSP5535_GPIO_setDirection
-000345a0                _EZDSP5535_GPIO_setOutput
-000345bc                _EZDSP5535_GPIO_getInput
-000345da                reset_isr
-00034659                _ltoa
-000346d6                _fclose
-00034751                __frcmpyd
-000347c7                __frcmpyd_div
-0003483a                __remul
-000348ac                __fixdli
-0003491b                _readmsg
-00034988                _fseek
-000349f3                __fltlid
-00034a5a                _atoi
-00034ab6                __fltuld
-00034b14                _EZDSP5535_wait
-00034b48                _EZDSP5535_waitusec
-00034b5c                _EZDSP5535_init
-00034b6c                _Timer0Init
-00034bb0                _StartTimer0
-00034bbe                _printf
-00034c10                _RTC_Isr
-00034c5e                _auto_init
-00034cab                __args_main
-00034cf6                __remli
-00034d41                __divli
-00034d8c                _pvPortMalloc
-00034db4                _vPortFree
-00034dd3                _memcpy
-00034e12                _exit
-00034e50                _c_int00
-00034e84                __fixdi
-00034eae                I$$UDIV
-00034eae                __divu
-00034ec3                I$$UMOD
-00034ec3                __remu
-00034ed8                _memccpy
-00034efb                ___isinf
-00034f15                __subd
-00034f29                I$$LMPY
-00034f29                __mpyli
-00034f3c                __register_unlock
-00034f44                __register_lock
-00034f4c                __nop
-00034f4e                _memset
-00034f5f                _strlen
-00034f70                __negd
-00034f80                __fltud
-00034f8e                _remove
-00034f98                _abort
-00034f99                C$$EXIT
+0002e794                _write
+0002e8d6                _unlink
+0002e909                _rename
+0002e962                _remove_device
+0002e998                _read
+0002ea46                _open
+0002eb05                _lseek
+0002eb6b                _find_registered_device
+0002eb74                _close
+0002ebe7                _add_device
+0002ecd7                _getenv
+0002ed52                _HOSTwrite
+0002eddf                _HOSTunlink
+0002ee49                _HOSTtime
+0002eea7                _HOSTrename
+0002ef55                _HOSTread
+0002efe2                _HOSTopen
+0002f081                _HOSTlseek
+0002f136                _HOSTclose
+0002f1a1                _HOSTclock
+0002f200                _EZDSP5535_SDCARD_init
+0002f5a8                _EZDSP5535_SDCARD_read
+0002f5dc                _EZDSP5535_SDCARD_write
+0002f610                _EZDSP5535_SDCARD_close
+0002f6d5                _free
+0002f7a1                _minit
+0002f806                _malloc
+0002f8fb                _realloc
+0002faac                _max_free
+0002fb06                _free_memory
+0002fb5c                _chkheap
+0002fb64                _calloc
+0002fb8c                _vStartQueuePeekTasks
+0002ff84                _xAreQueuePeekTasksStillRunning
+0002ffbc                _vStartDynamicPriorityTasks
+00030358                _xAreDynamicPriorityTasksStillRunning
+000303b8                _vStartMathTasks
+00030768                _xAreMathsTaskStillRunning
+000307a2                __divd
+00030b70                _EZDSP5535_SPIFLASH_init
+00030bd4                _EZDSP5535_SPIFLASH_status
+00030c18                _EZDSP5535_SPIFLASH_erase
+00030d1c                _EZDSP5535_SPIFLASH_read
+00030dcc                _EZDSP5535_SPIFLASH_write
+00030f34                _MEM_init
+00030f38                _MEM_enableRetentionMode
+00030f7c                _MEM_disableRetentionMode
+00030fc0                _MEM_enablePartialRetentionMode
+0003110c                _MEM_disablePartialRetentionMode
+00031230                _MEM_setmSDRAMClock
+0003126c                _MEM_getmSDRAMClock
+00031280                _GPT_open
+00031344                _GPT_reset
+000313c0                _GPT_close
+00031438                _GPT_start
+00031468                _GPT_stop
+00031494                _GPT_getCnt
+000314d0                _GPT_config
+00031578                _vStartSemaphoreTasks
+0003181c                _xAreSemaphoreTasksStillRunning
+0003186c                _AIC3254_init
+00031b88                _PLL_init
+00031bc0                _PLL_config
+00031cec                _PLL_enable
+00031d54                _PLL_bypass
+00031da4                _PLL_reset
+00031e10                _i2s0_read_CR
+00031e16                _i2s0_write_CR
+00031e1c                _i2s0_read_SRGR
+00031e22                _i2s0_write_SRGR
+00031e28                _i2s0_read_TXL_LSW
+00031e2e                _i2s0_write_TXL_LSW
+00031e34                _i2s0_read_TXL_MSW
+00031e3a                _i2s0_write_TXL_MSW
+00031e40                _i2s0_read_TXR_LSW
+00031e46                _i2s0_write_TXR_LSW
+00031e4c                _i2s0_read_TXR_MSW
+00031e52                _i2s0_write_TXR_MSW
+00031e58                _i2s0_read_INTR
+00031e5e                _i2s0_read_INT_MASK
+00031e64                _i2s0_write_INT_MASK
+00031e6a                _i2s0_read_RXL_LSW
+00031e70                _i2s0_write_RXL_LSW
+00031e76                _i2s0_read_RXL_MSW
+00031e7c                _i2s0_write_RXL_MSW
+00031e82                _i2s0_read_RXR_LSW
+00031e88                _i2s0_write_RXR_LSW
+00031e8e                _i2s0_read_RXR_MSW
+00031e94                _i2s0_write_RXR_MSW
+00031e9a                _i2s1_read_CR
+00031ea0                _i2s1_write_CR
+00031ea6                _i2s1_read_SRGR
+00031eac                _i2s1_write_SRGR
+00031eb2                _i2s1_read_TXL_LSW
+00031eb8                _i2s1_write_TXL_LSW
+00031ebe                _i2s1_read_TXL_MSW
+00031ec4                _i2s1_write_TXL_MSW
+00031eca                _i2s1_read_TXR_LSW
+00031ed0                _i2s1_write_TXR_LSW
+00031ed6                _i2s1_read_TXR_MSW
+00031edc                _i2s1_write_TXR_MSW
+00031ee2                _i2s1_read_INTR
+00031ee8                _i2s1_read_INT_MASK
+00031eee                _i2s1_write_INT_MASK
+00031ef4                _i2s1_read_RXL_LSW
+00031efa                _i2s1_write_RXL_LSW
+00031f00                _i2s1_read_RXL_MSW
+00031f06                _i2s1_write_RXL_MSW
+00031f0c                _i2s1_read_RXR_LSW
+00031f12                _i2s1_write_RXR_LSW
+00031f18                _i2s1_read_RXR_MSW
+00031f1e                _i2s1_write_RXR_MSW
+00031f24                _i2s2_read_CR
+00031f2a                _i2s2_write_CR
+00031f30                _i2s2_read_SRGR
+00031f36                _i2s2_write_SRGR
+00031f3c                _i2s2_read_TXL_LSW
+00031f42                _i2s2_write_TXL_LSW
+00031f48                _i2s2_read_TXL_MSW
+00031f4e                _i2s2_write_TXL_MSW
+00031f54                _i2s2_read_TXR_LSW
+00031f5a                _i2s2_write_TXR_LSW
+00031f60                _i2s2_read_TXR_MSW
+00031f66                _i2s2_write_TXR_MSW
+00031f6c                _i2s2_read_INTR
+00031f72                _i2s2_read_INT_MASK
+00031f78                _i2s2_write_INT_MASK
+00031f7e                _i2s2_read_RXL_LSW
+00031f84                _i2s2_write_RXL_LSW
+00031f8a                _i2s2_read_RXL_MSW
+00031f90                _i2s2_write_RXL_MSW
+00031f96                _i2s2_read_RXR_LSW
+00031f9c                _i2s2_write_RXR_LSW
+00031fa2                _i2s2_read_RXR_MSW
+00031fa8                _i2s2_write_RXR_MSW
+00031fae                _i2s3_read_CR
+00031fb4                _i2s3_write_CR
+00031fba                _i2s3_read_SRGR
+00031fc0                _i2s3_write_SRGR
+00031fc6                _i2s3_read_TXL_LSW
+00031fcc                _i2s3_write_TXL_LSW
+00031fd2                _i2s3_read_TXL_MSW
+00031fd8                _i2s3_write_TXL_MSW
+00031fde                _i2s3_read_TXR_LSW
+00031fe4                _i2s3_write_TXR_LSW
+00031fea                _i2s3_read_TXR_MSW
+00031ff0                _i2s3_write_TXR_MSW
+00031ff6                _i2s3_read_INTR
+00031ffc                _i2s3_read_INT_MASK
+00032002                _i2s3_write_INT_MASK
+00032008                _i2s3_read_RXL_LSW
+0003200e                _i2s3_write_RXL_LSW
+00032014                _i2s3_read_RXL_MSW
+0003201a                _i2s3_write_RXL_MSW
+00032020                _i2s3_read_RXR_LSW
+00032026                _i2s3_write_RXR_LSW
+0003202c                _i2s3_read_RXR_MSW
+00032032                _i2s3_write_RXR_MSW
+00032038                _enable_i2s0
+00032046                _enable_i2s1
+00032054                _enable_i2s2
+00032062                _enable_i2s3
+00032070                _disable_i2s0
+0003207e                _disable_i2s1
+0003208c                _disable_i2s2
+0003209a                _disable_i2s3
+000321c9                __cleanup
+00032223                _freopen
+000322ec                _fopen
+00032328                _WDTIM_open
+000323a0                _WDTIM_start
+000323e8                _WDTIM_stop
+00032430                _WDTIM_getCnt
+00032460                _WDTIM_close
+000324a4                _WDTIM_service
+000324d8                _WDTIM_config
+00032544                _WDTIM_getConfig
+0003258e                __remull
+000325dc                __remlli
+0003260b                __mpylli
+000326c3                __divull
+000327b7                __divlli
+000327ec                __addd
+00032a48                _vStartQueueOverwriteTask
+00032b74                _xIsQueueOverwriteTaskStillRunning
+00032ba4                _vQueueOverwritePeriodicISRDemo
+00032c80                _set_dma1_ch0_stop
+00032c98                _set_dma0_ch0_stop
+00032cb0                _set_dma1_ch1_stop
+00032cc8                _set_dma0_ch1_stop
+00032ce0                _set_dma1_ch0_i2s2_Lout
+00032d4c                _set_dma0_ch0_i2s0_Lout
+00032db8                _set_dma1_ch1_i2s2_Rout
+00032e24                _set_dma0_ch1_i2s0_Rout
+00032e90                _enable_dma_int
+00032ea0                _pxPortInitialiseStack
+0003307c                _vPortEndScheduler
+00033080                _prvSetupTimerInterrupt
+0003309c                _EZDSP5535_LED_init
+000330d4                _EZDSP5535_LED_getall
+00033128                _EZDSP5535_LED_setall
+00033198                _EZDSP5535_LED_on
+000331d0                _EZDSP5535_LED_off
+00033204                _EZDSP5535_LED_toggle
+0003324c                _EZDSP5535_XF_on
+00033258                _EZDSP5535_XF_off
+00033264                _EZDSP5535_XF_get
+00033274                _EZDSP5535_XF_toggle
+00033293                __neqd
+000332c7                __lssd
+0003330f                __leqd
+0003335c                __gtrd
+000333a7                __geqd
+000333f1                __eqld
+00033425                __cmpd
+00033480                _vStartPolledQueueTasks
+00033618                _xArePollingQueuesStillRunning
+00033644                _vListInitialise
+00033688                _vListInitialiseItem
+0003369c                _vListInsertEnd
+000336f0                _vListInsert
+00033790                _uxListRemove
+000337f4                _EZDSP5535_OSD9616_send
+0003381c                _EZDSP5535_OSD9616_multiSend
+00033870                _EZDSP5535_OSD9616_init
+00033954                _EZDSP5535_OSD9616_printLetter
+00033994                _spiflash_test
+00033b20                _EZDSP5535_SAR_init
+00033be8                _EZDSP5535_SAR_getKey
+00033c9c                _fputs
+00033dd1                _puts
+00033dff                __mpyd
+00033f4c                _Timer_isr
+00034078                _EZDSP5535_I2S_init
+000340d4                _EZDSP5535_I2S_readLeft
+00034108                _EZDSP5535_I2S_writeLeft
+00034138                _EZDSP5535_I2S_readRight
+0003415c                _EZDSP5535_I2S_writeRight
+00034178                _EZDSP5535_I2S_close
+0003418c                _vStartIntegerMathTasks
+00034260                _xAreIntegerMathsTaskStillRunning
+00034290                _enable_rtc_second_int
+0003429c                _reset_RTC
+00034358                _convert_number_to_string
+0003438c                _setvbuf
+00034474                _vStartLEDFlashTasks
+00034552                __wrt_ok
+000345d2                __rd_ok
+00034630                _mem_test
+000346ff                __doflush
+00034768                _fflush
+000347c1                _writemsg
+00034876                C$$IO$$
+0003487b                _fputc
+0003487b                _putc
+00034912                _putchar
+00034924                _EZDSP5535_UART_open
+00034994                _EVM5515_UART_putChar
+000349ac                _EVM5515_UART_getChar
+000349c6                __divul
+00034a68                _vParTestInitialise
+00034a6c                _vParTestSetLED
+00034a84                _vParTestToggleLED
+00034b04                _EZDSP5535_I2C_init
+00034b3c                _EZDSP5535_I2C_reset
+00034b48                _EZDSP5535_I2C_write
+00034b70                _EZDSP5535_I2C_read
+00034b98                _IRQ_plug
+00034c24                _set_i2s2_master
+00034c58                _set_i2s0_master
+00034c8c                _set_i2s0_slave
+00034cb0                _EZDSP5535_GPIO_init
+00034cdc                _EZDSP5535_GPIO_setDirection
+00034d00                _EZDSP5535_GPIO_setOutput
+00034d1c                _EZDSP5535_GPIO_getInput
+00034d3a                reset_isr
+00034db9                _ltoa
+00034e36                _fclose
+00034eb1                __frcmpyd
+00034f27                __frcmpyd_div
+00034f9a                __remul
+0003500c                __fixdli
+0003507b                _readmsg
+000350e8                _fseek
+00035153                __fltlid
+000351ba                _atoi
+00035216                __fltuld
+00035274                _EZDSP5535_wait
+000352a8                _EZDSP5535_waitusec
+000352bc                _EZDSP5535_init
+000352cc                _Timer0Init
+00035310                _StartTimer0
+0003531e                _printf
+00035370                _RTC_Isr
+000353be                _auto_init
+0003540b                __args_main
+00035456                __remli
+000354a1                __divli
+000354ec                _pvPortMalloc
+00035514                _vPortFree
+00035533                _memcpy
+00035572                _exit
+000355b0                _c_int00
+000355e4                __fixdi
+0003560e                I$$UDIV
+0003560e                __divu
+00035623                I$$UMOD
+00035623                __remu
+00035638                _memccpy
+0003565b                ___isinf
+00035675                __subd
+00035689                I$$LMPY
+00035689                __mpyli
+0003569c                __register_unlock
+000356a4                __register_lock
+000356ac                __nop
+000356ae                _memset
+000356bf                _strlen
+000356d0                __negd
+000356e0                __fltud
+000356ee                _remove
             00020000    ___cinit__
             00020000    cinit
             00020364    __CIOBUF_
@@ -2312,4 +2314,4 @@ ffffffff                end
 ffffffff                etext
 ffffffff                pinit
 
-[946 symbols]
+[947 symbols]

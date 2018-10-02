@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Sun Sep 30 01:34:13 2018                                 *
+;* Date/Time created: Tue Oct 02 02:32:48 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,8 +27,8 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2116412 
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1262412 
 	.sect	".text"
 	.align 4
 	.global	_DMA_init
@@ -992,9 +992,9 @@ $C$L32:
 $C$L33:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 535,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV #37, T0 ; |535| 
-        MOV *AR3, AR3 ; |535| 
-        AND #0x7ffb, port(*AR3(T0)) ; |535| 
+        MOV #37, AR1 ; |535| 
+        ADD *AR3, AR1, AR3 ; |535| 
+        AND #0x7ffb, port(*AR3) ; |535| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 538,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #32, T0 ; |538| 
@@ -1117,9 +1117,9 @@ $C$L33:
 $C$L34:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 566,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV #69, T0 ; |566| 
-        MOV *AR3, AR3 ; |566| 
-        AND #0x7ffb, port(*AR3(T0)) ; |566| 
+        MOV #69, AR1 ; |566| 
+        ADD *AR3, AR1, AR3 ; |566| 
+        AND #0x7ffb, port(*AR3) ; |566| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 569,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #64, T0 ; |569| 
@@ -1242,9 +1242,9 @@ $C$L34:
 $C$L35:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 597,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV #101, T0 ; |597| 
-        MOV *AR3, AR3 ; |597| 
-        AND #0x7ffb, port(*AR3(T0)) ; |597| 
+        MOV #101, AR1 ; |597| 
+        ADD *AR3, AR1, AR3 ; |597| 
+        AND #0x7ffb, port(*AR3) ; |597| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 600,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #96, T0 ; |600| 
@@ -1856,7 +1856,7 @@ $C$DW$30	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$31	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$31, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_dma.asm:$C$L12:1:1538296454")
+	.dwattr $C$DW$31, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_dma.asm:$C$L12:1:1538472769")
 	.dwattr $C$DW$31, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c")
 	.dwattr $C$DW$31, DW_AT_TI_begin_line(0x162)
 	.dwattr $C$DW$31, DW_AT_TI_end_line(0x165)
@@ -2688,7 +2688,7 @@ $C$DW$45	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$46	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$46, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_dma.asm:$C$L61:1:1538296454")
+	.dwattr $C$DW$46, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_dma.asm:$C$L61:1:1538472769")
 	.dwattr $C$DW$46, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c")
 	.dwattr $C$DW$46, DW_AT_TI_begin_line(0x38b)
 	.dwattr $C$DW$46, DW_AT_TI_end_line(0x38e)
@@ -2799,25 +2799,25 @@ $C$L104:
                                         ; branch occurs ; |1284| 
 $C$L105:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1286,column 15,is_stmt
-        MOV #37, T0 ; |1286| 
-        MOV *AR3, AR3 ; |1286| 
-        OR #0x8004, port(*AR3(T0)) ; |1286| 
+        MOV #37, AR1 ; |1286| 
+        ADD *AR3, AR1, AR3 ; |1286| 
+        OR #0x8004, port(*AR3) ; |1286| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1287,column 20,is_stmt
         B $C$L114 ; |1287| 
                                         ; branch occurs ; |1287| 
 $C$L106:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1289,column 15,is_stmt
-        MOV #69, T0 ; |1289| 
-        MOV *AR3, AR3 ; |1289| 
-        OR #0x8004, port(*AR3(T0)) ; |1289| 
+        MOV #69, AR1 ; |1289| 
+        ADD *AR3, AR1, AR3 ; |1289| 
+        OR #0x8004, port(*AR3) ; |1289| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1290,column 20,is_stmt
         B $C$L114 ; |1290| 
                                         ; branch occurs ; |1290| 
 $C$L107:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1292,column 15,is_stmt
-        MOV #101, T0 ; |1292| 
-        MOV *AR3, AR3 ; |1292| 
-        OR #0x8004, port(*AR3(T0)) ; |1292| 
+        MOV #101, AR1 ; |1292| 
+        ADD *AR3, AR1, AR3 ; |1292| 
+        OR #0x8004, port(*AR3) ; |1292| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1293,column 20,is_stmt
         B $C$L114 ; |1293| 
                                         ; branch occurs ; |1293| 
@@ -2920,7 +2920,7 @@ $C$DW$52	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$53	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$53, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_dma.asm:$C$L102:1:1538296454")
+	.dwattr $C$DW$53, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_dma.asm:$C$L102:1:1538472769")
 	.dwattr $C$DW$53, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c")
 	.dwattr $C$DW$53, DW_AT_TI_begin_line(0x4f9)
 	.dwattr $C$DW$53, DW_AT_TI_end_line(0x4fc)
@@ -3031,25 +3031,25 @@ $C$L119:
                                         ; branch occurs ; |1420| 
 $C$L120:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1422,column 15,is_stmt
-        MOV #37, T0 ; |1422| 
-        MOV *AR3, AR3 ; |1422| 
-        AND #0x7ffb, port(*AR3(T0)) ; |1422| 
+        MOV #37, AR1 ; |1422| 
+        ADD *AR3, AR1, AR3 ; |1422| 
+        AND #0x7ffb, port(*AR3) ; |1422| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1423,column 20,is_stmt
         B $C$L129 ; |1423| 
                                         ; branch occurs ; |1423| 
 $C$L121:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1425,column 15,is_stmt
-        MOV #69, T0 ; |1425| 
-        MOV *AR3, AR3 ; |1425| 
-        AND #0x7ffb, port(*AR3(T0)) ; |1425| 
+        MOV #69, AR1 ; |1425| 
+        ADD *AR3, AR1, AR3 ; |1425| 
+        AND #0x7ffb, port(*AR3) ; |1425| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1426,column 20,is_stmt
         B $C$L129 ; |1426| 
                                         ; branch occurs ; |1426| 
 $C$L122:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1428,column 15,is_stmt
-        MOV #101, T0 ; |1428| 
-        MOV *AR3, AR3 ; |1428| 
-        AND #0x7ffb, port(*AR3(T0)) ; |1428| 
+        MOV #101, AR1 ; |1428| 
+        ADD *AR3, AR1, AR3 ; |1428| 
+        AND #0x7ffb, port(*AR3) ; |1428| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1429,column 20,is_stmt
         B $C$L129 ; |1429| 
                                         ; branch occurs ; |1429| 
@@ -3148,7 +3148,7 @@ $C$DW$59	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$60	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$60, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_dma.asm:$C$L117:1:1538296454")
+	.dwattr $C$DW$60, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_dma.asm:$C$L117:1:1538472769")
 	.dwattr $C$DW$60, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c")
 	.dwattr $C$DW$60, DW_AT_TI_begin_line(0x581)
 	.dwattr $C$DW$60, DW_AT_TI_end_line(0x584)
@@ -3601,7 +3601,7 @@ $C$DW$66	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$67	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$67, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_dma.asm:$C$L132:1:1538296454")
+	.dwattr $C$DW$67, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_dma.asm:$C$L132:1:1538472769")
 	.dwattr $C$DW$67, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c")
 	.dwattr $C$DW$67, DW_AT_TI_begin_line(0x5e5)
 	.dwattr $C$DW$67, DW_AT_TI_end_line(0x5e8)
@@ -3644,8 +3644,8 @@ $C$DW$71	.dwtag  DW_TAG_formal_parameter, DW_AT_name("dataLength")
 ;*******************************************************************************
 ;* FUNCTION NAME: DMA_swapWords                                                *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,AR2,XAR2,AR3,XAR3,SP,*
-;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,AR2,XAR2,AR3,XAR3,   *
+;*                        AR4,XAR4,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL    *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 10 words                                             *
 ;*                        (1 return address/alignment)                         *
@@ -3701,26 +3701,33 @@ $C$DW$76	.dwtag  DW_TAG_variable, DW_AT_name("tempData")
 $C$L157:    
 $C$DW$L$_DMA_swapWords$4$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1801,column 4,is_stmt
-        MOV *SP(#7), T0 ; |1801| 
         MOV dbl(*SP(#0)), XAR3
-        MOV *AR3(T0), AR1 ; |1801| 
+        MOV dbl(*SP(#6)), AC0 ; |1801| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1801| 
+        MOV *AR3, AR1 ; |1801| 
         MOV AR1, *SP(#8) ; |1801| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1802,column 4,is_stmt
-        MOV *SP(#7), AR1 ; |1802| 
-        MOV dbl(*SP(#0)), XAR3
-        MOV dbl(*SP(#0)), XAR2
         MOV dbl(*SP(#6)), AC0 ; |1802| 
+        MOV dbl(*SP(#0)), XAR3
         ADD #1, AC0 ; |1802| 
-        MOV AC0, T0 ; |1802| 
-        AADD AR1, AR3 ; |1802| 
-        MOV *AR2(T0), *AR3 ; |1802| 
+        MOV AC0, XAR2
+        MOV dbl(*SP(#6)), AC0 ; |1802| 
+        MOV AC0, XAR4
+        AADD XAR2, XAR3 ; |1802| 
+        MOV dbl(*SP(#0)), XAR2
+        AADD XAR4, XAR2 ; |1802| 
+        MOV *AR3, *AR2 ; |1802| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1803,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*SP(#6)), AC0 ; |1803| 
         ADD #1, AC0 ; |1803| 
-        MOV AC0, T0 ; |1803| 
-        MOV *SP(#8), AR1 ; |1803| 
-        MOV AR1, *AR3(T0) ; |1803| 
+        MOV AC0, XAR2
+
+        AADD XAR2, XAR3 ; |1803| 
+||      MOV *SP(#8), AR1 ; |1803| 
+
+        MOV AR1, *AR3 ; |1803| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c",line 1799,column 41,is_stmt
         MOV dbl(*SP(#6)), AC0 ; |1799| 
         ADD #2, AC0 ; |1799| 
@@ -3751,7 +3758,7 @@ $C$DW$77	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$78	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$78, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_dma.asm:$C$L157:1:1538296454")
+	.dwattr $C$DW$78, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_dma.asm:$C$L157:1:1538472769")
 	.dwattr $C$DW$78, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c")
 	.dwattr $C$DW$78, DW_AT_TI_begin_line(0x707)
 	.dwattr $C$DW$78, DW_AT_TI_end_line(0x70c)
@@ -3937,7 +3944,7 @@ $C$DW$87	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$88	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$88, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_dma.asm:$C$L161:1:1538296454")
+	.dwattr $C$DW$88, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_dma.asm:$C$L161:1:1538472769")
 	.dwattr $C$DW$88, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_dma.c")
 	.dwattr $C$DW$88, DW_AT_TI_begin_line(0x753)
 	.dwattr $C$DW$88, DW_AT_TI_end_line(0x756)

@@ -158,7 +158,7 @@ void StartTimer02(void)
 	*CPU_TIM02_CTRL = *CPU_TIM02_CTRL | 0x0001; 
 }
 #endif
-#if 0
+#if 1
 interrupt void Timer_isr(void)
 {
 Timer0_Int_CTR++;

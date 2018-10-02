@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Sun Sep 30 01:35:29 2018                                 *
+;* Date/Time created: Tue Oct 02 02:34:06 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,7 +27,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../FreeRTOS/Demo/Common/Minimal/flop.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
 ;******************************************************************************
 ;* CINIT RECORDS                                                              *
 ;******************************************************************************
@@ -84,7 +84,7 @@ $C$DW$12	.dwtag  DW_TAG_variable, DW_AT_name("usTaskCheck")
 	.dwattr $C$DW$12, DW_AT_TI_symbol_name("_usTaskCheck")
 	.dwattr $C$DW$12, DW_AT_type(*$C$DW$T$44)
 	.dwattr $C$DW$12, DW_AT_location[DW_OP_addr _usTaskCheck]
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2401212 
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1117612 
 	.sect	".text"
 	.align 4
 	.global	_vStartMathTasks
@@ -376,7 +376,7 @@ $C$DW$L$_vCompetingMathTask1$5$E:
 	.dwcfi	cfa_offset, 1
 
 $C$DW$37	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$37, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L1:1:1538296529")
+	.dwattr $C$DW$37, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L1:1:1538472846")
 	.dwattr $C$DW$37, DW_AT_TI_begin_file("../FreeRTOS/Demo/Common/Minimal/flop.c")
 	.dwattr $C$DW$37, DW_AT_TI_begin_line(0x67)
 	.dwattr $C$DW$37, DW_AT_TI_end_line(0x86)
@@ -580,7 +580,7 @@ $C$DW$L$_vCompetingMathTask2$5$E:
 	.dwcfi	cfa_offset, 1
 
 $C$DW$58	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$58, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L3:1:1538296529")
+	.dwattr $C$DW$58, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L3:1:1538472846")
 	.dwattr $C$DW$58, DW_AT_TI_begin_file("../FreeRTOS/Demo/Common/Minimal/flop.c")
 	.dwattr $C$DW$58, DW_AT_TI_begin_line(0xa2)
 	.dwattr $C$DW$58, DW_AT_TI_end_line(0xc0)
@@ -625,7 +625,7 @@ $C$DW$64	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pvParameters")
 ;*******************************************************************************
 ;* FUNCTION NAME: vCompetingMathTask3                                          *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,AR2,AR3,XAR3,SP,     *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,AR2,XAR2,AR3,XAR3,SP,*
 ;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 16 words                                             *
@@ -730,9 +730,11 @@ $C$DW$76	.dwtag  DW_TAG_TI_branch
         CALL #__addd ; |225| 
                                         ; call occurs [#__addd] ; |225| 
         MOV dbl(*SP(#2)), XAR3
-        MOV *SP(#13), T0 ; |225| 
-        SFTL T0, #1 ; |225| 
-        MOV AC0, dbl(*AR3(T0)) ; |225| 
+        MOV uns(*SP(#13)), AC1 ; |225| 
+        SFTL AC1, #1 ; |225| 
+        MOV AC1, XAR2
+        AADD XAR2, XAR3 ; |225| 
+        MOV AC0, dbl(*AR3) ; |225| 
 	.dwpsn	file "../FreeRTOS/Demo/Common/Minimal/flop.c",line 226,column 4,is_stmt
         MOV *SP(#13), T0 ; |226| 
 $C$DW$77	.dwtag  DW_TAG_TI_branch
@@ -762,8 +764,8 @@ $C$DW$79	.dwtag  DW_TAG_TI_branch
 	.dwpsn	file "../FreeRTOS/Demo/Common/Minimal/flop.c",line 223,column 47,is_stmt
         ADD #1, *SP(#13) ; |223| 
 	.dwpsn	file "../FreeRTOS/Demo/Common/Minimal/flop.c",line 223,column 23,is_stmt
-        MOV *SP(#12), AR1 ; |223| 
         MOV *SP(#13), AR2 ; |223| 
+        MOV *SP(#12), AR1 ; |223| 
         CMPU AR2 < AR1, TC1 ; |223| 
         BCC $C$L6,TC1 ; |223| 
                                         ; branchcc occurs ; |223| 
@@ -783,9 +785,11 @@ $C$L8:
 $C$DW$L$_vCompetingMathTask3$5$B:
 	.dwpsn	file "../FreeRTOS/Demo/Common/Minimal/flop.c",line 235,column 4,is_stmt
         MOV dbl(*SP(#2)), XAR3
-        MOV *SP(#13), T0 ; |235| 
-        SFTL T0, #1 ; |235| 
-        MOV dbl(*AR3(T0)), AC1 ; |235| 
+        MOV uns(*SP(#13)), AC0 ; |235| 
+        SFTL AC0, #1 ; |235| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |235| 
+        MOV dbl(*AR3), AC1 ; |235| 
         MOV dbl(*SP(#6)), AC0 ; |235| 
 $C$DW$80	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$80, DW_AT_low_pc(0x00)
@@ -855,7 +859,7 @@ $C$DW$L$_vCompetingMathTask3$9$E:
 	.dwcfi	cfa_offset, 1
 
 $C$DW$83	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$83, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L5:1:1538296529")
+	.dwattr $C$DW$83, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L5:1:1538472846")
 	.dwattr $C$DW$83, DW_AT_TI_begin_file("../FreeRTOS/Demo/Common/Minimal/flop.c")
 	.dwattr $C$DW$83, DW_AT_TI_begin_line(0xda)
 	.dwattr $C$DW$83, DW_AT_TI_end_line(0xff)
@@ -879,7 +883,7 @@ $C$DW$89	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$89, DW_AT_high_pc($C$DW$L$_vCompetingMathTask3$8$E)
 
 $C$DW$90	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$90, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L6:2:1538296529")
+	.dwattr $C$DW$90, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L6:2:1538472846")
 	.dwattr $C$DW$90, DW_AT_TI_begin_file("../FreeRTOS/Demo/Common/Minimal/flop.c")
 	.dwattr $C$DW$90, DW_AT_TI_begin_line(0xdf)
 	.dwattr $C$DW$90, DW_AT_TI_end_line(0xe3)
@@ -890,7 +894,7 @@ $C$DW$91	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$92	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$92, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L8:2:1538296529")
+	.dwattr $C$DW$92, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L8:2:1538472846")
 	.dwattr $C$DW$92, DW_AT_TI_begin_file("../FreeRTOS/Demo/Common/Minimal/flop.c")
 	.dwattr $C$DW$92, DW_AT_TI_begin_line(0xe9)
 	.dwattr $C$DW$92, DW_AT_TI_end_line(0xec)
@@ -928,7 +932,7 @@ $C$DW$95	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pvParameters")
 ;*******************************************************************************
 ;* FUNCTION NAME: vCompetingMathTask4                                          *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,AR2,AR3,XAR3,SP,     *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,AR2,XAR2,AR3,XAR3,SP,*
 ;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 16 words                                             *
@@ -1033,9 +1037,11 @@ $C$DW$107	.dwtag  DW_TAG_TI_branch
         CALL #__mpyd ; |288| 
                                         ; call occurs [#__mpyd] ; |288| 
         MOV dbl(*SP(#2)), XAR3
-        MOV *SP(#13), T0 ; |288| 
-        SFTL T0, #1 ; |288| 
-        MOV AC0, dbl(*AR3(T0)) ; |288| 
+        MOV uns(*SP(#13)), AC1 ; |288| 
+        SFTL AC1, #1 ; |288| 
+        MOV AC1, XAR2
+        AADD XAR2, XAR3 ; |288| 
+        MOV AC0, dbl(*AR3) ; |288| 
 	.dwpsn	file "../FreeRTOS/Demo/Common/Minimal/flop.c",line 289,column 4,is_stmt
         MOV *SP(#13), T0 ; |289| 
 $C$DW$108	.dwtag  DW_TAG_TI_branch
@@ -1065,8 +1071,8 @@ $C$DW$110	.dwtag  DW_TAG_TI_branch
 	.dwpsn	file "../FreeRTOS/Demo/Common/Minimal/flop.c",line 286,column 47,is_stmt
         ADD #1, *SP(#13) ; |286| 
 	.dwpsn	file "../FreeRTOS/Demo/Common/Minimal/flop.c",line 286,column 23,is_stmt
-        MOV *SP(#12), AR1 ; |286| 
         MOV *SP(#13), AR2 ; |286| 
+        MOV *SP(#12), AR1 ; |286| 
         CMPU AR2 < AR1, TC1 ; |286| 
         BCC $C$L12,TC1 ; |286| 
                                         ; branchcc occurs ; |286| 
@@ -1086,9 +1092,11 @@ $C$L14:
 $C$DW$L$_vCompetingMathTask4$5$B:
 	.dwpsn	file "../FreeRTOS/Demo/Common/Minimal/flop.c",line 298,column 4,is_stmt
         MOV dbl(*SP(#2)), XAR3
-        MOV *SP(#13), T0 ; |298| 
-        SFTL T0, #1 ; |298| 
-        MOV dbl(*AR3(T0)), AC1 ; |298| 
+        MOV uns(*SP(#13)), AC0 ; |298| 
+        SFTL AC0, #1 ; |298| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |298| 
+        MOV dbl(*AR3), AC1 ; |298| 
         MOV dbl(*SP(#6)), AC0 ; |298| 
 $C$DW$111	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$111, DW_AT_low_pc(0x00)
@@ -1158,7 +1166,7 @@ $C$DW$L$_vCompetingMathTask4$9$E:
 	.dwcfi	cfa_offset, 1
 
 $C$DW$114	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$114, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L11:1:1538296529")
+	.dwattr $C$DW$114, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L11:1:1538472846")
 	.dwattr $C$DW$114, DW_AT_TI_begin_file("../FreeRTOS/Demo/Common/Minimal/flop.c")
 	.dwattr $C$DW$114, DW_AT_TI_begin_line(0x119)
 	.dwattr $C$DW$114, DW_AT_TI_end_line(0x13e)
@@ -1182,7 +1190,7 @@ $C$DW$120	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$120, DW_AT_high_pc($C$DW$L$_vCompetingMathTask4$8$E)
 
 $C$DW$121	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$121, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L12:2:1538296529")
+	.dwattr $C$DW$121, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L12:2:1538472846")
 	.dwattr $C$DW$121, DW_AT_TI_begin_file("../FreeRTOS/Demo/Common/Minimal/flop.c")
 	.dwattr $C$DW$121, DW_AT_TI_begin_line(0x11e)
 	.dwattr $C$DW$121, DW_AT_TI_end_line(0x122)
@@ -1193,7 +1201,7 @@ $C$DW$122	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$123	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$123, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L14:2:1538296529")
+	.dwattr $C$DW$123, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L14:2:1538472846")
 	.dwattr $C$DW$123, DW_AT_TI_begin_file("../FreeRTOS/Demo/Common/Minimal/flop.c")
 	.dwattr $C$DW$123, DW_AT_TI_begin_line(0x128)
 	.dwattr $C$DW$123, DW_AT_TI_end_line(0x12b)
@@ -1307,7 +1315,7 @@ $C$DW$128	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$129	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$129, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L17:1:1538296529")
+	.dwattr $C$DW$129, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\flop.asm:$C$L17:1:1538472846")
 	.dwattr $C$DW$129, DW_AT_TI_begin_file("../FreeRTOS/Demo/Common/Minimal/flop.c")
 	.dwattr $C$DW$129, DW_AT_TI_begin_line(0x149)
 	.dwattr $C$DW$129, DW_AT_TI_end_line(0x157)

@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Sun Sep 30 01:34:45 2018                                 *
+;* Date/Time created: Tue Oct 02 02:33:20 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,8 +27,8 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_nand.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1134812 
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1919212 
 	.sect	".text"
 	.align 4
 	.global	_NAND_init
@@ -181,7 +181,7 @@ $C$DW$8	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$9	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$9, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L1:1:1538296485")
+	.dwattr $C$DW$9, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L1:1:1538472800")
 	.dwattr $C$DW$9, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_nand.c")
 	.dwattr $C$DW$9, DW_AT_TI_begin_line(0x55)
 	.dwattr $C$DW$9, DW_AT_TI_end_line(0x55)
@@ -1357,7 +1357,7 @@ $C$DW$48	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$49	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$49, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L29:1:1538296485")
+	.dwattr $C$DW$49, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L29:1:1538472800")
 	.dwattr $C$DW$49, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_nand.c")
 	.dwattr $C$DW$49, DW_AT_TI_begin_line(0x263)
 	.dwattr $C$DW$49, DW_AT_TI_end_line(0x26c)
@@ -1381,7 +1381,7 @@ $C$DW$55	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$55, DW_AT_high_pc($C$DW$L$_NAND_isStatusWriteProtected$12$E)
 
 $C$DW$56	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$56, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L30:2:1538296485")
+	.dwattr $C$DW$56, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L30:2:1538472800")
 	.dwattr $C$DW$56, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_nand.c")
 	.dwattr $C$DW$56, DW_AT_TI_begin_line(0x268)
 	.dwattr $C$DW$56, DW_AT_TI_end_line(0x268)
@@ -1614,7 +1614,7 @@ $C$DW$71	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$72	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$72, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L43:1:1538296485")
+	.dwattr $C$DW$72, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L43:1:1538472800")
 	.dwattr $C$DW$72, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_nand.c")
 	.dwattr $C$DW$72, DW_AT_TI_begin_line(0x303)
 	.dwattr $C$DW$72, DW_AT_TI_end_line(0x308)
@@ -2478,8 +2478,8 @@ $C$DW$113	.dwtag  DW_TAG_formal_parameter, DW_AT_name("spare")
 ;*******************************************************************************
 ;* FUNCTION NAME: NAND_readNBytes                                              *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,T1,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,*
-;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,AC2,T0,T1,AR0,XAR0,AR1,XAR1,AR2,XAR2,*
+;*                        AR3,XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL    *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 12 words                                             *
 ;*                        (1 return address/alignment)                         *
@@ -2587,32 +2587,45 @@ $C$DW$L$_NAND_readNBytes$8$B:
                                         ; branchcc occurs ; |1326| 
 $C$DW$L$_NAND_readNBytes$8$E:
 $C$DW$L$_NAND_readNBytes$9$B:
-        MOV dbl(*AR3(short(#6))), AC0 ; |1326| 
-        MOV AC0, XAR3
-        MOV dbl(*SP(#4)), XAR2
-        MOV *SP(#9), T0 ; |1326| 
-        MOV uns(low_byte(*AR3)), AR1 ; |1326| 
-        MOV AR1, *AR2(T0) ; |1326| 
-        MOV *SP(#9), T0 ; |1326| 
         MOV dbl(*SP(#4)), XAR3
-        MOV *AR3(T0), AC1 ; |1326| 
+        MOV uns(*SP(#9)), AC0 ; |1326| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1326| 
+        MOV dbl(*SP(#0)), XAR2
+        MOV dbl(*AR2(short(#6))), AC0 ; |1326| 
+        MOV AC0, XAR2
+        MOV uns(low_byte(*AR2)), AR1 ; |1326| 
+        MOV AR1, *AR3 ; |1326| 
+        MOV dbl(*SP(#4)), XAR3
+        MOV uns(*SP(#9)), AC0 ; |1326| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1326| 
+        MOV *AR3, AC2 ; |1326| 
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(short(#6))), AC0 ; |1326| 
         MOV AC0, XAR3
-        MOV *AR3, AC0 ; |1326| 
+        MOV uns(*SP(#9)), AC0 ; |1326| 
+        MOV AC0, XAR2
+        MOV *AR3, AC1 ; |1326| 
         MOV dbl(*SP(#4)), XAR3
-        OR AC1 << #8, AC0 ; |1326| 
-        MOV AC0, *AR3(T0) ; |1326| 
+
+        AADD XAR2, XAR3 ; |1326| 
+||      OR AC2 << #8, AC1 ; |1326| 
+
+        MOV AC1, *AR3 ; |1326| 
         B $C$L80  ; |1326| 
                                         ; branch occurs ; |1326| 
 $C$DW$L$_NAND_readNBytes$9$E:
 $C$L79:    
 $C$DW$L$_NAND_readNBytes$10$B:
-        MOV dbl(*SP(#4)), XAR2
-        MOV *SP(#9), T0 ; |1326| 
-        MOV dbl(*AR3(short(#6))), AC0 ; |1326| 
-        MOV AC0, XAR3
-        MOV *AR3, *AR2(T0) ; |1326| 
+        MOV dbl(*SP(#4)), XAR3
+        MOV uns(*SP(#9)), AC0 ; |1326| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1326| 
+        MOV dbl(*SP(#0)), XAR2
+        MOV dbl(*AR2(short(#6))), AC0 ; |1326| 
+        MOV AC0, XAR2
+        MOV *AR2, *AR3 ; |1326| 
 $C$DW$L$_NAND_readNBytes$10$E:
 $C$L80:    
 $C$DW$L$_NAND_readNBytes$11$B:
@@ -2649,32 +2662,45 @@ $C$DW$L$_NAND_readNBytes$14$B:
                                         ; branchcc occurs ; |1333| 
 $C$DW$L$_NAND_readNBytes$14$E:
 $C$DW$L$_NAND_readNBytes$15$B:
-        MOV dbl(*AR3(short(#6))), AC0 ; |1333| 
-        MOV AC0, XAR3
-        MOV dbl(*SP(#4)), XAR2
-        MOV *SP(#9), T0 ; |1333| 
-        MOV uns(low_byte(*AR3)), AR1 ; |1333| 
-        MOV AR1, *AR2(T0) ; |1333| 
-        MOV *SP(#9), T0 ; |1333| 
         MOV dbl(*SP(#4)), XAR3
-        MOV *AR3(T0), AC1 ; |1333| 
+        MOV uns(*SP(#9)), AC0 ; |1333| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1333| 
+        MOV dbl(*SP(#0)), XAR2
+        MOV dbl(*AR2(short(#6))), AC0 ; |1333| 
+        MOV AC0, XAR2
+        MOV uns(low_byte(*AR2)), AR1 ; |1333| 
+        MOV AR1, *AR3 ; |1333| 
+        MOV dbl(*SP(#4)), XAR3
+        MOV uns(*SP(#9)), AC0 ; |1333| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1333| 
+        MOV *AR3, AC2 ; |1333| 
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(short(#6))), AC0 ; |1333| 
         MOV AC0, XAR3
-        MOV *AR3, AC0 ; |1333| 
+        MOV uns(*SP(#9)), AC0 ; |1333| 
+        MOV AC0, XAR2
+        MOV *AR3, AC1 ; |1333| 
         MOV dbl(*SP(#4)), XAR3
-        OR AC1 << #8, AC0 ; |1333| 
-        MOV AC0, *AR3(T0) ; |1333| 
+
+        AADD XAR2, XAR3 ; |1333| 
+||      OR AC2 << #8, AC1 ; |1333| 
+
+        MOV AC1, *AR3 ; |1333| 
         B $C$L84  ; |1333| 
                                         ; branch occurs ; |1333| 
 $C$DW$L$_NAND_readNBytes$15$E:
 $C$L83:    
 $C$DW$L$_NAND_readNBytes$16$B:
-        MOV dbl(*SP(#4)), XAR2
-        MOV *SP(#9), T0 ; |1333| 
-        MOV dbl(*AR3(short(#6))), AC0 ; |1333| 
-        MOV AC0, XAR3
-        MOV *AR3, *AR2(T0) ; |1333| 
+        MOV dbl(*SP(#4)), XAR3
+        MOV uns(*SP(#9)), AC0 ; |1333| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1333| 
+        MOV dbl(*SP(#0)), XAR2
+        MOV dbl(*AR2(short(#6))), AC0 ; |1333| 
+        MOV AC0, XAR2
+        MOV *AR2, *AR3 ; |1333| 
 $C$DW$L$_NAND_readNBytes$16$E:
 $C$L84:    
 $C$DW$L$_NAND_readNBytes$17$B:
@@ -2715,7 +2741,7 @@ $C$DW$122	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$123	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$123, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L82:1:1538296485")
+	.dwattr $C$DW$123, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L82:1:1538472800")
 	.dwattr $C$DW$123, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_nand.c")
 	.dwattr $C$DW$123, DW_AT_TI_begin_line(0x533)
 	.dwattr $C$DW$123, DW_AT_TI_end_line(0x536)
@@ -2735,7 +2761,7 @@ $C$DW$127	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$128	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$128, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L78:1:1538296485")
+	.dwattr $C$DW$128, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L78:1:1538472800")
 	.dwattr $C$DW$128, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_nand.c")
 	.dwattr $C$DW$128, DW_AT_TI_begin_line(0x52c)
 	.dwattr $C$DW$128, DW_AT_TI_end_line(0x52f)
@@ -2987,9 +3013,11 @@ $C$DW$L$_NAND_writeNBytes$15$B:
                                         ; branchcc occurs ; |1447| 
 $C$DW$L$_NAND_writeNBytes$15$E:
 $C$DW$L$_NAND_writeNBytes$16$B:
-        MOV *SP(#9), T0 ; |1447| 
         MOV dbl(*SP(#4)), XAR3
-        MOV uns(high_byte(*AR3(T0))), AR1 ; |1447| 
+        MOV uns(*SP(#9)), AC0 ; |1447| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1447| 
+        MOV uns(high_byte(*AR3)), AR1 ; |1447| 
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(short(#6))), AC0 ; |1447| 
         MOV AC0, XAR3
@@ -2998,8 +3026,10 @@ $C$DW$L$_NAND_writeNBytes$16$B:
         NOP
         NOP
         MOV dbl(*SP(#4)), XAR3
-        MOV *SP(#9), T0 ; |1447| 
-        MOV uns(low_byte(*AR3(T0))), AR1 ; |1447| 
+        MOV uns(*SP(#9)), AC0 ; |1447| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1447| 
+        MOV uns(low_byte(*AR3)), AR1 ; |1447| 
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(short(#6))), AC0 ; |1447| 
         MOV AC0, XAR3
@@ -3009,11 +3039,14 @@ $C$DW$L$_NAND_writeNBytes$16$B:
 $C$DW$L$_NAND_writeNBytes$16$E:
 $C$L95:    
 $C$DW$L$_NAND_writeNBytes$17$B:
-        MOV *SP(#9), T0 ; |1447| 
-        MOV dbl(*SP(#4)), XAR2
-        MOV dbl(*AR3(short(#6))), AC0 ; |1447| 
-        MOV AC0, XAR3
-        MOV *AR2(T0), *AR3 ; |1447| 
+        MOV dbl(*SP(#4)), XAR3
+        MOV uns(*SP(#9)), AC0 ; |1447| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1447| 
+        MOV dbl(*SP(#0)), XAR2
+        MOV dbl(*AR2(short(#6))), AC0 ; |1447| 
+        MOV AC0, XAR2
+        MOV *AR3, *AR2 ; |1447| 
 $C$DW$L$_NAND_writeNBytes$17$E:
 $C$L96:    
 $C$DW$L$_NAND_writeNBytes$18$B:
@@ -3037,9 +3070,11 @@ $C$L97:
         MOV *AR3(short(#3)), AR1 ; |1450| 
         BCC $C$L98,AR1 != #0 ; |1450| 
                                         ; branchcc occurs ; |1450| 
-        MOV *SP(#9), T0 ; |1450| 
         MOV dbl(*SP(#4)), XAR3
-        MOV uns(low_byte(*AR3(T0))), AR1 ; |1450| 
+        MOV uns(*SP(#9)), AC0 ; |1450| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1450| 
+        MOV uns(low_byte(*AR3)), AR1 ; |1450| 
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(short(#6))), AC0 ; |1450| 
         MOV AC0, XAR3
@@ -3047,9 +3082,11 @@ $C$L97:
         B $C$L106 ; |1450| 
                                         ; branch occurs ; |1450| 
 $C$L98:    
-        MOV *SP(#9), T0 ; |1450| 
         MOV dbl(*SP(#4)), XAR3
-        MOV uns(low_byte(*AR3(T0))), AR1 ; |1450| 
+        MOV uns(*SP(#9)), AC0 ; |1450| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1450| 
+        MOV uns(low_byte(*AR3)), AR1 ; |1450| 
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(short(#6))), AC0 ; |1450| 
         MOV AC0, XAR3
@@ -3094,9 +3131,11 @@ $C$DW$L$_NAND_writeNBytes$26$B:
                                         ; branchcc occurs ; |1465| 
 $C$DW$L$_NAND_writeNBytes$26$E:
 $C$DW$L$_NAND_writeNBytes$27$B:
-        MOV *SP(#9), T0 ; |1465| 
         MOV dbl(*SP(#4)), XAR3
-        MOV uns(high_byte(*AR3(T0))), AR1 ; |1465| 
+        MOV uns(*SP(#9)), AC0 ; |1465| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1465| 
+        MOV uns(high_byte(*AR3)), AR1 ; |1465| 
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(short(#6))), AC0 ; |1465| 
         MOV AC0, XAR3
@@ -3105,8 +3144,10 @@ $C$DW$L$_NAND_writeNBytes$27$B:
         NOP
         NOP
         MOV dbl(*SP(#4)), XAR3
-        MOV *SP(#9), T0 ; |1465| 
-        MOV uns(low_byte(*AR3(T0))), AR1 ; |1465| 
+        MOV uns(*SP(#9)), AC0 ; |1465| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1465| 
+        MOV uns(low_byte(*AR3)), AR1 ; |1465| 
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(short(#6))), AC0 ; |1465| 
         MOV AC0, XAR3
@@ -3116,11 +3157,14 @@ $C$DW$L$_NAND_writeNBytes$27$B:
 $C$DW$L$_NAND_writeNBytes$27$E:
 $C$L103:    
 $C$DW$L$_NAND_writeNBytes$28$B:
-        MOV *SP(#9), T0 ; |1465| 
-        MOV dbl(*SP(#4)), XAR2
-        MOV dbl(*AR3(short(#6))), AC0 ; |1465| 
-        MOV AC0, XAR3
-        MOV *AR2(T0), *AR3 ; |1465| 
+        MOV dbl(*SP(#4)), XAR3
+        MOV uns(*SP(#9)), AC0 ; |1465| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1465| 
+        MOV dbl(*SP(#0)), XAR2
+        MOV dbl(*AR2(short(#6))), AC0 ; |1465| 
+        MOV AC0, XAR2
+        MOV *AR3, *AR2 ; |1465| 
 $C$DW$L$_NAND_writeNBytes$28$E:
 $C$L104:    
 $C$DW$L$_NAND_writeNBytes$29$B:
@@ -3155,7 +3199,7 @@ $C$DW$147	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$148	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$148, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L102:1:1538296485")
+	.dwattr $C$DW$148, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L102:1:1538472800")
 	.dwattr $C$DW$148, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_nand.c")
 	.dwattr $C$DW$148, DW_AT_TI_begin_line(0x5b7)
 	.dwattr $C$DW$148, DW_AT_TI_end_line(0x5ba)
@@ -3175,7 +3219,7 @@ $C$DW$152	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$153	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$153, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L94:1:1538296485")
+	.dwattr $C$DW$153, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L94:1:1538472800")
 	.dwattr $C$DW$153, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_nand.c")
 	.dwattr $C$DW$153, DW_AT_TI_begin_line(0x5a5)
 	.dwattr $C$DW$153, DW_AT_TI_end_line(0x5a8)
@@ -3195,7 +3239,7 @@ $C$DW$157	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$158	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$158, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L88:1:1538296485")
+	.dwattr $C$DW$158, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_nand.asm:$C$L88:1:1538472800")
 	.dwattr $C$DW$158, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_nand.c")
 	.dwattr $C$DW$158, DW_AT_TI_begin_line(0x592)
 	.dwattr $C$DW$158, DW_AT_TI_end_line(0x595)

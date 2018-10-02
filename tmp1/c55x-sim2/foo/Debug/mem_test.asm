@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Sun Sep 30 01:35:09 2018                                 *
+;* Date/Time created: Tue Oct 02 02:33:45 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,7 +27,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/boot_post_SDcard/boot_post/mem_test.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
 	.global	_mem
 	.bss	_mem,1024,0,0
 $C$DW$1	.dwtag  DW_TAG_variable, DW_AT_name("mem")
@@ -35,7 +35,7 @@ $C$DW$1	.dwtag  DW_TAG_variable, DW_AT_name("mem")
 	.dwattr $C$DW$1, DW_AT_location[DW_OP_addr _mem]
 	.dwattr $C$DW$1, DW_AT_type(*$C$DW$T$22)
 	.dwattr $C$DW$1, DW_AT_external
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1995212 
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2119612 
 	.sect	".text"
 	.align 4
 	.global	_mem_test
@@ -56,8 +56,8 @@ $C$DW$2	.dwtag  DW_TAG_subprogram, DW_AT_name("mem_test")
 ;*******************************************************************************
 ;* FUNCTION NAME: mem_test                                                     *
 ;*                                                                             *
-;*   Function Uses Regs : T0,AR1,AR2,AR3,XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,  *
-;*                        FRCT,SMUL                                            *
+;*   Function Uses Regs : AC0,AC0,T0,AR1,AR2,XAR2,AR3,XAR3,SP,CARRY,TC1,M40,   *
+;*                        SATA,SATD,RDM,FRCT,SMUL                              *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 2 words                                              *
 ;*                        (1 return address/alignment)                         *
@@ -84,12 +84,15 @@ $C$DW$3	.dwtag  DW_TAG_variable, DW_AT_name("i")
 $C$L1:    
 $C$DW$L$_mem_test$2$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/boot_post_SDcard/boot_post/mem_test.c",line 55,column 3,is_stmt
-        MOV *SP(#0), T0 ; |55| 
+        MOV uns(*SP(#0)), AC0 ; |55| 
+        MOV AC0, XAR2
         AMOV #_mem, XAR3 ; |55| 
-        MOV AR1, *AR3(T0) ; |55| 
+        AADD XAR2, XAR3 ; |55| 
+        MOV AR1, *AR3 ; |55| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/boot_post_SDcard/boot_post/mem_test.c",line 53,column 17,is_stmt
         ADD #1, *SP(#0) ; |53| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/boot_post_SDcard/boot_post/mem_test.c",line 53,column 10,is_stmt
+        MOV #1024, AR2 ; |53| 
         MOV *SP(#0), AR1 ; |53| 
         CMPU AR1 < AR2, TC1 ; |53| 
         BCC $C$L1,TC1 ; |53| 
@@ -106,9 +109,11 @@ $C$L2:
 $C$L3:    
 $C$DW$L$_mem_test$4$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/boot_post_SDcard/boot_post/mem_test.c",line 59,column 3,is_stmt
-        MOV *SP(#0), T0 ; |59| 
+        MOV uns(*SP(#0)), AC0 ; |59| 
+        MOV AC0, XAR2
         AMOV #_mem, XAR3 ; |59| 
-        MOV *AR3(T0), AR2 ; |59| 
+        AADD XAR2, XAR3 ; |59| 
+        MOV *AR3, AR2 ; |59| 
         CMPU AR2 == AR1, TC1 ; |59| 
         BCC $C$L4,TC1 ; |59| 
                                         ; branchcc occurs ; |59| 
@@ -139,13 +144,18 @@ $C$L5:
 $C$L6:    
 $C$DW$L$_mem_test$8$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/boot_post_SDcard/boot_post/mem_test.c",line 65,column 3,is_stmt
-        MOV *SP(#0), T0 ; |65| 
-        NOT AR1, AR1 ; |65| 
+        MOV uns(*SP(#0)), AC0 ; |65| 
+        MOV AC0, XAR2
         AMOV #_mem, XAR3 ; |65| 
-        MOV AR1, *AR3(T0) ; |65| 
+
+        AADD XAR2, XAR3 ; |65| 
+||      NOT AR1, AR1 ; |65| 
+
+        MOV AR1, *AR3 ; |65| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/boot_post_SDcard/boot_post/mem_test.c",line 63,column 17,is_stmt
         ADD #1, *SP(#0) ; |63| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/boot_post_SDcard/boot_post/mem_test.c",line 63,column 10,is_stmt
+        MOV #1024, AR2 ; |63| 
         MOV *SP(#0), AR1 ; |63| 
         CMPU AR1 < AR2, TC1 ; |63| 
         BCC $C$L6,TC1 ; |63| 
@@ -162,10 +172,12 @@ $C$L7:
 $C$L8:    
 $C$DW$L$_mem_test$10$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/boot_post_SDcard/boot_post/mem_test.c",line 69,column 3,is_stmt
-        MOV *SP(#0), T0 ; |69| 
+        MOV uns(*SP(#0)), AC0 ; |69| 
+        MOV AC0, XAR2
         AMOV #_mem, XAR3 ; |69| 
+        AADD XAR2, XAR3 ; |69| 
 
-        MOV *AR3(T0), AR2 ; |69| 
+        MOV *AR3, AR2 ; |69| 
 ||      NOT AR1, AR1 ; |69| 
 
         CMPU AR2 == AR1, TC1 ; |69| 
@@ -201,7 +213,7 @@ $C$DW$4	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$5	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$5, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\mem_test.asm:$C$L8:1:1538296509")
+	.dwattr $C$DW$5, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\mem_test.asm:$C$L8:1:1538472825")
 	.dwattr $C$DW$5, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/boot_post_SDcard/boot_post/mem_test.c")
 	.dwattr $C$DW$5, DW_AT_TI_begin_line(0x43)
 	.dwattr $C$DW$5, DW_AT_TI_end_line(0x47)
@@ -215,7 +227,7 @@ $C$DW$7	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$8	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$8, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\mem_test.asm:$C$L6:1:1538296509")
+	.dwattr $C$DW$8, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\mem_test.asm:$C$L6:1:1538472825")
 	.dwattr $C$DW$8, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/boot_post_SDcard/boot_post/mem_test.c")
 	.dwattr $C$DW$8, DW_AT_TI_begin_line(0x3f)
 	.dwattr $C$DW$8, DW_AT_TI_end_line(0x42)
@@ -226,7 +238,7 @@ $C$DW$9	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$10	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$10, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\mem_test.asm:$C$L3:1:1538296509")
+	.dwattr $C$DW$10, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\mem_test.asm:$C$L3:1:1538472825")
 	.dwattr $C$DW$10, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/boot_post_SDcard/boot_post/mem_test.c")
 	.dwattr $C$DW$10, DW_AT_TI_begin_line(0x39)
 	.dwattr $C$DW$10, DW_AT_TI_end_line(0x3d)
@@ -240,7 +252,7 @@ $C$DW$12	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$13	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$13, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\mem_test.asm:$C$L1:1:1538296509")
+	.dwattr $C$DW$13, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\mem_test.asm:$C$L1:1:1538472825")
 	.dwattr $C$DW$13, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/boot_post_SDcard/boot_post/mem_test.c")
 	.dwattr $C$DW$13, DW_AT_TI_begin_line(0x35)
 	.dwattr $C$DW$13, DW_AT_TI_end_line(0x38)

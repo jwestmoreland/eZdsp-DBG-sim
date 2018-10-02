@@ -26,6 +26,9 @@ StartUp()
     GEL_TextOut( "\nStartUp()\n" );
     c5535_MapInit();
     GEL_SetSimMode(1);
+    GEL_SetSimMode(1);	
+	GEL_MapAdd(0x1000u,2,0x0014u,1,1); 	/* TIMER#0 1KW */
+    
 
 }
 
@@ -302,6 +305,7 @@ c5535_MapInit() {
 
     /* IO Space */
     GEL_MapAdd(0x0000,2,0xFFFF,1,1);        /* XPORT */
+    GEL_MapAdd(0x1000u,2,0x0014u,1,1); 	/* TIMER#0 1KW */
 }
 
 Peripheral_Reset()

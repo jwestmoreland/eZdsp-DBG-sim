@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Sun Sep 30 01:34:07 2018                                 *
+;* Date/Time created: Tue Oct 02 02:32:41 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,7 +27,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
 
 $C$DW$1	.dwtag  DW_TAG_subprogram, DW_AT_name("memcpy")
 	.dwattr $C$DW$1, DW_AT_TI_symbol_name("_memcpy")
@@ -170,7 +170,7 @@ $C$DW$38	.dwtag  DW_TAG_formal_parameter
 	.dwattr $C$DW$38, DW_AT_type(*$C$DW$T$25)
 	.dwendtag $C$DW$35
 
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2678012 
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1238812 
 	.sect	".text"
 	.align 4
 
@@ -179,11 +179,11 @@ $C$DW$39	.dwtag  DW_TAG_subprogram, DW_AT_name("AC_reqUnknown")
 	.dwattr $C$DW$39, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$39, DW_AT_TI_symbol_name("_AC_reqUnknown")
 	.dwattr $C$DW$39, DW_AT_type(*$C$DW$T$44)
-	.dwattr $C$DW$39, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h")
+	.dwattr $C$DW$39, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h")
 	.dwattr $C$DW$39, DW_AT_TI_begin_line(0x5c)
 	.dwattr $C$DW$39, DW_AT_TI_begin_column(0x12)
 	.dwattr $C$DW$39, DW_AT_TI_max_frame_size(0x0c)
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 97,column 1,is_stmt,address _AC_reqUnknown
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 97,column 1,is_stmt,address _AC_reqUnknown
 
 	.dwfde $C$DW$CIE, _AC_reqUnknown
 $C$DW$40	.dwtag  DW_TAG_formal_parameter, DW_AT_name("devNum")
@@ -251,11 +251,11 @@ $C$DW$50	.dwtag  DW_TAG_variable, DW_AT_name("retStat")
         MOV XAR1, dbl(*SP(#4))
         MOV XAR0, dbl(*SP(#2))
         MOV T0, *SP(#0) ; |97| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 101,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 101,column 2,is_stmt
         MOV #1, *SP(#10) ; |101| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 103,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 103,column 2,is_stmt
         MOV *SP(#10), T0 ; |103| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 104,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 104,column 1,is_stmt
         AADD #11, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$51	.dwtag  DW_TAG_TI_branch
@@ -263,7 +263,7 @@ $C$DW$51	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$51, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$39, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h")
+	.dwattr $C$DW$39, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h")
 	.dwattr $C$DW$39, DW_AT_TI_end_line(0x68)
 	.dwattr $C$DW$39, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -277,11 +277,11 @@ $C$DW$52	.dwtag  DW_TAG_subprogram, DW_AT_name("AC_lookupReqHandler")
 	.dwattr $C$DW$52, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$52, DW_AT_TI_symbol_name("_AC_lookupReqHandler")
 	.dwattr $C$DW$52, DW_AT_type(*$C$DW$T$88)
-	.dwattr $C$DW$52, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h")
+	.dwattr $C$DW$52, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h")
 	.dwattr $C$DW$52, DW_AT_TI_begin_line(0x9d)
 	.dwattr $C$DW$52, DW_AT_TI_begin_column(0x12)
 	.dwattr $C$DW$52, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 159,column 1,is_stmt,address _AC_lookupReqHandler
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 159,column 1,is_stmt,address _AC_lookupReqHandler
 
 	.dwfde $C$DW$CIE, _AC_lookupReqHandler
 $C$DW$53	.dwtag  DW_TAG_formal_parameter, DW_AT_name("request")
@@ -295,8 +295,8 @@ $C$DW$54	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pUSB_ReqTable")
 ;*******************************************************************************
 ;* FUNCTION NAME: AC_lookupReqHandler                                          *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,T0,AR0,XAR0,AR1,AR2,AR3,XAR3,SP,CARRY,TC1,   *
-;*                        M40,SATA,SATD,RDM,FRCT,SMUL                          *
+;*   Function Uses Regs : AC0,AC0,T0,AR0,XAR0,AR1,AR2,XAR2,AR3,XAR3,SP,CARRY,  *
+;*                        TC1,M40,SATA,SATD,RDM,FRCT,SMUL                      *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 6 words                                              *
 ;*                        (1 return address/alignment)                         *
@@ -322,54 +322,62 @@ $C$DW$57	.dwtag  DW_TAG_variable, DW_AT_name("index")
 	.dwattr $C$DW$57, DW_AT_location[DW_OP_bregx 0x24 4]
         MOV XAR0, dbl(*SP(#2))
         MOV T0, *SP(#0) ; |159| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 163,column 6,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 163,column 6,is_stmt
         MOV #0, *SP(#4) ; |163| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 163,column 17,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 163,column 17,is_stmt
         MOV dbl(*SP(#2)), XAR3
-        MOV *SP(#4) << #2, AC0 ; |163| 
-        MOV AC0, AR1 ; |163| 
-        AADD AR1, AR3 ; |163| 
+        MOV uns(*SP(#4)), AC0 ; |163| 
+        SFTS AC0, #2, AC0 ; |163| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |163| 
         MOV dbl(*AR3(short(#2))), AC0 ; |163| 
         BCC $C$L3,AC0 == #0 ; |163| 
                                         ; branchcc occurs ; |163| 
 $C$L1:    
 $C$DW$L$_AC_lookupReqHandler$2$B:
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 166,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 166,column 3,is_stmt
         MOV dbl(*SP(#2)), XAR3
-        MOV *SP(#4) << #2, AC0 ; |166| 
-        MOV AC0, T0 ; |166| 
-        MOV *SP(#0), AR1 ; |166| 
-        MOV *AR3(T0), AR2 ; |166| 
+        MOV uns(*SP(#4)), AC0 ; |166| 
+        SFTS AC0, #2, AC0 ; |166| 
+        MOV AC0, XAR2
+
+        AADD XAR2, XAR3 ; |166| 
+||      MOV *SP(#0), AR1 ; |166| 
+
+        MOV *AR3, AR2 ; |166| 
         CMPU AR2 != AR1, TC1 ; |166| 
         BCC $C$L2,TC1 ; |166| 
                                         ; branchcc occurs ; |166| 
 $C$DW$L$_AC_lookupReqHandler$2$E:
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 168,column 4,is_stmt
-        MOV *SP(#4) << #2, AC0 ; |168| 
-        MOV AC0, AR1 ; |168| 
-        AADD AR1, AR3 ; |168| 
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 168,column 4,is_stmt
+        MOV dbl(*SP(#2)), XAR3
+        MOV uns(*SP(#4)), AC0 ; |168| 
+        SFTS AC0, #2, AC0 ; |168| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |168| 
         MOV dbl(*AR3(short(#2))), AC0 ; |168| 
         B $C$L4   ; |168| 
                                         ; branch occurs ; |168| 
 $C$L2:    
 $C$DW$L$_AC_lookupReqHandler$4$B:
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 163,column 64,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 163,column 64,is_stmt
         ADD #1, *SP(#4) ; |163| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 163,column 17,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 163,column 17,is_stmt
         MOV dbl(*SP(#2)), XAR3
-        MOV *SP(#4) << #2, AC0 ; |163| 
-        MOV AC0, AR1 ; |163| 
-        AADD AR1, AR3 ; |163| 
+        MOV uns(*SP(#4)), AC0 ; |163| 
+        SFTS AC0, #2, AC0 ; |163| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |163| 
         MOV dbl(*AR3(short(#2))), AC0 ; |163| 
         BCC $C$L1,AC0 != #0 ; |163| 
                                         ; branchcc occurs ; |163| 
 $C$DW$L$_AC_lookupReqHandler$4$E:
 $C$L3:    
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 174,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 174,column 2,is_stmt
         MOV #(_AC_reqUnknown >> 16) << #16, AC0 ; |174| 
         OR #(_AC_reqUnknown & 0xffff), AC0, AC0 ; |174| 
 $C$L4:    
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 175,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h",line 175,column 1,is_stmt
         AADD #5, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$58	.dwtag  DW_TAG_TI_branch
@@ -379,8 +387,8 @@ $C$DW$58	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$59	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$59, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L1:1:1538296447")
-	.dwattr $C$DW$59, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h")
+	.dwattr $C$DW$59, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L1:1:1538472761")
+	.dwattr $C$DW$59, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h")
 	.dwattr $C$DW$59, DW_AT_TI_begin_line(0xa3)
 	.dwattr $C$DW$59, DW_AT_TI_end_line(0xaa)
 $C$DW$60	.dwtag  DW_TAG_TI_loop_range
@@ -391,7 +399,7 @@ $C$DW$61	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$61, DW_AT_high_pc($C$DW$L$_AC_lookupReqHandler$4$E)
 	.dwendtag $C$DW$59
 
-	.dwattr $C$DW$52, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h")
+	.dwattr $C$DW$52, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_audioClassAux.h")
 	.dwattr $C$DW$52, DW_AT_TI_end_line(0xaf)
 	.dwattr $C$DW$52, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1580,7 +1588,7 @@ $C$DW$134	.dwtag  DW_TAG_formal_parameter, DW_AT_name("descrLen")
 ;*******************************************************************************
 ;* FUNCTION NAME: AC_initDescriptors                                           *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,T0,T1,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,     *
+;*   Function Uses Regs : AC0,AC0,T0,T1,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,XAR3,SP,*
 ;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 14 words                                             *
@@ -1667,14 +1675,19 @@ $C$L27:
 $C$L28:    
 $C$DW$L$_AC_initDescriptors$6$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 693,column 7,is_stmt
-        MOV *SP(#11), T0 ; |693| 
         MOV dbl(*SP(#2)), XAR3
-        MOV *SP(#11), AR1 ; |693| 
-        ADD #1, AR1 ; |693| 
-        MOV *AR3(T0), AR2 ; |693| 
-        MOV dbl(*SP(#8)), XAR3
-        AADD AR1, AR3 ; |693| 
-        MOV AR2, *AR3(#177) ; |693| 
+        MOV uns(*SP(#11)), AC0 ; |693| 
+        MOV AC0, XAR2
+
+        AADD XAR2, XAR3 ; |693| 
+||      MOV uns(*SP(#11)), AC0 ; |693| 
+
+        MOV *AR3, AR1 ; |693| 
+        MOV AC0, XAR3
+        MOV dbl(*SP(#8)), XAR2
+        AMAR *AR3+
+        AADD XAR2, XAR3 ; |693| 
+        MOV AR1, *AR3(#177) ; |693| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 691,column 47,is_stmt
         ADD #1, *SP(#11) ; |691| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 691,column 22,is_stmt
@@ -1720,14 +1733,19 @@ $C$L30:
 $C$L31:    
 $C$DW$L$_AC_initDescriptors$10$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 706,column 7,is_stmt
-        MOV *SP(#11), T0 ; |706| 
         MOV dbl(*SP(#2)), XAR3
-        MOV *SP(#11), AR1 ; |706| 
-        ADD #1, AR1 ; |706| 
-        MOV *AR3(T0), AR2 ; |706| 
-        MOV dbl(*SP(#8)), XAR3
-        AADD AR1, AR3 ; |706| 
-        MOV AR2, *AR3(#165) ; |706| 
+        MOV uns(*SP(#11)), AC0 ; |706| 
+        MOV AC0, XAR2
+
+        AADD XAR2, XAR3 ; |706| 
+||      MOV uns(*SP(#11)), AC0 ; |706| 
+
+        MOV *AR3, AR1 ; |706| 
+        MOV AC0, XAR3
+        MOV dbl(*SP(#8)), XAR2
+        AMAR *AR3+
+        AADD XAR2, XAR3 ; |706| 
+        MOV AR1, *AR3(#165) ; |706| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 704,column 47,is_stmt
         ADD #1, *SP(#11) ; |704| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 704,column 22,is_stmt
@@ -1771,14 +1789,19 @@ $C$L33:
 $C$L34:    
 $C$DW$L$_AC_initDescriptors$14$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 719,column 7,is_stmt
-        MOV *SP(#11), T0 ; |719| 
         MOV dbl(*SP(#2)), XAR3
-        MOV *SP(#11), AR1 ; |719| 
-        ADD #1, AR1 ; |719| 
-        MOV *AR3(T0), AR2 ; |719| 
-        MOV dbl(*SP(#8)), XAR3
-        AADD AR1, AR3 ; |719| 
-        MOV AR2, *AR3(#197) ; |719| 
+        MOV uns(*SP(#11)), AC0 ; |719| 
+        MOV AC0, XAR2
+
+        AADD XAR2, XAR3 ; |719| 
+||      MOV uns(*SP(#11)), AC0 ; |719| 
+
+        MOV *AR3, AR1 ; |719| 
+        MOV AC0, XAR3
+        MOV dbl(*SP(#8)), XAR2
+        AMAR *AR3+
+        AADD XAR2, XAR3 ; |719| 
+        MOV AR1, *AR3(#197) ; |719| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 717,column 47,is_stmt
         ADD #1, *SP(#11) ; |717| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 717,column 22,is_stmt
@@ -1824,14 +1847,19 @@ $C$L36:
 $C$L37:    
 $C$DW$L$_AC_initDescriptors$18$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 731,column 7,is_stmt
-        MOV *SP(#11), T0 ; |731| 
         MOV dbl(*SP(#2)), XAR3
-        MOV *SP(#11), AR1 ; |731| 
-        ADD #1, AR1 ; |731| 
-        MOV *AR3(T0), AR2 ; |731| 
-        MOV dbl(*SP(#8)), XAR3
-        AADD AR1, AR3 ; |731| 
-        MOV AR2, *AR3(#321) ; |731| 
+        MOV uns(*SP(#11)), AC0 ; |731| 
+        MOV AC0, XAR2
+
+        AADD XAR2, XAR3 ; |731| 
+||      MOV uns(*SP(#11)), AC0 ; |731| 
+
+        MOV *AR3, AR1 ; |731| 
+        MOV AC0, XAR3
+        MOV dbl(*SP(#8)), XAR2
+        AMAR *AR3+
+        AADD XAR2, XAR3 ; |731| 
+        MOV AR1, *AR3(#321) ; |731| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 729,column 47,is_stmt
         ADD #1, *SP(#11) ; |729| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 729,column 22,is_stmt
@@ -1877,14 +1905,19 @@ $C$L39:
 $C$L40:    
 $C$DW$L$_AC_initDescriptors$22$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 743,column 7,is_stmt
-        MOV *SP(#11), T0 ; |743| 
         MOV dbl(*SP(#2)), XAR3
-        MOV *SP(#11), AR1 ; |743| 
-        ADD #1, AR1 ; |743| 
-        MOV *AR3(T0), AR2 ; |743| 
-        MOV dbl(*SP(#8)), XAR3
-        AADD AR1, AR3 ; |743| 
-        MOV AR2, *AR3(#356) ; |743| 
+        MOV uns(*SP(#11)), AC0 ; |743| 
+        MOV AC0, XAR2
+
+        AADD XAR2, XAR3 ; |743| 
+||      MOV uns(*SP(#11)), AC0 ; |743| 
+
+        MOV *AR3, AR1 ; |743| 
+        MOV AC0, XAR3
+        MOV dbl(*SP(#8)), XAR2
+        AMAR *AR3+
+        AADD XAR2, XAR3 ; |743| 
+        MOV AR1, *AR3(#356) ; |743| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 741,column 47,is_stmt
         ADD #1, *SP(#11) ; |741| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 741,column 22,is_stmt
@@ -1954,7 +1987,7 @@ $C$DW$143	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$144	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$144, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L40:1:1538296447")
+	.dwattr $C$DW$144, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L40:1:1538472761")
 	.dwattr $C$DW$144, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c")
 	.dwattr $C$DW$144, DW_AT_TI_begin_line(0x2e5)
 	.dwattr $C$DW$144, DW_AT_TI_end_line(0x2e8)
@@ -1965,7 +1998,7 @@ $C$DW$145	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$146	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$146, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L37:1:1538296447")
+	.dwattr $C$DW$146, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L37:1:1538472761")
 	.dwattr $C$DW$146, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c")
 	.dwattr $C$DW$146, DW_AT_TI_begin_line(0x2d9)
 	.dwattr $C$DW$146, DW_AT_TI_end_line(0x2dc)
@@ -1976,7 +2009,7 @@ $C$DW$147	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$148	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$148, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L34:1:1538296447")
+	.dwattr $C$DW$148, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L34:1:1538472761")
 	.dwattr $C$DW$148, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c")
 	.dwattr $C$DW$148, DW_AT_TI_begin_line(0x2cd)
 	.dwattr $C$DW$148, DW_AT_TI_end_line(0x2d0)
@@ -1987,7 +2020,7 @@ $C$DW$149	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$150	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$150, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L31:1:1538296447")
+	.dwattr $C$DW$150, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L31:1:1538472761")
 	.dwattr $C$DW$150, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c")
 	.dwattr $C$DW$150, DW_AT_TI_begin_line(0x2c0)
 	.dwattr $C$DW$150, DW_AT_TI_end_line(0x2c3)
@@ -1998,7 +2031,7 @@ $C$DW$151	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$152	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$152, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L28:1:1538296447")
+	.dwattr $C$DW$152, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L28:1:1538472761")
 	.dwattr $C$DW$152, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c")
 	.dwattr $C$DW$152, DW_AT_TI_begin_line(0x2b3)
 	.dwattr $C$DW$152, DW_AT_TI_end_line(0x2b6)
@@ -2035,8 +2068,8 @@ $C$DW$155	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pAcHandle")
 ;*******************************************************************************
 ;* FUNCTION NAME: AC_initAcVal                                                 *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,T0,AR0,XAR0,AR1,AR2,AR3,XAR3,SP,CARRY,TC1,   *
-;*                        M40,SATA,SATD,RDM,FRCT,SMUL                          *
+;*   Function Uses Regs : AC0,AC0,T0,AR0,XAR0,AR1,AR2,XAR2,AR3,XAR3,SP,CARRY,  *
+;*                        TC1,M40,SATA,SATD,RDM,FRCT,SMUL                      *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 6 words                                              *
 ;*                        (2 return address/alignment)                         *
@@ -2107,14 +2140,18 @@ $C$DW$158	.dwtag  DW_TAG_variable, DW_AT_name("status")
 $C$L47:    
 $C$DW$L$_AC_initAcVal$3$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 826,column 4,is_stmt
-        MOV *SP(#2), AR1 ; |826| 
         MOV dbl(*SP(#0)), XAR3
-        AADD AR1, AR3 ; |826| 
+        MOV uns(*SP(#2)), AC0 ; |826| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |826| 
         MOV #0, *AR3(#268) ; |826| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 824,column 34,is_stmt
         ADD #1, *SP(#2) ; |824| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 824,column 20,is_stmt
+
         MOV *SP(#2), AR1 ; |824| 
+||      MOV #15, AR2
+
         CMPU AR1 < AR2, TC1 ; |824| 
         BCC $C$L47,TC1 ; |824| 
                                         ; branchcc occurs ; |824| 
@@ -2142,14 +2179,18 @@ $C$L48:
 $C$L49:    
 $C$DW$L$_AC_initAcVal$5$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 836,column 4,is_stmt
-        MOV *SP(#2), AR1 ; |836| 
         MOV dbl(*SP(#0)), XAR3
-        AADD AR1, AR3 ; |836| 
+        MOV uns(*SP(#2)), AC0 ; |836| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |836| 
         MOV #0, *AR3(#284) ; |836| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 834,column 34,is_stmt
         ADD #1, *SP(#2) ; |834| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 834,column 21,is_stmt
+
         MOV *SP(#2), AR1 ; |834| 
+||      MOV #8, AR2
+
         CMPU AR1 < AR2, TC1 ; |834| 
         BCC $C$L49,TC1 ; |834| 
                                         ; branchcc occurs ; |834| 
@@ -2173,7 +2214,7 @@ $C$DW$159	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$160	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$160, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L49:1:1538296447")
+	.dwattr $C$DW$160, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L49:1:1538472761")
 	.dwattr $C$DW$160, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c")
 	.dwattr $C$DW$160, DW_AT_TI_begin_line(0x342)
 	.dwattr $C$DW$160, DW_AT_TI_end_line(0x345)
@@ -2184,7 +2225,7 @@ $C$DW$161	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$162	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$162, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L47:1:1538296447")
+	.dwattr $C$DW$162, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L47:1:1538472761")
 	.dwattr $C$DW$162, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c")
 	.dwattr $C$DW$162, DW_AT_TI_begin_line(0x338)
 	.dwattr $C$DW$162, DW_AT_TI_end_line(0x33b)
@@ -2473,11 +2514,14 @@ $C$DW$187	.dwtag  DW_TAG_TI_branch
                                         ; branch occurs ; |960| 
 $C$L64:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 964,column 12,is_stmt
-        MOV uns(low_byte(*AR3(short(#3)))), T0 ; |964| 
+        MOV *AR3(short(#3)), AR1 ; |964| 
         MOV dbl(*SP(#86)), XAR3
-        SFTL T0, #1 ; |964| 
+        AND #0x00ff, AR1, AC0 ; |964| 
+        SFTL AC0, #1 ; |964| 
+        MOV AC0, XAR2
         MOV dbl(*AR3(#388)), XAR3
-        MOV dbl(*AR3(T0)), XAR0
+        AADD XAR2, XAR3 ; |964| 
+        MOV dbl(*AR3), XAR0
 $C$DW$188	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$188, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$188, DW_AT_name("_strlen")
@@ -2518,31 +2562,40 @@ $C$L67:
 $C$DW$L$_AC_reqGetDescriptor$24$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 978,column 6,is_stmt
         MOV dbl(*SP(#2)), XAR3
-        MOV uns(low_byte(*AR3(short(#3)))), T0 ; |978| 
+        MOV *AR3(short(#3)), AR1 ; |978| 
         MOV dbl(*SP(#86)), XAR3
-        SFTL T0, #1 ; |978| 
+        AND #0x00ff, AR1, AC0 ; |978| 
+        SFTL AC0, #1 ; |978| 
+        MOV AC0, XAR2
         MOV dbl(*AR3(#388)), XAR3
-        MOV dbl(*AR3(T0)), XAR3
-        MOV *SP(#13), T0 ; |978| 
-        MOV *AR3(T0), AR1 ; |978| 
+        AADD XAR2, XAR3 ; |978| 
+        MOV dbl(*AR3), XAR3
+        MOV uns(*SP(#13)), AC0 ; |978| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |978| 
+        MOV *AR3, AR1 ; |978| 
         MOV AR1, *SP(#14) ; |978| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 980,column 6,is_stmt
         MOV #0, *SP(#15) ; |980| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 981,column 6,is_stmt
-        MOV *SP(#13), T0 ; |981| 
-        ADD #2, T0 ; |981| 
-        MOV *SP(#14), AC0 ; |981| 
+        MOV uns(*SP(#13)), AC0 ; |981| 
+        MOV AC0, XAR3
+        AADD #2, AR3 ; |981| 
+        MOV XAR3, AC0
+        MOV AC0, XAR2
         MOV *SP(#15), AC1 ; |981| 
-
         AMAR *SP(#16), XAR3
+        MOV *SP(#14), AC0 ; |981| 
+
+        AADD XAR2, XAR3 ; |981| 
 ||      OR AC1 << #8, AC0 ; |981| 
 
-        MOV AC0, *AR3(T0) ; |981| 
+        MOV AC0, *AR3 ; |981| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 976,column 45,is_stmt
         ADD #1, *SP(#13) ; |976| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c",line 976,column 29,is_stmt
-        MOV *SP(#13), AR2 ; |976| 
         MOV *SP(#11), AR1 ; |976| 
+        MOV *SP(#13), AR2 ; |976| 
         CMPU AR2 < AR1, TC1 ; |976| 
         BCC $C$L67,TC1 ; |976| 
                                         ; branchcc occurs ; |976| 
@@ -2649,7 +2702,7 @@ $C$DW$191	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$192	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$192, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L67:1:1538296447")
+	.dwattr $C$DW$192, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L67:1:1538472761")
 	.dwattr $C$DW$192, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c")
 	.dwattr $C$DW$192, DW_AT_TI_begin_line(0x3d0)
 	.dwattr $C$DW$192, DW_AT_TI_end_line(0x3d6)
@@ -2660,7 +2713,7 @@ $C$DW$193	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$194	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$194, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L60:1:1538296447")
+	.dwattr $C$DW$194, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_audioClass.asm:$C$L60:1:1538472761")
 	.dwattr $C$DW$194, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_audioClass.c")
 	.dwattr $C$DW$194, DW_AT_TI_begin_line(0x3b4)
 	.dwattr $C$DW$194, DW_AT_TI_end_line(0x3b4)

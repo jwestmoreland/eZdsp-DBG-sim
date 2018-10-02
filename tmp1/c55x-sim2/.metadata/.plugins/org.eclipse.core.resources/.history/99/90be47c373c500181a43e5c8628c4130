@@ -1,0 +1,18 @@
+/* ------------------------------------------------------------------------ *
+ *                                                                          *
+ *  StartUp( )                                                              *
+ *    This function is called each time CCS is started.                     *
+ *      Setup Memory Map                                                    *
+ *      Do not touch the target                                             *
+ *                                                                          *
+ * ------------------------------------------------------------------------ * 
+ * The Startup() function is executed when the GEL file is loaded. */
+StartUp()
+{
+//	GEL_MapOff();
+//	CPU_REV             REV30;
+    GEL_TextOut( "\nStartUp2()\n" );
+    c5535_MapInit();
+    GEL_SetSimMode(1);	
+	GEL_MapAdd(0x1000u,2,0x0014u,1,1); 	/* TIMER#0 1KW */
+}

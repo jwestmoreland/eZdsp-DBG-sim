@@ -3,6 +3,17 @@
  <object class="com.ti.dvt.profile.LaunchHistorySystem"> 
   <void property="idHistoryMap"> 
    <void method="put"> 
+    <string>C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x</string> 
+    <object class="com.ti.dvt.profile.LaunchHistory"> 
+     <void property="contextId"> 
+      <string>140551</string> 
+     </void> 
+     <void property="orderedItems"> 
+      <object class="java.util.ArrayList"/> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
     <string>Texas Instruments Simulator/C55xx</string> 
     <object class="com.ti.dvt.profile.LaunchHistory"> 
      <void property="contextId"> 

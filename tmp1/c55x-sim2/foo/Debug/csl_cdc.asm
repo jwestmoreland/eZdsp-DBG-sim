@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Sun Sep 30 01:34:09 2018                                 *
+;* Date/Time created: Tue Oct 02 02:32:44 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,7 +27,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
 
 $C$DW$1	.dwtag  DW_TAG_subprogram, DW_AT_name("printf")
 	.dwattr $C$DW$1, DW_AT_TI_symbol_name("_printf")
@@ -185,7 +185,7 @@ $C$DW$42	.dwtag  DW_TAG_variable, DW_AT_name("usbRegisters")
 	.dwattr $C$DW$42, DW_AT_type(*$C$DW$T$143)
 	.dwattr $C$DW$42, DW_AT_declaration
 	.dwattr $C$DW$42, DW_AT_external
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2380812 
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\0862812 
 	.sect	".text"
 	.align 4
 
@@ -194,11 +194,11 @@ $C$DW$43	.dwtag  DW_TAG_subprogram, DW_AT_name("USB_isValidDataInFifoOut")
 	.dwattr $C$DW$43, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$43, DW_AT_TI_symbol_name("_USB_isValidDataInFifoOut")
 	.dwattr $C$DW$43, DW_AT_type(*$C$DW$T$77)
-	.dwattr $C$DW$43, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h")
+	.dwattr $C$DW$43, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h")
 	.dwattr $C$DW$43, DW_AT_TI_begin_line(0x80d)
 	.dwattr $C$DW$43, DW_AT_TI_begin_column(0x06)
 	.dwattr $C$DW$43, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2062,column 1,is_stmt,address _USB_isValidDataInFifoOut
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2062,column 1,is_stmt,address _USB_isValidDataInFifoOut
 
 	.dwfde $C$DW$CIE, _USB_isValidDataInFifoOut
 $C$DW$44	.dwtag  DW_TAG_formal_parameter, DW_AT_name("peps")
@@ -208,8 +208,8 @@ $C$DW$44	.dwtag  DW_TAG_formal_parameter, DW_AT_name("peps")
 ;*******************************************************************************
 ;* FUNCTION NAME: USB_isValidDataInFifoOut                                     *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,AR2,AR3,XAR3,SP,TC1, *
-;*                        M40,SATA,SATD,RDM,FRCT,SMUL                          *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,AR2,AR3,XAR3,SP,     *
+;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 6 words                                              *
 ;*                        (1 return address/alignment)                         *
@@ -238,13 +238,13 @@ $C$DW$48	.dwtag  DW_TAG_variable, DW_AT_name("flag")
 	.dwattr $C$DW$48, DW_AT_type(*$C$DW$T$20)
 	.dwattr $C$DW$48, DW_AT_location[DW_OP_bregx 0x24 4]
         MOV XAR0, dbl(*SP(#0))
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2067,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2067,column 2,is_stmt
         MOV #0, *SP(#2) ; |2067| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2068,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2068,column 2,is_stmt
         MOV #0, *SP(#3) ; |2068| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2069,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2069,column 2,is_stmt
         MOV #0, *SP(#4) ; |2069| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2071,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2071,column 2,is_stmt
         MOV dbl(*SP(#0)), XAR3
 
         MOV dbl(*AR3), AC0 ; |2071| 
@@ -253,17 +253,19 @@ $C$DW$48	.dwtag  DW_TAG_variable, DW_AT_name("flag")
         CMPU AC1 != AC0, TC1 ; |2071| 
         BCC $C$L3,TC1 ; |2071| 
                                         ; branchcc occurs ; |2071| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2074,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2074,column 3,is_stmt
         MOV #1038, T0 ; |2074| 
         MOV *(#_usbRegisters), AR3 ; |2074| 
         MOV port(*AR3(T0)), AR1 ; |2074| 
         MOV AR1, *SP(#2) ; |2074| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2076,column 3,is_stmt
-        AND #0xfff0, port(*AR3(T0)) ; |2076| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2077,column 10,is_stmt
-        MOV *(#_usbRegisters), AR3 ; |2077| 
-        OR #0x0002, port(*AR3(T0)) ; |2077| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2080,column 9,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2076,column 3,is_stmt
+        MOV #1038, AR1 ; |2076| 
+        ADD *(#_usbRegisters), AR1, AR3 ; |2076| 
+        AND #0xfff0, port(*AR3) ; |2076| 
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2077,column 10,is_stmt
+        ADD *(#_usbRegisters), AR1, AR3 ; |2077| 
+        OR #0x0002, port(*AR3) ; |2077| 
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2080,column 9,is_stmt
         MOV #1046, T0 ; |2080| 
         MOV *(#_usbRegisters), AR3 ; |2080| 
         MOV port(*AR3(T0)), AR1 ; |2080| 
@@ -274,42 +276,42 @@ $C$DW$48	.dwtag  DW_TAG_variable, DW_AT_name("flag")
         CMPU AR1 != AR2, TC1 ; |2080| 
         BCC $C$L2,TC1 ; |2080| 
                                         ; branchcc occurs ; |2080| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2083,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2083,column 4,is_stmt
         MOV #1049, T0 ; |2083| 
         MOV uns(low_byte(port(*AR3(T0)))), AR1 ; |2083| 
         MOV AR1, *SP(#3) ; |2083| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2084,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2084,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV AR1, *AR3(#13) ; |2084| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2086,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2086,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
         CMP *AR3(short(#2)) == #3, TC1 ; |2086| 
         BCC $C$L1,TC1 ; |2086| 
                                         ; branchcc occurs ; |2086| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2088,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2088,column 4,is_stmt
         MOV dbl(*AR3(short(#4))), AC0 ; |2088| 
         MOV uns(*SP(#3)), AC1 ; |2088| 
         CMPU AC1 > AC0, TC1 ; |2088| 
         BCC $C$L2,TC1 ; |2088| 
                                         ; branchcc occurs ; |2088| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2092,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2092,column 5,is_stmt
         MOV #1, *SP(#4) ; |2092| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2094,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2094,column 3,is_stmt
         B $C$L2   ; |2094| 
                                         ; branch occurs ; |2094| 
 $C$L1:    
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2097,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2097,column 5,is_stmt
         MOV #1, *SP(#4) ; |2097| 
 $C$L2:    
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2102,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2102,column 5,is_stmt
         MOV *(#_usbRegisters), AR3 ; |2102| 
         MOV #1038, T0 ; |2102| 
         MOV *SP(#2), AR1 ; |2102| 
         MOV AR1, port(*AR3(T0)) ; |2102| 
 $C$L3:    
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2105,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2105,column 2,is_stmt
         MOV *SP(#4), T0 ; |2105| 
-	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2106,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h",line 2106,column 1,is_stmt
         AADD #5, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$49	.dwtag  DW_TAG_TI_branch
@@ -317,7 +319,7 @@ $C$DW$49	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$49, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$43, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h")
+	.dwattr $C$DW$43, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_usbAux.h")
 	.dwattr $C$DW$43, DW_AT_TI_end_line(0x83a)
 	.dwattr $C$DW$43, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1510,7 +1512,7 @@ $C$DW$111	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$112	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$112, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_cdc.asm:$C$L22:1:1538296449")
+	.dwattr $C$DW$112, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_cdc.asm:$C$L22:1:1538472764")
 	.dwattr $C$DW$112, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c")
 	.dwattr $C$DW$112, DW_AT_TI_begin_line(0x27b)
 	.dwattr $C$DW$112, DW_AT_TI_end_line(0x27b)
@@ -1553,7 +1555,7 @@ $C$DW$116	.dwtag  DW_TAG_formal_parameter, DW_AT_name("cdcAppHandle")
 ;*******************************************************************************
 ;* FUNCTION NAME: CDC_bulkOutHandler                                           *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,T0,T1,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,XAR3,SP,    *
+;*   Function Uses Regs : AC0,AC0,T0,T1,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,XAR3,SP,*
 ;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 16 words                                             *
@@ -1736,10 +1738,14 @@ $C$DW$133	.dwtag  DW_TAG_TI_branch
 $C$L34:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c",line 799,column 3,is_stmt
         MOV dbl(*SP(#6)), XAR3
-        MOV *AR3(short(#7)), T0 ; |799| 
+        MOV uns(*AR3(short(#7))), AC0 ; |799| 
+        MOV AC0, XAR2
         MOV dbl(*AR3(short(#4))), XAR3
-        MOV uns(low_byte(*SP(#10))), AR1 ; |799| 
-        MOV AR1, *AR3(T0) ; |799| 
+
+        AADD XAR2, XAR3 ; |799| 
+||      MOV uns(low_byte(*SP(#10))), AR1 ; |799| 
+
+        MOV AR1, *AR3 ; |799| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c",line 801,column 3,is_stmt
         MOV dbl(*SP(#6)), XAR3
         MOV *SP(#11), AR1 ; |801| 
@@ -1812,8 +1818,8 @@ $C$DW$138	.dwtag  DW_TAG_formal_parameter, DW_AT_name("cdcAppHandle")
 ;*******************************************************************************
 ;* FUNCTION NAME: CDC_bulkInHandler                                            *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,T0,T1,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,CARRY,   *
-;*                        TC1,M40,SATA,SATD,RDM,FRCT,SMUL                      *
+;*   Function Uses Regs : AC0,AC0,AC1,T0,T1,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,    *
+;*                        XAR3,AR4,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL    *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 16 words                                             *
 ;*                        (2 return address/alignment)                         *
@@ -1912,17 +1918,23 @@ $C$DW$L$_CDC_bulkInHandler$8$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c",line 890,column 6,is_stmt
         MOV dbl(*SP(#6)), XAR3
         MOV AR2, AR1
-        ADD *SP(#11), AR1, T0 ; |890| 
+        ADD *SP(#11), AR1, AR1 ; |890| 
+        AND #0xffff, AR1, AC0 ; |890| 
+        MOV AC0, XAR2
         MOV dbl(*AR3(#8)), XAR3
-        MOV *AR3(T0), AC0 ; |890| 
+        AADD XAR2, XAR3 ; |890| 
+        MOV *AR3, AC0 ; |890| 
         MOV dbl(*SP(#6)), XAR3
-
-        SFTL AC0, #8, AC0 ; |890| 
-||      MOV AR2, T0
-
-        SFTL T0, #-1 ; |890| 
         MOV dbl(*AR3(#12)), XAR3
-        MOV AC0, *AR3(T0) ; |890| 
+
+        SFTL AC0, #8, AC1 ; |890| 
+||      MOV *SP(#13), AR1 ; |890| 
+
+        SFTL AR1, #-1 ; |890| 
+        AND #0xffff, AR1, AC0 ; |890| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |890| 
+        MOV AC1, *AR3 ; |890| 
         B $C$L40  ; |890| 
                                         ; branch occurs ; |890| 
 $C$DW$L$_CDC_bulkInHandler$8$E:
@@ -1931,14 +1943,20 @@ $C$DW$L$_CDC_bulkInHandler$9$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c",line 892,column 6,is_stmt
         MOV dbl(*SP(#6)), XAR3
         MOV AR2, AR1
-        ADD *SP(#11), AR1, T0 ; |892| 
+        ADD *SP(#11), AR1, AR1 ; |892| 
+        AND #0xffff, AR1, AC0 ; |892| 
+        MOV AC0, XAR2
         MOV dbl(*AR3(#8)), XAR3
-        MOV uns(low_byte(*AR3(T0))), AR1 ; |892| 
+        AADD XAR2, XAR3 ; |892| 
+        MOV uns(low_byte(*AR3)), AR4 ; |892| 
         MOV dbl(*SP(#6)), XAR3
-        MOV AR2, T0
-        SFTL T0, #-1 ; |892| 
+        MOV *SP(#13), AR1 ; |892| 
+        SFTL AR1, #-1 ; |892| 
+        AND #0xffff, AR1, AC0 ; |892| 
+        MOV AC0, XAR2
         MOV dbl(*AR3(#12)), XAR3
-        MOV AR1, *AR3(T0) ; |892| 
+        AADD XAR2, XAR3 ; |892| 
+        MOV AR4, *AR3 ; |892| 
 $C$DW$L$_CDC_bulkInHandler$9$E:
 $C$L40:    
 $C$DW$L$_CDC_bulkInHandler$10$B:
@@ -2065,17 +2083,23 @@ $C$DW$L$_CDC_bulkInHandler$20$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c",line 923,column 6,is_stmt
         MOV dbl(*SP(#6)), XAR3
         MOV AR2, AR1
-        ADD *SP(#11), AR1, T0 ; |923| 
+        ADD *SP(#11), AR1, AR1 ; |923| 
+        AND #0xffff, AR1, AC0 ; |923| 
+        MOV AC0, XAR2
         MOV dbl(*AR3(#8)), XAR3
-        MOV *AR3(T0), AC0 ; |923| 
+        AADD XAR2, XAR3 ; |923| 
+        MOV *AR3, AC0 ; |923| 
         MOV dbl(*SP(#6)), XAR3
-
-        SFTL AC0, #8, AC0 ; |923| 
-||      MOV AR2, T0
-
-        SFTL T0, #-1 ; |923| 
         MOV dbl(*AR3(#12)), XAR3
-        MOV AC0, *AR3(T0) ; |923| 
+
+        SFTL AC0, #8, AC1 ; |923| 
+||      MOV *SP(#13), AR1 ; |923| 
+
+        SFTL AR1, #-1 ; |923| 
+        AND #0xffff, AR1, AC0 ; |923| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |923| 
+        MOV AC1, *AR3 ; |923| 
         B $C$L47  ; |923| 
                                         ; branch occurs ; |923| 
 $C$DW$L$_CDC_bulkInHandler$20$E:
@@ -2084,14 +2108,20 @@ $C$DW$L$_CDC_bulkInHandler$21$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c",line 925,column 6,is_stmt
         MOV dbl(*SP(#6)), XAR3
         MOV AR2, AR1
-        ADD *SP(#11), AR1, T0 ; |925| 
+        ADD *SP(#11), AR1, AR1 ; |925| 
+        AND #0xffff, AR1, AC0 ; |925| 
+        MOV AC0, XAR2
         MOV dbl(*AR3(#8)), XAR3
-        MOV uns(low_byte(*AR3(T0))), AR1 ; |925| 
+        AADD XAR2, XAR3 ; |925| 
+        MOV uns(low_byte(*AR3)), AR4 ; |925| 
         MOV dbl(*SP(#6)), XAR3
-        MOV AR2, T0
-        SFTL T0, #-1 ; |925| 
+        MOV *SP(#13), AR1 ; |925| 
+        SFTL AR1, #-1 ; |925| 
+        AND #0xffff, AR1, AC0 ; |925| 
+        MOV AC0, XAR2
         MOV dbl(*AR3(#12)), XAR3
-        MOV AR1, *AR3(T0) ; |925| 
+        AADD XAR2, XAR3 ; |925| 
+        MOV AR4, *AR3 ; |925| 
 $C$DW$L$_CDC_bulkInHandler$21$E:
 $C$L47:    
 $C$DW$L$_CDC_bulkInHandler$22$B:
@@ -2205,17 +2235,23 @@ $C$DW$L$_CDC_bulkInHandler$30$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c",line 954,column 6,is_stmt
         MOV dbl(*SP(#6)), XAR3
         MOV AR2, AR1
-        ADD *SP(#11), AR1, T0 ; |954| 
+        ADD *SP(#11), AR1, AR1 ; |954| 
+        AND #0xffff, AR1, AC0 ; |954| 
+        MOV AC0, XAR2
         MOV dbl(*AR3(#8)), XAR3
-        MOV *AR3(T0), AC0 ; |954| 
+        AADD XAR2, XAR3 ; |954| 
+        MOV *AR3, AC0 ; |954| 
         MOV dbl(*SP(#6)), XAR3
-
-        SFTL AC0, #8, AC0 ; |954| 
-||      MOV AR2, T0
-
-        SFTL T0, #-1 ; |954| 
         MOV dbl(*AR3(#12)), XAR3
-        MOV AC0, *AR3(T0) ; |954| 
+
+        SFTL AC0, #8, AC1 ; |954| 
+||      MOV *SP(#13), AR1 ; |954| 
+
+        SFTL AR1, #-1 ; |954| 
+        AND #0xffff, AR1, AC0 ; |954| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |954| 
+        MOV AC1, *AR3 ; |954| 
         B $C$L53  ; |954| 
                                         ; branch occurs ; |954| 
 $C$DW$L$_CDC_bulkInHandler$30$E:
@@ -2224,14 +2260,20 @@ $C$DW$L$_CDC_bulkInHandler$31$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c",line 956,column 6,is_stmt
         MOV dbl(*SP(#6)), XAR3
         MOV AR2, AR1
-        ADD *SP(#11), AR1, T0 ; |956| 
+        ADD *SP(#11), AR1, AR1 ; |956| 
+        AND #0xffff, AR1, AC0 ; |956| 
+        MOV AC0, XAR2
         MOV dbl(*AR3(#8)), XAR3
-        MOV uns(low_byte(*AR3(T0))), AR1 ; |956| 
+        AADD XAR2, XAR3 ; |956| 
+        MOV uns(low_byte(*AR3)), AR4 ; |956| 
         MOV dbl(*SP(#6)), XAR3
-        MOV AR2, T0
-        SFTL T0, #-1 ; |956| 
+        MOV *SP(#13), AR1 ; |956| 
+        SFTL AR1, #-1 ; |956| 
+        AND #0xffff, AR1, AC0 ; |956| 
+        MOV AC0, XAR2
         MOV dbl(*AR3(#12)), XAR3
-        MOV AR1, *AR3(T0) ; |956| 
+        AADD XAR2, XAR3 ; |956| 
+        MOV AR4, *AR3 ; |956| 
 $C$DW$L$_CDC_bulkInHandler$31$E:
 $C$L53:    
 $C$DW$L$_CDC_bulkInHandler$32$B:
@@ -2333,7 +2375,7 @@ $C$DW$162	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$163	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$163, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_cdc.asm:$C$L51:1:1538296449")
+	.dwattr $C$DW$163, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_cdc.asm:$C$L51:1:1538472764")
 	.dwattr $C$DW$163, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c")
 	.dwattr $C$DW$163, DW_AT_TI_begin_line(0x3b7)
 	.dwattr $C$DW$163, DW_AT_TI_end_line(0x3bd)
@@ -2353,7 +2395,7 @@ $C$DW$167	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$168	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$168, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_cdc.asm:$C$L45:1:1538296449")
+	.dwattr $C$DW$168, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_cdc.asm:$C$L45:1:1538472764")
 	.dwattr $C$DW$168, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c")
 	.dwattr $C$DW$168, DW_AT_TI_begin_line(0x398)
 	.dwattr $C$DW$168, DW_AT_TI_end_line(0x39e)
@@ -2373,7 +2415,7 @@ $C$DW$172	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$173	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$173, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_cdc.asm:$C$L38:1:1538296449")
+	.dwattr $C$DW$173, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_cdc.asm:$C$L38:1:1538472764")
 	.dwattr $C$DW$173, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c")
 	.dwattr $C$DW$173, DW_AT_TI_begin_line(0x377)
 	.dwattr $C$DW$173, DW_AT_TI_end_line(0x37d)
@@ -2429,8 +2471,8 @@ $C$DW$181	.dwtag  DW_TAG_formal_parameter, DW_AT_name("data")
 ;*******************************************************************************
 ;* FUNCTION NAME: CDC_getData                                                  *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,XAR3,SP,CARRY, *
-;*                        TC1,M40,SATA,SATD,RDM,FRCT,SMUL                      *
+;*   Function Uses Regs : AC0,AC0,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,XAR3,SP,   *
+;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 12 words                                             *
 ;*                        (2 return address/alignment)                         *
@@ -2525,12 +2567,16 @@ $C$L62:
 $C$DW$L$_CDC_getData$7$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c",line 1068,column 3,is_stmt
         MOV dbl(*SP(#2)), XAR3
-        MOV *AR3(short(#6)), T0 ; |1068| 
+        MOV uns(*AR3(short(#6))), AC0 ; |1068| 
+        MOV AC0, XAR2
         MOV dbl(*AR3(short(#4))), XAR3
-        MOV uns(low_byte(*AR3(T0))), AR1 ; |1068| 
-        MOV *SP(#8), T0 ; |1068| 
+        AADD XAR2, XAR3 ; |1068| 
+        MOV uns(low_byte(*AR3)), AR1 ; |1068| 
         MOV dbl(*SP(#4)), XAR3
-        MOV AR1, *AR3(T0) ; |1068| 
+        MOV uns(*SP(#8)), AC0 ; |1068| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1068| 
+        MOV AR1, *AR3 ; |1068| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c",line 1070,column 3,is_stmt
         MOV dbl(*SP(#2)), XAR3
         ADD #1, *AR3(short(#6)) ; |1070| 
@@ -2570,7 +2616,7 @@ $C$DW$189	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$190	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$190, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_cdc.asm:$C$L62:1:1538296449")
+	.dwattr $C$DW$190, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_cdc.asm:$C$L62:1:1538472764")
 	.dwattr $C$DW$190, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c")
 	.dwattr $C$DW$190, DW_AT_TI_begin_line(0x42a)
 	.dwattr $C$DW$190, DW_AT_TI_end_line(0x431)
@@ -2627,8 +2673,8 @@ $C$DW$198	.dwtag  DW_TAG_formal_parameter, DW_AT_name("size")
 ;*******************************************************************************
 ;* FUNCTION NAME: CDC_putData                                                  *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC1,T0,T1,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,XAR3,SP,*
-;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
+;*   Function Uses Regs : AC0,AC0,AC1,AC2,T0,T1,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,*
+;*                        XAR3,AR4,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL    *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 18 words                                             *
 ;*                        (1 return address/alignment)                         *
@@ -2738,20 +2784,30 @@ $C$DW$L$_CDC_putData$7$B:
 $C$DW$L$_CDC_putData$7$E:
 $C$DW$L$_CDC_putData$8$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c",line 1162,column 5,is_stmt
-        MOV *SP(#14), T0 ; |1162| 
         MOV dbl(*SP(#8)), XAR3
-        MOV *AR3(T0), AC1 ; |1162| 
+        MOV uns(*SP(#14)), AC0 ; |1162| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1162| 
+        MOV *AR3, AC2 ; |1162| 
         MOV dbl(*SP(#6)), XAR3
-        MOV *AR3(#14), T0 ; |1162| 
-        SFTL T0, #-1 ; |1162| 
+        MOV *AR3(#14), AR1 ; |1162| 
         MOV dbl(*AR3(#12)), XAR3
-        MOV uns(low_byte(*AR3(T0))), AC0 ; |1162| 
+        SFTL AR1, #-1 ; |1162| 
+        AND #0xffff, AR1, AC0 ; |1162| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1162| 
+        MOV uns(low_byte(*AR3)), AC1 ; |1162| 
         MOV dbl(*SP(#6)), XAR3
-        MOV *AR3(#14), T0 ; |1162| 
-        SFTL T0, #-1 ; |1162| 
+        MOV *AR3(#14), AR1 ; |1162| 
         MOV dbl(*AR3(#12)), XAR3
-        OR AC1 << #8, AC0 ; |1162| 
-        MOV AC0, *AR3(T0) ; |1162| 
+        SFTL AR1, #-1 ; |1162| 
+        AND #0xffff, AR1, AC0 ; |1162| 
+        MOV AC0, XAR2
+
+        AADD XAR2, XAR3 ; |1162| 
+||      OR AC2 << #8, AC1 ; |1162| 
+
+        MOV AC1, *AR3 ; |1162| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c",line 1163,column 4,is_stmt
         B $C$L69  ; |1163| 
                                         ; branch occurs ; |1163| 
@@ -2759,14 +2815,19 @@ $C$DW$L$_CDC_putData$8$E:
 $C$L68:    
 $C$DW$L$_CDC_putData$9$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c",line 1166,column 5,is_stmt
-        MOV *SP(#14), T0 ; |1166| 
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(low_byte(*AR3(T0))), AR1 ; |1166| 
+        MOV uns(*SP(#14)), AC0 ; |1166| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1166| 
+        MOV uns(low_byte(*AR3)), AR4 ; |1166| 
         MOV dbl(*SP(#6)), XAR3
-        MOV *AR3(#14), T0 ; |1166| 
-        SFTL T0, #-1 ; |1166| 
+        MOV *AR3(#14), AR1 ; |1166| 
         MOV dbl(*AR3(#12)), XAR3
-        MOV AR1, *AR3(T0) ; |1166| 
+        SFTL AR1, #-1 ; |1166| 
+        AND #0xffff, AR1, AC0 ; |1166| 
+        MOV AC0, XAR2
+        AADD XAR2, XAR3 ; |1166| 
+        MOV AR4, *AR3 ; |1166| 
 $C$DW$L$_CDC_putData$9$E:
 $C$L69:    
 $C$DW$L$_CDC_putData$10$B:
@@ -2922,19 +2983,30 @@ $C$L77:
 $C$DW$L$_CDC_putData$26$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c",line 1214,column 4,is_stmt
         MOV dbl(*SP(#6)), XAR3
-        MOV *AR3(#11), T0 ; |1214| 
-        SFTL T0, #-1 ; |1214| 
+        MOV *AR3(#11), AR1 ; |1214| 
+        SFTL AR1, #-1 ; |1214| 
+        AND #0xffff, AR1, AC0 ; |1214| 
+        MOV AC0, XAR2
         MOV dbl(*AR3(#8)), XAR3
-        MOV *AR3(T0), AR1 ; |1214| 
-        MOV *SP(#14), T0 ; |1214| 
+
+        AADD XAR2, XAR3 ; |1214| 
+||      MOV uns(*SP(#14)), AC0 ; |1214| 
+
+        MOV AC0, XAR2
+        MOV *AR3, AR1 ; |1214| 
         MOV dbl(*SP(#8)), XAR3
-        AND #0xff00, AR1, AR2 ; |1214| 
-        MOV uns(low_byte(*AR3(T0))), AR1 ; |1214| 
+        AND #0xff00, AR1, AR4 ; |1214| 
+        AADD XAR2, XAR3 ; |1214| 
+        MOV uns(low_byte(*AR3)), AR1 ; |1214| 
         MOV dbl(*SP(#6)), XAR3
-        MOV *AR3(#11), T0 ; |1214| 
+        MOV uns(*AR3(#11)), AC0 ; |1214| 
+        MOV AC0, XAR2
         MOV dbl(*AR3(#8)), XAR3
-        OR AR2, AR1 ; |1214| 
-        MOV AR1, *AR3(T0) ; |1214| 
+
+        AADD XAR2, XAR3 ; |1214| 
+||      OR AR4, AR1 ; |1214| 
+
+        MOV AR1, *AR3 ; |1214| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c",line 1216,column 4,is_stmt
         MOV dbl(*SP(#6)), XAR3
         ADD #1, *AR3(#11) ; |1216| 
@@ -2975,7 +3047,7 @@ $C$DW$214	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$215	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$215, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_cdc.asm:$C$L77:1:1538296449")
+	.dwattr $C$DW$215, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_cdc.asm:$C$L77:1:1538472764")
 	.dwattr $C$DW$215, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c")
 	.dwattr $C$DW$215, DW_AT_TI_begin_line(0x4bc)
 	.dwattr $C$DW$215, DW_AT_TI_end_line(0x4c3)
@@ -2992,7 +3064,7 @@ $C$DW$218	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$219	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$219, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_cdc.asm:$C$L67:1:1538296449")
+	.dwattr $C$DW$219, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_cdc.asm:$C$L67:1:1538472764")
 	.dwattr $C$DW$219, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_cdc.c")
 	.dwattr $C$DW$219, DW_AT_TI_begin_line(0x486)
 	.dwattr $C$DW$219, DW_AT_TI_end_line(0x494)

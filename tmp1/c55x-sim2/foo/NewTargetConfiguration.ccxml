@@ -4,7 +4,9 @@
     <configuration XML_version="1.2" description="Simulates the C55x Rev3.0 core in a bit accurate (functional) manner, does not model the pipeline effects. Supports a timer and a flat memory system. No other peripherals are modeled.&#13;This configuration is faster than the corresponding cycle accurate configuration, suitable for core level algorithm development, but does not provide cycle accuracy." id="C55xx Rev3.0 CPU Functional Simulator">
         <connection XML_version="1.2" desc="C55xx Rev3.0 CPU Functional Simulator_0" id="C55xx Rev3.0 CPU Functional Simulator">
             <platform XML_version="1.2" id="platform_3">
-                <cpu HW_revision="" XML_version="1.2" desc="TMS320C55x" description="" id="device_0" isa="TMS320C55XX"/>
+                <cpu HW_revision="" XML_version="1.2" desc="TMS320C55x" description="" deviceSim="false" id="device_0" isa="TMS320C55XX">
+                    <property Type="filepathfield" Value="..\..\..\..\eZdsp_DBG\tmp1\c55x-sim2\foo\tisim_c55x.gel" id="GEL File"/>
+                </cpu>
             </platform>
         </connection>
     </configuration>
