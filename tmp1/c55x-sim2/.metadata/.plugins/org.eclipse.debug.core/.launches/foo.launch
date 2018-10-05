@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.ti.ccstudio.debug.launchType.device.debugging">
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_DEBUGGER_PROPERTIES.C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;&#10;&lt;PropertyValues&gt;&#10;&#10;  &lt;property id=&quot;TMS320C55XX_HexDisplay&quot;&gt;&#10;    &lt;curValue&gt;1&lt;/curValue&gt;&#10;  &lt;/property&gt;&#10;&#10;&lt;/PropertyValues&gt;&#10;"/>
 <setAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_HIDE_CONFIG_ELEMENT_TYPES">
 <setEntry value="BOARD"/>
 <setEntry value="BYPASSED_CPU"/>
@@ -27,7 +28,7 @@
 <listAttribute key="pinConnections">
 <listEntry value="SINT4@@F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\DAT.txt"/>
 </listAttribute>
-<stringAttribute key="saved_expressions&lt;seperator&gt;C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x&lt;seperator&gt;DATA" value="0x1e26,0x0"/>
-<stringAttribute key="saved_expressions&lt;seperator&gt;Texas Instruments Simulator/C55xx&lt;seperator&gt;DATA" value="0x4cf00,0x00"/>
+<stringAttribute key="saved_expressions&lt;seperator&gt;C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x&lt;seperator&gt;DATA" value="0x1852,0x1052,0x984,0x1918,0x11a0,0x105d,0x1778,0x0f7b,0xf7c,0x1024,0x1a3b,0x1a38,0x1b3e,0x1a55,0x32fd"/>
+<stringAttribute key="saved_expressions&lt;seperator&gt;Texas Instruments Simulator/C55xx&lt;seperator&gt;DATA" value="0x4cf00,0x00,0x105d"/>
 <stringAttribute key="saved_expressions&lt;seperator&gt;Texas Instruments Simulator/C55xx&lt;seperator&gt;PROGRAM" value="0x4cf00"/>
 </launchConfiguration>

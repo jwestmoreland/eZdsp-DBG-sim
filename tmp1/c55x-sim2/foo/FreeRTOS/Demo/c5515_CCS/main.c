@@ -512,7 +512,7 @@ int main( void )
     	    	                                       tskIDLE_PRIORITY + 3, // Priority at which the task is created.
     	    	                       //                       blueTaskStack,        // Array to use as the task's stack.
     	    	                       		 &startUpTaskHandle );
-    	    	          vTaskSuspend(startUpTaskHandle);
+//    	    	          vTaskSuspend(startUpTaskHandle);
     	    	          xTaskCreate(LED_TaskBlue,         // Function that implements the task.
     	    	                            "BlueLED",      // Text name for the task.
     	    	                            configMINIMAL_STACK_SIZE,           // Number of indexes in the xStack array.
@@ -520,7 +520,7 @@ int main( void )
     	    	                            tskIDLE_PRIORITY + 1, // Priority at which the task is created.
     	    	     //                       blueTaskStack,        // Array to use as the task's stack.
     	    	           &blueTaskHandle );    // Variable to hold the task's data structure.
-//    	    	          vTaskSuspend(blueTaskHandle);
+    	    	          vTaskSuspend(blueTaskHandle);
                           xTaskCreate(TestTask1,  // Function that implements the task.
                                                        "TestTsk1",      // Text name for the task.
                                                           configMINIMAL_STACK_SIZE,           // Number of indexes in the xStack array.
@@ -529,7 +529,7 @@ int main( void )
                                        //                       blueTaskStack,        // Array to use as the task's stack.
                                              &TestTask1Handle );
 
-//                          vTaskSuspend(TestTask1Handle);
+                          vTaskSuspend(TestTask1Handle);
 
                           xTaskCreate(TestTask2,  // Function that implements the task.
                                                          "TestTsk2",      // Text name for the task.

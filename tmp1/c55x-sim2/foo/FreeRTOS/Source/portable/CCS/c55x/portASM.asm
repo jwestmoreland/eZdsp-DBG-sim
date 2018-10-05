@@ -25,6 +25,8 @@
     	  .global _save_xar2
     	  .global _save_xar3
     	  .global _save_xar4
+    	  .global _root_xsp
+    	  .global _root_xssp
 
              .global _pxCurrentTCB				;; our currently exectuting TCB
              .global _xTaskIncrementTick
@@ -112,12 +114,12 @@ portSAVE_CONTEXT .macro
 			amov #0x000000, xar1
 			amov #0x000000, xar3
 			amov #0x000000, xar4
-;			mov dbl (*(#_pxCurrentTCB)), xar5
+			mov dbl (*(#_pxCurrentTCB)), xar7
 
 			mov dbl (*ar7), xar4				; xsp contains our TCB now
 			mov dbl (*ar7(#2)), xar3
-			add #0x0064, ar4
-			add #0x0002, ar3
+			add #-3, ar4
+			add #-3, ar3
 
 			mov *ar5(#0), ar2				; current xsp contents
 			mov *ar6(#0), ar1				; current xssp contents
@@ -227,12 +229,12 @@ $5:
 ;			add #0x0064, ar3
 	        amov #0x000000, xar7
 			amov #0x000000, xar6
-		    mov dbl (*(#_pxCurrentTCB)), xar7
+		        mov dbl (*(#_pxCurrentTCB)), xar7
 			mov dbl (*ar7), xar6				; xsp normal position
-			add #0x0064, ar6
+			add #-3, ar6
 			mov xar6, xsp						; actual xsp
 			mov dbl (*ar7(#2)), xar6			; xssp
-			add #0x0002, ar6
+			add #-3, ar6
 			mov xar6, xssp
 
             mov dbl (*(#_save_xar7)), xar7                  ; restore xar7
@@ -243,38 +245,39 @@ $5:
 ;            mov dbl (*(#_save_xar4)), xar4
                           ; restore xar6
 ;;; begin context save:
+			aadd #-26, sp
 
-			mov xar7, dbl(*sp(#8))				; save xar7
-			mov ar7, *sp(#7)
+			mov xar7, dbl(*sp(#20))				; save xar7
+			mov ar7, *sp(#21)
 
-			mov xar6, dbl(*sp(#10))
-			mov ar6, *sp(#9)
+			mov xar6, dbl(*sp(#18))
+			mov ar6, *sp(#19)
 
-			mov xar5, dbl(*sp(#12))
-			mov ar5, *sp(#11)
+			mov xar5, dbl(*sp(#16))
+			mov ar5, *sp(#17)
 
 			mov xar4, dbl(*sp(#14))
-			mov ar4, *sp(#13)
+			mov ar4, *sp(#15)
 
-			mov xar3, dbl(*sp(#16))
-			mov ar3, *sp(#15)
+			mov xar3, dbl(*sp(#12))
+			mov ar3, *sp(#13)
 
-			mov xar2, dbl(*sp(#18))
-			mov ar2, *sp(#17)
+			mov xar2, dbl(*sp(#10))
+			mov ar2, *sp(#11)
 
-			mov xar1, dbl(*sp(#20))
-			mov ar1, *sp(#19)
+			mov xar1, dbl(*sp(#8))
+			mov ar1, *sp(#9)
 
-			mov xar0, dbl(*sp(#22))
-			mov ar0, *sp(#21)
+			mov xar0, dbl(*sp(#6))
+			mov ar0, *sp(#7)
 
-            mov  ac0, dbl(*sp(#24))
-            mov ac0, *sp(#23)
+			mov  ac0, dbl(*sp(#4))
+			mov ac0, *sp(#5)
 
-			mov t3, *sp(#25)
-			mov t2, *sp(#26)
-			mov t1, *sp(#27)
-			mov t0, *sp(#28)
+			mov t3, *sp(#3)
+			mov t2, *sp(#2)
+			mov t1, *sp(#1)
+			mov t0, *sp(#0)
 ; +++===+++
 ;;			mov mmap(ST0_55), t0
 ; - this is ok - we are not pushing - it's a relative stack frame
@@ -311,12 +314,12 @@ $5:
 ;			mov dbl (*ar7(#2)), xssp
 
 			mov dbl (*(#_portFLAGS_INT_ENABLED)), xar6
-			mov xar6, dbl(*sp(#6))
+			mov xar6, dbl(*sp(#25))
 
 ;			movl xar7, @_usCriticalNesting
 ;			push xar7
 			mov dbl (*(#_usCriticalNesting)), xar7
-			mov xar7, dbl(*sp(#4))
+			mov xar7, dbl(*sp(#23))
 
 			amov #0x000000, xar7
 			amov #0x000000, xar6
@@ -417,7 +420,7 @@ portRESTORE_CONTEXT .macro
 			.ARMS_off
 			.align 4
 
-; Restore context & return
+; Restore context & return - here we need to know what context we're in
 			;CONTEXT_RESTORE
 ;			ASP
 ;			EALLOW
@@ -437,24 +440,30 @@ portRESTORE_CONTEXT .macro
 			mov xar7, dbl (*(#_save_xar7))	
 			mov xar6, dbl (*(#_save_xar6))
 
-;			 aadd #-3, sp				;;;;
+;;;;			 aadd #-3, sp				;;;;
 ;            aadd #-3, xsp
 ;            CMP *(#_first_flag) == #1, TC1 ; |216|
 ;            BCC $1,TC1 ; |216|
 ;;			mov dbl (*(#_save_xsp)), xsp			; restore xsp***
 ;;			mov dbl (*(#_save_xssp)), xssp			; restore xssp***
 ;            B $4
+;;    		aadd #-2, sp
 			mov xsp, dbl (*(#_restore_xsp))			; save xsp
 			mov xssp, dbl (*(#_restore_xssp))			; save xssp
  ;			aadd #3, xsp
-    		aadd #-1, sp
+;;;    		aadd #-3, sp
+
+;;;;            mov dbl(*(#_root_xsp)), xsp
+;;;;			mov dbl(*(#_root_xssp)), xssp
+;;;			aadd #3, sp
+
 ;$1
 ;			mov dbl (*(#_first_save_xsp)), xsp			; restore xsp
 ;			mov dbl (*(#_first_save_xssp)), xssp			; restore xssp
 ;$4
 			.if 1
-			mov xsp, xar7
-			mov xssp, xar6
+;;			mov xsp, xar7
+;;			mov xssp, xar6
 			amov #0x000000, xar2
 			amov #0x000000, xar1
 
@@ -462,17 +471,17 @@ portRESTORE_CONTEXT .macro
 									         ;; points to our variables now
 			mov dbl (*ar5), xar4				; xsp contains our TCB now
 			mov dbl (*ar5(#2)), xar3
-			add #0x0064, ar4
-			add #0x0002, ar3
+			add #-3, ar4
+			add #-3, ar3
 			
-;;			mov xar4, xsp
-;;			mov xar3, xssp
+			mov xar4, xsp
+			mov xar3, xssp
 
-			mov *ar4, ar2
-			mov *ar3, ar1				; maybe not on a yield here
+;;;			mov *ar4, ar2
+;;;			mov *ar3, ar1				; maybe not on a yield here
 ;			mov ar4, *ar6				; stack pointers fixed up
-			mov ar2, *ar7
-			mov ar1, *ar6
+;;;			mov ar2, *ar7
+;;;			mov ar1, *ar6
 
 			mov mmap(ST1_55), ar7
 			and #0xf7ff, ar7			; <here>#0800h
@@ -613,15 +622,15 @@ $6:
 ;			mov *ar7(#2)
 ;			mov dbl (*ar7(#2)), xssp
 ; ===+++===
-   .if 0
+   .if 1
 	        amov #0x000000, xar7
 			amov #0x000000, xar6
 		    mov dbl (*(#_pxCurrentTCB)), xar7
 			mov dbl (*ar7), xar6				; xsp normal position
-			add #0x0064, ar6
+			add #-3, ar6
 			mov xar6, xsp						; actual xsp
 			mov dbl (*ar7(#2)), xar6			; xssp
-			add #0x0002, ar6
+			add #-3, ar6
 			mov xar6, xssp
    .endif
 ; ===+++===
@@ -666,6 +675,48 @@ $6:
 ;;			and #0xFF00, ar6
 ;;			mov ar6, *ar7(#1)
 
+			aadd #-26, sp
+
+			amov #0x000000, xar7
+			mov dbl(*sp(#25)), xar7
+;			mov *sp(#1), ar7
+			mov xar7, dbl(*(#_usCriticalNesting))
+            amov #0x000000, xar6
+			mov dbl(*sp(#23)), xar6
+;			mov *sp(#3), ar6
+;			popboth xar6 ; portFLAGS_INT_ENABLED
+			mov xar6, dbl(*(#_portFLAGS_INT_ENABLED))
+
+
+			mov *sp(#0), t0
+			mov *sp(#1), t1
+			mov *sp(#2), t2
+			mov *sp(#3), t3
+			mov dbl(*sp(#4)), ac0
+            mov *sp(#5), ac0
+		    mov dbl(*sp(#6)), xar0
+			mov *sp(#7), ar0
+			mov dbl(*sp(#8)), xar1
+			mov *sp(#9), ar1
+			mov dbl(*sp(#10)), xar2
+			mov *sp(#11), ar2
+			mov dbl(*sp(#12)), xar3
+			mov *sp(#13), ar3
+;; pvPararmeters currently here - needs to be verified --- jcw
+			mov dbl(*sp(#14)), xar4
+			mov *sp(#15), ar4
+			mov dbl(*sp(#16)), xar5
+			mov *sp(#17), ar5
+			mov dbl(*sp(#18)), xar6
+			mov *sp(#19), ar6
+
+;			POP XT
+		;-- Comment these to save cycles ---
+			mov dbl(*sp(#20)), xar7
+			mov *sp(#21), ar7
+
+			.if 0
+
 			mov dbl(*sp(#4)), xar7
 ;			mov *sp(#1), ar7
 			mov xar7, dbl(*(#_usCriticalNesting))   
@@ -703,6 +754,7 @@ $6:
 			mov *sp(#26), t2
 			mov *sp(#27), t1
 			mov *sp(#28), t0
+			.endif
 
 ;			mov dbl(*sp(#21)), *xssp(#0)
 ;			mov *sp(#21), *ssp
@@ -814,9 +866,11 @@ $6:
 			mov dbl (*ar7(#2)), xssp		
 			.endif
 
-    		 mov dbl(*(#_restore_xsp)), xsp
-             mov dbl(*(#_restore_xssp)), xssp
-
+;;;    		 mov dbl(*(#_restore_xsp)), xsp
+;;;=-=             mov dbl(*(#_restore_xssp)), xssp
+;;;=-=             mov dbl(*(#_restore_xsp)), xsp
+;;;;			mov dbl(*(#_root_xssp)), xssp
+;;;			aadd #3, sp
 ;;;;;;			mov dbl (*(#_save_xsp)), xsp			; restore xsp***
 ;;;;;;     		mov dbl (*(#_save_xssp)), xssp			; restore xssp***
 
@@ -864,7 +918,8 @@ $6:
 			mov xar6, xssp
 			.endif
 
-			aadd #-1, sp			; on yield, need to do this
+;;;;			aadd #-1, sp			; on yield, need to do this
+			aadd #26, sp
 			bclr INTM		; enable interrupts
 			nop
 			nop
@@ -888,7 +943,7 @@ portRESTORE_FIRST_CONTEXT .macro
 			.ARMS_off
 			.align 4
 
-; Restore context & return
+; Restore context & return - here we restore into 'root' context
 			;CONTEXT_RESTORE
 ;			ASP
 ;			EALLOW
@@ -928,9 +983,12 @@ portRESTORE_FIRST_CONTEXT .macro
 ;			mov dbl (*(#_first_save_xsp)), xsp			; restore xsp
 ;			mov dbl (*(#_first_save_xssp)), xssp			; restore xssp
 ;$4
+            mov dbl(*(#_root_xsp)), xsp
+			mov dbl(*(#_root_xssp)), xssp
+
 			.if 1
-			mov xsp, xar7
-			mov xssp, xar6
+;;			mov xsp, xar7
+;;			mov xssp, xar6
 			mov  xsp, dbl (*(#_first_save_xsp)) 			; restore xsp
 			mov  xssp, dbl (*(#_first_save_xssp))
 			amov #0x000000, xar2
@@ -942,24 +1000,24 @@ portRESTORE_FIRST_CONTEXT .macro
 			                 					;; everything from here is relative to this
 			mov dbl (*ar5), xar4				; xsp contains our TCB now
 			mov dbl (*ar5(#2)), xar3			; xssp		
-			add #0x0064, ar4
-			add #0x0002, ar3
-			
+			add #-3, ar4
+			add #-3, ar3
 
-			mov *ar4, ar2
-			mov *ar3, ar1
+			mov xar4, xsp
+			mov xar3, xssp
+
+;;;			mov *ar4, ar2
+;;;			mov *ar3, ar1
 ;			mov ar4, *ar6				; stack pointers fixed up
-			mov ar2, *ar7
-			mov ar1, *ar6	
-			.endif
-
-;
+;;;			mov ar2, *ar7
+;;;			mov ar1, *ar6
+			.endif;
 ;			amov #0x000000, xar7
 ;			mov dbl (*(#_pxCurrentTCB)), xar7
 
 ;			mov dbl (*ar7), xsp				; xsp contains our TCB now
 ;			mov dbl (*ar7(#2)), xssp
-			.if 0
+			.if 1
             amov #0x000000, xar7
 		    mov mmap(ST1_55), ar7
 			and #0xf7ff, ar7			; <here>#0800h
@@ -977,11 +1035,10 @@ portRESTORE_FIRST_CONTEXT .macro
 			mov ar6, *ar3(#2)
 			
 			mov *(#_DBSTAT_SAVE), ar6		; have to restore this
-;			mov ar6, *ar7(#1)
+			mov ar6, *ar7(#1)
 			mov ar6, *ar3(#1)
 
 			.endif
-
 ;			mov #0, ssp	
 ;			mov xar7, dbl (*(#_save_xar7))			; save xar7 
 ;			mov dbl (*(#_pxCurrentTCB)), xar7
@@ -1103,10 +1160,10 @@ $7:
 			amov #0x000000, xar6
 		    mov dbl (*(#_pxCurrentTCB)), xar7
 			mov dbl (*ar7), xar6				; xsp normal position
-			add #0x0064, ar6
+			add #-3, ar6
 			mov xar6, xsp						; actual xsp
 			mov dbl (*ar7(#2)), xar6			; xssp
-			add #0x0002, ar6
+			add #-3, ar6
 			mov xar6, xssp
     .endif
 			.if 0
@@ -1146,45 +1203,50 @@ $7:
 ;			and #0xFF00, ar6
 ;			mov ar6, *ar7(#2)
 
-            amov #0x000000, xar7
-			mov dbl(*sp(#4)), xar7
+			aadd #-26, sp				; to restore
+
+			amov #0x000000, xar7
+			mov dbl(*sp(#25)), xar7
 ;			mov *sp(#1), ar7
-			mov xar7, dbl(*(#_usCriticalNesting))   
+			mov xar7, dbl(*(#_usCriticalNesting))
             amov #0x000000, xar6
-			mov dbl(*sp(#6)), xar6
+			mov dbl(*sp(#23)), xar6
 ;			mov *sp(#3), ar6
 ;			popboth xar6 ; portFLAGS_INT_ENABLED
-			mov xar6, dbl(*(#_portFLAGS_INT_ENABLED))	
+			mov xar6, dbl(*(#_portFLAGS_INT_ENABLED))
+
+
+			mov *sp(#0), t0
+			mov *sp(#1), t1
+			mov *sp(#2), t2
+			mov *sp(#3), t3
+			mov dbl(*sp(#4)), ac0
+			mov *sp(#5), ac0
+		    mov dbl(*sp(#6)), xar0
+			mov *sp(#7), ar0
+			mov dbl(*sp(#8)), xar1
+			mov *sp(#9), ar1
+			mov dbl(*sp(#10)), xar2
+			mov *sp(#11), ar2
+			mov dbl(*sp(#12)), xar3
+			mov *sp(#13), ar3
+;; pvPararmeters currently here - needs to be verified --- jcw
+			mov dbl(*sp(#14)), xar4
+			mov *sp(#15), ar4
+			mov dbl(*sp(#16)), xar5
+			mov *sp(#17), ar5
+			mov dbl(*sp(#18)), xar6
+			mov *sp(#19), ar6
 
 ;			POP XT
 		;-- Comment these to save cycles ---
-			mov dbl(*sp(#8)), xar7
-			mov *sp(#7), ar7
+			mov dbl(*sp(#20)), xar7
+			mov *sp(#21), ar7
+
 ;			mov *sp(#5), ar7
 ;			mov dbl(*sp(#0)), hi(ar7)
 ;			mov (*sp(#0)), lo(ar7)
-			mov dbl(*sp(#10)), xar6
-			mov *sp(#9), ar6
-			mov dbl(*sp(#12)), xar5
-			mov *sp(#11), ar5
-;; pvPararmeters currently here - needs to be verified --- jcw
-			mov dbl(*sp(#14)), xar4
-			mov *sp(#13), ar4
-			mov dbl(*sp(#16)), xar3
-			mov *sp(#15), ar3
-			mov dbl(*sp(#18)), xar2
-			mov *sp(#17), ar2
-			mov dbl(*sp(#20)), xar1
-			mov *sp(#19), ar1
-			mov dbl(*sp(#22)), xar0
-			mov *sp(#21), ar0
-            mov dbl(*sp(#24)), ac0
-            mov *sp(#23), ac0
 
-			mov *sp(#25), t3
-			mov *sp(#26), t2
-			mov *sp(#27), t1
-			mov *sp(#28), t0
 
 ;			mov dbl(*sp(#21)), *xssp(#0)
 ;			mov *sp(#21), *ssp
@@ -1333,12 +1395,14 @@ $7:
 ;;			mov xssp, dbl (*(#_save_xssp))			; save xssp
 
 ;;			aadd #-3, sp
-			mov dbl (*(#_first_save_xsp)), xsp			; restore xsp
-			mov dbl (*(#_first_save_xssp)), xssp			; restore xssp
+;;			mov dbl (*(#_first_save_xsp)), xsp			; restore xsp
+;;			mov dbl (*(#_first_save_xssp)), xssp			; restore xssp
 ;$4
+;;;            mov dbl(*(#_root_xsp)), xsp
+;;;			mov dbl(*(#_root_xssp)), xssp
 
 ;			aadd #-3, sp
-;			aadd #1, sp
+			aadd #26, sp
 			bclr INTM		; enable interrupts
 			nop
 			nop
@@ -1373,6 +1437,10 @@ _xPortStartScheduler:
 
 ;                /* Setup the hardware to generate the tick.  Interrupts are disabled
 ;                when this function is called. */
+
+            mov xsp, dbl(*(#_root_xsp))
+			mov xssp, dbl(*(#_root_xssp))
+
 	       aadd #-1, sp
            call    #_prvSetupTimerInterrupt
 
@@ -1391,7 +1459,7 @@ _xPortStartScheduler:
 ;			add #0x0064, ar7
 ; does this *always* work?
 			mov dbl (*ar7(#0)), xar6
-			add #0x0064, ar6
+;;			add #0x0064, ar6
 
 ;			mov xsp, dbl (*(#_save_xsp))
 			mov xar6, xsp
@@ -1399,7 +1467,7 @@ _xPortStartScheduler:
 			mov xar6, dbl (*(#_first_save_xsp))	; (init) xsp contains our TCB now
 				                                ; (init) xsp contains our TCB now
 			mov dbl (*ar7(#2)), xar6
-			add #0x0002, ar6
+;;			add #0x0002, ar6
 			mov xar6, xssp
 ;			mov xar6, dbl (*(#_save_xsp))
 			mov xar6, dbl (*(#_save_xssp))
@@ -1422,6 +1490,8 @@ _xPortStartScheduler:
 			mov xsp, dbl(*(#_restore_xsp))
             mov xssp, dbl(*(#_restore_xssp))
             .endif
+
+
 
 			portRESTORE_FIRST_CONTEXT
 
@@ -1584,6 +1654,7 @@ _vTickISR:		; the timer ISR is aggregated for this processor architecture
        	    .if configUSE_TICK_CTR == 1
 		    add #1, *(#_context_switch_counter)
 		    .endif
+		    .if 0
 		    amov #0x000000, xar7
 		    amov #0x000000, xar1
 		    mov *(#_save_new_pxcode), ar7
@@ -1595,6 +1666,7 @@ _vTickISR:		; the timer ISR is aggregated for this processor architecture
 		    mov *ar6(#2), ar1
 		    add #0x0002, ar1
 		    mov ar7, *ar1
+		    .endif
 		    ; amov #0x000000, xar7
 			;    amov #0x000000, xar6
             ;  mov  *(#_save_new_pxcode), ar7
@@ -1757,6 +1829,7 @@ _vPortYield:					;; note - most testing done with preemptive kernel - so this co
        	    .if configUSE_TICK_CTR == 1
 		    add #1, *(#_context_switch_counter)
 		    .endif
+		    .if 0
 		    amov #0x000000, xar7
 		    amov #0x000000, xar1
 		    mov *(#_save_new_pxcode), ar7
@@ -1768,6 +1841,7 @@ _vPortYield:					;; note - most testing done with preemptive kernel - so this co
 		    mov *ar6(#2), ar1
 		    add #0x0002, ar1
 		    mov ar7, *ar1
+		    .endif
 		    ; amov #0x000000, xar7
 			;    amov #0x000000, xar6
             ;  mov  *(#_save_new_pxcode), ar7
