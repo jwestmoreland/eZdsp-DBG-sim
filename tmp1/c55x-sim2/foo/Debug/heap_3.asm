@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Tue Oct 02 02:33:58 2018                                 *
+;* Date/Time created: Sat Oct 06 06:38:37 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,7 +27,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../FreeRTOS/Source/portable/MemMang/heap_3.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
 
 $C$DW$1	.dwtag  DW_TAG_subprogram, DW_AT_name("malloc")
 	.dwattr $C$DW$1, DW_AT_TI_symbol_name("_malloc")
@@ -63,7 +63,7 @@ $C$DW$7	.dwtag  DW_TAG_subprogram, DW_AT_name("vApplicationMallocFailedHook")
 	.dwattr $C$DW$7, DW_AT_TI_symbol_name("_vApplicationMallocFailedHook")
 	.dwattr $C$DW$7, DW_AT_declaration
 	.dwattr $C$DW$7, DW_AT_external
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2209612 
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\0127212 
 	.sect	".text"
 	.align 4
 	.global	_pvPortMalloc

@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Tue Oct 02 02:32:35 2018                                 *
+;* Date/Time created: Sat Oct 06 06:37:15 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,7 +27,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../src/rtc.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
 ;******************************************************************************
 ;* CINIT RECORDS                                                              *
 ;******************************************************************************
@@ -101,7 +101,7 @@ $C$DW$8	.dwtag  DW_TAG_variable, DW_AT_name("Conunt_RTC")
 	.dwattr $C$DW$8, DW_AT_location[DW_OP_addr _Conunt_RTC]
 	.dwattr $C$DW$8, DW_AT_type(*$C$DW$T$20)
 	.dwattr $C$DW$8, DW_AT_external
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\0108012 
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\0783212 
 	.sect	".text"
 	.align 4
 	.global	_enable_rtc_second_int
@@ -226,7 +226,7 @@ $C$DW$13	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$14	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$14, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\rtc.asm:$C$L1:1:1538472755")
+	.dwattr $C$DW$14, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\rtc.asm:$C$L1:1:1538833035")
 	.dwattr $C$DW$14, DW_AT_TI_begin_file("../src/rtc.c")
 	.dwattr $C$DW$14, DW_AT_TI_begin_line(0x46)
 	.dwattr $C$DW$14, DW_AT_TI_end_line(0x46)

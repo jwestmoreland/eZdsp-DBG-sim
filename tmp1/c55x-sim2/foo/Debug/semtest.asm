@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Tue Oct 02 02:34:07 2018                                 *
+;* Date/Time created: Sat Oct 06 06:38:46 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,7 +27,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../FreeRTOS/Demo/Common/Minimal/semtest.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
 ;******************************************************************************
 ;* CINIT RECORDS                                                              *
 ;******************************************************************************
@@ -167,7 +167,7 @@ $C$DW$30	.dwtag  DW_TAG_variable, DW_AT_name("usCriticalNesting")
 	.dwattr $C$DW$30, DW_AT_declaration
 	.dwattr $C$DW$30, DW_AT_external
 	.bss	_sLastCheckVariables$1,4,0,0
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\0294412 
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1360412 
 	.sect	".text"
 	.align 4
 	.global	_vStartSemaphoreTasks
@@ -697,9 +697,9 @@ $C$DW$L$_prvSemaphoreTest$17$B:
 $C$DW$L$_prvSemaphoreTest$17$E:
 $C$DW$L$_prvSemaphoreTest$18$B:
 	.dwpsn	file "../FreeRTOS/Demo/Common/Minimal/semtest.c",line 225,column 6,is_stmt
+        MOV AR1, T0
         AMOV #_sCheckVariables, XAR3 ; |225| 
-        AADD AR1, AR3 ; |225| 
-        ADD #1, *AR3 ; |225| 
+        ADD #1, *AR3(T0) ; |225| 
 $C$DW$L$_prvSemaphoreTest$18$E:
 $C$L11:    
 $C$DW$L$_prvSemaphoreTest$19$B:
@@ -744,7 +744,7 @@ $C$DW$L$_prvSemaphoreTest$21$E:
 	.dwcfi	cfa_offset, 1
 
 $C$DW$65	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$65, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\semtest.asm:$C$L5:1:1538472847")
+	.dwattr $C$DW$65, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\semtest.asm:$C$L5:1:1538833126")
 	.dwattr $C$DW$65, DW_AT_TI_begin_file("../FreeRTOS/Demo/Common/Minimal/semtest.c")
 	.dwattr $C$DW$65, DW_AT_TI_begin_line(0xbd)
 	.dwattr $C$DW$65, DW_AT_TI_end_line(0xf6)
@@ -786,7 +786,7 @@ $C$DW$77	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$77, DW_AT_high_pc($C$DW$L$_prvSemaphoreTest$19$E)
 
 $C$DW$78	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$78, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\semtest.asm:$C$L7:2:1538472847")
+	.dwattr $C$DW$78, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\semtest.asm:$C$L7:2:1538833126")
 	.dwattr $C$DW$78, DW_AT_TI_begin_file("../FreeRTOS/Demo/Common/Minimal/semtest.c")
 	.dwattr $C$DW$78, DW_AT_TI_begin_line(0xcd)
 	.dwattr $C$DW$78, DW_AT_TI_end_line(0xd4)
@@ -914,7 +914,7 @@ $C$DW$86	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$87	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$87, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\semtest.asm:$C$L13:1:1538472847")
+	.dwattr $C$DW$87, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\semtest.asm:$C$L13:1:1538833126")
 	.dwattr $C$DW$87, DW_AT_TI_begin_file("../FreeRTOS/Demo/Common/Minimal/semtest.c")
 	.dwattr $C$DW$87, DW_AT_TI_begin_line(0x100)
 	.dwattr $C$DW$87, DW_AT_TI_end_line(0x108)

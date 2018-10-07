@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Tue Oct 02 02:33:49 2018                                 *
+;* Date/Time created: Sat Oct 06 06:38:29 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,7 +27,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
 
 $C$DW$1	.dwtag  DW_TAG_subprogram, DW_AT_name("memcpy")
 	.dwattr $C$DW$1, DW_AT_TI_symbol_name("_memcpy")
@@ -188,7 +188,7 @@ $C$DW$35	.dwtag  DW_TAG_variable, DW_AT_name("usCriticalNesting")
 	.dwattr $C$DW$35, DW_AT_type(*$C$DW$T$147)
 	.dwattr $C$DW$35, DW_AT_declaration
 	.dwattr $C$DW$35, DW_AT_external
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2101612 
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1205212 
 	.sect	".text"
 	.align 4
 	.global	_xQueueGenericReset
@@ -267,12 +267,12 @@ $C$L2:
         MOV dbl(*SP(#4)), XAR2
         MOV *AR2(#30), T1 ; |263| 
         MPYM *AR3(#29), T1, AC0 ; |263| 
+        MOV AC0, AR1 ; |263| 
         MOV dbl(*AR3), XAR3
-        AND #0xffff, AC0, AC0 ; |263| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |263| 
-        MOV dbl(*SP(#4)), XAR2
+
         MOV XAR3, dbl(*AR2(short(#4)))
+||      AADD AR1, AR3 ; |263| 
+
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 264,column 3,is_stmt
         MOV dbl(*SP(#4)), XAR3
         MOV #0, *AR3(#28) ; |264| 
@@ -286,12 +286,12 @@ $C$L2:
         MOV *AR2(#29), T1 ; |266| 
         SUB #1, T1 ; |266| 
         MPYM *AR3(#30), T1, AC0 ; |266| 
-        AND #0xffff, AC0, AC0 ; |266| 
-        MOV AC0, XAR2
+        MOV AC0, AR1 ; |266| 
         MOV dbl(*AR3), XAR3
-        AADD XAR2, XAR3 ; |266| 
-        MOV dbl(*SP(#4)), XAR2
+
         MOV XAR3, dbl(*AR2(short(#6)))
+||      AADD AR1, AR3 ; |266| 
+
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 267,column 3,is_stmt
         MOV dbl(*SP(#4)), XAR3
         MOV #-1, *AR3(#31) ; |267| 
@@ -382,7 +382,7 @@ $C$DW$46	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$47	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$47, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L1:1:1538472829")
+	.dwattr $C$DW$47, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L1:1:1538833109")
 	.dwattr $C$DW$47, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$47, DW_AT_TI_begin_line(0x103)
 	.dwattr $C$DW$47, DW_AT_TI_end_line(0x103)
@@ -551,7 +551,7 @@ $C$DW$61	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$62	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$62, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L9:1:1538472829")
+	.dwattr $C$DW$62, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L9:1:1538833109")
 	.dwattr $C$DW$62, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$62, DW_AT_TI_begin_line(0x176)
 	.dwattr $C$DW$62, DW_AT_TI_end_line(0x176)
@@ -986,7 +986,7 @@ $C$DW$98	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$99	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$99, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L17:1:1538472829")
+	.dwattr $C$DW$99, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L17:1:1538833109")
 	.dwattr $C$DW$99, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$99, DW_AT_TI_begin_line(0x259)
 	.dwattr $C$DW$99, DW_AT_TI_end_line(0x259)
@@ -1129,7 +1129,7 @@ $C$DW$110	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$111	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$111, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L22:1:1538472829")
+	.dwattr $C$DW$111, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L22:1:1538833109")
 	.dwattr $C$DW$111, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$111, DW_AT_TI_begin_line(0x290)
 	.dwattr $C$DW$111, DW_AT_TI_end_line(0x290)
@@ -1270,7 +1270,7 @@ $C$DW$120	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$121	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$121, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L30:1:1538472829")
+	.dwattr $C$DW$121, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L30:1:1538833109")
 	.dwattr $C$DW$121, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$121, DW_AT_TI_begin_line(0x2d6)
 	.dwattr $C$DW$121, DW_AT_TI_end_line(0x2d6)
@@ -1281,7 +1281,7 @@ $C$DW$122	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$123	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$123, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L27:1:1538472829")
+	.dwattr $C$DW$123, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L27:1:1538833109")
 	.dwattr $C$DW$123, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$123, DW_AT_TI_begin_line(0x2d5)
 	.dwattr $C$DW$123, DW_AT_TI_end_line(0x2d5)
@@ -1790,7 +1790,7 @@ $C$DW$154	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$155	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$155, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L42:1:1538472829")
+	.dwattr $C$DW$155, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L42:1:1538833109")
 	.dwattr $C$DW$155, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$155, DW_AT_TI_begin_line(0x2fe)
 	.dwattr $C$DW$155, DW_AT_TI_end_line(0x3b9)
@@ -1858,7 +1858,7 @@ $C$DW$175	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$176	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$176, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L41:1:1538472829")
+	.dwattr $C$DW$176, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L41:1:1538833109")
 	.dwattr $C$DW$176, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$176, DW_AT_TI_begin_line(0x2f3)
 	.dwattr $C$DW$176, DW_AT_TI_end_line(0x2f3)
@@ -1869,7 +1869,7 @@ $C$DW$177	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$178	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$178, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L37:1:1538472829")
+	.dwattr $C$DW$178, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L37:1:1538833109")
 	.dwattr $C$DW$178, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$178, DW_AT_TI_begin_line(0x2f2)
 	.dwattr $C$DW$178, DW_AT_TI_end_line(0x2f2)
@@ -1880,7 +1880,7 @@ $C$DW$179	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$180	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$180, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L33:1:1538472829")
+	.dwattr $C$DW$180, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L33:1:1538833109")
 	.dwattr $C$DW$180, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$180, DW_AT_TI_begin_line(0x2f1)
 	.dwattr $C$DW$180, DW_AT_TI_end_line(0x2f1)
@@ -2149,7 +2149,7 @@ $C$DW$198	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$199	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$199, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L68:1:1538472829")
+	.dwattr $C$DW$199, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L68:1:1538833109")
 	.dwattr $C$DW$199, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$199, DW_AT_TI_begin_line(0x3c5)
 	.dwattr $C$DW$199, DW_AT_TI_end_line(0x3c5)
@@ -2160,7 +2160,7 @@ $C$DW$200	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$201	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$201, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L64:1:1538472829")
+	.dwattr $C$DW$201, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L64:1:1538833109")
 	.dwattr $C$DW$201, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$201, DW_AT_TI_begin_line(0x3c4)
 	.dwattr $C$DW$201, DW_AT_TI_end_line(0x3c4)
@@ -2171,7 +2171,7 @@ $C$DW$202	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$203	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$203, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L60:1:1538472829")
+	.dwattr $C$DW$203, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L60:1:1538833109")
 	.dwattr $C$DW$203, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$203, DW_AT_TI_begin_line(0x3c3)
 	.dwattr $C$DW$203, DW_AT_TI_end_line(0x3c3)
@@ -2415,7 +2415,7 @@ $C$DW$218	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$219	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$219, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L84:1:1538472829")
+	.dwattr $C$DW$219, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L84:1:1538833109")
 	.dwattr $C$DW$219, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$219, DW_AT_TI_begin_line(0x469)
 	.dwattr $C$DW$219, DW_AT_TI_end_line(0x469)
@@ -2426,7 +2426,7 @@ $C$DW$220	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$221	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$221, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L80:1:1538472829")
+	.dwattr $C$DW$221, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L80:1:1538833109")
 	.dwattr $C$DW$221, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$221, DW_AT_TI_begin_line(0x464)
 	.dwattr $C$DW$221, DW_AT_TI_end_line(0x464)
@@ -2437,7 +2437,7 @@ $C$DW$222	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$223	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$223, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L77:1:1538472829")
+	.dwattr $C$DW$223, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L77:1:1538833109")
 	.dwattr $C$DW$223, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$223, DW_AT_TI_begin_line(0x460)
 	.dwattr $C$DW$223, DW_AT_TI_end_line(0x460)
@@ -2912,7 +2912,7 @@ $C$DW$253	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$254	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$254, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L97:1:1538472829")
+	.dwattr $C$DW$254, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L97:1:1538833109")
 	.dwattr $C$DW$254, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$254, DW_AT_TI_begin_line(0x511)
 	.dwattr $C$DW$254, DW_AT_TI_end_line(0x582)
@@ -2980,7 +2980,7 @@ $C$DW$274	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$275	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$275, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L96:1:1538472829")
+	.dwattr $C$DW$275, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L96:1:1538833109")
 	.dwattr $C$DW$275, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$275, DW_AT_TI_begin_line(0x504)
 	.dwattr $C$DW$275, DW_AT_TI_end_line(0x504)
@@ -2991,7 +2991,7 @@ $C$DW$276	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$277	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$277, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L92:1:1538472829")
+	.dwattr $C$DW$277, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L92:1:1538833109")
 	.dwattr $C$DW$277, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$277, DW_AT_TI_begin_line(0x500)
 	.dwattr $C$DW$277, DW_AT_TI_end_line(0x500)
@@ -3565,7 +3565,7 @@ $C$DW$311	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$312	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$312, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L125:1:1538472829")
+	.dwattr $C$DW$312, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L125:1:1538833109")
 	.dwattr $C$DW$312, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$312, DW_AT_TI_begin_line(0x5e1)
 	.dwattr $C$DW$312, DW_AT_TI_end_line(0x5e1)
@@ -3576,7 +3576,7 @@ $C$DW$313	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$314	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$314, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L117:1:1538472829")
+	.dwattr $C$DW$314, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L117:1:1538833109")
 	.dwattr $C$DW$314, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$314, DW_AT_TI_begin_line(0x5a2)
 	.dwattr $C$DW$314, DW_AT_TI_end_line(0x65c)
@@ -3656,7 +3656,7 @@ $C$DW$338	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$339	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$339, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L116:1:1538472829")
+	.dwattr $C$DW$339, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L116:1:1538833109")
 	.dwattr $C$DW$339, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$339, DW_AT_TI_begin_line(0x595)
 	.dwattr $C$DW$339, DW_AT_TI_end_line(0x595)
@@ -3667,7 +3667,7 @@ $C$DW$340	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$341	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$341, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L113:1:1538472829")
+	.dwattr $C$DW$341, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L113:1:1538833109")
 	.dwattr $C$DW$341, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$341, DW_AT_TI_begin_line(0x591)
 	.dwattr $C$DW$341, DW_AT_TI_end_line(0x591)
@@ -4147,7 +4147,7 @@ $C$DW$372	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$373	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$373, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L144:1:1538472829")
+	.dwattr $C$DW$373, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L144:1:1538833109")
 	.dwattr $C$DW$373, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$373, DW_AT_TI_begin_line(0x679)
 	.dwattr $C$DW$373, DW_AT_TI_end_line(0x6f1)
@@ -4215,7 +4215,7 @@ $C$DW$393	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$394	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$394, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L143:1:1538472829")
+	.dwattr $C$DW$394, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L143:1:1538833109")
 	.dwattr $C$DW$394, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$394, DW_AT_TI_begin_line(0x66c)
 	.dwattr $C$DW$394, DW_AT_TI_end_line(0x66c)
@@ -4226,7 +4226,7 @@ $C$DW$395	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$396	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$396, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L139:1:1538472829")
+	.dwattr $C$DW$396, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L139:1:1538833109")
 	.dwattr $C$DW$396, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$396, DW_AT_TI_begin_line(0x668)
 	.dwattr $C$DW$396, DW_AT_TI_end_line(0x668)
@@ -4467,7 +4467,7 @@ $C$DW$414	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$415	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$415, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L164:1:1538472829")
+	.dwattr $C$DW$415, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L164:1:1538833109")
 	.dwattr $C$DW$415, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$415, DW_AT_TI_begin_line(0x6fc)
 	.dwattr $C$DW$415, DW_AT_TI_end_line(0x6fc)
@@ -4478,7 +4478,7 @@ $C$DW$416	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$417	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$417, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L160:1:1538472829")
+	.dwattr $C$DW$417, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L160:1:1538833109")
 	.dwattr $C$DW$417, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$417, DW_AT_TI_begin_line(0x6fb)
 	.dwattr $C$DW$417, DW_AT_TI_end_line(0x6fb)
@@ -4667,7 +4667,7 @@ $C$DW$429	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$430	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$430, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L179:1:1538472829")
+	.dwattr $C$DW$430, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L179:1:1538833109")
 	.dwattr $C$DW$430, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$430, DW_AT_TI_begin_line(0x759)
 	.dwattr $C$DW$430, DW_AT_TI_end_line(0x759)
@@ -4678,7 +4678,7 @@ $C$DW$431	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$432	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$432, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L176:1:1538472829")
+	.dwattr $C$DW$432, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L176:1:1538833109")
 	.dwattr $C$DW$432, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$432, DW_AT_TI_begin_line(0x758)
 	.dwattr $C$DW$432, DW_AT_TI_end_line(0x758)
@@ -4689,7 +4689,7 @@ $C$DW$433	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$434	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$434, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L172:1:1538472829")
+	.dwattr $C$DW$434, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L172:1:1538833109")
 	.dwattr $C$DW$434, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$434, DW_AT_TI_begin_line(0x757)
 	.dwattr $C$DW$434, DW_AT_TI_end_line(0x757)
@@ -4799,7 +4799,7 @@ $C$DW$440	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$441	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$441, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L183:1:1538472829")
+	.dwattr $C$DW$441, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L183:1:1538833109")
 	.dwattr $C$DW$441, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$441, DW_AT_TI_begin_line(0x78a)
 	.dwattr $C$DW$441, DW_AT_TI_end_line(0x78a)
@@ -4915,7 +4915,7 @@ $C$DW$448	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$449	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$449, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L186:1:1538472829")
+	.dwattr $C$DW$449, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L186:1:1538833109")
 	.dwattr $C$DW$449, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$449, DW_AT_TI_begin_line(0x79b)
 	.dwattr $C$DW$449, DW_AT_TI_end_line(0x79b)
@@ -5010,7 +5010,7 @@ $C$DW$456	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$457	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$457, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L189:1:1538472829")
+	.dwattr $C$DW$457, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L189:1:1538833109")
 	.dwattr $C$DW$457, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$457, DW_AT_TI_begin_line(0x7ac)
 	.dwattr $C$DW$457, DW_AT_TI_end_line(0x7ac)
@@ -5110,7 +5110,7 @@ $C$DW$465	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$466	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$466, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L191:1:1538472829")
+	.dwattr $C$DW$466, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L191:1:1538833109")
 	.dwattr $C$DW$466, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$466, DW_AT_TI_begin_line(0x7b7)
 	.dwattr $C$DW$466, DW_AT_TI_end_line(0x7b7)
@@ -5233,8 +5233,7 @@ $C$DW$476	.dwtag  DW_TAG_formal_parameter, DW_AT_name("xPosition")
 ;* FUNCTION NAME: prvCopyDataToQueue                                           *
 ;*                                                                             *
 ;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,   *
-;*                        XAR3,AR4,XAR4,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,   *
-;*                        SMUL                                                 *
+;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 8 words                                              *
 ;*                        (1 return address/alignment)                         *
@@ -5320,12 +5319,11 @@ $C$DW$483	.dwtag  DW_TAG_TI_branch
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2099,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*SP(#0)), XAR2
-        MOV uns(*AR3(#30)), AC0 ; |2099| 
-        MOV AC0, XAR4
+        MOV *AR3(#30), AR1 ; |2099| 
         MOV dbl(*AR2(short(#2))), XAR3
 
         MOV XAR3, dbl(*AR2(short(#2)))
-||      AADD XAR4, XAR3 ; |2099| 
+||      AADD AR1, AR3 ; |2099| 
 
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2100,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
@@ -5358,12 +5356,11 @@ $C$DW$484	.dwtag  DW_TAG_TI_branch
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2112,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*SP(#0)), XAR2
-        MOV uns(*AR3(#30)), AC0 ; |2112| 
-        MOV AC0, XAR4
+        MOV *AR3(#30), AR1 ; |2112| 
         MOV dbl(*AR2(short(#6))), XAR3
 
         MOV XAR3, dbl(*AR2(short(#6)))
-||      ASUB XAR4, XAR3 ; |2112| 
+||      ASUB AR1, AR3 ; |2112| 
 
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2113,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
@@ -5377,12 +5374,13 @@ $C$DW$484	.dwtag  DW_TAG_TI_branch
                                         ; branchcc occurs ; |2113| 
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2115,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*AR3(#30)), AC0 ; |2115| 
-        MOV AC0, XAR2
-        MOV dbl(*AR3(short(#4))), XAR3
-        ASUB XAR2, XAR3 ; |2115| 
         MOV dbl(*SP(#0)), XAR2
+        MOV *AR3(#30), AR1 ; |2115| 
+        MOV dbl(*AR3(short(#4))), XAR3
+
         MOV XAR3, dbl(*AR2(short(#6)))
+||      ASUB AR1, AR3 ; |2115| 
+
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2116,column 3,is_stmt
 $C$L197:    
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2122,column 3,is_stmt
@@ -5446,7 +5444,7 @@ $C$DW$488	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pvBuffer")
 ;* FUNCTION NAME: prvCopyDataFromQueue                                         *
 ;*                                                                             *
 ;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,   *
-;*                        XAR3,AR4,XAR4,SP,TC1,M40,SATA,SATD,RDM,FRCT,SMUL     *
+;*                        XAR3,SP,TC1,M40,SATA,SATD,RDM,FRCT,SMUL              *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 6 words                                              *
 ;*                        (2 return address/alignment)                         *
@@ -5475,12 +5473,11 @@ $C$DW$490	.dwtag  DW_TAG_variable, DW_AT_name("pvBuffer")
                                         ; branchcc occurs ; |2151| 
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2153,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR2
-        MOV uns(*AR3(#30)), AC0 ; |2153| 
-        MOV AC0, XAR4
+        MOV *AR3(#30), AR1 ; |2153| 
         MOV dbl(*AR2(short(#6))), XAR3
 
         MOV XAR3, dbl(*AR2(short(#6)))
-||      AADD XAR4, XAR3 ; |2153| 
+||      AADD AR1, AR3 ; |2153| 
 
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2154,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
@@ -5773,7 +5770,7 @@ $C$DW$504	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$505	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$505, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L207:1:1538472829")
+	.dwattr $C$DW$505, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L207:1:1538833109")
 	.dwattr $C$DW$505, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$505, DW_AT_TI_begin_line(0x8d4)
 	.dwattr $C$DW$505, DW_AT_TI_end_line(0x8e7)
@@ -5805,7 +5802,7 @@ $C$DW$513	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$514	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$514, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L201:1:1538472829")
+	.dwattr $C$DW$514, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L201:1:1538833109")
 	.dwattr $C$DW$514, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$514, DW_AT_TI_begin_line(0x884)
 	.dwattr $C$DW$514, DW_AT_TI_end_line(0x8c9)
@@ -6022,7 +6019,7 @@ $C$DW$532	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$533	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$533, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L217:1:1538472829")
+	.dwattr $C$DW$533, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L217:1:1538833109")
 	.dwattr $C$DW$533, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$533, DW_AT_TI_begin_line(0x909)
 	.dwattr $C$DW$533, DW_AT_TI_end_line(0x909)
@@ -6224,7 +6221,7 @@ $C$DW$545	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$546	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$546, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L224:1:1538472829")
+	.dwattr $C$DW$546, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L224:1:1538833109")
 	.dwattr $C$DW$546, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$546, DW_AT_TI_begin_line(0x931)
 	.dwattr $C$DW$546, DW_AT_TI_end_line(0x931)
@@ -6266,8 +6263,8 @@ $C$DW$550	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pcQueueName")
 ;*******************************************************************************
 ;* FUNCTION NAME: vQueueAddToRegistry                                          *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,XAR3,SP,CARRY,*
-;*                        TC1,M40,SATA,SATD,RDM,FRCT,SMUL                      *
+;*   Function Uses Regs : AC0,AC0,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,XAR3,SP,   *
+;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 6 words                                              *
 ;*                        (1 return address/alignment)                         *
@@ -6306,32 +6303,26 @@ $C$DW$553	.dwtag  DW_TAG_variable, DW_AT_name("ux")
 $C$L228:    
 $C$DW$L$_vQueueAddToRegistry$2$B:
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2652,column 4,is_stmt
-        MOV uns(*SP(#4)), AC0 ; |2652| 
-        SFTS AC0, #2, AC0 ; |2652| 
-        MOV AC0, XAR2
+        MOV *SP(#4) << #2, AC0 ; |2652| 
+        MOV AC0, T0 ; |2652| 
         AMOV #_xQueueRegistry, XAR3 ; |2652| 
-        AADD XAR2, XAR3 ; |2652| 
-        MOV dbl(*AR3), XAR3
+        MOV dbl(*AR3(T0)), XAR3
         MOV XAR3, AC0
         BCC $C$L229,AC0 != #0 ; |2652| 
                                         ; branchcc occurs ; |2652| 
 $C$DW$L$_vQueueAddToRegistry$2$E:
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2655,column 5,is_stmt
-        MOV uns(*SP(#4)), AC0 ; |2655| 
-        SFTS AC0, #2, AC0 ; |2655| 
-        MOV AC0, XAR2
-        AMOV #_xQueueRegistry, XAR3 ; |2655| 
-        AADD XAR2, XAR3 ; |2655| 
+        MOV *SP(#4) << #2, AC0 ; |2655| 
+        MOV AC0, T0 ; |2655| 
         MOV dbl(*SP(#2)), XAR2
-        MOV XAR2, dbl(*AR3)
+        AMOV #_xQueueRegistry, XAR3 ; |2655| 
+        MOV XAR2, dbl(*AR3(T0))
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2656,column 5,is_stmt
-        MOV uns(*SP(#4)), AC0 ; |2656| 
-        SFTS AC0, #2, AC0 ; |2656| 
-        MOV AC0, XAR2
+        MOV *SP(#4) << #2, AC0 ; |2656| 
+        MOV AC0, T0 ; |2656| 
         AMOV #(_xQueueRegistry+2), XAR3 ; |2656| 
-        AADD XAR2, XAR3 ; |2656| 
         MOV dbl(*SP(#0)), XAR2
-        MOV XAR2, dbl(*AR3)
+        MOV XAR2, dbl(*AR3(T0))
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2659,column 5,is_stmt
         B $C$L230 ; |2659| 
                                         ; branch occurs ; |2659| 
@@ -6340,10 +6331,7 @@ $C$DW$L$_vQueueAddToRegistry$5$B:
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2650,column 81,is_stmt
         ADD #1, *SP(#4) ; |2650| 
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2650,column 33,is_stmt
-
         MOV *SP(#4), AR1 ; |2650| 
-||      MOV #8, AR2
-
         CMPU AR1 < AR2, TC1 ; |2650| 
         BCC $C$L228,TC1 ; |2650| 
                                         ; branchcc occurs ; |2650| 
@@ -6359,7 +6347,7 @@ $C$DW$554	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$555	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$555, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L228:1:1538472829")
+	.dwattr $C$DW$555, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L228:1:1538833109")
 	.dwattr $C$DW$555, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$555, DW_AT_TI_begin_line(0xa5a)
 	.dwattr $C$DW$555, DW_AT_TI_end_line(0xa69)
@@ -6401,7 +6389,7 @@ $C$DW$559	.dwtag  DW_TAG_formal_parameter, DW_AT_name("xQueue")
 ;*******************************************************************************
 ;* FUNCTION NAME: pcQueueGetName                                               *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,AR0,XAR0,AR1,AR2,XAR2,AR3,XAR3,SP,   *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,AR2,AR3,XAR3,SP,     *
 ;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 8 words                                              *
@@ -6443,12 +6431,10 @@ $C$DW$562	.dwtag  DW_TAG_variable, DW_AT_name("pcReturn")
 $C$L231:    
 $C$DW$L$_pcQueueGetName$2$B:
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2682,column 4,is_stmt
-        MOV uns(*SP(#2)), AC0 ; |2682| 
-        SFTS AC0, #2, AC0 ; |2682| 
-        MOV AC0, XAR2
+        MOV *SP(#2) << #2, AC0 ; |2682| 
+        MOV AC0, T0 ; |2682| 
         AMOV #(_xQueueRegistry+2), XAR3 ; |2682| 
-        AADD XAR2, XAR3 ; |2682| 
-        MOV dbl(*AR3), XAR3
+        MOV dbl(*AR3(T0)), XAR3
         MOV XAR3, AC1
         MOV dbl(*SP(#0)), XAR3
         MOV XAR3, AC0
@@ -6457,12 +6443,10 @@ $C$DW$L$_pcQueueGetName$2$B:
                                         ; branchcc occurs ; |2682| 
 $C$DW$L$_pcQueueGetName$2$E:
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2684,column 5,is_stmt
-        MOV uns(*SP(#2)), AC0 ; |2684| 
-        SFTS AC0, #2, AC0 ; |2684| 
-        MOV AC0, XAR2
+        MOV *SP(#2) << #2, AC0 ; |2684| 
+        MOV AC0, T0 ; |2684| 
         AMOV #_xQueueRegistry, XAR3 ; |2684| 
-        AADD XAR2, XAR3 ; |2684| 
-        MOV dbl(*AR3), XAR3
+        MOV dbl(*AR3(T0)), XAR3
         MOV XAR3, dbl(*SP(#4))
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2685,column 5,is_stmt
         B $C$L233 ; |2685| 
@@ -6472,10 +6456,7 @@ $C$DW$L$_pcQueueGetName$5$B:
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2680,column 81,is_stmt
         ADD #1, *SP(#2) ; |2680| 
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2680,column 33,is_stmt
-
         MOV *SP(#2), AR1 ; |2680| 
-||      MOV #8, AR2
-
         CMPU AR1 < AR2, TC1 ; |2680| 
         BCC $C$L231,TC1 ; |2680| 
                                         ; branchcc occurs ; |2680| 
@@ -6493,7 +6474,7 @@ $C$DW$563	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$564	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$564, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L231:1:1538472829")
+	.dwattr $C$DW$564, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L231:1:1538833109")
 	.dwattr $C$DW$564, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$564, DW_AT_TI_begin_line(0xa78)
 	.dwattr $C$DW$564, DW_AT_TI_end_line(0xa83)
@@ -6534,7 +6515,7 @@ $C$DW$568	.dwtag  DW_TAG_formal_parameter, DW_AT_name("xQueue")
 ;*******************************************************************************
 ;* FUNCTION NAME: vQueueUnregisterQueue                                        *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,AR0,XAR0,AR1,AR2,XAR2,AR3,XAR3,SP,   *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,AR2,AR3,XAR3,SP,     *
 ;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 4 words                                              *
@@ -6569,12 +6550,10 @@ $C$DW$570	.dwtag  DW_TAG_variable, DW_AT_name("ux")
 $C$L234:    
 $C$DW$L$_vQueueUnregisterQueue$2$B:
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2709,column 4,is_stmt
-        MOV uns(*SP(#2)), AC0 ; |2709| 
-        SFTS AC0, #2, AC0 ; |2709| 
-        MOV AC0, XAR2
+        MOV *SP(#2) << #2, AC0 ; |2709| 
+        MOV AC0, T0 ; |2709| 
         AMOV #(_xQueueRegistry+2), XAR3 ; |2709| 
-        AADD XAR2, XAR3 ; |2709| 
-        MOV dbl(*AR3), XAR3
+        MOV dbl(*AR3(T0)), XAR3
         MOV XAR3, AC1
         MOV dbl(*SP(#0)), XAR3
         MOV XAR3, AC0
@@ -6583,25 +6562,16 @@ $C$DW$L$_vQueueUnregisterQueue$2$B:
                                         ; branchcc occurs ; |2709| 
 $C$DW$L$_vQueueUnregisterQueue$2$E:
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2712,column 5,is_stmt
-        MOV uns(*SP(#2)), AC0 ; |2712| 
-        SFTS AC0, #2, AC0 ; |2712| 
-        MOV AC0, XAR2
+        MOV *SP(#2) << #2, AC0 ; |2712| 
+        MOV AC0, T0 ; |2712| 
+        MOV #0, AC1 ; |2712| 
         AMOV #_xQueueRegistry, XAR3 ; |2712| 
-
-        AADD XAR2, XAR3 ; |2712| 
-||      MOV #0, AC0 ; |2712| 
-
-        MOV AC0, dbl(*AR3)
+        MOV AC1, dbl(*AR3(T0))
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2717,column 5,is_stmt
-        MOV uns(*SP(#2)), AC0 ; |2717| 
-        SFTS AC0, #2, AC0 ; |2717| 
-        MOV AC0, XAR2
+        MOV *SP(#2) << #2, AC0 ; |2717| 
+        MOV AC0, T0 ; |2717| 
         AMOV #(_xQueueRegistry+2), XAR3 ; |2717| 
-
-        AADD XAR2, XAR3 ; |2717| 
-||      MOV #0, AC0 ; |2717| 
-
-        MOV AC0, dbl(*AR3)
+        MOV AC1, dbl(*AR3(T0))
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2718,column 5,is_stmt
         B $C$L236 ; |2718| 
                                         ; branch occurs ; |2718| 
@@ -6610,10 +6580,7 @@ $C$DW$L$_vQueueUnregisterQueue$5$B:
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2707,column 81,is_stmt
         ADD #1, *SP(#2) ; |2707| 
 	.dwpsn	file "../FreeRTOS/Source/queue.c",line 2707,column 33,is_stmt
-
         MOV *SP(#2), AR1 ; |2707| 
-||      MOV #8, AR2
-
         CMPU AR1 < AR2, TC1 ; |2707| 
         BCC $C$L234,TC1 ; |2707| 
                                         ; branchcc occurs ; |2707| 
@@ -6629,7 +6596,7 @@ $C$DW$571	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$572	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$572, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L234:1:1538472829")
+	.dwattr $C$DW$572, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\queue.asm:$C$L234:1:1538833109")
 	.dwattr $C$DW$572, DW_AT_TI_begin_file("../FreeRTOS/Source/queue.c")
 	.dwattr $C$DW$572, DW_AT_TI_begin_line(0xa93)
 	.dwattr $C$DW$572, DW_AT_TI_end_line(0xaa4)

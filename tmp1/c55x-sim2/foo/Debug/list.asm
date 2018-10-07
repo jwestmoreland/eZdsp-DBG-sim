@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Tue Oct 02 02:33:49 2018                                 *
+;* Date/Time created: Sat Oct 06 06:38:28 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,8 +27,8 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../FreeRTOS/Source/list.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1612412 
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1180412 
 	.sect	".text"
 	.align 4
 	.global	_vListInitialise
@@ -407,7 +407,7 @@ $C$DW$23	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$24	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$24, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\list.asm:$C$L2:1:1538472829")
+	.dwattr $C$DW$24, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\list.asm:$C$L2:1:1538833108")
 	.dwattr $C$DW$24, DW_AT_TI_begin_file("../FreeRTOS/Source/list.c")
 	.dwattr $C$DW$24, DW_AT_TI_begin_line(0x96)
 	.dwattr $C$DW$24, DW_AT_TI_end_line(0x9a)

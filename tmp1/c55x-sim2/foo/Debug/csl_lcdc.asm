@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Tue Oct 02 02:32:59 2018                                 *
+;* Date/Time created: Sat Oct 06 06:37:39 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,8 +27,8 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_lcdc.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2542812 
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2705212 
 	.sect	".text"
 	.align 4
 	.global	_LCD_init
@@ -403,32 +403,31 @@ $C$L5:
         MOV AR2, port(*AR3(T0)) ; |272| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_lcdc.c",line 275,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV #12, AR1
-        ADD *AR3, AR1, AR3 ; |275| 
-        AND #0xff7f, port(*AR3) ; |275| 
+        MOV *AR3, AR3 ; |275| 
+        AND #0xff7f, port(*AR3(T0)) ; |275| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_lcdc.c",line 276,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        ADD *AR3, AR1, AR3 ; |276| 
-        AND #0xffbf, port(*AR3) ; |276| 
+        MOV *AR3, AR3 ; |276| 
+        AND #0xffbf, port(*AR3(T0)) ; |276| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_lcdc.c",line 277,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        ADD *AR3, AR1, AR3 ; |277| 
-        AND #0xffdf, port(*AR3) ; |277| 
+        MOV *AR3, AR3 ; |277| 
+        AND #0xffdf, port(*AR3(T0)) ; |277| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_lcdc.c",line 278,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        ADD *AR3, AR1, AR3 ; |278| 
-        AND #0xffef, port(*AR3) ; |278| 
+        MOV *AR3, AR3 ; |278| 
+        AND #0xffef, port(*AR3(T0)) ; |278| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_lcdc.c",line 279,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        ADD *AR3, AR1, AR3 ; |279| 
-        AND #0xfff7, port(*AR3) ; |279| 
+        MOV *AR3, AR3 ; |279| 
+        AND #0xfff7, port(*AR3(T0)) ; |279| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_lcdc.c",line 280,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        ADD *AR3, AR1, AR3 ; |280| 
+        MOV *AR3, AR3 ; |280| 
         MOV *SP(#4), AC1 ; |280| 
-        MOV port(*AR3), AC0 ; |280| 
+        MOV port(*AR3(T0)), AC0 ; |280| 
         OR AC1 << #3, AC0 ; |280| 
-        MOV AC0, port(*AR3) ; |280| 
+        MOV AC0, port(*AR3(T0)) ; |280| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_lcdc.c",line 283,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV *AR3, AR3 ; |283| 
@@ -508,9 +507,8 @@ $C$L5:
         MOV AC0, *SP(#4) ; |306| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_lcdc.c",line 307,column 17,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV #16, AR1 ; |307| 
-        ADD *AR3, AR1, AR3 ; |307| 
-        OR #0xf000, port(*AR3) ; |307| 
+        MOV *AR3, AR3 ; |307| 
+        OR #0xf000, port(*AR3(T0)) ; |307| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_lcdc.c",line 310,column 17,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #17, T0 ; |310| 
@@ -650,9 +648,8 @@ $C$L8:
         MOV AC0, *SP(#4) ; |348| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_lcdc.c",line 349,column 17,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV #28, AR1 ; |349| 
-        ADD *AR3, AR1, AR3 ; |349| 
-        OR #0xf000, port(*AR3) ; |349| 
+        MOV *AR3, AR3 ; |349| 
+        OR #0xf000, port(*AR3(T0)) ; |349| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_lcdc.c",line 352,column 17,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #29, T0 ; |352| 

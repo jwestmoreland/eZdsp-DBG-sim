@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Tue Oct 02 02:33:14 2018                                 *
+;* Date/Time created: Sat Oct 06 06:37:54 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,7 +27,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
 
 $C$DW$1	.dwtag  DW_TAG_subprogram, DW_AT_name("memcpy")
 	.dwattr $C$DW$1, DW_AT_TI_symbol_name("_memcpy")
@@ -221,7 +221,7 @@ $C$DW$49	.dwtag  DW_TAG_formal_parameter
 	.dwattr $C$DW$49, DW_AT_type(*$C$DW$T$27)
 	.dwendtag $C$DW$48
 
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1192812 
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1642012 
 	.sect	".text"
 	.align 4
 
@@ -229,11 +229,11 @@ $C$DW$50	.dwtag  DW_TAG_subprogram, DW_AT_name("MSC_SetSenseKeys")
 	.dwattr $C$DW$50, DW_AT_low_pc(_MSC_SetSenseKeys)
 	.dwattr $C$DW$50, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$50, DW_AT_TI_symbol_name("_MSC_SetSenseKeys")
-	.dwattr $C$DW$50, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$50, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$50, DW_AT_TI_begin_line(0x58)
 	.dwattr $C$DW$50, DW_AT_TI_begin_column(0x06)
 	.dwattr $C$DW$50, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 91,column 1,is_stmt,address _MSC_SetSenseKeys
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 91,column 1,is_stmt,address _MSC_SetSenseKeys
 
 	.dwfde $C$DW$CIE, _MSC_SetSenseKeys
 $C$DW$51	.dwtag  DW_TAG_formal_parameter, DW_AT_name("senseData")
@@ -279,15 +279,15 @@ $C$DW$56	.dwtag  DW_TAG_variable, DW_AT_name("addSenseKey")
         MOV T1, *SP(#3) ; |91| 
         MOV T0, *SP(#2) ; |91| 
         MOV XAR0, dbl(*SP(#0))
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 92,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 92,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV *SP(#2), AR1 ; |92| 
         MOV AR1, *AR3(short(#3)) ; |92| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 93,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 93,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV *SP(#3), AR1 ; |93| 
         MOV AR1, *AR3(#8) ; |93| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 94,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 94,column 1,is_stmt
         AADD #5, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$57	.dwtag  DW_TAG_TI_branch
@@ -295,7 +295,7 @@ $C$DW$57	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$57, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$50, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$50, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$50, DW_AT_TI_end_line(0x5e)
 	.dwattr $C$DW$50, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -309,11 +309,11 @@ $C$DW$58	.dwtag  DW_TAG_subprogram, DW_AT_name("MSC_HandleStateReset")
 	.dwattr $C$DW$58, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$58, DW_AT_TI_symbol_name("_MSC_HandleStateReset")
 	.dwattr $C$DW$58, DW_AT_type(*$C$DW$T$89)
-	.dwattr $C$DW$58, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$58, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$58, DW_AT_TI_begin_line(0x8c)
 	.dwattr $C$DW$58, DW_AT_TI_begin_column(0x0c)
 	.dwattr $C$DW$58, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 142,column 1,is_stmt,address _MSC_HandleStateReset
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 142,column 1,is_stmt,address _MSC_HandleStateReset
 
 	.dwfde $C$DW$CIE, _MSC_HandleStateReset
 $C$DW$59	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pMscHandle")
@@ -354,7 +354,7 @@ $C$DW$63	.dwtag  DW_TAG_variable, DW_AT_name("status")
 	.dwattr $C$DW$63, DW_AT_location[DW_OP_bregx 0x24 4]
         MOV XAR1, dbl(*SP(#2))
         MOV XAR0, dbl(*SP(#0))
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 145,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 145,column 2,is_stmt
         MOV dbl(*SP(#2)), XAR0
 $C$DW$64	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$64, DW_AT_low_pc(0x00)
@@ -363,7 +363,7 @@ $C$DW$64	.dwtag  DW_TAG_TI_branch
         CALL #_USB_abortTransaction ; |145| 
                                         ; call occurs [#_USB_abortTransaction] ; |145| 
         MOV T0, *SP(#4) ; |145| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 146,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 146,column 2,is_stmt
         MOV dbl(*SP(#0)), XAR1
         MOV #31, T0 ; |146| 
         MOV dbl(*SP(#2)), XAR0
@@ -378,12 +378,12 @@ $C$DW$65	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_USB_postTransaction] ; |146| 
         MOV T0, *SP(#4) ; |146| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 148,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 148,column 2,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #1, *AR3(#355) ; |148| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 150,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 150,column 2,is_stmt
         MOV *SP(#4), T0 ; |150| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 151,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 151,column 1,is_stmt
         AADD #5, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$66	.dwtag  DW_TAG_TI_branch
@@ -391,7 +391,7 @@ $C$DW$66	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$66, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$58, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$58, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$58, DW_AT_TI_end_line(0x97)
 	.dwattr $C$DW$58, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -405,11 +405,11 @@ $C$DW$67	.dwtag  DW_TAG_subprogram, DW_AT_name("MSC_HandleStartStopUnit")
 	.dwattr $C$DW$67, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$67, DW_AT_TI_symbol_name("_MSC_HandleStartStopUnit")
 	.dwattr $C$DW$67, DW_AT_type(*$C$DW$T$89)
-	.dwattr $C$DW$67, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$67, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$67, DW_AT_TI_begin_line(0xc7)
 	.dwattr $C$DW$67, DW_AT_TI_begin_column(0x0c)
 	.dwattr $C$DW$67, DW_AT_TI_max_frame_size(0x0a)
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 202,column 1,is_stmt,address _MSC_HandleStartStopUnit
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 202,column 1,is_stmt,address _MSC_HandleStartStopUnit
 
 	.dwfde $C$DW$CIE, _MSC_HandleStartStopUnit
 $C$DW$68	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pMscHandle")
@@ -427,8 +427,8 @@ $C$DW$70	.dwtag  DW_TAG_formal_parameter, DW_AT_name("lunNum")
 ;*******************************************************************************
 ;* FUNCTION NAME: MSC_HandleStartStopUnit                                      *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,T1,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,*
-;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
+;*   Function Uses Regs : AC0,AC0,T0,T1,AR0,XAR0,AR1,XAR1,AR3,XAR3,SP,TC1,M40, *
+;*                        SATA,SATD,RDM,FRCT,SMUL                              *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 10 words                                             *
 ;*                        (2 return address/alignment)                         *
@@ -467,14 +467,14 @@ $C$DW$76	.dwtag  DW_TAG_variable, DW_AT_name("loadEject")
         MOV T0, *SP(#4) ; |202| 
         MOV XAR1, dbl(*SP(#2))
         MOV XAR0, dbl(*SP(#0))
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 207,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 207,column 2,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(#16)), AC0 ; |207| 
         BCC $C$L1,AC0 == #0 ; |207| 
                                         ; branchcc occurs ; |207| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 210,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 210,column 3,is_stmt
         MOV #2, *AR3(#355) ; |210| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 211,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 211,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR0
         AMAR *+AR0(#334) ; |211| 
 $C$DW$77	.dwtag  DW_TAG_TI_branch
@@ -484,7 +484,7 @@ $C$DW$77	.dwtag  DW_TAG_TI_branch
         CALL #_USB_stallEndpt ; |211| 
                                         ; call occurs [#_USB_stallEndpt] ; |211| 
         MOV T0, *SP(#6) ; |211| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 212,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 212,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR0
         AMAR *+AR0(#314) ; |212| 
 $C$DW$78	.dwtag  DW_TAG_TI_branch
@@ -494,7 +494,7 @@ $C$DW$78	.dwtag  DW_TAG_TI_branch
         CALL #_USB_stallEndpt ; |212| 
                                         ; call occurs [#_USB_stallEndpt] ; |212| 
         MOV T0, *SP(#6) ; |212| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 216,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 216,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR0
         MOV dbl(*SP(#0)), XAR3
         MOV #32, T1 ; |216| 
@@ -511,35 +511,33 @@ $C$DW$79	.dwtag  DW_TAG_TI_branch
                                         ; call occurs [#_USB_postTransaction] ; |216| 
         OR *SP(#6), T0, AR1 ; |216| 
         MOV AR1, *SP(#6) ; |216| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 221,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 221,column 3,is_stmt
         MOV AR1, T0
         B $C$L6   ; |221| 
                                         ; branch occurs ; |221| 
 $C$L1:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 224,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 224,column 5,is_stmt
         MOV uns(high_byte(*AR3(#306))), AR1 ; |224| 
         MOV AR1, *SP(#7) ; |224| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 225,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 225,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #0, *AR3(#289) ; |225| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 227,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 227,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #4, *AR3(#355) ; |227| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 229,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 229,column 5,is_stmt
         CMP *SP(#7) == #2, TC1 ; |229| 
         BCC $C$L4,!TC1 ; |229| 
                                         ; branchcc occurs ; |229| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 231,column 9,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 231,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |231| 
-        SFTS AC1, #6, AC0 ; |231| 
-        SUB AC1 << #1, AC0 ; |231| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |231| 
+        MPYMK *SP(#4), #62, AC0 ; |231| 
+        MOV AC0, AR1 ; |231| 
+        AADD AR1, AR3 ; |231| 
         BTST #1, *AR3(#75), TC1 ; |231| 
         BCC $C$L2,!TC1 ; |231| 
                                         ; branchcc occurs ; |231| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 233,column 13,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 233,column 13,is_stmt
         MOV dbl(*SP(#0)), XAR0
         MOV #595, T1 ; |233| 
         AMAR *+AR0(#266) ; |233| 
@@ -552,14 +550,14 @@ $C$DW$80	.dwtag  DW_TAG_TI_branch
 ||      MOV #6, T0
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |233| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 236,column 13,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 236,column 13,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #1, *AR3(#289) ; |236| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 237,column 9,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 237,column 9,is_stmt
         B $C$L5   ; |237| 
                                         ; branch occurs ; |237| 
 $C$L2:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 240,column 13,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 240,column 13,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV *SP(#4), T0 ; |240| 
         MOV dbl(*AR3(#8)), AC0 ; |240| 
@@ -570,20 +568,18 @@ $C$DW$81	.dwtag  DW_TAG_TI_branch
         CALL AC0  ; |240| 
                                         ; call occurs [AC0] ; |240| 
         MOV T0, *SP(#5) ; |240| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 241,column 13,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 241,column 13,is_stmt
         CMP *SP(#5) == #1, TC1 ; |241| 
         BCC $C$L3,!TC1 ; |241| 
                                         ; branchcc occurs ; |241| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 244,column 17,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 244,column 17,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |244| 
-        SFTS AC1, #6, AC0 ; |244| 
-        SUB AC1 << #1, AC0 ; |244| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |244| 
+        MPYMK *SP(#4), #62, AC0 ; |244| 
+        MOV AC0, AR1 ; |244| 
+        AADD AR1, AR3 ; |244| 
         AADD #18, AR3 ; |244| 
         AND #0xfff6, *AR3(#57) ; |244| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 245,column 17,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 245,column 17,is_stmt
         MOV dbl(*SP(#0)), XAR0
         MOV #0, T0
         AMAR *+AR0(#266) ; |245| 
@@ -596,14 +592,14 @@ $C$DW$82	.dwtag  DW_TAG_TI_branch
 ||      MOV #0, T1
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |245| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 248,column 13,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 248,column 13,is_stmt
         B $C$L5   ; |248| 
                                         ; branch occurs ; |248| 
 $C$L3:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 251,column 17,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 251,column 17,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #1, *AR3(#289) ; |251| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 252,column 17,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 252,column 17,is_stmt
         MOV dbl(*SP(#0)), XAR0
         MOV #32, T1 ; |252| 
         AMAR *+AR0(#266) ; |252| 
@@ -616,11 +612,11 @@ $C$DW$83	.dwtag  DW_TAG_TI_branch
 ||      MOV #5, T0
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |252| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 257,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 257,column 5,is_stmt
         B $C$L5   ; |257| 
                                         ; branch occurs ; |257| 
 $C$L4:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 260,column 9,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 260,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR0
         MOV #0, T0
         AMAR *+AR0(#266) ; |260| 
@@ -633,17 +629,15 @@ $C$DW$84	.dwtag  DW_TAG_TI_branch
 ||      MOV #0, T1
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |260| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 264,column 9,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 264,column 9,is_stmt
+        MPYMK *SP(#4), #62, AC0 ; |264| 
+        MOV AC0, AR1 ; |264| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |264| 
-        SFTS AC1, #6, AC0 ; |264| 
-        SUB AC1 << #1, AC0 ; |264| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |264| 
+        AADD AR1, AR3 ; |264| 
         AADD #18, AR3 ; |264| 
         AND #0xfff6, *AR3(#57) ; |264| 
 $C$L5:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 267,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 267,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR1
         MOV dbl(*SP(#2)), XAR0
         MOV #13, T0
@@ -658,9 +652,9 @@ $C$DW$85	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_USB_postTransaction] ; |267| 
         MOV T0, *SP(#6) ; |267| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 269,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 269,column 5,is_stmt
 $C$L6:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 270,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 270,column 1,is_stmt
         AADD #9, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$86	.dwtag  DW_TAG_TI_branch
@@ -668,7 +662,7 @@ $C$DW$86	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$86, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$67, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$67, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$67, DW_AT_TI_end_line(0x10e)
 	.dwattr $C$DW$67, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -682,11 +676,11 @@ $C$DW$87	.dwtag  DW_TAG_subprogram, DW_AT_name("MSC_HandleStateSendCSW")
 	.dwattr $C$DW$87, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$87, DW_AT_TI_symbol_name("_MSC_HandleStateSendCSW")
 	.dwattr $C$DW$87, DW_AT_type(*$C$DW$T$89)
-	.dwattr $C$DW$87, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$87, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$87, DW_AT_TI_begin_line(0x13e)
 	.dwattr $C$DW$87, DW_AT_TI_begin_column(0x0c)
 	.dwattr $C$DW$87, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 321,column 1,is_stmt,address _MSC_HandleStateSendCSW
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 321,column 1,is_stmt,address _MSC_HandleStateSendCSW
 
 	.dwfde $C$DW$CIE, _MSC_HandleStateSendCSW
 $C$DW$88	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pMscHandle")
@@ -736,7 +730,7 @@ $C$DW$94	.dwtag  DW_TAG_variable, DW_AT_name("status")
         MOV XAR2, dbl(*SP(#4))
         MOV XAR1, dbl(*SP(#2))
         MOV XAR0, dbl(*SP(#0))
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 324,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 324,column 2,is_stmt
         MOV dbl(*SP(#4)), XAR0
         AMAR *SP(#6), XAR1
 $C$DW$95	.dwtag  DW_TAG_TI_branch
@@ -747,13 +741,13 @@ $C$DW$95	.dwtag  DW_TAG_TI_branch
                                         ; call occurs [#_USB_isTransactionDone] ; |324| 
         BCC $C$L7,T0 == #0 ; |324| 
                                         ; branchcc occurs ; |324| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 326,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 326,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #0, *AR3(#281) ; |326| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 327,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 327,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #1, *AR3(#355) ; |327| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 328,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 328,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR1
         MOV #31, T0 ; |328| 
         MOV dbl(*SP(#2)), XAR0
@@ -770,9 +764,9 @@ $C$DW$96	.dwtag  DW_TAG_TI_branch
         OR *SP(#6), T0, AR1 ; |328| 
         MOV AR1, *SP(#6) ; |328| 
 $C$L7:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 332,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 332,column 2,is_stmt
         MOV *SP(#6), T0 ; |332| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 333,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 333,column 1,is_stmt
         AADD #7, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$97	.dwtag  DW_TAG_TI_branch
@@ -780,7 +774,7 @@ $C$DW$97	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$97, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$87, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$87, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$87, DW_AT_TI_end_line(0x14d)
 	.dwattr $C$DW$87, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -794,11 +788,11 @@ $C$DW$98	.dwtag  DW_TAG_subprogram, DW_AT_name("MSC_HandleStateSendData")
 	.dwattr $C$DW$98, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$98, DW_AT_TI_symbol_name("_MSC_HandleStateSendData")
 	.dwattr $C$DW$98, DW_AT_type(*$C$DW$T$89)
-	.dwattr $C$DW$98, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$98, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$98, DW_AT_TI_begin_line(0x17c)
 	.dwattr $C$DW$98, DW_AT_TI_begin_column(0x0c)
 	.dwattr $C$DW$98, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 382,column 1,is_stmt,address _MSC_HandleStateSendData
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 382,column 1,is_stmt,address _MSC_HandleStateSendData
 
 	.dwfde $C$DW$CIE, _MSC_HandleStateSendData
 $C$DW$99	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pMscHandle")
@@ -839,7 +833,7 @@ $C$DW$103	.dwtag  DW_TAG_variable, DW_AT_name("status")
 	.dwattr $C$DW$103, DW_AT_location[DW_OP_bregx 0x24 4]
         MOV XAR1, dbl(*SP(#2))
         MOV XAR0, dbl(*SP(#0))
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 385,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 385,column 5,is_stmt
         MOV dbl(*SP(#2)), XAR0
         AMAR *SP(#4), XAR1
 $C$DW$104	.dwtag  DW_TAG_TI_branch
@@ -850,7 +844,7 @@ $C$DW$104	.dwtag  DW_TAG_TI_branch
                                         ; call occurs [#_USB_isTransactionDone] ; |385| 
         BCC $C$L8,T0 == #0 ; |385| 
                                         ; branchcc occurs ; |385| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 387,column 9,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 387,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR1
         MOV dbl(*SP(#2)), XAR0
         MOV #13, T0
@@ -866,13 +860,13 @@ $C$DW$105	.dwtag  DW_TAG_TI_branch
                                         ; call occurs [#_USB_postTransaction] ; |387| 
         OR *SP(#4), T0, AR1 ; |387| 
         MOV AR1, *SP(#4) ; |387| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 389,column 9,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 389,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #4, *AR3(#355) ; |389| 
 $C$L8:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 392,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 392,column 5,is_stmt
         MOV *SP(#4), T0 ; |392| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 393,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 393,column 1,is_stmt
         AADD #5, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$106	.dwtag  DW_TAG_TI_branch
@@ -880,7 +874,7 @@ $C$DW$106	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$106, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$98, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$98, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$98, DW_AT_TI_end_line(0x189)
 	.dwattr $C$DW$98, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -894,11 +888,11 @@ $C$DW$107	.dwtag  DW_TAG_subprogram, DW_AT_name("MSC_HandleStateSendStall")
 	.dwattr $C$DW$107, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$107, DW_AT_TI_symbol_name("_MSC_HandleStateSendStall")
 	.dwattr $C$DW$107, DW_AT_type(*$C$DW$T$89)
-	.dwattr $C$DW$107, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$107, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$107, DW_AT_TI_begin_line(0x1b8)
 	.dwattr $C$DW$107, DW_AT_TI_begin_column(0x0c)
 	.dwattr $C$DW$107, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 442,column 1,is_stmt,address _MSC_HandleStateSendStall
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 442,column 1,is_stmt,address _MSC_HandleStateSendStall
 
 	.dwfde $C$DW$CIE, _MSC_HandleStateSendStall
 $C$DW$108	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pMscHandle")
@@ -939,7 +933,7 @@ $C$DW$112	.dwtag  DW_TAG_variable, DW_AT_name("status")
 	.dwattr $C$DW$112, DW_AT_location[DW_OP_bregx 0x24 4]
         MOV XAR1, dbl(*SP(#2))
         MOV XAR0, dbl(*SP(#0))
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 445,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 445,column 5,is_stmt
         MOV dbl(*SP(#2)), XAR0
         AMAR *SP(#4), XAR1
 $C$DW$113	.dwtag  DW_TAG_TI_branch
@@ -950,7 +944,7 @@ $C$DW$113	.dwtag  DW_TAG_TI_branch
                                         ; call occurs [#_USB_isTransactionDone] ; |445| 
         BCC $C$L9,T0 == #0 ; |445| 
                                         ; branchcc occurs ; |445| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 447,column 9,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 447,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR1
         MOV dbl(*SP(#2)), XAR0
         MOV #13, T0
@@ -966,13 +960,13 @@ $C$DW$114	.dwtag  DW_TAG_TI_branch
                                         ; call occurs [#_USB_postTransaction] ; |447| 
         OR *SP(#4), T0, AR1 ; |447| 
         MOV AR1, *SP(#4) ; |447| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 449,column 9,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 449,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #4, *AR3(#355) ; |449| 
 $C$L9:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 452,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 452,column 5,is_stmt
         MOV *SP(#4), T0 ; |452| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 453,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 453,column 1,is_stmt
         AADD #5, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$115	.dwtag  DW_TAG_TI_branch
@@ -980,7 +974,7 @@ $C$DW$115	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$115, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$107, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$107, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$107, DW_AT_TI_end_line(0x1c5)
 	.dwattr $C$DW$107, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -994,11 +988,11 @@ $C$DW$116	.dwtag  DW_TAG_subprogram, DW_AT_name("MSC_HandleStateSendingShortPkt"
 	.dwattr $C$DW$116, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$116, DW_AT_TI_symbol_name("_MSC_HandleStateSendingShortPkt")
 	.dwattr $C$DW$116, DW_AT_type(*$C$DW$T$89)
-	.dwattr $C$DW$116, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$116, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$116, DW_AT_TI_begin_line(0x1f4)
 	.dwattr $C$DW$116, DW_AT_TI_begin_column(0x0c)
 	.dwattr $C$DW$116, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 502,column 1,is_stmt,address _MSC_HandleStateSendingShortPkt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 502,column 1,is_stmt,address _MSC_HandleStateSendingShortPkt
 
 	.dwfde $C$DW$CIE, _MSC_HandleStateSendingShortPkt
 $C$DW$117	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pMscHandle")
@@ -1039,10 +1033,10 @@ $C$DW$121	.dwtag  DW_TAG_variable, DW_AT_name("status")
 	.dwattr $C$DW$121, DW_AT_location[DW_OP_bregx 0x24 4]
         MOV XAR1, dbl(*SP(#2))
         MOV XAR0, dbl(*SP(#0))
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 505,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 505,column 2,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #2, *AR3(#355) ; |505| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 507,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 507,column 2,is_stmt
         MOV dbl(*SP(#2)), XAR0
 $C$DW$122	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$122, DW_AT_low_pc(0x00)
@@ -1051,7 +1045,7 @@ $C$DW$122	.dwtag  DW_TAG_TI_branch
         CALL #_USB_stallEndpt ; |507| 
                                         ; call occurs [#_USB_stallEndpt] ; |507| 
         MOV T0, *SP(#4) ; |507| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 510,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 510,column 2,is_stmt
         MOV dbl(*SP(#0)), XAR1
         MOV #32, T1 ; |510| 
         MOV dbl(*SP(#2)), XAR0
@@ -1067,9 +1061,9 @@ $C$DW$123	.dwtag  DW_TAG_TI_branch
                                         ; call occurs [#_USB_postTransaction] ; |510| 
         OR *SP(#4), T0, AR1 ; |510| 
         MOV AR1, *SP(#4) ; |510| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 514,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 514,column 2,is_stmt
         MOV AR1, T0
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 515,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 515,column 1,is_stmt
         AADD #5, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$124	.dwtag  DW_TAG_TI_branch
@@ -1077,7 +1071,7 @@ $C$DW$124	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$124, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$116, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$116, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$116, DW_AT_TI_end_line(0x203)
 	.dwattr $C$DW$116, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1091,11 +1085,11 @@ $C$DW$125	.dwtag  DW_TAG_subprogram, DW_AT_name("MSC_HandleModeSense6")
 	.dwattr $C$DW$125, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$125, DW_AT_TI_symbol_name("_MSC_HandleModeSense6")
 	.dwattr $C$DW$125, DW_AT_type(*$C$DW$T$89)
-	.dwattr $C$DW$125, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$125, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$125, DW_AT_TI_begin_line(0x233)
 	.dwattr $C$DW$125, DW_AT_TI_begin_column(0x0c)
 	.dwattr $C$DW$125, DW_AT_TI_max_frame_size(0x0a)
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 566,column 1,is_stmt,address _MSC_HandleModeSense6
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 566,column 1,is_stmt,address _MSC_HandleModeSense6
 
 	.dwfde $C$DW$CIE, _MSC_HandleModeSense6
 $C$DW$126	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pMscHandle")
@@ -1153,7 +1147,7 @@ $C$DW$134	.dwtag  DW_TAG_variable, DW_AT_name("smallerLen")
         MOV T0, *SP(#4) ; |566| 
         MOV XAR1, dbl(*SP(#2))
         MOV XAR0, dbl(*SP(#0))
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 572,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 572,column 2,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV *AR3(#303), AR1 ; |572| 
 
@@ -1166,12 +1160,12 @@ $C$DW$134	.dwtag  DW_TAG_variable, DW_AT_name("smallerLen")
         MOV dbl(*AR3(#16)), AC0 ; |572| 
         BCC $C$L10,AC0 == #0 ; |572| 
                                         ; branchcc occurs ; |572| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 576,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 576,column 3,is_stmt
         MOV #2, *AR3(#289) ; |576| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 579,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 579,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #2, *AR3(#355) ; |579| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 580,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 580,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR0
         AMAR *+AR0(#314) ; |580| 
 $C$DW$135	.dwtag  DW_TAG_TI_branch
@@ -1181,7 +1175,7 @@ $C$DW$135	.dwtag  DW_TAG_TI_branch
         CALL #_USB_stallEndpt ; |580| 
                                         ; call occurs [#_USB_stallEndpt] ; |580| 
         MOV T0, *SP(#5) ; |580| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 581,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 581,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR0
         AMAR *+AR0(#334) ; |581| 
 $C$DW$136	.dwtag  DW_TAG_TI_branch
@@ -1191,7 +1185,7 @@ $C$DW$136	.dwtag  DW_TAG_TI_branch
         CALL #_USB_stallEndpt ; |581| 
                                         ; call occurs [#_USB_stallEndpt] ; |581| 
         MOV T0, *SP(#5) ; |581| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 584,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 584,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR0
         MOV dbl(*SP(#0)), XAR3
         MOV #32, T1 ; |584| 
@@ -1207,53 +1201,53 @@ $C$DW$137	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_USB_postTransaction] ; |584| 
         MOV T0, *SP(#5) ; |584| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 588,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 588,column 3,is_stmt
         B $C$L15  ; |588| 
                                         ; branch occurs ; |588| 
 $C$L10:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 591,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 591,column 2,is_stmt
         MOV dbl(*AR3(#16)), AC0 ; |591| 
         BCC $C$L13,AC0 == #0 ; |591| 
                                         ; branchcc occurs ; |591| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 593,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 593,column 3,is_stmt
         MOV *AR3(#356), AR1 ; |593| 
         MOV AR1, *SP(#6) ; |593| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 596,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 596,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV uns(*SP(#6)), AC1 ; |596| 
         MOV dbl(*AR3(#16)), AC0 ; |596| 
         CMPU AC1 >= AC0, TC1 ; |596| 
         BCC $C$L11,TC1 ; |596| 
                                         ; branchcc occurs ; |596| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 598,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 598,column 4,is_stmt
         MOV AR1, *SP(#7) ; |598| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 599,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 599,column 3,is_stmt
         B $C$L12  ; |599| 
                                         ; branch occurs ; |599| 
 $C$L11:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 602,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 602,column 4,is_stmt
         MOV dbl(*AR3(#16)), AC0 ; |602| 
         AND #0xffff, AC0, AC0 ; |602| 
         MOV AC0, *SP(#7) ; |602| 
 $C$L12:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 607,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 607,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV uns(*SP(#7)), AC0 ; |607| 
         SUB AC0, dbl(*AR3(#16)), AC0 ; |607| 
         MOV AC0, dbl(*AR3(#16)) ; |607| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 608,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 608,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(#16)), AC0 ; |608| 
         AND #0xffff, AC0, AC0 ; |608| 
         MOV AC0, *AR3(#287) ; |608| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 610,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 610,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(#16)), AC0 ; |610| 
         MOV HI(AC0), *AR3(#288) ; |610| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 612,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 612,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #0, *AR3(#289) ; |612| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 613,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 613,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR1
         MOV dbl(*SP(#2)), XAR0
         MOV *SP(#7), T0 ; |613| 
@@ -1268,14 +1262,14 @@ $C$DW$138	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_USB_postTransaction] ; |613| 
         MOV T0, *SP(#5) ; |613| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 617,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 617,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #3, *AR3(#355) ; |617| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 618,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 618,column 2,is_stmt
         B $C$L14  ; |618| 
                                         ; branch occurs ; |618| 
 $C$L13:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 621,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 621,column 3,is_stmt
         MOV dbl(*SP(#2)), XAR1
 $C$DW$139	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$139, DW_AT_low_pc(0x00)
@@ -1285,10 +1279,10 @@ $C$DW$139	.dwtag  DW_TAG_TI_branch
                                         ; call occurs [#_MSC_sendCswWithPhaseError] ; |621| 
         MOV T0, *SP(#5) ; |621| 
 $C$L14:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 624,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 624,column 2,is_stmt
         MOV *SP(#5), T0 ; |624| 
 $C$L15:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 625,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 625,column 1,is_stmt
         AADD #9, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$140	.dwtag  DW_TAG_TI_branch
@@ -1296,7 +1290,7 @@ $C$DW$140	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$140, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$125, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$125, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$125, DW_AT_TI_end_line(0x271)
 	.dwattr $C$DW$125, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1310,11 +1304,11 @@ $C$DW$141	.dwtag  DW_TAG_subprogram, DW_AT_name("MSC_HandleModeSense10")
 	.dwattr $C$DW$141, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$141, DW_AT_TI_symbol_name("_MSC_HandleModeSense10")
 	.dwattr $C$DW$141, DW_AT_type(*$C$DW$T$89)
-	.dwattr $C$DW$141, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$141, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$141, DW_AT_TI_begin_line(0x2a1)
 	.dwattr $C$DW$141, DW_AT_TI_begin_column(0x0c)
 	.dwattr $C$DW$141, DW_AT_TI_max_frame_size(0x0a)
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 676,column 1,is_stmt,address _MSC_HandleModeSense10
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 676,column 1,is_stmt,address _MSC_HandleModeSense10
 
 	.dwfde $C$DW$CIE, _MSC_HandleModeSense10
 $C$DW$142	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pMscHandle")
@@ -1372,7 +1366,7 @@ $C$DW$150	.dwtag  DW_TAG_variable, DW_AT_name("smallerLen")
         MOV T0, *SP(#4) ; |676| 
         MOV XAR1, dbl(*SP(#2))
         MOV XAR0, dbl(*SP(#0))
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 682,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 682,column 2,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV *AR3(#303), AR1 ; |682| 
 
@@ -1385,12 +1379,12 @@ $C$DW$150	.dwtag  DW_TAG_variable, DW_AT_name("smallerLen")
         MOV dbl(*AR3(#16)), AC0 ; |682| 
         BCC $C$L16,AC0 == #0 ; |682| 
                                         ; branchcc occurs ; |682| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 686,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 686,column 3,is_stmt
         MOV #2, *AR3(#289) ; |686| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 689,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 689,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #2, *AR3(#355) ; |689| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 690,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 690,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR0
         AMAR *+AR0(#314) ; |690| 
 $C$DW$151	.dwtag  DW_TAG_TI_branch
@@ -1400,7 +1394,7 @@ $C$DW$151	.dwtag  DW_TAG_TI_branch
         CALL #_USB_stallEndpt ; |690| 
                                         ; call occurs [#_USB_stallEndpt] ; |690| 
         MOV T0, *SP(#5) ; |690| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 691,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 691,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR0
         AMAR *+AR0(#334) ; |691| 
 $C$DW$152	.dwtag  DW_TAG_TI_branch
@@ -1410,7 +1404,7 @@ $C$DW$152	.dwtag  DW_TAG_TI_branch
         CALL #_USB_stallEndpt ; |691| 
                                         ; call occurs [#_USB_stallEndpt] ; |691| 
         MOV T0, *SP(#5) ; |691| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 694,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 694,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR0
         MOV dbl(*SP(#0)), XAR3
         MOV #32, T1 ; |694| 
@@ -1426,53 +1420,53 @@ $C$DW$153	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_USB_postTransaction] ; |694| 
         MOV T0, *SP(#5) ; |694| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 698,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 698,column 3,is_stmt
         B $C$L21  ; |698| 
                                         ; branch occurs ; |698| 
 $C$L16:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 701,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 701,column 2,is_stmt
         MOV dbl(*AR3(#16)), AC0 ; |701| 
         BCC $C$L19,AC0 == #0 ; |701| 
                                         ; branchcc occurs ; |701| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 703,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 703,column 3,is_stmt
         MOV *AR3(#356), AR1 ; |703| 
         MOV AR1, *SP(#6) ; |703| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 706,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 706,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV uns(*SP(#6)), AC1 ; |706| 
         MOV dbl(*AR3(#16)), AC0 ; |706| 
         CMPU AC1 >= AC0, TC1 ; |706| 
         BCC $C$L17,TC1 ; |706| 
                                         ; branchcc occurs ; |706| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 708,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 708,column 4,is_stmt
         MOV AR1, *SP(#7) ; |708| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 709,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 709,column 3,is_stmt
         B $C$L18  ; |709| 
                                         ; branch occurs ; |709| 
 $C$L17:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 712,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 712,column 4,is_stmt
         MOV dbl(*AR3(#16)), AC0 ; |712| 
         AND #0xffff, AC0, AC0 ; |712| 
         MOV AC0, *SP(#7) ; |712| 
 $C$L18:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 717,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 717,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV uns(*SP(#7)), AC0 ; |717| 
         SUB AC0, dbl(*AR3(#16)), AC0 ; |717| 
         MOV AC0, dbl(*AR3(#16)) ; |717| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 718,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 718,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(#16)), AC0 ; |718| 
         AND #0xffff, AC0, AC0 ; |718| 
         MOV AC0, *AR3(#287) ; |718| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 720,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 720,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(#16)), AC0 ; |720| 
         MOV HI(AC0), *AR3(#288) ; |720| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 722,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 722,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #0, *AR3(#289) ; |722| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 723,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 723,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR1
         MOV dbl(*SP(#2)), XAR0
         MOV *SP(#7), T0 ; |723| 
@@ -1487,14 +1481,14 @@ $C$DW$154	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_USB_postTransaction] ; |723| 
         MOV T0, *SP(#5) ; |723| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 727,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 727,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #3, *AR3(#355) ; |727| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 728,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 728,column 2,is_stmt
         B $C$L20  ; |728| 
                                         ; branch occurs ; |728| 
 $C$L19:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 731,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 731,column 3,is_stmt
         MOV dbl(*SP(#2)), XAR1
 $C$DW$155	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$155, DW_AT_low_pc(0x00)
@@ -1504,10 +1498,10 @@ $C$DW$155	.dwtag  DW_TAG_TI_branch
                                         ; call occurs [#_MSC_sendCswWithPhaseError] ; |731| 
         MOV T0, *SP(#5) ; |731| 
 $C$L20:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 734,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 734,column 2,is_stmt
         MOV *SP(#5), T0 ; |734| 
 $C$L21:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 735,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 735,column 1,is_stmt
         AADD #9, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$156	.dwtag  DW_TAG_TI_branch
@@ -1515,7 +1509,7 @@ $C$DW$156	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$156, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$141, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$141, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$141, DW_AT_TI_end_line(0x2df)
 	.dwattr $C$DW$141, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1529,11 +1523,11 @@ $C$DW$157	.dwtag  DW_TAG_subprogram, DW_AT_name("MSC_HandleInquiry")
 	.dwattr $C$DW$157, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$157, DW_AT_TI_symbol_name("_MSC_HandleInquiry")
 	.dwattr $C$DW$157, DW_AT_type(*$C$DW$T$89)
-	.dwattr $C$DW$157, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$157, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$157, DW_AT_TI_begin_line(0x30f)
 	.dwattr $C$DW$157, DW_AT_TI_begin_column(0x0c)
 	.dwattr $C$DW$157, DW_AT_TI_max_frame_size(0x0a)
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 786,column 1,is_stmt,address _MSC_HandleInquiry
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 786,column 1,is_stmt,address _MSC_HandleInquiry
 
 	.dwfde $C$DW$CIE, _MSC_HandleInquiry
 $C$DW$158	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pMscHandle")
@@ -1551,8 +1545,8 @@ $C$DW$160	.dwtag  DW_TAG_formal_parameter, DW_AT_name("logicalUnit")
 ;*******************************************************************************
 ;* FUNCTION NAME: MSC_HandleInquiry                                            *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,T1,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,*
-;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,T1,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,*
+;*                        SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL             *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 10 words                                             *
 ;*                        (2 return address/alignment)                         *
@@ -1591,7 +1585,7 @@ $C$DW$166	.dwtag  DW_TAG_variable, DW_AT_name("smallerLen")
         MOV T0, *SP(#4) ; |786| 
         MOV XAR1, dbl(*SP(#2))
         MOV XAR0, dbl(*SP(#0))
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 792,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 792,column 2,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV *AR3(#303), AR1 ; |792| 
 
@@ -1604,7 +1598,7 @@ $C$DW$166	.dwtag  DW_TAG_variable, DW_AT_name("smallerLen")
         MOV dbl(*AR3(#16)), AC0 ; |792| 
         BCC $C$L22,AC0 == #0 ; |792| 
                                         ; branchcc occurs ; |792| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 796,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 796,column 3,is_stmt
         MOV #128, T0 ; |796| 
 $C$DW$167	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$167, DW_AT_low_pc(0x00)
@@ -1613,71 +1607,67 @@ $C$DW$167	.dwtag  DW_TAG_TI_branch
         CALL #_MSC_handleDataDirMisMatch ; |796| 
                                         ; call occurs [#_MSC_handleDataDirMisMatch] ; |796| 
         MOV T0, *SP(#5) ; |796| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 798,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 798,column 3,is_stmt
         B $C$L27  ; |798| 
                                         ; branch occurs ; |798| 
 $C$L22:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 801,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 801,column 2,is_stmt
         MOV dbl(*AR3(#16)), AC0 ; |801| 
         BCC $C$L25,AC0 == #0 ; |801| 
                                         ; branchcc occurs ; |801| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 803,column 3,is_stmt
-        MOV uns(*SP(#4)), AC1 ; |803| 
-        SFTS AC1, #6, AC0 ; |803| 
-        SUB AC1 << #1, AC0 ; |803| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |803| 
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 803,column 3,is_stmt
+        MPYMK *SP(#4), #62, AC0 ; |803| 
+        MOV AC0, AR1 ; |803| 
+        AADD AR1, AR3 ; |803| 
         MOV *AR3(#18), AR1 ; |803| 
         MOV AR1, *SP(#6) ; |803| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 805,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 805,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV uns(*SP(#6)), AC1 ; |805| 
         MOV dbl(*AR3(#16)), AC0 ; |805| 
         CMPU AC1 >= AC0, TC1 ; |805| 
         BCC $C$L23,TC1 ; |805| 
                                         ; branchcc occurs ; |805| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 807,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 807,column 4,is_stmt
         MOV AR1, *SP(#7) ; |807| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 808,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 808,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #7, *AR3(#355) ; |808| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 809,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 809,column 3,is_stmt
         B $C$L24  ; |809| 
                                         ; branch occurs ; |809| 
 $C$L23:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 812,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 812,column 4,is_stmt
         MOV dbl(*AR3(#16)), AC0 ; |812| 
         AND #0xffff, AC0, AC0 ; |812| 
         MOV AC0, *SP(#7) ; |812| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 814,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 814,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #3, *AR3(#355) ; |814| 
 $C$L24:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 818,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 818,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV uns(*SP(#7)), AC0 ; |818| 
         SUB AC0, dbl(*AR3(#16)), AC0 ; |818| 
         MOV AC0, dbl(*AR3(#16)) ; |818| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 819,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 819,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(#16)), AC0 ; |819| 
         AND #0xffff, AC0, AC0 ; |819| 
         MOV AC0, *AR3(#287) ; |819| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 821,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 821,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(#16)), AC0 ; |821| 
         MOV HI(AC0), *AR3(#288) ; |821| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 823,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 823,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #0, *AR3(#289) ; |823| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 825,column 3,is_stmt
-        MOV uns(*SP(#4)), AC1 ; |825| 
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 825,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR1
-        SFTS AC1, #6, AC0 ; |825| 
-        SUB AC1 << #1, AC0 ; |825| 
-        MOV AC0, XAR3
+        MPYMK *SP(#4), #62, AC0 ; |825| 
+        MOV AC0, AR2 ; |825| 
         MOV dbl(*SP(#2)), XAR0
-        AADD XAR3, XAR1 ; |825| 
+        AADD AR2, AR1 ; |825| 
 
         AADD #19, AR1 ; |825| 
 ||      MOV *SP(#7), T0 ; |825| 
@@ -1692,11 +1682,11 @@ $C$DW$168	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_USB_postTransaction] ; |825| 
         MOV T0, *SP(#5) ; |825| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 828,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 828,column 2,is_stmt
         B $C$L26  ; |828| 
                                         ; branch occurs ; |828| 
 $C$L25:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 831,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 831,column 3,is_stmt
         MOV dbl(*SP(#2)), XAR1
 $C$DW$169	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$169, DW_AT_low_pc(0x00)
@@ -1706,9 +1696,9 @@ $C$DW$169	.dwtag  DW_TAG_TI_branch
                                         ; call occurs [#_MSC_sendCswWithPhaseError] ; |831| 
         MOV T0, *SP(#5) ; |831| 
 $C$L26:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 834,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 834,column 2,is_stmt
 $C$L27:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 835,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 835,column 1,is_stmt
         AADD #9, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$170	.dwtag  DW_TAG_TI_branch
@@ -1716,7 +1706,7 @@ $C$DW$170	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$170, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$157, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$157, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$157, DW_AT_TI_end_line(0x343)
 	.dwattr $C$DW$157, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1730,11 +1720,11 @@ $C$DW$171	.dwtag  DW_TAG_subprogram, DW_AT_name("MSC_HandleRequestSense")
 	.dwattr $C$DW$171, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$171, DW_AT_TI_symbol_name("_MSC_HandleRequestSense")
 	.dwattr $C$DW$171, DW_AT_type(*$C$DW$T$89)
-	.dwattr $C$DW$171, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$171, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$171, DW_AT_TI_begin_line(0x372)
 	.dwattr $C$DW$171, DW_AT_TI_begin_column(0x0c)
 	.dwattr $C$DW$171, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 884,column 1,is_stmt,address _MSC_HandleRequestSense
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 884,column 1,is_stmt,address _MSC_HandleRequestSense
 
 	.dwfde $C$DW$CIE, _MSC_HandleRequestSense
 $C$DW$172	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pMscHandle")
@@ -1783,7 +1773,7 @@ $C$DW$178	.dwtag  DW_TAG_variable, DW_AT_name("smallerLen")
 	.dwattr $C$DW$178, DW_AT_location[DW_OP_bregx 0x24 6]
         MOV XAR1, dbl(*SP(#2))
         MOV XAR0, dbl(*SP(#0))
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 890,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 890,column 2,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV *AR3(#303), AR1 ; |890| 
 
@@ -1796,7 +1786,7 @@ $C$DW$178	.dwtag  DW_TAG_variable, DW_AT_name("smallerLen")
         MOV dbl(*AR3(#16)), AC0 ; |890| 
         BCC $C$L28,AC0 == #0 ; |890| 
                                         ; branchcc occurs ; |890| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 894,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 894,column 3,is_stmt
         MOV #128, T0 ; |894| 
 $C$DW$179	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$179, DW_AT_low_pc(0x00)
@@ -1805,59 +1795,59 @@ $C$DW$179	.dwtag  DW_TAG_TI_branch
         CALL #_MSC_handleDataDirMisMatch ; |894| 
                                         ; call occurs [#_MSC_handleDataDirMisMatch] ; |894| 
         MOV T0, *SP(#4) ; |894| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 896,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 896,column 3,is_stmt
         B $C$L33  ; |896| 
                                         ; branch occurs ; |896| 
 $C$L28:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 899,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 899,column 2,is_stmt
         MOV dbl(*AR3(#16)), AC0 ; |899| 
         BCC $C$L31,AC0 == #0 ; |899| 
                                         ; branchcc occurs ; |899| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 901,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 901,column 3,is_stmt
         MOV *AR3(#266), AR1 ; |901| 
         MOV AR1, *SP(#5) ; |901| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 904,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 904,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV uns(*SP(#5)), AC1 ; |904| 
         MOV dbl(*AR3(#16)), AC0 ; |904| 
         CMPU AC1 >= AC0, TC1 ; |904| 
         BCC $C$L29,TC1 ; |904| 
                                         ; branchcc occurs ; |904| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 906,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 906,column 4,is_stmt
         MOV #7, *AR3(#355) ; |906| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 907,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 907,column 4,is_stmt
         MOV *SP(#5), AR1 ; |907| 
         MOV AR1, *SP(#6) ; |907| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 908,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 908,column 3,is_stmt
         B $C$L30  ; |908| 
                                         ; branch occurs ; |908| 
 $C$L29:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 911,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 911,column 4,is_stmt
         MOV #3, *AR3(#355) ; |911| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 913,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 913,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(#16)), AC0 ; |913| 
         AND #0xffff, AC0, AC0 ; |913| 
         MOV AC0, *SP(#6) ; |913| 
 $C$L30:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 918,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 918,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV uns(*SP(#6)), AC0 ; |918| 
         SUB AC0, dbl(*AR3(#16)), AC0 ; |918| 
         MOV AC0, dbl(*AR3(#16)) ; |918| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 919,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 919,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(#16)), AC0 ; |919| 
         AND #0x0010, AC0, AC0 ; |919| 
         MOV AC0, *AR3(#287) ; |919| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 921,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 921,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(#16)), AC0 ; |921| 
         MOV HI(AC0), *AR3(#288) ; |921| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 923,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 923,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #0, *AR3(#289) ; |923| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 924,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 924,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR1
         MOV dbl(*SP(#2)), XAR0
         MOV *SP(#6), T0 ; |924| 
@@ -1872,11 +1862,11 @@ $C$DW$180	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_USB_postTransaction] ; |924| 
         MOV T0, *SP(#4) ; |924| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 927,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 927,column 2,is_stmt
         B $C$L32  ; |927| 
                                         ; branch occurs ; |927| 
 $C$L31:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 930,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 930,column 3,is_stmt
         MOV dbl(*SP(#2)), XAR1
 $C$DW$181	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$181, DW_AT_low_pc(0x00)
@@ -1886,9 +1876,9 @@ $C$DW$181	.dwtag  DW_TAG_TI_branch
                                         ; call occurs [#_MSC_sendCswWithPhaseError] ; |930| 
         MOV T0, *SP(#4) ; |930| 
 $C$L32:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 933,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 933,column 2,is_stmt
 $C$L33:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 934,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 934,column 1,is_stmt
         AADD #7, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$182	.dwtag  DW_TAG_TI_branch
@@ -1896,7 +1886,7 @@ $C$DW$182	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$182, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$171, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$171, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$171, DW_AT_TI_end_line(0x3a6)
 	.dwattr $C$DW$171, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -1910,11 +1900,11 @@ $C$DW$183	.dwtag  DW_TAG_subprogram, DW_AT_name("MSC_HandleVerify10")
 	.dwattr $C$DW$183, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$183, DW_AT_TI_symbol_name("_MSC_HandleVerify10")
 	.dwattr $C$DW$183, DW_AT_type(*$C$DW$T$89)
-	.dwattr $C$DW$183, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$183, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$183, DW_AT_TI_begin_line(0x3d6)
 	.dwattr $C$DW$183, DW_AT_TI_begin_column(0x0c)
 	.dwattr $C$DW$183, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 985,column 1,is_stmt,address _MSC_HandleVerify10
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 985,column 1,is_stmt,address _MSC_HandleVerify10
 
 	.dwfde $C$DW$CIE, _MSC_HandleVerify10
 $C$DW$184	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pMscHandle")
@@ -1932,8 +1922,8 @@ $C$DW$186	.dwtag  DW_TAG_formal_parameter, DW_AT_name("logicalUnit")
 ;*******************************************************************************
 ;* FUNCTION NAME: MSC_HandleVerify10                                           *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,T1,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,*
-;*                        XAR3,SP,CARRY,M40,SATA,SATD,RDM,FRCT,SMUL            *
+;*   Function Uses Regs : AC0,AC0,AC1,T0,T1,AR0,XAR0,AR1,XAR1,AR3,XAR3,SP,M40, *
+;*                        SATA,SATD,RDM,FRCT,SMUL                              *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 8 words                                              *
 ;*                        (1 return address/alignment)                         *
@@ -1968,14 +1958,14 @@ $C$DW$191	.dwtag  DW_TAG_variable, DW_AT_name("verifyLen")
         MOV T0, *SP(#4) ; |985| 
         MOV XAR1, dbl(*SP(#2))
         MOV XAR0, dbl(*SP(#0))
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 989,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 989,column 2,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(#16)), AC0 ; |989| 
         BCC $C$L34,AC0 == #0 ; |989| 
                                         ; branchcc occurs ; |989| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 992,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 992,column 3,is_stmt
         MOV #2, *AR3(#355) ; |992| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 993,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 993,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR0
         AMAR *+AR0(#334) ; |993| 
 $C$DW$192	.dwtag  DW_TAG_TI_branch
@@ -1985,7 +1975,7 @@ $C$DW$192	.dwtag  DW_TAG_TI_branch
         CALL #_USB_stallEndpt ; |993| 
                                         ; call occurs [#_USB_stallEndpt] ; |993| 
         MOV T0, *SP(#5) ; |993| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 994,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 994,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR0
         AMAR *+AR0(#314) ; |994| 
 $C$DW$193	.dwtag  DW_TAG_TI_branch
@@ -1995,7 +1985,7 @@ $C$DW$193	.dwtag  DW_TAG_TI_branch
         CALL #_USB_stallEndpt ; |994| 
                                         ; call occurs [#_USB_stallEndpt] ; |994| 
         MOV T0, *SP(#5) ; |994| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 998,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 998,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR0
         MOV dbl(*SP(#0)), XAR3
         MOV #32, T1 ; |998| 
@@ -2012,25 +2002,23 @@ $C$DW$194	.dwtag  DW_TAG_TI_branch
                                         ; call occurs [#_USB_postTransaction] ; |998| 
         OR *SP(#5), T0, AR1 ; |998| 
         MOV AR1, *SP(#5) ; |998| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1003,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1003,column 3,is_stmt
         MOV AR1, T0
         B $C$L38  ; |1003| 
                                         ; branch occurs ; |1003| 
 $C$L34:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1006,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1006,column 5,is_stmt
         MOV *AR3(#308), AR1 ; |1006| 
         MOV *AR3(#308), AC1 ; |1006| 
         AND #0xff00, AR1, AC0 ; |1006| 
         BFXTR #0xff00, AC0, AC0 ; |1006| 
         OR AC1 << #8, AC0 ; |1006| 
         MOV AC0, *SP(#6) ; |1006| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1010,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1010,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |1010| 
-        SFTS AC1, #6, AC0 ; |1010| 
-        SUB AC1 << #1, AC0 ; |1010| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1010| 
+        MPYMK *SP(#4), #62, AC0 ; |1010| 
+        MOV AC0, AR1 ; |1010| 
+        AADD AR1, AR3 ; |1010| 
         MOV *AR3(#78), AR1 ; |1010| 
         BCC $C$L35,AR1 == #0 ; |1010| 
                                         ; branchcc occurs ; |1010| 
@@ -2038,17 +2026,17 @@ $C$L34:
         BCC $C$L36,AR1 != #0 ; |1010| 
                                         ; branchcc occurs ; |1010| 
 $C$L35:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1013,column 9,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1013,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #0, *AR3(#289) ; |1013| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1014,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1014,column 5,is_stmt
         B $C$L37  ; |1014| 
                                         ; branch occurs ; |1014| 
 $C$L36:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1017,column 9,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1017,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #1, *AR3(#289) ; |1017| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1018,column 9,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1018,column 9,is_stmt
         MOV dbl(*SP(#0)), XAR0
         MOV #29, T1 ; |1018| 
         AMAR *+AR0(#266) ; |1018| 
@@ -2062,10 +2050,10 @@ $C$DW$195	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |1018| 
 $C$L37:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1023,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1023,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #4, *AR3(#355) ; |1023| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1024,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1024,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR1
         MOV #13, T0
         MOV dbl(*SP(#2)), XAR0
@@ -2080,9 +2068,9 @@ $C$DW$196	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_USB_postTransaction] ; |1024| 
         MOV T0, *SP(#5) ; |1024| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1027,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1027,column 2,is_stmt
 $C$L38:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1028,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1028,column 1,is_stmt
         AADD #7, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$197	.dwtag  DW_TAG_TI_branch
@@ -2090,7 +2078,7 @@ $C$DW$197	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$197, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$183, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$183, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$183, DW_AT_TI_end_line(0x404)
 	.dwattr $C$DW$183, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -2104,11 +2092,11 @@ $C$DW$198	.dwtag  DW_TAG_subprogram, DW_AT_name("MSC_reqUnknown")
 	.dwattr $C$DW$198, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$198, DW_AT_TI_symbol_name("_MSC_reqUnknown")
 	.dwattr $C$DW$198, DW_AT_type(*$C$DW$T$42)
-	.dwattr $C$DW$198, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$198, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$198, DW_AT_TI_begin_line(0x43d)
 	.dwattr $C$DW$198, DW_AT_TI_begin_column(0x13)
 	.dwattr $C$DW$198, DW_AT_TI_max_frame_size(0x0c)
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1090,column 1,is_stmt,address _MSC_reqUnknown
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1090,column 1,is_stmt,address _MSC_reqUnknown
 
 	.dwfde $C$DW$CIE, _MSC_reqUnknown
 $C$DW$199	.dwtag  DW_TAG_formal_parameter, DW_AT_name("devNum")
@@ -2176,11 +2164,11 @@ $C$DW$209	.dwtag  DW_TAG_variable, DW_AT_name("retStat")
         MOV XAR1, dbl(*SP(#4))
         MOV XAR0, dbl(*SP(#2))
         MOV T0, *SP(#0) ; |1090| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1094,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1094,column 2,is_stmt
         MOV #1, *SP(#10) ; |1094| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1096,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1096,column 2,is_stmt
         MOV *SP(#10), T0 ; |1096| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1097,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1097,column 1,is_stmt
         AADD #11, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$210	.dwtag  DW_TAG_TI_branch
@@ -2188,7 +2176,7 @@ $C$DW$210	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$210, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$198, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$198, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$198, DW_AT_TI_end_line(0x449)
 	.dwattr $C$DW$198, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -2202,11 +2190,11 @@ $C$DW$211	.dwtag  DW_TAG_subprogram, DW_AT_name("MSC_lookupReqHandler")
 	.dwattr $C$DW$211, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$211, DW_AT_TI_symbol_name("_MSC_lookupReqHandler")
 	.dwattr $C$DW$211, DW_AT_type(*$C$DW$T$93)
-	.dwattr $C$DW$211, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$211, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$211, DW_AT_TI_begin_line(0x47e)
 	.dwattr $C$DW$211, DW_AT_TI_begin_column(0x13)
 	.dwattr $C$DW$211, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1152,column 1,is_stmt,address _MSC_lookupReqHandler
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1152,column 1,is_stmt,address _MSC_lookupReqHandler
 
 	.dwfde $C$DW$CIE, _MSC_lookupReqHandler
 $C$DW$212	.dwtag  DW_TAG_formal_parameter, DW_AT_name("request")
@@ -2220,8 +2208,8 @@ $C$DW$213	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pUSB_ReqTable")
 ;*******************************************************************************
 ;* FUNCTION NAME: MSC_lookupReqHandler                                         *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,T0,AR0,XAR0,AR1,AR2,XAR2,AR3,XAR3,SP,CARRY,  *
-;*                        TC1,M40,SATA,SATD,RDM,FRCT,SMUL                      *
+;*   Function Uses Regs : AC0,AC0,T0,AR0,XAR0,AR1,AR2,AR3,XAR3,SP,CARRY,TC1,   *
+;*                        M40,SATA,SATD,RDM,FRCT,SMUL                          *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 6 words                                              *
 ;*                        (1 return address/alignment)                         *
@@ -2247,62 +2235,54 @@ $C$DW$216	.dwtag  DW_TAG_variable, DW_AT_name("index")
 	.dwattr $C$DW$216, DW_AT_location[DW_OP_bregx 0x24 4]
         MOV XAR0, dbl(*SP(#2))
         MOV T0, *SP(#0) ; |1152| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1156,column 6,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1156,column 6,is_stmt
         MOV #0, *SP(#4) ; |1156| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1156,column 17,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1156,column 17,is_stmt
         MOV dbl(*SP(#2)), XAR3
-        MOV uns(*SP(#4)), AC0 ; |1156| 
-        SFTS AC0, #2, AC0 ; |1156| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1156| 
+        MOV *SP(#4) << #2, AC0 ; |1156| 
+        MOV AC0, AR1 ; |1156| 
+        AADD AR1, AR3 ; |1156| 
         MOV dbl(*AR3(short(#2))), AC0 ; |1156| 
         BCC $C$L41,AC0 == #0 ; |1156| 
                                         ; branchcc occurs ; |1156| 
 $C$L39:    
 $C$DW$L$_MSC_lookupReqHandler$2$B:
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1159,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1159,column 3,is_stmt
         MOV dbl(*SP(#2)), XAR3
-        MOV uns(*SP(#4)), AC0 ; |1159| 
-        SFTS AC0, #2, AC0 ; |1159| 
-        MOV AC0, XAR2
-
-        AADD XAR2, XAR3 ; |1159| 
-||      MOV *SP(#0), AR1 ; |1159| 
-
-        MOV *AR3, AR2 ; |1159| 
+        MOV *SP(#4) << #2, AC0 ; |1159| 
+        MOV AC0, T0 ; |1159| 
+        MOV *SP(#0), AR1 ; |1159| 
+        MOV *AR3(T0), AR2 ; |1159| 
         CMPU AR2 != AR1, TC1 ; |1159| 
         BCC $C$L40,TC1 ; |1159| 
                                         ; branchcc occurs ; |1159| 
 $C$DW$L$_MSC_lookupReqHandler$2$E:
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1161,column 4,is_stmt
-        MOV dbl(*SP(#2)), XAR3
-        MOV uns(*SP(#4)), AC0 ; |1161| 
-        SFTS AC0, #2, AC0 ; |1161| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1161| 
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1161,column 4,is_stmt
+        MOV *SP(#4) << #2, AC0 ; |1161| 
+        MOV AC0, AR1 ; |1161| 
+        AADD AR1, AR3 ; |1161| 
         MOV dbl(*AR3(short(#2))), AC0 ; |1161| 
         B $C$L42  ; |1161| 
                                         ; branch occurs ; |1161| 
 $C$L40:    
 $C$DW$L$_MSC_lookupReqHandler$4$B:
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1156,column 64,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1156,column 64,is_stmt
         ADD #1, *SP(#4) ; |1156| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1156,column 17,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1156,column 17,is_stmt
         MOV dbl(*SP(#2)), XAR3
-        MOV uns(*SP(#4)), AC0 ; |1156| 
-        SFTS AC0, #2, AC0 ; |1156| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1156| 
+        MOV *SP(#4) << #2, AC0 ; |1156| 
+        MOV AC0, AR1 ; |1156| 
+        AADD AR1, AR3 ; |1156| 
         MOV dbl(*AR3(short(#2))), AC0 ; |1156| 
         BCC $C$L39,AC0 != #0 ; |1156| 
                                         ; branchcc occurs ; |1156| 
 $C$DW$L$_MSC_lookupReqHandler$4$E:
 $C$L41:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1167,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1167,column 2,is_stmt
         MOV #(_MSC_reqUnknown >> 16) << #16, AC0 ; |1167| 
         OR #(_MSC_reqUnknown & 0xffff), AC0, AC0 ; |1167| 
 $C$L42:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1168,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1168,column 1,is_stmt
         AADD #5, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$217	.dwtag  DW_TAG_TI_branch
@@ -2312,8 +2292,8 @@ $C$DW$217	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$218	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$218, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L39:1:1538472794")
-	.dwattr $C$DW$218, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$218, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L39:1:1538833074")
+	.dwattr $C$DW$218, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$218, DW_AT_TI_begin_line(0x484)
 	.dwattr $C$DW$218, DW_AT_TI_end_line(0x48b)
 $C$DW$219	.dwtag  DW_TAG_TI_loop_range
@@ -2324,7 +2304,7 @@ $C$DW$220	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$220, DW_AT_high_pc($C$DW$L$_MSC_lookupReqHandler$4$E)
 	.dwendtag $C$DW$218
 
-	.dwattr $C$DW$211, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$211, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$211, DW_AT_TI_end_line(0x490)
 	.dwattr $C$DW$211, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -2338,11 +2318,11 @@ $C$DW$221	.dwtag  DW_TAG_subprogram, DW_AT_name("MSC_verifyCBW")
 	.dwattr $C$DW$221, DW_AT_high_pc(0x00)
 	.dwattr $C$DW$221, DW_AT_TI_symbol_name("_MSC_verifyCBW")
 	.dwattr $C$DW$221, DW_AT_type(*$C$DW$T$89)
-	.dwattr $C$DW$221, DW_AT_TI_begin_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$221, DW_AT_TI_begin_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$221, DW_AT_TI_begin_line(0x7ca)
 	.dwattr $C$DW$221, DW_AT_TI_begin_column(0x0d)
 	.dwattr $C$DW$221, DW_AT_TI_max_frame_size(0x0c)
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1997,column 1,is_stmt,address _MSC_verifyCBW
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 1997,column 1,is_stmt,address _MSC_verifyCBW
 
 	.dwfde $C$DW$CIE, _MSC_verifyCBW
 $C$DW$222	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pMscHandle")
@@ -2404,16 +2384,16 @@ $C$DW$231	.dwtag  DW_TAG_variable, DW_AT_name("logicalUnit")
         MOV XAR2, dbl(*SP(#4))
         MOV XAR1, dbl(*SP(#2))
         MOV XAR0, dbl(*SP(#0))
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2003,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2003,column 2,is_stmt
         MOV #0, AC0 ; |2003| 
         MOV AC0, dbl(*SP(#6)) ; |2003| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2004,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2004,column 2,is_stmt
         MOV #0, *SP(#8) ; |2004| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2005,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2005,column 2,is_stmt
         MOV #0, *SP(#9) ; |2005| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2006,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2006,column 2,is_stmt
         MOV #0, *SP(#10) ; |2006| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2008,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2008,column 2,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV XAR3, AC0
         BCC $C$L45,AC0 == #0 ; |2008| 
@@ -2426,27 +2406,27 @@ $C$DW$231	.dwtag  DW_TAG_variable, DW_AT_name("logicalUnit")
         MOV XAR3, AC0
         BCC $C$L45,AC0 == #0 ; |2008| 
                                         ; branchcc occurs ; |2008| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2010,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2010,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR2
         MOV dbl(*SP(#0)), XAR3
         MOV *AR2(#298), AR1 ; |2010| 
         MOV AR1, HI(AC0) ; |2010| 
         OR *AR3(#297), AC0, AC0 ; |2010| 
         MOV AC0, dbl(*SP(#6)) ; |2010| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2014,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2014,column 3,is_stmt
         MOV dbl(*SP(#6)), AC1 ; |2014| 
         MOV #17218 << #16, AC0 ; |2014| 
         OR #0x5355, AC0, AC0 ; |2014| 
         CMPU AC1 == AC0, TC1 ; |2014| 
         BCC $C$L43,TC1 ; |2014| 
                                         ; branchcc occurs ; |2014| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2016,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2016,column 4,is_stmt
         MOV #-1, *SP(#8) ; |2016| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2017,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2017,column 3,is_stmt
         B $C$L46  ; |2017| 
                                         ; branch occurs ; |2017| 
 $C$L43:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2020,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2020,column 4,is_stmt
         MOV dbl(*SP(#2)), XAR0
 $C$DW$232	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$232, DW_AT_low_pc(0x00)
@@ -2455,39 +2435,39 @@ $C$DW$232	.dwtag  DW_TAG_TI_branch
         CALL #_USB_getDataCountReadFromFifo ; |2020| 
                                         ; call occurs [#_USB_getDataCountReadFromFifo] ; |2020| 
         MOV T0, *SP(#9) ; |2020| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2021,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2021,column 4,is_stmt
         CMP *SP(#9) == #31, TC1 ; |2021| 
         BCC $C$L44,TC1 ; |2021| 
                                         ; branchcc occurs ; |2021| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2023,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2023,column 5,is_stmt
         MOV #-1, *SP(#8) ; |2023| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2024,column 4,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2024,column 4,is_stmt
         B $C$L46  ; |2024| 
                                         ; branch occurs ; |2024| 
 $C$L44:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2028,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2028,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV uns(high_byte(*AR3(#303))), AR1 ; |2028| 
         MOV AR1, *SP(#10) ; |2028| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2030,column 5,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2030,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV *SP(#10), AR2 ; |2030| 
         MOV *AR3(#354), AR1 ; |2030| 
         CMPU AR2 <= AR1, TC1 ; |2030| 
         BCC $C$L46,TC1 ; |2030| 
                                         ; branchcc occurs ; |2030| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2032,column 6,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2032,column 6,is_stmt
         MOV #-1, *SP(#8) ; |2032| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2036,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2036,column 2,is_stmt
         B $C$L46  ; |2036| 
                                         ; branch occurs ; |2036| 
 $C$L45:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2039,column 3,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2039,column 3,is_stmt
         MOV #-1, *SP(#8) ; |2039| 
 $C$L46:    
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2042,column 2,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2042,column 2,is_stmt
         MOV *SP(#8), T0 ; |2042| 
-	.dwpsn	file "F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2043,column 1,is_stmt
+	.dwpsn	file "F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h",line 2043,column 1,is_stmt
         AADD #11, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$233	.dwtag  DW_TAG_TI_branch
@@ -2495,7 +2475,7 @@ $C$DW$233	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$233, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$221, DW_AT_TI_end_file("F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
+	.dwattr $C$DW$221, DW_AT_TI_end_file("F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/inc/csl_mscAux.h")
 	.dwattr $C$DW$221, DW_AT_TI_end_line(0x7fb)
 	.dwattr $C$DW$221, DW_AT_TI_end_column(0x01)
 	.dwendentry
@@ -2711,8 +2691,8 @@ $C$DW$249	.dwtag  DW_TAG_formal_parameter, DW_AT_name("usbSpeedCfg")
 ;*******************************************************************************
 ;* FUNCTION NAME: MSC_Setup                                                    *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,AC2,AC2,T0,T1,AR0,XAR0,AR1,AR2,XAR2, *
-;*                        AR3,XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL    *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,T1,AR0,XAR0,AR1,AR2,XAR2,AR3,XAR3,*
+;*                        SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL             *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 12 words                                             *
 ;*                        (1 return address/alignment)                         *
@@ -3098,15 +3078,11 @@ $C$DW$266	.dwtag  DW_TAG_TI_branch
         CALL AC0  ; |356| 
                                         ; call occurs [AC0] ; |356| 
         MOV dbl(*SP(#4)), XAR3
-        MOV uns(*SP(#8)), AC1 ; |356| 
-
-        SFTS AC1, #6, AC0 ; |356| 
-||      SUB #1, AC0, AC2 ; |356| 
-
-        SUB AC1 << #1, AC0 ; |356| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |356| 
-        MOV AC2, dbl(*AR3(#250)) ; |356| 
+        SUB #1, AC0, AC1 ; |356| 
+        MPYMK *SP(#8), #62, AC0 ; |356| 
+        MOV AC0, AR1 ; |356| 
+        AADD AR1, AR3 ; |356| 
+        MOV AC1, dbl(*AR3(#250)) ; |356| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 358,column 7,is_stmt
         CMP *SP(#6) == #1, TC1 ; |358| 
         BCC $C$L55,!TC1 ; |358| 
@@ -3115,11 +3091,9 @@ $C$DW$L$_MSC_Setup$15$E:
 $C$DW$L$_MSC_Setup$16$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 360,column 5,is_stmt
         MOV dbl(*SP(#4)), XAR3
-        MOV uns(*SP(#8)), AC1 ; |360| 
-        SFTS AC1, #6, AC0 ; |360| 
-        SUB AC1 << #1, AC0 ; |360| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |360| 
+        MPYMK *SP(#8), #62, AC0 ; |360| 
+        MOV AC0, AR1 ; |360| 
+        AADD AR1, AR3 ; |360| 
         MOV #1, *AR3(#257) ; |360| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 362,column 4,is_stmt
         B $C$L58  ; |362| 
@@ -3135,11 +3109,9 @@ $C$DW$L$_MSC_Setup$17$E:
 $C$DW$L$_MSC_Setup$18$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 365,column 5,is_stmt
         MOV dbl(*SP(#4)), XAR3
-        MOV uns(*SP(#8)), AC1 ; |365| 
-        SFTS AC1, #6, AC0 ; |365| 
-        SUB AC1 << #1, AC0 ; |365| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |365| 
+        MPYMK *SP(#8), #62, AC0 ; |365| 
+        MOV AC0, AR1 ; |365| 
+        AADD AR1, AR3 ; |365| 
         MOV #8, *AR3(#257) ; |365| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 366,column 5,is_stmt
         MOV #-11, *SP(#7) ; |366| 
@@ -3157,11 +3129,9 @@ $C$DW$L$_MSC_Setup$19$E:
 $C$DW$L$_MSC_Setup$20$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 370,column 8,is_stmt
         MOV dbl(*SP(#4)), XAR3
-        MOV uns(*SP(#8)), AC1 ; |370| 
-        SFTS AC1, #6, AC0 ; |370| 
-        SUB AC1 << #1, AC0 ; |370| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |370| 
+        MPYMK *SP(#8), #62, AC0 ; |370| 
+        MOV AC0, AR1 ; |370| 
+        AADD AR1, AR3 ; |370| 
         MOV #0, *AR3(#257) ; |370| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 371,column 5,is_stmt
         MOV #-12, *SP(#7) ; |371| 
@@ -3173,11 +3143,9 @@ $C$L57:
 $C$DW$L$_MSC_Setup$21$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 377,column 8,is_stmt
         MOV dbl(*SP(#4)), XAR3
-        MOV uns(*SP(#8)), AC1 ; |377| 
-        SFTS AC1, #6, AC0 ; |377| 
-        SUB AC1 << #1, AC0 ; |377| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |377| 
+        MPYMK *SP(#8), #62, AC0 ; |377| 
+        MOV AC0, AR1 ; |377| 
+        AADD AR1, AR3 ; |377| 
         MOV #0, *AR3(#257) ; |377| 
 $C$DW$L$_MSC_Setup$21$E:
 $C$L58:    
@@ -3225,7 +3193,7 @@ $C$DW$268	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$269	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$269, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L54:1:1538472794")
+	.dwattr $C$DW$269, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L54:1:1538833074")
 	.dwattr $C$DW$269, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c")
 	.dwattr $C$DW$269, DW_AT_TI_begin_line(0x160)
 	.dwattr $C$DW$269, DW_AT_TI_end_line(0x17b)
@@ -3397,9 +3365,8 @@ $C$DW$289	.dwtag  DW_TAG_formal_parameter, DW_AT_name("lunNum")
 ;*******************************************************************************
 ;* FUNCTION NAME: MSC_SetLunAttr                                               *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,   *
-;*                        XAR3,AR4,XAR4,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,   *
-;*                        SMUL                                                 *
+;*   Function Uses Regs : AC0,AC0,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,XAR3,SP,   *
+;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 14 words                                             *
 ;*                        (1 return address/alignment)                         *
@@ -3466,92 +3433,76 @@ $C$DW$297	.dwtag  DW_TAG_variable, DW_AT_name("copyCntsrc")
                                         ; branchcc occurs ; |528| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 531,column 3,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |531| 
-        SFTS AC1, #6, AC0 ; |531| 
-        SUB AC1 << #1, AC0 ; |531| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |531| 
         MOV dbl(*SP(#2)), XAR2
+        MPYMK *SP(#4), #62, AC0 ; |531| 
+        MOV AC0, AR1 ; |531| 
+
         MOV *AR2(short(#4)), AR1 ; |531| 
+||      AADD AR1, AR3 ; |531| 
+
         MOV AR1, *AR3(#74) ; |531| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 532,column 3,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |532| 
-        SFTS AC1, #6, AC0 ; |532| 
-        SUB AC1 << #1, AC0 ; |532| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |532| 
+        MPYMK *SP(#4), #62, AC0 ; |532| 
+        MOV AC0, AR1 ; |532| 
         MOV dbl(*SP(#2)), XAR2
+        AADD AR1, AR3 ; |532| 
         MOV *AR2(#30), AR1 ; |532| 
         MOV AR1, *AR3(#76) ; |532| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 534,column 3,is_stmt
-        MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |534| 
-        SFTS AC1, #6, AC0 ; |534| 
-        SUB AC1 << #1, AC0 ; |534| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |534| 
         MOV dbl(*SP(#2)), XAR2
+        MOV dbl(*SP(#8)), XAR3
+        MPYMK *SP(#4), #62, AC0 ; |534| 
+        MOV AC0, AR1 ; |534| 
         MOV dbl(*AR2(short(#2))), AC0 ; |534| 
+
         SUB #1, AC0 ; |534| 
+||      AADD AR1, AR3 ; |534| 
+
         MOV AC0, dbl(*AR3(#68)) ; |534| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 535,column 3,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |535| 
-        SFTS AC1, #6, AC0 ; |535| 
-        SUB AC1 << #1, AC0 ; |535| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |535| 
+        MPYMK *SP(#4), #62, AC0 ; |535| 
+        MOV AC0, AR1 ; |535| 
+        AADD AR1, AR3 ; |535| 
         MOV #0, *AR3(#75) ; |535| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 536,column 3,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |536| 
-        SFTS AC1, #6, AC0 ; |536| 
-        SUB AC1 << #1, AC0 ; |536| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |536| 
+        MPYMK *SP(#4), #62, AC0 ; |536| 
+        MOV AC0, AR1 ; |536| 
         MOV dbl(*SP(#2)), XAR2
+        AADD AR1, AR3 ; |536| 
         AADD #72, AR3 ; |536| 
         MOV dbl(*AR2), dbl(*AR3) ; |536| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 539,column 3,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |539| 
-        SFTS AC1, #6, AC0 ; |539| 
-        SUB AC1 << #1, AC0 ; |539| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |539| 
+        MPYMK *SP(#4), #62, AC0 ; |539| 
+        MOV AC0, AR1 ; |539| 
+        AADD AR1, AR3 ; |539| 
         MOV #96, *AR3(#18) ; |539| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 540,column 3,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |540| 
-        SFTS AC1, #6, AC0 ; |540| 
-        SUB AC1 << #1, AC0 ; |540| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |540| 
+        MPYMK *SP(#4), #62, AC0 ; |540| 
+        MOV AC0, AR1 ; |540| 
+        AADD AR1, AR3 ; |540| 
         MOV #0, *AR3(#19) ; |540| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 541,column 3,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |541| 
-        SFTS AC1, #6, AC0 ; |541| 
-        SUB AC1 << #1, AC0 ; |541| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |541| 
+        MPYMK *SP(#4), #62, AC0 ; |541| 
+        MOV AC0, AR1 ; |541| 
+        AADD AR1, AR3 ; |541| 
         MOV #512, *AR3(#21) ; |541| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 542,column 3,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |542| 
-        SFTS AC1, #6, AC0 ; |542| 
-        SUB AC1 << #1, AC0 ; |542| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |542| 
+        MPYMK *SP(#4), #62, AC0 ; |542| 
+        MOV AC0, AR1 ; |542| 
+        AADD AR1, AR3 ; |542| 
         MOV #92, *AR3(#22) ; |542| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 543,column 3,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |543| 
-        SFTS AC1, #6, AC0 ; |543| 
-        SUB AC1 << #1, AC0 ; |543| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |543| 
+        MPYMK *SP(#4), #62, AC0 ; |543| 
+        MOV AC0, AR1 ; |543| 
+        AADD AR1, AR3 ; |543| 
         MOV #0, *AR3(#23) ; |543| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 546,column 3,is_stmt
         MOV #0, *SP(#12) ; |546| 
@@ -3566,23 +3517,21 @@ $C$DW$297	.dwtag  DW_TAG_variable, DW_AT_name("copyCntsrc")
 $C$L65:    
 $C$DW$L$_MSC_SetLunAttr$4$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 550,column 4,is_stmt
+        MOV dbl(*SP(#2)), XAR3
+        MOV *SP(#12), AR1 ; |550| 
+        MPYMK *SP(#4), #62, AC0 ; |550| 
+
+        MOV AC0, AR1 ; |550| 
+||      AADD AR1, AR3 ; |550| 
+
+        MOV *AR3(short(#5)), AR2 ; |550| 
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |550| 
-        SFTS AC1, #6, AC0 ; |550| 
-        SUB AC1 << #1, AC0 ; |550| 
-        MOV AC0, XAR2
 
-        AADD XAR2, XAR3 ; |550| 
-||      MOV uns(*SP(#11)), AC0 ; |550| 
+        MOV *SP(#11), AR1 ; |550| 
+||      AADD AR1, AR3 ; |550| 
 
-        MOV AC0, XAR2
-        MOV uns(*SP(#12)), AC0 ; |550| 
-        MOV AC0, XAR4
-        AADD XAR2, XAR3 ; |550| 
-        MOV dbl(*SP(#2)), XAR2
-        AADD XAR4, XAR2 ; |550| 
-        MOV *AR2(short(#5)), AR1 ; |550| 
-        MOV AR1, *AR3(#18) ; |550| 
+        AADD AR1, AR3 ; |550| 
+        MOV AR2, *AR3(#18) ; |550| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 548,column 41,is_stmt
         ADD #1, *SP(#11) ; |548| 
         ADD #1, *SP(#12) ; |548| 
@@ -3596,27 +3545,21 @@ $C$DW$L$_MSC_SetLunAttr$4$E:
 $C$L66:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 555,column 3,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |555| 
-        SFTS AC1, #6, AC0 ; |555| 
-        SUB AC1 << #1, AC0 ; |555| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |555| 
+        MPYMK *SP(#4), #62, AC0 ; |555| 
+        MOV AC0, AR1 ; |555| 
+        AADD AR1, AR3 ; |555| 
         MOV #0, *AR3(#48) ; |555| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 557,column 3,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |557| 
-        SFTS AC1, #6, AC0 ; |557| 
-        SUB AC1 << #1, AC0 ; |557| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |557| 
+        MPYMK *SP(#4), #62, AC0 ; |557| 
+        MOV AC0, AR1 ; |557| 
+        AADD AR1, AR3 ; |557| 
         MOV #8194, *AR3(#49) ; |557| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 559,column 3,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |559| 
-        SFTS AC1, #6, AC0 ; |559| 
-        SUB AC1 << #1, AC0 ; |559| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |559| 
+        MPYMK *SP(#4), #62, AC0 ; |559| 
+        MOV AC0, AR1 ; |559| 
+        AADD AR1, AR3 ; |559| 
         MOV #14338, *AR3(#50) ; |559| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 561,column 8,is_stmt
         MOV #33, *SP(#11) ; |561| 
@@ -3630,21 +3573,17 @@ $C$L67:
 $C$DW$L$_MSC_SetLunAttr$6$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 564,column 4,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |564| 
-        SFTS AC1, #6, AC0 ; |564| 
-        SUB AC1 << #1, AC0 ; |564| 
-        MOV AC0, XAR2
+        MPYMK *SP(#4), #62, AC0 ; |564| 
+        MOV AC0, AR1 ; |564| 
 
-        AADD XAR2, XAR3 ; |564| 
-||      MOV uns(*SP(#11)), AC0 ; |564| 
+        MOV *SP(#11), AR1 ; |564| 
+||      AADD AR1, AR3 ; |564| 
 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |564| 
+        AADD AR1, AR3 ; |564| 
         MOV #0, *AR3(#18) ; |564| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 562,column 42,is_stmt
         ADD #1, *SP(#11) ; |562| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 562,column 8,is_stmt
-        MOV #50, AR2 ; |562| 
         MOV *SP(#11), AR1 ; |562| 
         CMPU AR1 < AR2, TC1 ; |562| 
         BCC $C$L67,TC1 ; |562| 
@@ -3653,21 +3592,17 @@ $C$DW$L$_MSC_SetLunAttr$6$E:
 $C$L68:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 569,column 3,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |569| 
-        SFTS AC1, #6, AC0 ; |569| 
-        SUB AC1 << #1, AC0 ; |569| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |569| 
+        MPYMK *SP(#4), #62, AC0 ; |569| 
+        MOV AC0, AR1 ; |569| 
+        AADD AR1, AR3 ; |569| 
         MOV *AR3(#74), AR1 ; |569| 
         BCC $C$L69,AR1 == #0 ; |569| 
                                         ; branchcc occurs ; |569| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 571,column 4,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |571| 
-        SFTS AC1, #6, AC0 ; |571| 
-        SUB AC1 << #1, AC0 ; |571| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |571| 
+        MPYMK *SP(#4), #62, AC0 ; |571| 
+        MOV AC0, AR1 ; |571| 
+        AADD AR1, AR3 ; |571| 
         MOV #32768, *AR3(#20) ; |571| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 572,column 3,is_stmt
         B $C$L70  ; |572| 
@@ -3675,20 +3610,16 @@ $C$L68:
 $C$L69:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 575,column 4,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |575| 
-        SFTS AC1, #6, AC0 ; |575| 
-        SUB AC1 << #1, AC0 ; |575| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |575| 
+        MPYMK *SP(#4), #62, AC0 ; |575| 
+        MOV AC0, AR1 ; |575| 
+        AADD AR1, AR3 ; |575| 
         MOV #0, *AR3(#20) ; |575| 
 $C$L70:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 577,column 3,is_stmt
         MOV dbl(*SP(#8)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |577| 
-        SFTS AC1, #6, AC0 ; |577| 
-        SUB AC1 << #1, AC0 ; |577| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |577| 
+        MPYMK *SP(#4), #62, AC0 ; |577| 
+        MOV AC0, AR1 ; |577| 
+        AADD AR1, AR3 ; |577| 
         MOV #0, *AR3(#78) ; |577| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 578,column 2,is_stmt
         B $C$L72  ; |578| 
@@ -3709,7 +3640,7 @@ $C$DW$298	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$299	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$299, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L67:1:1538472794")
+	.dwattr $C$DW$299, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L67:1:1538833074")
 	.dwattr $C$DW$299, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c")
 	.dwattr $C$DW$299, DW_AT_TI_begin_line(0x231)
 	.dwattr $C$DW$299, DW_AT_TI_end_line(0x236)
@@ -3720,7 +3651,7 @@ $C$DW$300	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$301	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$301, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L65:1:1538472794")
+	.dwattr $C$DW$301, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L65:1:1538833074")
 	.dwattr $C$DW$301, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c")
 	.dwattr $C$DW$301, DW_AT_TI_begin_line(0x223)
 	.dwattr $C$DW$301, DW_AT_TI_end_line(0x228)
@@ -4451,8 +4382,8 @@ $C$DW$347	.dwtag  DW_TAG_formal_parameter, DW_AT_name("lunNum")
 ;*******************************************************************************
 ;* FUNCTION NAME: MSC_GetLunLockedStatus                                       *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR2,XAR2,AR3,XAR3,SP,    *
-;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
+;*   Function Uses Regs : AC0,T0,AR0,XAR0,AR1,AR3,XAR3,SP,TC1,M40,SATA,SATD,   *
+;*                        RDM,FRCT,SMUL                                        *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 10 words                                             *
 ;*                        (2 return address/alignment)                         *
@@ -4489,11 +4420,9 @@ $C$DW$351	.dwtag  DW_TAG_variable, DW_AT_name("pMscHandle")
         AMAR *+AR3(#182) ; |930| 
         MOV XAR3, dbl(*SP(#6))
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 932,column 4,is_stmt
-        MOV uns(*SP(#2)), AC1 ; |932| 
-        SFTS AC1, #6, AC0 ; |932| 
-        SUB AC1 << #1, AC0 ; |932| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |932| 
+        MPYMK *SP(#2), #62, AC0 ; |932| 
+        MOV AC0, AR1 ; |932| 
+        AADD AR1, AR3 ; |932| 
         BTST #1, *AR3(#75), TC1 ; |932| 
         BCC $C$L100,!TC1 ; |932| 
                                         ; branchcc occurs ; |932| 
@@ -5097,8 +5026,8 @@ $C$DW$374	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pMscHandle")
 ;*******************************************************************************
 ;* FUNCTION NAME: MSC_initMscVal                                               *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,T0,AR0,XAR0,AR1,AR2,XAR2,AR3,XAR3,SP,CARRY,  *
-;*                        TC1,M40,SATA,SATD,RDM,FRCT,SMUL                      *
+;*   Function Uses Regs : AC0,AC0,T0,AR0,XAR0,AR1,AR2,AR3,XAR3,SP,CARRY,TC1,   *
+;*                        M40,SATA,SATD,RDM,FRCT,SMUL                          *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 6 words                                              *
 ;*                        (2 return address/alignment)                         *
@@ -5169,18 +5098,14 @@ $C$DW$377	.dwtag  DW_TAG_variable, DW_AT_name("status")
 $C$L106:    
 $C$DW$L$_MSC_initMscVal$3$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1466,column 4,is_stmt
+        MOV *SP(#2), AR1 ; |1466| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC0 ; |1466| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1466| 
+        AADD AR1, AR3 ; |1466| 
         MOV #0, *AR3(#266) ; |1466| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1464,column 34,is_stmt
         ADD #1, *SP(#2) ; |1464| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1464,column 20,is_stmt
-
         MOV *SP(#2), AR1 ; |1464| 
-||      MOV #15, AR2
-
         CMPU AR1 < AR2, TC1 ; |1464| 
         BCC $C$L106,TC1 ; |1464| 
                                         ; branchcc occurs ; |1464| 
@@ -5208,18 +5133,14 @@ $C$L107:
 $C$L108:    
 $C$DW$L$_MSC_initMscVal$5$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1476,column 4,is_stmt
+        MOV *SP(#2), AR1 ; |1476| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC0 ; |1476| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1476| 
+        AADD AR1, AR3 ; |1476| 
         MOV #0, *AR3(#282) ; |1476| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1474,column 34,is_stmt
         ADD #1, *SP(#2) ; |1474| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1474,column 21,is_stmt
-
         MOV *SP(#2), AR1 ; |1474| 
-||      MOV #8, AR2
-
         CMPU AR1 < AR2, TC1 ; |1474| 
         BCC $C$L108,TC1 ; |1474| 
                                         ; branchcc occurs ; |1474| 
@@ -5259,7 +5180,7 @@ $C$DW$378	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$379	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$379, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L108:1:1538472794")
+	.dwattr $C$DW$379, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L108:1:1538833074")
 	.dwattr $C$DW$379, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c")
 	.dwattr $C$DW$379, DW_AT_TI_begin_line(0x5c2)
 	.dwattr $C$DW$379, DW_AT_TI_end_line(0x5c5)
@@ -5270,7 +5191,7 @@ $C$DW$380	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$381	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$381, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L106:1:1538472794")
+	.dwattr $C$DW$381, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L106:1:1538833074")
 	.dwattr $C$DW$381, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c")
 	.dwattr $C$DW$381, DW_AT_TI_begin_line(0x5b8)
 	.dwattr $C$DW$381, DW_AT_TI_end_line(0x5bb)
@@ -5846,9 +5767,8 @@ $C$DW$418	.dwtag  DW_TAG_formal_parameter, DW_AT_name("first")
 ;*******************************************************************************
 ;* FUNCTION NAME: MSC_ExecuteRead                                              *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,AC2,AC2,AC3,AC3,T0,T1,AR0,XAR0,AR1,  *
-;*                        XAR1,AR2,XAR2,AR3,XAR3,SP,CARRY,TC1,M40,SATA,SATD,   *
-;*                        RDM,FRCT,SMUL                                        *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,AC2,T0,T1,AR0,XAR0,AR1,XAR1,AR2,AR3, *
+;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 12 words                                             *
 ;*                        (2 return address/alignment)                         *
@@ -5964,30 +5884,26 @@ $C$L132:
         MOV AC0, dbl(*SP(#4)) ; |1772| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1774,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(high_byte(*AR3(#308))), AC0 ; |1774| 
         MOV *AR3(#308), AC1 ; |1774| 
+        MOV uns(high_byte(*AR3(#308))), AC0 ; |1774| 
         OR AC1 << #8, AC0 ; |1774| 
         MOV AC0, *SP(#6) ; |1774| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1777,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |1777| 
-        SFTS AC1, #6, AC0 ; |1777| 
-        SUB AC1 << #1, AC0 ; |1777| 
-        MOV AC0, XAR2
+        MPYMK *SP(#2), #62, AC0 ; |1777| 
+        MOV AC0, AR1 ; |1777| 
 
-        AADD XAR2, XAR3 ; |1777| 
-||      MOV dbl(*SP(#4)), AC0 ; |1777| 
+        MOV dbl(*SP(#4)), AC0 ; |1777| 
+||      AADD AR1, AR3 ; |1777| 
 
         MOV AC0, dbl(*AR3(#70)) ; |1777| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1778,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |1778| 
-        SFTS AC1, #6, AC0 ; |1778| 
-        SUB AC1 << #1, AC0 ; |1778| 
-        MOV AC0, XAR2
+        MPYMK *SP(#2), #62, AC0 ; |1778| 
+        MOV AC0, AR1 ; |1778| 
 
-        AADD XAR2, XAR3 ; |1778| 
-||      MOV *SP(#6), AR1 ; |1778| 
+        MOV *SP(#6), AR1 ; |1778| 
+||      AADD AR1, AR3 ; |1778| 
 
         MOV AR1, *AR3(#77) ; |1778| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1779,column 4,is_stmt
@@ -6081,11 +5997,9 @@ $C$DW$432	.dwtag  DW_TAG_TI_branch
                                         ; branchcc occurs ; |1814| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1818,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |1818| 
-        SFTS AC1, #6, AC0 ; |1818| 
-        SUB AC1 << #1, AC0 ; |1818| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1818| 
+        MPYMK *SP(#2), #62, AC0 ; |1818| 
+        MOV AC0, AR1 ; |1818| 
+        AADD AR1, AR3 ; |1818| 
         MOV *AR3(#77), AR1 ; |1818| 
         BCC $C$L135,AR1 == #0 ; |1818| 
                                         ; branchcc occurs ; |1818| 
@@ -6112,44 +6026,35 @@ $C$L135:
         MOV #2, *SP(#8) ; |1827| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1830,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |1830| 
-        SFTS AC1, #6, AC0 ; |1830| 
-        SUB AC1 << #1, AC0 ; |1830| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1830| 
+        MPYMK *SP(#2), #62, AC0 ; |1830| 
+        MOV AC0, AR1 ; |1830| 
+        AADD AR1, AR3 ; |1830| 
         BTST #0, *AR3(#75), TC1 ; |1830| 
         BCC $C$L136,TC1 ; |1830| 
                                         ; branchcc occurs ; |1830| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |1830| 
-        SFTS AC1, #6, AC0 ; |1830| 
-        SUB AC1 << #1, AC0 ; |1830| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1830| 
+        MPYMK *SP(#2), #62, AC0 ; |1830| 
+        MOV AC0, AR1 ; |1830| 
+        AADD AR1, AR3 ; |1830| 
         BTST #3, *AR3(#75), TC1 ; |1830| 
         BCC $C$L137,!TC1 ; |1830| 
                                         ; branchcc occurs ; |1830| 
 $C$L136:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1833,column 4,is_stmt
-        MOV uns(*SP(#2)), AC1 ; |1833| 
         MOV dbl(*SP(#0)), XAR3
-        SFTS AC1, #6, AC0 ; |1833| 
-        SUB AC1 << #1, AC0 ; |1833| 
-        MOV AC0, XAR2
-        MOV uns(*SP(#2)), AC3 ; |1833| 
+        MPYMK *SP(#2), #62, AC0 ; |1833| 
+        MOV AC0, AR1 ; |1833| 
+        MPYMK *SP(#2), #62, AC2 ; |1833| 
+        MOV dbl(*AR3), AC1 ; |1833| 
         MOV dbl(*AR3(#14)), XAR0
 
-        SFTS AC3, #6, AC1 ; |1833| 
-||      MOV dbl(*AR3), AC2 ; |1833| 
+        MOV AC2, AR1 ; |1833| 
+||      AADD AR1, AR3 ; |1833| 
 
-        AADD XAR2, XAR3 ; |1833| 
-||      SUB AC3 << #1, AC1 ; |1833| 
-
-        MOV AC1, XAR2
         MOV dbl(*AR3(#70)), AC0 ; |1833| 
         MOV dbl(*SP(#0)), XAR3
 
-        AADD XAR2, XAR3 ; |1833| 
+        AADD AR1, AR3 ; |1833| 
 ||      MOV *SP(#2), T0 ; |1833| 
 
         MOV *AR3(#77), T1 ; |1833| 
@@ -6157,7 +6062,7 @@ $C$DW$434	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$434, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$434, DW_AT_TI_call
 	.dwattr $C$DW$434, DW_AT_TI_indirect
-        CALL AC2  ; |1833| 
+        CALL AC1  ; |1833| 
                                         ; call occurs [AC0] ; |1833| 
         MOV T0, *SP(#8) ; |1833| 
 $C$L137:    
@@ -6167,11 +6072,9 @@ $C$L137:
                                         ; branchcc occurs ; |1839| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1841,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |1841| 
-        SFTS AC1, #6, AC0 ; |1841| 
-        SUB AC1 << #1, AC0 ; |1841| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1841| 
+        MPYMK *SP(#2), #62, AC0 ; |1841| 
+        MOV AC0, AR1 ; |1841| 
+        AADD AR1, AR3 ; |1841| 
         MOV dbl(*AR3(#72)), AC1 ; |1841| 
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(#16)), AC0 ; |1841| 
@@ -6179,11 +6082,9 @@ $C$L137:
         BCC $C$L138,TC1 ; |1841| 
                                         ; branchcc occurs ; |1841| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1843,column 5,is_stmt
-        MOV uns(*SP(#2)), AC1 ; |1843| 
-        SFTS AC1, #6, AC0 ; |1843| 
-        SUB AC1 << #1, AC0 ; |1843| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1843| 
+        MPYMK *SP(#2), #62, AC0 ; |1843| 
+        MOV AC0, AR1 ; |1843| 
+        AADD AR1, AR3 ; |1843| 
         MOV *AR3(#73), AR1 ; |1843| 
         MOV AR1, *SP(#7) ; |1843| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1844,column 4,is_stmt
@@ -6214,42 +6115,34 @@ $C$L139:
         MOV #5, *AR3(#355) ; |1858| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1859,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |1859| 
-        SFTS AC1, #6, AC0 ; |1859| 
-        SUB AC1 << #1, AC0 ; |1859| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1859| 
+        MPYMK *SP(#2), #62, AC0 ; |1859| 
+        MOV AC0, AR1 ; |1859| 
+        AADD AR1, AR3 ; |1859| 
         AADD #18, AR3 ; |1859| 
         MOV dbl(*AR3(#52)), AC0 ; |1859| 
         ADD #1, AC0 ; |1859| 
         MOV AC0, dbl(*AR3(#52)) ; |1859| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1861,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |1861| 
-        SFTS AC1, #6, AC0 ; |1861| 
-        SUB AC1 << #1, AC0 ; |1861| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1861| 
+        MPYMK *SP(#2), #62, AC0 ; |1861| 
+        MOV AC0, AR1 ; |1861| 
+        AADD AR1, AR3 ; |1861| 
         MOV *AR3(#77), AR1 ; |1861| 
         BCC $C$L140,AR1 == #0 ; |1861| 
                                         ; branchcc occurs ; |1861| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1863,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |1863| 
-        SFTS AC1, #6, AC0 ; |1863| 
-        SUB AC1 << #1, AC0 ; |1863| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1863| 
+        MPYMK *SP(#2), #62, AC0 ; |1863| 
+        MOV AC0, AR1 ; |1863| 
+        AADD AR1, AR3 ; |1863| 
         AADD #18, AR3 ; |1863| 
         SUB #1, *AR3(#59) ; |1863| 
 $C$L140:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1866,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |1866| 
-        SFTS AC1, #6, AC0 ; |1866| 
-        SUB AC1 << #1, AC0 ; |1866| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1866| 
+        MPYMK *SP(#2), #62, AC0 ; |1866| 
+        MOV AC0, AR1 ; |1866| 
+        AADD AR1, AR3 ; |1866| 
         MOV *AR3(#77), AR1 ; |1866| 
         BCC $C$L142,AR1 != #0 ; |1866| 
                                         ; branchcc occurs ; |1866| 
@@ -6300,13 +6193,11 @@ $C$L141:
         MOV #3, *AR3(#355) ; |1889| 
 $C$L142:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1894,column 4,is_stmt
-        MOV uns(*SP(#2)), AC1 ; |1894| 
         MOV dbl(*SP(#0)), XAR3
-        SFTS AC1, #6, AC0 ; |1894| 
-        SUB AC1 << #1, AC0 ; |1894| 
-        MOV AC0, XAR2
+        MPYMK *SP(#2), #62, AC0 ; |1894| 
+        MOV AC0, AR1 ; |1894| 
         MOV dbl(*SP(#0)), XAR0
-        AADD XAR2, XAR3 ; |1894| 
+        AADD AR1, AR3 ; |1894| 
         MOV *AR3(#73), T0 ; |1894| 
         MOV dbl(*SP(#0)), XAR3
         AMAR *+AR0(#314) ; |1894| 
@@ -6379,12 +6270,10 @@ $C$DW$439	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |1918| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1922,column 5,is_stmt
+        MPYMK *SP(#2), #62, AC0 ; |1922| 
+        MOV AC0, AR1 ; |1922| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |1922| 
-        SFTS AC1, #6, AC0 ; |1922| 
-        SUB AC1 << #1, AC0 ; |1922| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1922| 
+        AADD AR1, AR3 ; |1922| 
         AADD #18, AR3 ; |1922| 
         AND #0xfff6, *AR3(#57) ; |1922| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1923,column 4,is_stmt
@@ -6409,21 +6298,17 @@ $C$DW$440	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |1928| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1931,column 6,is_stmt
+        MPYMK *SP(#2), #62, AC0 ; |1931| 
+        MOV AC0, AR1 ; |1931| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |1931| 
-        SFTS AC1, #6, AC0 ; |1931| 
-        SUB AC1 << #1, AC0 ; |1931| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1931| 
+        AADD AR1, AR3 ; |1931| 
         AADD #18, AR3 ; |1931| 
         AND #0xfffe, *AR3(#57) ; |1931| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 1933,column 6,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |1933| 
-        SFTS AC1, #6, AC0 ; |1933| 
-        SUB AC1 << #1, AC0 ; |1933| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |1933| 
+        MPYMK *SP(#2), #62, AC0 ; |1933| 
+        MOV AC0, AR1 ; |1933| 
+        AADD AR1, AR3 ; |1933| 
         AADD #18, AR3 ; |1933| 
         OR #0x0008, *AR3(#57) ; |1933| 
 $C$L146:    
@@ -6493,9 +6378,8 @@ $C$DW$446	.dwtag  DW_TAG_formal_parameter, DW_AT_name("first")
 ;*******************************************************************************
 ;* FUNCTION NAME: MSC_ExecuteWrite                                             *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,AC2,AC2,AC3,AC3,T0,T1,AR0,XAR0,AR1,  *
-;*                        XAR1,AR2,XAR2,AR3,XAR3,SP,CARRY,TC1,M40,SATA,SATD,   *
-;*                        RDM,FRCT,SMUL                                        *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,AC2,T0,T1,AR0,XAR0,AR1,XAR1,AR2,AR3, *
+;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 12 words                                             *
 ;*                        (2 return address/alignment)                         *
@@ -6608,30 +6492,26 @@ $C$L149:
         MOV AC0, dbl(*SP(#4)) ; |2035| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2037,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(high_byte(*AR3(#308))), AC0 ; |2037| 
         MOV *AR3(#308), AC1 ; |2037| 
+        MOV uns(high_byte(*AR3(#308))), AC0 ; |2037| 
         OR AC1 << #8, AC0 ; |2037| 
         MOV AC0, *SP(#6) ; |2037| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2039,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2039| 
-        SFTS AC1, #6, AC0 ; |2039| 
-        SUB AC1 << #1, AC0 ; |2039| 
-        MOV AC0, XAR2
+        MPYMK *SP(#2), #62, AC0 ; |2039| 
+        MOV AC0, AR1 ; |2039| 
 
-        AADD XAR2, XAR3 ; |2039| 
-||      MOV dbl(*SP(#4)), AC0 ; |2039| 
+        MOV dbl(*SP(#4)), AC0 ; |2039| 
+||      AADD AR1, AR3 ; |2039| 
 
         MOV AC0, dbl(*AR3(#70)) ; |2039| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2040,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2040| 
-        SFTS AC1, #6, AC0 ; |2040| 
-        SUB AC1 << #1, AC0 ; |2040| 
-        MOV AC0, XAR2
+        MPYMK *SP(#2), #62, AC0 ; |2040| 
+        MOV AC0, AR1 ; |2040| 
 
-        AADD XAR2, XAR3 ; |2040| 
-||      MOV *SP(#6), AR1 ; |2040| 
+        MOV *SP(#6), AR1 ; |2040| 
+||      AADD AR1, AR3 ; |2040| 
 
         MOV AR1, *AR3(#77) ; |2040| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2041,column 4,is_stmt
@@ -6639,22 +6519,18 @@ $C$L149:
         MOV #6, *AR3(#355) ; |2041| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2042,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2042| 
-        SFTS AC1, #6, AC0 ; |2042| 
-        SUB AC1 << #1, AC0 ; |2042| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2042| 
+        MPYMK *SP(#2), #62, AC0 ; |2042| 
+        MOV AC0, AR1 ; |2042| 
+        AADD AR1, AR3 ; |2042| 
         MOV #0, *AR3(#78) ; |2042| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2043,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
         MOV #1, *AR3(#361) ; |2043| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2044,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2044| 
-        SFTS AC1, #6, AC0 ; |2044| 
-        SUB AC1 << #1, AC0 ; |2044| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2044| 
+        MPYMK *SP(#2), #62, AC0 ; |2044| 
+        MOV AC0, AR1 ; |2044| 
+        AADD AR1, AR3 ; |2044| 
         AADD #18, AR3 ; |2044| 
         AND #0xfffb, *AR3(#57) ; |2044| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2046,column 4,is_stmt
@@ -6707,40 +6583,32 @@ $C$DW$458	.dwtag  DW_TAG_TI_branch
         BCC $C$L161,!TC1 ; |2060| 
                                         ; branchcc occurs ; |2060| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2062,column 4,is_stmt
-        MOV uns(*SP(#2)), AC1 ; |2062| 
-        SFTS AC1, #6, AC0 ; |2062| 
-        SUB AC1 << #1, AC0 ; |2062| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2062| 
+        MPYMK *SP(#2), #62, AC0 ; |2062| 
+        MOV AC0, AR1 ; |2062| 
+        AADD AR1, AR3 ; |2062| 
         BTST #2, *AR3(#75), TC1 ; |2062| 
         BCC $C$L161,!TC1 ; |2062| 
                                         ; branchcc occurs ; |2062| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2064,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2064| 
-        SFTS AC1, #6, AC0 ; |2064| 
-        SUB AC1 << #1, AC0 ; |2064| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2064| 
+        MPYMK *SP(#2), #62, AC0 ; |2064| 
+        MOV AC0, AR1 ; |2064| 
+        AADD AR1, AR3 ; |2064| 
         AADD #18, AR3 ; |2064| 
         AND #0xfffb, *AR3(#57) ; |2064| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2066,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2066| 
-        SFTS AC1, #6, AC0 ; |2066| 
-        SUB AC1 << #1, AC0 ; |2066| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2066| 
+        MPYMK *SP(#2), #62, AC0 ; |2066| 
+        MOV AC0, AR1 ; |2066| 
+        AADD AR1, AR3 ; |2066| 
         MOV *AR3(#78), AR1 ; |2066| 
         BCC $C$L161,AR1 != #0 ; |2066| 
                                         ; branchcc occurs ; |2066| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2068,column 6,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2068| 
-        SFTS AC1, #6, AC0 ; |2068| 
-        SUB AC1 << #1, AC0 ; |2068| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2068| 
+        MPYMK *SP(#2), #62, AC0 ; |2068| 
+        MOV AC0, AR1 ; |2068| 
+        AADD AR1, AR3 ; |2068| 
         BTST #0, *AR3(#76), TC1 ; |2068| 
         BCC $C$L152,TC1 ; |2068| 
                                         ; branchcc occurs ; |2068| 
@@ -6758,12 +6626,10 @@ $C$DW$459	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |2071| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2074,column 7,is_stmt
+        MPYMK *SP(#2), #62, AC0 ; |2074| 
+        MOV AC0, AR1 ; |2074| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2074| 
-        SFTS AC1, #6, AC0 ; |2074| 
-        SUB AC1 << #1, AC0 ; |2074| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2074| 
+        AADD AR1, AR3 ; |2074| 
         MOV #1, *AR3(#78) ; |2074| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2075,column 7,is_stmt
         MOV dbl(*SP(#0)), XAR3
@@ -6780,11 +6646,9 @@ $C$DW$459	.dwtag  DW_TAG_TI_branch
 $C$L152:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2084,column 6,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2084| 
-        SFTS AC1, #6, AC0 ; |2084| 
-        SUB AC1 << #1, AC0 ; |2084| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2084| 
+        MPYMK *SP(#2), #62, AC0 ; |2084| 
+        MOV AC0, AR1 ; |2084| 
+        AADD AR1, AR3 ; |2084| 
         MOV *AR3(#78), AR1 ; |2084| 
         BCC $C$L161,AR1 != #0 ; |2084| 
                                         ; branchcc occurs ; |2084| 
@@ -6792,44 +6656,35 @@ $C$L152:
         MOV #2, *SP(#9) ; |2087| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2089,column 7,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2089| 
-        SFTS AC1, #6, AC0 ; |2089| 
-        SUB AC1 << #1, AC0 ; |2089| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2089| 
+        MPYMK *SP(#2), #62, AC0 ; |2089| 
+        MOV AC0, AR1 ; |2089| 
+        AADD AR1, AR3 ; |2089| 
         BTST #0, *AR3(#75), TC1 ; |2089| 
         BCC $C$L153,TC1 ; |2089| 
                                         ; branchcc occurs ; |2089| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2089| 
-        SFTS AC1, #6, AC0 ; |2089| 
-        SUB AC1 << #1, AC0 ; |2089| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2089| 
+        MPYMK *SP(#2), #62, AC0 ; |2089| 
+        MOV AC0, AR1 ; |2089| 
+        AADD AR1, AR3 ; |2089| 
         BTST #3, *AR3(#75), TC1 ; |2089| 
         BCC $C$L159,!TC1 ; |2089| 
                                         ; branchcc occurs ; |2089| 
 $C$L153:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2092,column 8,is_stmt
-        MOV uns(*SP(#2)), AC1 ; |2092| 
         MOV dbl(*SP(#0)), XAR3
-        SFTS AC1, #6, AC0 ; |2092| 
-        SUB AC1 << #1, AC0 ; |2092| 
-        MOV AC0, XAR2
-        MOV uns(*SP(#2)), AC3 ; |2092| 
+        MPYMK *SP(#2), #62, AC0 ; |2092| 
+        MOV AC0, AR1 ; |2092| 
+        MPYMK *SP(#2), #62, AC2 ; |2092| 
+        MOV dbl(*AR3(short(#2))), AC1 ; |2092| 
         MOV dbl(*AR3(#14)), XAR0
 
-        SFTS AC3, #6, AC1 ; |2092| 
-||      MOV dbl(*AR3(short(#2))), AC2 ; |2092| 
+        MOV AC2, AR1 ; |2092| 
+||      AADD AR1, AR3 ; |2092| 
 
-        AADD XAR2, XAR3 ; |2092| 
-||      SUB AC3 << #1, AC1 ; |2092| 
-
-        MOV AC1, XAR2
         MOV dbl(*AR3(#70)), AC0 ; |2092| 
         MOV dbl(*SP(#0)), XAR3
 
-        AADD XAR2, XAR3 ; |2092| 
+        AADD AR1, AR3 ; |2092| 
 ||      MOV *SP(#2), T0 ; |2092| 
 
         MOV *AR3(#77), T1 ; |2092| 
@@ -6837,7 +6692,7 @@ $C$DW$460	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$460, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$460, DW_AT_TI_call
 	.dwattr $C$DW$460, DW_AT_TI_indirect
-        CALL AC2  ; |2092| 
+        CALL AC1  ; |2092| 
                                         ; call occurs [AC0] ; |2092| 
         MOV T0, *SP(#9) ; |2092| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2098,column 7,is_stmt
@@ -6871,11 +6726,9 @@ $C$DW$461	.dwtag  DW_TAG_TI_branch
         MOV #1, *AR3(#289) ; |2110| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2112,column 11,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2112| 
-        SFTS AC1, #6, AC0 ; |2112| 
-        SUB AC1 << #1, AC0 ; |2112| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2112| 
+        MPYMK *SP(#2), #62, AC0 ; |2112| 
+        MOV AC0, AR1 ; |2112| 
+        AADD AR1, AR3 ; |2112| 
         MOV #1, *AR3(#78) ; |2112| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2114,column 16,is_stmt
         B $C$L161 ; |2114| 
@@ -6900,19 +6753,15 @@ $C$L155:
         MOV #0, *AR3(#289) ; |2124| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2126,column 11,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2126| 
-        SFTS AC1, #6, AC0 ; |2126| 
-        SUB AC1 << #1, AC0 ; |2126| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2126| 
+        MPYMK *SP(#2), #62, AC0 ; |2126| 
+        MOV AC0, AR1 ; |2126| 
+        AADD AR1, AR3 ; |2126| 
         MOV #0, *AR3(#78) ; |2126| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2128,column 11,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2128| 
-        SFTS AC1, #6, AC0 ; |2128| 
-        SUB AC1 << #1, AC0 ; |2128| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2128| 
+        MPYMK *SP(#2), #62, AC0 ; |2128| 
+        MOV AC0, AR1 ; |2128| 
+        AADD AR1, AR3 ; |2128| 
         AADD #18, AR3 ; |2128| 
         MOV dbl(*AR3(#52)), AC0 ; |2128| 
         ADD #1, AC0 ; |2128| 
@@ -6948,19 +6797,15 @@ $C$DW$462	.dwtag  DW_TAG_TI_branch
         MOV #1, *AR3(#289) ; |2142| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2144,column 11,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2144| 
-        SFTS AC1, #6, AC0 ; |2144| 
-        SUB AC1 << #1, AC0 ; |2144| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2144| 
+        MPYMK *SP(#2), #62, AC0 ; |2144| 
+        MOV AC0, AR1 ; |2144| 
+        AADD AR1, AR3 ; |2144| 
         MOV #1, *AR3(#78) ; |2144| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2147,column 11,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2147| 
-        SFTS AC1, #6, AC0 ; |2147| 
-        SUB AC1 << #1, AC0 ; |2147| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2147| 
+        MPYMK *SP(#2), #62, AC0 ; |2147| 
+        MOV AC0, AR1 ; |2147| 
+        AADD AR1, AR3 ; |2147| 
         AADD #18, AR3 ; |2147| 
         AND #0xfff6, *AR3(#57) ; |2147| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2150,column 16,is_stmt
@@ -6994,19 +6839,15 @@ $C$DW$463	.dwtag  DW_TAG_TI_branch
         MOV #1, *AR3(#289) ; |2162| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2164,column 11,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2164| 
-        SFTS AC1, #6, AC0 ; |2164| 
-        SUB AC1 << #1, AC0 ; |2164| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2164| 
+        MPYMK *SP(#2), #62, AC0 ; |2164| 
+        MOV AC0, AR1 ; |2164| 
+        AADD AR1, AR3 ; |2164| 
         MOV #1, *AR3(#78) ; |2164| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2167,column 11,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2167| 
-        SFTS AC1, #6, AC0 ; |2167| 
-        SUB AC1 << #1, AC0 ; |2167| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2167| 
+        MPYMK *SP(#2), #62, AC0 ; |2167| 
+        MOV AC0, AR1 ; |2167| 
+        AADD AR1, AR3 ; |2167| 
         AADD #18, AR3 ; |2167| 
         AND #0xfff6, *AR3(#57) ; |2167| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2170,column 16,is_stmt
@@ -7040,28 +6881,22 @@ $C$DW$464	.dwtag  DW_TAG_TI_branch
         MOV #1, *AR3(#289) ; |2183| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2185,column 11,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2185| 
-        SFTS AC1, #6, AC0 ; |2185| 
-        SUB AC1 << #1, AC0 ; |2185| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2185| 
+        MPYMK *SP(#2), #62, AC0 ; |2185| 
+        MOV AC0, AR1 ; |2185| 
+        AADD AR1, AR3 ; |2185| 
         MOV #1, *AR3(#78) ; |2185| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2187,column 11,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2187| 
-        SFTS AC1, #6, AC0 ; |2187| 
-        SUB AC1 << #1, AC0 ; |2187| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2187| 
+        MPYMK *SP(#2), #62, AC0 ; |2187| 
+        MOV AC0, AR1 ; |2187| 
+        AADD AR1, AR3 ; |2187| 
         AADD #18, AR3 ; |2187| 
         AND #0xfffe, *AR3(#57) ; |2187| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2189,column 11,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2189| 
-        SFTS AC1, #6, AC0 ; |2189| 
-        SUB AC1 << #1, AC0 ; |2189| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2189| 
+        MPYMK *SP(#2), #62, AC0 ; |2189| 
+        MOV AC0, AR1 ; |2189| 
+        AADD AR1, AR3 ; |2189| 
         AADD #18, AR3 ; |2189| 
         OR #0x0008, *AR3(#57) ; |2189| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2192,column 16,is_stmt
@@ -7099,11 +6934,9 @@ $C$L160:
 $C$L161:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2201,column 6,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2201| 
-        SFTS AC1, #6, AC0 ; |2201| 
-        SUB AC1 << #1, AC0 ; |2201| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2201| 
+        MPYMK *SP(#2), #62, AC0 ; |2201| 
+        MOV AC0, AR1 ; |2201| 
+        AADD AR1, AR3 ; |2201| 
         MOV *AR3(#77), AR1 ; |2201| 
         BCC $C$L165,AR1 == #0 ; |2201| 
                                         ; branchcc occurs ; |2201| 
@@ -7128,29 +6961,23 @@ $C$DW$465	.dwtag  DW_TAG_TI_branch
                                         ; branch occurs ; |2209| 
 $C$L162:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2212,column 5,is_stmt
-        MOV uns(*SP(#2)), AC1 ; |2212| 
-        SFTS AC1, #6, AC0 ; |2212| 
-        SUB AC1 << #1, AC0 ; |2212| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2212| 
+        MPYMK *SP(#2), #62, AC0 ; |2212| 
+        MOV AC0, AR1 ; |2212| 
+        AADD AR1, AR3 ; |2212| 
         AADD #18, AR3 ; |2212| 
         OR #0x0004, *AR3(#57) ; |2212| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2213,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2213| 
-        SFTS AC1, #6, AC0 ; |2213| 
-        SUB AC1 << #1, AC0 ; |2213| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2213| 
+        MPYMK *SP(#2), #62, AC0 ; |2213| 
+        MOV AC0, AR1 ; |2213| 
+        AADD AR1, AR3 ; |2213| 
         AADD #18, AR3 ; |2213| 
         SUB #1, *AR3(#59) ; |2213| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2214,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2214| 
-        SFTS AC1, #6, AC0 ; |2214| 
-        SUB AC1 << #1, AC0 ; |2214| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2214| 
+        MPYMK *SP(#2), #62, AC0 ; |2214| 
+        MOV AC0, AR1 ; |2214| 
+        AADD AR1, AR3 ; |2214| 
         MOV dbl(*AR3(#72)), AC1 ; |2214| 
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(#16)), AC0 ; |2214| 
@@ -7158,11 +6985,9 @@ $C$L162:
         BCC $C$L163,TC1 ; |2214| 
                                         ; branchcc occurs ; |2214| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2217,column 6,is_stmt
-        MOV uns(*SP(#2)), AC1 ; |2217| 
-        SFTS AC1, #6, AC0 ; |2217| 
-        SUB AC1 << #1, AC0 ; |2217| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2217| 
+        MPYMK *SP(#2), #62, AC0 ; |2217| 
+        MOV AC0, AR1 ; |2217| 
+        AADD AR1, AR3 ; |2217| 
         MOV *AR3(#73), AR1 ; |2217| 
         MOV AR1, *SP(#7) ; |2217| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2218,column 5,is_stmt
@@ -7220,11 +7045,9 @@ $C$L165:
 $C$L166:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2254,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#2)), AC1 ; |2254| 
-        SFTS AC1, #6, AC0 ; |2254| 
-        SUB AC1 << #1, AC0 ; |2254| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2254| 
+        MPYMK *SP(#2), #62, AC0 ; |2254| 
+        MOV AC0, AR1 ; |2254| 
+        AADD AR1, AR3 ; |2254| 
         MOV dbl(*AR3(#72)), AC1 ; |2254| 
         MOV dbl(*SP(#0)), XAR3
         MOV dbl(*AR3(#16)), AC0 ; |2254| 
@@ -7232,11 +7055,9 @@ $C$L166:
         BCC $C$L167,TC1 ; |2254| 
                                         ; branchcc occurs ; |2254| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2257,column 6,is_stmt
-        MOV uns(*SP(#2)), AC1 ; |2257| 
-        SFTS AC1, #6, AC0 ; |2257| 
-        SUB AC1 << #1, AC0 ; |2257| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2257| 
+        MPYMK *SP(#2), #62, AC0 ; |2257| 
+        MOV AC0, AR1 ; |2257| 
+        AADD AR1, AR3 ; |2257| 
         MOV *AR3(#73), AR1 ; |2257| 
         MOV AR1, *SP(#7) ; |2257| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2258,column 5,is_stmt
@@ -7341,9 +7162,8 @@ $C$DW$473	.dwtag  DW_TAG_formal_parameter, DW_AT_name("logicalUnit")
 ;*******************************************************************************
 ;* FUNCTION NAME: MSC_HandleTestUnitReady                                      *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,AC2,AC2,T0,T1,AR0,XAR0,AR1,XAR1,AR2, *
-;*                        XAR2,AR3,XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,   *
-;*                        SMUL                                                 *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,T1,AR0,XAR0,AR1,XAR1,AR3,XAR3,SP, *
+;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 10 words                                             *
 ;*                        (2 return address/alignment)                         *
@@ -7450,11 +7270,9 @@ $C$DW$483	.dwtag  DW_TAG_TI_branch
                                         ; branchcc occurs ; |2360| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2363,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2363| 
-        SFTS AC1, #6, AC0 ; |2363| 
-        SUB AC1 << #1, AC0 ; |2363| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2363| 
+        MPYMK *SP(#4), #62, AC0 ; |2363| 
+        MOV AC0, AR1 ; |2363| 
+        AADD AR1, AR3 ; |2363| 
         BTST #0, *AR3(#75), TC1 ; |2363| 
         BCC $C$L175,TC1 ; |2363| 
                                         ; branchcc occurs ; |2363| 
@@ -7480,15 +7298,11 @@ $C$DW$485	.dwtag  DW_TAG_TI_branch
         CALL AC0  ; |2369| 
                                         ; call occurs [AC0] ; |2369| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2369| 
-
-        SFTS AC1, #6, AC0 ; |2369| 
-||      SUB #1, AC0, AC2 ; |2369| 
-
-        SUB AC1 << #1, AC0 ; |2369| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2369| 
-        MOV AC2, dbl(*AR3(#68)) ; |2369| 
+        SUB #1, AC0, AC1 ; |2369| 
+        MPYMK *SP(#4), #62, AC0 ; |2369| 
+        MOV AC0, AR1 ; |2369| 
+        AADD AR1, AR3 ; |2369| 
+        MOV AC1, dbl(*AR3(#68)) ; |2369| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2372,column 4,is_stmt
         CMP *SP(#7) == #1, TC1 ; |2372| 
         BCC $C$L173,!TC1 ; |2372| 
@@ -7507,21 +7321,17 @@ $C$DW$486	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |2374| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2377,column 6,is_stmt
+        MPYMK *SP(#4), #62, AC0 ; |2377| 
+        MOV AC0, AR1 ; |2377| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2377| 
-        SFTS AC1, #6, AC0 ; |2377| 
-        SUB AC1 << #1, AC0 ; |2377| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2377| 
+        AADD AR1, AR3 ; |2377| 
         AADD #18, AR3 ; |2377| 
         OR #0x0001, *AR3(#57) ; |2377| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2378,column 6,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2378| 
-        SFTS AC1, #6, AC0 ; |2378| 
-        SUB AC1 << #1, AC0 ; |2378| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2378| 
+        MPYMK *SP(#4), #62, AC0 ; |2378| 
+        MOV AC0, AR1 ; |2378| 
+        AADD AR1, AR3 ; |2378| 
         AADD #18, AR3 ; |2378| 
         AND #0xfff7, *AR3(#57) ; |2378| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2379,column 4,is_stmt
@@ -7546,12 +7356,10 @@ $C$DW$487	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |2382| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2386,column 6,is_stmt
+        MPYMK *SP(#4), #62, AC0 ; |2386| 
+        MOV AC0, AR1 ; |2386| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2386| 
-        SFTS AC1, #6, AC0 ; |2386| 
-        SUB AC1 << #1, AC0 ; |2386| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2386| 
+        AADD AR1, AR3 ; |2386| 
         AADD #18, AR3 ; |2386| 
         AND #0xfff6, *AR3(#57) ; |2386| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2388,column 4,is_stmt
@@ -7579,21 +7387,17 @@ $C$DW$488	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |2395| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2398,column 6,is_stmt
+        MPYMK *SP(#4), #62, AC0 ; |2398| 
+        MOV AC0, AR1 ; |2398| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2398| 
-        SFTS AC1, #6, AC0 ; |2398| 
-        SUB AC1 << #1, AC0 ; |2398| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2398| 
+        AADD AR1, AR3 ; |2398| 
         AADD #18, AR3 ; |2398| 
         AND #0xfffe, *AR3(#57) ; |2398| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2401,column 6,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2401| 
-        SFTS AC1, #6, AC0 ; |2401| 
-        SUB AC1 << #1, AC0 ; |2401| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2401| 
+        MPYMK *SP(#4), #62, AC0 ; |2401| 
+        MOV AC0, AR1 ; |2401| 
+        AADD AR1, AR3 ; |2401| 
         AADD #18, AR3 ; |2401| 
         OR #0x0008, *AR3(#57) ; |2401| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2405,column 3,is_stmt
@@ -7638,12 +7442,10 @@ $C$DW$490	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |2416| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2420,column 4,is_stmt
+        MPYMK *SP(#4), #62, AC0 ; |2420| 
+        MOV AC0, AR1 ; |2420| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2420| 
-        SFTS AC1, #6, AC0 ; |2420| 
-        SUB AC1 << #1, AC0 ; |2420| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2420| 
+        AADD AR1, AR3 ; |2420| 
         AADD #18, AR3 ; |2420| 
         AND #0xfff6, *AR3(#57) ; |2420| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2422,column 2,is_stmt
@@ -7671,21 +7473,17 @@ $C$DW$491	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |2428| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2432,column 4,is_stmt
+        MPYMK *SP(#4), #62, AC0 ; |2432| 
+        MOV AC0, AR1 ; |2432| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2432| 
-        SFTS AC1, #6, AC0 ; |2432| 
-        SUB AC1 << #1, AC0 ; |2432| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2432| 
+        AADD AR1, AR3 ; |2432| 
         AADD #18, AR3 ; |2432| 
         OR #0x0008, *AR3(#57) ; |2432| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2433,column 4,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2433| 
-        SFTS AC1, #6, AC0 ; |2433| 
-        SUB AC1 << #1, AC0 ; |2433| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2433| 
+        MPYMK *SP(#4), #62, AC0 ; |2433| 
+        MOV AC0, AR1 ; |2433| 
+        AADD AR1, AR3 ; |2433| 
         AADD #18, AR3 ; |2433| 
         AND #0xfffe, *AR3(#57) ; |2433| 
 $C$L178:    
@@ -7756,8 +7554,8 @@ $C$DW$497	.dwtag  DW_TAG_formal_parameter, DW_AT_name("logicalUnit")
 ;*******************************************************************************
 ;* FUNCTION NAME: MSC_HandlePreventAllowMediaRemoval                           *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,T1,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,*
-;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
+;*   Function Uses Regs : AC0,AC0,T0,T1,AR0,XAR0,AR1,XAR1,AR3,XAR3,SP,TC1,M40, *
+;*                        SATA,SATD,RDM,FRCT,SMUL                              *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 10 words                                             *
 ;*                        (1 return address/alignment)                         *
@@ -7869,12 +7667,10 @@ $C$DW$508	.dwtag  DW_TAG_TI_branch
         MOV uns(high_byte(*AR3(#306))), AR1 ; |2523| 
         MOV AR1, *SP(#8) ; |2523| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2526,column 5,is_stmt
+        MPYMK *SP(#4), #62, AC0 ; |2526| 
+        MOV AC0, AR1 ; |2526| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2526| 
-        SFTS AC1, #6, AC0 ; |2526| 
-        SUB AC1 << #1, AC0 ; |2526| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2526| 
+        AADD AR1, AR3 ; |2526| 
         MOV *AR3(#74), AR1 ; |2526| 
         BCC $C$L181,AR1 != #0 ; |2526| 
                                         ; branchcc occurs ; |2526| 
@@ -7941,11 +7737,9 @@ $C$DW$511	.dwtag  DW_TAG_TI_branch
                                         ; branchcc occurs ; |2546| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2548,column 21,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2548| 
-        SFTS AC1, #6, AC0 ; |2548| 
-        SUB AC1 << #1, AC0 ; |2548| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2548| 
+        MPYMK *SP(#4), #62, AC0 ; |2548| 
+        MOV AC0, AR1 ; |2548| 
+        AADD AR1, AR3 ; |2548| 
         AADD #18, AR3 ; |2548| 
         OR #0x0002, *AR3(#57) ; |2548| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2550,column 17,is_stmt
@@ -7986,12 +7780,10 @@ $C$DW$513	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |2561| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2565,column 17,is_stmt
+        MPYMK *SP(#4), #62, AC0 ; |2565| 
+        MOV AC0, AR1 ; |2565| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2565| 
-        SFTS AC1, #6, AC0 ; |2565| 
-        SUB AC1 << #1, AC0 ; |2565| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2565| 
+        AADD AR1, AR3 ; |2565| 
         AADD #18, AR3 ; |2565| 
         AND #0xfff6, *AR3(#57) ; |2565| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2567,column 17,is_stmt
@@ -8018,11 +7810,9 @@ $C$DW$514	.dwtag  DW_TAG_TI_branch
                                         ; branchcc occurs ; |2574| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2576,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2576| 
-        SFTS AC1, #6, AC0 ; |2576| 
-        SUB AC1 << #1, AC0 ; |2576| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2576| 
+        MPYMK *SP(#4), #62, AC0 ; |2576| 
+        MOV AC0, AR1 ; |2576| 
+        AADD AR1, AR3 ; |2576| 
         AADD #18, AR3 ; |2576| 
         AND #0xfffd, *AR3(#57) ; |2576| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2578,column 4,is_stmt
@@ -8113,8 +7903,8 @@ $C$DW$521	.dwtag  DW_TAG_formal_parameter, DW_AT_name("logicalUnit")
 ;*******************************************************************************
 ;* FUNCTION NAME: MSC_HandleReadCapacity                                       *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,T1,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,*
-;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,T1,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,*
+;*                        SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL             *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 12 words                                             *
 ;*                        (2 return address/alignment)                         *
@@ -8192,62 +7982,54 @@ $C$L189:
         BCC $C$L197,AC0 == #0 ; |2661| 
                                         ; branchcc occurs ; |2661| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2663,column 6,is_stmt
-        MOV uns(*SP(#4)), AC1 ; |2663| 
-        SFTS AC1, #6, AC0 ; |2663| 
-        SUB AC1 << #1, AC0 ; |2663| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2663| 
+        MPYMK *SP(#4), #62, AC0 ; |2663| 
+        MOV AC0, AR1 ; |2663| 
+        AADD AR1, AR3 ; |2663| 
         MOV dbl(*AR3(#68)), AC0 ; |2663| 
         SFTL AC0, #-16, AC0 ; |2663| 
         AND #0xffff, AC0, AC0 ; |2663| 
         MOV AC0, *SP(#6) ; |2663| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2665,column 6,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2665| 
-        SFTS AC1, #6, AC0 ; |2665| 
-        SUB AC1 << #1, AC0 ; |2665| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2665| 
+        MPYMK *SP(#4), #62, AC0 ; |2665| 
+        MOV AC0, AR1 ; |2665| 
+        AADD AR1, AR3 ; |2665| 
         MOV dbl(*AR3(#68)), AC0 ; |2665| 
         AND #0xffff, AC0, AC0 ; |2665| 
         MOV AC0, *SP(#7) ; |2665| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2667,column 6,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(high_byte(*SP(#6))), AC0 ; |2667| 
         MOV *SP(#6), AC1 ; |2667| 
+        MOV uns(high_byte(*SP(#6))), AC0 ; |2667| 
         OR AC1 << #8, AC0 ; |2667| 
         MOV AC0, *AR3(#292) ; |2667| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2669,column 6,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(high_byte(*SP(#7))), AC0 ; |2669| 
         MOV *SP(#7), AC1 ; |2669| 
+        MOV uns(high_byte(*SP(#7))), AC0 ; |2669| 
         OR AC1 << #8, AC0 ; |2669| 
         MOV AC0, *AR3(#293) ; |2669| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2673,column 6,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2673| 
-        SFTS AC1, #6, AC0 ; |2673| 
-        SUB AC1 << #1, AC0 ; |2673| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2673| 
+        MPYMK *SP(#4), #62, AC0 ; |2673| 
+        MOV AC0, AR1 ; |2673| 
+        AADD AR1, AR3 ; |2673| 
         MOV dbl(*AR3(#72)), AC0 ; |2673| 
         SFTL AC0, #-16, AC0 ; |2673| 
         AND #0xffff, AC0, AC0 ; |2673| 
         MOV AC0, *SP(#6) ; |2673| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2675,column 6,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2675| 
-        SFTS AC1, #6, AC0 ; |2675| 
-        SUB AC1 << #1, AC0 ; |2675| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2675| 
+        MPYMK *SP(#4), #62, AC0 ; |2675| 
+        MOV AC0, AR1 ; |2675| 
+        AADD AR1, AR3 ; |2675| 
         MOV dbl(*AR3(#72)), AC0 ; |2675| 
         AND #0xffff, AC0, AC0 ; |2675| 
         MOV AC0, *SP(#7) ; |2675| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2677,column 6,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(high_byte(*SP(#6))), AC0 ; |2677| 
         MOV *SP(#6), AC1 ; |2677| 
+        MOV uns(high_byte(*SP(#6))), AC0 ; |2677| 
         OR AC1 << #8, AC0 ; |2677| 
         MOV AC0, *AR3(#294) ; |2677| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2679,column 6,is_stmt
@@ -8294,11 +8076,9 @@ $C$L191:
         MOV #1, *AR3(#289) ; |2701| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2703,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2703| 
-        SFTS AC1, #6, AC0 ; |2703| 
-        SUB AC1 << #1, AC0 ; |2703| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2703| 
+        MPYMK *SP(#4), #62, AC0 ; |2703| 
+        MOV AC0, AR1 ; |2703| 
+        AADD AR1, AR3 ; |2703| 
         BTST #0, *AR3(#75), TC1 ; |2703| 
         BCC $C$L194,!TC1 ; |2703| 
                                         ; branchcc occurs ; |2703| 
@@ -8358,21 +8138,17 @@ $C$DW$533	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |2716| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2719,column 5,is_stmt
+        MPYMK *SP(#4), #62, AC0 ; |2719| 
+        MOV AC0, AR1 ; |2719| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2719| 
-        SFTS AC1, #6, AC0 ; |2719| 
-        SUB AC1 << #1, AC0 ; |2719| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2719| 
+        AADD AR1, AR3 ; |2719| 
         AADD #18, AR3 ; |2719| 
         AND #0xfffe, *AR3(#57) ; |2719| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2720,column 5,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2720| 
-        SFTS AC1, #6, AC0 ; |2720| 
-        SUB AC1 << #1, AC0 ; |2720| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2720| 
+        MPYMK *SP(#4), #62, AC0 ; |2720| 
+        MOV AC0, AR1 ; |2720| 
+        AADD AR1, AR3 ; |2720| 
         AADD #18, AR3 ; |2720| 
         OR #0x0008, *AR3(#57) ; |2720| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2721,column 4,is_stmt
@@ -8397,12 +8173,10 @@ $C$DW$534	.dwtag  DW_TAG_TI_branch
 
                                         ; call occurs [#_MSC_SetSenseKeys] ; |2724| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2728,column 5,is_stmt
+        MPYMK *SP(#4), #62, AC0 ; |2728| 
+        MOV AC0, AR1 ; |2728| 
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2728| 
-        SFTS AC1, #6, AC0 ; |2728| 
-        SUB AC1 << #1, AC0 ; |2728| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2728| 
+        AADD AR1, AR3 ; |2728| 
         AADD #18, AR3 ; |2728| 
         AND #0xfff6, *AR3(#57) ; |2728| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2731,column 3,is_stmt
@@ -8411,11 +8185,9 @@ $C$DW$534	.dwtag  DW_TAG_TI_branch
 $C$L194:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2732,column 8,is_stmt
         MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#4)), AC1 ; |2732| 
-        SFTS AC1, #6, AC0 ; |2732| 
-        SUB AC1 << #1, AC0 ; |2732| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2732| 
+        MPYMK *SP(#4), #62, AC0 ; |2732| 
+        MOV AC0, AR1 ; |2732| 
+        AADD AR1, AR3 ; |2732| 
         BTST #3, *AR3(#75), TC1 ; |2732| 
         BCC $C$L195,!TC1 ; |2732| 
                                         ; branchcc occurs ; |2732| 
@@ -8864,14 +8636,11 @@ $C$DW$565	.dwtag  DW_TAG_TI_branch
                                         ; branch occurs ; |2899| 
 $C$L219:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2903,column 12,is_stmt
-        MOV *AR3(short(#3)), AR1 ; |2903| 
+        MOV uns(low_byte(*AR3(short(#3)))), T0 ; |2903| 
         MOV dbl(*SP(#84)), XAR3
-        AND #0x00ff, AR1, AC0 ; |2903| 
-        SFTL AC0, #1 ; |2903| 
-        MOV AC0, XAR2
+        SFTL T0, #1 ; |2903| 
         MOV dbl(*AR3(#170)), XAR3
-        AADD XAR2, XAR3 ; |2903| 
-        MOV dbl(*AR3), XAR0
+        MOV dbl(*AR3(T0)), XAR0
 $C$DW$566	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$566, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$566, DW_AT_name("_strlen")
@@ -8912,40 +8681,31 @@ $C$L222:
 $C$DW$L$_MSC_reqGetDescriptor$34$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2917,column 6,is_stmt
         MOV dbl(*SP(#2)), XAR3
-        MOV *AR3(short(#3)), AR1 ; |2917| 
+        MOV uns(low_byte(*AR3(short(#3)))), T0 ; |2917| 
         MOV dbl(*SP(#84)), XAR3
-        AND #0x00ff, AR1, AC0 ; |2917| 
-        SFTL AC0, #1 ; |2917| 
-        MOV AC0, XAR2
+        SFTL T0, #1 ; |2917| 
         MOV dbl(*AR3(#170)), XAR3
-        AADD XAR2, XAR3 ; |2917| 
-        MOV dbl(*AR3), XAR3
-        MOV uns(*SP(#13)), AC0 ; |2917| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |2917| 
-        MOV *AR3, AR1 ; |2917| 
+        MOV dbl(*AR3(T0)), XAR3
+        MOV *SP(#13), T0 ; |2917| 
+        MOV *AR3(T0), AR1 ; |2917| 
         MOV AR1, *SP(#14) ; |2917| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2919,column 6,is_stmt
         MOV #0, *SP(#15) ; |2919| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2920,column 6,is_stmt
-        MOV uns(*SP(#13)), AC0 ; |2920| 
-        MOV AC0, XAR3
-        AADD #2, AR3 ; |2920| 
-        MOV XAR3, AC0
-        MOV AC0, XAR2
-        MOV *SP(#15), AC1 ; |2920| 
-        AMAR *SP(#16), XAR3
+        MOV *SP(#13), T0 ; |2920| 
+        ADD #2, T0 ; |2920| 
         MOV *SP(#14), AC0 ; |2920| 
+        MOV *SP(#15), AC1 ; |2920| 
 
-        AADD XAR2, XAR3 ; |2920| 
+        AMAR *SP(#16), XAR3
 ||      OR AC1 << #8, AC0 ; |2920| 
 
-        MOV AC0, *AR3 ; |2920| 
+        MOV AC0, *AR3(T0) ; |2920| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2915,column 45,is_stmt
         ADD #1, *SP(#13) ; |2915| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c",line 2915,column 29,is_stmt
-        MOV *SP(#11), AR1 ; |2915| 
         MOV *SP(#13), AR2 ; |2915| 
+        MOV *SP(#11), AR1 ; |2915| 
         CMPU AR2 < AR1, TC1 ; |2915| 
         BCC $C$L222,TC1 ; |2915| 
                                         ; branchcc occurs ; |2915| 
@@ -9024,7 +8784,7 @@ $C$DW$568	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$569	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$569, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L222:1:1538472794")
+	.dwattr $C$DW$569, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L222:1:1538833074")
 	.dwattr $C$DW$569, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c")
 	.dwattr $C$DW$569, DW_AT_TI_begin_line(0xb63)
 	.dwattr $C$DW$569, DW_AT_TI_end_line(0xb69)
@@ -9035,7 +8795,7 @@ $C$DW$570	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$571	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$571, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L215:1:1538472794")
+	.dwattr $C$DW$571, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_msc.asm:$C$L215:1:1538833074")
 	.dwattr $C$DW$571, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c")
 	.dwattr $C$DW$571, DW_AT_TI_begin_line(0xb48)
 	.dwattr $C$DW$571, DW_AT_TI_end_line(0xb48)

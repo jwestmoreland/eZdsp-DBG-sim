@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Tue Oct 02 02:33:54 2018                                 *
+;* Date/Time created: Sat Oct 06 06:38:33 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,7 +27,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
 ;******************************************************************************
 ;* CINIT RECORDS                                                              *
 ;******************************************************************************
@@ -379,7 +379,7 @@ $C$DW$54	.dwtag  DW_TAG_variable, DW_AT_name("usCriticalNesting")
 	.dwattr $C$DW$54, DW_AT_type(*$C$DW$T$143)
 	.dwattr $C$DW$54, DW_AT_declaration
 	.dwattr $C$DW$54, DW_AT_external
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1477612 
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\0620412 
 	.sect	".text"
 	.align 4
 	.global	_xTaskCreate
@@ -795,13 +795,13 @@ $C$DW$103	.dwtag  DW_TAG_TI_branch
                                         ; call occurs [#_memset] ; |897| 
 	.dwpsn	file "../FreeRTOS/Source/tasks_sysStk.c",line 907,column 3,is_stmt
         MOV dbl(*SP(#12)), XAR3
-        MOV dbl(*AR3(#26)), XAR3
         MOV dbl(*SP(#4)), AC0 ; |907| 
         SUB #1, AC0 ; |907| 
-        MOV AC0, XAR2
+        MOV AC0, AR1 ; |907| 
+        MOV dbl(*AR3(#26)), XAR3
 
         MOV XAR3, dbl(*SP(#16))
-||      AADD XAR2, XAR3 ; |907| 
+||      AADD AR1, AR3 ; |907| 
 
 	.dwpsn	file "../FreeRTOS/Source/tasks_sysStk.c",line 908,column 3,is_stmt
         MOV #-1 << #16, AC1 ; |908| 
@@ -811,13 +811,13 @@ $C$DW$103	.dwtag  DW_TAG_TI_branch
         MOV AC1, dbl(*SP(#16))
 	.dwpsn	file "../FreeRTOS/Source/tasks_sysStk.c",line 909,column 3,is_stmt
         MOV dbl(*SP(#12)), XAR3
-        MOV dbl(*AR3(#28)), XAR3
         MOV dbl(*SP(#4)), AC0 ; |909| 
         SUB #1, AC0 ; |909| 
-        MOV AC0, XAR2
+        MOV AC0, AR1 ; |909| 
+        MOV dbl(*AR3(#28)), XAR3
 
         MOV XAR3, dbl(*SP(#18))
-||      AADD XAR2, XAR3 ; |909| 
+||      AADD AR1, AR3 ; |909| 
 
 	.dwpsn	file "../FreeRTOS/Source/tasks_sysStk.c",line 910,column 3,is_stmt
         MOV #-1 << #16, AC1 ; |910| 
@@ -884,22 +884,17 @@ $C$L15:
 $C$L16:    
 $C$DW$L$_prvInitialiseNewTask$18$B:
 	.dwpsn	file "../FreeRTOS/Source/tasks_sysStk.c",line 943,column 3,is_stmt
+        MOV *SP(#20), T0 ; |943| 
         MOV dbl(*SP(#2)), XAR3
-        MOV uns(*SP(#20)), AC0 ; |943| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |943| 
-        MOV *AR3, AR1 ; |943| 
+        MOV T0, AR1
+        MOV *AR3(T0), AR2 ; |943| 
         MOV dbl(*SP(#12)), XAR3
-        MOV uns(*SP(#20)), AC0 ; |943| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |943| 
-        MOV AR1, *AR3(#30) ; |943| 
+        AADD AR1, AR3 ; |943| 
+        MOV AR2, *AR3(#30) ; |943| 
 	.dwpsn	file "../FreeRTOS/Source/tasks_sysStk.c",line 948,column 3,is_stmt
+        MOV *SP(#20), T0 ; |948| 
         MOV dbl(*SP(#2)), XAR3
-        MOV uns(*SP(#20)), AC0 ; |948| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |948| 
-        MOV *AR3, AR1 ; |948| 
+        MOV *AR3(T0), AR1 ; |948| 
         BCC $C$L17,AR1 != #0 ; |948| 
                                         ; branchcc occurs ; |948| 
 $C$DW$L$_prvInitialiseNewTask$18$E:
@@ -1030,7 +1025,7 @@ $C$DW$107	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$108	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$108, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L16:1:1538472834")
+	.dwattr $C$DW$108, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L16:1:1538833113")
 	.dwattr $C$DW$108, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$108, DW_AT_TI_begin_line(0x3ad)
 	.dwattr $C$DW$108, DW_AT_TI_end_line(0x3bc)
@@ -1044,7 +1039,7 @@ $C$DW$110	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$111	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$111, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L14:1:1538472834")
+	.dwattr $C$DW$111, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L14:1:1538833113")
 	.dwattr $C$DW$111, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$111, DW_AT_TI_begin_line(0x391)
 	.dwattr $C$DW$111, DW_AT_TI_end_line(0x391)
@@ -1055,7 +1050,7 @@ $C$DW$112	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$113	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$113, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L11:1:1538472834")
+	.dwattr $C$DW$113, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L11:1:1538833113")
 	.dwattr $C$DW$113, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$113, DW_AT_TI_begin_line(0x390)
 	.dwattr $C$DW$113, DW_AT_TI_end_line(0x390)
@@ -1066,7 +1061,7 @@ $C$DW$114	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$115	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$115, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L8:1:1538472834")
+	.dwattr $C$DW$115, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L8:1:1538833113")
 	.dwattr $C$DW$115, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$115, DW_AT_TI_begin_line(0x37a)
 	.dwattr $C$DW$115, DW_AT_TI_end_line(0x37a)
@@ -1077,7 +1072,7 @@ $C$DW$116	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$117	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$117, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L6:1:1538472834")
+	.dwattr $C$DW$117, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L6:1:1538833113")
 	.dwattr $C$DW$117, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$117, DW_AT_TI_begin_line(0x368)
 	.dwattr $C$DW$117, DW_AT_TI_end_line(0x368)
@@ -1113,8 +1108,8 @@ $C$DW$120	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pxNewTCB")
 ;*******************************************************************************
 ;* FUNCTION NAME: prvAddNewTaskToReadyList                                     *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,   *
-;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
+;*   Function Uses Regs : AC0,AC0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,CARRY,TC1, *
+;*                        M40,SATA,SATD,RDM,FRCT,SMUL                          *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 4 words                                              *
 ;*                        (2 return address/alignment)                         *
@@ -1197,16 +1192,12 @@ $C$L22:
         MOV *AR3(#24), AR1 ; |1136| 
         MOV AR1, *(#_uxTopReadyPriority) ; |1136| 
 $C$L23:    
-        MOV uns(*AR3(#24)), AC1 ; |1136| 
-        MOV dbl(*SP(#0)), XAR1
-        SFTS AC1, #1, AC0 ; |1136| 
-        ADD AC1 << #3, AC0 ; |1136| 
-        MOV AC0, XAR3
+        MPYMK *AR3(#24), #10, AC0 ; |1136| 
+        MOV AC0, AR1 ; |1136| 
         AMOV #_pxReadyTasksLists, XAR0 ; |1136| 
-
-        AADD XAR3, XAR0 ; |1136| 
-||      AADD #4, AR1 ; |1136| 
-
+        AADD AR1, AR0 ; |1136| 
+        MOV dbl(*SP(#0)), XAR1
+        AADD #4, AR1 ; |1136| 
 $C$DW$123	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$123, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$123, DW_AT_name("_vListInsertEnd")
@@ -1458,7 +1449,7 @@ $C$DW$136	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$137	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$137, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L33:1:1538472834")
+	.dwattr $C$DW$137, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L33:1:1538833113")
 	.dwattr $C$DW$137, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$137, DW_AT_TI_begin_line(0x4d9)
 	.dwattr $C$DW$137, DW_AT_TI_end_line(0x4d9)
@@ -1701,7 +1692,7 @@ $C$DW$153	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$154	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$154, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L42:1:1538472834")
+	.dwattr $C$DW$154, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L42:1:1538833113")
 	.dwattr $C$DW$154, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$154, DW_AT_TI_begin_line(0x4ef)
 	.dwattr $C$DW$154, DW_AT_TI_end_line(0x4ef)
@@ -1712,7 +1703,7 @@ $C$DW$155	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$156	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$156, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L39:1:1538472834")
+	.dwattr $C$DW$156, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L39:1:1538833113")
 	.dwattr $C$DW$156, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$156, DW_AT_TI_begin_line(0x4ee)
 	.dwattr $C$DW$156, DW_AT_TI_end_line(0x4ee)
@@ -1723,7 +1714,7 @@ $C$DW$157	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$158	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$158, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L36:1:1538472834")
+	.dwattr $C$DW$158, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L36:1:1538833113")
 	.dwattr $C$DW$158, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$158, DW_AT_TI_begin_line(0x4ed)
 	.dwattr $C$DW$158, DW_AT_TI_end_line(0x4ed)
@@ -1857,7 +1848,7 @@ $C$DW$168	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$169	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$169, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L50:1:1538472834")
+	.dwattr $C$DW$169, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L50:1:1538833113")
 	.dwattr $C$DW$169, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$169, DW_AT_TI_begin_line(0x543)
 	.dwattr $C$DW$169, DW_AT_TI_end_line(0x543)
@@ -2078,7 +2069,7 @@ $C$DW$179	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$180	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$180, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L54:1:1538472834")
+	.dwattr $C$DW$180, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L54:1:1538833113")
 	.dwattr $C$DW$180, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$180, DW_AT_TI_begin_line(0x56f)
 	.dwattr $C$DW$180, DW_AT_TI_end_line(0x56f)
@@ -2299,8 +2290,8 @@ $C$DW$197	.dwtag  DW_TAG_formal_parameter, DW_AT_name("uxNewPriority")
 ;*******************************************************************************
 ;* FUNCTION NAME: vTaskPrioritySet                                             *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,   *
-;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,*
+;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 10 words                                             *
 ;*                        (1 return address/alignment)                         *
@@ -2470,17 +2461,15 @@ $C$L76:
 	.dwpsn	file "../FreeRTOS/Source/tasks_sysStk.c",line 1648,column 5,is_stmt
 $C$L77:    
 	.dwpsn	file "../FreeRTOS/Source/tasks_sysStk.c",line 1658,column 5,is_stmt
-        MOV uns(*SP(#7)), AC1 ; |1658| 
-        SFTS AC1, #1, AC0 ; |1658| 
-        ADD AC1 << #3, AC0 ; |1658| 
-        MOV AC0, XAR2
+        MPYMK *SP(#7), #10, AC1 ; |1658| 
+        MOV AC1, AR1 ; |1658| 
         AMOV #_pxReadyTasksLists, XAR3 ; |1658| 
-        AADD XAR2, XAR3 ; |1658| 
-        MOV XAR3, AC1
+        AADD AR1, AR3 ; |1658| 
+        MOV XAR3, AC0
         MOV dbl(*SP(#4)), XAR3
         MOV dbl(*AR3(#12)), XAR3
-        MOV XAR3, AC0
-        CMPU AC0 != AC1, TC1 ; |1658| 
+        MOV XAR3, AC1
+        CMPU AC1 != AC0, TC1 ; |1658| 
         BCC $C$L78,TC1 ; |1658| 
                                         ; branchcc occurs ; |1658| 
         MOV #1, AR1
@@ -2514,16 +2503,12 @@ $C$L80:
         MOV *AR3(#24), AR1 ; |1674| 
         MOV AR1, *(#_uxTopReadyPriority) ; |1674| 
 $C$L81:    
-        MOV uns(*AR3(#24)), AC1 ; |1674| 
-        MOV dbl(*SP(#4)), XAR1
-        SFTS AC1, #1, AC0 ; |1674| 
-        ADD AC1 << #3, AC0 ; |1674| 
-        MOV AC0, XAR3
+        MPYMK *AR3(#24), #10, AC0 ; |1674| 
+        MOV AC0, AR1 ; |1674| 
         AMOV #_pxReadyTasksLists, XAR0 ; |1674| 
-
-        AADD XAR3, XAR0 ; |1674| 
-||      AADD #4, AR1 ; |1674| 
-
+        AADD AR1, AR0 ; |1674| 
+        MOV dbl(*SP(#4)), XAR1
+        AADD #4, AR1 ; |1674| 
 $C$DW$205	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$205, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$205, DW_AT_name("_vListInsertEnd")
@@ -2571,7 +2556,7 @@ $C$DW$207	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$208	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$208, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L70:1:1538472834")
+	.dwattr $C$DW$208, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L70:1:1538833113")
 	.dwattr $C$DW$208, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$208, DW_AT_TI_begin_line(0x609)
 	.dwattr $C$DW$208, DW_AT_TI_end_line(0x609)
@@ -2808,7 +2793,7 @@ $C$DW$220	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$221	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$221, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L93:1:1538472834")
+	.dwattr $C$DW$221, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L93:1:1538833113")
 	.dwattr $C$DW$221, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$221, DW_AT_TI_begin_line(0x6eb)
 	.dwattr $C$DW$221, DW_AT_TI_end_line(0x6eb)
@@ -2955,7 +2940,7 @@ $C$DW$228	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$229	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$229, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L98:1:1538472834")
+	.dwattr $C$DW$229, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L98:1:1538833113")
 	.dwattr $C$DW$229, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$229, DW_AT_TI_begin_line(0x715)
 	.dwattr $C$DW$229, DW_AT_TI_end_line(0x715)
@@ -3074,16 +3059,12 @@ $C$DW$236	.dwtag  DW_TAG_TI_branch
         MOV *AR3(#24), AR1 ; |1870| 
         MOV AR1, *(#_uxTopReadyPriority) ; |1870| 
 $C$L109:    
-        MOV uns(*AR3(#24)), AC1 ; |1870| 
-        MOV dbl(*SP(#2)), XAR1
-        SFTS AC1, #1, AC0 ; |1870| 
-        ADD AC1 << #3, AC0 ; |1870| 
-        MOV AC0, XAR3
+        MPYMK *AR3(#24), #10, AC0 ; |1870| 
+        MOV AC0, AR1 ; |1870| 
         AMOV #_pxReadyTasksLists, XAR0 ; |1870| 
-
-        AADD XAR3, XAR0 ; |1870| 
-||      AADD #4, AR1 ; |1870| 
-
+        AADD AR1, AR0 ; |1870| 
+        MOV dbl(*SP(#2)), XAR1
+        AADD #4, AR1 ; |1870| 
 $C$DW$237	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$237, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$237, DW_AT_name("_vListInsertEnd")
@@ -3135,7 +3116,7 @@ $C$DW$239	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$240	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$240, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L107:1:1538472834")
+	.dwattr $C$DW$240, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L107:1:1538833113")
 	.dwattr $C$DW$240, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$240, DW_AT_TI_begin_line(0x73f)
 	.dwattr $C$DW$240, DW_AT_TI_end_line(0x73f)
@@ -3174,8 +3155,8 @@ $C$DW$243	.dwtag  DW_TAG_formal_parameter, DW_AT_name("xTaskToResume")
 ;*******************************************************************************
 ;* FUNCTION NAME: xTaskResumeFromISR                                           *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,*
-;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
+;*   Function Uses Regs : AC0,AC0,T0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,TC1,M40,*
+;*                        SATA,SATD,RDM,FRCT,SMUL                              *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 8 words                                              *
 ;*                        (1 return address/alignment)                         *
@@ -3269,16 +3250,12 @@ $C$DW$249	.dwtag  DW_TAG_TI_branch
         MOV *AR3(#24), AR1 ; |1951| 
         MOV AR1, *(#_uxTopReadyPriority) ; |1951| 
 $C$L115:    
-        MOV uns(*AR3(#24)), AC1 ; |1951| 
-        MOV dbl(*SP(#4)), XAR1
-        SFTS AC1, #1, AC0 ; |1951| 
-        ADD AC1 << #3, AC0 ; |1951| 
-        MOV AC0, XAR3
+        MPYMK *AR3(#24), #10, AC0 ; |1951| 
+        MOV AC0, AR1 ; |1951| 
         AMOV #_pxReadyTasksLists, XAR0 ; |1951| 
-
-        AADD XAR3, XAR0 ; |1951| 
-||      AADD #4, AR1 ; |1951| 
-
+        AADD AR1, AR0 ; |1951| 
+        MOV dbl(*SP(#4)), XAR1
+        AADD #4, AR1 ; |1951| 
 $C$DW$250	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$250, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$250, DW_AT_name("_vListInsertEnd")
@@ -3314,7 +3291,7 @@ $C$DW$252	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$253	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$253, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L112:1:1538472834")
+	.dwattr $C$DW$253, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L112:1:1538833113")
 	.dwattr $C$DW$253, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$253, DW_AT_TI_begin_line(0x776)
 	.dwattr $C$DW$253, DW_AT_TI_end_line(0x776)
@@ -3438,7 +3415,7 @@ $C$DW$259	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$260	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$260, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L120:1:1538472834")
+	.dwattr $C$DW$260, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L120:1:1538833113")
 	.dwattr $C$DW$260, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$260, DW_AT_TI_begin_line(0x827)
 	.dwattr $C$DW$260, DW_AT_TI_end_line(0x827)
@@ -3571,8 +3548,8 @@ $C$DW$267	.dwtag  DW_TAG_subprogram, DW_AT_name("xTaskResumeAll")
 ;*******************************************************************************
 ;* FUNCTION NAME: xTaskResumeAll                                               *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,*
-;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
+;*   Function Uses Regs : AC0,AC0,T0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,CARRY,  *
+;*                        TC1,M40,SATA,SATD,RDM,FRCT,SMUL                      *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 6 words                                              *
 ;*                        (2 return address/alignment)                         *
@@ -3667,16 +3644,12 @@ $C$DW$L$_xTaskResumeAll$8$B:
 $C$DW$L$_xTaskResumeAll$8$E:
 $C$L125:    
 $C$DW$L$_xTaskResumeAll$9$B:
-        MOV uns(*AR3(#24)), AC1 ; |2209| 
-        MOV dbl(*SP(#0)), XAR1
-        SFTS AC1, #1, AC0 ; |2209| 
-        ADD AC1 << #3, AC0 ; |2209| 
-        MOV AC0, XAR3
+        MPYMK *AR3(#24), #10, AC0 ; |2209| 
+        MOV AC0, AR1 ; |2209| 
         AMOV #_pxReadyTasksLists, XAR0 ; |2209| 
-
-        AADD XAR3, XAR0 ; |2209| 
-||      AADD #4, AR1 ; |2209| 
-
+        AADD AR1, AR0 ; |2209| 
+        MOV dbl(*SP(#0)), XAR1
+        AADD #4, AR1 ; |2209| 
 $C$DW$272	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$272, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$272, DW_AT_name("_vListInsertEnd")
@@ -3818,7 +3791,7 @@ $C$DW$278	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$279	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$279, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L130:1:1538472834")
+	.dwattr $C$DW$279, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L130:1:1538833113")
 	.dwattr $C$DW$279, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$279, DW_AT_TI_begin_line(0x8c3)
 	.dwattr $C$DW$279, DW_AT_TI_end_line(0x8ce)
@@ -3835,7 +3808,7 @@ $C$DW$282	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$283	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$283, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L126:1:1538472834")
+	.dwattr $C$DW$283, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L126:1:1538833113")
 	.dwattr $C$DW$283, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$283, DW_AT_TI_begin_line(0x89c)
 	.dwattr $C$DW$283, DW_AT_TI_end_line(0x8a8)
@@ -3867,7 +3840,7 @@ $C$DW$291	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$292	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$292, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L122:1:1538472834")
+	.dwattr $C$DW$292, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L122:1:1538833113")
 	.dwattr $C$DW$292, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$292, DW_AT_TI_begin_line(0x88b)
 	.dwattr $C$DW$292, DW_AT_TI_end_line(0x88b)
@@ -4142,7 +4115,7 @@ $C$DW$307	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$308	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$308, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L137:1:1538472834")
+	.dwattr $C$DW$308, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L137:1:1538833113")
 	.dwattr $C$DW$308, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$308, DW_AT_TI_begin_line(0x92f)
 	.dwattr $C$DW$308, DW_AT_TI_end_line(0x92f)
@@ -4377,16 +4350,12 @@ $C$DW$L$_xTaskIncrementTick$23$B:
 $C$DW$L$_xTaskIncrementTick$23$E:
 $C$L150:    
 $C$DW$L$_xTaskIncrementTick$24$B:
-        MOV uns(*AR3(#24)), AC1 ; |2760| 
-        MOV dbl(*SP(#0)), XAR1
-        SFTS AC1, #1, AC0 ; |2760| 
-        ADD AC1 << #3, AC0 ; |2760| 
-        MOV AC0, XAR3
+        MPYMK *AR3(#24), #10, AC0 ; |2760| 
+        MOV AC0, AR1 ; |2760| 
         AMOV #_pxReadyTasksLists, XAR0 ; |2760| 
-
-        AADD XAR3, XAR0 ; |2760| 
-||      AADD #4, AR1 ; |2760| 
-
+        AADD AR1, AR0 ; |2760| 
+        MOV dbl(*SP(#0)), XAR1
+        AADD #4, AR1 ; |2760| 
 $C$DW$321	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$321, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$321, DW_AT_name("_vListInsertEnd")
@@ -4435,7 +4404,7 @@ $C$DW$322	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$323	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$323, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L144:1:1538472834")
+	.dwattr $C$DW$323, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L144:1:1538833113")
 	.dwattr $C$DW$323, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$323, DW_AT_TI_begin_line(0xa94)
 	.dwattr $C$DW$323, DW_AT_TI_end_line(0xadd)
@@ -4476,7 +4445,7 @@ $C$DW$334	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$335	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$335, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L141:1:1538472834")
+	.dwattr $C$DW$335, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L141:1:1538833113")
 	.dwattr $C$DW$335, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$335, DW_AT_TI_begin_line(0xa87)
 	.dwattr $C$DW$335, DW_AT_TI_end_line(0xa87)
@@ -4510,8 +4479,8 @@ $C$DW$337	.dwtag  DW_TAG_subprogram, DW_AT_name("vTaskSwitchContext")
 ;*******************************************************************************
 ;* FUNCTION NAME: vTaskSwitchContext                                           *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,AR1,AR2,XAR2,AR3,XAR3,SP,CARRY,TC1,  *
-;*                        M40,SATA,SATD,RDM,FRCT,SMUL                          *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR1,AR2,XAR2,AR3,XAR3,SP,CARRY,   *
+;*                        TC1,M40,SATA,SATD,RDM,FRCT,SMUL                      *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 6 words                                              *
 ;*                        (2 return address/alignment)                         *
@@ -4537,7 +4506,6 @@ $C$L154:
         MOV #0, *(#_xYieldPending) ; |2947| 
         NOP
         NOP
-        NOP
 
 $C$DW$338	.dwtag  DW_TAG_lexical_block, DW_AT_low_pc(0x00), DW_AT_high_pc(0x00)
 $C$DW$339	.dwtag  DW_TAG_variable, DW_AT_name("uxTopPriority")
@@ -4545,6 +4513,7 @@ $C$DW$339	.dwtag  DW_TAG_variable, DW_AT_name("uxTopPriority")
 	.dwattr $C$DW$339, DW_AT_type(*$C$DW$T$25)
 	.dwattr $C$DW$339, DW_AT_location[DW_OP_bregx 0x24 0]
 	.dwpsn	file "../FreeRTOS/Source/tasks_sysStk.c",line 2989,column 3,is_stmt
+        AMOV #_pxReadyTasksLists, XAR3 ; |2989| 
         MOV *(#_uxTopReadyPriority), AR1 ; |2989| 
         MOV AR1, *SP(#0) ; |2989| 
         B $C$L158 ; |2989| 
@@ -4568,13 +4537,9 @@ $C$DW$L$_vTaskSwitchContext$7$B:
 $C$DW$L$_vTaskSwitchContext$7$E:
 $C$L158:    
 $C$DW$L$_vTaskSwitchContext$8$B:
-        MOV uns(*SP(#0)), AC1 ; |2989| 
-        SFTS AC1, #1, AC0 ; |2989| 
-        ADD AC1 << #3, AC0 ; |2989| 
-        MOV AC0, XAR2
-        AMOV #_pxReadyTasksLists, XAR3 ; |2989| 
-        AADD XAR2, XAR3 ; |2989| 
-        MOV *AR3, AR1 ; |2989| 
+        MPYMK *SP(#0), #10, AC0 ; |2989| 
+        MOV AC0, T0 ; |2989| 
+        MOV *AR3(T0), AR1 ; |2989| 
         BCC $C$L159,AR1 != #0 ; |2989| 
                                         ; branchcc occurs ; |2989| 
 $C$DW$L$_vTaskSwitchContext$8$E:
@@ -4598,14 +4563,11 @@ $C$DW$341	.dwtag  DW_TAG_variable, DW_AT_name("pxConstList")
 	.dwattr $C$DW$341, DW_AT_TI_symbol_name("_pxConstList")
 	.dwattr $C$DW$341, DW_AT_type(*$C$DW$T$67)
 	.dwattr $C$DW$341, DW_AT_location[DW_OP_bregx 0x24 2]
-        MOV uns(*SP(#0)), AC1 ; |2989| 
-        SFTS AC1, #1, AC0 ; |2989| 
-        ADD AC1 << #3, AC0 ; |2989| 
-        MOV AC0, XAR2
-        AMOV #_pxReadyTasksLists, XAR3 ; |2989| 
+        MPYMK *SP(#0), #10, AC0 ; |2989| 
+        MOV AC0, AR1 ; |2989| 
 
         MOV XAR3, dbl(*SP(#2))
-||      AADD XAR2, XAR3 ; |2989| 
+||      AADD AR1, AR3 ; |2989| 
 
         MOV dbl(*AR3(short(#2))), XAR3
         MOV dbl(*AR3(short(#2))), XAR2
@@ -4647,7 +4609,7 @@ $C$DW$342	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$343	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$343, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L156:1:1538472834")
+	.dwattr $C$DW$343, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L156:1:1538833113")
 	.dwattr $C$DW$343, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$343, DW_AT_TI_begin_line(0xbad)
 	.dwattr $C$DW$343, DW_AT_TI_end_line(0xbad)
@@ -4658,7 +4620,7 @@ $C$DW$344	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$345	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$345, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L158:1:1538472834")
+	.dwattr $C$DW$345, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L158:1:1538833113")
 	.dwattr $C$DW$345, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$345, DW_AT_TI_begin_line(0xbad)
 	.dwattr $C$DW$345, DW_AT_TI_end_line(0xbad)
@@ -4781,7 +4743,7 @@ $C$DW$359	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$360	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$360, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L163:1:1538472834")
+	.dwattr $C$DW$360, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L163:1:1538833113")
 	.dwattr $C$DW$360, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$360, DW_AT_TI_begin_line(0xbc4)
 	.dwattr $C$DW$360, DW_AT_TI_end_line(0xbc4)
@@ -4921,7 +4883,7 @@ $C$DW$371	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$372	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$372, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L168:1:1538472834")
+	.dwattr $C$DW$372, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L168:1:1538833113")
 	.dwattr $C$DW$372, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$372, DW_AT_TI_begin_line(0xbd9)
 	.dwattr $C$DW$372, DW_AT_TI_end_line(0xbd9)
@@ -4932,7 +4894,7 @@ $C$DW$373	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$374	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$374, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L165:1:1538472834")
+	.dwattr $C$DW$374, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L165:1:1538833113")
 	.dwattr $C$DW$374, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$374, DW_AT_TI_begin_line(0xbd5)
 	.dwattr $C$DW$374, DW_AT_TI_end_line(0xbd5)
@@ -4971,8 +4933,8 @@ $C$DW$377	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pxEventList")
 ;*******************************************************************************
 ;* FUNCTION NAME: xTaskRemoveFromEventList                                     *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,*
-;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
+;*   Function Uses Regs : AC0,AC0,T0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,TC1,M40,*
+;*                        SATA,SATD,RDM,FRCT,SMUL                              *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 6 words                                              *
 ;*                        (1 return address/alignment)                         *
@@ -5046,16 +5008,12 @@ $C$DW$382	.dwtag  DW_TAG_TI_branch
         MOV *AR3(#24), AR1 ; |3109| 
         MOV AR1, *(#_uxTopReadyPriority) ; |3109| 
 $C$L172:    
-        MOV uns(*AR3(#24)), AC1 ; |3109| 
-        MOV dbl(*SP(#2)), XAR1
-        SFTS AC1, #1, AC0 ; |3109| 
-        ADD AC1 << #3, AC0 ; |3109| 
-        MOV AC0, XAR3
+        MPYMK *AR3(#24), #10, AC0 ; |3109| 
+        MOV AC0, AR1 ; |3109| 
         AMOV #_pxReadyTasksLists, XAR0 ; |3109| 
-
-        AADD XAR3, XAR0 ; |3109| 
-||      AADD #4, AR1 ; |3109| 
-
+        AADD AR1, AR0 ; |3109| 
+        MOV dbl(*SP(#2)), XAR1
+        AADD #4, AR1 ; |3109| 
 $C$DW$383	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$383, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$383, DW_AT_name("_vListInsertEnd")
@@ -5108,7 +5066,7 @@ $C$DW$385	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$386	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$386, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L170:1:1538472834")
+	.dwattr $C$DW$386, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L170:1:1538833113")
 	.dwattr $C$DW$386, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$386, DW_AT_TI_begin_line(0xc1f)
 	.dwattr $C$DW$386, DW_AT_TI_end_line(0xc1f)
@@ -5150,8 +5108,8 @@ $C$DW$390	.dwtag  DW_TAG_formal_parameter, DW_AT_name("xItemValue")
 ;*******************************************************************************
 ;* FUNCTION NAME: vTaskRemoveFromUnorderedEventList                            *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,   *
-;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
+;*   Function Uses Regs : AC0,AC0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,TC1,M40,   *
+;*                        SATA,SATD,RDM,FRCT,SMUL                              *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 8 words                                              *
 ;*                        (2 return address/alignment)                         *
@@ -5244,16 +5202,12 @@ $C$DW$395	.dwtag  DW_TAG_TI_branch
         MOV *AR3(#24), AR1 ; |3173| 
         MOV AR1, *(#_uxTopReadyPriority) ; |3173| 
 $C$L182:    
-        MOV uns(*AR3(#24)), AC1 ; |3173| 
-        MOV dbl(*SP(#4)), XAR1
-        SFTS AC1, #1, AC0 ; |3173| 
-        ADD AC1 << #3, AC0 ; |3173| 
-        MOV AC0, XAR3
+        MPYMK *AR3(#24), #10, AC0 ; |3173| 
+        MOV AC0, AR1 ; |3173| 
         AMOV #_pxReadyTasksLists, XAR0 ; |3173| 
-
-        AADD XAR3, XAR0 ; |3173| 
-||      AADD #4, AR1 ; |3173| 
-
+        AADD AR1, AR0 ; |3173| 
+        MOV dbl(*SP(#4)), XAR1
+        AADD #4, AR1 ; |3173| 
 $C$DW$396	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$396, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$396, DW_AT_name("_vListInsertEnd")
@@ -5281,7 +5235,7 @@ $C$DW$397	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$398	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$398, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L180:1:1538472834")
+	.dwattr $C$DW$398, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L180:1:1538833113")
 	.dwattr $C$DW$398, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$398, DW_AT_TI_begin_line(0xc5e)
 	.dwattr $C$DW$398, DW_AT_TI_end_line(0xc5e)
@@ -5292,7 +5246,7 @@ $C$DW$399	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$400	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$400, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L178:1:1538472834")
+	.dwattr $C$DW$400, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L178:1:1538833113")
 	.dwattr $C$DW$400, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$400, DW_AT_TI_begin_line(0xc56)
 	.dwattr $C$DW$400, DW_AT_TI_end_line(0xc56)
@@ -5399,7 +5353,7 @@ $C$DW$405	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$406	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$406, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L184:1:1538472834")
+	.dwattr $C$DW$406, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L184:1:1538833113")
 	.dwattr $C$DW$406, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$406, DW_AT_TI_begin_line(0xc74)
 	.dwattr $C$DW$406, DW_AT_TI_end_line(0xc74)
@@ -5674,7 +5628,7 @@ $C$DW$422	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$423	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$423, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L189:1:1538472834")
+	.dwattr $C$DW$423, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L189:1:1538833113")
 	.dwattr $C$DW$423, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$423, DW_AT_TI_begin_line(0xc8b)
 	.dwattr $C$DW$423, DW_AT_TI_end_line(0xc8b)
@@ -5685,7 +5639,7 @@ $C$DW$424	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$425	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$425, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L187:1:1538472834")
+	.dwattr $C$DW$425, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L187:1:1538833113")
 	.dwattr $C$DW$425, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$425, DW_AT_TI_begin_line(0xc8a)
 	.dwattr $C$DW$425, DW_AT_TI_end_line(0xc8a)
@@ -5832,7 +5786,7 @@ $C$DW$L$_prvIdleTask$4$E:
 	.dwcfi	cfa_offset, 1
 
 $C$DW$435	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$435, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L196:1:1538472834")
+	.dwattr $C$DW$435, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L196:1:1538833113")
 	.dwattr $C$DW$435, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$435, DW_AT_TI_begin_line(0xd09)
 	.dwattr $C$DW$435, DW_AT_TI_end_line(0xd70)
@@ -5870,8 +5824,8 @@ $C$DW$439	.dwtag  DW_TAG_subprogram, DW_AT_name("prvInitialiseTaskLists")
 ;*******************************************************************************
 ;* FUNCTION NAME: prvInitialiseTaskLists                                       *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,AR0,XAR0,AR1,AR2,AR3,XAR3,SP,CARRY,  *
-;*                        TC1,M40,SATA,SATD,RDM,FRCT,SMUL                      *
+;*   Function Uses Regs : AC0,AR0,XAR0,AR1,AR2,AR3,XAR3,SP,CARRY,TC1,M40,SATA, *
+;*                        SATD,RDM,FRCT,SMUL                                   *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 2 words                                              *
 ;*                        (1 return address/alignment)                         *
@@ -5900,12 +5854,10 @@ $C$DW$440	.dwtag  DW_TAG_variable, DW_AT_name("uxPriority")
 $C$L198:    
 $C$DW$L$_prvInitialiseTaskLists$2$B:
 	.dwpsn	file "../FreeRTOS/Source/tasks_sysStk.c",line 3545,column 3,is_stmt
-        MOV uns(*SP(#0)), AC1 ; |3545| 
-        SFTS AC1, #1, AC0 ; |3545| 
-        ADD AC1 << #3, AC0 ; |3545| 
-        MOV AC0, XAR3
+        MPYMK *SP(#0), #10, AC0 ; |3545| 
+        MOV AC0, AR1 ; |3545| 
         AMOV #_pxReadyTasksLists, XAR0 ; |3545| 
-        AADD XAR3, XAR0 ; |3545| 
+        AADD AR1, AR0 ; |3545| 
 $C$DW$441	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$441, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$441, DW_AT_name("_vListInitialise")
@@ -5980,7 +5932,7 @@ $C$DW$447	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$448	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$448, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L198:1:1538472834")
+	.dwattr $C$DW$448, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L198:1:1538833113")
 	.dwattr $C$DW$448, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$448, DW_AT_TI_begin_line(0xdd7)
 	.dwattr $C$DW$448, DW_AT_TI_end_line(0xdda)
@@ -6107,7 +6059,7 @@ $C$DW$455	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$456	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$456, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L200:1:1538472834")
+	.dwattr $C$DW$456, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L200:1:1538833113")
 	.dwattr $C$DW$456, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$456, DW_AT_TI_begin_line(0xdfe)
 	.dwattr $C$DW$456, DW_AT_TI_end_line(0xe0a)
@@ -6217,7 +6169,7 @@ $C$DW$465	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$466	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$466, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L203:1:1538472834")
+	.dwattr $C$DW$466, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L203:1:1538833113")
 	.dwattr $C$DW$466, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$466, DW_AT_TI_begin_line(0xe99)
 	.dwattr $C$DW$466, DW_AT_TI_end_line(0xe9d)
@@ -6556,8 +6508,8 @@ $C$DW$490	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pxMutexHolder")
 ;*******************************************************************************
 ;* FUNCTION NAME: xTaskPriorityInherit                                         *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,   *
-;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,*
+;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 6 words                                              *
 ;*                        (1 return address/alignment)                         *
@@ -6616,17 +6568,15 @@ $C$DW$493	.dwtag  DW_TAG_variable, DW_AT_name("xReturn")
 $C$L210:    
 	.dwpsn	file "../FreeRTOS/Source/tasks_sysStk.c",line 3938,column 5,is_stmt
         MOV dbl(*SP(#2)), XAR3
-        MOV uns(*AR3(#24)), AC1 ; |3938| 
-        SFTS AC1, #1, AC0 ; |3938| 
-        ADD AC1 << #3, AC0 ; |3938| 
-        MOV AC0, XAR2
+        MPYMK *AR3(#24), #10, AC0 ; |3938| 
+        MOV AC0, AR1 ; |3938| 
         AMOV #_pxReadyTasksLists, XAR3 ; |3938| 
-        AADD XAR2, XAR3 ; |3938| 
-        MOV XAR3, AC1
+        AADD AR1, AR3 ; |3938| 
+        MOV XAR3, AC0
         MOV dbl(*SP(#2)), XAR3
         MOV dbl(*AR3(#12)), XAR3
-        MOV XAR3, AC0
-        CMPU AC0 != AC1, TC1 ; |3938| 
+        MOV XAR3, AC1
+        CMPU AC1 != AC0, TC1 ; |3938| 
         BCC $C$L211,TC1 ; |3938| 
                                         ; branchcc occurs ; |3938| 
         MOV #1, AR1
@@ -6665,16 +6615,12 @@ $C$L213:
         MOV *AR3(#24), AR1 ; |3951| 
         MOV AR1, *(#_uxTopReadyPriority) ; |3951| 
 $C$L214:    
-        MOV uns(*AR3(#24)), AC1 ; |3951| 
-        MOV dbl(*SP(#2)), XAR1
-        SFTS AC1, #1, AC0 ; |3951| 
-        ADD AC1 << #3, AC0 ; |3951| 
-        MOV AC0, XAR3
+        MPYMK *AR3(#24), #10, AC0 ; |3951| 
+        MOV AC0, AR1 ; |3951| 
         AMOV #_pxReadyTasksLists, XAR0 ; |3951| 
-
-        AADD XAR3, XAR0 ; |3951| 
-||      AADD #4, AR1 ; |3951| 
-
+        AADD AR1, AR0 ; |3951| 
+        MOV dbl(*SP(#2)), XAR1
+        AADD #4, AR1 ; |3951| 
 $C$DW$495	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$495, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$495, DW_AT_name("_vListInsertEnd")
@@ -6865,16 +6811,12 @@ $C$L224:
         MOV *AR3(#24), AR1 ; |4041| 
         MOV AR1, *(#_uxTopReadyPriority) ; |4041| 
 $C$L225:    
-        MOV uns(*AR3(#24)), AC1 ; |4041| 
-        MOV dbl(*SP(#2)), XAR1
-        SFTS AC1, #1, AC0 ; |4041| 
-        ADD AC1 << #3, AC0 ; |4041| 
-        MOV AC0, XAR3
+        MPYMK *AR3(#24), #10, AC0 ; |4041| 
+        MOV AC0, AR1 ; |4041| 
         AMOV #_pxReadyTasksLists, XAR0 ; |4041| 
-
-        AADD XAR3, XAR0 ; |4041| 
-||      AADD #4, AR1 ; |4041| 
-
+        AADD AR1, AR0 ; |4041| 
+        MOV dbl(*SP(#2)), XAR1
+        AADD #4, AR1 ; |4041| 
 $C$DW$503	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$503, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$503, DW_AT_name("_vListInsertEnd")
@@ -6899,7 +6841,7 @@ $C$DW$504	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$505	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$505, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L222:1:1538472834")
+	.dwattr $C$DW$505, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L222:1:1538833113")
 	.dwattr $C$DW$505, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$505, DW_AT_TI_begin_line(0xfa8)
 	.dwattr $C$DW$505, DW_AT_TI_end_line(0xfa8)
@@ -6910,7 +6852,7 @@ $C$DW$506	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$507	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$507, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L220:1:1538472834")
+	.dwattr $C$DW$507, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L220:1:1538833113")
 	.dwattr $C$DW$507, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$507, DW_AT_TI_begin_line(0xfa7)
 	.dwattr $C$DW$507, DW_AT_TI_end_line(0xfa7)
@@ -6952,8 +6894,8 @@ $C$DW$511	.dwtag  DW_TAG_formal_parameter, DW_AT_name("uxHighestPriorityWaitingT
 ;*******************************************************************************
 ;* FUNCTION NAME: vTaskPriorityDisinheritAfterTimeout                          *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,   *
-;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,*
+;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 10 words                                             *
 ;*                        (1 return address/alignment)                         *
@@ -7084,17 +7026,15 @@ $C$L233:
 	.dwpsn	file "../FreeRTOS/Source/tasks_sysStk.c",line 4127,column 6,is_stmt
 $C$L234:    
 	.dwpsn	file "../FreeRTOS/Source/tasks_sysStk.c",line 4139,column 6,is_stmt
-        MOV uns(*SP(#6)), AC1 ; |4139| 
-        SFTS AC1, #1, AC0 ; |4139| 
-        ADD AC1 << #3, AC0 ; |4139| 
-        MOV AC0, XAR2
+        MPYMK *SP(#6), #10, AC1 ; |4139| 
+        MOV AC1, AR1 ; |4139| 
         AMOV #_pxReadyTasksLists, XAR3 ; |4139| 
-        AADD XAR2, XAR3 ; |4139| 
-        MOV XAR3, AC1
+        AADD AR1, AR3 ; |4139| 
+        MOV XAR3, AC0
         MOV dbl(*SP(#4)), XAR3
         MOV dbl(*AR3(#12)), XAR3
-        MOV XAR3, AC0
-        CMPU AC0 != AC1, TC1 ; |4139| 
+        MOV XAR3, AC1
+        CMPU AC1 != AC0, TC1 ; |4139| 
         BCC $C$L235,TC1 ; |4139| 
                                         ; branchcc occurs ; |4139| 
         MOV #1, AR1
@@ -7128,16 +7068,12 @@ $C$L237:
         MOV *AR3(#24), AR1 ; |4150| 
         MOV AR1, *(#_uxTopReadyPriority) ; |4150| 
 $C$L238:    
-        MOV uns(*AR3(#24)), AC1 ; |4150| 
-        MOV dbl(*SP(#4)), XAR1
-        SFTS AC1, #1, AC0 ; |4150| 
-        ADD AC1 << #3, AC0 ; |4150| 
-        MOV AC0, XAR3
+        MPYMK *AR3(#24), #10, AC0 ; |4150| 
+        MOV AC0, AR1 ; |4150| 
         AMOV #_pxReadyTasksLists, XAR0 ; |4150| 
-
-        AADD XAR3, XAR0 ; |4150| 
-||      AADD #4, AR1 ; |4150| 
-
+        AADD AR1, AR0 ; |4150| 
+        MOV dbl(*SP(#4)), XAR1
+        AADD #4, AR1 ; |4150| 
 $C$DW$519	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$519, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$519, DW_AT_name("_vListInsertEnd")
@@ -7157,7 +7093,7 @@ $C$DW$520	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$521	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$521, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L232:1:1538472834")
+	.dwattr $C$DW$521, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L232:1:1538833113")
 	.dwattr $C$DW$521, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$521, DW_AT_TI_begin_line(0x1011)
 	.dwattr $C$DW$521, DW_AT_TI_end_line(0x1011)
@@ -7168,7 +7104,7 @@ $C$DW$522	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$523	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$523, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L227:1:1538472834")
+	.dwattr $C$DW$523, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L227:1:1538833113")
 	.dwattr $C$DW$523, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$523, DW_AT_TI_begin_line(0xff6)
 	.dwattr $C$DW$523, DW_AT_TI_end_line(0xff6)
@@ -8065,16 +8001,12 @@ $C$DW$568	.dwtag  DW_TAG_TI_branch
         MOV *AR3(#24), AR1 ; |4739| 
         MOV AR1, *(#_uxTopReadyPriority) ; |4739| 
 $C$L268:    
-        MOV uns(*AR3(#24)), AC1 ; |4739| 
-        MOV dbl(*SP(#8)), XAR1
-        SFTS AC1, #1, AC0 ; |4739| 
-        ADD AC1 << #3, AC0 ; |4739| 
-        MOV AC0, XAR3
+        MPYMK *AR3(#24), #10, AC0 ; |4739| 
+        MOV AC0, AR1 ; |4739| 
         AMOV #_pxReadyTasksLists, XAR0 ; |4739| 
-
-        AADD XAR3, XAR0 ; |4739| 
-||      AADD #4, AR1 ; |4739| 
-
+        AADD AR1, AR0 ; |4739| 
+        MOV dbl(*SP(#8)), XAR1
+        AADD #4, AR1 ; |4739| 
 $C$DW$569	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$569, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$569, DW_AT_name("_vListInsertEnd")
@@ -8145,7 +8077,7 @@ $C$DW$571	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$572	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$572, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L270:1:1538472834")
+	.dwattr $C$DW$572, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L270:1:1538833113")
 	.dwattr $C$DW$572, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$572, DW_AT_TI_begin_line(0x1286)
 	.dwattr $C$DW$572, DW_AT_TI_end_line(0x1286)
@@ -8156,7 +8088,7 @@ $C$DW$573	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$574	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$574, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L264:1:1538472834")
+	.dwattr $C$DW$574, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L264:1:1538833113")
 	.dwattr $C$DW$574, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$574, DW_AT_TI_begin_line(0x1277)
 	.dwattr $C$DW$574, DW_AT_TI_end_line(0x1277)
@@ -8167,7 +8099,7 @@ $C$DW$575	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$576	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$576, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L254:1:1538472834")
+	.dwattr $C$DW$576, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L254:1:1538833113")
 	.dwattr $C$DW$576, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$576, DW_AT_TI_begin_line(0x1246)
 	.dwattr $C$DW$576, DW_AT_TI_end_line(0x1246)
@@ -8460,16 +8392,12 @@ $C$DW$593	.dwtag  DW_TAG_TI_branch
         MOV *AR3(#24), AR1 ; |4876| 
         MOV AR1, *(#_uxTopReadyPriority) ; |4876| 
 $C$L291:    
-        MOV uns(*AR3(#24)), AC1 ; |4876| 
-        MOV dbl(*SP(#10)), XAR1
-        SFTS AC1, #1, AC0 ; |4876| 
-        ADD AC1 << #3, AC0 ; |4876| 
-        MOV AC0, XAR3
+        MPYMK *AR3(#24), #10, AC0 ; |4876| 
+        MOV AC0, AR1 ; |4876| 
         AMOV #_pxReadyTasksLists, XAR0 ; |4876| 
-
-        AADD XAR3, XAR0 ; |4876| 
-||      AADD #4, AR1 ; |4876| 
-
+        AADD AR1, AR0 ; |4876| 
+        MOV dbl(*SP(#10)), XAR1
+        AADD #4, AR1 ; |4876| 
 $C$DW$594	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$594, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$594, DW_AT_name("_vListInsertEnd")
@@ -8524,7 +8452,7 @@ $C$DW$596	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$597	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$597, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L289:1:1538472834")
+	.dwattr $C$DW$597, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L289:1:1538833113")
 	.dwattr $C$DW$597, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$597, DW_AT_TI_begin_line(0x1307)
 	.dwattr $C$DW$597, DW_AT_TI_end_line(0x1307)
@@ -8535,7 +8463,7 @@ $C$DW$598	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$599	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$599, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L284:1:1538472834")
+	.dwattr $C$DW$599, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L284:1:1538833113")
 	.dwattr $C$DW$599, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$599, DW_AT_TI_begin_line(0x12fc)
 	.dwattr $C$DW$599, DW_AT_TI_end_line(0x12fc)
@@ -8546,7 +8474,7 @@ $C$DW$600	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$601	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$601, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L274:1:1538472834")
+	.dwattr $C$DW$601, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L274:1:1538833113")
 	.dwattr $C$DW$601, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$601, DW_AT_TI_begin_line(0x12b9)
 	.dwattr $C$DW$601, DW_AT_TI_end_line(0x12b9)
@@ -8588,8 +8516,8 @@ $C$DW$605	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pxHigherPriorityTaskWoken
 ;*******************************************************************************
 ;* FUNCTION NAME: vTaskNotifyGiveFromISR                                       *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,   *
-;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
+;*   Function Uses Regs : AC0,AC0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,CARRY,TC1, *
+;*                        M40,SATA,SATD,RDM,FRCT,SMUL                          *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 10 words                                             *
 ;*                        (2 return address/alignment)                         *
@@ -8700,16 +8628,12 @@ $C$DW$611	.dwtag  DW_TAG_TI_branch
         MOV *AR3(#24), AR1 ; |4964| 
         MOV AR1, *(#_uxTopReadyPriority) ; |4964| 
 $C$L301:    
-        MOV uns(*AR3(#24)), AC1 ; |4964| 
-        MOV dbl(*SP(#4)), XAR1
-        SFTS AC1, #1, AC0 ; |4964| 
-        ADD AC1 << #3, AC0 ; |4964| 
-        MOV AC0, XAR3
+        MPYMK *AR3(#24), #10, AC0 ; |4964| 
+        MOV AC0, AR1 ; |4964| 
         AMOV #_pxReadyTasksLists, XAR0 ; |4964| 
-
-        AADD XAR3, XAR0 ; |4964| 
-||      AADD #4, AR1 ; |4964| 
-
+        AADD AR1, AR0 ; |4964| 
+        MOV dbl(*SP(#4)), XAR1
+        AADD #4, AR1 ; |4964| 
 $C$DW$612	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$612, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$612, DW_AT_name("_vListInsertEnd")
@@ -8762,7 +8686,7 @@ $C$DW$614	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$615	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$615, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L299:1:1538472834")
+	.dwattr $C$DW$615, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L299:1:1538833113")
 	.dwattr $C$DW$615, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$615, DW_AT_TI_begin_line(0x135f)
 	.dwattr $C$DW$615, DW_AT_TI_end_line(0x135f)
@@ -8773,7 +8697,7 @@ $C$DW$616	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$617	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$617, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L296:1:1538472834")
+	.dwattr $C$DW$617, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\tasks_sysStk.asm:$C$L296:1:1538833113")
 	.dwattr $C$DW$617, DW_AT_TI_begin_file("../FreeRTOS/Source/tasks_sysStk.c")
 	.dwattr $C$DW$617, DW_AT_TI_begin_line(0x1339)
 	.dwattr $C$DW$617, DW_AT_TI_end_line(0x1339)

@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Tue Oct 02 02:32:38 2018                                 *
+;* Date/Time created: Sat Oct 06 06:37:17 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,7 +27,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/lib/bsl/ezdsp5535_lcd.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
 
 $C$DW$1	.dwtag  DW_TAG_subprogram, DW_AT_name("EZDSP5535_waitusec")
 	.dwattr $C$DW$1, DW_AT_TI_symbol_name("_EZDSP5535_waitusec")
@@ -87,7 +87,7 @@ $C$DW$14	.dwtag  DW_TAG_formal_parameter
 	.dwattr $C$DW$14, DW_AT_type(*$C$DW$T$25)
 	.dwendtag $C$DW$12
 
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\0272812 
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1697212 
 	.sect	".text"
 	.align 4
 	.global	_EZDSP5535_OSD9616_send
@@ -211,8 +211,8 @@ $C$DW$26	.dwtag  DW_TAG_formal_parameter, DW_AT_name("len")
 ;*******************************************************************************
 ;* FUNCTION NAME: EZDSP5535_OSD9616_multiSend                                  *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,T0,T1,AR0,XAR0,AR1,AR2,XAR2,AR3,XAR3,AR4,    *
-;*                        XAR4,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
+;*   Function Uses Regs : AC0,AC0,T0,T1,AR0,XAR0,AR1,AR2,XAR2,AR3,XAR3,SP,     *
+;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 16 words                                             *
 ;*                        (2 return address/alignment)                         *
@@ -253,15 +253,12 @@ $C$DW$30	.dwtag  DW_TAG_variable, DW_AT_name("cmd")
 $C$L1:    
 $C$DW$L$_EZDSP5535_OSD9616_multiSend$2$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/lib/bsl/ezdsp5535_lcd.c",line 84,column 6,is_stmt
-        MOV dbl(*SP(#0)), XAR3
-        MOV uns(*SP(#3)), AC0 ; |84| 
-        MOV AC0, XAR2
-        MOV uns(*SP(#3)), AC0 ; |84| 
-        MOV AC0, XAR4
-        AADD XAR2, XAR3 ; |84| 
-        AMAR *SP(#4), XAR2
-        AADD XAR4, XAR2 ; |84| 
-        MOV *AR3, *AR2 ; |84| 
+        MOV *SP(#3), T0 ; |84| 
+        MOV T0, AR1
+        MOV dbl(*SP(#0)), XAR2
+        AMAR *SP(#4), XAR3
+        AADD AR1, AR3 ; |84| 
+        MOV *AR2(T0), *AR3 ; |84| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/lib/bsl/ezdsp5535_lcd.c",line 82,column 19,is_stmt
         ADD #1, *SP(#3) ; |82| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/lib/bsl/ezdsp5535_lcd.c",line 82,column 13,is_stmt
@@ -300,7 +297,7 @@ $C$DW$33	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$34	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$34, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\ezdsp5535_lcd.asm:$C$L1:1:1538472758")
+	.dwattr $C$DW$34, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\ezdsp5535_lcd.asm:$C$L1:1:1538833037")
 	.dwattr $C$DW$34, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/lib/bsl/ezdsp5535_lcd.c")
 	.dwattr $C$DW$34, DW_AT_TI_begin_line(0x52)
 	.dwattr $C$DW$34, DW_AT_TI_end_line(0x55)

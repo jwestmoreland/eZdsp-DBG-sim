@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Tue Oct 02 02:33:12 2018                                 *
+;* Date/Time created: Sat Oct 06 06:37:52 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,7 +27,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
 ;******************************************************************************
 ;* CINIT RECORDS                                                              *
 ;******************************************************************************
@@ -169,7 +169,7 @@ $C$DW$20	.dwtag  DW_TAG_variable, DW_AT_name("ATA_No_Swap")
 	.dwattr $C$DW$20, DW_AT_location[DW_OP_addr _ATA_No_Swap]
 	.dwattr $C$DW$20, DW_AT_type(*$C$DW$T$101)
 	.dwattr $C$DW$20, DW_AT_external
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2170012 
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1629612 
 	.sect	".text"
 	.align 4
 	.global	_MMC_initState
@@ -377,8 +377,7 @@ $C$DW$30	.dwtag  DW_TAG_formal_parameter, DW_AT_name("last_sector")
 ;* FUNCTION NAME: MMC_readWriteControl                                         *
 ;*                                                                             *
 ;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,   *
-;*                        XAR3,AR4,XAR4,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,   *
-;*                        SMUL                                                 *
+;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 10 words                                             *
 ;*                        (1 return address/alignment)                         *
@@ -468,15 +467,12 @@ $C$L4:
 $C$L5:    
 $C$DW$L$_MMC_readWriteControl$8$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 221,column 53,is_stmt
-        MOV dbl(*SP(#4)), XAR3
-        MOV uns(*SP(#8)), AC0 ; |221| 
-        MOV AC0, XAR2
-        MOV uns(*SP(#8)), AC0 ; |221| 
-        MOV AC0, XAR4
-        AADD XAR2, XAR3 ; |221| 
-        AMOV #_gWriteBuf, XAR2 ; |221| 
-        AADD XAR4, XAR2 ; |221| 
-        MOV *AR3, *AR2 ; |221| 
+        MOV *SP(#8), T0 ; |221| 
+        MOV T0, AR1 ; |221| 
+        MOV dbl(*SP(#4)), XAR2
+        AMOV #_gWriteBuf, XAR3 ; |221| 
+        AADD AR1, AR3 ; |221| 
+        MOV *AR2(T0), *AR3 ; |221| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 221,column 46,is_stmt
         ADD #1, *SP(#8) ; |221| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 221,column 20,is_stmt
@@ -564,20 +560,12 @@ $C$L8:
 $C$L9:    
 $C$DW$L$_MMC_readWriteControl$16$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 246,column 55,is_stmt
-        MOV dbl(*SP(#4)), XAR3
-        MOV uns(*SP(#8)), AC0 ; |246| 
-        MOV AC0, XAR2
-
-        AADD XAR2, XAR3 ; |246| 
-||      MOV uns(*SP(#8)), AC0 ; |246| 
-
-        MOV AC0, XAR2
-        AMAR *+AR2(#256) ; |246| 
-        MOV XAR2, AC0
-        MOV AC0, XAR4
-        AMOV #_gWriteBuf, XAR2 ; |246| 
-        AADD XAR4, XAR2 ; |246| 
-        MOV *AR3, *AR2 ; |246| 
+        ADD #256, AR1, AR1 ; |246| 
+        MOV dbl(*SP(#4)), XAR2
+        MOV *SP(#8), T0 ; |246| 
+        AMOV #_gWriteBuf, XAR3 ; |246| 
+        AADD AR1, AR3 ; |246| 
+        MOV *AR2(T0), *AR3 ; |246| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 246,column 48,is_stmt
         ADD #1, *SP(#8) ; |246| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 246,column 22,is_stmt
@@ -694,20 +682,12 @@ $C$L13:
 $C$L14:    
 $C$DW$L$_MMC_readWriteControl$27$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 284,column 57,is_stmt
-        MOV dbl(*SP(#4)), XAR3
-        MOV uns(*SP(#8)), AC0 ; |284| 
-        MOV AC0, XAR2
-
-        AADD XAR2, XAR3 ; |284| 
-||      MOV uns(*SP(#8)), AC0 ; |284| 
-
-        MOV AC0, XAR2
-        AMAR *+AR2(#512) ; |284| 
-        MOV XAR2, AC0
-        MOV AC0, XAR4
-        AMOV #_gWriteBuf, XAR2 ; |284| 
-        AADD XAR4, XAR2 ; |284| 
-        MOV *AR3, *AR2 ; |284| 
+        ADD #512, AR1, AR1 ; |284| 
+        MOV dbl(*SP(#4)), XAR2
+        MOV *SP(#8), T0 ; |284| 
+        AMOV #_gWriteBuf, XAR3 ; |284| 
+        AADD AR1, AR3 ; |284| 
+        MOV *AR2(T0), *AR3 ; |284| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 284,column 50,is_stmt
         ADD #1, *SP(#8) ; |284| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 284,column 24,is_stmt
@@ -821,20 +801,12 @@ $C$L18:
 $C$L19:    
 $C$DW$L$_MMC_readWriteControl$39$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 321,column 59,is_stmt
-        MOV dbl(*SP(#4)), XAR3
-        MOV uns(*SP(#8)), AC0 ; |321| 
-        MOV AC0, XAR2
-
-        AADD XAR2, XAR3 ; |321| 
-||      MOV uns(*SP(#8)), AC0 ; |321| 
-
-        MOV AC0, XAR2
-        AMAR *+AR2(#768) ; |321| 
-        MOV XAR2, AC0
-        MOV AC0, XAR4
-        AMOV #_gWriteBuf, XAR2 ; |321| 
-        AADD XAR4, XAR2 ; |321| 
-        MOV *AR3, *AR2 ; |321| 
+        ADD #768, AR1, AR1 ; |321| 
+        MOV dbl(*SP(#4)), XAR2
+        MOV *SP(#8), T0 ; |321| 
+        AMOV #_gWriteBuf, XAR3 ; |321| 
+        AADD AR1, AR3 ; |321| 
+        MOV *AR2(T0), *AR3 ; |321| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 321,column 52,is_stmt
         ADD #1, *SP(#8) ; |321| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 321,column 26,is_stmt
@@ -902,7 +874,7 @@ $C$DW$48	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$49	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$49, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_mmcsd_ataIf.asm:$C$L19:1:1538472792")
+	.dwattr $C$DW$49, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_mmcsd_ataIf.asm:$C$L19:1:1538833072")
 	.dwattr $C$DW$49, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c")
 	.dwattr $C$DW$49, DW_AT_TI_begin_line(0x141)
 	.dwattr $C$DW$49, DW_AT_TI_end_line(0x141)
@@ -913,7 +885,7 @@ $C$DW$50	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$51	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$51, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_mmcsd_ataIf.asm:$C$L14:1:1538472792")
+	.dwattr $C$DW$51, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_mmcsd_ataIf.asm:$C$L14:1:1538833072")
 	.dwattr $C$DW$51, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c")
 	.dwattr $C$DW$51, DW_AT_TI_begin_line(0x11c)
 	.dwattr $C$DW$51, DW_AT_TI_end_line(0x11c)
@@ -924,7 +896,7 @@ $C$DW$52	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$53	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$53, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_mmcsd_ataIf.asm:$C$L9:1:1538472792")
+	.dwattr $C$DW$53, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_mmcsd_ataIf.asm:$C$L9:1:1538833072")
 	.dwattr $C$DW$53, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c")
 	.dwattr $C$DW$53, DW_AT_TI_begin_line(0xf6)
 	.dwattr $C$DW$53, DW_AT_TI_end_line(0xf6)
@@ -935,7 +907,7 @@ $C$DW$54	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$55	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$55, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_mmcsd_ataIf.asm:$C$L5:1:1538472792")
+	.dwattr $C$DW$55, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_mmcsd_ataIf.asm:$C$L5:1:1538833072")
 	.dwattr $C$DW$55, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c")
 	.dwattr $C$DW$55, DW_AT_TI_begin_line(0xdd)
 	.dwattr $C$DW$55, DW_AT_TI_end_line(0xdd)
@@ -1410,15 +1382,12 @@ $C$DW$84	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#6) ; |625| 
 $C$L39:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 628,column 2,is_stmt
-        MOV *(#_gWordCount), AR1 ; |628| 
-        ADD #1, AR1, AR2 ; |628| 
-        AND #0xffff, AR1, AC0 ; |628| 
-        MOV AR2, *(#_gWordCount) ; |628| 
-        MOV AC0, XAR2
-        AMOV #_gReadBuf, XAR3 ; |628| 
-        AADD XAR2, XAR3 ; |628| 
+        MOV *(#_gWordCount), T0 ; |628| 
         MOV dbl(*SP(#2)), XAR2
-        MOV *AR3, *AR2 ; |628| 
+        AMOV #_gReadBuf, XAR3 ; |628| 
+        ADD #1, T0, AR1 ; |628| 
+        MOV AR1, *(#_gWordCount) ; |628| 
+        MOV *AR3(T0), *AR2 ; |628| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 630,column 5,is_stmt
         MOV *SP(#6), T0 ; |630| 
 $C$L40:    
@@ -1561,14 +1530,12 @@ $C$L42:
         MOV AR1, *(#_gWordCount) ; |735| 
 $C$L43:    
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 738,column 2,is_stmt
-        ADD #1, AR1, AR2 ; |738| 
-        AND #0xffff, AR1, AC0 ; |738| 
-        MOV AR2, *(#_gWordCount) ; |738| 
-        MOV AC0, XAR2
-        AMOV #_gReadBuf, XAR3 ; |738| 
-        AADD XAR2, XAR3 ; |738| 
+        MOV AR1, T0
         MOV dbl(*SP(#2)), XAR2
-        MOV *AR3, *AR2 ; |738| 
+        AMOV #_gReadBuf, XAR3 ; |738| 
+        ADD #1, T0, AR1 ; |738| 
+        MOV AR1, *(#_gWordCount) ; |738| 
+        MOV *AR3(T0), *AR2 ; |738| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 740,column 5,is_stmt
         MOV *SP(#8), T0 ; |740| 
 $C$L44:    
@@ -1701,11 +1668,10 @@ $C$L46:
 $C$L47:    
 $C$DW$L$_MMC_readNextNWords$6$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 822,column 3,is_stmt
+        MOV *SP(#6), AR2 ; |822| 
         MOV dbl(*SP(#2)), XAR1
-        MOV uns(*SP(#6)), AC0 ; |822| 
-        MOV AC0, XAR3
         MOV dbl(*SP(#8)), XAR0
-        AADD XAR3, XAR1 ; |822| 
+        AADD AR2, AR1 ; |822| 
 $C$DW$108	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$108, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$108, DW_AT_name("_MMC_readNextWord")
@@ -1743,7 +1709,7 @@ $C$DW$109	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$110	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$110, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_mmcsd_ataIf.asm:$C$L47:1:1538472792")
+	.dwattr $C$DW$110, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_mmcsd_ataIf.asm:$C$L47:1:1538833072")
 	.dwattr $C$DW$110, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c")
 	.dwattr $C$DW$110, DW_AT_TI_begin_line(0x334)
 	.dwattr $C$DW$110, DW_AT_TI_end_line(0x33b)
@@ -2507,8 +2473,8 @@ $C$DW$169	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pBuf")
 ;*******************************************************************************
 ;* FUNCTION NAME: MMC_read_CID                                                 *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,   *
-;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,*
+;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 12 words                                             *
 ;*                        (2 return address/alignment)                         *
@@ -2588,18 +2554,14 @@ $C$L76:
 $C$L77:    
 $C$DW$L$_MMC_read_CID$6$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 1276,column 9,is_stmt
-        MOV *SP(#9), AR1 ; |1276| 
-        AND #0xffff, AR1, AC0 ; |1276| 
-        MOV AC0, XAR3
-        ADD #1, AR1, AR2 ; |1276| 
-        MOV AR2, *SP(#9) ; |1276| 
-        MOV dbl(*SP(#2)), XAR2
-        MOV *SP(#8), AR1 ; |1276| 
-        AADD XAR3, XAR2 ; |1276| 
         MOV dbl(*SP(#4)), XAR3
+        MOV *SP(#9), T0 ; |1276| 
+        ADD #1, T0, AR2 ; |1276| 
         AADD AR1, AR3 ; |1276| 
         MOV *AR3(#53), AR1 ; |1276| 
-        MOV AR1, *AR2 ; |1276| 
+        MOV AR2, *SP(#9) ; |1276| 
+        MOV dbl(*SP(#2)), XAR3
+        MOV AR1, *AR3(T0) ; |1276| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 1274,column 31,is_stmt
         SUB #1, *SP(#8) ; |1274| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 1274,column 18,is_stmt
@@ -2621,7 +2583,7 @@ $C$DW$176	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$177	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$177, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_mmcsd_ataIf.asm:$C$L77:1:1538472792")
+	.dwattr $C$DW$177, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_mmcsd_ataIf.asm:$C$L77:1:1538833072")
 	.dwattr $C$DW$177, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c")
 	.dwattr $C$DW$177, DW_AT_TI_begin_line(0x4fa)
 	.dwattr $C$DW$177, DW_AT_TI_end_line(0x4fd)
@@ -2664,8 +2626,8 @@ $C$DW$181	.dwtag  DW_TAG_formal_parameter, DW_AT_name("pBuf")
 ;*******************************************************************************
 ;* FUNCTION NAME: MMC_read_CSD                                                 *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,   *
-;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,*
+;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 12 words                                             *
 ;*                        (2 return address/alignment)                         *
@@ -2745,18 +2707,14 @@ $C$L81:
 $C$L82:    
 $C$DW$L$_MMC_read_CSD$6$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 1362,column 9,is_stmt
-        MOV *SP(#9), AR1 ; |1362| 
-        AND #0xffff, AR1, AC0 ; |1362| 
-        MOV AC0, XAR3
-        ADD #1, AR1, AR2 ; |1362| 
-        MOV AR2, *SP(#9) ; |1362| 
-        MOV dbl(*SP(#2)), XAR2
-        MOV *SP(#8), AR1 ; |1362| 
-        AADD XAR3, XAR2 ; |1362| 
         MOV dbl(*SP(#4)), XAR3
+        MOV *SP(#9), T0 ; |1362| 
+        ADD #1, T0, AR2 ; |1362| 
         AADD AR1, AR3 ; |1362| 
         MOV *AR3(#53), AR1 ; |1362| 
-        MOV AR1, *AR2 ; |1362| 
+        MOV AR2, *SP(#9) ; |1362| 
+        MOV dbl(*SP(#2)), XAR3
+        MOV AR1, *AR3(T0) ; |1362| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 1360,column 31,is_stmt
         SUB #1, *SP(#8) ; |1360| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c",line 1360,column 18,is_stmt
@@ -2778,7 +2736,7 @@ $C$DW$188	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$189	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$189, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_mmcsd_ataIf.asm:$C$L82:1:1538472792")
+	.dwattr $C$DW$189, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_mmcsd_ataIf.asm:$C$L82:1:1538833072")
 	.dwattr $C$DW$189, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd_ataIf.c")
 	.dwattr $C$DW$189, DW_AT_TI_begin_line(0x550)
 	.dwattr $C$DW$189, DW_AT_TI_end_line(0x553)

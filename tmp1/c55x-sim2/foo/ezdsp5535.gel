@@ -304,7 +304,7 @@ c5535_MapInit() {
     GEL_MapAdd(0x7FC000,1,0x004000,1,0);    /* SAROM3 */
 
     /* IO Space */
-    GEL_MapAdd(0x0000,2,0xFFFF,1,1);        /* XPORT */
+   GEL_MapAdd(0x0000,2,0xFFFF,1,1);        /* XPORT */
     GEL_MapAdd(0x1000u,2,0x0014u,1,1); 	/* TIMER#0 1KW */
 }
 

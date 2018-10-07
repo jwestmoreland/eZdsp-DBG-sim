@@ -782,7 +782,7 @@ static void prvSetupHardware( void )
 //	P5SEL = 0xFF;
 }
 /*-----------------------------------------------------------*/
-
+#pragma FUNC_NEVER_RETURNS ( vApplicationIdleHook );
 void vApplicationIdleHook( void )
 {
 	static unsigned short i = 0;
@@ -1192,7 +1192,7 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName )
 	taskDISABLE_INTERRUPTS();
 	for( ;; );
 }
-
+#pragma FUNC_NEVER_RETURNS ( LED_TaskBlue );
 void LED_TaskBlue(void * pvParameters)
 {
 	for(EVER)
@@ -1218,7 +1218,7 @@ void LED_TaskBlue(void * pvParameters)
 #endif
 	}
 
-		vTaskDelay(pdMS_TO_TICKS(1000UL));
+		vTaskDelay(pdMS_TO_TICKS(100UL));
 }
 }
 
@@ -1517,7 +1517,7 @@ void LED_TaskXF2(void * pvParameters)
 		vTaskDelay(pdMS_TO_TICKS(200UL));
 	}
 }
-
+#pragma FUNC_NEVER_RETURNS ( StartUpTask );
 void StartUpTask(void * pvParameters)
 {
 
@@ -1567,8 +1567,8 @@ void StartUpTask(void * pvParameters)
 //		 vTaskResume(TestTask4Handle);
 
 
-	    vTaskDelay ( pdMS_TO_TICKS( 100UL ));
-	    vTaskResume(greenTaskHandle);
+//	    vTaskDelay ( pdMS_TO_TICKS( 100UL ));
+//	    vTaskResume(greenTaskHandle);
 //	    vTaskDelay ( pdMS_TO_TICKS( 100UL ));
 //	    vTaskResume(xfTaskHandle);
 //	    vTaskDelay ( pdMS_TO_TICKS( 100UL ));
@@ -1577,14 +1577,14 @@ void StartUpTask(void * pvParameters)
 //	    vTaskResume(xfTaskHandle);
 //	    vTaskDelay ( pdMS_TO_TICKS( 100UL ));
         vTaskResume(controlTaskHandle);
-//        vTaskDelay ( pdMS_TO_TICKS( 100UL ));
+        vTaskDelay ( pdMS_TO_TICKS( 100UL ));
 
 //        vTaskDelay ( pdMS_TO_TICKS( 100UL ));
-//        vTaskResume(TestTask2Handle);
+        vTaskResume(TestTask2Handle);
 //        vTaskDelay ( pdMS_TO_TICKS( 100UL ));
 //        vTaskResume(TestTask3Handle);
 //        vTaskDelay ( pdMS_TO_TICKS( 100UL ));
-//        vTaskResume(TestTask4Handle);
+        vTaskResume(TestTask4Handle);
         vTaskDelay ( pdMS_TO_TICKS( 100UL ));
 
 //	    vTaskDelay ( 500 / portTICK_PERIOD_MS);
@@ -1605,7 +1605,7 @@ void StartUpTask(void * pvParameters)
 	}
 
 }
-
+#pragma FUNC_NEVER_RETURNS ( TestTask1 );
 void TestTask1(void * pvParameters)
 {
 
@@ -1619,7 +1619,7 @@ void TestTask1(void * pvParameters)
                         ctr++;
          }
 
-        vTaskDelay(pdMS_TO_TICKS(500UL));
+        vTaskDelay(pdMS_TO_TICKS(110UL));
     }
 
 }

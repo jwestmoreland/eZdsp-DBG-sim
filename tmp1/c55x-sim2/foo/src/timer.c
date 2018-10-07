@@ -179,7 +179,7 @@ Timer0_Int_CTR++;
 //  if ( configUSE_PREEMPTION == 1 )
 //	    vTaskSwitchContext();
       
-      
+#if 0
 	/*  clear timer0 int flag*/
 	*CPU_TIM0_IER = 0x0001;
 	    
@@ -187,6 +187,7 @@ Timer0_Int_CTR++;
 	*CPU_TIMINT_AGGR = *CPU_TIMINT_AGGR | 0x0001 ;	
 
 	fTimer=1;
+#endif
 	    //StartTimer0();
 //   }
 #if (0)

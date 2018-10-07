@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Tue Oct 02 02:32:35 2018                                 *
+;* Date/Time created: Sat Oct 06 06:37:15 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,7 +27,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../src/timer.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
 ;******************************************************************************
 ;* CINIT RECORDS                                                              *
 ;******************************************************************************
@@ -92,7 +92,7 @@ $C$DW$5	.dwtag  DW_TAG_variable, DW_AT_name("Timer2_Int_CTR")
 	.dwattr $C$DW$5, DW_AT_location[DW_OP_addr _Timer2_Int_CTR]
 	.dwattr $C$DW$5, DW_AT_type(*$C$DW$T$23)
 	.dwattr $C$DW$5, DW_AT_external
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1878812 
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2429612 
 	.sect	".text"
 	.align 4
 	.global	_Timer0Init
@@ -386,13 +386,7 @@ $C$DW$11	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$11, DW_AT_TI_call
         CALL #_vTickISR ; |175| 
                                         ; call occurs [#_vTickISR] ; |175| 
-	.dwpsn	file "../src/timer.c",line 184,column 2,is_stmt
-        MOV #1, *port(#6166) ; |184| 
-	.dwpsn	file "../src/timer.c",line 187,column 2,is_stmt
-        OR #0x0001, *port(#7188) ; |187| 
-	.dwpsn	file "../src/timer.c",line 189,column 2,is_stmt
-        MOV #1, *(#_fTimer) ; |189| 
-	.dwpsn	file "../src/timer.c",line 215,column 1,is_stmt
+	.dwpsn	file "../src/timer.c",line 216,column 1,is_stmt
         AADD #1, SP
 	.dwcfi	cfa_offset, 47
         POP mmap(SP)
@@ -530,7 +524,7 @@ $C$DW$12	.dwtag  DW_TAG_TI_branch
         RETI
                                         ; return occurs
 	.dwattr $C$DW$10, DW_AT_TI_end_file("../src/timer.c")
-	.dwattr $C$DW$10, DW_AT_TI_end_line(0xd7)
+	.dwattr $C$DW$10, DW_AT_TI_end_line(0xd8)
 	.dwattr $C$DW$10, DW_AT_TI_end_column(0x01)
 	.dwendentry
 	.dwendtag $C$DW$10

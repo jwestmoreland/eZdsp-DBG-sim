@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Tue Oct 02 02:33:35 2018                                 *
+;* Date/Time created: Sat Oct 06 06:38:14 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,13 +27,13 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
 	.bss	_SPI_Instance,3,0,0
 $C$DW$1	.dwtag  DW_TAG_variable, DW_AT_name("SPI_Instance")
 	.dwattr $C$DW$1, DW_AT_TI_symbol_name("_SPI_Instance")
 	.dwattr $C$DW$1, DW_AT_type(*$C$DW$T$46)
 	.dwattr $C$DW$1, DW_AT_location[DW_OP_addr _SPI_Instance]
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\0728412 
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2682012 
 	.sect	".text"
 	.align 4
 	.global	_SPI_init
@@ -136,7 +136,7 @@ $C$DW$5	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$6	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$6, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L1:1:1538472815")
+	.dwattr $C$DW$6, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L1:1:1538833094")
 	.dwattr $C$DW$6, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c")
 	.dwattr $C$DW$6, DW_AT_TI_begin_line(0x49)
 	.dwattr $C$DW$6, DW_AT_TI_end_line(0x49)
@@ -707,7 +707,7 @@ $C$DW$28	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$29	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$29, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L12:1:1538472815")
+	.dwattr $C$DW$29, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L12:1:1538833094")
 	.dwattr $C$DW$29, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c")
 	.dwattr $C$DW$29, DW_AT_TI_begin_line(0x11b)
 	.dwattr $C$DW$29, DW_AT_TI_end_line(0x11b)
@@ -823,8 +823,8 @@ $C$DW$37	.dwtag  DW_TAG_formal_parameter, DW_AT_name("bufLen")
 ;*******************************************************************************
 ;* FUNCTION NAME: SPI_read                                                     *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,   *
-;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,*
+;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 12 words                                             *
 ;*                        (1 return address/alignment)                         *
@@ -990,12 +990,10 @@ $C$DW$L$_SPI_read$11$B:
 $C$DW$L$_SPI_read$11$E:
 $C$DW$L$_SPI_read$12$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c",line 488,column 4,is_stmt
+        MOV *SP(#6), T0 ; |488| 
         MOV dbl(*SP(#2)), XAR3
-        MOV uns(*SP(#6)), AC0 ; |488| 
-        MOV AC0, XAR2
         MOV *port(#12296), AR1 ; |488| 
-        AADD XAR2, XAR3 ; |488| 
-        MOV AR1, *AR3 ; |488| 
+        MOV AR1, *AR3(T0) ; |488| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c",line 489,column 4,is_stmt
         ADD #1, *SP(#6) ; |489| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c",line 490,column 3,is_stmt
@@ -1011,12 +1009,10 @@ $C$DW$L$_SPI_read$13$B:
 $C$DW$L$_SPI_read$13$E:
 $C$DW$L$_SPI_read$14$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c",line 493,column 4,is_stmt
+        MOV *SP(#6), T0 ; |493| 
         MOV dbl(*SP(#2)), XAR3
-        MOV uns(*SP(#6)), AC0 ; |493| 
-        MOV AC0, XAR2
         MOV uns(low_byte(*port(#12296))), AR1 ; |493| 
-        AADD XAR2, XAR3 ; |493| 
-        MOV AR1, *AR3 ; |493| 
+        MOV AR1, *AR3(T0) ; |493| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c",line 494,column 4,is_stmt
         ADD #1, *SP(#6) ; |494| 
 $C$DW$L$_SPI_read$14$E:
@@ -1043,7 +1039,7 @@ $C$DW$47	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$48	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$48, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L28:1:1538472815")
+	.dwattr $C$DW$48, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L28:1:1538833094")
 	.dwattr $C$DW$48, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c")
 	.dwattr $C$DW$48, DW_AT_TI_begin_line(0x1d6)
 	.dwattr $C$DW$48, DW_AT_TI_end_line(0x1f0)
@@ -1067,7 +1063,7 @@ $C$DW$54	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$54, DW_AT_high_pc($C$DW$L$_SPI_read$15$E)
 
 $C$DW$55	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$55, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L29:2:1538472815")
+	.dwattr $C$DW$55, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L29:2:1538833094")
 	.dwattr $C$DW$55, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c")
 	.dwattr $C$DW$55, DW_AT_TI_begin_line(0x1dc)
 	.dwattr $C$DW$55, DW_AT_TI_end_line(0x1dc)
@@ -1078,7 +1074,7 @@ $C$DW$56	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$57	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$57, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L30:2:1538472815")
+	.dwattr $C$DW$57, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L30:2:1538833094")
 	.dwattr $C$DW$57, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c")
 	.dwattr $C$DW$57, DW_AT_TI_begin_line(0x1de)
 	.dwattr $C$DW$57, DW_AT_TI_end_line(0x1e3)
@@ -1130,8 +1126,8 @@ $C$DW$63	.dwtag  DW_TAG_formal_parameter, DW_AT_name("bufLen")
 ;*******************************************************************************
 ;* FUNCTION NAME: SPI_write                                                    *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,   *
-;*                        XAR3,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL        *
+;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,AR0,XAR0,AR1,XAR1,AR2,AR3,XAR3,SP,*
+;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 12 words                                             *
 ;*                        (1 return address/alignment)                         *
@@ -1240,11 +1236,9 @@ $C$DW$L$_SPI_write$7$B:
 $C$DW$L$_SPI_write$7$E:
 $C$DW$L$_SPI_write$8$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c",line 569,column 4,is_stmt
+        MOV *SP(#6), T0 ; |569| 
         MOV dbl(*SP(#2)), XAR3
-        MOV uns(*SP(#6)), AC0 ; |569| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |569| 
-        MOV *AR3, AR1 ; |569| 
+        MOV *AR3(T0), AR1 ; |569| 
         MOV AR1, *port(#12297) ; |569| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c",line 570,column 4,is_stmt
         MOV #0, *port(#12296) ; |570| 
@@ -1263,11 +1257,9 @@ $C$DW$L$_SPI_write$9$B:
 $C$DW$L$_SPI_write$9$E:
 $C$DW$L$_SPI_write$10$B:
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c",line 576,column 4,is_stmt
+        MOV *SP(#6), T0 ; |576| 
         MOV dbl(*SP(#2)), XAR3
-        MOV uns(*SP(#6)), AC0 ; |576| 
-        MOV AC0, XAR2
-        AADD XAR2, XAR3 ; |576| 
-        MOV *AR3, AC0 ; |576| 
+        MOV *AR3(T0), AC0 ; |576| 
         SFTL AC0, #8, AC0 ; |576| 
         MOV AC0, *port(#12297) ; |576| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c",line 577,column 4,is_stmt
@@ -1354,7 +1346,7 @@ $C$DW$73	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$74	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$74, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L39:1:1538472815")
+	.dwattr $C$DW$74, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L39:1:1538833094")
 	.dwattr $C$DW$74, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c")
 	.dwattr $C$DW$74, DW_AT_TI_begin_line(0x234)
 	.dwattr $C$DW$74, DW_AT_TI_end_line(0x251)
@@ -1378,7 +1370,7 @@ $C$DW$80	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$80, DW_AT_high_pc($C$DW$L$_SPI_write$15$E)
 
 $C$DW$81	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$81, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L42:2:1538472815")
+	.dwattr $C$DW$81, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L42:2:1538833094")
 	.dwattr $C$DW$81, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c")
 	.dwattr $C$DW$81, DW_AT_TI_begin_line(0x248)
 	.dwattr $C$DW$81, DW_AT_TI_end_line(0x248)
@@ -1389,7 +1381,7 @@ $C$DW$82	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$83	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$83, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L43:2:1538472815")
+	.dwattr $C$DW$83, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_spi.asm:$C$L43:2:1538833094")
 	.dwattr $C$DW$83, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_spi.c")
 	.dwattr $C$DW$83, DW_AT_TI_begin_line(0x24a)
 	.dwattr $C$DW$83, DW_AT_TI_end_line(0x24f)

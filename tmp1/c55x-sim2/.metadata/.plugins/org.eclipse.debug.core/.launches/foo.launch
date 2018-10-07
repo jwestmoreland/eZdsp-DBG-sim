@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.ti.ccstudio.debug.launchType.device.debugging">
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_DEBUGGER_PROPERTIES.C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;&#10;&lt;PropertyValues&gt;&#10;&#10;  &lt;property id=&quot;TMS320C55XX_HexDisplay&quot;&gt;&#10;    &lt;curValue&gt;1&lt;/curValue&gt;&#10;  &lt;/property&gt;&#10;&#10;&lt;/PropertyValues&gt;&#10;"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_DEBUGGER_PROPERTIES.C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;&#10;&lt;PropertyValues&gt;&#10;&#10;  &lt;property id=&quot;PreventStepIntoAsm&quot;&gt;&#10;    &lt;curValue&gt;0&lt;/curValue&gt;&#10;  &lt;/property&gt;&#10;&#10;  &lt;property id=&quot;CIOTimestamp&quot;&gt;&#10;    &lt;curValue&gt;1&lt;/curValue&gt;&#10;  &lt;/property&gt;&#10;&#10;  &lt;property id=&quot;ConnectOnStartup&quot;&gt;&#10;    &lt;curValue&gt;1&lt;/curValue&gt;&#10;  &lt;/property&gt;&#10;&#10;  &lt;property id=&quot;IgnoreSoftLaunchFailures&quot;&gt;&#10;    &lt;curValue&gt;1&lt;/curValue&gt;&#10;  &lt;/property&gt;&#10;&#10;  &lt;property id=&quot;TMS320C55XX_HexDisplay&quot;&gt;&#10;    &lt;curValue&gt;1&lt;/curValue&gt;&#10;  &lt;/property&gt;&#10;&#10;&lt;/PropertyValues&gt;&#10;"/>
 <setAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_HIDE_CONFIG_ELEMENT_TYPES">
 <setEntry value="BOARD"/>
 <setEntry value="BYPASSED_CPU"/>
@@ -12,23 +12,27 @@
 <setEntry value="SUBPATH"/>
 <setEntry value="SYSTEM"/>
 </setAttribute>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_LAUNCH_SCRIPT" value="F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\ezdsp5535.gel"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x" value="F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\foo.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_LAUNCH_SCRIPT" value="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\ezdsp5535.gel"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x" value="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\foo.out"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.Texas Instruments Simulator/C55xx" value="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\foo.out"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\EZDSP5535.ccxml"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.Texas Instruments XDS100v2 USB Emulator_0/C55xx" value="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\foo.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\EZDSP5535.ccxml"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.C55xx Rev3.0 CPU Cycle Accurate Simulator_0/TMS320C55x" value="F:/eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\foo.out"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x" value="F:/eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\foo.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x" value="F:/eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\foo.out"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Texas Instruments Simulator/C55xx" value="F:/eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\foo.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Texas Instruments XDS100v2 USB Emulator_0/C55xx" value="F:/eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\foo.out"/>
 <mapAttribute key="com.ti.ccstudio.debug.ui.displayFormats">
 <mapEntry key="C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x@##separator##@1" value="16-Bit Hex - TI Style"/>
 <mapEntry key="Texas Instruments Simulator/C55xx@##separator##@0" value="8-Bit Hex - TI Style"/>
 <mapEntry key="Texas Instruments Simulator/C55xx@##separator##@1" value="16-Bit Hex - TI Style"/>
+<mapEntry key="Texas Instruments XDS100v2 USB Emulator_0/C55xx@##separator##@1" value="16-Bit Hex - TI Style"/>
 </mapAttribute>
 <stringAttribute key="org.eclipse.dsf.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;memoryBlockExpressionList context=&quot;reserved-for-future-use&quot;/&gt;&#13;&#10;"/>
 <listAttribute key="pinConnections">
-<listEntry value="SINT4@@F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\DAT.txt"/>
+<listEntry value="SINT4@@F:\eZdsp_DBG\tmp1\c55x-sim2\foo\DAT.txt"/>
 </listAttribute>
-<stringAttribute key="saved_expressions&lt;seperator&gt;C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x&lt;seperator&gt;DATA" value="0x1852,0x1052,0x984,0x1918,0x11a0,0x105d,0x1778,0x0f7b,0xf7c,0x1024,0x1a3b,0x1a38,0x1b3e,0x1a55,0x32fd"/>
+<stringAttribute key="saved_expressions&lt;seperator&gt;C55xx Rev3.0 CPU Functional Simulator_0/TMS320C55x&lt;seperator&gt;DATA" value="0x19b1,0x1a18,0x3257,0x19b0,0x19b7,0x3279,0x1coe,0x1c0e,0x327a,0x1931,0x1e4f,0x3274,0x19b2,0x2964,0x1057"/>
 <stringAttribute key="saved_expressions&lt;seperator&gt;Texas Instruments Simulator/C55xx&lt;seperator&gt;DATA" value="0x4cf00,0x00,0x105d"/>
 <stringAttribute key="saved_expressions&lt;seperator&gt;Texas Instruments Simulator/C55xx&lt;seperator&gt;PROGRAM" value="0x4cf00"/>
+<stringAttribute key="saved_expressions&lt;seperator&gt;Texas Instruments XDS100v2 USB Emulator_0/C55xx&lt;seperator&gt;DATA" value="0x1052,0x1bf7"/>
 </launchConfiguration>

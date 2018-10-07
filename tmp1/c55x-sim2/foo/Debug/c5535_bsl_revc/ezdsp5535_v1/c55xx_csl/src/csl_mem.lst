@@ -1,4 +1,4 @@
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE    1
@@ -6,7 +6,7 @@ csl_mem.asm                                                          PAGE    1
     1853              ; Temporary Registers Used: None
        1              ;*******************************************************************************
        2              ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-       3              ;* Date/Time created: Tue Oct 02 02:33:01 2018                                 *
+       3              ;* Date/Time created: Sat Oct 06 06:37:41 2018                                 *
        4              ;*******************************************************************************
        5                      .compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --si
        6                      .mmregs
@@ -33,8 +33,8 @@ csl_mem.asm                                                          PAGE    1
       27                      .dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c")
       28                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas In
       29                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-      30                      .dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
-      31              ;       F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2613212 
+      30                      .dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+      31              ;       F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1766412 
       32 000000               .sect   ".text"
       33                      .align 4
       34                      .global _MEM_init
@@ -58,7 +58,7 @@ csl_mem.asm                                                          PAGE    1
       52              ;*   Function Uses Regs : T0,SP,M40,SATA,SATD,RDM,FRCT,SMUL                    *
       53              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
       54              ;*   Total Frame Size   : 1 word                                               *
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE    2
@@ -118,7 +118,7 @@ csl_mem.asm                                                          PAGE    2
      107                      .dwcfi  cfa_offset, 1
      108                      .dwcfi  save_reg_to_mem, 91, -1
      109 000004 4EFD          AADD #-3, SP
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE    3
@@ -178,7 +178,7 @@ csl_mem.asm                                                          PAGE    3
          00003a 1C28 
      149                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 130,column 2,is_stmt
      150 00003c 4A03          B $C$L3   ; |130| 
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE    4
@@ -238,7 +238,7 @@ csl_mem.asm                                                          PAGE    4
      202              ;*******************************************************************************
      203 000048       _MEM_disableRetentionMode:
      204                      .dwcfi  cfa_offset, 1
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE    5
@@ -298,7 +298,7 @@ csl_mem.asm                                                          PAGE    5
      245 00007a FB51          MOV #65535, *port(#7208) ; |227| 
          00007c FFFF 
          00007e 1C28 
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE    6
@@ -358,7 +358,7 @@ csl_mem.asm                                                          PAGE    6
      297                      .dwattr $C$DW$16, DW_AT_location[DW_OP_reg0]
      298              ;*******************************************************************************
      299              ;* FUNCTION NAME: MEM_enablePartialRetentionMode                               *
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE    7
@@ -418,7 +418,7 @@ csl_mem.asm                                                          PAGE    7
      351 000091 C502          MOV T1, *SP(#1) ; |349| 
      352 000093 C400          MOV T0, *SP(#0) ; |349| 
      353                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 357,column 2,is_stmt
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE    8
@@ -478,7 +478,7 @@ csl_mem.asm                                                          PAGE    8
      391 0000cd       $C$L7:    
      392                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 373,column 4,is_stmt
      393 0000cd FB12          MOV #7210, *SP(#9) ; |373| 
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE    9
@@ -538,7 +538,7 @@ csl_mem.asm                                                          PAGE    9
          000104 1C28 
      435                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 387,column 4,is_stmt
      436 000106 E610          MOV #8, *SP(#8) ; |387| 
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE   10
@@ -555,7 +555,7 @@ csl_mem.asm                                                          PAGE   10
      444                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 396,column 2,is_stmt
      445 00010e A908          MOV *SP(#4), AR1 ; |396| 
      446 000110 6D19          BCC $C$L17,AR1 != #0 ; |396| 
-         000112 00BE 
+         000112 00BA 
      447                                                      ; branchcc occurs ; |396| 
      448                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 398,column 3,is_stmt
      449              
@@ -566,7 +566,7 @@ csl_mem.asm                                                          PAGE   10
      453 000119 121C          CMPU AC1 != AC0, TC1 ; |398| 
          00011b 04   
      454 00011c 0464          BCC $C$L14,TC1 ; |398| 
-         00011e 3A   
+         00011e 38   
      455                                                      ; branchcc occurs ; |398| 
      456                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 400,column 4,is_stmt
      457 00011f DF02          MOV uns(*SP(#1)), AC0 ; |400| 
@@ -581,177 +581,173 @@ csl_mem.asm                                                          PAGE   10
      463 00012c 5000          SFTL AC0, #1 ; |401| 
      464 00012e C00C          MOV AC0, *SP(#6) ; |401| 
      465                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 404,column 4,is_stmt
-     466 000130 A90A          MOV *SP(#5), AR1 ; |404| 
-     467 000132 D612          ADD *SP(#9), AR1, AR3 ; |404| 
-         000134 B9   
+     466 000130 A40A          MOV *SP(#5), T0 ; |404| 
+     467 000132 AB12          MOV *SP(#9), AR3 ; |404| 
      468              
-     469 000137 3D30          MOV #3, AC0
-     470 000135 A50C  ||      MOV *SP(#6), T1 ; |404| 
+     469 000136 3D30          MOV #3, AC0
+     470 000134 A50C  ||      MOV *SP(#6), T1 ; |404| 
      471              
-     472 000139 5C05          SFTS AC0, T1, AC0 ; |404| 
-     473 00013b 3609          NOT AC0, AR1 ; |404| 
-     474 00013d D961          AND port(*AR3), AR1, AC0 ; |404| 
-         00013f 09   
-         000140 99   
-     475 000141 C061          MOV AC0, port(*AR3) ; |404| 
-         000143 9A   
+     472 000138 5C05          SFTS AC0, T1, AC0 ; |404| 
+     473 00013a 3609          NOT AC0, AR1 ; |404| 
+     474 00013c D96B          AND port(*AR3(T0)), AR1, AC0 ; |404| 
+         00013e 09   
+         00013f 99   
+     475 000140 C06B          MOV AC0, port(*AR3(T0)) ; |404| 
+         000142 9A   
      476                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 408,column 4,is_stmt
-     477 000144 A90A          MOV *SP(#5), AR1 ; |408| 
-     478 000146 D612          ADD *SP(#9), AR1, AR3 ; |408| 
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+     477 000143 A40A          MOV *SP(#5), T0 ; |408| 
+     478 000145 AB12          MOV *SP(#9), AR3 ; |408| 
+     479              
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE   11
 
-         000148 B9   
-     479              
-     480 000149 A50C          MOV *SP(#6), T1 ; |408| 
-     481 00014b 3D20  ||      MOV #2, AC0
+     480 000147 A50C          MOV *SP(#6), T1 ; |408| 
+     481 000149 3D20  ||      MOV #2, AC0
      482              
-     483 00014d 5C05          SFTS AC0, T1, AC0 ; |408| 
-     484 00014f DA61          OR port(*AR3), AC0, AR1 ; |408| 
-         000151 90   
-         000152 99   
-     485 000153 C961          MOV AR1, port(*AR3) ; |408| 
-         000155 9A   
+     483 00014b 5C05          SFTS AC0, T1, AC0 ; |408| 
+     484 00014d DA6B          OR port(*AR3(T0)), AC0, AR1 ; |408| 
+         00014f 90   
+         000150 99   
+     485 000151 C96B          MOV AR1, port(*AR3(T0)) ; |408| 
+         000153 9A   
      486                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 410,column 3,is_stmt
-     487 000156 0600          B $C$L17  ; |410| 
-         000158 79   
+     487 000154 0600          B $C$L17  ; |410| 
+         000156 77   
      488                                                      ; branch occurs ; |410| 
-     489 000159       $C$L14:    
+     489 000157       $C$L14:    
      490                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 413,column 4,is_stmt
-     491 000159 E602          MOV #0, *SP(#1) ; |413| 
-         00015b 00   
+     491 000157 E602          MOV #0, *SP(#1) ; |413| 
+         000159 00   
      492                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 415,column 9,is_stmt
-     493 00015c E60E          MOV #0, *SP(#7) ; |415| 
-         00015e 00   
+     493 00015a E60E          MOV #0, *SP(#7) ; |415| 
+         00015c 00   
      494                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 415,column 20,is_stmt
-     495 00015f A910          MOV *SP(#8), AR1 ; |415| 
-     496 000161 AA0E          MOV *SP(#7), AR2 ; |415| 
-     497 000163 12A8          CMPU AR2 >= AR1, TC1 ; |415| 
-         000165 94   
-     498 000166 0464          BCC $C$L17,TC1 ; |415| 
-         000168 69   
+     495 00015d A910          MOV *SP(#8), AR1 ; |415| 
+     496 00015f AA0E          MOV *SP(#7), AR2 ; |415| 
+     497 000161 12A8          CMPU AR2 >= AR1, TC1 ; |415| 
+         000163 94   
+     498 000164 0464          BCC $C$L17,TC1 ; |415| 
+         000166 67   
      499                                                      ; branchcc occurs ; |415| 
-     500 000169       $C$L15:    
-     501 000169       $C$DW$L$_MEM_enablePartialRetentionMode$17$B:
+     500 000167       $C$L15:    
+     501 000167       $C$DW$L$_MEM_enablePartialRetentionMode$17$B:
      502                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 417,column 5,is_stmt
-     503 000169 ED04          MOV dbl(*SP(#2)), AC1 ; |417| 
-         00016b 18   
+     503 000167 ED04          MOV dbl(*SP(#2)), AC1 ; |417| 
+         000169 18   
      504              
-     505 00016c 1801          AND #0x0001, AC1, AC1 ; |417| 
-         00016e 11   
-     506 00016f 3D10  ||      MOV #1, AC0 ; |417| 
+     505 00016a 1801          AND #0x0001, AC1, AC1 ; |417| 
+         00016c 11   
+     506 00016d 3D10  ||      MOV #1, AC0 ; |417| 
      507              
-     508 000171 121C          CMPU AC1 != AC0, TC1 ; |417| 
-         000173 04   
-     509 000174 0464          BCC $C$L16,TC1 ; |417| 
-         000176 3B   
+     508 00016f 121C          CMPU AC1 != AC0, TC1 ; |417| 
+         000171 04   
+     509 000172 0464          BCC $C$L16,TC1 ; |417| 
+         000174 39   
      510                                                      ; branchcc occurs ; |417| 
-     511 000177       $C$DW$L$_MEM_enablePartialRetentionMode$17$E:
-     512 000177       $C$DW$L$_MEM_enablePartialRetentionMode$18$B:
+     511 000175       $C$DW$L$_MEM_enablePartialRetentionMode$17$E:
+     512 000175       $C$DW$L$_MEM_enablePartialRetentionMode$18$B:
      513                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 419,column 6,is_stmt
-     514 000177 22A9          MOV AR2, AR1
-     515 000179 C902          MOV AR1, *SP(#1) ; |419| 
+     514 000175 22A9          MOV AR2, AR1
+     515 000177 C902          MOV AR1, *SP(#1) ; |419| 
      516                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 421,column 6,is_stmt
-     517 00017b DF02          MOV uns(*SP(#1)), AC0 ; |421| 
-         00017d 05   
-     518 00017e 1005          SFTS AC0, #-3, AC0 ; |421| 
-         000180 3D   
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+     517 000179 DF02          MOV uns(*SP(#1)), AC0 ; |421| 
+         00017b 05   
+     518 00017c 1005          SFTS AC0, #-3, AC0 ; |421| 
+         00017e 3D   
+     519 00017f C00A          MOV AC0, *SP(#5) ; |421| 
+     520                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 422,column 6,is_stmt
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE   12
 
-     519 000181 C00A          MOV AC0, *SP(#5) ; |421| 
-     520                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 422,column 6,is_stmt
-     521 000183 A902          MOV *SP(#1), AR1 ; |422| 
-     522 000185 1807          AND #0x0007, AR1, AC0 ; |422| 
-         000187 09   
-     523 000188 5000          SFTL AC0, #1 ; |422| 
-     524 00018a C00C          MOV AC0, *SP(#6) ; |422| 
+     521 000181 A902          MOV *SP(#1), AR1 ; |422| 
+     522 000183 1807          AND #0x0007, AR1, AC0 ; |422| 
+         000185 09   
+     523 000186 5000          SFTL AC0, #1 ; |422| 
+     524 000188 C00C          MOV AC0, *SP(#6) ; |422| 
      525                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 425,column 6,is_stmt
-     526 00018c A90A          MOV *SP(#5), AR1 ; |425| 
-     527 00018e D612          ADD *SP(#9), AR1, AR3 ; |425| 
-         000190 B9   
+     526 00018a A40A          MOV *SP(#5), T0 ; |425| 
+     527 00018c AB12          MOV *SP(#9), AR3 ; |425| 
      528              
-     529 000191 A50C          MOV *SP(#6), T1 ; |425| 
-     530 000193 3D30  ||      MOV #3, AC0
+     529 00018e A50C          MOV *SP(#6), T1 ; |425| 
+     530 000190 3D30  ||      MOV #3, AC0
      531              
-     532 000195 5C05          SFTS AC0, T1, AC0 ; |425| 
-     533 000197 3609          NOT AC0, AR1 ; |425| 
-     534 000199 D961          AND port(*AR3), AR1, AC0 ; |425| 
-         00019b 09   
-         00019c 99   
-     535 00019d C061          MOV AC0, port(*AR3) ; |425| 
-         00019f 9A   
+     532 000192 5C05          SFTS AC0, T1, AC0 ; |425| 
+     533 000194 3609          NOT AC0, AR1 ; |425| 
+     534 000196 D96B          AND port(*AR3(T0)), AR1, AC0 ; |425| 
+         000198 09   
+         000199 99   
+     535 00019a C06B          MOV AC0, port(*AR3(T0)) ; |425| 
+         00019c 9A   
      536                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 429,column 6,is_stmt
-     537 0001a0 A90A          MOV *SP(#5), AR1 ; |429| 
-     538 0001a2 D612          ADD *SP(#9), AR1, AR3 ; |429| 
-         0001a4 B9   
+     537 00019d A40A          MOV *SP(#5), T0 ; |429| 
+     538 00019f AB12          MOV *SP(#9), AR3 ; |429| 
      539              
-     540 0001a5 A50C          MOV *SP(#6), T1 ; |429| 
-     541 0001a7 3D20  ||      MOV #2, AC0
+     540 0001a1 A50C          MOV *SP(#6), T1 ; |429| 
+     541 0001a3 3D20  ||      MOV #2, AC0
      542              
-     543 0001a9 5C05          SFTS AC0, T1, AC0 ; |429| 
-     544 0001ab DA61          OR port(*AR3), AC0, AR1 ; |429| 
-         0001ad 90   
-         0001ae 99   
-     545 0001af C961          MOV AR1, port(*AR3) ; |429| 
-         0001b1 9A   
-     546 0001b2       $C$DW$L$_MEM_enablePartialRetentionMode$18$E:
-     547 0001b2       $C$L16:    
-     548 0001b2       $C$DW$L$_MEM_enablePartialRetentionMode$19$B:
+     543 0001a5 5C05          SFTS AC0, T1, AC0 ; |429| 
+     544 0001a7 DA6B          OR port(*AR3(T0)), AC0, AR1 ; |429| 
+         0001a9 90   
+         0001aa 99   
+     545 0001ab C96B          MOV AR1, port(*AR3(T0)) ; |429| 
+         0001ad 9A   
+     546 0001ae       $C$DW$L$_MEM_enablePartialRetentionMode$18$E:
+     547 0001ae       $C$L16:    
+     548 0001ae       $C$DW$L$_MEM_enablePartialRetentionMode$19$B:
      549                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 433,column 5,is_stmt
-     550 0001b2 ED04          MOV dbl(*SP(#2)), AC0 ; |433| 
-         0001b4 08   
-     551 0001b5 5001          SFTL AC0, #-1 ; |433| 
-     552 0001b7 EB04          MOV AC0, dbl(*SP(#2)) ; |433| 
-         0001b9 08   
+     550 0001ae ED04          MOV dbl(*SP(#2)), AC0 ; |433| 
+         0001b0 08   
+     551 0001b1 5001          SFTL AC0, #-1 ; |433| 
+     552 0001b3 EB04          MOV AC0, dbl(*SP(#2)) ; |433| 
+         0001b5 08   
      553                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 435,column 5,is_stmt
      554              
-     555 0001ba ED04          MOV dbl(*SP(#2)), AC0 ; |435| 
-         0001bc 08   
-     556 0001bd 3D01  ||      MOV #0, AC1 ; |435| 
+     555 0001b6 ED04          MOV dbl(*SP(#2)), AC0 ; |435| 
+         0001b8 08   
+     556 0001b9 3D01  ||      MOV #0, AC1 ; |435| 
      557              
-     558 0001bf 121C          CMPU AC1 != AC0, TC1 ; |435| 
-         0001c1 04   
-     559 0001c2 6774          BCC $C$L17,!TC1 ; |435| 
+     558 0001bb 121C          CMPU AC1 != AC0, TC1 ; |435| 
+         0001bd 04   
+     559 0001be 6774          BCC $C$L17,!TC1 ; |435| 
      560                                                      ; branchcc occurs ; |435| 
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+     561 0001c0       $C$DW$L$_MEM_enablePartialRetentionMode$19$E:
+     562 0001c0       $C$DW$L$_MEM_enablePartialRetentionMode$20$B:
+     563                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 437,column 6,is_stmt
+     564                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 415,column 42,is_stmt
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE   13
 
-     561 0001c4       $C$DW$L$_MEM_enablePartialRetentionMode$19$E:
-     562 0001c4       $C$DW$L$_MEM_enablePartialRetentionMode$20$B:
-     563                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 437,column 6,is_stmt
-     564                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 415,column 42,is_stmt
-     565 0001c4 F70E          ADD #1, *SP(#7) ; |415| 
-         0001c6 0001 
+     565 0001c0 F70E          ADD #1, *SP(#7) ; |415| 
+         0001c2 0001 
      566                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 415,column 20,is_stmt
-     567 0001c8 A910          MOV *SP(#8), AR1 ; |415| 
-     568 0001ca AA0E          MOV *SP(#7), AR2 ; |415| 
-     569 0001cc 12A4          CMPU AR2 < AR1, TC1 ; |415| 
-         0001ce 94   
-     570 0001cf 0464          BCC $C$L15,TC1 ; |415| 
-         0001d1 97   
+     567 0001c4 A910          MOV *SP(#8), AR1 ; |415| 
+     568 0001c6 AA0E          MOV *SP(#7), AR2 ; |415| 
+     569 0001c8 12A4          CMPU AR2 < AR1, TC1 ; |415| 
+         0001ca 94   
+     570 0001cb 0464          BCC $C$L15,TC1 ; |415| 
+         0001cd 99   
      571                                                      ; branchcc occurs ; |415| 
-     572 0001d2       $C$DW$L$_MEM_enablePartialRetentionMode$20$E:
-     573 0001d2       $C$L17:    
+     572 0001ce       $C$DW$L$_MEM_enablePartialRetentionMode$20$E:
+     573 0001ce       $C$L17:    
      574                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 443,column 2,is_stmt
-     575 0001d2 A408          MOV *SP(#4), T0 ; |443| 
+     575 0001ce A408          MOV *SP(#4), T0 ; |443| 
      576                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 444,column 1,is_stmt
-     577 0001d4 4E0B          AADD #11, SP
+     577 0001d0 4E0B          AADD #11, SP
      578                      .dwcfi  cfa_offset, 1
      579              $C$DW$26        .dwtag  DW_TAG_TI_branch
      580                      .dwattr $C$DW$26, DW_AT_low_pc(0x00)
      581                      .dwattr $C$DW$26, DW_AT_TI_return
-     582 0001d6 4804          RET
+     582 0001d2 4804          RET
      583                                                      ; return occurs
      584              
      585              $C$DW$27        .dwtag  DW_TAG_TI_loop
-     586                      .dwattr $C$DW$27, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_mem.asm:$C$L15:1:15384727
+     586                      .dwattr $C$DW$27, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_mem.asm:$C$L15:1:1538833061")
      587                      .dwattr $C$DW$27, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c")
      588                      .dwattr $C$DW$27, DW_AT_TI_begin_line(0x19f)
      589                      .dwattr $C$DW$27, DW_AT_TI_end_line(0x1b7)
@@ -775,18 +771,18 @@ csl_mem.asm                                                          PAGE   13
      607                      .dwendentry
      608                      .dwendtag $C$DW$13
      609              
-     610 0001d8               .sect   ".text"
+     610 0001d4               .sect   ".text"
      611                      .align 4
      612                      .global _MEM_disablePartialRetentionMode
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   14
-
      613              
      614              $C$DW$32        .dwtag  DW_TAG_subprogram, DW_AT_name("MEM_disablePartialRetentionMode")
      615                      .dwattr $C$DW$32, DW_AT_low_pc(_MEM_disablePartialRetentionMode)
      616                      .dwattr $C$DW$32, DW_AT_high_pc(0x00)
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   14
+
      617                      .dwattr $C$DW$32, DW_AT_TI_symbol_name("_MEM_disablePartialRetentionMode")
      618                      .dwattr $C$DW$32, DW_AT_external
      619                      .dwattr $C$DW$32, DW_AT_type(*$C$DW$T$34)
@@ -820,10 +816,10 @@ csl_mem.asm                                                          PAGE   14
      647              ;*                        (10 local values)                                    *
      648              ;*   Min System Stack   : 1 word                                               *
      649              ;*******************************************************************************
-     650 0001d8       _MEM_disablePartialRetentionMode:
+     650 0001d4       _MEM_disablePartialRetentionMode:
      651                      .dwcfi  cfa_offset, 1
      652                      .dwcfi  save_reg_to_mem, 91, -1
-     653 0001d8 4EF5          AADD #-11, SP
+     653 0001d4 4EF5          AADD #-11, SP
      654                      .dwcfi  cfa_offset, 12
      655              $C$DW$36        .dwtag  DW_TAG_variable, DW_AT_name("memType")
      656                      .dwattr $C$DW$36, DW_AT_TI_symbol_name("_memType")
@@ -838,15 +834,15 @@ csl_mem.asm                                                          PAGE   14
      665                      .dwattr $C$DW$38, DW_AT_type(*$C$DW$T$37)
      666                      .dwattr $C$DW$38, DW_AT_location[DW_OP_bregx 0x24 2]
      667              $C$DW$39        .dwtag  DW_TAG_variable, DW_AT_name("status")
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   15
-
      668                      .dwattr $C$DW$39, DW_AT_TI_symbol_name("_status")
      669                      .dwattr $C$DW$39, DW_AT_type(*$C$DW$T$34)
      670                      .dwattr $C$DW$39, DW_AT_location[DW_OP_bregx 0x24 4]
      671              $C$DW$40        .dwtag  DW_TAG_variable, DW_AT_name("regOffset")
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   15
+
      672                      .dwattr $C$DW$40, DW_AT_TI_symbol_name("_regOffset")
      673                      .dwattr $C$DW$40, DW_AT_type(*$C$DW$T$19)
      674                      .dwattr $C$DW$40, DW_AT_location[DW_OP_bregx 0x24 5]
@@ -866,310 +862,308 @@ csl_mem.asm                                                          PAGE   15
      688                      .dwattr $C$DW$44, DW_AT_TI_symbol_name("_pSleepRegBaseAddr")
      689                      .dwattr $C$DW$44, DW_AT_type(*$C$DW$T$41)
      690                      .dwattr $C$DW$44, DW_AT_location[DW_OP_bregx 0x24 9]
-     691 0001da EB04          MOV AC0, dbl(*SP(#2)) ; |524| 
-         0001dc 08   
-     692 0001dd C502          MOV T1, *SP(#1) ; |524| 
-     693 0001df C400          MOV T0, *SP(#0) ; |524| 
+     691 0001d6 EB04          MOV AC0, dbl(*SP(#2)) ; |524| 
+         0001d8 08   
+     692 0001d9 C502          MOV T1, *SP(#1) ; |524| 
+     693 0001db C400          MOV T0, *SP(#0) ; |524| 
      694                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 532,column 2,is_stmt
-     695 0001e1 E608          MOV #0, *SP(#4) ; |532| 
-         0001e3 00   
+     695 0001dd E608          MOV #0, *SP(#4) ; |532| 
+         0001df 00   
      696                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 533,column 2,is_stmt
-     697 0001e4 E60A          MOV #0, *SP(#5) ; |533| 
-         0001e6 00   
+     697 0001e0 E60A          MOV #0, *SP(#5) ; |533| 
+         0001e2 00   
      698                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 534,column 2,is_stmt
-     699 0001e7 E60C          MOV #0, *SP(#6) ; |534| 
-         0001e9 00   
+     699 0001e3 E60C          MOV #0, *SP(#6) ; |534| 
+         0001e5 00   
      700                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 535,column 2,is_stmt
-     701 0001ea E60E          MOV #0, *SP(#7) ; |535| 
-         0001ec 00   
+     701 0001e6 E60E          MOV #0, *SP(#7) ; |535| 
+         0001e8 00   
      702                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 536,column 2,is_stmt
-     703 0001ed E610          MOV #0, *SP(#8) ; |536| 
-         0001ef 00   
+     703 0001e9 E610          MOV #0, *SP(#8) ; |536| 
+         0001eb 00   
      704                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 537,column 2,is_stmt
-     705 0001f0 E612          MOV #0, *SP(#9) ; |537| 
-         0001f2 00   
+     705 0001ec E612          MOV #0, *SP(#9) ; |537| 
+         0001ee 00   
      706                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 540,column 2,is_stmt
      707              
-     708 0001f3 A900          MOV *SP(#0), AR1 ; |540| 
-     709 0001f5 3D1A  ||      MOV #1, AR2
+     708 0001ef A900          MOV *SP(#0), AR1 ; |540| 
+     709 0001f1 3D1A  ||      MOV #1, AR2
      710              
-     711 0001f7 12AC          CMP AR2 != AR1, TC1 ; |540| 
-         0001f9 90   
-     712 0001fa 0464          BCC $C$L19,TC1 ; |540| 
-         0001fc 25   
+     711 0001f3 12AC          CMP AR2 != AR1, TC1 ; |540| 
+         0001f5 90   
+     712 0001f6 0464          BCC $C$L19,TC1 ; |540| 
+         0001f8 25   
      713                                                      ; branchcc occurs ; |540| 
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+     714                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 542,column 3,is_stmt
+     715              
+     716 0001fc 3D01          MOV #0, AC1 ; |542| 
+     717 0001f9 ED04  ||      MOV dbl(*SP(#2)), AC0 ; |542| 
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE   16
 
-     714                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 542,column 3,is_stmt
-     715              
-     716 000200 3D01          MOV #0, AC1 ; |542| 
-     717 0001fd ED04  ||      MOV dbl(*SP(#2)), AC0 ; |542| 
-         0001ff 08   
+         0001fb 08   
      718              
-     719 000202 121C          CMPU AC1 != AC0, TC1 ; |542| 
-         000204 04   
-     720 000205 0464          BCC $C$L18,TC1 ; |542| 
-         000207 11   
+     719 0001fe 121C          CMPU AC1 != AC0, TC1 ; |542| 
+         000200 04   
+     720 000201 0464          BCC $C$L18,TC1 ; |542| 
+         000203 11   
      721                                                      ; branchcc occurs ; |542| 
-     722 000208 7600          MOV #31, AR2 ; |542| 
-         00020a 1FA8 
-     723 00020c A902          MOV *SP(#1), AR1 ; |542| 
-     724 00020e 12A8          CMPU AR1 <= AR2, TC1 ; |542| 
-         000210 94   
-     725 000211 6364          BCC $C$L18,TC1 ; |542| 
+     722 000204 7600          MOV #31, AR2 ; |542| 
+         000206 1FA8 
+     723 000208 A902          MOV *SP(#1), AR1 ; |542| 
+     724 00020a 12A8          CMPU AR1 <= AR2, TC1 ; |542| 
+         00020c 94   
+     725 00020d 6364          BCC $C$L18,TC1 ; |542| 
      726                                                      ; branchcc occurs ; |542| 
      727                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 544,column 4,is_stmt
-     728 000213 E608          MOV #-6, *SP(#4) ; |544| 
-         000215 FA   
+     728 00020f E608          MOV #-6, *SP(#4) ; |544| 
+         000211 FA   
      729                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 545,column 3,is_stmt
-     730 000216 0600          B $C$L24  ; |545| 
-         000218 41   
+     730 000212 0600          B $C$L24  ; |545| 
+         000214 41   
      731                                                      ; branch occurs ; |545| 
-     732 000219       $C$L18:    
+     732 000215       $C$L18:    
      733                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 548,column 4,is_stmt
-     734 000219 FB12          MOV #7210, *SP(#9) ; |548| 
-         00021b 1C2A 
+     734 000215 FB12          MOV #7210, *SP(#9) ; |548| 
+         000217 1C2A 
      735                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 549,column 4,is_stmt
-     736 00021d E610          MOV #32, *SP(#8) ; |549| 
-         00021f 20   
+     736 000219 E610          MOV #32, *SP(#8) ; |549| 
+         00021b 20   
      737                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 551,column 2,is_stmt
-     738 000220 4A38          B $C$L24  ; |551| 
+     738 00021c 4A38          B $C$L24  ; |551| 
      739                                                      ; branch occurs ; |551| 
-     740 000222       $C$L19:    
+     740 00021e       $C$L19:    
      741                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 552,column 7,is_stmt
-     742 000222 3C0A          MOV #0, AR2
-     743 000224 12AC          CMP AR2 != AR1, TC1 ; |552| 
-         000226 90   
-     744 000227 0464          BCC $C$L23,TC1 ; |552| 
-         000229 2D   
+     742 00021e 3C0A          MOV #0, AR2
+     743 000220 12AC          CMP AR2 != AR1, TC1 ; |552| 
+         000222 90   
+     744 000223 0464          BCC $C$L23,TC1 ; |552| 
+         000225 2D   
      745                                                      ; branchcc occurs ; |552| 
      746                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 554,column 3,is_stmt
      747              
-     748 00022d 3D01          MOV #0, AC1 ; |554| 
-     749 00022a ED04  ||      MOV dbl(*SP(#2)), AC0 ; |554| 
-         00022c 08   
+     748 000229 3D01          MOV #0, AC1 ; |554| 
+     749 000226 ED04  ||      MOV dbl(*SP(#2)), AC0 ; |554| 
+         000228 08   
      750              
-     751 00022f 121C          CMPU AC1 != AC0, TC1 ; |554| 
-         000231 04   
-     752 000232 64E4          BCC $C$L20,TC1 ; |554| 
+     751 00022b 121C          CMPU AC1 != AC0, TC1 ; |554| 
+         00022d 04   
+     752 00022e 64E4          BCC $C$L20,TC1 ; |554| 
      753                                                      ; branchcc occurs ; |554| 
      754              
-     755 000234 A902          MOV *SP(#1), AR1 ; |554| 
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+     755 000230 A902          MOV *SP(#1), AR1 ; |554| 
+     756 000232 3D7A  ||      MOV #7, AR2
+     757              
+     758 000234 12A8          CMPU AR1 <= AR2, TC1 ; |554| 
+         000236 94   
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE   17
 
-     756 000236 3D7A  ||      MOV #7, AR2
-     757              
-     758 000238 12A8          CMPU AR1 <= AR2, TC1 ; |554| 
-         00023a 94   
-     759 00023b 6674          BCC $C$L21,!TC1 ; |554| 
+     759 000237 6674          BCC $C$L21,!TC1 ; |554| 
      760                                                      ; branchcc occurs ; |554| 
-     761 00023d       $C$L20:    
-     762 00023d 7600          MOV #255, AC0 ; |554| 
-         00023f FF08 
-     763 000241 ED04          MOV dbl(*SP(#2)), AC1 ; |554| 
-         000243 18   
-     764 000244 1208          CMPU AC1 <= AC0, TC1 ; |554| 
-         000246 14   
-     765 000247 62E4          BCC $C$L22,TC1 ; |554| 
+     761 000239       $C$L20:    
+     762 000239 7600          MOV #255, AC0 ; |554| 
+         00023b FF08 
+     763 00023d ED04          MOV dbl(*SP(#2)), AC1 ; |554| 
+         00023f 18   
+     764 000240 1208          CMPU AC1 <= AC0, TC1 ; |554| 
+         000242 14   
+     765 000243 62E4          BCC $C$L22,TC1 ; |554| 
      766                                                      ; branchcc occurs ; |554| 
-     767 000249       $C$L21:    
+     767 000245       $C$L21:    
      768                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 557,column 4,is_stmt
-     769 000249 E608          MOV #-6, *SP(#4) ; |557| 
-         00024b FA   
+     769 000245 E608          MOV #-6, *SP(#4) ; |557| 
+         000247 FA   
      770                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 558,column 3,is_stmt
-     771 00024c 4A0C          B $C$L24  ; |558| 
+     771 000248 4A0C          B $C$L24  ; |558| 
      772                                                      ; branch occurs ; |558| 
-     773 00024e       $C$L22:    
+     773 00024a       $C$L22:    
      774                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 561,column 4,is_stmt
-     775 00024e FB12          MOV #7208, *SP(#9) ; |561| 
-         000250 1C28 
+     775 00024a FB12          MOV #7208, *SP(#9) ; |561| 
+         00024c 1C28 
      776                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 562,column 4,is_stmt
-     777 000252 E610          MOV #8, *SP(#8) ; |562| 
-         000254 08   
+     777 00024e E610          MOV #8, *SP(#8) ; |562| 
+         000250 08   
      778                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 564,column 2,is_stmt
-     779 000255 4A03          B $C$L24  ; |564| 
+     779 000251 4A03          B $C$L24  ; |564| 
      780                                                      ; branch occurs ; |564| 
-     781 000257       $C$L23:    
+     781 000253       $C$L23:    
      782                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 567,column 3,is_stmt
-     783 000257 E608          MOV #-6, *SP(#4) ; |567| 
-         000259 FA   
-     784 00025a       $C$L24:    
+     783 000253 E608          MOV #-6, *SP(#4) ; |567| 
+         000255 FA   
+     784 000256       $C$L24:    
      785                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 571,column 2,is_stmt
-     786 00025a A908          MOV *SP(#4), AR1 ; |571| 
-     787 00025c 6D19          BCC $C$L28,AR1 != #0 ; |571| 
-         00025e 0096 
+     786 000256 A908          MOV *SP(#4), AR1 ; |571| 
+     787 000258 6D19          BCC $C$L28,AR1 != #0 ; |571| 
+         00025a 0094 
      788                                                      ; branchcc occurs ; |571| 
      789                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 573,column 3,is_stmt
      790              
-     791 000263 3D01          MOV #0, AC1 ; |573| 
-     792 000260 ED04  ||      MOV dbl(*SP(#2)), AC0 ; |573| 
-         000262 08   
+     791 00025f 3D01          MOV #0, AC1 ; |573| 
+     792 00025c ED04  ||      MOV dbl(*SP(#2)), AC0 ; |573| 
+         00025e 08   
      793              
-     794 000265 121C          CMPU AC1 != AC0, TC1 ; |573| 
-         000267 04   
-     795 000268 0464          BCC $C$L25,TC1 ; |573| 
-         00026a 26   
+     794 000261 121C          CMPU AC1 != AC0, TC1 ; |573| 
+         000263 04   
+     795 000264 0464          BCC $C$L25,TC1 ; |573| 
+         000266 25   
      796                                                      ; branchcc occurs ; |573| 
      797                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 575,column 4,is_stmt
-     798 00026b DF02          MOV uns(*SP(#1)), AC0 ; |575| 
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+     798 000267 DF02          MOV uns(*SP(#1)), AC0 ; |575| 
+         000269 05   
+     799 00026a 1005          SFTS AC0, #-3, AC0 ; |575| 
+         00026c 3D   
+     800 00026d C00A          MOV AC0, *SP(#5) ; |575| 
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE   18
 
-         00026d 05   
-     799 00026e 1005          SFTS AC0, #-3, AC0 ; |575| 
-         000270 3D   
-     800 000271 C00A          MOV AC0, *SP(#5) ; |575| 
      801                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 576,column 4,is_stmt
-     802 000273 A902          MOV *SP(#1), AR1 ; |576| 
-     803 000275 1807          AND #0x0007, AR1, AC0 ; |576| 
-         000277 09   
-     804 000278 5000          SFTL AC0, #1 ; |576| 
-     805 00027a C00C          MOV AC0, *SP(#6) ; |576| 
+     802 00026f A902          MOV *SP(#1), AR1 ; |576| 
+     803 000271 1807          AND #0x0007, AR1, AC0 ; |576| 
+         000273 09   
+     804 000274 5000          SFTL AC0, #1 ; |576| 
+     805 000276 C00C          MOV AC0, *SP(#6) ; |576| 
      806                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 579,column 4,is_stmt
-     807 00027c A90A          MOV *SP(#5), AR1 ; |579| 
-     808 00027e D612          ADD *SP(#9), AR1, AR3 ; |579| 
-         000280 B9   
+     807 000278 A40A          MOV *SP(#5), T0 ; |579| 
+     808 00027a AB12          MOV *SP(#9), AR3 ; |579| 
      809              
-     810 000283 3D30          MOV #3, AC0
-     811 000281 A50C  ||      MOV *SP(#6), T1 ; |579| 
+     810 00027e 3D30          MOV #3, AC0
+     811 00027c A50C  ||      MOV *SP(#6), T1 ; |579| 
      812              
-     813 000285 5C05          SFTS AC0, T1, AC0 ; |579| 
-     814 000287 DA61          OR port(*AR3), AC0, AR1 ; |579| 
-         000289 90   
-         00028a 99   
-     815 00028b C961          MOV AR1, port(*AR3) ; |579| 
-         00028d 9A   
+     813 000280 5C05          SFTS AC0, T1, AC0 ; |579| 
+     814 000282 DA6B          OR port(*AR3(T0)), AC0, AR1 ; |579| 
+         000284 90   
+         000285 99   
+     815 000286 C96B          MOV AR1, port(*AR3(T0)) ; |579| 
+         000288 9A   
      816                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 581,column 3,is_stmt
-     817 00028e 0600          B $C$L28  ; |581| 
-         000290 65   
+     817 000289 0600          B $C$L28  ; |581| 
+         00028b 64   
      818                                                      ; branch occurs ; |581| 
-     819 000291       $C$L25:    
+     819 00028c       $C$L25:    
      820                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 584,column 4,is_stmt
-     821 000291 E602          MOV #0, *SP(#1) ; |584| 
-         000293 00   
+     821 00028c E602          MOV #0, *SP(#1) ; |584| 
+         00028e 00   
      822                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 586,column 9,is_stmt
-     823 000294 E60E          MOV #0, *SP(#7) ; |586| 
-         000296 00   
+     823 00028f E60E          MOV #0, *SP(#7) ; |586| 
+         000291 00   
      824                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 586,column 20,is_stmt
-     825 000297 A910          MOV *SP(#8), AR1 ; |586| 
-     826 000299 AA0E          MOV *SP(#7), AR2 ; |586| 
-     827 00029b 12A8          CMPU AR2 >= AR1, TC1 ; |586| 
-         00029d 94   
-     828 00029e 0464          BCC $C$L28,TC1 ; |586| 
-         0002a0 55   
+     825 000292 A910          MOV *SP(#8), AR1 ; |586| 
+     826 000294 AA0E          MOV *SP(#7), AR2 ; |586| 
+     827 000296 12A8          CMPU AR2 >= AR1, TC1 ; |586| 
+         000298 94   
+     828 000299 0464          BCC $C$L28,TC1 ; |586| 
+         00029b 54   
      829                                                      ; branchcc occurs ; |586| 
-     830 0002a1       $C$L26:    
-     831 0002a1       $C$DW$L$_MEM_disablePartialRetentionMode$17$B:
+     830 00029c       $C$L26:    
+     831 00029c       $C$DW$L$_MEM_disablePartialRetentionMode$17$B:
      832                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 588,column 5,is_stmt
-     833 0002a1 ED04          MOV dbl(*SP(#2)), AC1 ; |588| 
-         0002a3 18   
+     833 00029c ED04          MOV dbl(*SP(#2)), AC1 ; |588| 
+         00029e 18   
      834              
-     835 0002a4 1801          AND #0x0001, AC1, AC1 ; |588| 
-         0002a6 11   
-     836 0002a7 3D10  ||      MOV #1, AC0 ; |588| 
+     835 00029f 1801          AND #0x0001, AC1, AC1 ; |588| 
+         0002a1 11   
+     836 0002a2 3D10  ||      MOV #1, AC0 ; |588| 
      837              
-     838 0002a9 121C          CMPU AC1 != AC0, TC1 ; |588| 
-         0002ab 04   
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+     838 0002a4 121C          CMPU AC1 != AC0, TC1 ; |588| 
+         0002a6 04   
+     839 0002a7 0464          BCC $C$L27,TC1 ; |588| 
+         0002a9 26   
+     840                                                      ; branchcc occurs ; |588| 
+     841 0002aa       $C$DW$L$_MEM_disablePartialRetentionMode$17$E:
+     842 0002aa       $C$DW$L$_MEM_disablePartialRetentionMode$18$B:
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE   19
 
-     839 0002ac 0464          BCC $C$L27,TC1 ; |588| 
-         0002ae 27   
-     840                                                      ; branchcc occurs ; |588| 
-     841 0002af       $C$DW$L$_MEM_disablePartialRetentionMode$17$E:
-     842 0002af       $C$DW$L$_MEM_disablePartialRetentionMode$18$B:
      843                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 590,column 6,is_stmt
-     844 0002af 22A9          MOV AR2, AR1
-     845 0002b1 C902          MOV AR1, *SP(#1) ; |590| 
+     844 0002aa 22A9          MOV AR2, AR1
+     845 0002ac C902          MOV AR1, *SP(#1) ; |590| 
      846                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 592,column 6,is_stmt
-     847 0002b3 DF02          MOV uns(*SP(#1)), AC0 ; |592| 
-         0002b5 05   
-     848 0002b6 1005          SFTS AC0, #-3, AC0 ; |592| 
-         0002b8 3D   
-     849 0002b9 C00A          MOV AC0, *SP(#5) ; |592| 
+     847 0002ae DF02          MOV uns(*SP(#1)), AC0 ; |592| 
+         0002b0 05   
+     848 0002b1 1005          SFTS AC0, #-3, AC0 ; |592| 
+         0002b3 3D   
+     849 0002b4 C00A          MOV AC0, *SP(#5) ; |592| 
      850                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 593,column 6,is_stmt
-     851 0002bb A902          MOV *SP(#1), AR1 ; |593| 
-     852 0002bd 1807          AND #0x0007, AR1, AC0 ; |593| 
-         0002bf 09   
-     853 0002c0 5000          SFTL AC0, #1 ; |593| 
-     854 0002c2 C00C          MOV AC0, *SP(#6) ; |593| 
+     851 0002b6 A902          MOV *SP(#1), AR1 ; |593| 
+     852 0002b8 1807          AND #0x0007, AR1, AC0 ; |593| 
+         0002ba 09   
+     853 0002bb 5000          SFTL AC0, #1 ; |593| 
+     854 0002bd C00C          MOV AC0, *SP(#6) ; |593| 
      855                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 596,column 6,is_stmt
-     856 0002c4 A90A          MOV *SP(#5), AR1 ; |596| 
-     857 0002c6 D612          ADD *SP(#9), AR1, AR3 ; |596| 
-         0002c8 B9   
+     856 0002bf A40A          MOV *SP(#5), T0 ; |596| 
+     857 0002c1 AB12          MOV *SP(#9), AR3 ; |596| 
      858              
-     859 0002c9 A50C          MOV *SP(#6), T1 ; |596| 
-     860 0002cb 3D30  ||      MOV #3, AC0
+     859 0002c3 A50C          MOV *SP(#6), T1 ; |596| 
+     860 0002c5 3D30  ||      MOV #3, AC0
      861              
-     862 0002cd 5C05          SFTS AC0, T1, AC0 ; |596| 
-     863 0002cf DA61          OR port(*AR3), AC0, AR1 ; |596| 
-         0002d1 90   
-         0002d2 99   
-     864 0002d3 C961          MOV AR1, port(*AR3) ; |596| 
-         0002d5 9A   
-     865 0002d6       $C$DW$L$_MEM_disablePartialRetentionMode$18$E:
-     866 0002d6       $C$L27:    
-     867 0002d6       $C$DW$L$_MEM_disablePartialRetentionMode$19$B:
+     862 0002c7 5C05          SFTS AC0, T1, AC0 ; |596| 
+     863 0002c9 DA6B          OR port(*AR3(T0)), AC0, AR1 ; |596| 
+         0002cb 90   
+         0002cc 99   
+     864 0002cd C96B          MOV AR1, port(*AR3(T0)) ; |596| 
+         0002cf 9A   
+     865 0002d0       $C$DW$L$_MEM_disablePartialRetentionMode$18$E:
+     866 0002d0       $C$L27:    
+     867 0002d0       $C$DW$L$_MEM_disablePartialRetentionMode$19$B:
      868                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 600,column 5,is_stmt
-     869 0002d6 ED04          MOV dbl(*SP(#2)), AC0 ; |600| 
-         0002d8 08   
-     870 0002d9 5001          SFTL AC0, #-1 ; |600| 
-     871 0002db EB04          MOV AC0, dbl(*SP(#2)) ; |600| 
-         0002dd 08   
+     869 0002d0 ED04          MOV dbl(*SP(#2)), AC0 ; |600| 
+         0002d2 08   
+     870 0002d3 5001          SFTL AC0, #-1 ; |600| 
+     871 0002d5 EB04          MOV AC0, dbl(*SP(#2)) ; |600| 
+         0002d7 08   
      872                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 602,column 5,is_stmt
      873              
-     874 0002de ED04          MOV dbl(*SP(#2)), AC0 ; |602| 
-         0002e0 08   
-     875 0002e1 3D01  ||      MOV #0, AC1 ; |602| 
+     874 0002d8 ED04          MOV dbl(*SP(#2)), AC0 ; |602| 
+         0002da 08   
+     875 0002db 3D01  ||      MOV #0, AC1 ; |602| 
      876              
-     877 0002e3 121C          CMPU AC1 != AC0, TC1 ; |602| 
-         0002e5 04   
-     878 0002e6 6774          BCC $C$L28,!TC1 ; |602| 
+     877 0002dd 121C          CMPU AC1 != AC0, TC1 ; |602| 
+         0002df 04   
+     878 0002e0 6774          BCC $C$L28,!TC1 ; |602| 
      879                                                      ; branchcc occurs ; |602| 
-     880 0002e8       $C$DW$L$_MEM_disablePartialRetentionMode$19$E:
-     881 0002e8       $C$DW$L$_MEM_disablePartialRetentionMode$20$B:
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+     880 0002e2       $C$DW$L$_MEM_disablePartialRetentionMode$19$E:
+     881 0002e2       $C$DW$L$_MEM_disablePartialRetentionMode$20$B:
+     882                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 604,column 6,is_stmt
+     883                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 586,column 42,is_stmt
+     884 0002e2 F70E          ADD #1, *SP(#7) ; |586| 
+         0002e4 0001 
+     885                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 586,column 20,is_stmt
+     886 0002e6 A910          MOV *SP(#8), AR1 ; |586| 
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE   20
 
-     882                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 604,column 6,is_stmt
-     883                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 586,column 42,is_stmt
-     884 0002e8 F70E          ADD #1, *SP(#7) ; |586| 
-         0002ea 0001 
-     885                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 586,column 20,is_stmt
-     886 0002ec A910          MOV *SP(#8), AR1 ; |586| 
-     887 0002ee AA0E          MOV *SP(#7), AR2 ; |586| 
-     888 0002f0 12A4          CMPU AR2 < AR1, TC1 ; |586| 
-         0002f2 94   
-     889 0002f3 0464          BCC $C$L26,TC1 ; |586| 
-         0002f5 AB   
+     887 0002e8 AA0E          MOV *SP(#7), AR2 ; |586| 
+     888 0002ea 12A4          CMPU AR2 < AR1, TC1 ; |586| 
+         0002ec 94   
+     889 0002ed 0464          BCC $C$L26,TC1 ; |586| 
+         0002ef AC   
      890                                                      ; branchcc occurs ; |586| 
-     891 0002f6       $C$DW$L$_MEM_disablePartialRetentionMode$20$E:
-     892 0002f6       $C$L28:    
+     891 0002f0       $C$DW$L$_MEM_disablePartialRetentionMode$20$E:
+     892 0002f0       $C$L28:    
      893                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 610,column 2,is_stmt
-     894 0002f6 A408          MOV *SP(#4), T0 ; |610| 
+     894 0002f0 A408          MOV *SP(#4), T0 ; |610| 
      895                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 611,column 1,is_stmt
-     896 0002f8 4E0B          AADD #11, SP
+     896 0002f2 4E0B          AADD #11, SP
      897                      .dwcfi  cfa_offset, 1
      898              $C$DW$45        .dwtag  DW_TAG_TI_branch
      899                      .dwattr $C$DW$45, DW_AT_low_pc(0x00)
      900                      .dwattr $C$DW$45, DW_AT_TI_return
-     901 0002fa 4804          RET
+     901 0002f4 4804          RET
      902                                                      ; return occurs
      903              
      904              $C$DW$46        .dwtag  DW_TAG_TI_loop
-     905                      .dwattr $C$DW$46, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_mem.asm:$C$L26:1:15384727
+     905                      .dwattr $C$DW$46, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_mem.asm:$C$L26:1:1538833061")
      906                      .dwattr $C$DW$46, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c")
      907                      .dwattr $C$DW$46, DW_AT_TI_begin_line(0x24a)
      908                      .dwattr $C$DW$46, DW_AT_TI_end_line(0x25e)
@@ -1193,22 +1187,22 @@ csl_mem.asm                                                          PAGE   20
      926                      .dwendentry
      927                      .dwendtag $C$DW$32
      928              
-     929 0002fc               .sect   ".text"
+     929 0002f6               .sect   ".text"
      930                      .align 4
      931                      .global _MEM_setmSDRAMClock
      932              
      933              $C$DW$51        .dwtag  DW_TAG_subprogram, DW_AT_name("MEM_setmSDRAMClock")
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   21
-
      934                      .dwattr $C$DW$51, DW_AT_low_pc(_MEM_setmSDRAMClock)
      935                      .dwattr $C$DW$51, DW_AT_high_pc(0x00)
      936                      .dwattr $C$DW$51, DW_AT_TI_symbol_name("_MEM_setmSDRAMClock")
      937                      .dwattr $C$DW$51, DW_AT_external
      938                      .dwattr $C$DW$51, DW_AT_type(*$C$DW$T$34)
      939                      .dwattr $C$DW$51, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c")
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   21
+
      940                      .dwattr $C$DW$51, DW_AT_TI_begin_line(0x288)
      941                      .dwattr $C$DW$51, DW_AT_TI_begin_column(0x0c)
      942                      .dwattr $C$DW$51, DW_AT_TI_max_frame_size(0x04)
@@ -1229,10 +1223,10 @@ csl_mem.asm                                                          PAGE   21
      957              ;*                        (2 local values)                                     *
      958              ;*   Min System Stack   : 1 word                                               *
      959              ;*******************************************************************************
-     960 0002fc       _MEM_setmSDRAMClock:
+     960 0002f8       _MEM_setmSDRAMClock:
      961                      .dwcfi  cfa_offset, 1
      962                      .dwcfi  save_reg_to_mem, 91, -1
-     963 0002fc 4EFD          AADD #-3, SP
+     963 0002f8 4EFD          AADD #-3, SP
      964                      .dwcfi  cfa_offset, 4
      965              $C$DW$53        .dwtag  DW_TAG_variable, DW_AT_name("clockSwitch")
      966                      .dwattr $C$DW$53, DW_AT_TI_symbol_name("_clockSwitch")
@@ -1242,65 +1236,65 @@ csl_mem.asm                                                          PAGE   21
      970                      .dwattr $C$DW$54, DW_AT_TI_symbol_name("_status")
      971                      .dwattr $C$DW$54, DW_AT_type(*$C$DW$T$34)
      972                      .dwattr $C$DW$54, DW_AT_location[DW_OP_bregx 0x24 1]
-     973 0002fe C400          MOV T0, *SP(#0) ; |649| 
+     973 0002fa C400          MOV T0, *SP(#0) ; |649| 
      974                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 652,column 2,is_stmt
-     975 000300 E602          MOV #0, *SP(#1) ; |652| 
-         000302 00   
+     975 0002fc E602          MOV #0, *SP(#1) ; |652| 
+         0002fe 00   
      976                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 654,column 2,is_stmt
      977              
-     978 000303 A900          MOV *SP(#0), AR1 ; |654| 
-     979 000305 3D0A  ||      MOV #0, AR2
+     978 0002ff A900          MOV *SP(#0), AR1 ; |654| 
+     979 000301 3D0A  ||      MOV #0, AR2
      980              
-     981 000307 12AC          CMP AR2 != AR1, TC1 ; |654| 
-         000309 90   
-     982 00030a 6464          BCC $C$L29,TC1 ; |654| 
+     981 000303 12AC          CMP AR2 != AR1, TC1 ; |654| 
+         000305 90   
+     982 000306 6464          BCC $C$L29,TC1 ; |654| 
      983                                                      ; branchcc occurs ; |654| 
      984                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 656,column 3,is_stmt
-     985 00030c F451          AND #0xfffe, *port(#7198) ; |656| 
-         00030e FFFE 
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
+     985 000308 F451          AND #0xfffe, *port(#7198) ; |656| 
+         00030a FFFE 
+         00030c 1C1E 
+     986                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 657,column 2,is_stmt
+     987 00030e 4A1B          B $C$L31  ; |657| 
+     988                                                      ; branch occurs ; |657| 
+     989 000310       $C$L29:    
+     990                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 658,column 7,is_stmt
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
 
 Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
 csl_mem.asm                                                          PAGE   22
 
-         000310 1C1E 
-     986                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 657,column 2,is_stmt
-     987 000312 4A1B          B $C$L31  ; |657| 
-     988                                                      ; branch occurs ; |657| 
-     989 000314       $C$L29:    
-     990                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 658,column 7,is_stmt
-     991 000314 3C1A          MOV #1, AR2
-     992 000316 12AC          CMP AR2 != AR1, TC1 ; |658| 
-         000318 90   
-     993 000319 0464          BCC $C$L30,TC1 ; |658| 
-         00031b 10   
+     991 000310 3C1A          MOV #1, AR2
+     992 000312 12AC          CMP AR2 != AR1, TC1 ; |658| 
+         000314 90   
+     993 000315 0464          BCC $C$L30,TC1 ; |658| 
+         000317 10   
      994                                                      ; branchcc occurs ; |658| 
      995                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 660,column 3,is_stmt
-     996 00031c A951          MOV *port(#7198), AR1 ; |660| 
-         00031e 1C1E 
-     997 000320 EC00          BCLR @#0, AR1 ; |660| 
-         000322 92   
-     998 000323 EC00          BSET @#0, AR1 ; |660| 
-         000325 90   
-     999 000326 C951          MOV AR1, *port(#7198) ; |660| 
-         000328 1C1E 
+     996 000318 A951          MOV *port(#7198), AR1 ; |660| 
+         00031a 1C1E 
+     997 00031c EC00          BCLR @#0, AR1 ; |660| 
+         00031e 92   
+     998 00031f EC00          BSET @#0, AR1 ; |660| 
+         000321 90   
+     999 000322 C951          MOV AR1, *port(#7198) ; |660| 
+         000324 1C1E 
     1000                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 661,column 2,is_stmt
-    1001 00032a 4A03          B $C$L31  ; |661| 
+    1001 000326 4A03          B $C$L31  ; |661| 
     1002                                                      ; branch occurs ; |661| 
-    1003 00032c       $C$L30:    
+    1003 000328       $C$L30:    
     1004                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 664,column 3,is_stmt
-    1005 00032c E602          MOV #-6, *SP(#1) ; |664| 
-         00032e FA   
-    1006 00032f       $C$L31:    
+    1005 000328 E602          MOV #-6, *SP(#1) ; |664| 
+         00032a FA   
+    1006 00032b       $C$L31:    
     1007                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 667,column 2,is_stmt
-    1008 00032f A402          MOV *SP(#1), T0 ; |667| 
+    1008 00032b A402          MOV *SP(#1), T0 ; |667| 
     1009                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 668,column 1,is_stmt
-    1010 000331 4E03          AADD #3, SP
+    1010 00032d 4E03          AADD #3, SP
     1011                      .dwcfi  cfa_offset, 1
     1012              $C$DW$55        .dwtag  DW_TAG_TI_branch
     1013                      .dwattr $C$DW$55, DW_AT_low_pc(0x00)
     1014                      .dwattr $C$DW$55, DW_AT_TI_return
-    1015 000333 4804          RET
+    1015 00032f 4804          RET
     1016                                                      ; return occurs
     1017                      .dwattr $C$DW$51, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c")
     1018                      .dwattr $C$DW$51, DW_AT_TI_end_line(0x29c)
@@ -1308,7 +1302,7 @@ csl_mem.asm                                                          PAGE   22
     1020                      .dwendentry
     1021                      .dwendtag $C$DW$51
     1022              
-    1023 000335               .sect   ".text"
+    1023 000331               .sect   ".text"
     1024                      .align 4
     1025                      .global _MEM_getmSDRAMClock
     1026              
@@ -1318,17 +1312,17 @@ csl_mem.asm                                                          PAGE   22
     1030                      .dwattr $C$DW$56, DW_AT_TI_symbol_name("_MEM_getmSDRAMClock")
     1031                      .dwattr $C$DW$56, DW_AT_external
     1032                      .dwattr $C$DW$56, DW_AT_type(*$C$DW$T$42)
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   23
-
     1033                      .dwattr $C$DW$56, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c")
     1034                      .dwattr $C$DW$56, DW_AT_TI_begin_line(0x2bf)
     1035                      .dwattr $C$DW$56, DW_AT_TI_begin_column(0x06)
     1036                      .dwattr $C$DW$56, DW_AT_TI_max_frame_size(0x02)
     1037                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 704,column 1,is_stmt,addre
     1038              
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   23
+
     1039                      .dwfde $C$DW$CIE, _MEM_getmSDRAMClock
     1040              ;*******************************************************************************
     1041              ;* FUNCTION NAME: MEM_getmSDRAMClock                                           *
@@ -1340,30 +1334,30 @@ csl_mem.asm                                                          PAGE   23
     1047              ;*                        (1 local values)                                     *
     1048              ;*   Min System Stack   : 1 word                                               *
     1049              ;*******************************************************************************
-    1050 000338       _MEM_getmSDRAMClock:
+    1050 000334       _MEM_getmSDRAMClock:
     1051                      .dwcfi  cfa_offset, 1
     1052                      .dwcfi  save_reg_to_mem, 91, -1
-    1053 000338 4EFF          AADD #-1, SP
+    1053 000334 4EFF          AADD #-1, SP
     1054                      .dwcfi  cfa_offset, 2
     1055              $C$DW$57        .dwtag  DW_TAG_variable, DW_AT_name("bitValue")
     1056                      .dwattr $C$DW$57, DW_AT_TI_symbol_name("_bitValue")
     1057                      .dwattr $C$DW$57, DW_AT_type(*$C$DW$T$42)
     1058                      .dwattr $C$DW$57, DW_AT_location[DW_OP_bregx 0x24 0]
     1059                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 707,column 2,is_stmt
-    1060 00033a A951          MOV *port(#7198), AR1 ; |707| 
-         00033c 1C1E 
-    1061 00033e 1801          AND #0x0001, AR1, AC0 ; |707| 
-         000340 09   
-    1062 000341 C000          MOV AC0, *SP(#0) ; |707| 
+    1060 000336 A951          MOV *port(#7198), AR1 ; |707| 
+         000338 1C1E 
+    1061 00033a 1801          AND #0x0001, AR1, AC0 ; |707| 
+         00033c 09   
+    1062 00033d C000          MOV AC0, *SP(#0) ; |707| 
     1063                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 709,column 2,is_stmt
-    1064 000343 2204          MOV AC0, T0
+    1064 00033f 2204          MOV AC0, T0
     1065                      .dwpsn  file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 710,column 1,is_stmt
-    1066 000345 4E01          AADD #1, SP
+    1066 000341 4E01          AADD #1, SP
     1067                      .dwcfi  cfa_offset, 1
     1068              $C$DW$58        .dwtag  DW_TAG_TI_branch
     1069                      .dwattr $C$DW$58, DW_AT_low_pc(0x00)
     1070                      .dwattr $C$DW$58, DW_AT_TI_return
-    1071 000347 4804          RET
+    1071 000343 4804          RET
     1072                                                      ; return occurs
     1073                      .dwattr $C$DW$56, DW_AT_TI_end_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c")
     1074                      .dwattr $C$DW$56, DW_AT_TI_end_line(0x2c6)
@@ -1378,17 +1372,17 @@ csl_mem.asm                                                          PAGE   23
     1083              
     1084              $C$DW$T$25      .dwtag  DW_TAG_enumeration_type
     1085                      .dwattr $C$DW$T$25, DW_AT_byte_size(0x01)
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   24
-
     1086              $C$DW$59        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_MEM_DARAM"), DW_AT_const_value(0x00)
     1087              $C$DW$60        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_MEM_SARAM"), DW_AT_const_value(0x01)
     1088              $C$DW$61        .dwtag  DW_TAG_enumerator, DW_AT_name("CSL_MEM_INVALID"), DW_AT_const_value(0x02)
     1089                      .dwendtag $C$DW$T$25
     1090              
     1091              $C$DW$T$26      .dwtag  DW_TAG_typedef, DW_AT_name("CSL_MemType")
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   24
+
     1092                      .dwattr $C$DW$T$26, DW_AT_type(*$C$DW$T$25)
     1093                      .dwattr $C$DW$T$26, DW_AT_language(DW_LANG_C)
     1094              
@@ -1438,17 +1432,17 @@ csl_mem.asm                                                          PAGE   24
     1138                      .dwattr $C$DW$69, DW_AT_type(*$C$DW$T$20)
     1139                      .dwattr $C$DW$69, DW_AT_name("PRCR")
     1140                      .dwattr $C$DW$69, DW_AT_TI_symbol_name("_PRCR")
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   25
-
     1141                      .dwattr $C$DW$69, DW_AT_data_member_location[DW_OP_plus_uconst 0x5]
     1142                      .dwattr $C$DW$69, DW_AT_accessibility(DW_ACCESS_public)
     1143              $C$DW$70        .dwtag  DW_TAG_member
     1144                      .dwattr $C$DW$70, DW_AT_type(*$C$DW$T$21)
     1145                      .dwattr $C$DW$70, DW_AT_name("RSVD1")
     1146                      .dwattr $C$DW$70, DW_AT_TI_symbol_name("_RSVD1")
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   25
+
     1147                      .dwattr $C$DW$70, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
     1148                      .dwattr $C$DW$70, DW_AT_accessibility(DW_ACCESS_public)
     1149              $C$DW$71        .dwtag  DW_TAG_member
@@ -1498,17 +1492,17 @@ csl_mem.asm                                                          PAGE   25
     1193                      .dwattr $C$DW$78, DW_AT_name("DMA0CESR2")
     1194                      .dwattr $C$DW$78, DW_AT_TI_symbol_name("_DMA0CESR2")
     1195                      .dwattr $C$DW$78, DW_AT_data_member_location[DW_OP_plus_uconst 0x1b]
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   26
-
     1196                      .dwattr $C$DW$78, DW_AT_accessibility(DW_ACCESS_public)
     1197              $C$DW$79        .dwtag  DW_TAG_member
     1198                      .dwattr $C$DW$79, DW_AT_type(*$C$DW$T$20)
     1199                      .dwattr $C$DW$79, DW_AT_name("DMA1CESR1")
     1200                      .dwattr $C$DW$79, DW_AT_TI_symbol_name("_DMA1CESR1")
     1201                      .dwattr $C$DW$79, DW_AT_data_member_location[DW_OP_plus_uconst 0x1c]
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   26
+
     1202                      .dwattr $C$DW$79, DW_AT_accessibility(DW_ACCESS_public)
     1203              $C$DW$80        .dwtag  DW_TAG_member
     1204                      .dwattr $C$DW$80, DW_AT_type(*$C$DW$T$20)
@@ -1558,17 +1552,17 @@ csl_mem.asm                                                          PAGE   26
     1248                      .dwattr $C$DW$87, DW_AT_TI_symbol_name("_CCSSR")
     1249                      .dwattr $C$DW$87, DW_AT_data_member_location[DW_OP_plus_uconst 0x24]
     1250                      .dwattr $C$DW$87, DW_AT_accessibility(DW_ACCESS_public)
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   27
-
     1251              $C$DW$88        .dwtag  DW_TAG_member
     1252                      .dwattr $C$DW$88, DW_AT_type(*$C$DW$T$20)
     1253                      .dwattr $C$DW$88, DW_AT_name("RSVD3")
     1254                      .dwattr $C$DW$88, DW_AT_TI_symbol_name("_RSVD3")
     1255                      .dwattr $C$DW$88, DW_AT_data_member_location[DW_OP_plus_uconst 0x25]
     1256                      .dwattr $C$DW$88, DW_AT_accessibility(DW_ACCESS_public)
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   27
+
     1257              $C$DW$89        .dwtag  DW_TAG_member
     1258                      .dwattr $C$DW$89, DW_AT_type(*$C$DW$T$20)
     1259                      .dwattr $C$DW$89, DW_AT_name("ECDR")
@@ -1618,17 +1612,17 @@ csl_mem.asm                                                          PAGE   27
     1303                      .dwattr $C$DW$96, DW_AT_data_member_location[DW_OP_plus_uconst 0x2d]
     1304                      .dwattr $C$DW$96, DW_AT_accessibility(DW_ACCESS_public)
     1305              $C$DW$97        .dwtag  DW_TAG_member
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   28
-
     1306                      .dwattr $C$DW$97, DW_AT_type(*$C$DW$T$22)
     1307                      .dwattr $C$DW$97, DW_AT_name("RSVD6")
     1308                      .dwattr $C$DW$97, DW_AT_TI_symbol_name("_RSVD6")
     1309                      .dwattr $C$DW$97, DW_AT_data_member_location[DW_OP_plus_uconst 0x2e]
     1310                      .dwattr $C$DW$97, DW_AT_accessibility(DW_ACCESS_public)
     1311              $C$DW$98        .dwtag  DW_TAG_member
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   28
+
     1312                      .dwattr $C$DW$98, DW_AT_type(*$C$DW$T$20)
     1313                      .dwattr $C$DW$98, DW_AT_name("DMAIFR")
     1314                      .dwattr $C$DW$98, DW_AT_TI_symbol_name("_DMAIFR")
@@ -1678,17 +1672,17 @@ csl_mem.asm                                                          PAGE   28
     1358                      .dwattr $C$DW$105, DW_AT_accessibility(DW_ACCESS_public)
     1359              $C$DW$106       .dwtag  DW_TAG_member
     1360                      .dwattr $C$DW$106, DW_AT_type(*$C$DW$T$20)
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   29
-
     1361                      .dwattr $C$DW$106, DW_AT_name("DMA3CESR2")
     1362                      .dwattr $C$DW$106, DW_AT_TI_symbol_name("_DMA3CESR2")
     1363                      .dwattr $C$DW$106, DW_AT_data_member_location[DW_OP_plus_uconst 0x39]
     1364                      .dwattr $C$DW$106, DW_AT_accessibility(DW_ACCESS_public)
     1365              $C$DW$107       .dwtag  DW_TAG_member
     1366                      .dwattr $C$DW$107, DW_AT_type(*$C$DW$T$20)
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   29
+
     1367                      .dwattr $C$DW$107, DW_AT_name("CLKSTOP")
     1368                      .dwattr $C$DW$107, DW_AT_TI_symbol_name("_CLKSTOP")
     1369                      .dwattr $C$DW$107, DW_AT_data_member_location[DW_OP_plus_uconst 0x3a]
@@ -1738,17 +1732,17 @@ csl_mem.asm                                                          PAGE   29
     1413              $C$DW$115       .dwtag  DW_TAG_member
     1414                      .dwattr $C$DW$115, DW_AT_type(*$C$DW$T$20)
     1415                      .dwattr $C$DW$115, DW_AT_name("DIEIDR6")
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   30
-
     1416                      .dwattr $C$DW$115, DW_AT_TI_symbol_name("_DIEIDR6")
     1417                      .dwattr $C$DW$115, DW_AT_data_member_location[DW_OP_plus_uconst 0x46]
     1418                      .dwattr $C$DW$115, DW_AT_accessibility(DW_ACCESS_public)
     1419              $C$DW$116       .dwtag  DW_TAG_member
     1420                      .dwattr $C$DW$116, DW_AT_type(*$C$DW$T$20)
     1421                      .dwattr $C$DW$116, DW_AT_name("DIEIDR7")
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   30
+
     1422                      .dwattr $C$DW$116, DW_AT_TI_symbol_name("_DIEIDR7")
     1423                      .dwattr $C$DW$116, DW_AT_data_member_location[DW_OP_plus_uconst 0x47]
     1424                      .dwattr $C$DW$116, DW_AT_accessibility(DW_ACCESS_public)
@@ -1798,17 +1792,17 @@ csl_mem.asm                                                          PAGE   30
     1468              $C$DW$T$9       .dwtag  DW_TAG_base_type
     1469                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
     1470                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   31
-
     1471                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
     1472              $C$DW$T$19      .dwtag  DW_TAG_typedef, DW_AT_name("Uint16")
     1473                      .dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$9)
     1474                      .dwattr $C$DW$T$19, DW_AT_language(DW_LANG_C)
     1475              $C$DW$119       .dwtag  DW_TAG_TI_far_type
     1476                      .dwattr $C$DW$119, DW_AT_type(*$C$DW$T$19)
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   31
+
     1477              $C$DW$T$20      .dwtag  DW_TAG_volatile_type
     1478                      .dwattr $C$DW$T$20, DW_AT_type(*$C$DW$119)
     1479              
@@ -1858,17 +1852,17 @@ csl_mem.asm                                                          PAGE   31
     1523                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
     1524                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
     1525                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   32
-
     1526              $C$DW$T$12      .dwtag  DW_TAG_base_type
     1527                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
     1528                      .dwattr $C$DW$T$12, DW_AT_name("long")
     1529                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
     1530              $C$DW$T$13      .dwtag  DW_TAG_base_type
     1531                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   32
+
     1532                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
     1533                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
     1534              $C$DW$T$37      .dwtag  DW_TAG_typedef, DW_AT_name("Uint32")
@@ -1918,17 +1912,17 @@ csl_mem.asm                                                          PAGE   32
     1578                      .dwcfi  undefined, 8
     1579                      .dwcfi  undefined, 9
     1580                      .dwcfi  undefined, 10
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   33
-
     1581                      .dwcfi  undefined, 11
     1582                      .dwcfi  undefined, 12
     1583                      .dwcfi  undefined, 13
     1584                      .dwcfi  same_value, 14
     1585                      .dwcfi  same_value, 15
     1586                      .dwcfi  undefined, 16
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   33
+
     1587                      .dwcfi  undefined, 17
     1588                      .dwcfi  undefined, 18
     1589                      .dwcfi  undefined, 19
@@ -1978,17 +1972,17 @@ csl_mem.asm                                                          PAGE   33
     1633                      .dwcfi  undefined, 63
     1634                      .dwcfi  undefined, 64
     1635                      .dwcfi  undefined, 65
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   34
-
     1636                      .dwcfi  undefined, 66
     1637                      .dwcfi  undefined, 67
     1638                      .dwcfi  undefined, 68
     1639                      .dwcfi  undefined, 69
     1640                      .dwcfi  undefined, 70
     1641                      .dwcfi  undefined, 71
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   34
+
     1642                      .dwcfi  undefined, 72
     1643                      .dwcfi  undefined, 73
     1644                      .dwcfi  undefined, 74
@@ -2038,17 +2032,17 @@ csl_mem.asm                                                          PAGE   34
     1688              $C$DW$135       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
     1689                      .dwattr $C$DW$135, DW_AT_location[DW_OP_reg10]
     1690              $C$DW$136       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3_G")
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   35
-
     1691                      .dwattr $C$DW$136, DW_AT_location[DW_OP_reg11]
     1692              $C$DW$137       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T0")
     1693                      .dwattr $C$DW$137, DW_AT_location[DW_OP_reg12]
     1694              $C$DW$138       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T1")
     1695                      .dwattr $C$DW$138, DW_AT_location[DW_OP_reg13]
     1696              $C$DW$139       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T2")
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   35
+
     1697                      .dwattr $C$DW$139, DW_AT_location[DW_OP_reg14]
     1698              $C$DW$140       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T3")
     1699                      .dwattr $C$DW$140, DW_AT_location[DW_OP_reg15]
@@ -2098,17 +2092,17 @@ csl_mem.asm                                                          PAGE   35
     1743                      .dwattr $C$DW$162, DW_AT_location[DW_OP_regx 0x25]
     1744              $C$DW$163       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK03")
     1745                      .dwattr $C$DW$163, DW_AT_location[DW_OP_regx 0x26]
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   36
-
     1746              $C$DW$164       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK47")
     1747                      .dwattr $C$DW$164, DW_AT_location[DW_OP_regx 0x27]
     1748              $C$DW$165       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
     1749                      .dwattr $C$DW$165, DW_AT_location[DW_OP_regx 0x28]
     1750              $C$DW$166       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
     1751                      .dwattr $C$DW$166, DW_AT_location[DW_OP_regx 0x29]
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   36
+
     1752              $C$DW$167       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST2")
     1753                      .dwattr $C$DW$167, DW_AT_location[DW_OP_regx 0x2a]
     1754              $C$DW$168       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST3")
@@ -2158,17 +2152,17 @@ csl_mem.asm                                                          PAGE   36
     1798              $C$DW$190       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA23")
     1799                      .dwattr $C$DW$190, DW_AT_location[DW_OP_regx 0x41]
     1800              $C$DW$191       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA45")
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   37
-
     1801                      .dwattr $C$DW$191, DW_AT_location[DW_OP_regx 0x42]
     1802              $C$DW$192       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA67")
     1803                      .dwattr $C$DW$192, DW_AT_location[DW_OP_regx 0x43]
     1804              $C$DW$193       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSAC")
     1805                      .dwattr $C$DW$193, DW_AT_location[DW_OP_regx 0x44]
     1806              $C$DW$194       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CARRY")
+TMS320C55x Assembler PC v4.4.1 Sat Oct 06 06:37:41 2018
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+csl_mem.asm                                                          PAGE   37
+
     1807                      .dwattr $C$DW$194, DW_AT_location[DW_OP_regx 0x45]
     1808              $C$DW$195       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC1")
     1809                      .dwattr $C$DW$195, DW_AT_location[DW_OP_regx 0x46]
@@ -2218,10 +2212,5 @@ csl_mem.asm                                                          PAGE   37
     1853              
     1853              
     1853              
-TMS320C55x Assembler PC v4.4.1 Tue Oct 02 02:33:01 2018
-
-Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
-csl_mem.asm                                                          PAGE   38
-
 
 No Assembly Errors, No Assembly Warnings

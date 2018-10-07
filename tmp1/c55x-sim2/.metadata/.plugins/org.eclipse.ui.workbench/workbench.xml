@@ -67,48 +67,40 @@
 <editor id="com.ti.ccstudio.resource.explorer.editor.resourceExplorer" name="TI Resource Explorer" partName="TI Resource Explorer" title="TI Resource Explorer" tooltip="TI Resource Explorer" workbook="DefaultEditorWorkbook">
 <input factoryID="com.ti.ccstudio.resource.explorer.editor.elementFactory" name="TI Resource Explorer"/>
 </editor>
-<editor id="com.ti.ccstudio.system.setup.editor.editors.MultiPageXMLEditor" name="EZDSP5535.ccxml" partName="EZDSP5535.ccxml" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/targetConfigs/EZDSP5535.ccxml" title="EZDSP5535.ccxml" tooltip="foo/targetConfigs/EZDSP5535.ccxml" workbook="DefaultEditorWorkbook">
+<editor id="com.ti.ccstudio.system.setup.editor.editors.MultiPageXMLEditor" name="EZDSP5535.ccxml" partName="EZDSP5535.ccxml" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/targetConfigs/EZDSP5535.ccxml" title="EZDSP5535.ccxml" tooltip="foo/targetConfigs/EZDSP5535.ccxml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/targetConfigs/EZDSP5535.ccxml"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/FreeRTOS/Demo/c5515_CCS/main.c" title="main.c" tooltip="foo/FreeRTOS/Demo/c5515_CCS/main.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/FreeRTOS/Demo/c5515_CCS/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="30969" selectionTopPixel="11760"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="portASM.asm" partName="portASM.asm" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/FreeRTOS/Source/portable/CCS/c55x/portASM.asm" title="portASM.asm" tooltip="foo/FreeRTOS/Source/portable/CCS/c55x/portASM.asm" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/FreeRTOS/Source/portable/CCS/c55x/portASM.asm"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="37996" selectionTopPixel="21585"/>
-</editor>
-<editor id="com.ti.ccstudio.system.setup.editor.editors.MultiPageXMLEditor" name="EZDSP5535.ccxml" partName="EZDSP5535.ccxml" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/EZDSP5535.ccxml" title="EZDSP5535.ccxml" tooltip="foo/EZDSP5535.ccxml" workbook="DefaultEditorWorkbook">
+<editor id="com.ti.ccstudio.system.setup.editor.editors.MultiPageXMLEditor" name="EZDSP5535.ccxml" partName="EZDSP5535.ccxml" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/EZDSP5535.ccxml" title="EZDSP5535.ccxml" tooltip="foo/EZDSP5535.ccxml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/EZDSP5535.ccxml"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="tasks_sysStk.c" partName="tasks_sysStk.c" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/FreeRTOS/Source/tasks_sysStk.c" title="tasks_sysStk.c" tooltip="foo/FreeRTOS/Source/tasks_sysStk.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="tasks_sysStk.c" partName="tasks_sysStk.c" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/FreeRTOS/Source/tasks_sysStk.c" title="tasks_sysStk.c" tooltip="foo/FreeRTOS/Source/tasks_sysStk.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/FreeRTOS/Source/tasks_sysStk.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="67846" selectionTopPixel="28170"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="102312" selectionTopPixel="44730"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="timer.c" partName="timer.c" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/src/timer.c" title="timer.c" tooltip="foo/src/timer.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="timer.c" partName="timer.c" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/src/timer.c" title="timer.c" tooltip="foo/src/timer.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/src/timer.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="21" selectionOffset="3041" selectionTopPixel="708"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3361" selectionTopPixel="288"/>
 </editor>
-<editor id="com.ti.ccstudio.ui.gelFileEditor" name="tisim_c55x.gel" partName="tisim_c55x.gel" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/tisim_c55x.gel" title="tisim_c55x.gel" tooltip="foo/tisim_c55x.gel" workbook="DefaultEditorWorkbook">
+<editor id="com.ti.ccstudio.ui.gelFileEditor" name="tisim_c55x.gel" partName="tisim_c55x.gel" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/tisim_c55x.gel" title="tisim_c55x.gel" tooltip="foo/tisim_c55x.gel" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/tisim_c55x.gel"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3" selectionTopPixel="0"/>
 </editor>
-<editor id="com.ti.ccstudio.ui.gelFileEditor" name="ezdsp5535.gel" partName="ezdsp5535.gel" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/ezdsp5535.gel" title="ezdsp5535.gel" tooltip="foo/ezdsp5535.gel" workbook="DefaultEditorWorkbook">
+<editor id="com.ti.ccstudio.ui.gelFileEditor" name="ezdsp5535.gel" partName="ezdsp5535.gel" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/ezdsp5535.gel" title="ezdsp5535.gel" tooltip="foo/ezdsp5535.gel" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/ezdsp5535.gel"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="15421" selectionTopPixel="4230"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="15450" selectionTopPixel="5602"/>
 </editor>
-<editor id="org.eclipse.ui.DefaultTextEditor" name="DAT.txt" partName="DAT.txt" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/DAT.txt" title="DAT.txt" tooltip="foo/DAT.txt" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.ui.DefaultTextEditor" name="DAT.txt" partName="DAT.txt" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/DAT.txt" title="DAT.txt" tooltip="foo/DAT.txt" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/DAT.txt"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="com.ti.ccstudio.system.setup.editor.editors.MultiPageXMLEditor" name="NewTargetConfiguration.ccxml" partName="NewTargetConfiguration.ccxml" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/NewTargetConfiguration.ccxml" title="NewTargetConfiguration.ccxml" tooltip="foo/NewTargetConfiguration.ccxml" workbook="DefaultEditorWorkbook">
+<editor id="com.ti.ccstudio.system.setup.editor.editors.MultiPageXMLEditor" name="NewTargetConfiguration.ccxml" partName="NewTargetConfiguration.ccxml" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/NewTargetConfiguration.ccxml" title="NewTargetConfiguration.ccxml" tooltip="foo/NewTargetConfiguration.ccxml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/NewTargetConfiguration.ccxml"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" title="main.c" tooltip="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\FreeRTOS\Demo\c5515_CCS\main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/F:/eZdsp_DBG/tmp1/c55x-sim2/foo/FreeRTOS/Demo/c5515_CCS/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="20" selectionOffset="31378" selectionTopPixel="9494"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="30852" selectionTopPixel="11587"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="vectors.asm" partName="vectors.asm" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/vectors.asm" title="vectors.asm" tooltip="foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/vectors.asm" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="vectors.asm" partName="vectors.asm" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/vectors.asm" title="vectors.asm" tooltip="foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/vectors.asm" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/vectors.asm"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5841" selectionTopPixel="2550"/>
 </editor>
@@ -116,41 +108,45 @@
 <input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/vectors.asm"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5841" selectionTopPixel="2565"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ezdsp5535_gpio.c" partName="ezdsp5535_gpio.c" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/lib/bsl/ezdsp5535_gpio.c" title="ezdsp5535_gpio.c" tooltip="foo/c5535_bsl_revc/ezdsp5535_v1/lib/bsl/ezdsp5535_gpio.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ezdsp5535_gpio.c" partName="ezdsp5535_gpio.c" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/lib/bsl/ezdsp5535_gpio.c" title="ezdsp5535_gpio.c" tooltip="foo/c5535_bsl_revc/ezdsp5535_v1/lib/bsl/ezdsp5535_gpio.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/c5535_bsl_revc/ezdsp5535_v1/lib/bsl/ezdsp5535_gpio.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4566" selectionTopPixel="1350"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="csl_gpio.c" partName="csl_gpio.c" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_gpio.c" title="csl_gpio.c" tooltip="foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_gpio.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="csl_gpio.c" partName="csl_gpio.c" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_gpio.c" title="csl_gpio.c" tooltip="foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_gpio.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_gpio.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="13270" selectionTopPixel="6555"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="port.c" partName="port.c" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/FreeRTOS/Source/portable/CCS/c55x/port.c" title="port.c" tooltip="foo/FreeRTOS/Source/portable/CCS/c55x/port.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/FreeRTOS/Source/portable/CCS/c55x/port.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="31" selectionOffset="15422" selectionTopPixel="810"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="heap_3.c" partName="heap_3.c" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/FreeRTOS/Source/portable/MemMang/heap_3.c" title="heap_3.c" tooltip="foo/FreeRTOS/Source/portable/MemMang/heap_3.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="heap_3.c" partName="heap_3.c" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/FreeRTOS/Source/portable/MemMang/heap_3.c" title="heap_3.c" tooltip="foo/FreeRTOS/Source/portable/MemMang/heap_3.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/FreeRTOS/Source/portable/MemMang/heap_3.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2340" selectionTopPixel="825"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="csl_mmcsd.c" partName="csl_mmcsd.c" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd.c" title="csl_mmcsd.c" tooltip="foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="csl_mmcsd.c" partName="csl_mmcsd.c" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd.c" title="csl_mmcsd.c" tooltip="foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7719" selectionTopPixel="2010"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="queue.c" partName="queue.c" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/FreeRTOS/Source/queue.c" title="queue.c" tooltip="foo/FreeRTOS/Source/queue.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="queue.c" partName="queue.c" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/FreeRTOS/Source/queue.c" title="queue.c" tooltip="foo/FreeRTOS/Source/queue.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/FreeRTOS/Source/queue.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="34736" selectionTopPixel="14130"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="52092" selectionTopPixel="21975"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="list.c" partName="list.c" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/FreeRTOS/Source/list.c" title="list.c" tooltip="foo/FreeRTOS/Source/list.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="list.c" partName="list.c" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/FreeRTOS/Source/list.c" title="list.c" tooltip="foo/FreeRTOS/Source/list.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/FreeRTOS/Source/list.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4354" selectionTopPixel="1125"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7733" selectionTopPixel="2190"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="timers.c" partName="timers.c" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/FreeRTOS/Source/timers.c" title="timers.c" tooltip="foo/FreeRTOS/Source/timers.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/FreeRTOS/Source/timers.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="480"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="port.c" partName="port.c" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/FreeRTOS/Source/portable/CCS/c55x/port.c" title="port.c" tooltip="foo/FreeRTOS/Source/portable/CCS/c55x/port.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/FreeRTOS/Source/portable/CCS/c55x/port.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="9" selectionOffset="5480" selectionTopPixel="1380"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="FreeRTOS.h" partName="FreeRTOS.h" path="F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/FreeRTOS/Source/include/FreeRTOS.h" title="FreeRTOS.h" tooltip="foo/FreeRTOS/Source/include/FreeRTOS.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/FreeRTOS/Source/include/FreeRTOS.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="csl_msc.c" partName="csl_msc.c" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c" title="csl_msc.c" tooltip="foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="17399" selectionTopPixel="8040"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="portASM.asm" partName="portASM.asm" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/FreeRTOS/Source/portable/CCS/c55x/portASM.asm" title="portASM.asm" tooltip="foo/FreeRTOS/Source/portable/CCS/c55x/portASM.asm" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/FreeRTOS/Source/portable/CCS/c55x/portASM.asm"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="46338" selectionTopPixel="25395"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="F:/eZdsp_DBG/tmp1/c55x-sim2/foo/FreeRTOS/Demo/c5515_CCS/main.c" title="main.c" tooltip="foo/FreeRTOS/Demo/c5515_CCS/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foo/FreeRTOS/Demo/c5515_CCS/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="31122" selectionTopPixel="11820"/>
 </editor>
 </editors>
 <views>
@@ -207,6 +203,9 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Warnings (49 items)"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -512,7 +511,7 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.249226" ratioLeft="161" ratioRight="485" relationship="4" relative="topLeft"/>
-<info folder="true" part="bottomLeft" ratio="0.7620818" ratioLeft="615" ratioRight="192" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottomLeft" ratio="0.7360595" ratioLeft="594" ratioRight="213" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -870,7 +869,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="topRight" ratio="0.44986737" ratioLeft="848" ratioRight="1037" relationship="2" relative="topLeft">
+<info folder="true" part="topRight" ratio="0.44247788" ratioLeft="600" ratioRight="756" relationship="2" relative="topLeft">
 <folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">
 <page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -879,7 +878,7 @@
 </folder>
 </info>
 </mainWindow>
-<detachedWindow height="781" width="1044" x="2555" y="113">
+<detachedWindow height="781" width="889" x="2553" y="129">
 <folder activePageID="org.eclipse.debug.ui.RegisterView" appearance="2" expanded="2">
 <page content="org.eclipse.debug.ui.RegisterView" label="Registers"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -887,7 +886,7 @@
 </presentation>
 </folder>
 </detachedWindow>
-<detachedWindow height="713" width="520" x="1394" y="248">
+<detachedWindow height="713" width="590" x="1370" y="289">
 <folder activePageID="org.eclipse.debug.ui.BreakpointView" appearance="2" expanded="2">
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -895,7 +894,7 @@
 </presentation>
 </folder>
 </detachedWindow>
-<detachedWindow height="885" width="654" x="1917" y="107">
+<detachedWindow height="885" width="654" x="1945" y="116">
 <folder activePageID="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" appearance="2" expanded="2">
 <page content="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" label="Memory Browser"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -903,7 +902,7 @@
 </presentation>
 </folder>
 </detachedWindow>
-<detachedWindow height="642" width="846" x="2994" y="374">
+<detachedWindow height="1039" width="943" x="2897" y="41">
 <folder activePageID="org.eclipse.debug.ui.ExpressionView" appearance="2" expanded="2">
 <page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -917,181 +916,160 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" path="/foo/FreeRTOS/Source/portable/CCS/c55x/portASM.asm"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/FreeRTOS/Source/portable/CCS/c55x/port.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/FreeRTOS/Demo/c5515_CCS/main.c"/>
-<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" path="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\FreeRTOS\Source\portable\CCS\c55x\portASM.asm"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/FreeRTOS/Source/include/FreeRTOS.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/FreeRTOS/Source/tasks_sysStk.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/FreeRTOS/Source/list.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" path="/foo/FreeRTOS/Source/portable/CCS/c55x/portASM.asm"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/FreeRTOS/Source/tasks_sysStk.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/src/timer.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ti.ccstudio.ui.gelFileEditor" path="/foo/tisim_c55x.gel"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ti.ccstudio.ui.gelFileEditor" path="/foo/ezdsp5535.gel"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/foo/DAT.txt"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" uri="file:/F:/eZdsp_DBG/tmp1/c55x-sim2/foo/FreeRTOS/Demo/c5515_CCS/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" path="/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/vectors.asm"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" uri="file:/F:/eZdsp_DBG/tmp1/c55x-sim2/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/vectors.asm"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/c5535_bsl_revc/ezdsp5535_v1/lib/bsl/ezdsp5535_gpio.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_gpio.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/FreeRTOS/Source/portable/CCS/c55x/port.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/FreeRTOS/Source/portable/MemMang/heap_3.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mmcsd.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/FreeRTOS/Source/queue.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/FreeRTOS/Source/list.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/FreeRTOS/Source/timers.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/foo/FreeRTOS/Source/include/FreeRTOS.h"/>
 </editors>
-<item historyLabel="portASM.asm" index="0">
-<position info="not_deleted" x="31163" y="0"/>
-</item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="13133" y="0"/>
-</item>
-<item historyLabel="portASM.asm" index="0">
-<position info="not_deleted" x="31381" y="0"/>
-</item>
-<item historyLabel="main.c" index="2">
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="10716" y="0"/>
 </item>
-<item historyLabel="portASM.asm" index="3">
-<position/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="54803" y="27"/>
 </item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="13133" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="54803" y="0"/>
 </item>
-<item historyLabel="portASM.asm" index="3">
-<position/>
+<item historyLabel="tasks_sysStk.c" index="1">
+<position info="not_deleted" x="106622" y="0"/>
 </item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="13133" y="0"/>
-</item>
-<item historyLabel="portASM.asm" index="0">
-<position info="not_deleted" x="31381" y="0"/>
-</item>
-<item historyLabel="portASM.asm" index="3">
-<position/>
-</item>
-<item historyLabel="portASM.asm" index="0">
-<position info="not_deleted" x="31381" y="0"/>
-</item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="13133" y="0"/>
-</item>
-<item historyLabel="portASM.asm" index="0">
-<position info="not_deleted" x="37996" y="0"/>
-</item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="3361" y="10"/>
-</item>
-<item historyLabel="FreeRTOS.h" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="15422" y="31"/>
-</item>
-<item historyLabel="portASM.asm" index="0">
-<position info="not_deleted" x="31163" y="0"/>
-</item>
-<item historyLabel="main.c" index="2">
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="10716" y="0"/>
 </item>
-<item historyLabel="portASM.asm" index="3">
-<position info="not_deleted" x="36063" y="74"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="54803" y="0"/>
 </item>
-<item historyLabel="main.c" index="2">
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="41786" y="0"/>
+</item>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="54803" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="44091" y="0"/>
+</item>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="54803" y="0"/>
+</item>
+<item historyLabel="queue.c" index="3">
+<position info="not_deleted" x="52092" y="0"/>
+</item>
+<item historyLabel="tasks_sysStk.c" index="1">
+<position info="not_deleted" x="106622" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="10716" y="0"/>
 </item>
-<item historyLabel="portASM.asm" index="0">
-<position info="not_deleted" x="37996" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="54803" y="0"/>
 </item>
-<item historyLabel="port.c" index="1">
-<position info="not_deleted" x="15422" y="31"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="47720" y="0"/>
 </item>
-<item historyLabel="portASM.asm" index="0">
-<position info="not_deleted" x="35765" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="54803" y="0"/>
 </item>
-<item historyLabel="main.c" index="2">
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="39581" y="0"/>
+</item>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="54803" y="0"/>
+</item>
+<item historyLabel="tasks_sysStk.c" index="1">
+<position info="not_deleted" x="113863" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="10716" y="0"/>
 </item>
-<item historyLabel="portASM.asm" index="0">
-<position info="not_deleted" x="37996" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="53528" y="65"/>
 </item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="46098" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="54401" y="69"/>
 </item>
-<item historyLabel="tasks_sysStk.c" index="5">
-<position info="not_deleted" x="67267" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="54803" y="0"/>
 </item>
-<item historyLabel="list.c" index="6">
-<position info="not_deleted" x="8405" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="47720" y="0"/>
 </item>
-<item historyLabel="tasks_sysStk.c" index="5">
-<position info="not_deleted" x="67327" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="54803" y="0"/>
 </item>
-<item historyLabel="list.c" index="6">
-<position info="not_deleted" x="4354" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="39581" y="0"/>
 </item>
-<item historyLabel="tasks_sysStk.c" index="5">
-<position info="not_deleted" x="67846" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="54803" y="0"/>
 </item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="46130" y="0"/>
+<item historyLabel="tasks_sysStk.c" index="1">
+<position info="not_deleted" x="113863" y="0"/>
 </item>
-<item historyLabel="portASM.asm" index="7">
-<position info="not_deleted" x="37996" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="31122" y="0"/>
 </item>
-<item historyLabel="tasks_sysStk.c" index="8">
-<position info="not_deleted" x="67846" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="49851" y="27"/>
 </item>
-<item historyLabel="timer.c" index="9">
-<position info="not_deleted" x="3041" y="21"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="51329" y="74"/>
 </item>
-<item historyLabel="tisim_c55x.gel" index="10">
-<position info="not_deleted" x="3" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="47212" y="65"/>
 </item>
-<item historyLabel="ezdsp5535.gel" index="11">
-<position info="not_deleted" x="15421" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="10716" y="0"/>
 </item>
-<item historyLabel="DAT.txt" index="12">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="46338" y="36"/>
 </item>
-<item historyLabel="main.c" index="13">
-<position info="not_deleted" x="31378" y="20"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="51329" y="74"/>
 </item>
-<item historyLabel="vectors.asm" index="14">
-<position info="not_deleted" x="5841" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="52408" y="24"/>
 </item>
-<item historyLabel="vectors.asm" index="15">
-<position info="not_deleted" x="5841" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="53528" y="65"/>
 </item>
-<item historyLabel="ezdsp5535_gpio.c" index="16">
-<position info="not_deleted" x="4566" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="54401" y="69"/>
 </item>
-<item historyLabel="csl_gpio.c" index="17">
-<position info="not_deleted" x="13270" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="54803" y="0"/>
 </item>
-<item historyLabel="port.c" index="18">
-<position info="not_deleted" x="15422" y="31"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="42541" y="0"/>
 </item>
-<item historyLabel="heap_3.c" index="19">
-<position info="not_deleted" x="2340" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="54803" y="0"/>
 </item>
-<item historyLabel="csl_mmcsd.c" index="20">
-<position info="not_deleted" x="7719" y="0"/>
+<item historyLabel="tasks_sysStk.c" index="1">
+<position info="not_deleted" x="113863" y="0"/>
 </item>
-<item historyLabel="queue.c" index="21">
-<position info="not_deleted" x="34736" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="31122" y="0"/>
 </item>
-<item historyLabel="list.c" index="22">
-<position info="not_deleted" x="4354" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="46338" y="36"/>
 </item>
-<item historyLabel="timers.c" index="23">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="47212" y="65"/>
 </item>
-<item active="true" historyLabel="FreeRTOS.h" index="24">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="31122" y="0"/>
+</item>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="46338" y="0"/>
+</item>
+<item historyLabel="tasks_sysStk.c" index="1">
+<position info="not_deleted" x="102312" y="0"/>
+</item>
+<item historyLabel="portASM.asm" index="2">
+<position info="not_deleted" x="46338" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="0">
+<position info="not_deleted" x="31122" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -1114,14 +1092,23 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="foo/FreeRTOS/Demo/c5515_CCS/main.c">
+<persistable path="/foo/FreeRTOS/Demo/c5515_CCS/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="portASM.asm" tooltip="foo/FreeRTOS/Source/portable/CCS/c55x/portASM.asm">
+<persistable path="/foo/FreeRTOS/Source/portable/CCS/c55x/portASM.asm"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="csl_msc.c" tooltip="foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c">
+<persistable path="/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_msc.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="port.c" tooltip="foo/FreeRTOS/Source/portable/CCS/c55x/port.c">
+<persistable path="/foo/FreeRTOS/Source/portable/CCS/c55x/port.c"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\FreeRTOS\Demo\c5515_CCS\main.c">
+<persistable uri="file:/F:/eZdsp-DBG-sim/tmp1/c55x-sim2/foo/FreeRTOS/Demo/c5515_CCS/main.c"/>
+</file>
 <file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="portASM.asm" tooltip="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\FreeRTOS\Source\portable\CCS\c55x\portASM.asm">
 <persistable path="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\FreeRTOS\Source\portable\CCS\c55x\portASM.asm"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="FreeRTOS.h" tooltip="foo/FreeRTOS/Source/include/FreeRTOS.h">
-<persistable path="/foo/FreeRTOS/Source/include/FreeRTOS.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="timers.c" tooltip="foo/FreeRTOS/Source/timers.c">
-<persistable path="/foo/FreeRTOS/Source/timers.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="list.c" tooltip="foo/FreeRTOS/Source/list.c">
 <persistable path="/foo/FreeRTOS/Source/list.c"/>
@@ -1134,9 +1121,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="heap_3.c" tooltip="foo/FreeRTOS/Source/portable/MemMang/heap_3.c">
 <persistable path="/foo/FreeRTOS/Source/portable/MemMang/heap_3.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="port.c" tooltip="foo/FreeRTOS/Source/portable/CCS/c55x/port.c">
-<persistable path="/foo/FreeRTOS/Source/portable/CCS/c55x/port.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="csl_gpio.c" tooltip="foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_gpio.c">
 <persistable path="/foo/c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_gpio.c"/>
@@ -1152,12 +1136,6 @@
 </file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="portASM.asm" tooltip="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\FreeRTOS\Source\portable\CCS\c55x\portASM.asm">
 <persistable uri="file:/F:/eZdsp_DBG/tmp1/c55x-sim2/foo/FreeRTOS/Source/portable/CCS/c55x/portASM.asm"/>
-</file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="F:\eZdsp_DBG\tmp1\c55x-sim2\foo\FreeRTOS\Demo\c5515_CCS\main.c">
-<persistable uri="file:/F:/eZdsp_DBG/tmp1/c55x-sim2/foo/FreeRTOS/Demo/c5515_CCS/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ti.ccstudio.system.setup.editor.editors.MultiPageXMLEditor" name="NewTargetConfiguration.ccxml" tooltip="foo/NewTargetConfiguration.ccxml">
-<persistable path="/foo/NewTargetConfiguration.ccxml"/>
 </file>
 </mruList>
 </workbench>

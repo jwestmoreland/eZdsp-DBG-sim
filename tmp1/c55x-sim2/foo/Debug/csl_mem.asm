@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
-;* Date/Time created: Tue Oct 02 02:33:01 2018                                 *
+;* Date/Time created: Sat Oct 06 06:37:41 2018                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -27,8 +27,8 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 	.dwattr $C$DW$CU, DW_AT_name("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug")
-;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\2613212 
+	.dwattr $C$DW$CU, DW_AT_comp_dir("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug")
+;	F:\t\cc5p5\ccsv5\tools\compiler\c5500_4.4.1\bin\acp55.exe -@f:\\AppData\\Local\\Temp\\1766412 
 	.sect	".text"
 	.align 4
 	.global	_MEM_init
@@ -463,26 +463,26 @@ $C$L13:
         SFTL AC0, #1 ; |401| 
         MOV AC0, *SP(#6) ; |401| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 404,column 4,is_stmt
-        MOV *SP(#5), AR1 ; |404| 
-        ADD *SP(#9), AR1, AR3 ; |404| 
+        MOV *SP(#5), T0 ; |404| 
+        MOV *SP(#9), AR3 ; |404| 
 
         MOV #3, AC0
 ||      MOV *SP(#6), T1 ; |404| 
 
         SFTS AC0, T1, AC0 ; |404| 
         NOT AC0, AR1 ; |404| 
-        AND port(*AR3), AR1, AC0 ; |404| 
-        MOV AC0, port(*AR3) ; |404| 
+        AND port(*AR3(T0)), AR1, AC0 ; |404| 
+        MOV AC0, port(*AR3(T0)) ; |404| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 408,column 4,is_stmt
-        MOV *SP(#5), AR1 ; |408| 
-        ADD *SP(#9), AR1, AR3 ; |408| 
+        MOV *SP(#5), T0 ; |408| 
+        MOV *SP(#9), AR3 ; |408| 
 
         MOV *SP(#6), T1 ; |408| 
 ||      MOV #2, AC0
 
         SFTS AC0, T1, AC0 ; |408| 
-        OR port(*AR3), AC0, AR1 ; |408| 
-        MOV AR1, port(*AR3) ; |408| 
+        OR port(*AR3(T0)), AC0, AR1 ; |408| 
+        MOV AR1, port(*AR3(T0)) ; |408| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 410,column 3,is_stmt
         B $C$L17  ; |410| 
                                         ; branch occurs ; |410| 
@@ -523,26 +523,26 @@ $C$DW$L$_MEM_enablePartialRetentionMode$18$B:
         SFTL AC0, #1 ; |422| 
         MOV AC0, *SP(#6) ; |422| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 425,column 6,is_stmt
-        MOV *SP(#5), AR1 ; |425| 
-        ADD *SP(#9), AR1, AR3 ; |425| 
+        MOV *SP(#5), T0 ; |425| 
+        MOV *SP(#9), AR3 ; |425| 
 
         MOV *SP(#6), T1 ; |425| 
 ||      MOV #3, AC0
 
         SFTS AC0, T1, AC0 ; |425| 
         NOT AC0, AR1 ; |425| 
-        AND port(*AR3), AR1, AC0 ; |425| 
-        MOV AC0, port(*AR3) ; |425| 
+        AND port(*AR3(T0)), AR1, AC0 ; |425| 
+        MOV AC0, port(*AR3(T0)) ; |425| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 429,column 6,is_stmt
-        MOV *SP(#5), AR1 ; |429| 
-        ADD *SP(#9), AR1, AR3 ; |429| 
+        MOV *SP(#5), T0 ; |429| 
+        MOV *SP(#9), AR3 ; |429| 
 
         MOV *SP(#6), T1 ; |429| 
 ||      MOV #2, AC0
 
         SFTS AC0, T1, AC0 ; |429| 
-        OR port(*AR3), AC0, AR1 ; |429| 
-        MOV AR1, port(*AR3) ; |429| 
+        OR port(*AR3(T0)), AC0, AR1 ; |429| 
+        MOV AR1, port(*AR3(T0)) ; |429| 
 $C$DW$L$_MEM_enablePartialRetentionMode$18$E:
 $C$L16:    
 $C$DW$L$_MEM_enablePartialRetentionMode$19$B:
@@ -583,7 +583,7 @@ $C$DW$26	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$27	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$27, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_mem.asm:$C$L15:1:1538472781")
+	.dwattr $C$DW$27, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_mem.asm:$C$L15:1:1538833061")
 	.dwattr $C$DW$27, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c")
 	.dwattr $C$DW$27, DW_AT_TI_begin_line(0x19f)
 	.dwattr $C$DW$27, DW_AT_TI_end_line(0x1b7)
@@ -804,15 +804,15 @@ $C$L24:
         SFTL AC0, #1 ; |576| 
         MOV AC0, *SP(#6) ; |576| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 579,column 4,is_stmt
-        MOV *SP(#5), AR1 ; |579| 
-        ADD *SP(#9), AR1, AR3 ; |579| 
+        MOV *SP(#5), T0 ; |579| 
+        MOV *SP(#9), AR3 ; |579| 
 
         MOV #3, AC0
 ||      MOV *SP(#6), T1 ; |579| 
 
         SFTS AC0, T1, AC0 ; |579| 
-        OR port(*AR3), AC0, AR1 ; |579| 
-        MOV AR1, port(*AR3) ; |579| 
+        OR port(*AR3(T0)), AC0, AR1 ; |579| 
+        MOV AR1, port(*AR3(T0)) ; |579| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 581,column 3,is_stmt
         B $C$L28  ; |581| 
                                         ; branch occurs ; |581| 
@@ -853,15 +853,15 @@ $C$DW$L$_MEM_disablePartialRetentionMode$18$B:
         SFTL AC0, #1 ; |593| 
         MOV AC0, *SP(#6) ; |593| 
 	.dwpsn	file "../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c",line 596,column 6,is_stmt
-        MOV *SP(#5), AR1 ; |596| 
-        ADD *SP(#9), AR1, AR3 ; |596| 
+        MOV *SP(#5), T0 ; |596| 
+        MOV *SP(#9), AR3 ; |596| 
 
         MOV *SP(#6), T1 ; |596| 
 ||      MOV #3, AC0
 
         SFTS AC0, T1, AC0 ; |596| 
-        OR port(*AR3), AC0, AR1 ; |596| 
-        MOV AR1, port(*AR3) ; |596| 
+        OR port(*AR3(T0)), AC0, AR1 ; |596| 
+        MOV AR1, port(*AR3(T0)) ; |596| 
 $C$DW$L$_MEM_disablePartialRetentionMode$18$E:
 $C$L27:    
 $C$DW$L$_MEM_disablePartialRetentionMode$19$B:
@@ -902,7 +902,7 @@ $C$DW$45	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$46	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$46, DW_AT_name("F:\eZdsp-DBG-sim\tmp1\c55x-sim2\foo\Debug\csl_mem.asm:$C$L26:1:1538472781")
+	.dwattr $C$DW$46, DW_AT_name("F:\eZdsp_DBG\tmp1\c55x-sim2\foo\Debug\csl_mem.asm:$C$L26:1:1538833061")
 	.dwattr $C$DW$46, DW_AT_TI_begin_file("../c5535_bsl_revc/ezdsp5535_v1/c55xx_csl/src/csl_mem.c")
 	.dwattr $C$DW$46, DW_AT_TI_begin_line(0x24a)
 	.dwattr $C$DW$46, DW_AT_TI_end_line(0x25e)

@@ -1,7 +1,7 @@
 MODULES_CODE_OFFSET=
 MODULES_DATA_OFFSET=
-MODULES_MRU_PATH=F\:\\eZdsp-DBG-sim\\tmp1\\c55x-sim2\\foo\\Debug\\foo.out
-MODULES_MRU_PATH.1=\#SYM_\#(,) path\=F\:\\eZdsp-DBG-sim\\tmp1\\c55x-sim2\\foo\\Debug\\foo.out
-MODULES_MRU_PATH.2=F\:\\eZdsp_DBG\\tmp1\\c55x-sim2\\foo\\Debug\\foo.out
+MODULES_MRU_PATH=F\:\\eZdsp_DBG\\tmp1\\c55x-sim2\\foo\\Debug\\foo.out
+MODULES_MRU_PATH.1=F\:\\eZdsp-DBG-sim\\tmp1\\c55x-sim2\\foo\\Debug\\foo.out
+MODULES_MRU_PATH.2=\#SYM_\#(,) path\=F\:\\eZdsp-DBG-sim\\tmp1\\c55x-sim2\\foo\\Debug\\foo.out
 eclipse.preferences.version=1
 useAnnotationsPrefPage=true
