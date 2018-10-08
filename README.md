@@ -13,3 +13,10 @@ http://processors.wiki.ti.com/index.php/Porting_C5000_Teaching_ROM_to_C5535_eZds
 Regards,
 John W.
 10/6/18
+Build Note:  The 4.4.1 Compiler (CGT) will try to pass pvParameters on the stack unless the build is compiled using the -0 option for optimization(s).
+I don't think there's currently any other way to get around this - I think this could explain some of the stack alignment issues I've been seeing; it 
+is for sure at least one of them.  So, be careful regarding arguments, variables, etc. being passed on the stack vs. in registers as what has been expected
+in port.c.  
+John W.
+10/7/18
+
